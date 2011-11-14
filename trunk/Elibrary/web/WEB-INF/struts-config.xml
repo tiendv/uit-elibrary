@@ -20,6 +20,7 @@
 
     <action-mappings>
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+        <action path="/Welcome" forward=".homepage"/>
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
