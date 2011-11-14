@@ -11,15 +11,17 @@
 
 <tiles-definitions>
 
-    <!-- sample tiles definitions
-    <definition name=".mainLayout" path="/common/layouts/classicLayout.jsp">
-        <put name="title"  value="Sample Page Title" />
-        <put name="header" value="/common/header.jsp" />
-        <put name="menu"   value=".mainMenu" />
-        <put name="footer" value="/common/footer.jsp" />
-        <put name="body"   value=".portal.body" />
+    <!-- sample tiles definitions -->
+     <definition name=".homepage" path="/jsp/mainpage.jsp">
+        <put name="title"  value=" UIT library" />
+        <put name="description"  value="UIT library" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/jsp/content.jsp" />
     </definition>
-
+    
+ <!-- sample tiles definitions
     <definition name=".mainMenu" path="/common/layouts/vboxLayout.jsp" >
         <putList name="list" >
             <add value=".menu.links" />
