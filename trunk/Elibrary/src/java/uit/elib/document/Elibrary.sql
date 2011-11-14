@@ -2,7 +2,6 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
-DROP SCHEMA IF EXISTS `elibrary` ;
 CREATE SCHEMA IF NOT EXISTS `elibrary` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
 USE `elibrary` ;
 
@@ -56,6 +55,8 @@ CREATE  TABLE IF NOT EXISTS `elibrary`.`subject` (
   `PeriodOfTheory` INT(11) NULL DEFAULT NULL ,
   `PeriodOfPractice` INT(11) NULL DEFAULT NULL ,
   PRIMARY KEY (`SubjectID`) ,
+  INDEX `fk_subject_subjectcategory` (`SubjectCategoryID` ASC) ,
+  INDEX `fk_subject_speciality` (`SpecialityID` ASC) ,
   CONSTRAINT `fk_subject_speciality`
     FOREIGN KEY (`SpecialityID` )
     REFERENCES `elibrary`.`speciality` (`SpecialityID` )
@@ -69,10 +70,6 @@ CREATE  TABLE IF NOT EXISTS `elibrary`.`subject` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_unicode_ci;
-
-CREATE INDEX `fk_subject_subjectcategory` ON `elibrary`.`subject` (`SubjectCategoryID` ASC) ;
-
-CREATE INDEX `fk_subject_speciality` ON `elibrary`.`subject` (`SpecialityID` ASC) ;
 
 
 -- -----------------------------------------------------
@@ -91,6 +88,8 @@ CREATE  TABLE IF NOT EXISTS `elibrary`.`resources` (
   `ViewerNumber` INT(11) NULL DEFAULT NULL ,
   `DownloadNumber` INT(11) NULL DEFAULT NULL ,
   PRIMARY KEY (`ResourceID`) ,
+  INDEX `fk_resource_resourcecategory` (`ResourceCategoryID` ASC) ,
+  INDEX `fk_resource_subject` (`SubjectID` ASC) ,
   CONSTRAINT `fk_resource_resourcecategory`
     FOREIGN KEY (`ResourceCategoryID` )
     REFERENCES `elibrary`.`resourcescategory` (`ResourceCategoryID` )
@@ -105,12 +104,43 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_unicode_ci;
 
-CREATE INDEX `fk_resource_resourcecategory` ON `elibrary`.`resources` (`ResourceCategoryID` ASC) ;
-
-CREATE INDEX `fk_resource_subject` ON `elibrary`.`resources` (`SubjectID` ASC) ;
-
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- -----------------------------------------------------
+-- Data for table `elibrary`.`resourcescategory`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `elibrary`;
+INSERT INTO `elibrary`.`resourcescategory` (`ResourceCategoryID`, `ResourceCategoryName`) VALUES (1, 'Giáo trình');
+INSERT INTO `elibrary`.`resourcescategory` (`ResourceCategoryID`, `ResourceCategoryName`) VALUES (2, 'Khóa luận');
+INSERT INTO `elibrary`.`resourcescategory` (`ResourceCategoryID`, `ResourceCategoryName`) VALUES (3, 'Bài báo');
+INSERT INTO `elibrary`.`resourcescategory` (`ResourceCategoryID`, `ResourceCategoryName`) VALUES (4, 'Bài tập');
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `elibrary`.`speciality`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `elibrary`;
+INSERT INTO `elibrary`.`speciality` (`SpecialityID`, `SpecialityName`) VALUES (1, 'Khoa học máy tính');
+INSERT INTO `elibrary`.`speciality` (`SpecialityID`, `SpecialityName`) VALUES (2, 'Công nghệ phần mềm');
+INSERT INTO `elibrary`.`speciality` (`SpecialityID`, `SpecialityName`) VALUES (3, 'Hệ thống thông tin');
+INSERT INTO `elibrary`.`speciality` (`SpecialityID`, `SpecialityName`) VALUES (4, 'Kỹ thuật máy tính');
+INSERT INTO `elibrary`.`speciality` (`SpecialityID`, `SpecialityName`) VALUES (5, 'Mạng máy tính và truyền thông');
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `elibrary`.`subjectcategory`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `elibrary`;
+INSERT INTO `elibrary`.`subjectcategory` (`SubjectCategoryID`, `SubjectCategoryName`) VALUES (1, 'Cơ bản');
+INSERT INTO `elibrary`.`subjectcategory` (`SubjectCategoryID`, `SubjectCategoryName`) VALUES (2, 'Chuyên ngành');
+
+COMMIT;
