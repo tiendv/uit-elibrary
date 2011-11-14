@@ -81,12 +81,17 @@ CREATE  TABLE IF NOT EXISTS `elibrary`.`resources` (
   `SubjectID` INT(11) NULL DEFAULT NULL ,
   `ResourceName` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL ,
   `Size` INT(11) NULL DEFAULT NULL ,
-  `DownloadLink` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL ,
-  `ImageLink` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL ,
+  `RealDownloadLink` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL ,
+  `RealImageLink` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL ,
+  `ServerDownloadLink` VARCHAR(255) NULL ,
+  `ServerImageLink` VARCHAR(255) NULL ,
   `Summary` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL ,
   `PostDate` DATE NULL DEFAULT NULL ,
   `ViewerNumber` INT(11) NULL DEFAULT NULL ,
   `DownloadNumber` INT(11) NULL DEFAULT NULL ,
+  `Format` VARCHAR(45) NULL ,
+  `Language` VARCHAR(45) NULL ,
+  `VoteMark` INT NULL ,
   PRIMARY KEY (`ResourceID`) ,
   INDEX `fk_resource_resourcecategory` (`ResourceCategoryID` ASC) ,
   INDEX `fk_resource_subject` (`SubjectID` ASC) ,
@@ -129,7 +134,7 @@ START TRANSACTION;
 USE `elibrary`;
 INSERT INTO `elibrary`.`speciality` (`SpecialityID`, `SpecialityName`) VALUES (1, 'Khoa học máy tính');
 INSERT INTO `elibrary`.`speciality` (`SpecialityID`, `SpecialityName`) VALUES (2, 'Công nghệ phần mềm');
-INSERT INTO `elibrary`.`speciality` (`SpecialityID`, `SpecialityName`) VALUES (3, 'Hệ thống thông tin');
+INSERT INTO `elibrary`.`speciality` (`SpecialityID`, `SpecialityName`) VALUES (3, 'Hệ thống thống tin');
 INSERT INTO `elibrary`.`speciality` (`SpecialityID`, `SpecialityName`) VALUES (4, 'Kỹ thuật máy tính');
 INSERT INTO `elibrary`.`speciality` (`SpecialityID`, `SpecialityName`) VALUES (5, 'Mạng máy tính và truyền thông');
 
@@ -140,7 +145,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `elibrary`;
-INSERT INTO `elibrary`.`subjectcategory` (`SubjectCategoryID`, `SubjectCategoryName`) VALUES (1, 'Cơ bản');
+INSERT INTO `elibrary`.`subjectcategory` (`SubjectCategoryID`, `SubjectCategoryName`) VALUES (1, 'Cơ bàn');
 INSERT INTO `elibrary`.`subjectcategory` (`SubjectCategoryID`, `SubjectCategoryName`) VALUES (2, 'Chuyên ngành');
+INSERT INTO `elibrary`.`subjectcategory` (`SubjectCategoryID`, `SubjectCategoryName`) VALUES (3, 'Tự chọn');
 
 COMMIT;
