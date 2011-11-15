@@ -2,7 +2,6 @@
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
 	font-weight:bold;
-	color:#900;
 	text-align:center;
 	vertical-align:middle;
 	height: 90px;
@@ -41,6 +40,11 @@
 	text-align:left;
 	padding-left: 0px;
 	
+}
+.content{
+    background-color: #DFDED5 !important;
+    height: 800px;
+    overflow: auto;
 }
 .leftmenu_td_link:hover {
 	background-color: #c9c6bb;
@@ -191,7 +195,7 @@ width:129px;
 padding:1px 0 1px 5px;
 }
 
-::root .searchform input.search {
+.root .searchform input.search {
 margin-top:0;
 padding:0 0 1px 5px;
 }
@@ -203,7 +207,7 @@ margin-top:3px;
 margin-right:10px;
 }
 
-::root .searchform input.but {
+.root .searchform input.but {
 margin-top:1px;
 }
 
