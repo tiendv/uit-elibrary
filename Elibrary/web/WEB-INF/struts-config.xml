@@ -19,13 +19,13 @@
     </global-forwards>
 
     <action-mappings>
-        <action path="/Welcome" forward="/welcomeStruts.jsp"/>
         <action path="/Welcome" forward=".homepage"/>
+        <action path="/Locale" type="uit.elib.action.languageSelectAction" parameter="method" validate="false"/>
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
 
-    <message-resources parameter="uit/elib/resource/resource"/>    
+    <message-resources parameter="uit/elib/resource/ApplicationResource"/>    
     
     <!-- ========================= Tiles plugin ===============================-->
     <!--
