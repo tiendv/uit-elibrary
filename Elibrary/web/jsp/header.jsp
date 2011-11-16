@@ -46,7 +46,7 @@
                   <br/> 
                   <bean:message key="text.webtitle.resource1"/>
             </td>   
-            <td style="width: 50%;height: 100px;text-align: right" valign="bottom">
+            <td class="language" style="width: 50%;height: 100px;text-align: right" valign="bottom">
                     <bean:message key="text.language"/>
                     <script language="javscript" type="text/javascript">
                         document.write('<a href="./Locale.do?method=english&page='+ document.location.href +'">');

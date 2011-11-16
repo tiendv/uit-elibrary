@@ -5,10 +5,12 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+<%@taglib uri="http://struts.apache.org/tags-bean-el" prefix="bean" %>
 <!DOCTYPE html>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
-                                <td class="menu_td_link"><a class="menu_link" href="../Index.html">Trang chủ</a></td>
+                                <td class="menu_td_link"><a href="Welcome.do" class="menu_link"><bean:message  key="text.home"/></a></td>
                                 <td class="menu_td_link"><a class="menu_link" href="#">Giáo trình</a></td>
                                 <td class="menu_td_link"><a class="menu_link" href="#">Khóa luận</a></td>
                                 <td class="menu_td_link"><a class="menu_link" href="#">Bài báo</a></td>

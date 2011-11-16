@@ -8,6 +8,25 @@
 	background-color: #edecdf;
 	border: 1px solid #a2a191;
 }
+.divemainbody{
+    width: 100%;
+    height: 100%;  
+}
+.wrapper{
+    width: 70%; 
+    margin: auto;
+}
+.leftmenu {
+	float: left;
+	width: 20%;
+	padding-bottom: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	background-color: #dfded5;
+	vertical-align:top;
+	text-align:left;
+	padding-left: 0px;
+}
 .menu {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
@@ -30,22 +49,19 @@
 	border: 1px solid #a2a191;
 	text-align: left;
 	vertical-align: middle;
+	clear: both; /* this clear property forces the .container to understand where the columns end and contain them */
 }
-.leftmenu {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	background-color: #dfded5;
-	width: 195px;
-	vertical-align:top;
-	text-align:left;
-	padding-left: 0px;
-	
+
+.content {
+	padding: 10px 0;
+	width: 80%;
+        height: 600px;
+	float: left;
+        background-color: #FFF;
+	text-align: left;
+	vertical-align: top;
 }
-.content{
-    background-color: #DFDED5 !important;
-    height: 800px;
-    overflow: auto;
-}
+
 .leftmenu_td_link:hover {
 	background-color: #c9c6bb;
 }

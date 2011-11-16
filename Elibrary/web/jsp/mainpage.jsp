@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <%@taglib uri="http://struts.apache.org/tags-html"  prefix="html"%>
 <%@taglib uri="http://struts.apache.org/tags-tiles"  prefix="tiles"%>
+<%@taglib uri="http://struts.apache.org/tags-bean-el" prefix="bean" %>
 <html:html xhtml="true">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,14 +19,25 @@
     <body class="divemainbody">
         <!--LAYOUT CONTENTS-->
         <div class="wrapper">
-            <tiles:insert attribute="header"/>
-            <tiles:insert attribute="menu"/>
+            <div class="header">
+               <tiles:insert attribute="header"/>
+            </div>
+            
+            <div  class="menu">
+               <tiles:insert attribute="menu"/>
+            </div>
+           
+            <div class="leftmenu">
+              <tiles:insert attribute="leftmenu"/>
+            </div>
+            
             <div class="content">
                 <tiles:insert attribute="content"/>
             </div>
-        </div>
-        <div class ="footer">
-            <tiles:insert attribute="footer"/>
+ 
+            <div class ="footer">
+                <tiles:insert attribute="footer"/>
+            </div>
         </div>
         <!--END LAYOUT CONTENTS-->
     </body>
