@@ -6,9 +6,9 @@ CREATE SCHEMA IF NOT EXISTS `elibrary` DEFAULT CHARACTER SET utf8 COLLATE utf8_u
 USE `elibrary` ;
 
 -- -----------------------------------------------------
--- Table `elibrary`.`resourcescategory`
+-- Table `elibrary`.`resourcecategory`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `elibrary`.`resourcescategory` (
+CREATE  TABLE IF NOT EXISTS `elibrary`.`resourcecategory` (
   `ResourceCategoryID` INT(11) NOT NULL ,
   `ResourceCategoryName` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL ,
   PRIMARY KEY (`ResourceCategoryID`) )
@@ -73,9 +73,9 @@ COLLATE = utf8_unicode_ci;
 
 
 -- -----------------------------------------------------
--- Table `elibrary`.`resources`
+-- Table `elibrary`.`resource`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `elibrary`.`resources` (
+CREATE  TABLE IF NOT EXISTS `elibrary`.`resource` (
   `ResourceID` INT(11) NOT NULL ,
   `ResourceCategoryID` INT(11) NULL DEFAULT NULL ,
   `SubjectID` INT(11) NULL DEFAULT NULL ,
@@ -97,7 +97,7 @@ CREATE  TABLE IF NOT EXISTS `elibrary`.`resources` (
   INDEX `fk_resource_subject` (`SubjectID` ASC) ,
   CONSTRAINT `fk_resource_resourcecategory`
     FOREIGN KEY (`ResourceCategoryID` )
-    REFERENCES `elibrary`.`resourcescategory` (`ResourceCategoryID` )
+    REFERENCES `elibrary`.`resourcecategory` (`ResourceCategoryID` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_resource_subject`
@@ -116,14 +116,14 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
--- Data for table `elibrary`.`resourcescategory`
+-- Data for table `elibrary`.`resourcecategory`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `elibrary`;
-INSERT INTO `elibrary`.`resourcescategory` (`ResourceCategoryID`, `ResourceCategoryName`) VALUES (1, 'Giáo trình');
-INSERT INTO `elibrary`.`resourcescategory` (`ResourceCategoryID`, `ResourceCategoryName`) VALUES (2, 'Khóa luận');
-INSERT INTO `elibrary`.`resourcescategory` (`ResourceCategoryID`, `ResourceCategoryName`) VALUES (3, 'Bài báo');
-INSERT INTO `elibrary`.`resourcescategory` (`ResourceCategoryID`, `ResourceCategoryName`) VALUES (4, 'Bài tập');
+INSERT INTO `elibrary`.`resourcecategory` (`ResourceCategoryID`, `ResourceCategoryName`) VALUES (1, 'Giáo trình');
+INSERT INTO `elibrary`.`resourcecategory` (`ResourceCategoryID`, `ResourceCategoryName`) VALUES (2, 'Khóa luận');
+INSERT INTO `elibrary`.`resourcecategory` (`ResourceCategoryID`, `ResourceCategoryName`) VALUES (3, 'Bài báo');
+INSERT INTO `elibrary`.`resourcecategory` (`ResourceCategoryID`, `ResourceCategoryName`) VALUES (4, 'Bài tập');
 
 COMMIT;
 
