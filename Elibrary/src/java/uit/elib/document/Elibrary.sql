@@ -2,12 +2,15 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
+DROP SCHEMA IF EXISTS `elibrary` ;
 CREATE SCHEMA IF NOT EXISTS `elibrary` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
 USE `elibrary` ;
 
 -- -----------------------------------------------------
 -- Table `elibrary`.`resourcecategory`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `elibrary`.`resourcecategory` ;
+
 CREATE  TABLE IF NOT EXISTS `elibrary`.`resourcecategory` (
   `ResourceCategoryID` INT(11) NOT NULL ,
   `ResourceCategoryName` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL ,
@@ -20,6 +23,8 @@ COLLATE = utf8_unicode_ci;
 -- -----------------------------------------------------
 -- Table `elibrary`.`speciality`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `elibrary`.`speciality` ;
+
 CREATE  TABLE IF NOT EXISTS `elibrary`.`speciality` (
   `SpecialityID` INT(11) NOT NULL ,
   `SpecialityName` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL ,
@@ -32,6 +37,8 @@ COLLATE = utf8_unicode_ci;
 -- -----------------------------------------------------
 -- Table `elibrary`.`subjectcategory`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `elibrary`.`subjectcategory` ;
+
 CREATE  TABLE IF NOT EXISTS `elibrary`.`subjectcategory` (
   `SubjectCategoryID` INT(11) NOT NULL ,
   `SubjectCategoryName` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL ,
@@ -44,6 +51,8 @@ COLLATE = utf8_unicode_ci;
 -- -----------------------------------------------------
 -- Table `elibrary`.`subject`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `elibrary`.`subject` ;
+
 CREATE  TABLE IF NOT EXISTS `elibrary`.`subject` (
   `SubjectID` INT(11) NOT NULL ,
   `SubjectCategoryID` INT(11) NULL DEFAULT NULL ,
@@ -75,6 +84,8 @@ COLLATE = utf8_unicode_ci;
 -- -----------------------------------------------------
 -- Table `elibrary`.`resource`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `elibrary`.`resource` ;
+
 CREATE  TABLE IF NOT EXISTS `elibrary`.`resource` (
   `ResourceID` INT(11) NOT NULL ,
   `ResourceCategoryID` INT(11) NULL DEFAULT NULL ,
@@ -82,7 +93,6 @@ CREATE  TABLE IF NOT EXISTS `elibrary`.`resource` (
   `ResourceName` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL ,
   `Size` INT(11) NULL DEFAULT NULL ,
   `RealDownloadLink` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL ,
-  `RealImageLink` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL ,
   `ServerDownloadLink` VARCHAR(255) NULL ,
   `ServerImageLink` VARCHAR(255) NULL ,
   `Summary` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL ,
