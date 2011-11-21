@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 21, 2011 11:35:52 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="uit.elib.entities.Subjectcategory" table="subjectcategory" catalog="elibrary">
+        <id name="subjectCategoryId" type="int">
+            <column name="SubjectCategoryID" />
+            <generator class="assigned" />
+        </id>
+        <property name="subjectCategoryName" type="string">
+            <column name="SubjectCategoryName" />
+        </property>
+        <property name="subjectCategoryNameVn" type="string">
+            <column name="SubjectCategoryNameVN" />
+        </property>
+        <set name="subjects" inverse="true">
+            <key>
+                <column name="SubjectCategoryID" />
+            </key>
+            <one-to-many class="uit.elib.entities.Subject" />
+        </set>
+    </class>
+</hibernate-mapping>
