@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 21, 2011 11:35:52 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="uit.elib.entities.Resource" table="resource" catalog="elibrary">
+        <id name="resourceId" type="int">
+            <column name="ResourceID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="resourcecategory" class="uit.elib.entities.Resourcecategory" fetch="select">
+            <column name="ResourceCategoryID" />
+        </many-to-one>
+        <many-to-one name="subject" class="uit.elib.entities.Subject" fetch="select">
+            <column name="SubjectID" />
+        </many-to-one>
+        <property name="resourceName" type="string">
+            <column name="ResourceName" />
+        </property>
+        <property name="size" type="java.lang.Integer">
+            <column name="Size" />
+        </property>
+        <property name="serverName" type="string">
+            <column name="ServerName" />
+        </property>
+        <property name="summary" type="string">
+            <column name="Summary" />
+        </property>
+        <property name="postDate" type="date">
+            <column name="PostDate" length="10" />
+        </property>
+        <property name="viewerNumber" type="java.lang.Integer">
+            <column name="ViewerNumber" />
+        </property>
+        <property name="downloadNumber" type="java.lang.Integer">
+            <column name="DownloadNumber" />
+        </property>
+        <property name="format" type="string">
+            <column name="Format" length="45" />
+        </property>
+        <property name="language" type="string">
+            <column name="Language" length="45" />
+        </property>
+        <property name="voteMark" type="java.lang.Integer">
+            <column name="VoteMark" />
+        </property>
+        <property name="resourceNameVn" type="string">
+            <column name="ResourceNameVN" />
+        </property>
+        <property name="summaryVn" type="string">
+            <column name="SummaryVN" />
+        </property>
+        <set name="lectures" inverse="true" table="lecture_resource">
+            <key>
+                <column name="ResourceID" not-null="true" />
+            </key>
+            <many-to-many entity-name="uit.elib.entities.Lecture">
+                <column name="LectureID" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
