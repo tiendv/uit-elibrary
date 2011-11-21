@@ -10,7 +10,7 @@
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
-    <td width="90" align="center"><img src="../image/logo32.png" width="31" height="32" alt="UIT" longdesc="http://www.uit.edu.vn" /></td>
+    <td width="90" align="center"><img src="./image/logo32.png" width="31" height="32" alt="UIT" longdesc="http://www.uit.edu.vn" /></td>
     <td>
         Copyright &copy; 2011<br />
         Trường Đại học Công nghệ thông tin - ĐHQG HCM <br/>
