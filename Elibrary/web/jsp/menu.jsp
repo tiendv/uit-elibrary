@@ -11,7 +11,7 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
                                 <td class="menu_td_link"><a href="Welcome.do" class="menu_link"><bean:message  key="text.home"/></a></td>
-                                <td class="menu_td_link"><a class="menu_link" href="#">Giáo trình</a></td>
+                                <td class="menu_td_link"><a class="menu_link" href="materialPage.do">Giáo trình</a></td>
                                 <td class="menu_td_link"><a class="menu_link" href="#">Khóa luận</a></td>
                                 <td class="menu_td_link"><a class="menu_link" href="#">Bài báo</a></td>
                                 <td class="menu_td_link"><a class="menu_link" href="#">Hướng dẫn</a></td>

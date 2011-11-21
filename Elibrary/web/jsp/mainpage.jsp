@@ -34,7 +34,7 @@
             <div class="content">
                 <tiles:insert attribute="content"/>
             </div>
- 
+            <div class="cleared"></div>
             <div class ="footer">
                 <tiles:insert attribute="footer"/>
             </div>
