@@ -22,6 +22,26 @@
         <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
     </definition>
     
+    <definition name=".materialPage" extends=".homepage">
+        <put name="title"  value="Marerial Page" />
+        <put name="description"  value="Marerial Page" />
+        <put name="content"   value="/jsp/material.jsp" />
+    </definition>
+    
+    <definition name=".generalinformationPage" extends=".homepage">
+        <put name="title"  value="General Information Page" />
+        <put name="description"  value="General Information Page" />
+        <put name="content"   value="/jsp/generalinformation.jsp" />
+        <put name="leftmenu"   value="/jsp/leftmenusubject.jsp" />
+    </definition>
+    
+    <definition name=".lecturesPage" extends=".generalinformationPage">
+        <put name="title"  value="Lectures Page" />
+        <put name="description"  value="Lectures Page" />
+        <put name="content"   value="/jsp/lectures.jsp" />
+    </definition>
+ 
+    
  <!-- sample tiles definitions
     <definition name=".mainMenu" path="/common/layouts/vboxLayout.jsp" >
         <putList name="list" >
