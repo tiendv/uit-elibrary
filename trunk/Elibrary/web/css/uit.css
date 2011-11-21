@@ -15,6 +15,7 @@
 .wrapper{
     width: 70%; 
     margin: auto;
+
 }
 .leftmenu {
 	float: left;
@@ -26,6 +27,7 @@
 	vertical-align:top;
 	text-align:left;
 	padding-left: 0px;
+        height: 600px;
 }
 .menu {
 	font-family: Arial, Helvetica, sans-serif;
@@ -49,9 +51,10 @@
 	border: 1px solid #a2a191;
 	text-align: left;
 	vertical-align: middle;
-	clear: both; /* this clear property forces the .container to understand where the columns end and contain them */
+        position: relative;
+	clear: both;/* this clear property forces the .container to understand where the columns end and contain them */
 }
-
+.cleared {clear:both;}
 .content {
 	padding: 10px 0;
 	width: 80%;
@@ -119,7 +122,7 @@
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	color: #000;
-	width: 50%;
+	width: 65%;
 	vertical-align:top;
 }
 .td_course_item a {
@@ -287,7 +290,7 @@ ul.legendList:after
 }
 
 ul.legendList li, div.displayIcon a {
-	background:url(../images/sprite_legend.gif) no-repeat;
+	background:url(../image/sprite_legend.gif) no-repeat;
 	display:block;
 	float:left;
 }
