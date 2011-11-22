@@ -15,11 +15,13 @@
     </global-exceptions>
 
     <global-forwards>
-        <forward name="welcome"  path="/Welcome.do"/>  
+        <forward name="welcome"  path="/Welcome.do"/>
+        <forward name="admin"  path="/Admin.do"/>
     </global-forwards>
 
     <action-mappings>
         <action path="/Welcome" forward=".homepage"/>
+        <action path="/Admin" forward=".adminPage"/>
         <action path="/materialPage" forward=".materialPage"/>
         <action path="/lecturesPage" forward=".lecturesPage"/>
         <action path="/generalinformationPage" forward=".generalinformationPage"/>
