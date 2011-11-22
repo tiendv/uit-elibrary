@@ -11,15 +11,38 @@
 
 <tiles-definitions>
 
-    <!-- sample tiles definitions
-    <definition name=".mainLayout" path="/common/layouts/classicLayout.jsp">
-        <put name="title"  value="Sample Page Title" />
-        <put name="header" value="/common/header.jsp" />
-        <put name="menu"   value=".mainMenu" />
-        <put name="footer" value="/common/footer.jsp" />
-        <put name="body"   value=".portal.body" />
+    <!-- sample tiles definitions -->
+     <definition name=".homepage" path="/jsp/mainpage.jsp">
+        <put name="title"  value=" UIT library" />
+        <put name="description"  value="UIT library" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/jsp/content.jsp" />
+        <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
     </definition>
-
+    
+    <definition name=".materialPage" extends=".homepage">
+        <put name="title"  value="Marerial Page" />
+        <put name="description"  value="Marerial Page" />
+        <put name="content"   value="/jsp/material.jsp" />
+    </definition>
+    
+    <definition name=".generalinformationPage" extends=".homepage">
+        <put name="title"  value="General Information Page" />
+        <put name="description"  value="General Information Page" />
+        <put name="content"   value="/jsp/generalinformation.jsp" />
+        <put name="leftmenu"   value="/jsp/leftmenusubject.jsp" />
+    </definition>
+    
+    <definition name=".lecturesPage" extends=".generalinformationPage">
+        <put name="title"  value="Lectures Page" />
+        <put name="description"  value="Lectures Page" />
+        <put name="content"   value="/jsp/lectures.jsp" />
+    </definition>
+ 
+    
+ <!-- sample tiles definitions
     <definition name=".mainMenu" path="/common/layouts/vboxLayout.jsp" >
         <putList name="list" >
             <add value=".menu.links" />

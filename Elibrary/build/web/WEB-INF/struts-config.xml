@@ -15,16 +15,20 @@
     </global-exceptions>
 
     <global-forwards>
-        <forward name="welcome"  path="/Welcome.do"/>
+        <forward name="welcome"  path="/Welcome.do"/>  
     </global-forwards>
 
     <action-mappings>
-        <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+        <action path="/Welcome" forward=".homepage"/>
+        <action path="/materialPage" forward=".materialPage"/>
+        <action path="/lecturesPage" forward=".lecturesPage"/>
+        <action path="/generalinformationPage" forward=".generalinformationPage"/>
+        <action path="/Locale" type="uit.elib.action.languageSelectAction" parameter="method" validate="false"/>
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
 
-    <message-resources parameter="uit/elib/resource/resource"/>    
+    <message-resources parameter="uit/elib/resource/ApplicationResource"/>    
     
     <!-- ========================= Tiles plugin ===============================-->
     <!--
