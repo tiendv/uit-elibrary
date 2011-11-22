@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 22, 2011 4:45:12 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="uit.elib.entities.Resourcecategory" table="resourcecategory" catalog="elibrary">
+        <id name="resourceCategoryId" type="int">
+            <column name="ResourceCategoryID" />
+            <generator class="assigned" />
+        </id>
+        <property name="resourceCategoryName" type="string">
+            <column name="ResourceCategoryName" />
+        </property>
+        <property name="resourceCategoryNameVn" type="string">
+            <column name="ResourceCategoryNameVN" />
+        </property>
+        <set name="resources" inverse="true">
+            <key>
+                <column name="ResourceCategoryID" />
+            </key>
+            <one-to-many class="uit.elib.entities.Resource" />
+        </set>
+    </class>
+</hibernate-mapping>
