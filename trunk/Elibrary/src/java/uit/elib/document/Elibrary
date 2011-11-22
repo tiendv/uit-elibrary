@@ -1,0 +1,187 @@
+-- MySQL dump 10.13  Distrib 5.5.9, for Win32 (x86)
+--
+-- Host: localhost    Database: elibrary
+-- ------------------------------------------------------
+-- Server version	5.5.15
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Current Database: `elibrary`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `elibrary` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
+
+USE `elibrary`;
+
+--
+-- Table structure for table `resource`
+--
+
+DROP TABLE IF EXISTS `resource`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `resource` (
+  `ResourceID` int(11) NOT NULL,
+  `ResourceCategoryID` int(11) DEFAULT NULL,
+  `SubjectID` int(11) DEFAULT NULL,
+  `ResourceName` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Size` int(11) DEFAULT NULL,
+  `RealDownloadLink` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ServerDownloadLink` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ServerImageLink` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Summary` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PostDate` date DEFAULT NULL,
+  `ViewerNumber` int(11) DEFAULT NULL,
+  `DownloadNumber` int(11) DEFAULT NULL,
+  `Format` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Language` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `VoteMark` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ResourceID`),
+  KEY `fk_resource_resourcecategory` (`ResourceCategoryID`),
+  KEY `fk_resource_subject` (`SubjectID`),
+  CONSTRAINT `fk_resource_resourcecategory` FOREIGN KEY (`ResourceCategoryID`) REFERENCES `resourcecategory` (`ResourceCategoryID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_resource_subject` FOREIGN KEY (`SubjectID`) REFERENCES `subject` (`SubjectID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `resource`
+--
+
+LOCK TABLES `resource` WRITE;
+/*!40000 ALTER TABLE `resource` DISABLE KEYS */;
+/*!40000 ALTER TABLE `resource` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `resourcecategory`
+--
+
+DROP TABLE IF EXISTS `resourcecategory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `resourcecategory` (
+  `ResourceCategoryID` int(11) NOT NULL,
+  `ResourceCategoryName` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`ResourceCategoryID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `resourcecategory`
+--
+
+LOCK TABLES `resourcecategory` WRITE;
+/*!40000 ALTER TABLE `resourcecategory` DISABLE KEYS */;
+INSERT INTO `resourcecategory` VALUES (1,'Giáo trình'),(2,'Khóa luận'),(3,'Bài báo'),(4,'Bài tập');
+/*!40000 ALTER TABLE `resourcecategory` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `speciality`
+--
+
+DROP TABLE IF EXISTS `speciality`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `speciality` (
+  `SpecialityID` int(11) NOT NULL,
+  `SpecialityName` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`SpecialityID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `speciality`
+--
+
+LOCK TABLES `speciality` WRITE;
+/*!40000 ALTER TABLE `speciality` DISABLE KEYS */;
+INSERT INTO `speciality` VALUES (1,'Khoa học máy tính'),(2,'Công nghệ phần mềm'),(3,'Hệ thống thống tin'),(4,'Kỹ thuật máy tính'),(5,'Mạng máy tính và truyền thông');
+/*!40000 ALTER TABLE `speciality` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `subject`
+--
+
+DROP TABLE IF EXISTS `subject`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `subject` (
+  `SubjectID` int(11) NOT NULL,
+  `SubjectCategoryID` int(11) DEFAULT NULL,
+  `SpecialityID` int(11) DEFAULT NULL,
+  `SubjectName` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `SubjectIntroduce` text COLLATE utf8_unicode_ci,
+  `CreditNumber` int(11) DEFAULT NULL,
+  `Level` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PeriodOfTheory` int(11) DEFAULT NULL,
+  `PeriodOfPractice` int(11) DEFAULT NULL,
+  `CourseCode` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Tearcher` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PrerequisiteSubject` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `MidtermGrade` int(10) DEFAULT NULL,
+  `FinalGrade` int(10) DEFAULT NULL,
+  `IDResourceImage` int(11) DEFAULT NULL,
+  PRIMARY KEY (`SubjectID`),
+  KEY `fk_subject_subjectcategory` (`SubjectCategoryID`),
+  KEY `fk_subject_speciality` (`SpecialityID`),
+  CONSTRAINT `fk_subject_speciality` FOREIGN KEY (`SpecialityID`) REFERENCES `speciality` (`SpecialityID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_subject_subjectcategory` FOREIGN KEY (`SubjectCategoryID`) REFERENCES `subjectcategory` (`SubjectCategoryID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `subject`
+--
+
+LOCK TABLES `subject` WRITE;
+/*!40000 ALTER TABLE `subject` DISABLE KEYS */;
+/*!40000 ALTER TABLE `subject` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `subjectcategory`
+--
+
+DROP TABLE IF EXISTS `subjectcategory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `subjectcategory` (
+  `SubjectCategoryID` int(11) NOT NULL,
+  `SubjectCategoryName` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`SubjectCategoryID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `subjectcategory`
+--
+
+LOCK TABLES `subjectcategory` WRITE;
+/*!40000 ALTER TABLE `subjectcategory` DISABLE KEYS */;
+INSERT INTO `subjectcategory` VALUES (1,'Cơ bàn'),(2,'Chuyên ngành'),(3,'Tự chọn');
+/*!40000 ALTER TABLE `subjectcategory` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2011-11-22 16:37:19
