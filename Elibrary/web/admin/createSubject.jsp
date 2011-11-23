@@ -68,8 +68,8 @@
         <tr>
             <td><bean:message key="text.faculty"/></td>
             <td>
-                 <select  name="dropFaculty">
-                    
+               <select  name="dropSubjectFaculty">
+ 
                 </select> 
             </td>
         </tr>
