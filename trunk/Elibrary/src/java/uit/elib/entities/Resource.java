@@ -1,5 +1,5 @@
 package uit.elib.entities;
-// Generated Nov 22, 2011 4:45:09 PM by Hibernate Tools 3.2.1.GA
+// Generated Nov 23, 2011 1:53:01 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -10,9 +10,8 @@ import java.util.Date;
 public class Resource  implements java.io.Serializable {
 
 
-     private int resourceId;
+     private Integer resourceId;
      private Resourcecategory resourcecategory;
-     private Lecture lecture;
      private Subject subject;
      private String resourceName;
      private Integer size;
@@ -26,18 +25,15 @@ public class Resource  implements java.io.Serializable {
      private Integer voteMark;
      private String resourceNameVn;
      private String summaryVn;
+     private Integer lectureId;
+     private Integer oderChapter;
+     private String author;
 
     public Resource() {
     }
 
-	
-    public Resource(int resourceId) {
-        this.resourceId = resourceId;
-    }
-    public Resource(int resourceId, Resourcecategory resourcecategory, Lecture lecture, Subject subject, String resourceName, Integer size, String serverName, String summary, Date postDate, Integer viewerNumber, Integer downloadNumber, String format, String language, Integer voteMark, String resourceNameVn, String summaryVn) {
-       this.resourceId = resourceId;
+    public Resource(Resourcecategory resourcecategory, Subject subject, String resourceName, Integer size, String serverName, String summary, Date postDate, Integer viewerNumber, Integer downloadNumber, String format, String language, Integer voteMark, String resourceNameVn, String summaryVn, Integer lectureId, Integer oderChapter, String author) {
        this.resourcecategory = resourcecategory;
-       this.lecture = lecture;
        this.subject = subject;
        this.resourceName = resourceName;
        this.size = size;
@@ -51,13 +47,16 @@ public class Resource  implements java.io.Serializable {
        this.voteMark = voteMark;
        this.resourceNameVn = resourceNameVn;
        this.summaryVn = summaryVn;
+       this.lectureId = lectureId;
+       this.oderChapter = oderChapter;
+       this.author = author;
     }
    
-    public int getResourceId() {
+    public Integer getResourceId() {
         return this.resourceId;
     }
     
-    public void setResourceId(int resourceId) {
+    public void setResourceId(Integer resourceId) {
         this.resourceId = resourceId;
     }
     public Resourcecategory getResourcecategory() {
@@ -66,13 +65,6 @@ public class Resource  implements java.io.Serializable {
     
     public void setResourcecategory(Resourcecategory resourcecategory) {
         this.resourcecategory = resourcecategory;
-    }
-    public Lecture getLecture() {
-        return this.lecture;
-    }
-    
-    public void setLecture(Lecture lecture) {
-        this.lecture = lecture;
     }
     public Subject getSubject() {
         return this.subject;
@@ -164,6 +156,27 @@ public class Resource  implements java.io.Serializable {
     
     public void setSummaryVn(String summaryVn) {
         this.summaryVn = summaryVn;
+    }
+    public Integer getLectureId() {
+        return this.lectureId;
+    }
+    
+    public void setLectureId(Integer lectureId) {
+        this.lectureId = lectureId;
+    }
+    public Integer getOderChapter() {
+        return this.oderChapter;
+    }
+    
+    public void setOderChapter(Integer oderChapter) {
+        this.oderChapter = oderChapter;
+    }
+    public String getAuthor() {
+        return this.author;
+    }
+    
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
 
