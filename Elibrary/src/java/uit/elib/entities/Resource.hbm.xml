@@ -1,18 +1,15 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 22, 2011 4:45:12 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Nov 23, 2011 1:53:04 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="uit.elib.entities.Resource" table="resource" catalog="elibrary">
-        <id name="resourceId" type="int">
+        <id name="resourceId" type="java.lang.Integer">
             <column name="ResourceID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="resourcecategory" class="uit.elib.entities.Resourcecategory" fetch="select">
             <column name="ResourceCategoryID" />
-        </many-to-one>
-        <many-to-one name="lecture" class="uit.elib.entities.Lecture" fetch="select">
-            <column name="LectureID" />
         </many-to-one>
         <many-to-one name="subject" class="uit.elib.entities.Subject" fetch="select">
             <column name="SubjectID" />
@@ -52,6 +49,15 @@
         </property>
         <property name="summaryVn" type="string">
             <column name="SummaryVN" />
+        </property>
+        <property name="lectureId" type="java.lang.Integer">
+            <column name="LectureID" />
+        </property>
+        <property name="oderChapter" type="java.lang.Integer">
+            <column name="OderChapter" />
+        </property>
+        <property name="author" type="string">
+            <column name="Author" length="11" />
         </property>
     </class>
 </hibernate-mapping>

@@ -1,5 +1,5 @@
 package uit.elib.entities;
-// Generated Nov 22, 2011 4:45:09 PM by Hibernate Tools 3.2.1.GA
+// Generated Nov 23, 2011 1:53:01 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -27,7 +27,6 @@ public class Subject  implements java.io.Serializable {
      private Integer finalGrade;
      private String subjectNameVn;
      private String subjectIntroduceVn;
-     private Set lectures = new HashSet(0);
      private Set resources = new HashSet(0);
 
     public Subject() {
@@ -37,7 +36,7 @@ public class Subject  implements java.io.Serializable {
     public Subject(int subjectId) {
         this.subjectId = subjectId;
     }
-    public Subject(int subjectId, Subjectcategory subjectcategory, Speciality speciality, String subjectName, String subjectIntroduce, Integer creditNumber, String level, Integer periodOfTheory, Integer periodOfPractice, String courseCode, String tearcher, String prerequisiteSubject, Integer midtermGrade, Integer finalGrade, String subjectNameVn, String subjectIntroduceVn, Set lectures, Set resources) {
+    public Subject(int subjectId, Subjectcategory subjectcategory, Speciality speciality, String subjectName, String subjectIntroduce, Integer creditNumber, String level, Integer periodOfTheory, Integer periodOfPractice, String courseCode, String tearcher, String prerequisiteSubject, Integer midtermGrade, Integer finalGrade, String subjectNameVn, String subjectIntroduceVn, Set resources) {
        this.subjectId = subjectId;
        this.subjectcategory = subjectcategory;
        this.speciality = speciality;
@@ -54,7 +53,6 @@ public class Subject  implements java.io.Serializable {
        this.finalGrade = finalGrade;
        this.subjectNameVn = subjectNameVn;
        this.subjectIntroduceVn = subjectIntroduceVn;
-       this.lectures = lectures;
        this.resources = resources;
     }
    
@@ -169,13 +167,6 @@ public class Subject  implements java.io.Serializable {
     
     public void setSubjectIntroduceVn(String subjectIntroduceVn) {
         this.subjectIntroduceVn = subjectIntroduceVn;
-    }
-    public Set getLectures() {
-        return this.lectures;
-    }
-    
-    public void setLectures(Set lectures) {
-        this.lectures = lectures;
     }
     public Set getResources() {
         return this.resources;

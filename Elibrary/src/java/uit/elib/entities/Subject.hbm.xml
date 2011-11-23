@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 22, 2011 4:45:12 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Nov 23, 2011 1:53:04 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="uit.elib.entities.Subject" table="subject" catalog="elibrary">
         <id name="subjectId" type="int">
@@ -53,12 +53,6 @@
         <property name="subjectIntroduceVn" type="string">
             <column name="SubjectIntroduceVN" />
         </property>
-        <set name="lectures" inverse="true">
-            <key>
-                <column name="SubjectID" />
-            </key>
-            <one-to-many class="uit.elib.entities.Lecture" />
-        </set>
         <set name="resources" inverse="true">
             <key>
                 <column name="SubjectID" />
