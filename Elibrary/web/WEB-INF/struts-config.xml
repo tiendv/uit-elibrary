@@ -7,6 +7,8 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="CreateSubjectActionForm" type="uit.elib.formbean.CreateSubjectActionForm"/>
+        
     
     </form-beans>
     
@@ -20,12 +22,12 @@
     </global-forwards>
 
     <action-mappings>
+        <action input="/" name="CreateSubjectActionForm" path="/CreateSubject" scope="session" type="uit.elib.action.CreateSubjectAction"/>
         <action path="/Welcome" forward=".homepage"/>
         <action path="/Admin" forward=".adminPage"/>
         <action path="/materialPage" forward=".materialPage"/>
         <action path="/lecturesPage" forward=".lecturesPage"/>
         <action path="/generalinformationPage" forward=".generalinformationPage"/>
-        
         <action path="/createLecturePage" forward=".createLecturePage"/>
         <action path="/Locale" type="uit.elib.action.languageSelectAction" parameter="method" validate="false"/>
     </action-mappings>
