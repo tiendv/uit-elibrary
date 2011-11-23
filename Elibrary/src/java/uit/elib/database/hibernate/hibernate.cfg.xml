@@ -12,6 +12,5 @@
     <mapping resource="uit/elib/entities/Speciality.hbm.xml"/>
     <mapping resource="uit/elib/entities/Subject.hbm.xml"/>
     <mapping resource="uit/elib/entities/Resourcecategory.hbm.xml"/>
-    <mapping resource="uit/elib/entities/Lecture.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
