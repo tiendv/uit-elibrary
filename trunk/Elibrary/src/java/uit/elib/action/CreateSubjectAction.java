@@ -4,11 +4,14 @@
  */
 package uit.elib.action;
 
+import uit.elib.entities.Subject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import uit.elib.bo.SubjectBO;
+import uit.elib.formbean.CreateSubjectActionForm;
 
 /**
  *
@@ -33,6 +36,12 @@ public class CreateSubjectAction extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         
+        CreateSubjectActionForm addSuject = (CreateSubjectActionForm) form;
+        SubjectBO addSubjectBO = new SubjectBO();
+        
+        Subject temp = new Subject();
+        temp.setCourseCode(addSuject.getTxtSubjectCode());
+        addSubjectBO.addNew(temp);
         
         return mapping.findForward(SUCCESS);
     }

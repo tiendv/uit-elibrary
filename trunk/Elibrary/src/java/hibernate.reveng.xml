@@ -2,9 +2,9 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="elibrary"/>
-  <table-filter match-name="subjectcategory"/>
   <table-filter match-name="resourcecategory"/>
-  <table-filter match-name="resource"/>
   <table-filter match-name="subject"/>
   <table-filter match-name="speciality"/>
+  <table-filter match-name="subjectcategory"/>
+  <table-filter match-name="resource"/>
 </hibernate-reverse-engineering>
