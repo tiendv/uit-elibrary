@@ -1,5 +1,5 @@
 package uit.elib.entities;
-// Generated Nov 23, 2011 1:53:01 PM by Hibernate Tools 3.2.1.GA
+// Generated Nov 23, 2011 9:24:01 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import java.util.Set;
 public class Subject  implements java.io.Serializable {
 
 
-     private int subjectId;
+     private Integer subjectId;
      private Subjectcategory subjectcategory;
      private Speciality speciality;
      private String subjectName;
@@ -32,12 +32,7 @@ public class Subject  implements java.io.Serializable {
     public Subject() {
     }
 
-	
-    public Subject(int subjectId) {
-        this.subjectId = subjectId;
-    }
-    public Subject(int subjectId, Subjectcategory subjectcategory, Speciality speciality, String subjectName, String subjectIntroduce, Integer creditNumber, String level, Integer periodOfTheory, Integer periodOfPractice, String courseCode, String tearcher, String prerequisiteSubject, Integer midtermGrade, Integer finalGrade, String subjectNameVn, String subjectIntroduceVn, Set resources) {
-       this.subjectId = subjectId;
+    public Subject(Subjectcategory subjectcategory, Speciality speciality, String subjectName, String subjectIntroduce, Integer creditNumber, String level, Integer periodOfTheory, Integer periodOfPractice, String courseCode, String tearcher, String prerequisiteSubject, Integer midtermGrade, Integer finalGrade, String subjectNameVn, String subjectIntroduceVn, Set resources) {
        this.subjectcategory = subjectcategory;
        this.speciality = speciality;
        this.subjectName = subjectName;
@@ -56,11 +51,11 @@ public class Subject  implements java.io.Serializable {
        this.resources = resources;
     }
    
-    public int getSubjectId() {
+    public Integer getSubjectId() {
         return this.subjectId;
     }
     
-    public void setSubjectId(int subjectId) {
+    public void setSubjectId(Integer subjectId) {
         this.subjectId = subjectId;
     }
     public Subjectcategory getSubjectcategory() {
