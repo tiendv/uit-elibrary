@@ -36,12 +36,24 @@ public class CreateSubjectAction extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         
-        CreateSubjectActionForm addSuject = (CreateSubjectActionForm) form;
-        SubjectBO addSubjectBO = new SubjectBO();
+        CreateSubjectActionForm subjectFormBean = (CreateSubjectActionForm) form;
         
+        SubjectBO subjectBO = new SubjectBO();
         Subject temp = new Subject();
-        temp.setCourseCode(addSuject.getTxtSubjectCode());
-        addSubjectBO.addNew(temp);
+
+        temp.setSubjectName(subjectFormBean.getTxtSubjectName());
+        temp.setCourseCode(subjectFormBean.getTxtSubjectCode());
+        temp.setCourseCode(subjectFormBean.getTxtSubjectCode());
+        temp.setCourseCode(subjectFormBean.getTxtSubjectCode());
+        temp.setCourseCode(subjectFormBean.getTxtSubjectCode());
+        temp.setCourseCode(subjectFormBean.getTxtSubjectCode());
+        temp.setCourseCode(subjectFormBean.getTxtSubjectCode());
+        temp.setCourseCode(subjectFormBean.getTxtSubjectCode());
+        temp.setCourseCode(subjectFormBean.getTxtSubjectCode());
+        temp.setCourseCode(subjectFormBean.getTxtSubjectCode());
+        temp.setCourseCode(subjectFormBean.getTxtSubjectCode());
+        temp.setCourseCode(subjectFormBean.getTxtSubjectCode());
+        subjectBO.addNew(temp);
         
         return mapping.findForward(SUCCESS);
     }
