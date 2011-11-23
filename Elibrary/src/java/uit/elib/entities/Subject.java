@@ -1,5 +1,5 @@
 package uit.elib.entities;
-// Generated Nov 23, 2011 9:24:01 PM by Hibernate Tools 3.2.1.GA
+// Generated Nov 24, 2011 12:00:39 AM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -21,7 +21,7 @@ public class Subject  implements java.io.Serializable {
      private Integer periodOfTheory;
      private Integer periodOfPractice;
      private String courseCode;
-     private String tearcher;
+     private String teacher;
      private String prerequisiteSubject;
      private Integer midtermGrade;
      private Integer finalGrade;
@@ -32,7 +32,7 @@ public class Subject  implements java.io.Serializable {
     public Subject() {
     }
 
-    public Subject(Subjectcategory subjectcategory, Speciality speciality, String subjectName, String subjectIntroduce, Integer creditNumber, String level, Integer periodOfTheory, Integer periodOfPractice, String courseCode, String tearcher, String prerequisiteSubject, Integer midtermGrade, Integer finalGrade, String subjectNameVn, String subjectIntroduceVn, Set resources) {
+    public Subject(Subjectcategory subjectcategory, Speciality speciality, String subjectName, String subjectIntroduce, Integer creditNumber, String level, Integer periodOfTheory, Integer periodOfPractice, String courseCode, String teacher, String prerequisiteSubject, Integer midtermGrade, Integer finalGrade, String subjectNameVn, String subjectIntroduceVn, Set resources) {
        this.subjectcategory = subjectcategory;
        this.speciality = speciality;
        this.subjectName = subjectName;
@@ -42,7 +42,7 @@ public class Subject  implements java.io.Serializable {
        this.periodOfTheory = periodOfTheory;
        this.periodOfPractice = periodOfPractice;
        this.courseCode = courseCode;
-       this.tearcher = tearcher;
+       this.teacher = teacher;
        this.prerequisiteSubject = prerequisiteSubject;
        this.midtermGrade = midtermGrade;
        this.finalGrade = finalGrade;
@@ -121,12 +121,12 @@ public class Subject  implements java.io.Serializable {
     public void setCourseCode(String courseCode) {
         this.courseCode = courseCode;
     }
-    public String getTearcher() {
-        return this.tearcher;
+    public String getTeacher() {
+        return this.teacher;
     }
     
-    public void setTearcher(String tearcher) {
-        this.tearcher = tearcher;
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
     }
     public String getPrerequisiteSubject() {
         return this.prerequisiteSubject;
