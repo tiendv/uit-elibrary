@@ -16,20 +16,48 @@ import org.apache.struts.action.ActionMessage;
  */
 public class CreateSubjectActionForm extends org.apache.struts.action.ActionForm {
 
-    private String txtSubjectName;
+
+    private String txtSubjectNameUS;
+    private int dropSubjectCategory;
     private String txtSubjectCode;
-    private String txtPeriodOfTheory;
-    private String txtPeriodOfPractice;
-    private String txtMidtermGrade;
-    private String txtFinalGrade;
+    private int txtPeriodOfTheory;
+    private int txtPeriodOfPractice;
+    private int txtMidtermGrade;
+    private int txtFinalGrade;
     private String txtPrerequisiteSubject;
     private String txtSubjectTime;
     private String txtTeacherName;
     private String txtLevel;
+    private int dropSubjectFaculty;
     private String fckintroductionVN;
     private String fckintroductionUS;
     private String fckProjectRequitementVN;
     private String fckProjectRequitementUS;
+    private String txtSubjectName;
+
+    public int getDropSubjectCategory() {
+        return dropSubjectCategory;
+    }
+
+    public void setDropSubjectCategory(int dropSubjectCategory) {
+        this.dropSubjectCategory = dropSubjectCategory;
+    }
+
+    public int getDropSubjectFaculty() {
+        return dropSubjectFaculty;
+    }
+
+    public void setDropSubjectFaculty(int dropSubjectFaculty) {
+        this.dropSubjectFaculty = dropSubjectFaculty;
+    }
+
+    public String getTxtSubjectNameUS() {
+        return txtSubjectNameUS;
+    }
+
+    public void setTxtSubjectNameUS(String txtSubjectNameUS) {
+        this.txtSubjectNameUS = txtSubjectNameUS;
+    }
     
     public String getFckProjectRequitementUS() {
         return fckProjectRequitementUS;
@@ -63,11 +91,11 @@ public class CreateSubjectActionForm extends org.apache.struts.action.ActionForm
         this.fckintroductionVN = fckintroductionVN;
     }
 
-    public String getTxtFinalGrade() {
+    public int getTxtFinalGrade() {
         return txtFinalGrade;
     }
 
-    public void setTxtFinalGrade(String txtFinalGrade) {
+    public void setTxtFinalGrade(int txtFinalGrade) {
         this.txtFinalGrade = txtFinalGrade;
     }
 
@@ -79,27 +107,27 @@ public class CreateSubjectActionForm extends org.apache.struts.action.ActionForm
         this.txtLevel = txtLevel;
     }
 
-    public String getTxtMidtermGrade() {
+    public int getTxtMidtermGrade() {
         return txtMidtermGrade;
     }
 
-    public void setTxtMidtermGrade(String txtMidtermGrade) {
+    public void setTxtMidtermGrade(int txtMidtermGrade) {
         this.txtMidtermGrade = txtMidtermGrade;
     }
 
-    public String getTxtPeriodOfPractice() {
+    public int getTxtPeriodOfPractice() {
         return txtPeriodOfPractice;
     }
 
-    public void setTxtPeriodOfPractice(String txtPeriodOfPractice) {
+    public void setTxtPeriodOfPractice(int txtPeriodOfPractice) {
         this.txtPeriodOfPractice = txtPeriodOfPractice;
     }
 
-    public String getTxtPeriodOfTheory() {
+    public int getTxtPeriodOfTheory() {
         return txtPeriodOfTheory;
     }
 
-    public void setTxtPeriodOfTheory(String txtPeriodOfTheory) {
+    public void setTxtPeriodOfTheory(int txtPeriodOfTheory) {
         this.txtPeriodOfTheory = txtPeriodOfTheory;
     }
 
