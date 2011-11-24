@@ -20,12 +20,14 @@
     </global-forwards>
 
     <action-mappings>
+        <action input="/" name="CreateSubjectActionForm" path="/CreateSubject" scope="session" type="uit.elib.action.CreateSubjectAction">
+            <forward name="success" path="/Welcome.do"/>
+        </action>
 
         <action path="/LoadSubject" type="uit.elib.action.LoadSubjectAction">           
             <forward name="success" path=".loadSubject"/>
         </action>
 
-        <action input="/" name="CreateSubjectActionForm" path="/CreateSubject" scope="session" type="uit.elib.action.CreateSubjectAction"/>
 
         <action path="/Welcome" forward=".homepage"/>
         <action path="/Admin" forward=".adminPage"/>
