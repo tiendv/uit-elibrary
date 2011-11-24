@@ -34,13 +34,11 @@ CREATE TABLE `resource` (
   `VoteMark` int(11) default NULL,
   `ResourceNameVN` varchar(255) collate utf8_unicode_ci default NULL,
   `SummaryVN` varchar(255) collate utf8_unicode_ci default NULL,
-  `LectureID` int(11) default NULL,
   `OderChapter` int(11) default NULL,
   `Author` varchar(11) collate utf8_unicode_ci default NULL,
   PRIMARY KEY  (`ResourceID`),
   KEY `fk_resource_resourcecategory` (`ResourceCategoryID`),
   KEY `fk_resource_subject` (`SubjectID`),
-  KEY `FK_resource_lecture` (`LectureID`),
   CONSTRAINT `fk_resource_resourcecategory` FOREIGN KEY (`ResourceCategoryID`) REFERENCES `resourcecategory` (`ResourceCategoryID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_resource_subject` FOREIGN KEY (`SubjectID`) REFERENCES `subject` (`SubjectID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
