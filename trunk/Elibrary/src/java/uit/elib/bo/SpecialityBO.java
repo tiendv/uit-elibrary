@@ -25,7 +25,7 @@ public class SpecialityBO extends ManagerBase<Speciality> {
     
      public List getAllSpeciality() {
         try {
-            String[] sort = new String[]{"speciality"}; // tang dan
+            String[] sort = new String[]{"specialityId"}; // tang dan
             //String[] sort = new String[]{"name desc"}; // giam dan
 
             List<Speciality> list = getBySQLQuery(sort, 0);
