@@ -15,12 +15,12 @@
 <%@taglib uri="http://struts.apache.org/tags-html"  prefix="html"%>
 <%@taglib uri="http://struts.apache.org/tags-tiles"  prefix="tiles"%>
 <%@taglib uri="http://struts.apache.org/tags-bean-el" prefix="bean" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
 <div style="overflow: auto;height: 600px;">
     <form name="createSubject" method="post" action="CreateSubject.do">
-     <jsp:useBean id="subjectCategoryBO" class="uit.elib.bo.SubjectCategorytBO" scope="page">
-         
+     <jsp:useBean id="subjectCategoryBO" class="uit.elib.bo.SubjectCategorytBO" scope="page">    
      <jsp:useBean id="subjectSpecialityBO" class="uit.elib.bo.SpecialityBO" scope="page">
        
     <h1> <bean:message key="text.newSubject"/> </h1>
@@ -35,7 +35,9 @@
             <td><bean:message key="text.nameSubjectCategory"/></td>
             <td>
                 <select  name="dropSubjectCategory">
- 
+                    <c:forEach items="${subjectCategoryBO.allSubjectCategory}" var="item">
+                      <option value="${item.subjectCategoryId}">${item.subjectCategoryName}</option>
+                    </c:forEach>
                 </select> 
             </td>
             <td><bean:message key="text.codeSubject"/></td>
@@ -69,6 +71,9 @@
             <td><bean:message key="text.faculty"/></td>
             <td>
                <select  name="dropSubjectFaculty">
+                   <c:forEach items="${subjectSpecialityBO.allSpeciality}" var="item">
+                      <option value="${item.specialityId}">${item.specialityName}</option>
+                    </c:forEach>
  
                 </select> 
             </td>
