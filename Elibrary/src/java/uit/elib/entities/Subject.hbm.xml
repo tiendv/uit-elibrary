@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 24, 2011 9:54:57 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Nov 24, 2011 11:29:17 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="uit.elib.entities.Subject" table="subject" catalog="elibrary">
         <id name="subjectId" type="java.lang.Integer">
@@ -52,6 +52,15 @@
         </property>
         <property name="subjectIntroduceVn" type="string">
             <column name="SubjectIntroduceVN" />
+        </property>
+        <property name="timeTeaching" type="string">
+            <column name="TimeTeaching" />
+        </property>
+        <property name="projectRequitement" type="string">
+            <column name="ProjectRequitement" length="65535" />
+        </property>
+        <property name="projectRequitementUs" type="string">
+            <column name="ProjectRequitementUS" length="65535" />
         </property>
         <set name="resources" inverse="true">
             <key>
