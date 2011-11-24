@@ -1,5 +1,5 @@
 package uit.elib.entities;
-// Generated Nov 24, 2011 9:54:54 PM by Hibernate Tools 3.2.1.GA
+// Generated Nov 24, 2011 11:29:13 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -27,12 +27,15 @@ public class Subject  implements java.io.Serializable {
      private Integer finalGrade;
      private String subjectNameVn;
      private String subjectIntroduceVn;
+     private String timeTeaching;
+     private String projectRequitement;
+     private String projectRequitementUs;
      private Set resources = new HashSet(0);
 
     public Subject() {
     }
 
-    public Subject(Subjectcategory subjectcategory, Speciality speciality, String subjectName, String subjectIntroduce, Integer creditNumber, String level, Integer periodOfTheory, Integer periodOfPractice, String courseCode, String teacher, String prerequisiteSubject, Integer midtermGrade, Integer finalGrade, String subjectNameVn, String subjectIntroduceVn, Set resources) {
+    public Subject(Subjectcategory subjectcategory, Speciality speciality, String subjectName, String subjectIntroduce, Integer creditNumber, String level, Integer periodOfTheory, Integer periodOfPractice, String courseCode, String teacher, String prerequisiteSubject, Integer midtermGrade, Integer finalGrade, String subjectNameVn, String subjectIntroduceVn, String timeTeaching, String projectRequitement, String projectRequitementUs, Set resources) {
        this.subjectcategory = subjectcategory;
        this.speciality = speciality;
        this.subjectName = subjectName;
@@ -48,6 +51,9 @@ public class Subject  implements java.io.Serializable {
        this.finalGrade = finalGrade;
        this.subjectNameVn = subjectNameVn;
        this.subjectIntroduceVn = subjectIntroduceVn;
+       this.timeTeaching = timeTeaching;
+       this.projectRequitement = projectRequitement;
+       this.projectRequitementUs = projectRequitementUs;
        this.resources = resources;
     }
    
@@ -163,6 +169,27 @@ public class Subject  implements java.io.Serializable {
     
     public void setSubjectIntroduceVn(String subjectIntroduceVn) {
         this.subjectIntroduceVn = subjectIntroduceVn;
+    }
+    public String getTimeTeaching() {
+        return this.timeTeaching;
+    }
+    
+    public void setTimeTeaching(String timeTeaching) {
+        this.timeTeaching = timeTeaching;
+    }
+    public String getProjectRequitement() {
+        return this.projectRequitement;
+    }
+    
+    public void setProjectRequitement(String projectRequitement) {
+        this.projectRequitement = projectRequitement;
+    }
+    public String getProjectRequitementUs() {
+        return this.projectRequitementUs;
+    }
+    
+    public void setProjectRequitementUs(String projectRequitementUs) {
+        this.projectRequitementUs = projectRequitementUs;
     }
     public Set getResources() {
         return this.resources;
