@@ -1,25 +1,39 @@
 package uit.elib.utility;
 
-
+import java.io.File;
 import java.io.FileOutputStream;
+import java.util.Iterator;
+import java.util.List;
 import javax.servlet.ServletInputStream;
+import javax.servlet.http.HttpServletRequest;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileItemFactory;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Hoang
  */
 public class UploadFile {
-    /*
-     * 
+
+    /**
+     * This is the action upload a file to server.
+     * @param requestContentLength : length of content get from request.
+     * @param requestInputStream: InputStream get from request.
+     * @param directory : string path to save file to server.
+     * @throws java.lang.Exception : IO Exception
+     * @return false : fail to upload file
+     *         true  : upload file successful
      */
-    public static boolean  startUploadSingleFile(int requestContentLength,ServletInputStream requestInputStream,String directory){
-        try{
-        int m_currentIndex = 0;
+    public static boolean startUploadSingleFile(int requestContentLength, ServletInputStream requestInputStream, String directory) {
+        try {
+            int m_currentIndex = 0;
             // gets length of the content data
             int m_totalBytes = requestContentLength;
             //to store the contents of file in byte array
@@ -92,9 +106,48 @@ public class UploadFile {
             }
             fos.flush();
             fos.close();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return false;
+    }
+
+    /**
+     * This is the action upload a file to server.
+     * @param request : input request from action.
+     * @param directotyName: input the name of directory you want to upload.
+     * @throws java.lang.Exception : IO Exception
+     * @return false : fail to upload files
+     *         true  : upload files successful
+     */
+    public static boolean startUploadMultiFiles(HttpServletRequest request, String directotyName) {
+        boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+        if (!isMultipart) {
+        } else {
+            FileItemFactory factory = new DiskFileItemFactory();
+            ServletFileUpload upload = new ServletFileUpload(factory);
+            List items = null;
+            try {
+                items = upload.parseRequest(request);
+            } catch (FileUploadException e) {
+                e.printStackTrace();
+            }
+            Iterator itr = items.iterator();
+            while (itr.hasNext()) {
+                FileItem item = (FileItem) itr.next();
+                if (item.isFormField()) {
+                } else {
+                    try {
+                        String itemName = item.getName();
+                        File savedFile = new File(request.getServletContext().getRealPath("/") + directotyName + "/" + itemName);
+                        item.write(savedFile);
+                        System.out.println("<tr><td><b>Your file has been saved at the loaction: </b> < /td> < /tr> < tr> < td > <b>" + request.getServletContext().getRealPath("/") + directotyName + "\\" + itemName + "</td></tr>");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+        return true;
     }
 }
