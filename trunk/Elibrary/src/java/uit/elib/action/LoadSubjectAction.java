@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import uit.elib.bo.ResourceBO;
+import uit.elib.bo.SubjectBO;
 import uit.elib.database.hibernate.ManagerBase;
 import uit.elib.entities.Resource;
 import uit.elib.entities.Subject;
@@ -38,21 +40,20 @@ public class LoadSubjectAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        ManagerBase<Subject> managerBaseSubject = new ManagerBase<Subject>("uit/elib/database/hibernate/hibernate.cfg.xml"){};
+        SubjectBO tempSubjectBO = new SubjectBO();
         List<Subject> listSubject = new ArrayList<Subject>();
         String []order = new String[1];
         order[0]= "subjectId";
-        listSubject=managerBaseSubject.getBySQLQuery(order, 0);
+        listSubject=tempSubjectBO.getBySQLQuery(order, 0);
         request.setAttribute("listSubject", listSubject);
         
-        ManagerBase<Resource> managerBaseResource = new ManagerBase<Resource>("uit/elib/database/hibernate/hibernate.cfg.xml"){};
+        ResourceBO tempResourceBO = new ResourceBO();
         List<Resource> listResource = new ArrayList<Resource>();
         order = new String[2];
         order[0]= "subject";
         order[1]= "oderChapter";
-        listResource=managerBaseResource.getBySQLQuery(order, 0);
+        listResource=tempResourceBO.getBySQLQuery(order, 0);
         request.setAttribute("listResource", listResource);       
-        return mapping.findForward(SUCCESS);
-        
+        return mapping.findForward(SUCCESS);  
     }
 }
