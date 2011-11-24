@@ -25,14 +25,13 @@ public class Resource  implements java.io.Serializable {
      private Integer voteMark;
      private String resourceNameVn;
      private String summaryVn;
-     private Integer lectureId;
      private Integer oderChapter;
      private String author;
 
     public Resource() {
     }
 
-    public Resource(Resourcecategory resourcecategory, Subject subject, String resourceName, Integer size, String serverName, String summary, Date postDate, Integer viewerNumber, Integer downloadNumber, String format, String language, Integer voteMark, String resourceNameVn, String summaryVn, Integer lectureId, Integer oderChapter, String author) {
+    public Resource(Resourcecategory resourcecategory, Subject subject, String resourceName, Integer size, String serverName, String summary, Date postDate, Integer viewerNumber, Integer downloadNumber, String format, String language, Integer voteMark, String resourceNameVn, String summaryVn, Integer oderChapter, String author) {
        this.resourcecategory = resourcecategory;
        this.subject = subject;
        this.resourceName = resourceName;
@@ -47,7 +46,6 @@ public class Resource  implements java.io.Serializable {
        this.voteMark = voteMark;
        this.resourceNameVn = resourceNameVn;
        this.summaryVn = summaryVn;
-       this.lectureId = lectureId;
        this.oderChapter = oderChapter;
        this.author = author;
     }
@@ -156,13 +154,6 @@ public class Resource  implements java.io.Serializable {
     
     public void setSummaryVn(String summaryVn) {
         this.summaryVn = summaryVn;
-    }
-    public Integer getLectureId() {
-        return this.lectureId;
-    }
-    
-    public void setLectureId(Integer lectureId) {
-        this.lectureId = lectureId;
     }
     public Integer getOderChapter() {
         return this.oderChapter;

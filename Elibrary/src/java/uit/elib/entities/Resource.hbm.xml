@@ -50,9 +50,6 @@
         <property name="summaryVn" type="string">
             <column name="SummaryVN" />
         </property>
-        <property name="lectureId" type="java.lang.Integer">
-            <column name="LectureID" />
-        </property>
         <property name="oderChapter" type="java.lang.Integer">
             <column name="OderChapter" />
         </property>

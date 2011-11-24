@@ -125,9 +125,10 @@ public class Subject  implements java.io.Serializable {
         return this.teacher;
     }
     
-    public void setTeacher(String teacher) {
-        this.teacher = teacher;
-    }
+
+    public void setTeacher(String tearcher) {
+        this.teacher = tearcher;
+    }    
     public String getPrerequisiteSubject() {
         return this.prerequisiteSubject;
     }
