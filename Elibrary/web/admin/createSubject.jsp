@@ -16,6 +16,8 @@
 <%@taglib uri="http://struts.apache.org/tags-tiles"  prefix="tiles"%>
 <%@taglib uri="http://struts.apache.org/tags-bean-el" prefix="bean" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="java.util.List" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 
 <div style="overflow: auto;height: 600px;">
@@ -36,7 +38,7 @@
             <td>
                 <select  name="dropSubjectCategory">
                     <c:forEach items="${subjectCategoryBO.allSubjectCategory}" var="item">
-                      <option value="${item.subjectCategoryId}">${item.subjectCategoryName}</option>
+                        <option value="${item.subjectCategoryId}">${item.subjectCategoryName}</option>
                     </c:forEach>
                 </select> 
             </td>

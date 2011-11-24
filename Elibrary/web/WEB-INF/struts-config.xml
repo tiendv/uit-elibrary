@@ -8,8 +8,6 @@
 <struts-config>
     <form-beans>
         <form-bean name="CreateSubjectActionForm" type="uit.elib.formbean.CreateSubjectActionForm"/>
-        
-    
     </form-beans>
     
     <global-exceptions>
