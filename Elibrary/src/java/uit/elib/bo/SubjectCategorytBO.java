@@ -25,7 +25,7 @@ public class SubjectCategorytBO extends ManagerBase<Subjectcategory> {
     
      public List getAllSubjectCategory() {
         try {
-            String[] sort = new String[]{"subjectcategoryID"}; // tang dan
+            String[] sort = new String[]{"subjectCategoryId"}; // tang dan
             //String[] sort = new String[]{"name desc"}; // giam dan
 
             List<Subjectcategory> list = getBySQLQuery(sort, 0);
