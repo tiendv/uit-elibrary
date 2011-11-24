@@ -1,5 +1,5 @@
 package uit.elib.entities;
-// Generated Nov 24, 2011 11:29:13 PM by Hibernate Tools 3.2.1.GA
+// Generated Nov 25, 2011 12:35:15 AM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -131,10 +131,9 @@ public class Subject  implements java.io.Serializable {
         return this.teacher;
     }
     
-
-    public void setTeacher(String tearcher) {
-        this.teacher = tearcher;
-    }    
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
+    }
     public String getPrerequisiteSubject() {
         return this.prerequisiteSubject;
     }
