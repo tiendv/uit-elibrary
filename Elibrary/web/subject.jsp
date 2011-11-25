@@ -19,7 +19,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div style="font-size: 20px ;color:#680a12; padding-left: 17px; padding-bottom:10px "><th colspan="2"><bean:message key="text.subject"/></th></div>
+        <div style="font-size: 20px ;color:#680a12; padding-left: 17px; padding-bottom:10px "><bean:message key="text.subject"/>  </div>
         <table style="margin-left: 30px " width="500px">               
                 <% 
                     List<Subject> listSubject;
@@ -122,9 +122,12 @@
                         <tr>
                             <% Date date = new Date(); 
                                boolean oneMonth = false;
-                               long time= date.getTime()- listResource.get(j).getPostDate().getTime(); // time = today - postdate
-                               if(time<=((long)30*24*60*60*1000)) // time <= 30 days
-                                   oneMonth=true;
+                               if(listResource.get(j).getPostDate()!=null)
+                               {
+                                   long time= date.getTime()- listResource.get(j).getPostDate().getTime(); // time = today - postdate
+                                   if(time<=((long)30*24*60*60*1000)) // time <= 30 days
+                                       oneMonth=true;
+                               }
                               %>                                                                            
                             <% if(listSubject.get(i).getSubjectId().equals(listResource.get(j).getSubject().getSubjectId()))  // if resource belong to subject
                             { %> 
@@ -144,29 +147,29 @@
                                 <% if(resourceCategoryId==1 ){ %>                            
 	                            <a alt="Lecture notes" class="lectureNotes" title="Lecture notes"></a><% } %>
                                 <% if(resourceCategoryId==2 ){ %>
-                                    <a alt="Projects and examples"class="projectsExample" title="Projects and examples"></a><% } %>
+                                    <a alt="Projects and examples" class="projectsExample" title="Projects and examples"></a><% } %>
                                 <% if(resourceCategoryId==3 ){ %>
-                                    <a alt="Image Galleries"class="imageGallery" title="Image Galleries"></a><% } %>
+                                    <a alt="Image Galleries" class="imageGallery" title="Image Galleries"></a><% } %>
                                 <% if(resourceCategoryId==4 ){ %>
-	                            <a alt="Selected lecture notes"class="SelectedLectureNotes"title="Selected lecture notes"></a><% } %>
+	                            <a alt="Selected lecture notes" class="SelectedLectureNotes" title="Selected lecture notes"></a><% } %>
                                 <% if(resourceCategoryId==5 ){ %>
-	                            <a alt="Projects (no examples)"class="projectsNoExample" title="Projects (no examples)"></a>  <% } %>
+	                            <a alt="Projects (no examples)" class="projectsNoExample" title="Projects (no examples)"></a>  <% } %>
                                 <% if(resourceCategoryId==6 ){ %>
-	                            <a alt="Multimedia content"class="multimediaContent" title="Multimedia content"></a>  <% } %>
+	                            <a alt="Multimedia content" class="multimediaContent" title="Multimedia content"></a>  <% } %>
                                 <% if(resourceCategoryId==7 ){ %>
-	                            <a alt="Assignments and solutions"href="#"class="assignmentsSolutions"title="Assignments and solutions"></a><% } %>
+	                            <a alt="Assignments and solutions" href="#" class="assignmentsSolutions" title="Assignments and solutions"></a><% } %>
                                 <% if(resourceCategoryId==8 ){ %>
-	                            <a alt="Exams and solutions"class="examsSolutions" title="Exams and solutions"></a>   <% } %>
+	                            <a alt="Exams and solutions" class="examsSolutions" title="Exams and solutions"></a>   <% } %>
                                 <% if(resourceCategoryId==9 ){ %>
-	                            <a alt="OCW Scholar"class="ocwScholar" title="OCW Scholar"></a><% } %>
+	                            <a alt="OCW Scholar" class="ocwScholar" title="OCW Scholar"></a><% } %>
                                 <% if(resourceCategoryId==10 ){ %>
-	                            <a alt="Assignments (no solutions)"class="assignmentsNoSolution"title="Assignments (no solutions)"></a> <% } %>
+	                            <a alt="Assignments (no solutions)" class="assignmentsNoSolution" title="Assignments (no solutions)"></a> <% } %>
                                 <% if(resourceCategoryId==11 ){ %>
-	                            <a alt="Exams (no solutions)"class="examNoSolution" title="Exams (no solutions)"></a>   <% } %>
+	                            <a alt="Exams (no solutions)" class="examNoSolution" title="Exams (no solutions)"></a>   <% } %>
                                 <% if(resourceCategoryId==12 ){ %>
-	                            <a alt="Study group"class="openStudy" title="Study group"></a>    <% } %>
+	                            <a alt="Study group" class="openStudy" title="Study group"></a>    <% } %>
                                 <% if(resourceCategoryId==13 ){ %>
-	                            <a alt="Online textbooks"class="onlineTextBooks" title="Online textbooks"></a>  <% } %>
+	                            <a alt="Online textbooks" class="onlineTextBooks" title="Online textbooks"></a>  <% } %>
                                  </div> 
                             </td>
                             <% if(language==1) {%>
