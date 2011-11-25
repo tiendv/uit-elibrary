@@ -14,7 +14,7 @@
 <%@page import="java.util.List" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
-
+<div style="overflow: auto;height: 600px;">
 <form name="createResource" method="post" action="CreateSubject.do">
     <jsp:useBean id="resourceTypeBO" class="uit.elib.bo.ResourceCategoryBO" scope="page"> 
     <jsp:useBean id="subjectBO" class="uit.elib.bo.SubjectBO" scope="page"> 
@@ -24,8 +24,8 @@
                     <td><input name="txtResourceName" type="text"/></td>
                     <td><bean:message key="text.typeofResource"/></td>
                     <td>
-                         <select  name="dropResourceType">
-                            <c:forEach items="${resourceTypeBO.allSubjectCategory}" var="item">
+                         <select id="dropResourceType"  name="dropResourceType">
+                             <c:forEach items="${resourceTypeBO.allResourcecategory}" var="item">
                                 <option value="${item.resourceCategoryId}">${item.resourceCategoryName}</option>
                             </c:forEach>
                         </select> 
@@ -33,7 +33,7 @@
                    </tr>
             </table>
                     <%-- Add resource with resource type is chapter (ID =7) --%>
-                    <div id="divChapter" class="chapter" hidden="true">
+                    <div id="divChapter" class="chapter"  style="visibility:hidden">
                         <table width="100%" border="0" cellspacing="0" cellpadding="5">
                             <tr>
                                     <td><bean:message key="text.nameChapterUS"/></td>
@@ -44,8 +44,8 @@
                             <tr>
                                     <td><bean:message key="text.nameSubject"/></td>
                                     <td>
-                                         <select  name="dropSubjectName">
-                                            <c:forEach items="${subjectBO.allSubjectCategory}" var="item">
+                                         <select  name="dropSubjectNameInChapter">
+                                             <c:forEach items="${subjectBO.allSubject}" var="item">
                                                 <option value="${item.subjectId}">${item.subjectName}</option>
                                             </c:forEach>
                                         </select> 
@@ -77,8 +77,8 @@
                                <tr>
                                    <td><bean:message key="text.nameSubject"/></td>
                                     <td>
-                                         <select  name="dropSubjectName">
-                                            <c:forEach items="${subjectBO.allSubjectCategory}" var="item">
+                                         <select  name="dropSubjectNameInProject">
+                                             <c:forEach items="${subjectBO.allSubject}" var="item">
                                                 <option value="${item.subjectId}">${item.subjectName}</option>
                                             </c:forEach>
                                         </select> 
@@ -95,8 +95,8 @@
                                 <td><input name="txtNote" type="text"/></td>
                                 <td><bean:message key="text.nameSubject"/></td>
                                 <td>
-                                         <select  name="dropSubjectName">
-                                            <c:forEach items="${subjectBO.allSubjectCategory}" var="item">
+                                         <select  name="dropSubjectNameInReadingAndPicture">
+                                             <c:forEach items="${subjectBO.allSubject}" var="item">
                                                 <option value="${item.subjectId}">${item.subjectName}</option>
                                             </c:forEach>
                                         </select> 
@@ -112,8 +112,8 @@
                                 
                                 <td><bean:message key="text.nameSubject"/></td>
                                 <td>
-                                         <select  name="dropSubjectName">
-                                            <c:forEach items="${subjectBO.allSubjectCategory}" var="item">
+                                         <select  name="dropSubjectNameInResourceChapter">
+                                             <c:forEach items="${subjectBO.allSubject}" var="item">
                                                 <option value="${item.subjectId}">${item.subjectName}</option>
                                             </c:forEach>
                                         </select> 
@@ -124,5 +124,20 @@
                         </table>
 
                     </div>
+    </jsp:useBean>
+    </jsp:useBean>
     
-</form>
+        </form>
+   </div>     
+<script type="text/javascript">
+
+    var selectTypeResource=document.getElementById("dropResourceType");
+selectTypeResource.onchange=function(){ //run some code when "onchange" event fires
+    alert("heelo");
+ var chosenoption=this.options[this.selectedIndex]; //this refers to "selectmenu"
+ if (chosenoption.value=="2"){
+     document.getElementById("divChapter").style.visibility = 'visible';
+ }
+}
+
+</script>
