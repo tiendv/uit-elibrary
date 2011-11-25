@@ -7,6 +7,7 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="CrateResourceActionForm" type="uit.elib.formbean.CrateResourceActionForm"/>
         <form-bean name="CreateSubjectActionForm" type="uit.elib.formbean.CreateSubjectActionForm"/>
     </form-beans>
     
@@ -34,7 +35,7 @@
         <action path="/materialPage" forward=".materialPage"/>
         <action path="/lecturesPage" forward=".lecturesPage"/>
         <action path="/generalinformationPage" forward=".generalinformationPage"/>
-        <action path="/createLecturePage" forward=".createLecturePage"/>
+        <action path="/createResource" forward=".createResourcePage"/>
         <action path="/Locale" type="uit.elib.action.languageSelectAction" parameter="method" validate="false"/>
     </action-mappings>
     

@@ -67,6 +67,15 @@
         <put name="content"   value="/admin/createSubject.jsp" />
         <put name="leftmenu"   value="/admin/layout/leftmenu.jsp" />
     </definition>
+    <definition name=".createResourcePage" extends=".homepage">
+        <put name="title"  value=" UIT library Administrator" />
+        <put name="description"  value="UIT library Administrator" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/admin/createResource.jsp" />
+        <put name="leftmenu"   value="/admin/layout/leftmenu.jsp" />
+    </definition>
      <definition name=".loadSubject" extends=".homepage">
         <put name="title"  value=" Subject" />
         <put name="description"  value="Subject" />
