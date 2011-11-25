@@ -11,10 +11,10 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
                                 <td class="menu_td_link"><a href="Welcome.do" class="menu_link"><bean:message  key="text.home"/></a></td>
-                                <td class="menu_td_link"><a class="menu_link" href="materialPage.do">Giáo trình</a></td>
+                                <td class="menu_td_link"><a class="menu_link" href="materialPage.do"><bean:message  key="text.menu.subject"/></a></td>
                                 <td class="menu_td_link"><a class="menu_link" href="#">Khóa luận</a></td>
-                                <td class="menu_td_link"><a class="menu_link" href="#">Bài báo</a></td>
-                                <td class="menu_td_link"><a class="menu_link" href="#">Hướng dẫn</a></td>
+                                <td class="menu_td_link"><a class="menu_link" href="#"><bean:message  key="text.menu.paper"/></a></td>
+                                <td class="menu_td_link"><a class="menu_link" href="#"><bean:message  key="text.menu.help"/></a></td>
                                 <td align="right"><script type="text/javascript" src="js/ocw.js"></script>
                                     <form method="get" action="http://search.mit.edu/search">
                                         <div class="searchform">
