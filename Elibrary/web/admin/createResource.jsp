@@ -15,7 +15,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <div style="overflow: auto;height: 600px;">
-<form name="createResource" method="post" action="CreateSubject.do">
+<form name="createResource" method="post" action="CreateSubject.do"  enctype="multipart/form-data">
     <jsp:useBean id="resourceTypeBO" class="uit.elib.bo.ResourceCategoryBO" scope="page"> 
     <jsp:useBean id="subjectBO" class="uit.elib.bo.SubjectBO" scope="page"> 
             <table width="100%" border="0" cellspacing="0" cellpadding="5">
@@ -126,7 +126,6 @@
                     </div>
     </jsp:useBean>
     </jsp:useBean>
-    
         </form>
    </div>     
 <script type="text/javascript">
