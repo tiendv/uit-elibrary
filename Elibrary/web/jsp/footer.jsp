@@ -10,10 +10,10 @@
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
-    <td width="90" align="center"><img src="./image/logo32.png" width="31" height="32" alt="UIT" longdesc="http://www.uit.edu.vn" /></td>
+    <td width="90" align="center"><img src="<bean:message key="image.uitlogo"/>" width="31" height="32" alt="<bean:message key="image.uitlogo.alttext"/>" longdesc="http://www.uit.edu.vn" /></td>
     <td>
-        Copyright &copy; 2011<br />
-        Trường Đại học Công nghệ thông tin - ĐHQG HCM <br/>
-        Km20, Khu phố 6, P.Linh Trung, Q. Thủ Đức, Tp.HCM</td>
+        <bean:message key="txt.copright"/><br />
+        <bean:message key="txt.uit"/> <br/>
+        <bean:message key="txt.uit.address"/></td>
     </tr>
 </table>

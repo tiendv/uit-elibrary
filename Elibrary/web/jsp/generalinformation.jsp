@@ -12,24 +12,36 @@
               </td>
           </tr>
           <tr>
-            <td class="title_h4"><img src="images/guest-book-icon.png" width="32" height="32" align="absmiddle" />Tin học đại cương</td>
+            <td class="title_h4"><img src="image/guest-book-icon.png" width="32" height="32" align="absmiddle" />Tin học đại cương</td>
           </tr>
           <tr>
-            <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
-              <tr>
-                <td width="20"><img src="images/gray.png" width="14" height="14" /></td>
-                <td>Số tính chỉ: 4</td>
-              </tr>
-              
-              <tr>
-                <td><img src="images/green.png" width="14" height="14" /></td>
-                <td>Số tiết: 45 Lý thuyết + 30 thực hành</td>
-              </tr>
-              <tr>
-                <td width="20"><img src="images/red.png" width="14" height="14" /></td>
-                <td>Trình độ: đại học</td>
-              </tr>
-                    </table>
-                </td>
+            <td>
+                <img src="image/guest-book-icon.png"/>
+            </td>
+            <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                      <tr>
+                        <td>Giáo viên</td>
+                      </tr>
+                      <tr>
+                        <td>Trình độ</td>
+                      </tr>
+                      <tr>
+                        <td>Số tiết lý thuyết</td>
+                      </tr>
+                      <tr>
+                        <td>Số tiết thực hành</td>
+                      </tr>
+                </table>
+                
+            </td>
           </tr>
-        </table>
+          <tr>
+             <td class="title_h4">Giới thiệu môn học</td>  
+          </tr>
+          <tr>
+             <td> Nội dung giới thiệu </td>  
+          </tr>
+          
+          
+</table>
