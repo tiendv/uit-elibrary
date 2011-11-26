@@ -6,6 +6,7 @@ package uit.elib.action;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.sql.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -51,6 +52,8 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
         
         Resourcecategory tempRC= new Resourcecategory();
         ResourceCategoryBO rscBO = new ResourceCategoryBO();
+        java.util.Date utilDate = new java.util.Date();
+        java.sql.Date sqlDate = new Date(utilDate.getTime());
         
         
         SubjectCategorytBO sjcBO = new SubjectCategorytBO();
@@ -59,6 +62,7 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
         
         int typeResource = Integer.parseInt(createResourceActionForm.getHiddenResourceType());
         tempRC = rscBO.getById(typeResource,true);
+        temp.setResourcecategory(tempRC);
         
         /**
          * 
@@ -72,10 +76,11 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
             temp.setSubject(tempSJ);
             temp.setSummaryVn(createResourceActionForm.getFckChapterSummary());
             temp.setSummary(createResourceActionForm.getFckChapterSummaryUS());
-            temp.setResourcecategory(tempRC);
             rsBO.addNew(temp);
+            rsBO.update(temp);
             return mapping.findForward(SUCCESSCREATECHAPTER);
         }
+        
         /**
          * Create project
          */
@@ -86,7 +91,7 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
             temp.setAuthor(createResourceActionForm.getTxtAuthorProject());
             tempSJ = sjBO.getById(createResourceActionForm.getDropSubjectNameInProject(), true);
             temp.setSubject(tempSJ);
-            temp.setResourcecategory(tempRC);
+            temp.setPostDate(sqlDate);
             FormFile fileProject = createResourceActionForm.getFileProject();
             /**
              * 
@@ -112,6 +117,73 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
             rsBO.addNew(temp);
             return mapping.findForward(SUCCESSCREATEPROJECT);
         }
+         /***
+          *  Picture and Reading
+          */
+         
+         if(typeResource == 8 || typeResource == 9)
+         {
+             temp.setSummary(createResourceActionForm.getTxtNote());
+             tempSJ = sjBO.getById(createResourceActionForm.getDropSubjectNameInReadingAndPicture(), true);
+             temp.setSubject(tempSJ);
+             FormFile picuterProject = createResourceActionForm.getFilePictureReading();
+            /**
+             * 
+             */
+        
+            if(!picuterProject.getFileName().isEmpty())
+            {   temp.setSize(picuterProject.getFileSize());
+                temp.setUploadName(picuterProject.getFileName());
+                String filePath = getServlet().getServletContext().getRealPath("/") +"upload";
+                //create the upload folder if not exists
+                file = new File(filePath);
+                if(!file.exists()){
+                    file.mkdir();
+                }
+                file = File.createTempFile( "Image_file","",file);
+                fileOutputStream = new FileOutputStream(request.getServletContext().getRealPath("/")+"upload/"+file.getName());
+                fileOutputStream.write(picuterProject.getFileData());
+                temp.setServerName(file.getName());
+                String []suffixFile = picuterProject.getFileName().split("\\.");
+                temp.setFormat(suffixFile[suffixFile.length-1]);
+                fileOutputStream.close();
+            }
+            rsBO.addNew(temp);
+            return mapping.findForward(SUCCESSCREATEPROJECT); 
+         }
+         
+          if(typeResource == 5 || typeResource == 10 || typeResource == 11)
+         {
+            
+             tempSJ = sjBO.getById(createResourceActionForm.getDropSubjectNameInResourceChapter(), true);
+             temp.setSubject(tempSJ);
+             temp.setOderChapter(createResourceActionForm.getDropOrderChapterSubject());
+             FormFile resourceChapterProject = createResourceActionForm.getFilePictureReading();
+            /**
+             * 
+             */
+        
+            if(!resourceChapterProject.getFileName().isEmpty())
+            {   temp.setSize(resourceChapterProject.getFileSize());
+                temp.setUploadName(resourceChapterProject.getFileName());
+                String filePath = getServlet().getServletContext().getRealPath("/") +"upload";
+                //create the upload folder if not exists
+                file = new File(filePath);
+                if(!file.exists()){
+                    file.mkdir();
+                }
+                file = File.createTempFile( "ResourceChapter_file","",file);
+                fileOutputStream = new FileOutputStream(request.getServletContext().getRealPath("/")+"upload/"+file.getName());
+                fileOutputStream.write(resourceChapterProject.getFileData());
+                temp.setServerName(file.getName());
+                String []suffixFile = resourceChapterProject.getFileName().split("\\.");
+                temp.setFormat(suffixFile[suffixFile.length-1]);
+                temp.setPostDate(sqlDate);
+                fileOutputStream.close();
+            }
+            rsBO.addNew(temp);
+            return mapping.findForward(SUCCESSCREATEPROJECT); 
+         }
         
         return mapping.findForward(SUCCESS);
     }

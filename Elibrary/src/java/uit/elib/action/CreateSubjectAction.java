@@ -72,7 +72,6 @@ public class CreateSubjectAction extends org.apache.struts.action.Action {
         temp.setSubjectIntroduce(subjectFormBean.getFckintroductionUS());
         temp.setProjectRequitement(subjectFormBean.getFckintroductionVN());
         temp.setProjectRequitementUs(subjectFormBean.getFckProjectRequitementUS());
-        
         subjectBO.addNew(temp);  
         return mapping.findForward(SUCCESS);
     }
