@@ -15,7 +15,7 @@ import org.apache.struts.upload.FormFile;
  *
  * @author tiendv
  */
-public class CrateResourceActionForm extends org.apache.struts.action.ActionForm {
+public class CreateResourceActionForm extends org.apache.struts.action.ActionForm {
     
     private String txtResourceName;
     private int dropResourceType;;
@@ -26,14 +26,56 @@ public class CrateResourceActionForm extends org.apache.struts.action.ActionForm
     private String fckChapterSummaryUS;
     private String txtProjectUSName;
     private String txtAuthorProject;
-    private String dropSubjectNameInProject;
+    private int dropSubjectNameInProject;
+    private FormFile fileProject;
     private String txtNote;
-    private String dropSubjectNameInReadingAndPicture;
-    private String dropSubjectNameInResourceChapter;
-    private String txtorderchapter;
-    
-    private FormFile fileChapter;
+    private int dropSubjectNameInReadingAndPicture;
+    private FormFile filePictureReading;
+    private int dropSubjectNameInResourceChapter;
+    private int dropOrderChapterSubject;
+    private FormFile fileResourceChapter;
+    private String hiddenResourceType;
 
+    public int getDropOrderChapterSubject() {
+        return dropOrderChapterSubject;
+    }
+
+    public void setDropOrderChapterSubject(int dropOrderChapterSubject) {
+        this.dropOrderChapterSubject = dropOrderChapterSubject;
+    }
+
+    public FormFile getFilePictureReading() {
+        return filePictureReading;
+    }
+
+    public void setFilePictureReading(FormFile filePictureReading) {
+        this.filePictureReading = filePictureReading;
+    }
+
+    public FormFile getFileProject() {
+        return fileProject;
+    }
+
+    public void setFileProject(FormFile fileProject) {
+        this.fileProject = fileProject;
+    }
+
+    public FormFile getFileResourceChapter() {
+        return fileResourceChapter;
+    }
+
+    public void setFileResourceChapter(FormFile fileResourceChapter) {
+        this.fileResourceChapter = fileResourceChapter;
+    }
+
+    public String getHiddenResourceType() {
+        return hiddenResourceType;
+    }
+
+    public void setHiddenResourceType(String hiddenResourceType) {
+        this.hiddenResourceType = hiddenResourceType;
+    }
+    
     public int getDropResourceType() {
         return dropResourceType;
     }
@@ -50,27 +92,27 @@ public class CrateResourceActionForm extends org.apache.struts.action.ActionForm
         this.dropSubjectNameInChapter = dropSubjectNameInChapter;
     }
 
-    public String getDropSubjectNameInProject() {
+    public int getDropSubjectNameInProject() {
         return dropSubjectNameInProject;
     }
 
-    public void setDropSubjectNameInProject(String dropSubjectNameInProject) {
+    public void setDropSubjectNameInProject(int dropSubjectNameInProject) {
         this.dropSubjectNameInProject = dropSubjectNameInProject;
     }
 
-    public String getDropSubjectNameInReadingAndPicture() {
+    public int getDropSubjectNameInReadingAndPicture() {
         return dropSubjectNameInReadingAndPicture;
     }
 
-    public void setDropSubjectNameInReadingAndPicture(String dropSubjectNameInReadingAndPicture) {
+    public void setDropSubjectNameInReadingAndPicture(int dropSubjectNameInReadingAndPicture) {
         this.dropSubjectNameInReadingAndPicture = dropSubjectNameInReadingAndPicture;
     }
 
-    public String getDropSubjectNameInResourceChapter() {
+    public int getDropSubjectNameInResourceChapter() {
         return dropSubjectNameInResourceChapter;
     }
 
-    public void setDropSubjectNameInResourceChapter(String dropSubjectNameInResourceChapter) {
+    public void setDropSubjectNameInResourceChapter(int dropSubjectNameInResourceChapter) {
         this.dropSubjectNameInResourceChapter = dropSubjectNameInResourceChapter;
     }
 
@@ -88,14 +130,6 @@ public class CrateResourceActionForm extends org.apache.struts.action.ActionForm
 
     public void setFckChapterSummaryUS(String fckChapterSummaryUS) {
         this.fckChapterSummaryUS = fckChapterSummaryUS;
-    }
-
-    public FormFile getFileChapter() {
-        return fileChapter;
-    }
-
-    public void setFileChapter(FormFile fileChapter) {
-        this.fileChapter = fileChapter;
     }
 
     public String getTxtAuthorProject() {
@@ -146,18 +180,10 @@ public class CrateResourceActionForm extends org.apache.struts.action.ActionForm
         this.txtResourceName = txtResourceName;
     }
 
-    public String getTxtorderchapter() {
-        return txtorderchapter;
-    }
-
-    public void setTxtorderchapter(String txtorderchapter) {
-        this.txtorderchapter = txtorderchapter;
-    }
-    
     /**
      *
      */
-    public CrateResourceActionForm() {
+    public CreateResourceActionForm() {
         super();
         // TODO Auto-generated constructor stub
     }
