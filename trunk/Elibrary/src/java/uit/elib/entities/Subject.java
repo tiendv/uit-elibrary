@@ -1,5 +1,5 @@
 package uit.elib.entities;
-// Generated Nov 25, 2011 12:35:15 AM by Hibernate Tools 3.2.1.GA
+// Generated Nov 26, 2011 12:46:52 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;

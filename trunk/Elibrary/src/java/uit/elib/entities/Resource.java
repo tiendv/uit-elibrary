@@ -1,5 +1,5 @@
 package uit.elib.entities;
-// Generated Nov 25, 2011 12:35:15 AM by Hibernate Tools 3.2.1.GA
+// Generated Nov 26, 2011 12:46:52 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -27,11 +27,12 @@ public class Resource  implements java.io.Serializable {
      private String summaryVn;
      private Integer oderChapter;
      private String author;
+     private String uploadName;
 
     public Resource() {
     }
 
-    public Resource(Resourcecategory resourcecategory, Subject subject, String resourceName, Integer size, String serverName, String summary, Date postDate, Integer viewerNumber, Integer downloadNumber, String format, String language, Integer voteMark, String resourceNameVn, String summaryVn, Integer oderChapter, String author) {
+    public Resource(Resourcecategory resourcecategory, Subject subject, String resourceName, Integer size, String serverName, String summary, Date postDate, Integer viewerNumber, Integer downloadNumber, String format, String language, Integer voteMark, String resourceNameVn, String summaryVn, Integer oderChapter, String author, String uploadName) {
        this.resourcecategory = resourcecategory;
        this.subject = subject;
        this.resourceName = resourceName;
@@ -48,6 +49,7 @@ public class Resource  implements java.io.Serializable {
        this.summaryVn = summaryVn;
        this.oderChapter = oderChapter;
        this.author = author;
+       this.uploadName = uploadName;
     }
    
     public Integer getResourceId() {
@@ -168,6 +170,13 @@ public class Resource  implements java.io.Serializable {
     
     public void setAuthor(String author) {
         this.author = author;
+    }
+    public String getUploadName() {
+        return this.uploadName;
+    }
+    
+    public void setUploadName(String uploadName) {
+        this.uploadName = uploadName;
     }
 
 
