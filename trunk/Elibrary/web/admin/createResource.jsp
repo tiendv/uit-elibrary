@@ -5,6 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="uit.elib.entities.Subject"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="uit.elib.bo.ResourceBO"%>
 <!DOCTYPE html>
 <%@ taglib uri="http://java.fckeditor.net" prefix="FCK" %>
 <%@taglib uri="http://struts.apache.org/tags-html"  prefix="html"%>
@@ -13,11 +16,17 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="java.util.List" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+ <link href="<html:rewrite page='/css/uit.css'/>" rel="stylesheet" type="text/css" />
 
 <div style="overflow: auto;height: 600px;">
-    <form name="createResource" method="post" action="CreateSubject.do"  enctype="multipart/form-data">
+    <form name="createResource" method="post" action="CreateResource.do"  enctype="multipart/form-data">
         <jsp:useBean id="resourceTypeBO" class="uit.elib.bo.ResourceCategoryBO" scope="page">
-            <jsp:useBean id="subjectBO" class="uit.elib.bo.SubjectBO" scope="page">
+        <jsp:useBean id="subjectBO" class="uit.elib.bo.SubjectBO" scope="page">
+        <jsp:useBean id="resourceBO" class="uit.elib.bo.ResourceBO" scope="page">
+            
+                <input id="hiddenResourceType" name="hiddenResourceType" type="hidden"/>
+                <input id="hiddenSubjectSelectInResourceChapter" name="hiddenSubjectSelectInResourceChapter" type="hidden"/>
+                <h2> <bean:message key="text.chosetypeofresourced"/></h2>
                 <table width="100%" border="0" cellspacing="0" cellpadding="5">
                     <tr>
                         <td><bean:message key="text.resourceName"/></td>
@@ -33,7 +42,7 @@
                     </tr>
                 </table>
                 <%-- Add resource with resource type is chapter (ID =7) --%>
-                <div id="divChapter" class="chapter"  style="visibility:hidden">
+                <div id="divChapter" class="chapter"  style="display: none">
                     <table width="100%" border="0" cellspacing="0" cellpadding="5">
                         <tr>
                             <td><bean:message key="text.nameChapterUS"/></td>
@@ -63,11 +72,10 @@
                         <jsp:attribute name="value">
                         </jsp:attribute>
                     </FCK:editor>
-                    <bean:message key="text.uploadChapter"/><input type="file" name="fileChapter"/>
                 </div>
                 <%-- Add resource with resource type is project (ID =6) --%>
 
-                <div id="divProject" class="project" style="visibility:hidden">
+                <div id="divProject" class="project" style="display: none">
                     <table width="100%" border="0" cellspacing="0" cellpadding="5">
                         <tr>
                             <td><bean:message key="text.projectNameUS"/></td>
@@ -85,11 +93,17 @@
                                 </select>
                             </td>
                         </tr>
+                        <tr>
+                            <td>
+                                 <bean:message key="text.uploadFile"/><input type="file" name="fileProject"/>
+                            </td>
+                            
+                        </tr>
                     </table>
                 </div>
                 <%-- Add resource with resource type is Pictuer, Reading (ID =8,9) --%>
 
-                <div id="divPictureandReading" class="pictureandreading" style="visibility:hidden">
+                <div id="divPictureandReading"  class="pictureandreading" style="display: none">
                     <table width="100%" border="0" cellspacing="0" cellpadding="5">
                         <tr>
                             <td><bean:message key="text.note"/></td>
@@ -103,11 +117,18 @@
                                 </select>
                             </td>
                         </tr>
+                        <tr>
+                            <td>
+                                <bean:message key="text.uploadFile"/><input type="file" name="filePictureReading"/>
+                            </td>
+                            
+                        </tr>
+                        
                     </table>
 
                 </div>
                 <%-- Add resource with resource type is video,example,slide,pdf (ID =5,10,11) --%>
-                <div id="divResourceChapter" class="resourceChapter" style="visibility:hidden">
+                <div id="divResourceChapter" class="resourceChapter" style="display: none">
                     <table width="100%" border="0" cellspacing="0" cellpadding="5">
                         <tr>
 
@@ -120,24 +141,67 @@
                                 </select>
                             </td>
                             <td><bean:message key="text.orderchapter"/></td>
-                            <td><input name="txtorderchapter" type="text"/></td>
+                            <td>
+                                <select  name="dropOrderChapterSubject">
+                                    <c:forEach items="${subjectBO.allSubject}" var="item">
+                                        <option value="${item.subjectId}">${item.subjectName}</option>
+                                    </c:forEach>
+                                </select>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <bean:message key="text.uploadFile"/><input type="file" name="fileResourceChapter"/>
+                            </td>
                         </tr>
                     </table>
 
                 </div>
+                 <div style="text-align: left">
+                    <input type="submit" value=<bean:message key="text.buttonCreate" />  />
+                </div>
             </jsp:useBean>
         </jsp:useBean>
+        </jsp:useBean>>
     </form>
 </div>     
 <script type="text/javascript">
 
     var selectTypeResource=document.getElementById("dropResourceType");
     selectTypeResource.onchange=function(){ //run some code when "onchange" event fires
-        alert("heelo");
         var chosenoption=this.options[this.selectedIndex]; //this refers to "selectmenu"
-        if (chosenoption.value=="2"){
-            document.getElementById("divChapter").style.visibility = 'visible';
+        if (chosenoption.value=="7"){
+            document.getElementById("divChapter").style.display = "block";
+             document.getElementById("divProject").style.display = "none";
+             document.getElementById("divPictureandReading").style.display = "none";
+             document.getElementById("divResourceChapter").style.display = "none";
         }
+        if (chosenoption.value=="6"){
+            document.getElementById("divProject").style.display = "block";
+            document.getElementById("divChapter").style.display = "none";
+            document.getElementById("divPictureandReading").style.display = "none";
+            document.getElementById("divResourceChapter").style.display = "none";
+        }
+         if (chosenoption.value=="8"||chosenoption.value=="9"){
+            document.getElementById("divProject").style.display = "none";
+            document.getElementById("divChapter").style.display = "none";
+            document.getElementById("divPictureandReading").style.display = "block";
+             document.getElementById("divResourceChapter").style.display = "none";
+        }
+        if (chosenoption.value=="5"||chosenoption.value=="10"||chosenoption.value=="11"){
+            document.getElementById("divResourceChapter").style.display = "block";
+            document.getElementById("divProject").style.display = "none";
+            document.getElementById("divChapter").style.display = "none";
+            document.getElementById("divPictureandReading").style.display = "none";
+        }
+        
+        document.getElementById("hiddenResourceType").value=chosenoption.value;
+    }
+    
+     var selectTypeResource=document.getElementById("dropSubjectNameInResourceChapter");
+    selectTypeResource.onchange=function(){ //run some code when "onchange" event fires
+      document.getElementById("hiddenSubjectSelectInResourceChapter").value=chosenoption.value;
     }
 
 </script>
