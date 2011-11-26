@@ -35,8 +35,38 @@ public class ResourceBO extends ManagerBase<Resource> {
             Logger.getLogger(Subject.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
-    }
-
+     }
+     
+      public List getAllChapterOfSubject (int subjectID)
+      {
+           String query = "[SubjectID]='" + subjectID +"'";
+            
+            List<Resource> list;
+        try {
+            list = getBySQLQuery(query, null, 0);
+            return  list;
+        } catch (Exception ex) {
+            Logger.getLogger(ResourceBO.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+                 
+      }
+      
+       public int countNumberChapterOfSubject (int subjectID)
+      {
+           String query = "[SubjectID]='" + subjectID +"'";
+            
+            List<Resource> list;
+        try {
+            list = getBySQLQuery(query, null, 0);
+            return  list.size();
+        } catch (Exception ex) {
+            Logger.getLogger(ResourceBO.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }
+                 
+      }
+    
      
  
 }
