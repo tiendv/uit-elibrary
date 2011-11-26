@@ -35,6 +35,7 @@ public class ResourceCategoryBO extends ManagerBase<Resourcecategory> {
             Logger.getLogger(Subject.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
+        
     }
 
      
