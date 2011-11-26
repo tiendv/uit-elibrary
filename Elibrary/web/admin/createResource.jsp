@@ -113,7 +113,7 @@
                                 <select  name="dropSubjectNameInReadingAndPicture">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectName}</option>
-                                    </c:forEach>
+                                    </c:forEach>       
                                 </select>
                             </td>
                         </tr>
@@ -131,7 +131,6 @@
                 <div id="divResourceChapter" class="resourceChapter" style="display: none">
                     <table width="100%" border="0" cellspacing="0" cellpadding="5">
                         <tr>
-
                             <td><bean:message key="text.nameSubject"/></td>
                             <td>
                                 <select  name="dropSubjectNameInResourceChapter">
@@ -141,13 +140,7 @@
                                 </select>
                             </td>
                             <td><bean:message key="text.orderchapter"/></td>
-                            <td>
-                                <select  name="dropOrderChapterSubject">
-                                    <c:forEach items="${subjectBO.allSubject}" var="item">
-                                        <option value="${item.subjectId}">${item.subjectName}</option>
-                                    </c:forEach>
-                                </select>
-                            </td>
+                            <td><input name="txtNote" type="text"/></td>
                             
                         </tr>
                         <tr>
