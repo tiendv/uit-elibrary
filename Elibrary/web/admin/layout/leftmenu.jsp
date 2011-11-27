@@ -17,10 +17,10 @@
             <td class="leftmenu_td_link"><a href="#"></a></td>
           </tr>
           <tr>
-            <td class="leftmenu_td_link"><a href="#">Tạo môn học</a></td>
+            <td class="leftmenu_td_link"><a href="Admin.do">Tạo môn học</a></td>
           </tr>
           <tr>
-            <td class="leftmenu_td_link"><a href="#"></a></td>
+            <td class="leftmenu_td_link"><a href="createResource.do"> Tạo tài nguyên</a></td>
           </tr>
           <tr>
             <td >&nbsp;</td>
