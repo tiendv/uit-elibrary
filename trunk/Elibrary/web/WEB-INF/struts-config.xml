@@ -7,7 +7,7 @@
 
 <struts-config>
     <form-beans>
-        <form-bean name="CrateResourceActionForm" type="uit.elib.formbean.CrateResourceActionForm"/>
+        <form-bean name="CreateResourceActionForm" type="uit.elib.formbean.CreateResourceActionForm"/>
         <form-bean name="CreateSubjectActionForm" type="uit.elib.formbean.CreateSubjectActionForm"/>
     </form-beans>
     
@@ -28,6 +28,7 @@
         <action path="/LoadSubject" type="uit.elib.action.LoadSubjectAction">           
             <forward name="success" path=".loadSubject"/>
         </action>
+        <action input="/admin/createResource.jsp" name="CreateResourceActionForm" path="/CreateResource" scope="session" type="uit.elib.action.CreateResourceAction"/>
         <action path="/AjaxGetChapterBySubjectID" type="uit.elib.action.AjaxGetChapterBySubjectID"/>
         <action path="/Welcome" forward=".homepage"/>
         <action path="/Admin" forward=".adminPage"/>
