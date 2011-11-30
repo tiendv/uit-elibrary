@@ -15,6 +15,8 @@
         <meta name="description" content="<tiles:getAsString name="description"/>" />
         <title><tiles:getAsString name="title"/></title>
         <link href="<html:rewrite page='/css/uit.css'/>" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="<html:rewrite page='/js/jquery-1.7.1.js'/>"></script>
+        <script type="text/javascript" src="<html:rewrite page='/js/jquery-1.7.1.min.js'/>"></script>
     </head>
     <body class="divemainbody">
         <!--LAYOUT CONTENTS-->
