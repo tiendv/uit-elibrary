@@ -15,7 +15,16 @@ import java.util.logging.Logger;
  */
 public class ResourceBO extends ManagerBase<Resource> {
 
+    private static ResourceBO resourceBO = null;
     public ResourceBO() throws Exception {
+
+    }
+
+    public static ResourceBO getResourceBO() throws Exception{
+         if (resourceBO == null ){
+              resourceBO = new ResourceBO();
+          }
+         return resourceBO;
     }
     
     /**

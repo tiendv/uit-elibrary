@@ -15,7 +15,15 @@ import java.util.logging.Logger;
  */
 public class SubjectBO extends ManagerBase<Subject> {
 
+    private static SubjectBO subjectBO = null;
     public SubjectBO() throws Exception {
+    }
+
+    public static SubjectBO getSubjectBO() throws Exception{
+        if(subjectBO == null){
+            subjectBO = new SubjectBO();
+        }
+        return subjectBO;
     }
     
     /**
