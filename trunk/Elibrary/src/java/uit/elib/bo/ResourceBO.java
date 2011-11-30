@@ -39,7 +39,7 @@ public class ResourceBO extends ManagerBase<Resource> {
      
       public List getAllChapterOfSubject (int subjectID)
       {
-           String query = "[SubjectID]='" + subjectID +"'";
+           String query = "SubjectID=" + subjectID;
             
             List<Resource> list;
         try {

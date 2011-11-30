@@ -133,15 +133,17 @@
                         <tr>
                             <td><bean:message key="text.nameSubject"/></td>
                             <td>
-                                <select  name="dropSubjectNameInResourceChapter">
+                                <select id="dropSubjectNameInResourceChapter" name="dropSubjectNameInResourceChapter">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectName}</option>
                                     </c:forEach>
                                 </select>
                             </td>
                             <td><bean:message key="text.orderchapter"/></td>
-                            <td><input name="txtNote" type="text"/></td>
-                            
+                            <td>
+                                <select id ="txtNote" name="txtNote">
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td>
@@ -156,7 +158,7 @@
                 </div>
             </jsp:useBean>
         </jsp:useBean>
-        </jsp:useBean>>
+        </jsp:useBean>
     </form>
 </div>     
 <script type="text/javascript">
@@ -192,9 +194,18 @@
         document.getElementById("hiddenResourceType").value=chosenoption.value;
     }
     
-     var selectTypeResource=document.getElementById("dropSubjectNameInResourceChapter");
+    var selectTypeResource=document.getElementById("dropSubjectNameInResourceChapter");
     selectTypeResource.onchange=function(){ //run some code when "onchange" event fires
-      document.getElementById("hiddenSubjectSelectInResourceChapter").value=chosenoption.value;
+        var id = document.getElementById("dropSubjectNameInResourceChapter").value;
+        $.ajax({
+            type: "POST",
+            url: "AjaxGetChapterBySubjectID.do",
+            data: "id="+id
+        }).done(function( msg ) {
+            document.getElementById("txtNote").innerHTML = msg;
+        });
+
+
     }
 
 </script>
