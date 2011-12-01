@@ -32,7 +32,7 @@ public class ResourceBO extends ManagerBase<Resource> {
      * @return List Subject In Database order by subject ID
      */
     
-     public List getAllResource() {
+      public List getAllResource() {
         try {
             String[] sort = new String[]{"resourceId"}; // tang dan
             //String[] sort = new String[]{"name desc"}; // giam dan
@@ -44,8 +44,19 @@ public class ResourceBO extends ManagerBase<Resource> {
             Logger.getLogger(Subject.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
-     }
-     
+      }
+    
+      public Resource getResourceByID(int resourceID)
+      {
+        try {
+            Resource resource = getById(resourceID, true);
+            return  resource;
+        } catch (Exception ex) {
+            Logger.getLogger(ResourceBO.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }          
+      }
+      
       public List getAllChapterOfSubject (int subjectID)
       {
            String query = "SubjectID=" + subjectID;
