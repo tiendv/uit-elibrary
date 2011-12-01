@@ -41,22 +41,24 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+        request.setCharacterEncoding("UTF-8");
         
         CreateResourceActionForm createResourceActionForm = (CreateResourceActionForm)form;
         
-        ResourceBO rsBO = new ResourceBO();
-        SubjectBO sjBO = new SubjectBO();
+        ResourceBO rsBO = ResourceBO.getResourceBO();
+        SubjectBO sjBO = SubjectBO.getSubjectBO();
+        
         Subject tempSJ = new Subject();
         File file;     // manage name
         FileOutputStream fileOutputStream; // save to server
         
         Resourcecategory tempRC= new Resourcecategory();
-        ResourceCategoryBO rscBO = new ResourceCategoryBO();
+        ResourceCategoryBO rscBO = ResourceCategoryBO.getResourceCategoryBO();
         java.util.Date utilDate = new java.util.Date();
         java.sql.Date sqlDate = new Date(utilDate.getTime());
         
         
-        SubjectCategorytBO sjcBO = new SubjectCategorytBO();
+        SubjectCategorytBO sjcBO = SubjectCategorytBO.getSubjectBO();
         Resource temp = new Resource();
         temp.setResourceNameVn(createResourceActionForm.getTxtResourceName());
         

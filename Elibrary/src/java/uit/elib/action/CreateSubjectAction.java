@@ -39,6 +39,7 @@ public class CreateSubjectAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+          request.setCharacterEncoding("UTF-8");
         
         CreateSubjectActionForm subjectFormBean = (CreateSubjectActionForm) form;
         
@@ -49,10 +50,10 @@ public class CreateSubjectAction extends org.apache.struts.action.Action {
         
         // Get infor speciality
         Speciality tempSpeciality;
-        SpecialityBO tempSpecialityBO = new SpecialityBO();
+        SpecialityBO tempSpecialityBO = SpecialityBO.getSpecialityBO();
         tempSpeciality = tempSpecialityBO.getById(subjectFormBean.getDropSubjectFaculty(), true);
                 
-        SubjectBO subjectBO = new SubjectBO();
+        SubjectBO subjectBO = SubjectBO.getSubjectBO();
         Subject temp = new Subject(); 
         
         temp.setSubjectName(subjectFormBean.getTxtSubjectNameUS());
