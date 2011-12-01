@@ -28,6 +28,9 @@
         <action path="/LoadSubject" type="uit.elib.action.LoadSubjectAction">           
             <forward name="success" path=".loadSubject"/>
         </action>
+
+        <action path="/DownLoad" type="uit.elib.action.DownLoadAction"/>   
+                    
         <action input="/admin/createResource.jsp" name="CreateResourceActionForm" path="/CreateResource" scope="session" type="uit.elib.action.CreateResourceAction"/>
         <action path="/AjaxGetChapterBySubjectID" type="uit.elib.action.AjaxGetChapterBySubjectID"/>
         <action path="/Welcome" forward=".homepage"/>
