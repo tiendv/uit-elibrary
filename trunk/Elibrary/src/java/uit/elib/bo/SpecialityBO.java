@@ -14,8 +14,17 @@ import java.util.logging.Logger;
  * @author tiendv
  */
 public class SpecialityBO extends ManagerBase<Speciality> {
+    
+    private static SpecialityBO specialityBO = null;
 
     public SpecialityBO() throws Exception {
+    }
+    
+     public static SpecialityBO getSpecialityBO() throws Exception{
+         if (specialityBO == null ){
+              specialityBO = new SpecialityBO();
+          }
+         return specialityBO;
     }
     
     /**

@@ -14,9 +14,18 @@ import java.util.logging.Logger;
  * @author tiendv
  */
 public class ResourceCategoryBO extends ManagerBase<Resourcecategory> {
-
-    public ResourceCategoryBO() throws Exception {
+   
+   public static ResourceCategoryBO resourceCategoryBO = null;
+   public ResourceCategoryBO() throws Exception {
     }
+    public static ResourceCategoryBO getResourceCategoryBO() throws Exception{
+         if (resourceCategoryBO == null ){
+              resourceCategoryBO = new ResourceCategoryBO();
+          }
+         return resourceCategoryBO;
+    }
+    
+     
     
     /**
      * 

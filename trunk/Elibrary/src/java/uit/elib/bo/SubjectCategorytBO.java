@@ -15,9 +15,17 @@ import java.util.logging.Logger;
  */
 public class SubjectCategorytBO extends ManagerBase<Subjectcategory> {
 
+    
+    private static SubjectCategorytBO subjectCategorytBO = null;
     public SubjectCategorytBO() throws Exception {
     }
-    
+
+    public static SubjectCategorytBO getSubjectBO() throws Exception{
+        if(subjectCategorytBO == null){
+            subjectCategorytBO = new SubjectCategorytBO();
+        }
+        return subjectCategorytBO;
+    }
     /**
      * 
      * @return List Subject In Database order by subject ID
