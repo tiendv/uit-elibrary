@@ -17,6 +17,9 @@
     margin: auto;
 
 }
+.cssdropbox {width: 149px;}
+.textbox {width: 140px;}
+.label {width: 148px;}
 .divEditor {
     width: 100%;
     height: 300px;
