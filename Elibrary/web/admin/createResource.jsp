@@ -4,7 +4,7 @@
     Author     : tiendv
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
 <%@page import="uit.elib.entities.Subject"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="uit.elib.bo.ResourceBO"%>
@@ -42,13 +42,13 @@
                     </tr>
                 </table>
                 <%-- Add resource with resource type is chapter (ID =7) --%>
-                <div id="divChapter" class="chapter"  style="display: none">
+                <div  id="divChapter" class="chapter"  style="display: none">
                     <table width="100%" border="0" cellspacing="0" cellpadding="5">
                         <tr>
-                            <td><bean:message key="text.nameChapterUS"/></td>
-                            <td><input name="txtChapterUSName" type="text"/></td>
-                            <td><bean:message key="text.oderChapter"/></td>
-                            <td><input name="txtOderChapter" type="text"/></td>
+                            <td class="label"><bean:message key="text.nameChapterUS"/></td>
+                            <td><input class="textbox" name="txtChapterUSName" type="text"/></td>
+                            <td class="label"><bean:message key="text.oderChapter"/></td>
+                            <td><input class="textbox" name="txtOderChapter" type="text"/></td>
                         </tr>
                         <tr>
                             <td><bean:message key="text.nameSubject"/></td>
@@ -76,25 +76,25 @@
                 <%-- Add resource with resource type is project (ID =6) --%>
 
                 <div id="divProject" class="project" style="display: none">
-                    <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                    <table  border="0" cellspacing="0" cellpadding="5">
                         <tr>
-                            <td><bean:message key="text.projectNameUS"/></td>
-                            <td><input name="txtProjectUSName" type="text"/></td>
-                            <td><bean:message key="text.projectAuthor"/></td>
-                            <td><input name="txtAuthorProject" type="text"/></td>
+                            <td class="label"><bean:message key="text.projectNameUS"/></td>
+                            <td><input class="textbox" name="txtProjectUSName" type="text"/></td>
+                            <td class="label"><bean:message key="text.projectAuthor"/></td>
+                            <td><input  name="txtAuthorProject" type="text"/></td>
                         </tr>
                         <tr>
-                            <td><bean:message key="text.nameSubject"/></td>
+                            <td class="label" ><bean:message key="text.nameSubject"/></td>
                             <td>
                                 <select  name="dropSubjectNameInProject">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
-                                        <option value="${item.subjectId}">${item.subjectName}</option>
+                                        <option value="${item.subjectId}">${item.subjectNameVn}</option>
                                     </c:forEach>
                                 </select>
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="label">
                                  <bean:message key="text.uploadFile"/><input type="file" name="fileProject"/>
                             </td>
                             
@@ -106,19 +106,19 @@
                 <div id="divPictureandReading"  class="pictureandreading" style="display: none">
                     <table width="100%" border="0" cellspacing="0" cellpadding="5">
                         <tr>
-                            <td><bean:message key="text.note"/></td>
+                            <td class="label"><bean:message key="text.note"/></td>
                             <td><input name="txtNote" type="text"/></td>
-                            <td><bean:message key="text.nameSubject"/></td>
+                            <td class="label" ><bean:message key="text.nameSubject"/></td>
                             <td>
                                 <select  name="dropSubjectNameInReadingAndPicture">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
-                                        <option value="${item.subjectId}">${item.subjectName}</option>
+                                        <option value="${item.subjectId}">${item.subjectNameVn}</option>
                                     </c:forEach>       
                                 </select>
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="label">
                                 <bean:message key="text.uploadFile"/><input type="file" name="filePictureReading"/>
                             </td>
                             
@@ -131,29 +131,29 @@
                 <div id="divResourceChapter" class="resourceChapter" style="display: none">
                     <table width="100%" border="0" cellspacing="0" cellpadding="5">
                         <tr>
-                            <td><bean:message key="text.nameSubject"/></td>
+                            <td class="label"><bean:message key="text.nameSubject"/></td>
                             <td>
                                 <select id="dropSubjectNameInResourceChapter" name="dropSubjectNameInResourceChapter">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
-                                        <option value="${item.subjectId}">${item.subjectName}</option>
+                                        <option value="${item.subjectId}">${item.subjectNameVn}</option>
                                     </c:forEach>
                                 </select>
                             </td>
-                            <td><bean:message key="text.orderchapter"/></td>
+                            <td class="label"><bean:message key="text.orderchapter"/></td>
                             <td>
                                 <select id ="txtNote" name="txtNote">
                                 </select>
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="label">
                                 <bean:message key="text.uploadFile"/><input type="file" name="fileResourceChapter"/>
                             </td>
                         </tr>
                     </table>
 
                 </div>
-                 <div style="text-align: left">
+                 <div id="diveButtonCreate" class="buttonCreateResource" style="display: none">
                     <input type="submit" value=<bean:message key="text.buttonCreate" />  />
                 </div>
             </jsp:useBean>
@@ -164,7 +164,10 @@
 <script type="text/javascript">
 
     var selectTypeResource=document.getElementById("dropResourceType");
-    selectTypeResource.onchange=function(){ //run some code when "onchange" event fires
+    selectTypeResource.onchange=function(){ 
+        //run some code when "onchange" event fires
+        document.getElementById("diveButtonCreate").style.display = "block";
+        
         var chosenoption=this.options[this.selectedIndex]; //this refers to "selectmenu"
         if (chosenoption.value=="7"){
             document.getElementById("divChapter").style.display = "block";
@@ -204,7 +207,6 @@
         }).done(function( msg ) {
             document.getElementById("txtNote").innerHTML = msg;
         });
-
 
     }
 

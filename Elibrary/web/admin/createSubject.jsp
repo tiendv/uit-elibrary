@@ -5,7 +5,7 @@
 --%>
 
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -26,7 +26,7 @@
      <jsp:useBean id="subjectSpecialityBO" class="uit.elib.bo.SpecialityBO" scope="page">
        
     <h1> <bean:message key="text.newSubject"/> </h1>
-    <table>
+    <table width="100%">
         <tr>
             <td><bean:message key="text.nameSubject"/></td>
             <td><input name="txtSubjectName" type="text"/></td>
@@ -36,7 +36,7 @@
         <tr>
             <td><bean:message key="text.nameSubjectCategory"/></td>
             <td>
-                <select  name="dropSubjectCategory">
+                <select  name="dropSubjectCategory" class="cssdropbox">
                     <c:forEach items="${subjectCategoryBO.allSubjectCategory}" var="item">
                         <option value="${item.subjectCategoryId}">${item.subjectCategoryName}</option>
                     </c:forEach>
@@ -65,19 +65,24 @@
         </tr>
         <tr>
             <td><bean:message key="text.teacher"/></td>
-            <td><input name="txtTeacherName" type="text"/></td>
+            <td><input name="txtTeacherName" type="text" /></td>
             <td><bean:message key="text.level"/></td>
             <td><input name="txtLevel" type="text"/></td>
         </tr>
         <tr>
             <td><bean:message key="text.faculty"/></td>
             <td>
-               <select  name="dropSubjectFaculty">
+               <select  name="dropSubjectFaculty" class="cssdropbox">
                    <c:forEach items="${subjectSpecialityBO.allSpeciality}" var="item">
                       <option value="${item.specialityId}">${item.specialityName}</option>
                     </c:forEach>
  
                 </select> 
+            </td>
+            <td>
+            </td>
+            <td>
+                
             </td>
         </tr>
     </table>
@@ -114,11 +119,11 @@
             </jsp:attribute>
         </FCK:editor>
     <hr>
-    <div style="text-align: right">
+    <div style="text-align: left">
         <input type="submit" value=<bean:message key="text.buttonCancel"/>  />
         <input type="submit" value=<bean:message key="text.buttonCreate"/>  />
     </div>
     </jsp:useBean>
     </jsp:useBean>
-    </form>>
+    </form>
 </div>
