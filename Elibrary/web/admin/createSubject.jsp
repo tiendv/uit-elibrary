@@ -5,6 +5,8 @@
 --%>
 
 
+<%@page import="org.apache.struts.Globals"%>
+<%@page import="java.util.Locale"%>
 <%@page contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
@@ -14,7 +16,7 @@
 <%@ taglib uri="http://java.fckeditor.net" prefix="FCK" %>
 <%@taglib uri="http://struts.apache.org/tags-html"  prefix="html"%>
 <%@taglib uri="http://struts.apache.org/tags-tiles"  prefix="tiles"%>
-<%@taglib uri="http://struts.apache.org/tags-bean-el" prefix="bean" %>
+<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="java.util.List" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -24,9 +26,13 @@
     <form name="createSubject" method="post" action="CreateSubject.do">
      <jsp:useBean id="subjectCategoryBO" class="uit.elib.bo.SubjectCategorytBO" scope="page">    
      <jsp:useBean id="subjectSpecialityBO" class="uit.elib.bo.SpecialityBO" scope="page">
-       
     <h1> <bean:message key="text.newSubject"/> </h1>
     <table width="100%">
+        <%int language =1; // English
+                    Locale locale = request.getLocale();
+                    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
+                        language = 2; // VietNamese
+        %>
         <tr>
             <td><bean:message key="text.nameSubject"/></td>
             <td><input name="txtSubjectName" type="text"/></td>
@@ -36,11 +42,20 @@
         <tr>
             <td><bean:message key="text.nameSubjectCategory"/></td>
             <td>
-                <select  name="dropSubjectCategory" class="cssdropbox">
-                    <c:forEach items="${subjectCategoryBO.allSubjectCategory}" var="item">
-                        <option value="${item.subjectCategoryId}">${item.subjectCategoryName}</option>
-                    </c:forEach>
-                </select> 
+                <%if(language==1) {%>
+                    <select  name="dropSubjectCategory" class="cssdropbox">
+                        <c:forEach items="${subjectCategoryBO.allSubjectCategory}" var="item">
+                            <option value="${item.subjectCategoryId}">${item.subjectCategoryName}</option>
+                        </c:forEach>
+                    </select> 
+                <%}%>
+                <%if(language==2) {%>
+                    <select  name="dropSubjectCategory" class="cssdropbox">
+                        <c:forEach items="${subjectCategoryBO.allSubjectCategory}" var="item">
+                            <option value="${item.subjectCategoryId}">${item.subjectCategoryNameVn}</option>
+                        </c:forEach>
+                    </select> 
+                <%}%>
             </td>
             <td><bean:message key="text.codeSubject"/></td>
             <td><input name="txtSubjectCode" type="text"/></td>
@@ -72,12 +87,20 @@
         <tr>
             <td><bean:message key="text.faculty"/></td>
             <td>
-               <select  name="dropSubjectFaculty" class="cssdropbox">
-                   <c:forEach items="${subjectSpecialityBO.allSpeciality}" var="item">
-                      <option value="${item.specialityId}">${item.specialityName}</option>
-                    </c:forEach>
- 
-                </select> 
+                <% if(language==1) {%>
+                    <select  name="dropSubjectFaculty" class="cssdropbox">
+                       <c:forEach items="${subjectSpecialityBO.allSpeciality}" var="item">
+                          <option value="${item.specialityId}">${item.specialityName}</option>
+                        </c:forEach>
+                    </select> 
+                <%}%>
+                <% if(language==2) {%>
+                    <select  name="dropSubjectFaculty" class="cssdropbox">
+                       <c:forEach items="${subjectSpecialityBO.allSpeciality}" var="item">
+                          <option value="${item.specialityId}">${item.specialityNameVn}</option>
+                        </c:forEach>
+                    </select> 
+                <%}%>
             </td>
             <td>
             </td>
