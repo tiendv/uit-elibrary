@@ -34,7 +34,8 @@ public class ResourceCategoryBO extends ManagerBase<Resourcecategory> {
     
      public List getAllResourcecategory() {
         try {
-            String[] sort = new String[]{"resourceCategoryId"}; // tang dan
+            String[] sort = new String[1]; // tang dan
+            sort[0]="resourceCategoryId";
             //String[] sort = new String[]{"name desc"}; // giam dan
 
             List<Resourcecategory> list = getBySQLQuery(sort, 0);
