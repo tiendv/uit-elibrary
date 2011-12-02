@@ -46,7 +46,7 @@ public class SubjectBO extends ManagerBase<Subject> {
     }
      /**
       * 
-      * @param id : ID of oject
+      * @param id : ID of object
       * @return Subject with ID
       */
      public Subject getSubjectByID (int id) {
