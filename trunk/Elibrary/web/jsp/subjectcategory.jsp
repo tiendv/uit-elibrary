@@ -35,7 +35,7 @@
         <!-- Bengin load rerource by OrderChapter (ResourceCategoryID= 10, giáo trình) -->
         <%if(resourceCategoryID==10) {%>
         
-        <div><a href="materialPage.do">Giáo Trình</a> > <a href="generalinformationPage.do">Tin Học Đại Cương</a> > Bài Giảng</div>
+        <div><a href="materialPage.do"><bean:message key ="text.menu.subject"/></a> > <a href="generalinformationPage.do">Tin Học Đại Cương</a> > <bean:message key ="text.menu.lecturenote"/></div>
         <table cellspacing="0" style="border: 1px #B4B1A2 solid ; margin-left: 17px " width="738px"  >
             <tr  style="background-color:#B4B1A2; color: #680a12"  height="30px"> <!-- title -->
                 <td width="80px"><bean:message key="text.OrderChapter" /></td>
@@ -95,7 +95,7 @@
         <!--Begin Load Reading ( ResourceCategoryID=9, tài liệu tham khảo) -->
         
         <%if(resourceCategoryID==9) {%>
-        <div><a href="materialPage.do">Giáo Trình</a> > <a href="generalinformationPage.do">Tin Học Đại Cương</a> > Tài liệu tham khảo</div>
+        <div><a href="materialPage.do"><bean:message key ="text.menu.subject"/></a> > <a href="generalinformationPage.do">Tin Học Đại Cương</a> > <bean:message key ="text.menu.reading"/></div>
         <table cellspacing="0" style="border: 1px #B4B1A2 solid ; margin-left: 17px " width="738px" >
             <tr style="background-color:#B4B1A2; color: #680a12"  height="30px">
                 <td width="100px"><bean:message key="text.OrderNumber"/> </td>
@@ -126,7 +126,71 @@
                  <%}%>
             </tr>
          </table>
-        <%}%> <!--End of ResourceCategoryID=9 IF -->
+        <%}%> 
+        
+        
+        
+        <!--End of ResourceCategoryID=9 IF -->
+        
+        
+        
+        <!--Ben gin of ResourceCategoryID = 6 (đồ án môn học) -->
+        
+        <%if(resourceCategoryID==6) {%>
+        <div><a href="materialPage.do"><bean:message key ="text.menu.subject"/></a> > <a href="generalinformationPage.do">Tin Học Đại Cương</a> > <bean:message key ="text.menu.project"/></div>
+        <table cellspacing="0" style="border: 1px #B4B1A2 solid ; margin-left: 17px " width="738px" >
+            <tr style="background-color:#B4B1A2; color: #680a12"  height="30px">
+                <td width="100px"><bean:message key="text.OrderNumber"/> </td>
+                <td width="200px"><bean:message key="text.projectAuthor"/> </td>
+                <td width="328px"><bean:message key="text.projectNameUS"/> </td>
+                <td width="110px"><bean:message key="text.note"/> </td>
+            </tr>
+            <tr><br></br><br></br></tr>
+                <%
+                    int count = 1; //thứ tự
+                    for(int i = 0; i<listResource.size();i++){
+                 %>
+                 <tr>
+                 <td <% if(color%2==0){ %> 
+                                    style="background-color:#E2E1D9"
+                     <%}%>>
+                        <%=count%>
+                 </td>
+                 <td <% if(color%2==0){ %> 
+                                    style="background-color:#E2E1D9"
+                     <%}%>>
+                        <%=listResource.get(i).getAuthor()%>
+                 </td>
+                 <td <% if(color%2==0){ %> 
+                                    style="background-color:#E2E1D9"
+                                <%}%>>
+                     <% if(language==1) {%>
+                        <%=listResource.get(i).getResourceName()%>
+                     <%}%>
+                     <% if(language==2) {%>
+                        <%=listResource.get(i).getResourceNameVn()%>
+                     <%}%>
+                 </td>
+                 <td <% if(color%2==0){ %> 
+                                    style="background-color:#E2E1D9"
+                                <%}%>>
+                     <% if(language==1) {%>
+                        <%=listResource.get(i).getSummary()%>
+                     <%}%>
+                     <% if(language==2) {%>
+                        <%=listResource.get(i).getSummaryVn()%>
+                     <%}%>
+                 </td>
+                 <% count++;%>
+                 <%color++;%>
+                 <%}%>
+            </tr>
+         </table>
+        <%}%>
+        
+        
+        <!--End of ResourceCategoryID=6( đồ án môn học) IF -->
+        
         
     </body>
 </html>

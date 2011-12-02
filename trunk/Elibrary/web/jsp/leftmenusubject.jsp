@@ -22,7 +22,7 @@
             <td class="leftmenu_td_link"><a href="#"><bean:message  key="text.menu.syllabus"/></a></td>
           </tr>
           <tr>
-            <td class="leftmenu_td_link"><a href="LoadLectureNote.do"><bean:message  key="text.menu.lecturenote"/></a></td>
+            <td class="leftmenu_td_link"><a href="SubjectCategory.do"><bean:message  key="text.menu.lecturenote"/></a></td>
           </tr>
           <tr>
             <td class="leftmenu_td_link"><a href="#"><bean:message  key="text.menu.reading"/></a></td>
