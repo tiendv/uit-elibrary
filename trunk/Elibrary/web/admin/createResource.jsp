@@ -4,7 +4,9 @@
     Author     : tiendv
 --%>
 
-<%@page contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
+
+<%@page import="org.apache.struts.Globals"%>
+<%@page import="java.util.Locale"%>
 <%@page import="uit.elib.entities.Subject"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="uit.elib.bo.ResourceBO"%>
@@ -12,7 +14,7 @@
 <%@ taglib uri="http://java.fckeditor.net" prefix="FCK" %>
 <%@taglib uri="http://struts.apache.org/tags-html"  prefix="html"%>
 <%@taglib uri="http://struts.apache.org/tags-tiles"  prefix="tiles"%>
-<%@taglib uri="http://struts.apache.org/tags-bean-el" prefix="bean" %>
+<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="java.util.List" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -23,7 +25,11 @@
         <jsp:useBean id="resourceTypeBO" class="uit.elib.bo.ResourceCategoryBO" scope="page">
         <jsp:useBean id="subjectBO" class="uit.elib.bo.SubjectBO" scope="page">
         <jsp:useBean id="resourceBO" class="uit.elib.bo.ResourceBO" scope="page">
-            
+                <%int language =1; // English
+                    Locale locale = request.getLocale();
+                    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
+                        language = 2; // VietNamese
+                %>
                 <input id="hiddenResourceType" name="hiddenResourceType" type="hidden"/>
                 <input id="hiddenSubjectSelectInResourceChapter" name="hiddenSubjectSelectInResourceChapter" type="hidden"/>
                 <h2> <bean:message key="text.chosetypeofresourced"/></h2>
@@ -33,11 +39,20 @@
                         <td><input name="txtResourceName" type="text"/></td>
                         <td><bean:message key="text.typeofResource"/></td>
                         <td>
+                            <%if(language==1) {%>
                             <select id="dropResourceType"  name="dropResourceType">
                                 <c:forEach items="${resourceTypeBO.allResourcecategory}" var="item">
                                     <option value="${item.resourceCategoryId}">${item.resourceCategoryName}</option>
                                 </c:forEach>
                             </select>
+                            <%}%>
+                            <%if(language==2) {%>
+                            <select id="dropResourceType"  name="dropResourceType">
+                                <c:forEach items="${resourceTypeBO.allResourcecategory}" var="item">
+                                    <option value="${item.resourceCategoryId}">${item.resourceCategoryNameVn}</option>
+                                </c:forEach>
+                            </select>
+                            <%}%>
                         </td>
                     </tr>
                 </table>
@@ -53,11 +68,20 @@
                         <tr>
                             <td><bean:message key="text.nameSubject"/></td>
                             <td>
+                                <%if(language==1) {%>
                                 <select  name="dropSubjectNameInChapter">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectName}</option>
                                     </c:forEach>
                                 </select>
+                                <%}%>
+                                <%if(language==2) {%>
+                                <select  name="dropSubjectNameInChapter">
+                                    <c:forEach items="${subjectBO.allSubject}" var="item">
+                                        <option value="${item.subjectId}">${item.subjectNameVn}</option>
+                                    </c:forEach>
+                                </select>
+                                <%}%>
                             </td>
                         </tr>
                     </table>
@@ -86,11 +110,20 @@
                         <tr>
                             <td class="label" ><bean:message key="text.nameSubject"/></td>
                             <td>
-                                <select  name="dropSubjectNameInProject">
+                                <%if(language==1) {%>
+                                <select  name="dropSubjectNameInChapter">
+                                    <c:forEach items="${subjectBO.allSubject}" var="item">
+                                        <option value="${item.subjectId}">${item.subjectName}</option>
+                                    </c:forEach>
+                                </select>
+                                <%}%>
+                                <%if(language==2) {%>
+                                <select  name="dropSubjectNameInChapter">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameVn}</option>
                                     </c:forEach>
                                 </select>
+                                <%}%>
                             </td>
                         </tr>
                         <tr>
@@ -110,11 +143,20 @@
                             <td><input name="txtNote" type="text"/></td>
                             <td class="label" ><bean:message key="text.nameSubject"/></td>
                             <td>
-                                <select  name="dropSubjectNameInReadingAndPicture">
+                                <%if(language==1) {%>
+                                <select  name="dropSubjectNameInChapter">
+                                    <c:forEach items="${subjectBO.allSubject}" var="item">
+                                        <option value="${item.subjectId}">${item.subjectName}</option>
+                                    </c:forEach>
+                                </select>
+                                <%}%>
+                                <%if(language==2) {%>
+                                <select  name="dropSubjectNameInChapter">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameVn}</option>
-                                    </c:forEach>       
+                                    </c:forEach>
                                 </select>
+                                <%}%>
                             </td>
                         </tr>
                         <tr>
@@ -133,11 +175,20 @@
                         <tr>
                             <td class="label"><bean:message key="text.nameSubject"/></td>
                             <td>
-                                <select id="dropSubjectNameInResourceChapter" name="dropSubjectNameInResourceChapter">
+                                <%if(language==1) {%>
+                                <select  name="dropSubjectNameInChapter">
+                                    <c:forEach items="${subjectBO.allSubject}" var="item">
+                                        <option value="${item.subjectId}">${item.subjectName}</option>
+                                    </c:forEach>
+                                </select>
+                                <%}%>
+                                <%if(language==2) {%>
+                                <select  name="dropSubjectNameInChapter">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameVn}</option>
                                     </c:forEach>
                                 </select>
+                                <%}%>
                             </td>
                             <td class="label"><bean:message key="text.orderchapter"/></td>
                             <td>
