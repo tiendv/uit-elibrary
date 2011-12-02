@@ -24,16 +24,13 @@
         <action input="/" name="CreateSubjectActionForm" path="/CreateSubject" scope="session" type="uit.elib.action.CreateSubjectAction">
             <forward name="success" path="/Welcome.do"/>
         </action>
-
         <action path="/LoadSubject" type="uit.elib.action.LoadSubjectAction">           
             <forward name="success" path=".loadSubject"/>
         </action>
-        <action path="/LoadLectureNote" type="uit.elib.action.LoadInfoSubjectAction">           
-            <forward name="success" path=".loadLectureNote"/>
+        <action path="/SubjectCategory" type="uit.elib.action.LoadSubjectCategoryAction">           
+            <forward name="success" path=".loadSubjectCategory"/>
         </action>
-        <action path="/LoadProject" type="uit.elib.action.LoadInfoSubjectAction">           
-            <forward name="success" path=".loadProject"/>
-        </action>
+
 
         <action path="/DownLoad" type="uit.elib.action.DownLoadAction"/>  
         <action input="/admin/createResource.jsp" name="CreateResourceActionForm" path="/CreateResource" scope="session" type="uit.elib.action.CreateResourceAction"/>
