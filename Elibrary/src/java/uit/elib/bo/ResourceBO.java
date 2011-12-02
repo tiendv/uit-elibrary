@@ -31,7 +31,17 @@ public class ResourceBO extends ManagerBase<Resource> {
      * 
      * @return List Subject In Database order by subject ID
      */
-    
+      public List getAllResource(String where,String [] sort) {
+        try {
+
+            List<Resource> list = getBySQLQuery(where, sort, 0);
+            return list;
+
+        } catch (Exception ex) {
+            Logger.getLogger(Subject.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+     }    
       public List getAllResource() {
         try {
             String[] sort = new String[]{"resourceId"}; // tang dan

@@ -37,20 +37,20 @@
                 <td width="250px" style="color: #680a12">              
                         <img src="image/black-arrow.gif" width="3" height="5" alt="black-arrow"/>
                         <% if(language==1) { %>
-                            <a href =<%=href%> > <%=listSubject.get(i).getSubjectName()%>  </a> <!--English Subject Name-->
+                            <a href =<%=href%> style="color:#680a12 " > <%=listSubject.get(i).getSubjectName()%>  </a> <!--English Subject Name-->
                         <% } %> 
                         <% if(language==2) {%>
-                            <a href =<%=href%> ><%=listSubject.get(i).getSubjectNameVn()%> </a> <!--Vietnamese Subject Name-->
+                            <a href =<%=href%> style="color:#680a12 " ><%=listSubject.get(i).getSubjectNameVn()%> </a> <!--Vietnamese Subject Name-->
                         <% } %>                         
                 </td>
                 <td width="250px" style="color: #680a12">
                     <% if(i+1<listSubject.size()){ %>
                         <img src="image/black-arrow.gif" width="3" height="5" alt="black-arrow"/>
                         <% if(language==1) {%>
-                            <a href =<%=href%> > <%=listSubject.get(i+1).getSubjectName()%> </a> <!--English Subject Name-->
+                            <a href =<%=href%> style="color:#680a12 " > <%=listSubject.get(i+1).getSubjectName()%> </a> <!--English Subject Name-->
                         <% } %> 
                         <% if(language==2) {%>
-                            <a href =<%=href%> > <%=listSubject.get(i+1).getSubjectNameVn()%> </a> <!--Vietnamese Subject Name-->
+                            <a href =<%=href%> style="color:#680a12 " > <%=listSubject.get(i+1).getSubjectNameVn()%> </a> <!--Vietnamese Subject Name-->
                         <% } %>
                          
                     <% } %>    
@@ -102,28 +102,53 @@
                     listResource = (List<Resource>)request.getAttribute("listResource");
                 %> 
                     <%  int j=0;
-                        for(int i=0;i<listSubject.size();i++) {%>
+                        for(int i=0;i<listSubject.size();i++) {
+                            String href="./SubjectHome.do?subjectID="+listSubject.get(i).getSubjectId();
+                    %>
                             <% if(language==1) {%>
                                 <div  style=" font-size: 12px; margin-left: 17px ; padding-top: 7px; padding-bottom:2px;  font-weight: bold; color: #680a12">
-                                    <u><a name=<%=listSubject.get(i).getSubjectId()%>><%=listSubject.get(i).getSubjectName() %></a></u> <!--English Subject Name-->
+                                    <u><a href =<%=href%> name=<%=listSubject.get(i).getSubjectId()%> style="color:#680a12"><%=listSubject.get(i).getSubjectName() %></a></u> <!--English Subject Name-->
                                 </div>    
                             <% } %> 
                             <% if(language==2) {%>
                                 <div style="font-size: 12px; margin-left: 17px ; padding-top: 7px; padding-bottom:2px; font-weight: bold; color: #680a12">
-                                    <u><a name=<%=listSubject.get(i).getSubjectId()%>><%=listSubject.get(i).getSubjectNameVn() %></a></u> <!--Vietnamese Subject Name-->
+                                    <u><a href =<%=href%> name=<%=listSubject.get(i).getSubjectId()%> style="color:#680a12" ><%=listSubject.get(i).getSubjectNameVn() %></a></u> <!--Vietnamese Subject Name-->
                                 </div>    
                             <% } %>
                     <table cellspacing="0" style="border: 1px #B4B1A2 solid ; margin-left: 17px " width="504px"  >
                         <tr style="background-color:#B4B1A2">
-                            <td></td><td></td>
-                            <td style="font-weight: bold "><bean:message key="text.oderChapter"/></td>
-                            <td style="font-weight: bold"><bean:message key="text.resourceName"/></td>
+                            <td width="40px"></td><td width="140px"></td>
+                            <td width="70px" style="font-weight: bold "><bean:message key="text.oderChapter"/></td>
+                            <td width="354px" style="font-weight: bold"><bean:message key="text.resourceName"/></td>
                         </tr>
                         <% int color =0; %>
                         <% for(;j<listResource.size();j++) {%>
+                        
+                             <%
+                                int lecture =-1;
+                                int []arrayIcon = new int[11] ;
+                                for(int a=0;a<11;a++)
+                                    arrayIcon[a]=0;
+                                int chapter = listResource.get(j).getOderChapter();
+                                while(chapter==listResource.get(j).getOderChapter()){
+                                    if(listResource.get(j).getResourcecategory().getResourceCategoryId()==7)
+                                        lecture=j;
+                                    else
+                                        arrayIcon[listResource.get(j).getResourcecategory().getResourceCategoryId()-1]=1;
+                                    
+                                        
+                                j++;
+                                if(j>=listResource.size()||!listSubject.get(i).getSubjectId().equals(listResource.get(j).getSubject().getSubjectId()))
+                                    break;
+                                }
+                                if(lecture==-1)
+                                    break;
+                                j--;
+                            %>                       
                         <tr>
                             <% Date date = new Date(); 
                                boolean oneMonth = false;
+                               
                                if(listResource.get(j).getPostDate()!=null)
                                {
                                    long time= date.getTime()- listResource.get(j).getPostDate().getTime(); // time = today - postdate
@@ -141,53 +166,56 @@
                                     <img src="image/new-icon.gif" width="18" height="5" alt="new-icon"/> <!-- new icon  -->
                                 <% } %>
                             </td>
-                            <td width="40px" 
+
+                            <td width="140px" 
                                 <% if(color%2==0){ %>
                                     style="background-color:#E2E1D9"<%}%>>
-                                <div class="displayIcon"> 
-                                <% int resourceCategoryId = listResource.get(j).getResourcecategory().getResourceCategoryId() ;%>                           
+                                <div class="displayIcon">
+                                <%
+                                for(int a=0;a<11;a++){
+                                    int resourceCategoryId = -1;
+                                    if(arrayIcon[a]==1)
+                                    resourceCategoryId=a+1 ;
+                                %>                           
                                 <% if(resourceCategoryId==1 ){ %>                            
-				    <a  href = <%="./DownLoad.do?resourceID="+ listResource.get(j).getResourceId()%> alt=" Lecture notes" class="lectureNotes" title="Lecture notes"></a><% } %>
+				    <a  href = <%="./SubjectCategory.do?resourceID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+1+"&"+"oderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Lecture notes" class="lectureNotes" title="Lecture notes"></a><% } %>
                                 <% if(resourceCategoryId==2 ){ %>
-                                    <a  href = <%="./DownLoad.do?resourceID="+ listResource.get(j).getResourceId()%> alt=" Projects and examples" class="projectsExample" title="Projects and examples"></a><% } %>
+                                    <a  href = <%="./SubjectCategory.do?resourceID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+2+"&"+"oderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Projects and examples" class="projectsExample" title="Projects and examples"></a><% } %>
                                 <% if(resourceCategoryId==3 ){ %>
-                                    <a  href = <%="./DownLoad.do?resourceID="+ listResource.get(j).getResourceId()%> alt=" Image Galleries" class="imageGallery" title="Image Galleries"></a><% } %>
+                                    <a  href = <%="./SubjectCategory.do?resourceID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+3+"&"+"oderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Image Galleries" class="imageGallery" title="Image Galleries"></a><% } %>
                                 <% if(resourceCategoryId==4 ){ %>
-	                            <a  href = <%="./DownLoad.do?resourceID="+ listResource.get(j).getResourceId()%> alt=" Selected lecture notes" class="SelectedLectureNotes" title="Selected lecture notes"></a><% } %>
+	                            <a  href = <%="./SubjectCategory.do?resourceID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+4+"&"+"oderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Selected lecture notes" class="SelectedLectureNotes" title="Selected lecture notes"></a><% } %>
                                 <% if(resourceCategoryId==5 ){ %>
-	                            <a  href = <%="./DownLoad.do?resourceID="+ listResource.get(j).getResourceId()%> alt=" Projects (no examples)" class="projectsNoExample" title="Projects (no examples)"></a>  <% } %>
+	                            <a  href = <%="./SubjectCategory.do?resourceID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+5+"&"+"oderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Projects (no examples)" class="projectsNoExample" title="Projects (no examples)"></a>  <% } %>
                                 <% if(resourceCategoryId==6 ){ %>
-	                            <a  href = <%="./DownLoad.do?resourceID="+ listResource.get(j).getResourceId()%> alt=" Multimedia content" class="multimediaContent" title="Multimedia content"></a>  <% } %>
+	                            <a  href = <%="./SubjectCategory.do?resourceID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+6+"&"+"oderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Multimedia content" class="multimediaContent" title="Multimedia content"></a>  <% } %>
                                 <% if(resourceCategoryId==7 ){ %>
-	                            <a  href = <%="./DownLoad.do?resourceID="+ listResource.get(j).getResourceId()%> alt=" Assignments and solutions" href="#" class="assignmentsSolutions" title="Assignments and solutions"></a><% } %>
+	                            <a  href = <%="./SubjectCategory.do?resourceID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+7+"&"+"oderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Assignments and solutions" href="#" class="assignmentsSolutions" title="Assignments and solutions"></a><% } %>
                                 <% if(resourceCategoryId==8 ){ %>
-	                            <a  href = <%="./DownLoad.do?resourceID="+ listResource.get(j).getResourceId()%> alt=" Exams and solutions" class="examsSolutions" title="Exams and solutions"></a>   <% } %>
+	                            <a  href = <%="./SubjectCategory.do?resourceID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+8+"&"+"oderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Exams and solutions" class="examsSolutions" title="Exams and solutions"></a>   <% } %>
                                 <% if(resourceCategoryId==9 ){ %>
-	                            <a  href = <%="./DownLoad.do?resourceID="+ listResource.get(j).getResourceId()%> alt=" OCW Scholar" class="ocwScholar" title="OCW Scholar"></a><% } %>
+	                            <a  href = <%="./SubjectCategory.do?resourceID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+9+"&"+"oderChapter="+listResource.get(lecture).getOderChapter() %> alt=" OCW Scholar" class="ocwScholar" title="OCW Scholar"></a><% } %>
                                 <% if(resourceCategoryId==10 ){ %>
-	                            <a  href = <%="./DownLoad.do?resourceID="+ listResource.get(j).getResourceId()%> alt=" Assignments (no solutions)" class="assignmentsNoSolution" title="Assignments (no solutions)"></a> <% } %>
+	                            <a  href = <%="./SubjectCategory.do?resourceID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+10+"&"+"oderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Assignments (no solutions)" class="assignmentsNoSolution" title="Assignments (no solutions)"></a> <% } %>
                                 <% if(resourceCategoryId==11 ){ %>
-	                            <a  href = <%="./DownLoad.do?resourceID="+ listResource.get(j).getResourceId()%> alt=" Exams (no solutions)" class="examNoSolution" title="Exams (no solutions)"></a>   <% } %>
-                                <% if(resourceCategoryId==12 ){ %>
-	                            <a  href = <%="./DownLoad.do?resourceID="+ listResource.get(j).getResourceId()%> alt=" Study group" class="openStudy" title="Study group"></a>    <% } %>
-                                <% if(resourceCategoryId==13 ){ %>
-	                            <a  href = <%="./DownLoad.do?resourceID="+ listResource.get(j).getResourceId()%> alt=" Online textbooks" class="onlineTextBooks" title="Online textbooks"></a>  <% } %>
-                                 </div> 
-                            </td>                    
-                                <td width="54px"              
+	                            <a  href = <%="./SubjectCategory.do?resourceID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+11+"&"+"oderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Exams (no solutions)" class="examNoSolution" title="Exams (no solutions)"></a>   <% } %>
+                                <%}%>       
+                                </div> 
+                            </td>
+                                <td width="70px"              
                                         style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
-                                    <%=listResource.get(j).getOderChapter() %> <!--Chapter-->
+                                    <%=listResource.get(lecture).getOderChapter() %> <!--Chapter-->
                                 </td>  
                             <% if(language==1) {%>                              
-                                <td width="470px"              
+                                <td width="354px"              
                                         style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
-                                    <%=listResource.get(j).getResourceName() %> <!--English Resource Name-->
+                                    <%=listResource.get(lecture).getResourceName() %> <!--English Resource Name-->
                                 </td>
                             <% } %> 
                             <% if(language==2) {%>                               
-                                <td width="470px"                           
+                                <td width="354px"                           
                                     style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
-                                    <%=listResource.get(j).getResourceNameVn() %> <!--Vietnamese Resource Name-->
+                                    <%=listResource.get(lecture).getResourceNameVn() %> <!--Vietnamese Resource Name-->
                                 </td>
                             <% } %>
                             <% } %>
