@@ -5,6 +5,7 @@
 --%>
 
 <%@page import="uit.elib.entities.Resource"%>
+<%@page import="uit.elib.entities.Subject" %>
 <%@page import="org.apache.struts.Globals"%>
 <%@page import="java.util.Locale"%>
 <%@page import="java.util.List"%>
@@ -43,7 +44,6 @@
                 <td width="330px"><bean:message key="text.Summary" /></td>
                 <td width="98px"><bean:message key="text.Document" /></td>
             </tr>
-            <tr><br></br><br></br></tr>
         <% 
                     
                     for(int i = 0; i<listChapter.size();i++){
@@ -101,7 +101,6 @@
                 <td width="100px"><bean:message key="text.OrderNumber"/> </td>
                 <td width="638px"><bean:message key="text.Document"/> </td>
             </tr>
-            <tr><br></br><br></br></tr>
                 <%
                     int count = 1; //thứ tự
                     for(int i = 0; i<listResource.size();i++){
@@ -134,10 +133,21 @@
         
         
         
-        <!--Ben gin of ResourceCategoryID = 6 (đồ án môn học) -->
+        <!--Begin of ResourceCategoryID = 6 (đồ án môn học) -->
         
         <%if(resourceCategoryID==6) {%>
+        <% Subject subject = (Subject)request.getAttribute("subject");%>
         <div><a href="materialPage.do"><bean:message key ="text.menu.subject"/></a> > <a href="generalinformationPage.do">Tin Học Đại Cương</a> > <bean:message key ="text.menu.project"/></div>
+        
+        <div><a><h2><bean:message key="text.ProjectRequirementTitle"/>:</h2></a></div>
+        <% if(language==1){%>
+            <%=subject.getProjectRequitementUs()%>
+        <%}%>
+        <% if(language==2){%>
+            <%=subject.getProjectRequitement()%>
+        <%}%>
+        
+        <div><a><h2><bean:message key="text.ListTemplateProject"/></h2></a></div>
         <table cellspacing="0" style="border: 1px #B4B1A2 solid ; margin-left: 17px " width="738px" >
             <tr style="background-color:#B4B1A2; color: #680a12"  height="30px">
                 <td width="100px"><bean:message key="text.OrderNumber"/> </td>
@@ -145,7 +155,6 @@
                 <td width="328px"><bean:message key="text.projectNameUS"/> </td>
                 <td width="110px"><bean:message key="text.note"/> </td>
             </tr>
-            <tr><br></br><br></br></tr>
                 <%
                     int count = 1; //thứ tự
                     for(int i = 0; i<listResource.size();i++){
