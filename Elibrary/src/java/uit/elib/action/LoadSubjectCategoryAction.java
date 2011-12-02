@@ -24,9 +24,11 @@ public class LoadSubjectCategoryAction extends org.apache.struts.action.Action{
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        int subjectID =Integer.parseInt(request.getParameter("subjectID"));
-        int resourcecategoryID =Integer.parseInt(request.getParameter("resourceCategoryID"));
-        int orderChapter = Integer.parseInt(request.getParameter("orderChapter"));
+        
+        int subjectID, resourcecategoryID, orderChapter ;
+        subjectID =Integer.parseInt(request.getParameter("subjectID"));
+        resourcecategoryID =Integer.parseInt(request.getParameter("resourceCategoryID"));
+        orderChapter = Integer.parseInt(request.getParameter("orderChapter"));
         ResourceBO tempResourceBO = new ResourceBO();
         List<Resource> listResource = new ArrayList<Resource>(); // danh sách tài nguyên của
         List<Resource> listChapter = new ArrayList<Resource>(); // danh sách chương của môn học
