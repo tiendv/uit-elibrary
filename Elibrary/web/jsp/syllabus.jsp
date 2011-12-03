@@ -23,13 +23,14 @@
             if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
                 language=2; // VietNamese            
         %>
-        <div style="padding-left: 10px"><a href= "LoadSubject.do"><bean:message key="text.menu.subject"/></a> > 
+        <div style="padding-left: 10px"><a href= "LoadSubject.do"><bean:message key="text.menu.subject"/></a> ><a href="SubjectHome.do?subjectID=<%=subject.getSubjectId()%>"> 
         <%if(language==1) {%>
             <%=subject.getSubjectName()%> 
         <%}%>
         <%if(language==2) {%>
             <%=subject.getSubjectNameVn()%> 
         <%}%>
+            </a>
         > <bean:message key="text.menu.syllabus"/></div>
         
         <%if(language==1) {%>

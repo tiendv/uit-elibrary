@@ -24,6 +24,7 @@
                     listResource = (List<Resource>)request.getAttribute("listResource");
                     listChapter = (List<Resource>)request.getAttribute("listChapter");
                     int orderChapter = Integer.parseInt(request.getAttribute("orderChapter").toString());
+                    Subject subject =(Subject)request.getAttribute("subject"); // lấy thông tin môn học
                     int subjectID = Integer.parseInt(request.getAttribute("subjectID").toString());
                     int resourceCategoryID = Integer.parseInt(request.getAttribute("resourceCategoryID").toString());
                     int language =1; // English
@@ -36,7 +37,13 @@
         <!-- Bengin load rerource by OrderChapter (ResourceCategoryID= 10, giáo trình) -->
         <%if(resourceCategoryID==10) {%>
         
-        <div><a href="LoadSubject.do"><bean:message key ="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">Tin Học Đại Cương</a> > <bean:message key ="text.menu.lecturenote"/></div>
+        <div><a href="LoadSubject.do"><bean:message key ="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
+                <% if(language==1){%>
+                    <%=subject.getSubjectName()%>
+                <%}if(language==2){%>
+                    <%=subject.getSubjectNameVn()%>
+                    <%}%>
+            </a> > <bean:message key ="text.menu.lecturenote"/></div>
         <table cellspacing="0" style="border: 1px #B4B1A2 solid ; margin-left: 17px " width="738px"  >
             <tr  style="background-color:#B4B1A2; color: #680a12"  height="30px"> <!-- title -->
                 <td width="80px"><bean:message key="text.OrderChapter" /></td>
@@ -95,7 +102,13 @@
         <!--Begin Load Reading ( ResourceCategoryID=9, tài liệu tham khảo) -->
         
         <%if(resourceCategoryID==9) {%>
-        <div><a href="Loadsubject.do"><bean:message key ="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">Tin Học Đại Cương</a> > <bean:message key ="text.menu.reading"/></div>
+        <div><a href="Loadsubject.do"><bean:message key ="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
+            <% if(language==1){%>
+                    <%=subject.getSubjectName()%>
+            <%}if(language==2){%>
+                    <%=subject.getSubjectNameVn()%>
+            <%}%>
+            </a> > <bean:message key ="text.menu.reading"/></div>
         <table cellspacing="0" style="border: 1px #B4B1A2 solid ; margin-left: 17px " width="738px" >
             <tr style="background-color:#B4B1A2; color: #680a12"  height="30px">
                 <td width="100px"><bean:message key="text.OrderNumber"/> </td>
@@ -136,8 +149,13 @@
         <!--Begin of ResourceCategoryID = 6 (đồ án môn học) -->
         
         <%if(resourceCategoryID==6) {%>
-        <% Subject subject = (Subject)request.getAttribute("subject");%>
-        <div><a href="LoadSubject.do"><bean:message key ="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">Tin Học Đại Cương</a> > <bean:message key ="text.menu.project"/></div>
+        <div><a href="LoadSubject.do"><bean:message key ="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
+            <% if(language==1){%>
+                    <%=subject.getSubjectName()%>
+            <%}if(language==2){%>
+                    <%=subject.getSubjectNameVn()%>
+            <%}%>
+            </a> > <bean:message key ="text.menu.project"/></div>
         
         <div><a><h2><bean:message key="text.ProjectRequirementTitle"/>:</h2></a></div>
         <% if(language==1){%>
