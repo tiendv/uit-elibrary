@@ -178,27 +178,27 @@
                                     resourceCategoryId=a+1 ;
                                 %>                           
                                 <% if(resourceCategoryId==1 ){ %>                            
-				    <a  href = <%="./SubjectCategory.do?resourceID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+1+"&"+"oderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Lecture notes" class="lectureNotes" title="Lecture notes"></a><% } %>
+				    <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+1+"&"+"orderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Lecture notes" class="lectureNotes" title="Lecture notes"></a><% } %>
                                 <% if(resourceCategoryId==2 ){ %>
-                                    <a  href = <%="./SubjectCategory.do?resourceID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+2+"&"+"oderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Projects and examples" class="projectsExample" title="Projects and examples"></a><% } %>
+                                    <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+2+"&"+"orderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Projects and examples" class="projectsExample" title="Projects and examples"></a><% } %>
                                 <% if(resourceCategoryId==3 ){ %>
-                                    <a  href = <%="./SubjectCategory.do?resourceID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+3+"&"+"oderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Image Galleries" class="imageGallery" title="Image Galleries"></a><% } %>
+                                    <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+3+"&"+"orderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Image Galleries" class="imageGallery" title="Image Galleries"></a><% } %>
                                 <% if(resourceCategoryId==4 ){ %>
-	                            <a  href = <%="./SubjectCategory.do?resourceID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+4+"&"+"oderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Selected lecture notes" class="SelectedLectureNotes" title="Selected lecture notes"></a><% } %>
+	                            <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+4+"&"+"orderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Selected lecture notes" class="SelectedLectureNotes" title="Selected lecture notes"></a><% } %>
                                 <% if(resourceCategoryId==5 ){ %>
-	                            <a  href = <%="./SubjectCategory.do?resourceID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+5+"&"+"oderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Projects (no examples)" class="projectsNoExample" title="Projects (no examples)"></a>  <% } %>
+	                            <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+5+"&"+"orderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Projects (no examples)" class="projectsNoExample" title="Projects (no examples)"></a>  <% } %>
                                 <% if(resourceCategoryId==6 ){ %>
-	                            <a  href = <%="./SubjectCategory.do?resourceID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+6+"&"+"oderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Multimedia content" class="multimediaContent" title="Multimedia content"></a>  <% } %>
+	                            <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+6+"&"+"orderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Multimedia content" class="multimediaContent" title="Multimedia content"></a>  <% } %>
                                 <% if(resourceCategoryId==7 ){ %>
-	                            <a  href = <%="./SubjectCategory.do?resourceID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+7+"&"+"oderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Assignments and solutions" href="#" class="assignmentsSolutions" title="Assignments and solutions"></a><% } %>
+	                            <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+7+"&"+"orderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Assignments and solutions" href="#" class="assignmentsSolutions" title="Assignments and solutions"></a><% } %>
                                 <% if(resourceCategoryId==8 ){ %>
-	                            <a  href = <%="./SubjectCategory.do?resourceID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+8+"&"+"oderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Exams and solutions" class="examsSolutions" title="Exams and solutions"></a>   <% } %>
+	                            <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+8+"&"+"orderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Exams and solutions" class="examsSolutions" title="Exams and solutions"></a>   <% } %>
                                 <% if(resourceCategoryId==9 ){ %>
-	                            <a  href = <%="./SubjectCategory.do?resourceID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+9+"&"+"oderChapter="+listResource.get(lecture).getOderChapter() %> alt=" OCW Scholar" class="ocwScholar" title="OCW Scholar"></a><% } %>
+	                            <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+9+"&"+"orderChapter="+listResource.get(lecture).getOderChapter() %> alt=" OCW Scholar" class="ocwScholar" title="OCW Scholar"></a><% } %>
                                 <% if(resourceCategoryId==10 ){ %>
-	                            <a  href = <%="./SubjectCategory.do?resourceID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+10+"&"+"oderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Assignments (no solutions)" class="assignmentsNoSolution" title="Assignments (no solutions)"></a> <% } %>
+	                            <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+10+"&"+"orderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Assignments (no solutions)" class="assignmentsNoSolution" title="Assignments (no solutions)"></a> <% } %>
                                 <% if(resourceCategoryId==11 ){ %>
-	                            <a  href = <%="./SubjectCategory.do?resourceID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+11+"&"+"oderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Exams (no solutions)" class="examNoSolution" title="Exams (no solutions)"></a>   <% } %>
+	                            <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+11+"&"+"orderChapter="+listResource.get(lecture).getOderChapter() %> alt=" Exams (no solutions)" class="examNoSolution" title="Exams (no solutions)"></a>   <% } %>
                                 <%}%>       
                                 </div> 
                             </td>
