@@ -69,14 +69,14 @@
                             <td><bean:message key="text.nameSubject"/></td>
                             <td>
                                 <%if(language==1) {%>
-                                <select  name="dropSubjectNameInChapter">
+                                <select  id="dropSubjectNameInChapter">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectName}</option>
                                     </c:forEach>
                                 </select>
                                 <%}%>
                                 <%if(language==2) {%>
-                                <select  name="dropSubjectNameInChapter">
+                                <select  id="dropSubjectNameInChapter">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameVn}</option>
                                     </c:forEach>
@@ -176,14 +176,14 @@
                             <td class="label"><bean:message key="text.nameSubject"/></td>
                             <td>
                                 <%if(language==1) {%>
-                                <select  name="dropSubjectNameInChapter">
+                                <select id="dropSubjectName" name="dropSubjectName">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectName}</option>
                                     </c:forEach>
                                 </select>
                                 <%}%>
                                 <%if(language==2) {%>
-                                <select  name="dropSubjectNameInChapter">
+                                <select id="dropSubjectName"  name="dropSubjectName">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameVn}</option>
                                     </c:forEach>
@@ -205,7 +205,7 @@
 
                 </div>
                  <div id="diveButtonCreate" class="buttonCreateResource" style="display: none">
-                    <input type="submit" value=<bean:message key="text.buttonCreate" />  />
+                    <input type="submit"  value=<bean:message key="text.buttonCreate" />  />
                 </div>
             </jsp:useBean>
         </jsp:useBean>
@@ -243,14 +243,22 @@
             document.getElementById("divProject").style.display = "none";
             document.getElementById("divChapter").style.display = "none";
             document.getElementById("divPictureandReading").style.display = "none";
+            var id = document.getElementById("dropSubjectName").value;
+            $.ajax({
+                type: "POST",
+                url: "AjaxGetChapterBySubjectID.do",
+                data: "id="+id
+            }).done(function( msg ) {
+                document.getElementById("txtNote").innerHTML = msg;
+            });            
         }
         
         document.getElementById("hiddenResourceType").value=chosenoption.value;
     }
     
-    var selectTypeResource=document.getElementById("dropSubjectNameInResourceChapter");
+    var selectTypeResource=document.getElementById("dropSubjectName");
     selectTypeResource.onchange=function(){ //run some code when "onchange" event fires
-        var id = document.getElementById("dropSubjectNameInResourceChapter").value;
+        var id = document.getElementById("dropSubjectName").value;
         $.ajax({
             type: "POST",
             url: "AjaxGetChapterBySubjectID.do",
