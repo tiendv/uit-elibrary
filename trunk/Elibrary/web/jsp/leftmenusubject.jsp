@@ -4,7 +4,9 @@
     Author     : tiendv
 --%>
 
+<%@page import="uit.elib.utility.IsNumber"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="uit.elib.utility.IsNumber" %>
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <!DOCTYPE html>
@@ -13,22 +15,31 @@
             <td >&nbsp;</td>
           </tr>
         <tr>
- <td  class="leftmenu_td_title">Nội dung</td>
- 	        </tr>
-                <%
-                int subjectID, resourcecategoryID, orderChapter ;
-                subjectID =Integer.parseInt(request.getParameter("subjectID")); // lấy giá trị của subjectID từ action truyền qua
-                resourcecategoryID =Integer.parseInt(request.getParameter("resourceCategoryID")); // lấy giá trị của resourceCategoryID từ action truyền qua
-                orderChapter = Integer.parseInt(request.getParameter("orderChapter")); // lấy giá trị của orderChapter từ action truyền qua
-                String href = "SubjectCategory.do?subjectID="+subjectID+
-                        "&orderChapter="+orderChapter+
-                        "&resourceCategoryID=";
-            %>
+                <td  class="leftmenu_td_title">Nội dung</td>
+        </tr>
+        <% int subjectID, orderChapter ; 
+            IsNumber isnumber = new IsNumber(); // kiểm tra có phải là số không
+        %>
+        <%if(request.getParameter("subjectID")!= null && isnumber.checkInt(request.getParameter("subjectID")) ) // nếu khác rỗng và là số
+            subjectID =Integer.parseInt(request.getParameter("subjectID").toString());
+          else
+            subjectID = 1;
+        %>
+        <%if(request.getParameter("orderChapter")!= null && isnumber.checkInt(request.getParameter("orderChapter"))) 
+            orderChapter = Integer.parseInt(request.getParameter("orderChapter").toString());
+        else
+            orderChapter = 1;
+        %>
+        <%if(request.getParameter("resourceCategoryID")!= null && isnumber.checkInt(request.getParameter("resourceCategoryID"))) 
+            orderChapter = Integer.parseInt(request.getParameter("resourceCategoryID").toString());
+        else
+            orderChapter = 1;
+        %>
              <tr>
             <td class="leftmenu_td_link"><a href="SubjectHome.do?subjectID=<%=subjectID%>"><bean:message  key="text.menu.subjecthome"/></a></td>
           </tr>
             <tr>
-            <td class="leftmenu_td_link"><a href="#"><bean:message  key="text.menu.syllabus"/></a></td>
+            <td class="leftmenu_td_link"><a href="Syllabus.do?subjectID=<%=subjectID%>"><bean:message  key="text.menu.syllabus"/></a></td>
           </tr>
           <tr>
             

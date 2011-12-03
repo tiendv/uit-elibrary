@@ -15,6 +15,7 @@ import uit.elib.bo.ResourceBO;
 import  uit.elib.bo.SubjectBO;
 import uit.elib.entities.Resource;
 import uit.elib.entities.Subject;
+import uit.elib.utility.IsNumber;
 /**
  *
  * @author HERO
@@ -28,9 +29,19 @@ public class LoadSubjectCategoryAction extends org.apache.struts.action.Action{
             throws Exception {
         
         int subjectID, resourcecategoryID, orderChapter ;
-        subjectID =Integer.parseInt(request.getParameter("subjectID"));
-        resourcecategoryID =Integer.parseInt(request.getParameter("resourceCategoryID"));
-        orderChapter = Integer.parseInt(request.getParameter("orderChapter"));
+        IsNumber isnumber = new IsNumber(); // kiểm tra có phải là số không
+        if(request.getParameter("subjectID")!= null && isnumber.checkInt(request.getParameter("subjectID")))
+            subjectID = Integer.parseInt(request.getParameter("subjectID"));
+        else
+            subjectID = 1;
+        if(request.getParameter("resourceCategoryID")!= null && isnumber.checkInt(request.getParameter("resourceCategoryID")))
+            resourcecategoryID =Integer.parseInt(request.getParameter("resourceCategoryID"));
+        else
+            resourcecategoryID = 1;
+        if(request.getParameter("orderChapter")!= null && isnumber.checkInt(request.getParameter("orderChapter")))
+            orderChapter = Integer.parseInt(request.getParameter("orderChapter"));
+        else
+            orderChapter = 1;
         ResourceBO tempResourceBO = new ResourceBO();
         SubjectBO tempSubjectBO = new SubjectBO();
         List<Resource> listResource = new ArrayList<Resource>(); // danh sách tài nguyên của
