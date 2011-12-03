@@ -63,12 +63,16 @@ public class SubjectHomeAction extends org.apache.struts.action.Action {
                 List<Resource> listResource = new ArrayList<Resource>();   
                 //get subject
                 subject=subjectBO.getSubjectByID(id);
-                //get image link of subject
-                listResource=resourceBO.getAllResourceOfSubjectAndResourceCategory(id, 8);
-                String imageLink = "./file/"+listResource.get(0).getServerName().toString();
-                //set Attribute
-                request.setAttribute("imageLink", imageLink); 
+                //set Attribute for subject
                 request.setAttribute("subject", subject);
+                //get image link of subject
+                if(resourceBO.getAllResourceOfSubjectAndResourceCategory(id, 8).size()>0)
+                {
+                    listResource=resourceBO.getAllResourceOfSubjectAndResourceCategory(id, 8);
+                    String imageLink = "./upload/"+listResource.get(0).getServerName().toString();
+                    request.setAttribute("imageLink", imageLink); 
+                }
+                
             }
         }     
         return mapping.findForward(SUCCESS);
