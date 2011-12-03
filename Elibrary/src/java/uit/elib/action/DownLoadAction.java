@@ -57,8 +57,8 @@ public class DownLoadAction extends org.apache.struts.action.Action {
                 ResourceBO resourceBO = new ResourceBO();
                 resource=resourceBO.getResourceByID(id);
                 if(resource.getUploadName()!=null &&resource.getServerName()!=null ){
-                    actionForward= new ActionForward("/file/"+resource.getServerName());
                     response.setHeader("Content-Disposition","attachment;filename="+resource.getUploadName()) ;
+                    actionForward= new ActionForward("/upload/"+resource.getServerName());
                 } 
             }   
         }
