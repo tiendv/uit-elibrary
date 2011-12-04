@@ -43,7 +43,7 @@ public class LoadSubjectAction extends org.apache.struts.action.Action {
         SubjectBO tempSubjectBO = new SubjectBO();
         List<Subject> listSubject = new ArrayList<Subject>();
         String []order = new String[1];
-        order[0]= "subjectId";
+        order[0]= "subjectID";
         listSubject=tempSubjectBO.getAllSubject(order);
         request.setAttribute("listSubject", listSubject);
         
@@ -51,9 +51,9 @@ public class LoadSubjectAction extends org.apache.struts.action.Action {
         List<Resource> listResource = new ArrayList<Resource>();
         order = new String[3];
         order[0]= "subject";
-        order[1]= "oderChapter";
+        order[1]= "orderChapter";
         order[2]= "postDate";
-        String where = "OderChapter is not null";
+        String where = "OrderChapter is not null";
         listResource=tempResourceBO.getAllResource(where,order);
         request.setAttribute("listResource", listResource);       
         return mapping.findForward(SUCCESS);  

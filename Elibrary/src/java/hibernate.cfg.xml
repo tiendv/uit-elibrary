@@ -10,10 +10,10 @@
     <property name="hibernate.transaction.auto_close_session">false</property>
     <property name="hibernate.transaction.flush_before_completion">true</property>
     <property name="hibernate.current_session_context_class">thread</property>
-    <mapping resource="uit/elib/entities/Subjectcategory.hbm.xml"/>
     <mapping resource="uit/elib/entities/Resource.hbm.xml"/>
-    <mapping resource="uit/elib/entities/Speciality.hbm.xml"/>
+    <mapping resource="uit/elib/entities/Faculty.hbm.xml"/>
     <mapping resource="uit/elib/entities/Subject.hbm.xml"/>
-    <mapping resource="uit/elib/entities/Resourcecategory.hbm.xml"/>
+    <mapping resource="uit/elib/entities/ResourceCategory.hbm.xml"/>
+    <mapping resource="uit/elib/entities/SubjectCategory.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

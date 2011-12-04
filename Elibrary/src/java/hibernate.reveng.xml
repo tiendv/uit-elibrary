@@ -4,7 +4,7 @@
   <schema-selection match-catalog="elibrary"/>
   <table-filter match-name="resourcecategory"/>
   <table-filter match-name="subject"/>
-  <table-filter match-name="speciality"/>
+  <table-filter match-name="faculty"/>
   <table-filter match-name="subjectcategory"/>
   <table-filter match-name="resource"/>
 </hibernate-reverse-engineering>

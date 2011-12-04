@@ -52,15 +52,15 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
         File file;     // manage name
         FileOutputStream fileOutputStream; // save to server
         
-        Resourcecategory tempRC= new Resourcecategory();
+        ResourceCategory tempRC= new ResourceCategory();
         ResourceCategoryBO rscBO = ResourceCategoryBO.getResourceCategoryBO();
         java.util.Date utilDate = new java.util.Date();
         java.sql.Date sqlDate = new Date(utilDate.getTime());
         
         
-        SubjectCategorytBO sjcBO = SubjectCategorytBO.getSubjectBO();
+        SubjectCategoryBO sjcBO = SubjectCategoryBO.getSubjectBO();
         Resource temp = new Resource();
-        temp.setResourceNameVn(createResourceActionForm.getTxtResourceName());
+        temp.setResourceNameVN(createResourceActionForm.getTxtResourceName());
         
         int typeResource = Integer.parseInt(createResourceActionForm.getHiddenResourceType());
         tempRC = rscBO.getById(typeResource,true);
@@ -68,16 +68,16 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
         
         /**
          * 
-         * create chappter
+         * create chapter
          */
         if(typeResource == 7)
         {   
             tempSJ = sjBO.getById(createResourceActionForm.getDropSubjectNameInChapter(), true);
-            temp.setResourceName(createResourceActionForm.getTxtChapterUSName());
-            temp.setOderChapter(createResourceActionForm.getTxtOderChapter());
+            temp.setResourceNameEN(createResourceActionForm.getTxtChapterNameEN());
+            temp.setOrderChapter(createResourceActionForm.getTxtOrderChapter());
             temp.setSubject(tempSJ);
-            temp.setSummaryVn(createResourceActionForm.getFckChapterSummary());
-            temp.setSummary(createResourceActionForm.getFckChapterSummaryUS());
+            temp.setSummaryVN(createResourceActionForm.getFckChapterSummaryVN());
+            temp.setSummaryEN(createResourceActionForm.getFckChapterSummaryEN());
             rsBO.addNew(temp);
             rsBO.update(temp);
             return mapping.findForward(SUCCESSCREATECHAPTER);
@@ -89,7 +89,7 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
         
          if(typeResource == 6)
         {
-            temp.setResourceName(createResourceActionForm.getTxtProjectUSName());
+            temp.setResourceNameEN(createResourceActionForm.getTxtProjectNameEN());
             temp.setAuthor(createResourceActionForm.getTxtAuthorProject());
             tempSJ = sjBO.getById(createResourceActionForm.getDropSubjectNameInProject(), true);
             temp.setSubject(tempSJ);
@@ -125,7 +125,7 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
          
          if(typeResource == 8 || typeResource == 9)
          {
-             temp.setSummary(createResourceActionForm.getTxtNote());
+             temp.setSummaryEN(createResourceActionForm.getTxtNote());
              tempSJ = sjBO.getById(createResourceActionForm.getDropSubjectNameInReadingAndPicture(), true);
              temp.setSubject(tempSJ);
              FormFile picuterProject = createResourceActionForm.getFilePictureReading();
@@ -159,7 +159,7 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
             
              tempSJ = sjBO.getById(createResourceActionForm.getDropSubjectNameInResourceChapter(), true);
              temp.setSubject(tempSJ);
-             temp.setOderChapter(createResourceActionForm.getDropOrderChapterSubject());
+             temp.setOrderChapter(createResourceActionForm.getDropOrderChapterSubject());
              FormFile resourceChapterProject = createResourceActionForm.getFilePictureReading();
             /**
              * 
