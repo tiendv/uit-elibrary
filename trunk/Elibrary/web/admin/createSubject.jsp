@@ -24,8 +24,8 @@
 
 <div style="overflow: auto;height: 600px;">
     <form name="createSubject" method="post" action="CreateSubject.do">
-     <jsp:useBean id="subjectCategoryBO" class="uit.elib.bo.SubjectCategorytBO" scope="page">    
-     <jsp:useBean id="subjectSpecialityBO" class="uit.elib.bo.SpecialityBO" scope="page">
+     <jsp:useBean id="subjectCategoryBO" class="uit.elib.bo.SubjectCategoryBO" scope="page">    
+     <jsp:useBean id="subjectFacultyBO" class="uit.elib.bo.FacultyBO" scope="page">
     <h1> <bean:message key="text.newSubject"/> </h1>
     <table width="100%">
         <%int language =1; // English
@@ -34,9 +34,9 @@
                         language = 2; // VietNamese
         %>
         <tr>
-            <td><bean:message key="text.nameSubject"/></td>
+            <td><bean:message key="text.nameSubjectVN"/></td>
             <td><input name="txtSubjectName" type="text"/></td>
-            <td><bean:message key="text.nameSubjectUS"/></td>
+            <td><bean:message key="text.nameSubjectEN"/></td>
             <td><input name="txtSubjectNameUS" type="text"/></td>
         </tr>
         <tr>
@@ -45,14 +45,14 @@
                 <%if(language==1) {%>
                     <select  name="dropSubjectCategory" class="cssdropbox">
                         <c:forEach items="${subjectCategoryBO.allSubjectCategory}" var="item">
-                            <option value="${item.subjectCategoryId}">${item.subjectCategoryName}</option>
+                            <option value="${item.subjectCategoryID}">${item.subjectCategoryNameEN}</option>
                         </c:forEach>
                     </select> 
                 <%}%>
                 <%if(language==2) {%>
                     <select  name="dropSubjectCategory" class="cssdropbox">
                         <c:forEach items="${subjectCategoryBO.allSubjectCategory}" var="item">
-                            <option value="${item.subjectCategoryId}">${item.subjectCategoryNameVn}</option>
+                            <option value="${item.subjectCategoryID}">${item.subjectCategoryNameVN}</option>
                         </c:forEach>
                     </select> 
                 <%}%>
@@ -69,11 +69,11 @@
         <tr>
             <td><bean:message key="text.midtermGrade"/></td>
             <td><input name="txtMidtermGrade" type="text"/></td>
-            <td><bean:message key="text.finalmGrade"/></td>
+            <td><bean:message key="text.finalGrade"/></td>
             <td><input name="txtFinalGrade" type="text"/></td>
         </tr>
         <tr>
-            <td><bean:message key="text.prerequisiteSubject"/></td>
+            <td><bean:message key="text.prerequisiteSubjectEN"/></td>
             <td><input name="txtPrerequisiteSubject" type="text"/></td>
             <td><bean:message key="text.timeTeaching"/></td>
             <td><input name="txtSubjectTime" type="text"/></td>
@@ -89,15 +89,15 @@
             <td>
                 <% if(language==1) {%>
                     <select  name="dropSubjectFaculty" class="cssdropbox">
-                       <c:forEach items="${subjectSpecialityBO.allSpeciality}" var="item">
-                          <option value="${item.specialityId}">${item.specialityName}</option>
+                        <c:forEach items="${subjectFacultyBO.allFaculty}" var="item">
+                          <option value="${item.facultyID}">${item.facultyNameEN}</option>
                         </c:forEach>
                     </select> 
                 <%}%>
                 <% if(language==2) {%>
                     <select  name="dropSubjectFaculty" class="cssdropbox">
-                       <c:forEach items="${subjectSpecialityBO.allSpeciality}" var="item">
-                          <option value="${item.specialityId}">${item.specialityNameVn}</option>
+                        <c:forEach items="${subjectFacultyBO.allFaculty}" var="item">
+                          <option value="${item.facultyID}">${item.faclutyNameVN}</option>
                         </c:forEach>
                     </select> 
                 <%}%>
@@ -111,7 +111,7 @@
     </table>
     
     <hr>
-    <h2><bean:message key="text.introductionSubject"/></h2>
+    <h2><bean:message key="text.introductionSubjectVN"/></h2>
    
         <FCK:editor  instanceName="fckintroductionVN" height="300px">
             <jsp:attribute name="value">
@@ -120,21 +120,21 @@
         </FCK:editor>
     <hr>
     
-    <h2><bean:message key="text.introductionSubjectUS"/></h2>
+    <h2><bean:message key="text.introductionSubjectEN"/></h2>
     <FCK:editor instanceName="fckintroductionUS" height="300px">
         <jsp:attribute name="value">
             
         </jsp:attribute>
     </FCK:editor>
     <hr>
-    <h2><bean:message key="text.projectRequitement"/></h2>
+    <h2><bean:message key="text.projectRequirementVN"/></h2>
         <FCK:editor  instanceName="fckProjectRequitementVN" height="300px">
             <jsp:attribute name="value">
 
             </jsp:attribute>
         </FCK:editor>
     <hr>
-    <h2><bean:message key="text.projectRequitementUS"/></h2>
+    <h2><bean:message key="text.projectRequirementEN"/></h2>
 
         <FCK:editor  instanceName="fckProjectRequitementUS" height="300px">
             <jsp:attribute name="value">
