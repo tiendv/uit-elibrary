@@ -13,18 +13,18 @@ import java.util.logging.Logger;
  *
  * @author tiendv
  */
-public class SpecialityBO extends ManagerBase<Speciality> {
+public class FacultyBO extends ManagerBase<Faculty> {
     
-    private static SpecialityBO specialityBO = null;
+    private static FacultyBO facultyBO = null;
 
-    public SpecialityBO() throws Exception {
+    public FacultyBO() throws Exception {
     }
     
-     public static SpecialityBO getSpecialityBO() throws Exception{
-         if (specialityBO == null ){
-              specialityBO = new SpecialityBO();
+     public static FacultyBO getFacultyBO() throws Exception{
+         if (facultyBO == null ){
+              facultyBO = new FacultyBO();
           }
-         return specialityBO;
+         return facultyBO;
     }
     
     /**
@@ -32,12 +32,12 @@ public class SpecialityBO extends ManagerBase<Speciality> {
      * @return List Subject In Database order by subject ID
      */
     
-     public List getAllSpeciality() {
+     public List getAllFaculty() {
         try {
-            String[] sort = new String[]{"specialityId"}; // tang dan
+            String[] sort = new String[]{"facultyID"}; // tang dan
             //String[] sort = new String[]{"name desc"}; // giam dan
 
-            List<Speciality> list = getBySQLQuery(sort, 0);
+            List<Faculty> list = getBySQLQuery(sort, 0);
             return list;
 
         } catch (Exception ex) {

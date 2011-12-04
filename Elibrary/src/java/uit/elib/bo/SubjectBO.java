@@ -42,7 +42,7 @@ public class SubjectBO extends ManagerBase<Subject> {
     }    
      public List getAllSubject() {
         try {
-            String[] sort = new String[]{"subjectId"}; // tang dan
+            String[] sort = new String[]{"subjectID"}; // tang dan
             //String[] sort = new String[]{"name desc"}; // giam dan
 
             List<Subject> list = getBySQLQuery(sort, 0);
