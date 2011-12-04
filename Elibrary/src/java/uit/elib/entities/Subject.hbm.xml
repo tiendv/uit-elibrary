@@ -1,72 +1,74 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Nov 26, 2011 12:46:58 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="uit.elib.entities.Subject" table="subject" catalog="elibrary">
-        <id name="subjectId" type="java.lang.Integer">
-            <column name="SubjectID" />
-            <generator class="identity" />
-        </id>
-        <many-to-one name="subjectcategory" class="uit.elib.entities.Subjectcategory" fetch="select">
-            <column name="SubjectCategoryID" />
-        </many-to-one>
-        <many-to-one name="speciality" class="uit.elib.entities.Speciality" fetch="select">
-            <column name="SpecialityID" />
-        </many-to-one>
-        <property name="subjectName" type="string">
-            <column name="SubjectName" />
-        </property>
-        <property name="subjectIntroduce" type="string">
-            <column name="SubjectIntroduce" length="65535" />
-        </property>
-        <property name="creditNumber" type="java.lang.Integer">
-            <column name="CreditNumber" />
-        </property>
-        <property name="level" type="string">
-            <column name="Level" length="45" />
-        </property>
-        <property name="periodOfTheory" type="java.lang.Integer">
-            <column name="PeriodOfTheory" />
-        </property>
-        <property name="periodOfPractice" type="java.lang.Integer">
-            <column name="PeriodOfPractice" />
-        </property>
-        <property name="courseCode" type="string">
-            <column name="CourseCode" length="50" />
-        </property>
-        <property name="teacher" type="string">
-            <column name="Teacher" />
-        </property>
-        <property name="prerequisiteSubject" type="string">
-            <column name="PrerequisiteSubject" />
-        </property>
-        <property name="midtermGrade" type="java.lang.Integer">
-            <column name="MidtermGrade" />
-        </property>
-        <property name="finalGrade" type="java.lang.Integer">
-            <column name="FinalGrade" />
-        </property>
-        <property name="subjectNameVn" type="string">
-            <column name="SubjectNameVN" />
-        </property>
-        <property name="subjectIntroduceVn" type="string">
-            <column name="SubjectIntroduceVN" />
-        </property>
-        <property name="timeTeaching" type="string">
-            <column name="TimeTeaching" />
-        </property>
-        <property name="projectRequitement" type="string">
-            <column name="ProjectRequitement" length="65535" />
-        </property>
-        <property name="projectRequitementUs" type="string">
-            <column name="ProjectRequitementUS" length="65535" />
-        </property>
-        <set name="resources" inverse="true">
-            <key>
-                <column name="SubjectID" />
-            </key>
-            <one-to-many class="uit.elib.entities.Resource" />
-        </set>
-    </class>
+  <class catalog="elibrary" name="uit.elib.entities.Subject" table="subject">
+    <id name="subjectID" type="java.lang.Integer">
+      <column name="SubjectID"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="uit.elib.entities.SubjectCategory" fetch="select" name="subjectcategory">
+      <column name="SubjectCategoryID"/>
+    </many-to-one>
+    <many-to-one class="uit.elib.entities.Faculty" fetch="select" name="faculty">
+      <column name="FacultyID"/>
+    </many-to-one>
+    <property name="subjectNameEN" type="string">
+      <column name="SubjectNameEN"/>
+    </property>
+    <property name="subjectIntroduceEN" type="string">
+      <column length="65535" name="SubjectIntroduceEN"/>
+    </property>
+    <property name="numberOfCredit" type="java.lang.Integer">
+      <column name="NumberOfCredit"/>
+    </property>
+    <property name="level" type="string">
+      <column length="45" name="Level"/>
+    </property>
+    <property name="periodOfTheory" type="java.lang.Integer">
+      <column name="PeriodOfTheory"/>
+    </property>
+    <property name="periodOfPractice" type="java.lang.Integer">
+      <column name="PeriodOfPractice"/>
+    </property>
+    <property name="courseCode" type="string">
+      <column length="50" name="CourseCode"/>
+    </property>
+    <property name="teacher" type="string">
+      <column name="Teacher"/>
+    </property>
+    <property name="prerequisiteSubjectEN" type="string">
+      <column name="PrerequisiteSubjectEN"/>
+    </property>
+    <property name="prerequisiteSubjectVN" type="string">
+      <column name="PrerequisiteSubjectVN"/>
+    </property>
+    <property name="midtermGrade" type="java.lang.Integer">
+      <column name="MidtermGrade"/>
+    </property>
+    <property name="finalGrade" type="java.lang.Integer">
+      <column name="FinalGrade"/>
+    </property>
+    <property name="subjectNameVN" type="string">
+      <column name="SubjectNameVN"/>
+    </property>
+    <property name="subjectIntroduceVN" type="string">
+      <column name="SubjectIntroduceVN"/>
+    </property>
+    <property name="timeTeaching" type="string">
+      <column name="TimeTeaching"/>
+    </property>
+    <property name="projectRequirementEN" type="string">
+      <column length="65535" name="ProjectRequirementEN"/>
+    </property>
+    <property name="projectRequirementVN" type="string">
+      <column length="65535" name="ProjectRequirementVN"/>
+    </property>
+    <set inverse="true" name="resources">
+      <key>
+        <column name="SubjectID"/>
+      </key>
+      <one-to-many class="uit.elib.entities.Resource"/>
+    </set>
+  </class>
 </hibernate-mapping>
