@@ -44,7 +44,7 @@ public class ResourceBO extends ManagerBase<Resource> {
      }    
       public List getAllResource() {
         try {
-            String[] sort = new String[]{"resourceId"}; // tang dan
+            String[] sort = new String[]{"resourceID"}; // tang dan
             //String[] sort = new String[]{"name desc"}; // giam dan
 
             List<Resource> list = getBySQLQuery(sort, 0);
@@ -67,6 +67,11 @@ public class ResourceBO extends ManagerBase<Resource> {
             return null;
         }
       }
+     /**
+       * 
+       * @param resourceID
+       * @return 
+       */
       public Resource getResourceByID(int resourceID)
       {
         try {

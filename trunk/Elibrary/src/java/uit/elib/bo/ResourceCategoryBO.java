@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  *
  * @author tiendv
  */
-public class ResourceCategoryBO extends ManagerBase<Resourcecategory> {
+public class ResourceCategoryBO extends ManagerBase<ResourceCategory> {
    
    public static ResourceCategoryBO resourceCategoryBO = null;
    public ResourceCategoryBO() throws Exception {
@@ -35,10 +35,10 @@ public class ResourceCategoryBO extends ManagerBase<Resourcecategory> {
      public List getAllResourcecategory() {
         try {
             String[] sort = new String[1]; // tang dan
-            sort[0]="resourceCategoryId";
+            sort[0]="resourceCategoryID";
             //String[] sort = new String[]{"name desc"}; // giam dan
 
-            List<Resourcecategory> list = getBySQLQuery(sort, 0);
+            List<ResourceCategory> list = getBySQLQuery(sort, 0);
             return list;
 
         } catch (Exception ex) {

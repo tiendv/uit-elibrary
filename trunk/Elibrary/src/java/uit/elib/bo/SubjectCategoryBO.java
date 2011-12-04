@@ -13,16 +13,16 @@ import java.util.logging.Logger;
  *
  * @author tiendv
  */
-public class SubjectCategorytBO extends ManagerBase<Subjectcategory> {
+public class SubjectCategoryBO extends ManagerBase<SubjectCategory> {
 
     
-    private static SubjectCategorytBO subjectCategorytBO = null;
-    public SubjectCategorytBO() throws Exception {
+    private static SubjectCategoryBO subjectCategorytBO = null;
+    public SubjectCategoryBO() throws Exception {
     }
 
-    public static SubjectCategorytBO getSubjectBO() throws Exception{
+    public static SubjectCategoryBO getSubjectBO() throws Exception{
         if(subjectCategorytBO == null){
-            subjectCategorytBO = new SubjectCategorytBO();
+            subjectCategorytBO = new SubjectCategoryBO();
         }
         return subjectCategorytBO;
     }
@@ -33,10 +33,10 @@ public class SubjectCategorytBO extends ManagerBase<Subjectcategory> {
     
      public List getAllSubjectCategory() {
         try {
-            String[] sort = new String[]{"subjectCategoryId"}; // tang dan
+            String[] sort = new String[]{"subjectCategoryID"}; // tang dan
             //String[] sort = new String[]{"name desc"}; // giam dan
 
-            List<Subjectcategory> list = getBySQLQuery(sort, 0);
+            List<SubjectCategory> list = getBySQLQuery(sort, 0);
             return list;
 
         } catch (Exception ex) {
