@@ -39,14 +39,14 @@ public class AjaxGetChapterBySubjectID extends org.apache.struts.action.Action {
 
         String id = request.getParameter("id");
         int subjectID = Integer.parseInt(id);
-        ResourceBO reBo = new ResourceBO();
-        List<Resource> chapters = reBo.getAllResourceOfSubjectAndResourceCategory(subjectID,7);
+        ResourceBO reBO = new ResourceBO();
+        List<Resource> chapters = reBO.getAllResourceOfSubjectAndResourceCategory(subjectID,7);
 
         response.setCharacterEncoding("UTF-8");
         for (int i = 0; i < chapters.size(); i++) {
             Resource resource = chapters.get(i);
-            response.getWriter().println("<option value = "+ resource.getResourceId() +" >");
-            response.getWriter().println(resource.getResourceName());
+            response.getWriter().println("<option value = "+ resource.getResourceID() +" >");
+            response.getWriter().println(resource.getResourceNameEN());
             response.getWriter().println("</option>");
         }
                 

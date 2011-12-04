@@ -23,21 +23,21 @@
             if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
                 language=2; // VietNamese            
         %>
-        <div style="padding-left: 10px"><a href= "LoadSubject.do"><bean:message key="text.menu.subject"/></a> ><a href="SubjectHome.do?subjectID=<%=subject.getSubjectId()%>"> 
+        <div style="padding-left: 10px"><a href= "LoadSubject.do"><bean:message key="text.menu.subject"/></a> ><a href="SubjectHome.do?subjectID=<%=subject.getSubjectID()%>"> 
         <%if(language==1) {%>
-            <%=subject.getSubjectName()%> 
+            <%=subject.getSubjectNameEN()%> 
         <%}%>
         <%if(language==2) {%>
-            <%=subject.getSubjectNameVn()%> 
+            <%=subject.getSubjectNameVN()%> 
         <%}%>
             </a>
         > <bean:message key="text.menu.syllabus"/></div>
         
         <%if(language==1) {%>
-            <div style="color:#680a12;font-size: 30px; padding-left: 10px "><%=subject.getSubjectName()%></div>
+            <div style="color:#680a12;font-size: 30px; padding-left: 10px "><%=subject.getSubjectNameEN()%></div>
         <%}%>
         <%if(language==2) {%>
-            <div style="color:#680a12;font-size: 30px; padding-left: 10px "><%=subject.getSubjectNameVn()%></div>
+            <div style="color:#680a12;font-size: 30px; padding-left: 10px "><%=subject.getSubjectNameVN()%></div>
         <%}%></br>
         
         <div style="padding-left: 10px;padding-bottom: 5px "><b><bean:message key="text.timeTeaching"/> : </b>
@@ -46,14 +46,22 @@
              <%=subject.getPeriodOfTheory() %></div>
         <div style="padding-left: 10px;padding-bottom: 5px "><b><bean:message key="text.periodOfPractice"/> : </b>
              <%=subject.getPeriodOfPractice() %></div>
-        <div style="padding-left: 10px;padding-bottom: 5px "><b><bean:message key="text.prerequisiteSubject"/> : </b>
-             <%=subject.getPrerequisiteSubject() %></div>
-        <div style="font-weight: bold; padding-left: 10px;padding-bottom: 5px "><bean:message key="text.projectRequitement"/> : </div>
+        
+        <% if(language==1){%>
+            <div style="padding-left: 10px;padding-bottom: 5px "><b><bean:message key="text.prerequisiteSubject"/> : </b>
+            <%=subject.getPrerequisiteSubjectEN() %></div>
+        <%}%>
+        <% if(language==2){%>
+            <div style="padding-left: 10px;padding-bottom: 5px "><b><bean:message key="text.prerequisiteSubject"/> : </b>
+                <%=subject.getPrerequisiteSubjectVN() %></div>
+        <%}%>
+                
+        <div style="font-weight: bold; padding-left: 10px;padding-bottom: 5px "><bean:message key="text.projectRequirement"/> : </div>
         <%if(language==1) {%>
-            <div style="padding-left: 10px;padding-bottom: 5px"><%=subject.getProjectRequitementUs() %></div>   
+            <div style="padding-left: 10px;padding-bottom: 5px"><%=subject.getProjectRequirementEN() %></div>   
         <%}%>
         <%if(language==2) {%>
-            <div style="padding-left: 10px;padding-bottom: 5px"><%=subject.getProjectRequitement() %></div>
+            <div style="padding-left: 10px;padding-bottom: 5px"><%=subject.getProjectRequirementVN() %></div>
         <%}%>        
         <table cellspacing="0" style="border: 1px #B4B1A2 solid ;margin-left: 8px ">
         <thead>
