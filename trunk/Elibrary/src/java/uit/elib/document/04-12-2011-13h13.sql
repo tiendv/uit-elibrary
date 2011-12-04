@@ -85,7 +85,7 @@ DROP TABLE IF EXISTS `subjectcategory`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `subjectcategory` (
   `SubjectCategoryID` int(11) NOT NULL,
-  `SubjectCategoryName` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `SubjectCategoryNameEN` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `SubjectCategoryNameVN` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`SubjectCategoryID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
