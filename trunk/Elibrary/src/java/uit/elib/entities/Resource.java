@@ -10,60 +10,60 @@ import java.util.Date;
 public class Resource  implements java.io.Serializable {
 
 
-     private Integer resourceId;
-     private Resourcecategory resourcecategory;
+     private Integer resourceID;
+     private ResourceCategory resourcecategory;
      private Subject subject;
-     private String resourceName;
+     private String resourceNameVN;
+     private String resourceNameEN;
      private Integer size;
      private String serverName;
-     private String summary;
+     private String summaryVN;
+     private String summaryEN;
      private Date postDate;
      private Integer viewerNumber;
      private Integer downloadNumber;
      private String format;
      private String language;
      private Integer voteMark;
-     private String resourceNameVn;
-     private String summaryVn;
-     private Integer oderChapter;
+     private Integer orderChapter;
      private String author;
      private String uploadName;
 
     public Resource() {
     }
 
-    public Resource(Resourcecategory resourcecategory, Subject subject, String resourceName, Integer size, String serverName, String summary, Date postDate, Integer viewerNumber, Integer downloadNumber, String format, String language, Integer voteMark, String resourceNameVn, String summaryVn, Integer oderChapter, String author, String uploadName) {
+    public Resource(ResourceCategory resourcecategory, Subject subject, String resourceNameEN, Integer size, String serverName, String summaryEN, Date postDate, Integer viewerNumber, Integer downloadNumber, String format, String language, Integer voteMark, String resourceNameVN, String summaryVN, Integer orderChapter, String author, String uploadName) {
        this.resourcecategory = resourcecategory;
        this.subject = subject;
-       this.resourceName = resourceName;
+       this.resourceNameEN = resourceNameEN;
        this.size = size;
        this.serverName = serverName;
-       this.summary = summary;
+       this.summaryVN = summaryVN;
+       this.summaryEN = summaryEN;
        this.postDate = postDate;
        this.viewerNumber = viewerNumber;
        this.downloadNumber = downloadNumber;
        this.format = format;
        this.language = language;
        this.voteMark = voteMark;
-       this.resourceNameVn = resourceNameVn;
-       this.summaryVn = summaryVn;
-       this.oderChapter = oderChapter;
+       this.resourceNameVN = resourceNameVN;
+       this.orderChapter = orderChapter;
        this.author = author;
        this.uploadName = uploadName;
     }
    
-    public Integer getResourceId() {
-        return this.resourceId;
+    public Integer getResourceID() {
+        return this.resourceID;
     }
     
-    public void setResourceId(Integer resourceId) {
-        this.resourceId = resourceId;
+    public void setResourceID(Integer resourceID) {
+        this.resourceID = resourceID;
     }
-    public Resourcecategory getResourcecategory() {
+    public ResourceCategory getResourcecategory() {
         return this.resourcecategory;
     }
     
-    public void setResourcecategory(Resourcecategory resourcecategory) {
+    public void setResourcecategory(ResourceCategory resourcecategory) {
         this.resourcecategory = resourcecategory;
     }
     public Subject getSubject() {
@@ -73,12 +73,12 @@ public class Resource  implements java.io.Serializable {
     public void setSubject(Subject subject) {
         this.subject = subject;
     }
-    public String getResourceName() {
-        return this.resourceName;
+    public String getResourceNameEN() {
+        return this.resourceNameEN;
     }
     
-    public void setResourceName(String resourceName) {
-        this.resourceName = resourceName;
+    public void setResourceNameEN(String resourceNameEN) {
+        this.resourceNameEN = resourceNameEN;
     }
     public Integer getSize() {
         return this.size;
@@ -94,12 +94,12 @@ public class Resource  implements java.io.Serializable {
     public void setServerName(String serverName) {
         this.serverName = serverName;
     }
-    public String getSummary() {
-        return this.summary;
+    public String getSummaryEN() {
+        return this.summaryEN;
     }
     
-    public void setSummary(String summary) {
-        this.summary = summary;
+    public void setSummaryEN(String summaryEN) {
+        this.summaryEN = summaryEN;
     }
     public Date getPostDate() {
         return this.postDate;
@@ -143,26 +143,26 @@ public class Resource  implements java.io.Serializable {
     public void setVoteMark(Integer voteMark) {
         this.voteMark = voteMark;
     }
-    public String getResourceNameVn() {
-        return this.resourceNameVn;
+    public String getResourceNameVN() {
+        return this.resourceNameVN;
     }
     
-    public void setResourceNameVn(String resourceNameVn) {
-        this.resourceNameVn = resourceNameVn;
+    public void setResourceNameVN(String resourceNameVN) {
+        this.resourceNameVN = resourceNameVN;
     }
-    public String getSummaryVn() {
-        return this.summaryVn;
-    }
-    
-    public void setSummaryVn(String summaryVn) {
-        this.summaryVn = summaryVn;
-    }
-    public Integer getOderChapter() {
-        return this.oderChapter;
+    public String getSummaryVN() {
+        return this.summaryVN;
     }
     
-    public void setOderChapter(Integer oderChapter) {
-        this.oderChapter = oderChapter;
+    public void setSummaryVN(String summaryVN) {
+        this.summaryVN = summaryVN;
+    }
+    public Integer getOrderChapter() {
+        return this.orderChapter;
+    }
+    
+    public void setOrderChapter(Integer orderChapter) {
+        this.orderChapter = orderChapter;
     }
     public String getAuthor() {
         return this.author;
@@ -178,10 +178,6 @@ public class Resource  implements java.io.Serializable {
     public void setUploadName(String uploadName) {
         this.uploadName = uploadName;
     }
-
-
-
-
 }
 
 

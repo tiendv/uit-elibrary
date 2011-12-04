@@ -11,93 +11,95 @@ import java.util.Set;
 public class Subject  implements java.io.Serializable {
 
 
-     private Integer subjectId;
-     private Subjectcategory subjectcategory;
-     private Speciality speciality;
-     private String subjectName;
-     private String subjectIntroduce;
-     private Integer creditNumber;
+     private Integer subjectID;
+     private SubjectCategory subjectcategory;
+     private Faculty faculty;
+     private String subjectNameVN;
+     private String subjectNameEN;
+     private String subjectIntroduceVN;
+     private String subjectIntroduceEN;
+     private Integer numberOfCredit;
      private String level;
      private Integer periodOfTheory;
      private Integer periodOfPractice;
      private String courseCode;
      private String teacher;
-     private String prerequisiteSubject;
+     private String prerequisiteSubjectVN;
+     private String prerequisiteSubjectEN;
      private Integer midtermGrade;
      private Integer finalGrade;
-     private String subjectNameVn;
-     private String subjectIntroduceVn;
      private String timeTeaching;
-     private String projectRequitement;
-     private String projectRequitementUs;
+     private String projectRequirementVN;
+     private String projectRequirementEN;
      private Set resources = new HashSet(0);
 
     public Subject() {
     }
 
-    public Subject(Subjectcategory subjectcategory, Speciality speciality, String subjectName, String subjectIntroduce, Integer creditNumber, String level, Integer periodOfTheory, Integer periodOfPractice, String courseCode, String teacher, String prerequisiteSubject, Integer midtermGrade, Integer finalGrade, String subjectNameVn, String subjectIntroduceVn, String timeTeaching, String projectRequitement, String projectRequitementUs, Set resources) {
+    public Subject(SubjectCategory subjectcategory, Faculty faculty, String subjectNameEN, String subjectIntroduceEN, Integer numberOfCredit, String level, Integer periodOfTheory, Integer periodOfPractice, String courseCode, String teacher, String prerequisiteSubjectEN, String prerequisiteSubjectVN, Integer midtermGrade, Integer finalGrade, String subjectNameVN, String subjectIntroduceVN, String timeTeaching, String projectRequirementEN, String projectRequirementVN, Set resources) {
        this.subjectcategory = subjectcategory;
-       this.speciality = speciality;
-       this.subjectName = subjectName;
-       this.subjectIntroduce = subjectIntroduce;
-       this.creditNumber = creditNumber;
+       this.faculty = faculty;
+       this.subjectNameEN = subjectNameEN;
+       this.subjectIntroduceEN = subjectIntroduceEN;
+       this.numberOfCredit = numberOfCredit;
        this.level = level;
        this.periodOfTheory = periodOfTheory;
        this.periodOfPractice = periodOfPractice;
        this.courseCode = courseCode;
        this.teacher = teacher;
-       this.prerequisiteSubject = prerequisiteSubject;
+       this.prerequisiteSubjectEN = prerequisiteSubjectEN;
+       this.prerequisiteSubjectVN = prerequisiteSubjectVN;
        this.midtermGrade = midtermGrade;
        this.finalGrade = finalGrade;
-       this.subjectNameVn = subjectNameVn;
-       this.subjectIntroduceVn = subjectIntroduceVn;
+       this.subjectNameVN = subjectNameVN;
+       this.subjectIntroduceVN = subjectIntroduceVN;
        this.timeTeaching = timeTeaching;
-       this.projectRequitement = projectRequitement;
-       this.projectRequitementUs = projectRequitementUs;
+       this.projectRequirementEN = projectRequirementEN;
+       this.projectRequirementVN = projectRequirementVN;
        this.resources = resources;
     }
    
-    public Integer getSubjectId() {
-        return this.subjectId;
+    public Integer getSubjectID() {
+        return this.subjectID;
     }
     
-    public void setSubjectId(Integer subjectId) {
-        this.subjectId = subjectId;
+    public void setSubjectID(Integer subjectID) {
+        this.subjectID = subjectID;
     }
-    public Subjectcategory getSubjectcategory() {
+    public SubjectCategory getSubjectcategory() {
         return this.subjectcategory;
     }
     
-    public void setSubjectcategory(Subjectcategory subjectcategory) {
+    public void setSubjectcategory(SubjectCategory subjectcategory) {
         this.subjectcategory = subjectcategory;
     }
-    public Speciality getSpeciality() {
-        return this.speciality;
+    public Faculty getFaculty() {
+        return this.faculty;
     }
     
-    public void setSpeciality(Speciality speciality) {
-        this.speciality = speciality;
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
     }
-    public String getSubjectName() {
-        return this.subjectName;
-    }
-    
-    public void setSubjectName(String subjectName) {
-        this.subjectName = subjectName;
-    }
-    public String getSubjectIntroduce() {
-        return this.subjectIntroduce;
+    public String getSubjectNameEN() {
+        return this.subjectNameEN;
     }
     
-    public void setSubjectIntroduce(String subjectIntroduce) {
-        this.subjectIntroduce = subjectIntroduce;
+    public void setSubjectNameEN(String subjectNameEN) {
+        this.subjectNameVN = subjectNameVN;
     }
-    public Integer getCreditNumber() {
-        return this.creditNumber;
+    public String getSubjectIntroduceEN() {
+        return this.subjectIntroduceEN;
     }
     
-    public void setCreditNumber(Integer creditNumber) {
-        this.creditNumber = creditNumber;
+    public void setSubjectIntroduceEN(String subjectIntroduceEN) {
+        this.subjectIntroduceEN = subjectIntroduceEN;
+    }
+    public Integer getNumberOfCredit() {
+        return this.numberOfCredit;
+    }
+    
+    public void setNumberOfCredit(Integer numInteger) {
+        this.numberOfCredit = numberOfCredit;
     }
     public String getLevel() {
         return this.level;
@@ -134,12 +136,19 @@ public class Subject  implements java.io.Serializable {
     public void setTeacher(String teacher) {
         this.teacher = teacher;
     }
-    public String getPrerequisiteSubject() {
-        return this.prerequisiteSubject;
+    public String getPrerequisiteSubjectEN() {
+        return this.prerequisiteSubjectEN;
     }
     
-    public void setPrerequisiteSubject(String prerequisiteSubject) {
-        this.prerequisiteSubject = prerequisiteSubject;
+    public void setPrerequisiteSubjectEN(String prerequisiteSubjectEN) {
+        this.prerequisiteSubjectEN = prerequisiteSubjectEN;
+    }
+    public String getPrerequisiteSubjectVN() {
+        return this.prerequisiteSubjectVN;
+    }
+    
+    public void setPrerequisiteSubjectVN(String prerequisiteSubjectVN) {
+        this.prerequisiteSubjectVN = prerequisiteSubjectVN;
     }
     public Integer getMidtermGrade() {
         return this.midtermGrade;
@@ -155,19 +164,19 @@ public class Subject  implements java.io.Serializable {
     public void setFinalGrade(Integer finalGrade) {
         this.finalGrade = finalGrade;
     }
-    public String getSubjectNameVn() {
-        return this.subjectNameVn;
+    public String getSubjectNameVN() {
+        return this.subjectNameVN;
     }
     
-    public void setSubjectNameVn(String subjectNameVn) {
-        this.subjectNameVn = subjectNameVn;
+    public void setSubjectNameVN(String subjectNameVN) {
+        this.subjectNameVN = subjectNameVN;
     }
-    public String getSubjectIntroduceVn() {
-        return this.subjectIntroduceVn;
+    public String getSubjectIntroduceVN() {
+        return this.subjectIntroduceVN;
     }
     
-    public void setSubjectIntroduceVn(String subjectIntroduceVn) {
-        this.subjectIntroduceVn = subjectIntroduceVn;
+    public void setSubjectIntroduceVN(String subjectIntroduceVN) {
+        this.subjectIntroduceVN = subjectIntroduceVN;
     }
     public String getTimeTeaching() {
         return this.timeTeaching;
@@ -176,19 +185,19 @@ public class Subject  implements java.io.Serializable {
     public void setTimeTeaching(String timeTeaching) {
         this.timeTeaching = timeTeaching;
     }
-    public String getProjectRequitement() {
-        return this.projectRequitement;
+    public String getProjectRequirementEN() {
+        return this.projectRequirementEN;
     }
     
-    public void setProjectRequitement(String projectRequitement) {
-        this.projectRequitement = projectRequitement;
+    public void setProjectRequirementEN(String projectRequirementEN) {
+        this.projectRequirementEN = projectRequirementEN;
     }
-    public String getProjectRequitementUs() {
-        return this.projectRequitementUs;
+    public String getProjectRequirementVN() {
+        return this.projectRequirementVN;
     }
     
-    public void setProjectRequitementUs(String projectRequitementUs) {
-        this.projectRequitementUs = projectRequitementUs;
+    public void setProjectRequirementVN(String projectRequirementVN) {
+        this.projectRequirementVN = projectRequirementVN;
     }
     public Set getResources() {
         return this.resources;

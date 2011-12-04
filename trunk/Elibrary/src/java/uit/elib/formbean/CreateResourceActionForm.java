@@ -19,12 +19,12 @@ public class CreateResourceActionForm extends org.apache.struts.action.ActionFor
     
     private String txtResourceName;
     private int dropResourceType;;
-    private String txtChapterUSName;
-    private int txtOderChapter;
+    private String txtChapterNameEN;
+    private int txtOrderChapter;
     private int dropSubjectNameInChapter;
-    private String fckChapterSummary;
-    private String fckChapterSummaryUS;
-    private String txtProjectUSName;
+    private String fckChapterSummaryVN;
+    private String fckChapterSummaryEN;
+    private String txtProjectNameEN;
     private String txtAuthorProject;
     private int dropSubjectNameInProject;
     private FormFile fileProject;
@@ -116,20 +116,20 @@ public class CreateResourceActionForm extends org.apache.struts.action.ActionFor
         this.dropSubjectNameInResourceChapter = dropSubjectNameInResourceChapter;
     }
 
-    public String getFckChapterSummary() {
-        return fckChapterSummary;
+    public String getFckChapterSummaryVN() {
+        return fckChapterSummaryVN;
     }
 
-    public void setFckChapterSummary(String fckChapterSummary) {
-        this.fckChapterSummary = fckChapterSummary;
+    public void setFckChapterSummaryVN(String fckChapterSummary) {
+        this.fckChapterSummaryVN = fckChapterSummary;
     }
 
-    public String getFckChapterSummaryUS() {
-        return fckChapterSummaryUS;
+    public String getFckChapterSummaryEN() {
+        return fckChapterSummaryEN;
     }
 
-    public void setFckChapterSummaryUS(String fckChapterSummaryUS) {
-        this.fckChapterSummaryUS = fckChapterSummaryUS;
+    public void setFckChapterSummaryEN(String fckChapterSummaryEN) {
+        this.fckChapterSummaryEN = fckChapterSummaryEN;
     }
 
     public String getTxtAuthorProject() {
@@ -140,12 +140,12 @@ public class CreateResourceActionForm extends org.apache.struts.action.ActionFor
         this.txtAuthorProject = txtAuthorProject;
     }
 
-    public String getTxtChapterUSName() {
-        return txtChapterUSName;
+    public String getTxtChapterNameEN() {
+        return txtChapterNameEN;
     }
 
-    public void setTxtChapterUSName(String txtChapterUSName) {
-        this.txtChapterUSName = txtChapterUSName;
+    public void setTxtChapterNameEN(String txtChapterNameEN) {
+        this.txtChapterNameEN = txtChapterNameEN;
     }
 
     public String getTxtNote() {
@@ -156,20 +156,20 @@ public class CreateResourceActionForm extends org.apache.struts.action.ActionFor
         this.txtNote = txtNote;
     }
 
-    public int getTxtOderChapter() {
-        return txtOderChapter;
+    public int getTxtOrderChapter() {
+        return txtOrderChapter;
     }
 
-    public void setTxtOderChapter(int txtOderChapter) {
-        this.txtOderChapter = txtOderChapter;
+    public void setTxtOrderChapter(int txtOrderChapter) {
+        this.txtOrderChapter = txtOrderChapter;
     }
 
-    public String getTxtProjectUSName() {
-        return txtProjectUSName;
+    public String getTxtProjectNameEN() {
+        return txtProjectNameEN;
     }
 
-    public void setTxtProjectUSName(String txtProjectUSName) {
-        this.txtProjectUSName = txtProjectUSName;
+    public void setTxtProjectNameEN(String txtProjectNameEN) {
+        this.txtProjectNameEN = txtProjectNameEN;
     }
 
     public String getTxtResourceName() {
