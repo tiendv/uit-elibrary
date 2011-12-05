@@ -51,12 +51,10 @@ public class SyllabusAction extends org.apache.struts.action.Action {
             if(checkInt(request.getParameter("subjectID")))
             {
                 int id = Integer.parseInt(request.getParameter("subjectID"));
-                //BO
-                SubjectBO subjectBO = new SubjectBO();
                 //Entity
                 Subject subject= new Subject(); 
                 //get subject
-                subject=subjectBO.getSubjectByID(id);
+                subject=SubjectBO.getSubjectBO().getSubjectByID(id);
                 //set Attribute
                 request.setAttribute("subject", subject);
             }     

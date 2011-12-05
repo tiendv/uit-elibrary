@@ -38,21 +38,20 @@ public class LoadSubjectAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        SubjectBO tempSubjectBO = new SubjectBO();
         List<Subject> listSubject = new ArrayList<Subject>();
         String []order = new String[1];
         order[0]= "subjectId";
-        listSubject=tempSubjectBO.getAllSubject(order);
+        listSubject=SubjectBO.getSubjectBO().getAllSubject(order);
         request.setAttribute("listSubject", listSubject);
         
-        ResourceBO tempResourceBO = new ResourceBO();
+        
         List<Resource> listResource = new ArrayList<Resource>();
         order = new String[3];
         order[0]= "subject";
         order[1]= "orderChapter";
         order[2]= "postDate";
         String where = "orderChapter is not null";
-        listResource=tempResourceBO.getAllResource(where,order);
+        listResource= ResourceBO.getResourceBO().getAllResource(where,order);
         request.setAttribute("listResource", listResource);       
         return mapping.findForward(SUCCESS);  
     }

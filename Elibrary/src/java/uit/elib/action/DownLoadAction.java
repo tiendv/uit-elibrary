@@ -54,8 +54,7 @@ public class DownLoadAction extends org.apache.struts.action.Action {
             if(checkInt(resourceID)) // if resourceID is int
             {
                 int id = Integer.parseInt(resourceID);
-                ResourceBO resourceBO = new ResourceBO();
-                resource=resourceBO.getResourceByID(id);
+                resource=ResourceBO.getResourceBO().getResourceByID(id);
                 if(resource.getUploadName()!=null &&resource.getServerName()!=null ){
                     response.setHeader("Content-Disposition","attachment;filename="+resource.getUploadName()) ;
                     actionForward= new ActionForward("/upload/"+resource.getServerName());
