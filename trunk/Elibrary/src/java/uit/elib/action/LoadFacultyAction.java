@@ -14,7 +14,7 @@ import org.apache.struts.action.ActionMapping;
 import uit.elib.bo.ResourceBO;
 import uit.elib.bo.SubjectBO;
 import uit.elib.dto.Resource;
-import uit.elib.dto.Subject;;
+import uit.elib.dto.Subject;
 
 /**
  *
