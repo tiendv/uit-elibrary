@@ -52,7 +52,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td rowspan="7"><%if(!imageLink.equals("")){ %><img src="<%=imageLink%>" width="200px" height="200px"/><%}%></td>
+                    <td rowspan="7"><%if(!imageLink.equals("")){ %><img src="<%=imageLink%>" width="<bean:message key="image.subject.width"/>" height="<bean:message key="image.subject.height"/>"/><%}%></td>
                 </tr>
                 <tr>
                     <td><b><bean:message key="text.creditNumber"/>:</b> <%=subject.getNumberOfCredit()%></td>

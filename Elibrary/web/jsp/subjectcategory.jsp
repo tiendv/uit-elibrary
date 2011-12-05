@@ -66,20 +66,20 @@
                                     class="color_table2"
                                 <%}%> >              
                         <% if(language==1) {%>
-                        <p>  <%=listChapter.get(i).getResourceNameEn()%> </p>
+                        <p><u>  <%=listChapter.get(i).getResourceNameEn()%></u> </p>
                         <% } %> 
                         <% if(language==2) {%>
-                            <%=listChapter.get(i).getResourceNameVn()%> 
+                            <u> <%=listChapter.get(i).getResourceNameVn()%> </u>
                         <% } %>                         
              </td>
              <td <% if(color%2==0){ %> 
                                 class="color_table2"
                                 <%}%> >              
                         <% if(language==1) {%>
-                            <%=listChapter.get(i).getSummaryEn()%> 
+                             <u> <%=listChapter.get(i).getSummaryEn()%> </u>
                         <% } %> 
                         <% if(language==2) {%>
-                            <%=listChapter.get(i).getSummaryVn()%>
+                            <u> <%=listChapter.get(i).getSummaryVn()%> </u>
                         <% } %>                         
              </td>
              <td <% if(color%2==0){ %> 
@@ -88,7 +88,7 @@
                     <%for(int k=0;k<listResource.size();k++)
                         if(Integer.parseInt(listChapter.get(i).getOrderChapter().toString())== Integer.parseInt(listResource.get(k).getOrderChapter().toString()))
                            {%>
-                    <a href="DownLoad.do?resourceID=<%=listResource.get(k).getResourceId()%>" > <%=listResource.get(k).getFormat() %> </a>
+                     <u> <a href="DownLoad.do?resourceID=<%=listResource.get(k).getResourceId()%>" > <%=listResource.get(k).getFormat() %> </a> </u>
                     <%}%>
              </td>
              <%color++;%>
@@ -128,10 +128,10 @@
                                     class="color_table2"
                                 <%}%>>
                      <% if(language==1) {%>
-                        <%=listResource.get(i).getResourceNameEn()%>
+                         <u>  <%=listResource.get(i).getResourceNameEn()%> </u>
                      <%}%>
                      <% if(language==2) {%>
-                        <%=listResource.get(i).getResourceNameVn()%>
+                        <u> <%=listResource.get(i).getResourceNameVn()%> </u>
                      <%}%>
                  </td>
                  <% count++;%>
@@ -160,10 +160,10 @@
         
         <div><a><h2><bean:message key="text.ProjectRequirementTitle"/>:</h2></a></div>
         <% if(language==1){%>
-            <%=subject.getProjectRequirementEn()%>
+            <u> <%=subject.getProjectRequirementEn()%> </u>
         <%}%>
         <% if(language==2){%>
-            <%=subject.getProjectRequirementVn()%>
+            <u>  <%=subject.getProjectRequirementVn()%> </u>
         <%}%>
         
         <div><a><h2><bean:message key="text.ListTemplateProject"/></h2></a></div>
@@ -187,26 +187,26 @@
                  <td <% if(color%2==0){ %> 
                                     class="color_table2"
                      <%}%>>
-                        <%=listResource.get(i).getAuthor()%>
+                        <%=listResource.get(i).getAuthor()%> 
                  </td>
                  <td <% if(color%2==0){ %> 
                                     class="color_table2"
                                 <%}%>>
                      <% if(language==1) {%>
-                        <%=listResource.get(i).getResourceNameEn()%>
+                      <%=listResource.get(i).getResourceNameEn()%> 
                      <%}%>
                      <% if(language==2) {%>
-                        <%=listResource.get(i).getResourceNameVn()%>
+                      <%=listResource.get(i).getResourceNameVn()%>
                      <%}%>
                  </td>
                  <td <% if(color%2==0){ %> 
                                     class="color_table2"
                                 <%}%>>
                      <% if(language==1) {%>
-                        <%=listResource.get(i).getSummaryEn()%>
+                        <p> <%=listResource.get(i).getSummaryEn()%> </p>
                      <%}%>
                      <% if(language==2) {%>
-                        <%=listResource.get(i).getSummaryVn()%>
+                        <p><%=listResource.get(i).getSummaryVn()%> </p>
                      <%}%>
                  </td>
                  <% count++;%>
