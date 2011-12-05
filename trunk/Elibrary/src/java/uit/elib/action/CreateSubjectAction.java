@@ -4,7 +4,7 @@
  */
 package uit.elib.action;
 
-import uit.elib.entities.Subject;
+import uit.elib.dto.Subject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -13,8 +13,8 @@ import org.apache.struts.action.ActionMapping;
 import uit.elib.bo.FacultyBO;
 import uit.elib.bo.SubjectBO;
 import uit.elib.bo.SubjectCategoryBO;
-import uit.elib.entities.Faculty;
-import uit.elib.entities.SubjectCategory;
+import uit.elib.dto.Faculty;
+import uit.elib.dto.Subjectcategory;
 import uit.elib.formbean.CreateSubjectActionForm;
 
 /**
@@ -45,7 +45,7 @@ public class CreateSubjectAction extends org.apache.struts.action.Action {
         
         // Get infor category
         SubjectCategoryBO tempSubjectCategorytBO =  new SubjectCategoryBO();
-        SubjectCategory tempCategory;
+        Subjectcategory tempCategory;
         tempCategory = tempSubjectCategorytBO.getById(subjectFormBean.getDropSubjectCategory(), true);
         
         // Get infor faculty
@@ -56,23 +56,23 @@ public class CreateSubjectAction extends org.apache.struts.action.Action {
         SubjectBO subjectBO = SubjectBO.getSubjectBO();
         Subject temp = new Subject(); 
         
-        temp.setSubjectNameEN(subjectFormBean.getTxtSubjectNameUS());
-        temp.setSubjectNameVN(subjectFormBean.getTxtSubjectName());
+        temp.setSubjectNameEn(subjectFormBean.getTxtSubjectNameUS());
+        temp.setSubjectNameVn(subjectFormBean.getTxtSubjectName());
         temp.setSubjectcategory(tempCategory);
         temp.setCourseCode(subjectFormBean.getTxtSubjectCode());
         temp.setPeriodOfTheory(subjectFormBean.getTxtPeriodOfTheory());
         temp.setPeriodOfPractice(subjectFormBean.getTxtPeriodOfPractice());
         temp.setMidtermGrade(subjectFormBean.getTxtMidtermGrade());
         temp.setFinalGrade(subjectFormBean.getTxtFinalGrade());
-        temp.setPrerequisiteSubjectEN(subjectFormBean.getTxtPrerequisiteSubject());
+        temp.setPrerequisiteSubjectEn(subjectFormBean.getTxtPrerequisiteSubject());
         temp.setTimeTeaching(subjectFormBean.getTxtSubjectTime());
         temp.setTeacher(subjectFormBean.getTxtTeacherName());
         temp.setLevel(subjectFormBean.getTxtLevel());
         temp.setFaculty(tempFaculty);
-        temp.setSubjectIntroduceVN(subjectFormBean.getFckintroductionVN());
-        temp.setSubjectIntroduceEN(subjectFormBean.getFckintroductionUS());
-        temp.setProjectRequirementVN(subjectFormBean.getFckintroductionVN());
-        temp.setProjectRequirementEN(subjectFormBean.getFckProjectRequitementUS());
+        temp.setSubjectIntroduceVn(subjectFormBean.getFckintroductionVN());
+        temp.setSubjectIntroduceEn(subjectFormBean.getFckintroductionUS());
+        temp.setProjectRequirementVn(subjectFormBean.getFckintroductionVN());
+        temp.setProjectRequirementEn(subjectFormBean.getFckProjectRequitementUS());
         subjectBO.addNew(temp);  
         return mapping.findForward(SUCCESS);
     }

@@ -10,7 +10,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import uit.elib.bo.ResourceBO;
-import uit.elib.entities.Resource;
+import uit.elib.dto.Resource;
 
 /**
  *

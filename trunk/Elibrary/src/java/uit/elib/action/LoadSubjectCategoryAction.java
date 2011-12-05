@@ -13,8 +13,8 @@ import org.apache.struts.action.ActionMapping;
 import org.jboss.weld.context.http.Http;
 import uit.elib.bo.ResourceBO;
 import  uit.elib.bo.SubjectBO;
-import uit.elib.entities.Resource;
-import uit.elib.entities.Subject;
+import uit.elib.dto.Resource;
+import uit.elib.dto.Subject;
 import uit.elib.utility.IsNumber;
 /**
  *
