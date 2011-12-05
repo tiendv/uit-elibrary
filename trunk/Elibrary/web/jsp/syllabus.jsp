@@ -5,7 +5,7 @@
 --%>
 
 <%@page import="org.apache.struts.Globals"%>
-<%@page import="uit.elib.entities.Subject"%>
+<%@page import="uit.elib.dto.Subject"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <!DOCTYPE html>
@@ -24,21 +24,21 @@
             if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
                 language=2; // VietNamese            
         %>
-        <div class="hyperlink_title_subject"><a href= "LoadSubject.do"><bean:message key="text.menu.subject"/></a> ><a href="SubjectHome.do?subjectID=<%=subject.getSubjectID()%>"> 
+        <div class="hyperlink_title_subject"><a href= "LoadSubject.do"><bean:message key="text.menu.subject"/></a> ><a href="SubjectHome.do?subjectID=<%=subject.getSubjectId()%>"> 
         <%if(language==1) {%>
-            <%=subject.getSubjectNameEN()%> 
+            <%=subject.getSubjectNameEn()%> 
         <%}%>
         <%if(language==2) {%>
-            <%=subject.getSubjectNameVN()%> 
+            <%=subject.getSubjectNameVn()%> 
         <%}%>
             </a>
         > <bean:message key="text.menu.syllabus"/></div>
         
         <%if(language==1) {%>
-            <div style="color:#680a12;font-size: 30px; padding-left: 10px "><%=subject.getSubjectNameEN()%></div>
+            <div style="color:#680a12;font-size: 30px; padding-left: 10px "><%=subject.getSubjectNameEn()%></div>
         <%}%>
         <%if(language==2) {%>
-            <div style="color:#680a12;font-size: 30px; padding-left: 10px "><%=subject.getSubjectNameVN()%></div>
+            <div style="color:#680a12;font-size: 30px; padding-left: 10px "><%=subject.getSubjectNameVn()%></div>
         <%}%></br>
         
         <div style="padding-left: 10px;padding-bottom: 5px "><b><bean:message key="text.timeTeaching"/> : </b>
@@ -50,19 +50,19 @@
         
         <% if(language==1){%>
             <div style="padding-left: 10px;padding-bottom: 5px "><b><bean:message key="text.prerequisiteSubject"/> : </b>
-            <%=subject.getPrerequisiteSubjectEN() %></div>
+            <%=subject.getPrerequisiteSubjectEn() %></div>
         <%}%>
         <% if(language==2){%>
             <div style="padding-left: 10px;padding-bottom: 5px "><b><bean:message key="text.prerequisiteSubject"/> : </b>
-                <%=subject.getPrerequisiteSubjectVN() %></div>
+                <%=subject.getPrerequisiteSubjectVn() %></div>
         <%}%>
                 
         <div style="font-weight: bold; padding-left: 10px;padding-bottom: 5px "><bean:message key="text.ProjectRequirementTitle"/> : </div>
         <%if(language==1) {%>
-            <div style="padding-left: 10px;padding-bottom: 5px"><%=subject.getProjectRequirementEN() %></div>   
+            <div style="padding-left: 10px;padding-bottom: 5px"><%=subject.getProjectRequirementEn() %></div>   
         <%}%>
         <%if(language==2) {%>
-            <div style="padding-left: 10px;padding-bottom: 5px"><%=subject.getProjectRequirementVN() %></div>
+            <div style="padding-left: 10px;padding-bottom: 5px"><%=subject.getProjectRequirementVn() %></div>
         <%}%>        
         <table cellspacing="0" style="border: 1px #B4B1A2 solid ;margin-left: 8px ">
         <thead>

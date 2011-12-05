@@ -7,7 +7,7 @@
 
 <%@page import="org.apache.struts.Globals"%>
 <%@page import="java.util.Locale"%>
-<%@page import="uit.elib.entities.Subject"%>
+<%@page import="uit.elib.dto.Subject"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="uit.elib.bo.ResourceBO"%>
 <!DOCTYPE html>
@@ -42,14 +42,14 @@
                             <%if(language==1) {%>
                             <select id="dropResourceType"  name="dropResourceType">
                                 <c:forEach items="${resourceTypeBO.allResourcecategory}" var="item">
-                                    <option value="${item.resourceCategoryID}">${item.resourceCategoryNameEN}</option>
+                                    <option value="${item.resourceCategoryId}">${item.resourceCategoryNameEn}</option>
                                 </c:forEach>
                             </select>
                             <%}%>
                             <%if(language==2) {%>
                             <select id="dropResourceType"  name="dropResourceType">
                                 <c:forEach items="${resourceTypeBO.allResourcecategory}" var="item">
-                                    <option value="${item.resourceCategoryID}">${item.resourceCategoryNameVN}</option>
+                                    <option value="${item.resourceCategoryId}">${item.resourceCategoryNameVn}</option>
                                 </c:forEach>
                             </select>
                             <%}%>
@@ -71,14 +71,14 @@
                                 <%if(language==1) {%>
                                 <select  id="dropSubjectNameInChapter">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
-                                        <option value="${item.subjectID}">${item.subjectNameEN}</option>
+                                        <option value="${item.subjectId}">${item.subjectNameEn}</option>
                                     </c:forEach>
                                 </select>
                                 <%}%>
                                 <%if(language==2) {%>
                                 <select  id="dropSubjectNameInChapter">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
-                                        <option value="${item.subjectID}">${item.subjectNameVN}</option>
+                                        <option value="${item.subjectId}">${item.subjectNameVn}</option>
                                     </c:forEach>
                                 </select>
                                 <%}%>
@@ -113,14 +113,14 @@
                                 <%if(language==1) {%>
                                 <select  name="dropSubjectNameInChapter">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
-                                        <option value="${item.subjectID}">${item.subjectNameEN}</option>
+                                        <option value="${item.subjectId}">${item.subjectNameEn}</option>
                                     </c:forEach>
                                 </select>
                                 <%}%>
                                 <%if(language==2) {%>
                                 <select  name="dropSubjectNameInChapter">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
-                                        <option value="${item.subjectID}">${item.subjectNameVN}</option>
+                                        <option value="${item.subjectId}">${item.subjectNameVn}</option>
                                     </c:forEach>
                                 </select>
                                 <%}%>
@@ -146,14 +146,14 @@
                                 <%if(language==1) {%>
                                 <select  name="dropSubjectNameInChapter">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
-                                        <option value="${item.subjectID}">${item.subjectNameEN}</option>
+                                        <option value="${item.subjectId}">${item.subjectNameEn}</option>
                                     </c:forEach>
                                 </select>
                                 <%}%>
                                 <%if(language==2) {%>
                                 <select  name="dropSubjectNameInChapter">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
-                                        <option value="${item.subjectID}">${item.subjectNameVN}</option>
+                                        <option value="${item.subjectId}">${item.subjectNameVn}</option>
                                     </c:forEach>
                                 </select>
                                 <%}%>
@@ -178,14 +178,14 @@
                                 <%if(language==1) {%>
                                 <select id="dropSubjectName" name="dropSubjectName">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
-                                        <option value="${item.subjectID}">${item.subjectNameEN}</option>
+                                        <option value="${item.subjectId}">${item.subjectNameEn}</option>
                                     </c:forEach>
                                 </select>
                                 <%}%>
                                 <%if(language==2) {%>
                                 <select id="dropSubjectName"  name="dropSubjectName">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
-                                        <option value="${item.subjectID}">${item.subjectNameVN}</option>
+                                        <option value="${item.subjectId}">${item.subjectNameVn}</option>
                                     </c:forEach>
                                 </select>
                                 <%}%>

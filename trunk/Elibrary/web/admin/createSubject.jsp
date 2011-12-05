@@ -45,14 +45,14 @@
                 <%if(language==1) {%>
                     <select  name="dropSubjectCategory" class="cssdropbox">
                         <c:forEach items="${subjectCategoryBO.allSubjectCategory}" var="item">
-                            <option value="${item.subjectCategoryID}">${item.subjectCategoryNameEN}</option>
+                            <option value="${item.subjectCategoryId}">${item.subjectCategoryNameEn}</option>
                         </c:forEach>
                     </select> 
                 <%}%>
                 <%if(language==2) {%>
                     <select  name="dropSubjectCategory" class="cssdropbox">
                         <c:forEach items="${subjectCategoryBO.allSubjectCategory}" var="item">
-                            <option value="${item.subjectCategoryID}">${item.subjectCategoryNameVN}</option>
+                            <option value="${item.subjectCategoryId}">${item.subjectCategoryNameVn}</option>
                         </c:forEach>
                     </select> 
                 <%}%>
@@ -90,14 +90,14 @@
                 <% if(language==1) {%>
                     <select  name="dropSubjectFaculty" class="cssdropbox">
                         <c:forEach items="${subjectFacultyBO.allFaculty}" var="item">
-                          <option value="${item.facultyID}">${item.facultyNameEN}</option>
+                          <option value="${item.facultyId}">${item.facultyNameEn}</option>
                         </c:forEach>
                     </select> 
                 <%}%>
                 <% if(language==2) {%>
                     <select  name="dropSubjectFaculty" class="cssdropbox">
                         <c:forEach items="${subjectFacultyBO.allFaculty}" var="item">
-                          <option value="${item.facultyID}">${item.facultyNameVN}</option>
+                          <option value="${item.facultyId}">${item.facultyNameVn}</option>
                         </c:forEach>
                     </select> 
                 <%}%>
