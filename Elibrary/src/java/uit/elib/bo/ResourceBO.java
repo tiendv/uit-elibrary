@@ -44,7 +44,7 @@ public class ResourceBO extends ManagerBase<Resource> {
      }    
       public List getAllResource() {
         try {
-            String[] sort = new String[]{"resourceID"}; // tang dan
+            String[] sort = new String[]{"resourceId"}; // tang dan
             //String[] sort = new String[]{"name desc"}; // giam dan
 
             List<Resource> list = getBySQLQuery(sort, 0);
@@ -57,7 +57,7 @@ public class ResourceBO extends ManagerBase<Resource> {
      }
       public List<Resource> getAllResourceOfSubjectAndResourceCategory(int subjectID, int resourcecategoryID)
       {
-          String query = "SubjectID="+subjectID + " and ResourceCategoryID="+resourcecategoryID;
+          String query = "SubjectId="+subjectID + " and ResourceCategoryId="+resourcecategoryID;
           List<Resource> list;
         try {
             list = getBySQLQuery(query, null, 0);
@@ -84,7 +84,7 @@ public class ResourceBO extends ManagerBase<Resource> {
       }
       public List getAllChapterOfSubject (int subjectID)
       {
-           String query = "SubjectID=" + subjectID;
+           String query = "SubjectId=" + subjectID;
             
             List<Resource> list;
         try {
@@ -99,7 +99,7 @@ public class ResourceBO extends ManagerBase<Resource> {
       
        public int countNumberChapterOfSubject (int subjectID)
       {
-           String query = "[SubjectID]='" + subjectID +"'";
+           String query = "[SubjectId]='" + subjectID +"'";
             
             List<Resource> list;
         try {

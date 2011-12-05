@@ -33,7 +33,7 @@ public class SubjectCategoryBO extends ManagerBase<Subjectcategory> {
     
      public List getAllSubjectCategory() {
         try {
-            String[] sort = new String[]{"subjectCategoryID"}; // tang dan
+            String[] sort = new String[]{"subjectCategoryId"}; // tang dan
             //String[] sort = new String[]{"name desc"}; // giam dan
 
             List<Subjectcategory> list = getBySQLQuery(sort, 0);
