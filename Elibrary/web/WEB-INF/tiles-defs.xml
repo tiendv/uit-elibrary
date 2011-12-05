@@ -86,8 +86,8 @@
         <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
     </definition>
     <definition name=".loadSubjectCategory" extends=".homepage">
-        <put name="title"  value="Lecture Note" />
-        <put name="description"  value="Lecture Note" />
+        <put name="title"  value="Project Information" />
+        <put name="description"  value="Project Information" />
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
         <put name="footer" value="/jsp/footer.jsp" />
@@ -104,8 +104,8 @@
         <put name="leftmenu"   value="/jsp/leftmenusubject.jsp" />
     </definition>
     <definition name=".subjectHome" extends=".homepage">
-        <put name="title"  value="Lecture Note" />
-        <put name="description"  value="Lecture Note" />
+        <put name="title"  value="Project Information" />
+        <put name="description"  value="Project Information" />
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
         <put name="footer" value="/jsp/footer.jsp" />
@@ -113,8 +113,8 @@
         <put name="leftmenu"   value="/jsp/leftmenusubject.jsp" />
     </definition>
     <definition name=".syllabus" extends=".homepage">
-        <put name="title"  value="Lecture Note" />
-        <put name="description"  value="Lecture Note" />
+        <put name="title"  value="Project Information" />
+        <put name="description"  value="Project Information" />
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
         <put name="footer" value="/jsp/footer.jsp" />

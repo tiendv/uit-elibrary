@@ -12,6 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="<html:rewrite page='/css/uit.css'/>" rel="stylesheet" type="text/css" />
         <title>JSP Page</title>
         
     </head>
@@ -27,7 +28,8 @@
             if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
                 language=2; // VietNamese            
         %>
-        <a href= "LoadSubject.do"><bean:message key="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subject.getSubjectID()%>">
+        <div class="hyperlink_title_subject">
+            <a href= "LoadSubject.do"><bean:message key="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subject.getSubjectID()%>">
         <%if(language==1) {%>
             <%=subject.getSubjectNameEN()%>
         <%}%>
@@ -36,6 +38,7 @@
         <%}%>
         </a>
         > <bean:message key="text.menu.subjecthome"/>
+        </div>
         <table>
             <thead>
                 <tr>
