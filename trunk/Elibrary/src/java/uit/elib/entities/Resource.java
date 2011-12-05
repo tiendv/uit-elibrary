@@ -1,5 +1,5 @@
 package uit.elib.entities;
-// Generated Dec 5, 2011 9:18:35 PM by Hibernate Tools 3.2.1.GA
+// Generated Dec 5, 2011 9:29:17 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
