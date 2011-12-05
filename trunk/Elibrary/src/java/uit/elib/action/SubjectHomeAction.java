@@ -55,20 +55,17 @@ public class SubjectHomeAction extends org.apache.struts.action.Action {
             if(checkInt(request.getParameter("subjectID")))
             {
                 int id = Integer.parseInt(request.getParameter("subjectID"));
-                //BO
-                SubjectBO subjectBO = new SubjectBO();
-                ResourceBO resourceBO = new ResourceBO(); 
                 //Entity
                 Subject subject= new Subject();
                 List<Resource> listResource = new ArrayList<Resource>();   
                 //get subject
-                subject=subjectBO.getSubjectByID(id);
+                subject=SubjectBO.getSubjectBO().getSubjectByID(id);
                 //set Attribute for subject
                 request.setAttribute("subject", subject);
                 //get image link of subject
-                if(resourceBO.getAllResourceOfSubjectAndResourceCategory(id, 8).size()>0)
+                if(ResourceBO.getResourceBO().getAllResourceOfSubjectAndResourceCategory(id, 8).size()>0)
                 {
-                    listResource=resourceBO.getAllResourceOfSubjectAndResourceCategory(id, 8);
+                    listResource=ResourceBO.getResourceBO().getAllResourceOfSubjectAndResourceCategory(id, 8);
                     String imageLink = "./upload/"+listResource.get(0).getServerName().toString();
                     request.setAttribute("imageLink", imageLink); 
                 }

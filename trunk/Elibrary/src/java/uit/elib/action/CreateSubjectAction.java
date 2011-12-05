@@ -44,14 +44,12 @@ public class CreateSubjectAction extends org.apache.struts.action.Action {
         CreateSubjectActionForm subjectFormBean = (CreateSubjectActionForm) form;
         
         // Get infor category
-        SubjectCategoryBO tempSubjectCategorytBO =  new SubjectCategoryBO();
         Subjectcategory tempCategory;
-        tempCategory = tempSubjectCategorytBO.getById(subjectFormBean.getDropSubjectCategory(), true);
+        tempCategory = SubjectCategoryBO.getSubjectBO().getById(subjectFormBean.getDropSubjectCategory(), true);
         
         // Get infor faculty
         Faculty tempFaculty;
-        FacultyBO tempFacultyBO = FacultyBO.getFacultyBO();
-        tempFaculty = tempFacultyBO.getById(subjectFormBean.getDropSubjectFaculty(), true);
+        tempFaculty = FacultyBO.getFacultyBO().getById(subjectFormBean.getDropSubjectFaculty(), true);
                 
         SubjectBO subjectBO = SubjectBO.getSubjectBO();
         Subject temp = new Subject(); 
