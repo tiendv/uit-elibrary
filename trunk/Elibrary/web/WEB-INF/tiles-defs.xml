@@ -86,8 +86,8 @@
         <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
     </definition>
      <definition name=".loadBase" extends=".homepage">
-        <put name="title"  value=" Subject" />
-        <put name="description"  value="Subject" />
+        <put name="title"  value=" Base" />
+        <put name="description"  value="Base" />
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
         <put name="footer" value="/jsp/footer.jsp" />
@@ -95,8 +95,8 @@
         <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
     </definition> 
      <definition name=".loadFaculty" extends=".homepage">
-        <put name="title"  value=" Subject" />
-        <put name="description"  value="Subject" />
+        <put name="title"  value=" Faculty" />
+        <put name="description"  value="Faculty" />
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
         <put name="footer" value="/jsp/footer.jsp" />
@@ -104,8 +104,8 @@
         <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
     </definition> 
      <definition name=".loadOptional" extends=".homepage">
-        <put name="title"  value=" Subject" />
-        <put name="description"  value="Subject" />
+        <put name="title"  value=" Optional" />
+        <put name="description"  value="Optional" />
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
         <put name="footer" value="/jsp/footer.jsp" />

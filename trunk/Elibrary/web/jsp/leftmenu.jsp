@@ -18,13 +18,13 @@
             <td  class="leftmenu_td_title"><bean:message key="text.menu.subject"/></td>
  	        </tr>
             <tr>
-                <td class="leftmenu_td_link"><a href="#"><bean:message key="text.leftmenu.base"/></a></td>
+                <td class="leftmenu_td_link"><a href="./LoadBase.do"><bean:message key="text.leftmenu.base"/></a></td>
           </tr>
           <tr>
-            <td class="leftmenu_td_link"><a href="#"><bean:message key="text.leftmenu.faculty"/></a></td>
+            <td class="leftmenu_td_link"><a href="./LoadFaculty.do"><bean:message key="text.leftmenu.faculty"/></a></td>
           </tr>
           <tr>
-            <td class="leftmenu_td_link"><a href="#"><bean:message key="text.leftmenu.optional"/></a></td>
+            <td class="leftmenu_td_link"><a href="./LoadOptional.do"><bean:message key="text.leftmenu.optional"/></a></td>
           </tr>
           <tr>
             <td >&nbsp;</td>
