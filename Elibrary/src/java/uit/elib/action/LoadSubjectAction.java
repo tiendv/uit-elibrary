@@ -5,7 +5,6 @@
 package uit.elib.action;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +13,6 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import uit.elib.bo.ResourceBO;
 import uit.elib.bo.SubjectBO;
-import uit.elib.database.hibernate.ManagerBase;
 import uit.elib.dto.Resource;
 import uit.elib.dto.Subject;
 
@@ -43,7 +41,7 @@ public class LoadSubjectAction extends org.apache.struts.action.Action {
         SubjectBO tempSubjectBO = new SubjectBO();
         List<Subject> listSubject = new ArrayList<Subject>();
         String []order = new String[1];
-        order[0]= "subjectID";
+        order[0]= "subjectId";
         listSubject=tempSubjectBO.getAllSubject(order);
         request.setAttribute("listSubject", listSubject);
         
@@ -53,7 +51,7 @@ public class LoadSubjectAction extends org.apache.struts.action.Action {
         order[0]= "subject";
         order[1]= "orderChapter";
         order[2]= "postDate";
-        String where = "OrderChapter is not null";
+        String where = "orderChapter is not null";
         listResource=tempResourceBO.getAllResource(where,order);
         request.setAttribute("listResource", listResource);       
         return mapping.findForward(SUCCESS);  
