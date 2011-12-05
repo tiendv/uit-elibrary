@@ -4,7 +4,7 @@
  */
 package uit.elib.bo;
 import uit.elib.database.hibernate.ManagerBase;
-import uit.elib.entities.*;
+import uit.elib.dto.*;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  *
  * @author tiendv
  */
-public class ResourceCategoryBO extends ManagerBase<ResourceCategory> {
+public class ResourceCategoryBO extends ManagerBase<Resourcecategory> {
    
    public static ResourceCategoryBO resourceCategoryBO = null;
    public ResourceCategoryBO() throws Exception {
@@ -38,7 +38,7 @@ public class ResourceCategoryBO extends ManagerBase<ResourceCategory> {
             sort[0]="resourceCategoryID";
             //String[] sort = new String[]{"name desc"}; // giam dan
 
-            List<ResourceCategory> list = getBySQLQuery(sort, 0);
+            List<Resourcecategory> list = getBySQLQuery(sort, 0);
             return list;
 
         } catch (Exception ex) {

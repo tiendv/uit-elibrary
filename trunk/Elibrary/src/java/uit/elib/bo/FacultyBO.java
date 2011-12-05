@@ -4,7 +4,7 @@
  */
 package uit.elib.bo;
 import uit.elib.database.hibernate.ManagerBase;
-import uit.elib.entities.*;
+import uit.elib.dto.*;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;

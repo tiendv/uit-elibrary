@@ -4,7 +4,7 @@
  */
 package uit.elib.bo;
 import uit.elib.database.hibernate.ManagerBase;
-import uit.elib.entities.*;
+import uit.elib.dto.*;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  *
  * @author tiendv
  */
-public class SubjectCategoryBO extends ManagerBase<SubjectCategory> {
+public class SubjectCategoryBO extends ManagerBase<Subjectcategory> {
 
     
     private static SubjectCategoryBO subjectCategorytBO = null;
@@ -36,7 +36,7 @@ public class SubjectCategoryBO extends ManagerBase<SubjectCategory> {
             String[] sort = new String[]{"subjectCategoryID"}; // tang dan
             //String[] sort = new String[]{"name desc"}; // giam dan
 
-            List<SubjectCategory> list = getBySQLQuery(sort, 0);
+            List<Subjectcategory> list = getBySQLQuery(sort, 0);
             return list;
 
         } catch (Exception ex) {
