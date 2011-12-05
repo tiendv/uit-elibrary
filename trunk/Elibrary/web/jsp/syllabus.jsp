@@ -64,21 +64,21 @@
         <%if(language==2) {%>
             <div style="padding-left: 10px;padding-bottom: 5px"><%=subject.getProjectRequirementVn() %></div>
         <%}%>        
-        <table cellspacing="0" style="border: 1px #B4B1A2 solid ;margin-left: 8px ">
+        <table class="resource_table ">
         <thead>
-            <tr style="background-color:#B4B1A2">
-                <th ><bean:message key="text.time"/></th>
-                <th><bean:message key="text.percent"/></th>
+            <tr class="color_title_table">
+                <th style="height: 8px; text-align: center"><bean:message key="text.grade"/></th>
+                <th style="height: 8px; text-align: center"><bean:message key="text.percent"/></th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td><bean:message key="text.midtermGrade"/></td>
-                <td><%=subject.getMidtermGrade() %></td>
+                <td style="text-align: center"><bean:message key="text.midtermGrade"/></td>
+                <td style="text-align: center"><%=subject.getMidtermGrade() %> %</td>
             </tr>
             <tr style="background-color:#E2E1D9">
-                <td><bean:message key="text.finalGrade"/></td>
-                <td><%=subject.getFinalGrade() %></td>
+                <td style="text-align: center"><bean:message key="text.finalGrade"/></td>
+                <td style="text-align: center"><%=subject.getFinalGrade() %> %</td>
             </tr>
         </tbody>
     </table>
