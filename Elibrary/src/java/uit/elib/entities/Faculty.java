@@ -1,5 +1,5 @@
 package uit.elib.entities;
-// Generated Nov 26, 2011 12:46:52 PM by Hibernate Tools 3.2.1.GA
+// Generated Dec 5, 2011 8:57:54 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -11,45 +11,45 @@ import java.util.Set;
 public class Faculty  implements java.io.Serializable {
 
 
-     private int facultyID;
-     private String facultyNameEN;
-     private String facultyNameVN;
+     private int facultyId;
+     private String facultyNameEn;
+     private String facultyNameVn;
      private Set subjects = new HashSet(0);
 
     public Faculty() {
     }
 
 	
-    public Faculty(int facultyID) {
-        this.facultyID = facultyID;
+    public Faculty(int facultyId) {
+        this.facultyId = facultyId;
     }
-    public Faculty(int facultyID, String facultyNameEN, String facultyNameVN, Set subjects) {
-       this.facultyID = facultyID;
-       this.facultyNameEN = facultyNameEN;
-       this.facultyNameVN = facultyNameVN;
+    public Faculty(int facultyId, String facultyNameEn, String facultyNameVn, Set subjects) {
+       this.facultyId = facultyId;
+       this.facultyNameEn = facultyNameEn;
+       this.facultyNameVn = facultyNameVn;
        this.subjects = subjects;
     }
    
-    public int getFacultyID() {
-        return this.facultyID;
+    public int getFacultyId() {
+        return this.facultyId;
     }
     
-    public void setFacultyID(int facultyID) {
-        this.facultyID = facultyID;
+    public void setFacultyId(int facultyId) {
+        this.facultyId = facultyId;
     }
-    public String getFacultyNameEN() {
-        return this.facultyNameEN;
-    }
-    
-    public void setFacultyNameEN(String facultyNameEN) {
-        this.facultyNameEN = facultyNameEN;
-    }
-    public String getFacultyNameVN() {
-        return this.facultyNameVN;
+    public String getFacultyNameEn() {
+        return this.facultyNameEn;
     }
     
-    public void setFacultyNameVN(String facultyNameVN) {
-        this.facultyNameVN = facultyNameVN;
+    public void setFacultyNameEn(String facultyNameEn) {
+        this.facultyNameEn = facultyNameEn;
+    }
+    public String getFacultyNameVn() {
+        return this.facultyNameVn;
+    }
+    
+    public void setFacultyNameVn(String facultyNameVn) {
+        this.facultyNameVn = facultyNameVn;
     }
     public Set getSubjects() {
         return this.subjects;

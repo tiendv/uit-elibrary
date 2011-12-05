@@ -1,62 +1,147 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 26, 2011 12:46:58 PM by Hibernate Tools 3.2.1.GA -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Dec 5, 2011 8:57:57 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-  <class catalog="elibrary" name="uit.elib.entities.Resource" table="resource">
-    <id name="resourceID" type="java.lang.Integer">
-      <column name="ResourceID"/>
-      <generator class="identity"/>
+
+<class 
+    name="uit.elib.entities.Resource"
+    table="resource"
+    catalog="elibrary"
+>
+
+	<id 
+        name="resourceId"
+        type="java.lang.Integer"
+    >
+    
+<column name="ResourceID" />
+	    <generator class="identity" />
     </id>
-    <many-to-one class="uit.elib.entities.ResourceCategory" fetch="select" name="resourcecategory">
-      <column name="ResourceCategoryID"/>
-    </many-to-one>
-    <many-to-one class="uit.elib.entities.Subject" fetch="select" name="subject">
-      <column name="SubjectID"/>
-    </many-to-one>
-    <property name="resourceNameVN" type="string">
-      <column name="ResourceNameVN"/>
-    </property>
-    <property name="resourceNameEN" type="string">
-      <column name="ResourceNameEN"/>
-    </property>
-    <property name="size" type="java.lang.Integer">
-      <column name="Size"/>
-    </property>
-    <property name="serverName" type="string">
-      <column name="ServerName"/>
-    </property>
-    <property name="summaryEN" type="string">
-      <column name="SummaryEN"/>
-    </property>
-    <property name="postDate" type="date">
-      <column length="10" name="PostDate"/>
-    </property>
-    <property name="viewerNumber" type="java.lang.Integer">
-      <column name="ViewerNumber"/>
-    </property>
-    <property name="downloadNumber" type="java.lang.Integer">
-      <column name="DownloadNumber"/>
-    </property>
-    <property name="format" type="string">
-      <column length="45" name="Format"/>
-    </property>
-    <property name="language" type="string">
-      <column length="45" name="Language"/>
-    </property>
-    <property name="voteMark" type="java.lang.Integer">
-      <column name="VoteMark"/>
-    </property>
-    <property name="summaryVN" type="string">
-      <column name="SummaryVN"/>
-    </property>
-    <property name="orderChapter" type="java.lang.Integer">
-      <column name="OrderChapter"/>
-    </property>
-    <property name="author" type="string">
-      <column length="11" name="Author"/>
-    </property>
-    <property name="uploadName" type="string">
-      <column name="UploadName"/>
-    </property>
-  </class>
+
+
+    <many-to-one
+	    name="resourcecategory"
+	    class="uit.elib.entities.Resourcecategory"
+        fetch="select"
+    >
+<column name="ResourceCategoryID" />
+   </many-to-one>
+    <many-to-one
+	    name="subject"
+	    class="uit.elib.entities.Subject"
+        fetch="select"
+    >
+<column name="SubjectID" />
+   </many-to-one>
+    <property
+        name="resourceNameVn"
+        type="string"
+    >
+<column name="ResourceNameVN" length="65535" />
+  </property>
+
+    <property
+        name="resourceNameEn"
+        type="string"
+    >
+<column name="ResourceNameEN" length="65535" />
+  </property>
+
+    <property
+        name="size"
+        type="java.lang.Integer"
+    >
+<column name="Size" />
+  </property>
+
+    <property
+        name="serverName"
+        type="string"
+    >
+<column name="ServerName" />
+  </property>
+
+    <property
+        name="summaryVn"
+        type="string"
+    >
+<column name="SummaryVN" length="65535" />
+  </property>
+
+    <property
+        name="summaryEn"
+        type="string"
+    >
+<column name="SummaryEN" length="65535" />
+  </property>
+
+    <property
+        name="postDate"
+        type="date"
+    >
+<column name="PostDate" length="10" />
+  </property>
+
+    <property
+        name="viewerNumber"
+        type="java.lang.Integer"
+    >
+<column name="ViewerNumber" />
+  </property>
+
+    <property
+        name="downloadNumber"
+        type="java.lang.Integer"
+    >
+<column name="DownloadNumber" />
+  </property>
+
+    <property
+        name="format"
+        type="string"
+    >
+<column name="Format" length="45" />
+  </property>
+
+    <property
+        name="language"
+        type="string"
+    >
+<column name="Language" length="45" />
+  </property>
+
+    <property
+        name="voteMark"
+        type="java.lang.Integer"
+    >
+<column name="VoteMark" />
+  </property>
+
+    <property
+        name="orderChapter"
+        type="java.lang.Integer"
+    >
+<column name="OrderChapter" />
+  </property>
+
+    <property
+        name="author"
+        type="string"
+    >
+<column name="Author" />
+  </property>
+
+    <property
+        name="uploadName"
+        type="string"
+    >
+<column name="UploadName" />
+  </property>
+
+
+</class>
+
 </hibernate-mapping>
