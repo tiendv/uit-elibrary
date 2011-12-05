@@ -39,7 +39,17 @@ public class SubjectBO extends ManagerBase<Subject> {
             Logger.getLogger(Subject.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
-    }    
+    } 
+     public List getAllSubject(String where,String[] sort) {
+        try {
+            List<Subject> list = getBySQLQuery(where,sort, 0);
+            return list;
+
+        } catch (Exception ex) {
+            Logger.getLogger(Subject.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }        
      public List getAllSubject() {
         try {
             String[] sort = new String[]{"subjectId"}; // tang dan
