@@ -56,7 +56,7 @@
                 <%=subject.getPrerequisiteSubjectVN() %></div>
         <%}%>
                 
-        <div style="font-weight: bold; padding-left: 10px;padding-bottom: 5px "><bean:message key="text.projectRequirement"/> : </div>
+        <div style="font-weight: bold; padding-left: 10px;padding-bottom: 5px "><bean:message key="text.projectRequirementTitle"/> : </div>
         <%if(language==1) {%>
             <div style="padding-left: 10px;padding-bottom: 5px"><%=subject.getProjectRequirementEN() %></div>   
         <%}%>

@@ -16,6 +16,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link href="<html:rewrite page='/css/uit.css'/>" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <%
@@ -34,7 +35,7 @@
                     int color=1;
         %>
         
-        <!-- Begin load rerource by OrderChapter (ResourceCategoryID= 10, giáo trình) -->
+        <!-- Begin load resource by OrderChapter (ResourceCategoryID= 10, giáo trình) -->
         <%if(resourceCategoryID==10) {%>
         
         <div><a href="LoadSubject.do"><bean:message key ="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
@@ -44,8 +45,8 @@
                     <%=subject.getSubjectNameVN()%>
                     <%}%>
             </a> > <bean:message key ="text.menu.lecturenote"/></div>
-        <table cellspacing="0" style="border: 1px #B4B1A2 solid ; margin-left: 17px " width="738px"  >
-            <tr  style="background-color:#B4B1A2; color: #680a12"  height="30px"> <!-- title -->
+        <table  class="resource_table" >
+            <tr  class="color_title_table"> <!-- title -->
                 <td width="80px"><bean:message key="text.OrderChapter" /></td>
                 <td width="230px"><bean:message key="text.ChapterTitle" /></td>
                 <td width="330px"><bean:message key="text.Summary" /></td>
@@ -57,12 +58,12 @@
         %>
         <tr>
             <td <% if(color%2==0){ %> 
-                                    style="background-color:#E2E1D9"
+                                    class="color_table2"
                                 <%}%> > 
                                <%=listChapter.get(i).getOrderChapter()%>
              </td>
              <td <% if(color%2==0){ %> 
-                                    style="background-color:#E2E1D9"
+                                    class="color_table2"
                                 <%}%> >              
                         <% if(language==1) {%>
                         <p>  <%=listChapter.get(i).getResourceNameEN()%> </p>
@@ -72,7 +73,7 @@
                         <% } %>                         
              </td>
              <td <% if(color%2==0){ %> 
-                                    style="background-color:#E2E1D9"
+                                class="color_table2"
                                 <%}%> >              
                         <% if(language==1) {%>
                             <%=listChapter.get(i).getSummaryEN()%> 
@@ -82,7 +83,7 @@
                         <% } %>                         
              </td>
              <td <% if(color%2==0){ %> 
-                                    style="background-color:#E2E1D9"
+                                    class="color_table2"
                                 <%}%>  >
                     <%for(int k=0;k<listResource.size();k++)
                         if(Integer.parseInt(listChapter.get(i).getOrderChapter().toString())== Integer.parseInt(listResource.get(k).getOrderChapter().toString()))
@@ -109,8 +110,8 @@
                     <%=subject.getSubjectNameVN()%>
             <%}%>
             </a> > <bean:message key ="text.menu.reading"/></div>
-        <table cellspacing="0" style="border: 1px #B4B1A2 solid ; margin-left: 17px " width="738px" >
-            <tr style="background-color:#B4B1A2; color: #680a12"  height="30px">
+        <table class="resource_table" >
+            <tr class="color_title_table">
                 <td width="100px"><bean:message key="text.OrderNumber"/> </td>
                 <td width="638px"><bean:message key="text.Document"/> </td>
             </tr>
@@ -120,11 +121,11 @@
                  %>
                  <tr>
                  <td <% if(color%2==0){ %> 
-                                    style="background-color:#E2E1D9"
+                                    class="color_table2"
                                 <%}%>>
                      <%=count%></td>
                  <td <% if(color%2==0){ %> 
-                                    style="background-color:#E2E1D9"
+                                    class="color_table2"
                                 <%}%>>
                      <% if(language==1) {%>
                         <%=listResource.get(i).getResourceNameEN()%>
@@ -167,10 +168,10 @@
         
         <div><a><h2><bean:message key="text.ListTemplateProject"/></h2></a></div>
         <table cellspacing="0" style="border: 1px #B4B1A2 solid ; margin-left: 17px " width="738px" >
-            <tr style="background-color:#B4B1A2; color: #680a12"  height="30px">
+            <tr class="color_title_table">
                 <td width="100px"><bean:message key="text.OrderNumber"/> </td>
                 <td width="200px"><bean:message key="text.projectAuthor"/> </td>
-                <td width="328px"><bean:message key="text.projectNameUS"/> </td>
+                <td width="328px"><bean:message key="text.projectNameEN"/> </td>
                 <td width="110px"><bean:message key="text.note"/> </td>
             </tr>
                 <%
@@ -179,17 +180,17 @@
                  %>
                  <tr>
                  <td <% if(color%2==0){ %> 
-                                    style="background-color:#E2E1D9"
+                                    class="color_table2"
                      <%}%>>
                         <%=count%>
                  </td>
                  <td <% if(color%2==0){ %> 
-                                    style="background-color:#E2E1D9"
+                                    class="color_table2"
                      <%}%>>
                         <%=listResource.get(i).getAuthor()%>
                  </td>
                  <td <% if(color%2==0){ %> 
-                                    style="background-color:#E2E1D9"
+                                    class="color_table2"
                                 <%}%>>
                      <% if(language==1) {%>
                         <%=listResource.get(i).getResourceNameEN()%>
@@ -199,7 +200,7 @@
                      <%}%>
                  </td>
                  <td <% if(color%2==0){ %> 
-                                    style="background-color:#E2E1D9"
+                                    class="color_table2"
                                 <%}%>>
                      <% if(language==1) {%>
                         <%=listResource.get(i).getSummaryEN()%>
