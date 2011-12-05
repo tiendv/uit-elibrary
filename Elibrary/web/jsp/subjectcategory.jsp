@@ -167,7 +167,7 @@
         <%}%>
         
         <div><a><h2><bean:message key="text.ListTemplateProject"/></h2></a></div>
-        <table class="color_title_table" >
+        <table class="resource_table" >
             <tr class="color_title_table">
                 <td width="100px"><bean:message key="text.OrderNumber"/> </td>
                 <td width="200px"><bean:message key="text.projectAuthor"/> </td>
