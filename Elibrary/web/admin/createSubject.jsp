@@ -97,7 +97,7 @@
                 <% if(language==2) {%>
                     <select  name="dropSubjectFaculty" class="cssdropbox">
                         <c:forEach items="${subjectFacultyBO.allFaculty}" var="item">
-                          <option value="${item.facultyID}">${item.faclutyNameVN}</option>
+                          <option value="${item.facultyID}">${item.facultyNameVN}</option>
                         </c:forEach>
                     </select> 
                 <%}%>
