@@ -3,20 +3,20 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Dec 5, 2011 9:29:17 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="uit.elib.entities.Faculty" table="faculty" catalog="elibrary">
-        <id name="facultyId" type="int">
-            <column name="FacultyID" />
+    <class name="uit.elib.entities.Subjectcategory" table="subjectcategory" catalog="elibrary">
+        <id name="subjectCategoryId" type="int">
+            <column name="SubjectCategoryID" />
             <generator class="assigned" />
         </id>
-        <property name="facultyNameEn" type="string">
-            <column name="FacultyNameEN" />
+        <property name="subjectCategoryNameEn" type="string">
+            <column name="SubjectCategoryNameEN" />
         </property>
-        <property name="facultyNameVn" type="string">
-            <column name="FacultyNameVN" />
+        <property name="subjectCategoryNameVn" type="string">
+            <column name="SubjectCategoryNameVN" />
         </property>
         <set name="subjects" inverse="true">
             <key>
-                <column name="FacultyID" />
+                <column name="SubjectCategoryID" />
             </key>
             <one-to-many class="uit.elib.entities.Subject" />
         </set>
