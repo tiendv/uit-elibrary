@@ -146,6 +146,70 @@
         <!--End of ResourceCategoryID=9 IF -->
         
         
+         <!-- Begin load resource by OrderChapter (ResourceCategoryID=4, bài tập) -->
+        <%if(resourceCategoryID==4) {%>
+        
+        <div class="hyperlink_title_subject" ><a href="LoadSubject.do"><bean:message key ="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
+                <% if(language==1){%>
+                    <%=subject.getSubjectNameEn()%>
+                <%}if(language==2){%>
+                    <%=subject.getSubjectNameVn()%>
+                    <%}%>
+            </a> > <bean:message key ="text.menu.assignments"/></div>
+        <table  class="resource_table">
+            <tr  class="color_title_table"> <!-- title -->
+                <td width="80px"><bean:message key="text.OrderChapter" /></td>
+                <td width="230px"><bean:message key="text.ChapterTitle" /></td>
+                <td width="330px"><bean:message key="text.Summary" /></td>
+                <td width="98px"><bean:message key="text.Document" /></td>
+            </tr>
+        <% 
+                    
+                    for(int i = 0; i<listChapter.size();i++){
+        %>
+        <tr>
+            <td <% if(color%2==0){ %> 
+                                    class="color_table2"
+                                <%}%> > 
+                               <%=listChapter.get(i).getOrderChapter()%>
+             </td>
+             <td <% if(color%2==0){ %> 
+                                    class="color_table2"
+                                <%}%> >              
+                        <% if(language==1) {%>
+                        <p><u>  <%=listChapter.get(i).getResourceNameEn()%></u> </p>
+                        <% } %> 
+                        <% if(language==2) {%>
+                            <u> <%=listChapter.get(i).getResourceNameVn()%> </u>
+                        <% } %>                         
+             </td>
+             <td <% if(color%2==0){ %> 
+                                class="color_table2"
+                                <%}%> >              
+                        <% if(language==1) {%>
+                             <u> <%=listChapter.get(i).getSummaryEn()%> </u>
+                        <% } %> 
+                        <% if(language==2) {%>
+                            <u> <%=listChapter.get(i).getSummaryVn()%> </u>
+                        <% } %>                         
+             </td>
+             <td <% if(color%2==0){ %> 
+                                    class="color_table2"
+                                <%}%>  >
+                    <%for(int k=0;k<listResource.size();k++)
+                        if(Integer.parseInt(listChapter.get(i).getOrderChapter().toString())== Integer.parseInt(listResource.get(k).getOrderChapter().toString()))
+                           {%>
+                     <u> <a href="DownLoad.do?resourceID=<%=listResource.get(k).getResourceId()%>" > <%=listResource.get(k).getFormat() %> </a> </u>
+                    <%}%>
+             </td>
+             <%color++;%>
+        </tr>
+                <%}%>
+        </table>
+        <%}%>  <!--End of ResourceCategoryID=4  IF -->
+        
+        
+        
         
         <!--Begin of ResourceCategoryID = 6 (đồ án môn học) -->
         
@@ -193,10 +257,18 @@
                                     class="color_table2"
                                 <%}%>>
                      <% if(language==1) {%>
-                      <%=listResource.get(i).getResourceNameEn()%> 
+                     <%
+                        if(Integer.parseInt(listResource.get(i).getSubject().getSubjectId().toString())== Integer.parseInt(subject.getSubjectId().toString()))
+                           {%>
+                     <u> <a href="DownLoad.do?resourceID=<%=listResource.get(i).getResourceId()%>" > <%=listResource.get(i).getResourceNameEn() %> </a> </u>
+                    <%}%> 
                      <%}%>
                      <% if(language==2) {%>
-                      <%=listResource.get(i).getResourceNameVn()%>
+                     <%
+                        if(Integer.parseInt(listResource.get(i).getSubject().getSubjectId().toString())== Integer.parseInt(subject.getSubjectId().toString()))
+                           {%>
+                     <u> <a href="DownLoad.do?resourceID=<%=listResource.get(i).getResourceId()%>" > <%=listResource.get(i).getResourceNameVn() %> </a> </u>
+                    <%}%> 
                      <%}%>
                  </td>
                  <td <% if(color%2==0){ %> 

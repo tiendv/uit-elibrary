@@ -49,7 +49,7 @@
             <td class="leftmenu_td_link"><a href="SubjectCategory.do?subjectID=<%=subjectID%>&resourceCategoryID=9&orderChapter=<%=orderChapter%>"> <bean:message  key="text.menu.reading"/></a></td>
           </tr>
           <tr>
-            <td class="leftmenu_td_link"><a href="SubjectCategory.do?subjectID=<%=subjectID%>&resourceCategoryID=10&orderChapter=<%=orderChapter%>"><bean:message  key="text.menu.assignments"/></a></td>
+            <td class="leftmenu_td_link"><a href="SubjectCategory.do?subjectID=<%=subjectID%>&resourceCategoryID=4&orderChapter=<%=orderChapter%>"><bean:message  key="text.menu.assignments"/></a></td>
           </tr>
           <tr>
             <td class="leftmenu_td_link"><a href="SubjectCategory.do?subjectID=<%=subjectID%>&resourceCategoryID=6&orderChapter=<%=orderChapter%>"><bean:message  key="text.menu.project"/></a></td>
