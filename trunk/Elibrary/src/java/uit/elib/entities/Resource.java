@@ -1,5 +1,5 @@
 package uit.elib.entities;
-// Generated Nov 26, 2011 12:46:52 PM by Hibernate Tools 3.2.1.GA
+// Generated Dec 5, 2011 8:57:54 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -10,15 +10,15 @@ import java.util.Date;
 public class Resource  implements java.io.Serializable {
 
 
-     private Integer resourceID;
-     private ResourceCategory resourcecategory;
+     private Integer resourceId;
+     private Resourcecategory resourcecategory;
      private Subject subject;
-     private String resourceNameVN;
-     private String resourceNameEN;
+     private String resourceNameVn;
+     private String resourceNameEn;
      private Integer size;
      private String serverName;
-     private String summaryVN;
-     private String summaryEN;
+     private String summaryVn;
+     private String summaryEn;
      private Date postDate;
      private Integer viewerNumber;
      private Integer downloadNumber;
@@ -32,38 +32,38 @@ public class Resource  implements java.io.Serializable {
     public Resource() {
     }
 
-    public Resource(ResourceCategory resourcecategory, Subject subject, String resourceNameEN, Integer size, String serverName, String summaryEN, Date postDate, Integer viewerNumber, Integer downloadNumber, String format, String language, Integer voteMark, String resourceNameVN, String summaryVN, Integer orderChapter, String author, String uploadName) {
+    public Resource(Resourcecategory resourcecategory, Subject subject, String resourceNameVn, String resourceNameEn, Integer size, String serverName, String summaryVn, String summaryEn, Date postDate, Integer viewerNumber, Integer downloadNumber, String format, String language, Integer voteMark, Integer orderChapter, String author, String uploadName) {
        this.resourcecategory = resourcecategory;
        this.subject = subject;
-       this.resourceNameEN = resourceNameEN;
+       this.resourceNameVn = resourceNameVn;
+       this.resourceNameEn = resourceNameEn;
        this.size = size;
        this.serverName = serverName;
-       this.summaryVN = summaryVN;
-       this.summaryEN = summaryEN;
+       this.summaryVn = summaryVn;
+       this.summaryEn = summaryEn;
        this.postDate = postDate;
        this.viewerNumber = viewerNumber;
        this.downloadNumber = downloadNumber;
        this.format = format;
        this.language = language;
        this.voteMark = voteMark;
-       this.resourceNameVN = resourceNameVN;
        this.orderChapter = orderChapter;
        this.author = author;
        this.uploadName = uploadName;
     }
    
-    public Integer getResourceID() {
-        return this.resourceID;
+    public Integer getResourceId() {
+        return this.resourceId;
     }
     
-    public void setResourceID(Integer resourceID) {
-        this.resourceID = resourceID;
+    public void setResourceId(Integer resourceId) {
+        this.resourceId = resourceId;
     }
-    public ResourceCategory getResourcecategory() {
+    public Resourcecategory getResourcecategory() {
         return this.resourcecategory;
     }
     
-    public void setResourcecategory(ResourceCategory resourcecategory) {
+    public void setResourcecategory(Resourcecategory resourcecategory) {
         this.resourcecategory = resourcecategory;
     }
     public Subject getSubject() {
@@ -73,12 +73,19 @@ public class Resource  implements java.io.Serializable {
     public void setSubject(Subject subject) {
         this.subject = subject;
     }
-    public String getResourceNameEN() {
-        return this.resourceNameEN;
+    public String getResourceNameVn() {
+        return this.resourceNameVn;
     }
     
-    public void setResourceNameEN(String resourceNameEN) {
-        this.resourceNameEN = resourceNameEN;
+    public void setResourceNameVn(String resourceNameVn) {
+        this.resourceNameVn = resourceNameVn;
+    }
+    public String getResourceNameEn() {
+        return this.resourceNameEn;
+    }
+    
+    public void setResourceNameEn(String resourceNameEn) {
+        this.resourceNameEn = resourceNameEn;
     }
     public Integer getSize() {
         return this.size;
@@ -94,12 +101,19 @@ public class Resource  implements java.io.Serializable {
     public void setServerName(String serverName) {
         this.serverName = serverName;
     }
-    public String getSummaryEN() {
-        return this.summaryEN;
+    public String getSummaryVn() {
+        return this.summaryVn;
     }
     
-    public void setSummaryEN(String summaryEN) {
-        this.summaryEN = summaryEN;
+    public void setSummaryVn(String summaryVn) {
+        this.summaryVn = summaryVn;
+    }
+    public String getSummaryEn() {
+        return this.summaryEn;
+    }
+    
+    public void setSummaryEn(String summaryEn) {
+        this.summaryEn = summaryEn;
     }
     public Date getPostDate() {
         return this.postDate;
@@ -143,20 +157,6 @@ public class Resource  implements java.io.Serializable {
     public void setVoteMark(Integer voteMark) {
         this.voteMark = voteMark;
     }
-    public String getResourceNameVN() {
-        return this.resourceNameVN;
-    }
-    
-    public void setResourceNameVN(String resourceNameVN) {
-        this.resourceNameVN = resourceNameVN;
-    }
-    public String getSummaryVN() {
-        return this.summaryVN;
-    }
-    
-    public void setSummaryVN(String summaryVN) {
-        this.summaryVN = summaryVN;
-    }
     public Integer getOrderChapter() {
         return this.orderChapter;
     }
@@ -178,6 +178,10 @@ public class Resource  implements java.io.Serializable {
     public void setUploadName(String uploadName) {
         this.uploadName = uploadName;
     }
+
+
+
+
 }
 
 
