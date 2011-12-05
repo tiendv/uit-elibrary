@@ -13,6 +13,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link href="<html:rewrite page='/css/uit.css'/>" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <%
@@ -23,7 +24,7 @@
             if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
                 language=2; // VietNamese            
         %>
-        <div style="padding-left: 10px"><a href= "LoadSubject.do"><bean:message key="text.menu.subject"/></a> ><a href="SubjectHome.do?subjectID=<%=subject.getSubjectID()%>"> 
+        <div class="hyperlink_title_subject"><a href= "LoadSubject.do"><bean:message key="text.menu.subject"/></a> ><a href="SubjectHome.do?subjectID=<%=subject.getSubjectID()%>"> 
         <%if(language==1) {%>
             <%=subject.getSubjectNameEN()%> 
         <%}%>
@@ -56,7 +57,7 @@
                 <%=subject.getPrerequisiteSubjectVN() %></div>
         <%}%>
                 
-        <div style="font-weight: bold; padding-left: 10px;padding-bottom: 5px "><bean:message key="text.projectRequirementTitle"/> : </div>
+        <div style="font-weight: bold; padding-left: 10px;padding-bottom: 5px "><bean:message key="text.ProjectRequirementTitle"/> : </div>
         <%if(language==1) {%>
             <div style="padding-left: 10px;padding-bottom: 5px"><%=subject.getProjectRequirementEN() %></div>   
         <%}%>
@@ -76,7 +77,7 @@
                 <td><%=subject.getMidtermGrade() %></td>
             </tr>
             <tr style="background-color:#E2E1D9">
-                <td><bean:message key="text.finalmGrade"/></td>
+                <td><bean:message key="text.finalGrade"/></td>
                 <td><%=subject.getFinalGrade() %></td>
             </tr>
         </tbody>

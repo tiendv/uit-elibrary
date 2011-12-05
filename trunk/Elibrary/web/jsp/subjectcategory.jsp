@@ -38,7 +38,7 @@
         <!-- Begin load resource by OrderChapter (ResourceCategoryID= 10, giáo trình) -->
         <%if(resourceCategoryID==10) {%>
         
-        <div><a href="LoadSubject.do"><bean:message key ="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
+        <div class="hyperlink_title_subject"><a href="LoadSubject.do"><bean:message key ="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
                 <% if(language==1){%>
                     <%=subject.getSubjectNameEN()%>
                 <%}if(language==2){%>
@@ -103,7 +103,7 @@
         <!--Begin Load Reading ( ResourceCategoryID=9, tài liệu tham khảo) -->
         
         <%if(resourceCategoryID==9) {%>
-        <div><a href="Loadsubject.do"><bean:message key ="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
+        <div class="hyperlink_title_subject"><a href="Loadsubject.do"><bean:message key ="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
             <% if(language==1){%>
                     <%=subject.getSubjectNameEN()%>
             <%}if(language==2){%>
@@ -150,7 +150,7 @@
         <!--Begin of ResourceCategoryID = 6 (đồ án môn học) -->
         
         <%if(resourceCategoryID==6) {%>
-        <div><a href="LoadSubject.do"><bean:message key ="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
+        <div class="hyperlink_title_subject"><a href="LoadSubject.do"><bean:message key ="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
             <% if(language==1){%>
                     <%=subject.getSubjectNameEN()%>
             <%}if(language==2){%>
@@ -167,7 +167,7 @@
         <%}%>
         
         <div><a><h2><bean:message key="text.ListTemplateProject"/></h2></a></div>
-        <table cellspacing="0" style="border: 1px #B4B1A2 solid ; margin-left: 17px " width="738px" >
+        <table class="color_title_table" >
             <tr class="color_title_table">
                 <td width="100px"><bean:message key="text.OrderNumber"/> </td>
                 <td width="200px"><bean:message key="text.projectAuthor"/> </td>
