@@ -19,7 +19,7 @@
     <body>
         <%
             // get image
-            String imageLink="";
+            String imageLink="./image/default.jpg";
             if(request.getAttribute("imageLink")!=null)
                 imageLink =(String)request.getAttribute("imageLink");
             Subject subject =(Subject)request.getAttribute("subject");
