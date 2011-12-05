@@ -52,15 +52,20 @@
 	border-left-color: #a2a191;
 	}
 .footer {
+        width:100%;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 11px;
 	background-color: #edecdf;
 	height: 70px;
 	border: 1px solid #a2a191;
-	text-align: left;
 	vertical-align: middle;
         position: relative;
 	clear: both;/* this clear property forces the .container to understand where the columns end and contain them */
+}
+.sub_footer
+{
+    width:45%;
+    text-align: center;
 }
 .cleared {clear:both;}
 .content {
