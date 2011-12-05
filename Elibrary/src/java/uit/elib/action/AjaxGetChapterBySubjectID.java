@@ -12,7 +12,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import uit.elib.bo.ResourceBO;
-import uit.elib.entities.Resource;
+import uit.elib.dto.Resource;
 
 /**
  *
@@ -45,8 +45,8 @@ public class AjaxGetChapterBySubjectID extends org.apache.struts.action.Action {
         response.setCharacterEncoding("UTF-8");
         for (int i = 0; i < chapters.size(); i++) {
             Resource resource = chapters.get(i);
-            response.getWriter().println("<option value = "+ resource.getResourceID() +" >");
-            response.getWriter().println(resource.getResourceNameEN());
+            response.getWriter().println("<option value = "+ resource.getResourceId() +" >");
+            response.getWriter().println(resource.getResourceNameEn());
             response.getWriter().println("</option>");
         }
                 

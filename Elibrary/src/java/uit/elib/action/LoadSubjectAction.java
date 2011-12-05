@@ -15,8 +15,8 @@ import org.apache.struts.action.ActionMapping;
 import uit.elib.bo.ResourceBO;
 import uit.elib.bo.SubjectBO;
 import uit.elib.database.hibernate.ManagerBase;
-import uit.elib.entities.Resource;
-import uit.elib.entities.Subject;
+import uit.elib.dto.Resource;
+import uit.elib.dto.Subject;
 
 /**
  *
