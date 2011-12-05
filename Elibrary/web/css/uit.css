@@ -156,9 +156,9 @@
 
 .menu_td_link {
 	height: 25px;
-	border-left-width: 1px;
-	border-left-style: dotted;
-	border-left-color: #FFF;
+	border-right-width: 1px;
+	border-right-style: dotted;
+	border-right-color: #FFF;
 	text-align: center;
 	width: 90px;
 	vertical-align: middle;
@@ -166,9 +166,9 @@
 .menu_td_link:hover {
 	background-color: #a33033;
 	height: 25px;
-	border-left-width: 1px;
-	border-left-style: dotted;
-	border-left-color: #FFF;
+	border-right-width: 1px;
+	border-right-style: dotted;
+	border-right-color: #FFF;
 	text-align: center;
 	
 	vertical-align: middle;
