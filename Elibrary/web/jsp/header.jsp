@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
-<%@taglib uri="http://struts.apache.org/tags-bean-el" prefix="bean" %>
+<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <script language="JavaScript" type="text/javascript">
     <!--
     function hideLoadingPage() {
@@ -39,14 +39,14 @@
 </script>
 <!DOCTYPE html>
 
- <table width="100%" border="0" cellspacing="0" cellpadding="0">
+ <table width="97%" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td>
                   <bean:message key="text.webtitle.resource"/>
                   <br/> 
                   <bean:message key="text.webtitle.resource1"/>
             </td>   
-            <td class="language" style="width: 50%;height: 100px;text-align: right" valign="bottom">
+            <td class="language" style="width: 50%;height: 90px;text-align: right" valign="center">
                     <script language="javscript" type="text/javascript">
                         document.write('<a href="./Locale.do?method=english&page='+ document.location.href +'">');
                     </script>
@@ -62,5 +62,5 @@
                         document.write('</a>');
                     </script>
              </td> 
-          </tr>
+        </tr>
   </table>

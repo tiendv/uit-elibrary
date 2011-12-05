@@ -38,14 +38,14 @@
         <!-- Begin load resource by OrderChapter (ResourceCategoryID= 10, giáo trình) -->
         <%if(resourceCategoryID==10) {%>
         
-        <div class="hyperlink_title_subject"><a href="LoadSubject.do"><bean:message key ="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
+        <div class="hyperlink_title_subject" ><a href="LoadSubject.do"><bean:message key ="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
                 <% if(language==1){%>
                     <%=subject.getSubjectNameEN()%>
                 <%}if(language==2){%>
                     <%=subject.getSubjectNameVN()%>
                     <%}%>
             </a> > <bean:message key ="text.menu.lecturenote"/></div>
-        <table  class="resource_table" >
+        <table  class="resource_table">
             <tr  class="color_title_table"> <!-- title -->
                 <td width="80px"><bean:message key="text.OrderChapter" /></td>
                 <td width="230px"><bean:message key="text.ChapterTitle" /></td>
