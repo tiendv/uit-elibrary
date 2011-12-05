@@ -5,43 +5,47 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
+<%@page import="uit.elib.bo.FacultyBO" %>
+<%@page import="uit.elib.bo.SubjectCategoryBO" %>
 <!DOCTYPE html>
 <table width="100%" border="0" cellspacing="2" cellpadding="2">
+    <% %>
         <tr>
             <td >&nbsp;</td>
           </tr>
         <tr>
- <td  class="leftmenu_td_title">Giáo trình</td>
+            <td  class="leftmenu_td_title"><bean:message key="text.menu.subject"/></td>
  	        </tr>
             <tr>
-            <td class="leftmenu_td_link"><a href="#">Cơ bản</a></td>
+                <td class="leftmenu_td_link"><a href="#"><bean:message key="text.leftmenu.base"/></a></td>
           </tr>
           <tr>
-            <td class="leftmenu_td_link"><a href="#">Chuyên ngành</a></td>
+            <td class="leftmenu_td_link"><a href="#"><bean:message key="text.leftmenu.faculty"/></a></td>
           </tr>
           <tr>
-            <td class="leftmenu_td_link"><a href="#">Tự chọn</a></td>
+            <td class="leftmenu_td_link"><a href="#"><bean:message key="text.leftmenu.optional"/></a></td>
           </tr>
           <tr>
             <td >&nbsp;</td>
           </tr>
         <tr>
- <td  class="leftmenu_td_title" >Khóa luận</td>
+            <td  class="leftmenu_td_title" ><bean:message key="text.menu.thesis"/></td>
  	        </tr>
             <tr>
-            <td class="leftmenu_td_link"><a href="#">Khoa học máy tính</a></td>
+                <td class="leftmenu_td_link"><a href="#"><bean:message key="text.leftmenu.computerscience"/></a></td>
           </tr>
            <tr>
-            <td class="leftmenu_td_link"><a href="#">Công nghệ phần mềm</a></td>
+            <td class="leftmenu_td_link"><a href="#"><bean:message key="text.leftmenu.softwareengineering"/></a></td>
           </tr>
           
           <tr>
-            <td class="leftmenu_td_link"><a href="#">Hệ thống thông tin</a></td>
+            <td class="leftmenu_td_link"><a href="#"><bean:message key="text.leftmenu.informationsystem"/></a></td>
           </tr>
            <tr>
-            <td class="leftmenu_td_link"><a href="#">Kĩ thuật máy tính</a></td>
+            <td class="leftmenu_td_link"><a href="#"><bean:message key="text.leftmenu.computertechnical"/></a></td>
           </tr>
           <tr>
-            <td class="leftmenu_td_link"><a href="#">Mạng máy tính và truyền thông</a></td>
+            <td class="leftmenu_td_link"><a href="#"><bean:message key="text.leftmenu.computernetwork"/></a></td>
           </tr>
 </table>
