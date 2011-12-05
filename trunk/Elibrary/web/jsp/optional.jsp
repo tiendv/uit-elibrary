@@ -1,6 +1,6 @@
 <%-- 
-    Document   : faculty
-    Created on : Dec 6, 2011, 4:44:10 AM
+    Document   : optional
+    Created on : Dec 6, 2011, 4:53:11 AM
     Author     : Nguyen Hoang Tan
 --%>
 
@@ -19,7 +19,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div style="font-size: 20px ;color:#680a12; padding-left: 17px; padding-bottom:10px "><bean:message key="text.leftmenu.faculty"/>  </div>
+        <div style="font-size: 20px ;color:#680a12; padding-left: 17px; padding-bottom:10px "><bean:message key="text.leftmenu.optional"/>  </div>
         <table style="margin-left: 30px " width="500px">               
             <% 
                 List<Subject> listSubject;
@@ -219,4 +219,3 @@
         <% } %> 
     </body>
 </html>
-
