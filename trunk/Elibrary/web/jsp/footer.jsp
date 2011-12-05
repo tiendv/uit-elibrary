@@ -17,5 +17,6 @@
         <bean:message key="txt.uit"/> <br/>
         <bean:message key="txt.uit.address"/>
     </td>
+    <td width="25%" ></td>
     </tr>
 </table>
