@@ -4,7 +4,7 @@
     Author     : Nguyen Hoang Tan
 --%>
 
-<%@page import="uit.elib.entities.Subject"%>
+<%@page import="uit.elib.dto.Subject"%>
 <%@page import="org.apache.struts.Globals"%>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -29,12 +29,12 @@
                 language=2; // VietNamese            
         %>
         <div class="hyperlink_title_subject">
-            <a href= "LoadSubject.do"><bean:message key="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subject.getSubjectID()%>">
+            <a href= "LoadSubject.do"><bean:message key="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subject.getSubjectId()%>">
         <%if(language==1) {%>
-            <%=subject.getSubjectNameEN()%>
+            <%=subject.getSubjectNameEn()%>
         <%}%>
         <%if(language==2) {%>
-            <%=subject.getSubjectNameVN()%>
+            <%=subject.getSubjectNameVn()%>
         <%}%>
         </a>
         > <bean:message key="text.menu.subjecthome"/>
@@ -43,10 +43,10 @@
             <thead>
                 <tr>
                     <%if(language==1) {%>
-                        <th colspan="2" style="color:#680a12;font-size: 30px "><%=subject.getSubjectNameEN()%></th>
+                        <th colspan="2" style="color:#680a12;font-size: 30px "><%=subject.getSubjectNameEn()%></th>
                     <%}%>
                     <%if(language==2) {%>
-                        <th colspan="2" style="color:#680a12;font-size: 30px "><%=subject.getSubjectNameVN()%></th>
+                        <th colspan="2" style="color:#680a12;font-size: 30px "><%=subject.getSubjectNameVn()%></th>
                     <%}%>
                 </tr>
             </thead>
@@ -75,10 +75,10 @@
             </tbody>
         </table>
         <%if(language==1) {%>
-            <div style="padding-left: 8px;font-weight: bold"><bean:message key="text.introductionSubjectEN"/>:</div> <div style="padding-left: 8px"><%=subject.getSubjectIntroduceEN()%></div>
+            <div style="padding-left: 8px;font-weight: bold"><bean:message key="text.introductionSubjectEN"/>:</div> <div style="padding-left: 8px"><%=subject.getSubjectIntroduceEn()%></div>
         <%}%>    
         <%if(language==2) {%>
-            <div style="padding-left: 8px;font-weight: bold"><bean:message key="text.introductionSubjectVN"/>:</div> <div style="padding-left: 8px"><%=subject.getSubjectIntroduceVN()%></div>
+            <div style="padding-left: 8px;font-weight: bold"><bean:message key="text.introductionSubjectVN"/>:</div> <div style="padding-left: 8px"><%=subject.getSubjectIntroduceVn()%></div>
         <%}%>   
     </body>
 </html>
