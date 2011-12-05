@@ -89,10 +89,6 @@
             <li class="examNoSolution"
                 alt="Exams (no solutions)"
                 title="Exams (no solutions)">Exams (no solutions)</li>
-            <li class="openStudy" alt="Study group"
-                title="Study group">Study group</li>
-            <li class="onlineTextBooks" alt="Online textbooks"
-                title="Online textbooks">Online textbooks</li>
             </ul>
         </div>   
         <% 
