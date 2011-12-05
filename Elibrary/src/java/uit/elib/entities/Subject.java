@@ -85,7 +85,7 @@ public class Subject  implements java.io.Serializable {
     }
     
     public void setSubjectNameEN(String subjectNameEN) {
-        this.subjectNameVN = subjectNameVN;
+        this.subjectNameEN = subjectNameEN;
     }
     public String getSubjectIntroduceEN() {
         return this.subjectIntroduceEN;
