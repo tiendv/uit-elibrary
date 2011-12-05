@@ -34,7 +34,7 @@ public class FacultyBO extends ManagerBase<Faculty> {
     
      public List getAllFaculty() {
         try {
-            String[] sort = new String[]{"facultyID"}; // tang dan
+            String[] sort = new String[]{"facultyId"}; // tang dan
             //String[] sort = new String[]{"name desc"}; // giam dan
 
             List<Faculty> list = getBySQLQuery(sort, 0);
