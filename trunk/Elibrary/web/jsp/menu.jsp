@@ -7,8 +7,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
+<link href="<html:rewrite page='/css/uit.css'/>" rel="stylesheet" type="text/css" />
 <!DOCTYPE html>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<table class="menu">
                             <tr>
                                 <td class="menu_td_link"><a href="Welcome.do" class="menu_link"><bean:message  key="text.home"/></a></td>
                                 <td class="menu_td_link"><a class="menu_link" href="LoadSubject.do"><bean:message  key="text.menu.subject"/></a></td>

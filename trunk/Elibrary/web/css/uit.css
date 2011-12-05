@@ -14,7 +14,7 @@
 }
 .wrapper{
     width: 70%; 
-    margin: auto;
+    margin: 0 auto;
 
 }
 .cssdropbox {width: 149px;}
@@ -35,21 +35,16 @@
 	vertical-align:top;
 	text-align:left;
 	padding-left: 0px;
-        height: 600;
+        height: 1000px;
 }
 .menu {
+        width:100%;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	font-weight: bold;
 	color: #FFF;
 	background-color: #727266;
-	height: 25px;
-	border-right-width: 1px;
-	border-left-width: 1px;
-	border-right-style: solid;
-	border-left-style: solid;
-	border-right-color: #a2a191;
-	border-left-color: #a2a191;
+	height: 30px;
 	}
 .footer {
         width:100%;
@@ -69,9 +64,12 @@
 }
 .cleared {clear:both;}
 .content {
+    
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
 	padding: 10px 0;
 	width: 80%;
-        height: 600px;
+        min-height: 500px;
 	float: left;
         background-color: #FFF;
 	text-align: left;
@@ -106,14 +104,6 @@
 .leftmenu_td_link a {
 	color: #000;
 	text-decoration: none;
-}
-
-.content {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	background-color: #FFF;
-	text-align: left;
-	vertical-align: top;
 }
 .td_slide_show {
 	border: 1px solid #EDECDF;
@@ -191,12 +181,10 @@
 .menu_link:hover {
 	text-decoration:none;
 	color: #FFF;
-	
 }
 .menu_link:visited  {
 	text-decoration:none;
 	color: #FFF;
-	
 }
 .searchform {
 width:auto;
