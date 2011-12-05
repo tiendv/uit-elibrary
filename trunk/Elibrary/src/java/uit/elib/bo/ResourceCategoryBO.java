@@ -47,7 +47,18 @@ public class ResourceCategoryBO extends ManagerBase<Resourcecategory> {
         }
         
     }
+     public List getAllResourcecategory(String where,String [] sort) {
+        try {
 
+            List<Resourcecategory> list = getBySQLQuery(where, sort, 0);
+            return list;
+
+        } catch (Exception ex) {
+            Logger.getLogger(Subject.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        
+    }
      
  
 }
