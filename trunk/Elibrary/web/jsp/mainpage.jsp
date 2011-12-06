@@ -29,11 +29,11 @@
                <tiles:insert attribute="menu"/>
             </div>
            
-            <div class="leftmenu">
+            <div id="divleftmenu" class="leftmenu">
               <tiles:insert attribute="leftmenu"/>
             </div>
             
-            <div class="content">
+            <div id="divContent" class="content">
                 <tiles:insert attribute="content"/>
             </div>
             <div class="cleared"></div>
@@ -43,4 +43,14 @@
         </div>
         <!--END LAYOUT CONTENTS-->
     </body>
+    
+    <script type="text/javascript">
+        function setContent() { 
+        var divHeight = ((document.getElementById("divContent").offsetHeight) + 'px');
+        document.getElementById("divleftmenu").style.height = divHeight;
+        }
+        window.onload = function() { 
+                        setContent(); 
+        } 
+    </script>
 </html:html>

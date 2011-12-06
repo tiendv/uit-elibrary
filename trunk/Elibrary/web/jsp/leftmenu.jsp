@@ -9,7 +9,7 @@
 <%@page import="uit.elib.bo.FacultyBO" %>
 <%@page import="uit.elib.bo.SubjectCategoryBO" %>
 <!DOCTYPE html>
-<table width="100%" border="0" cellspacing="2" cellpadding="2">
+<table width="100%"  border="0" cellspacing="2" cellpadding="2">
     <% %>
         <tr>
             <td >&nbsp;</td>
