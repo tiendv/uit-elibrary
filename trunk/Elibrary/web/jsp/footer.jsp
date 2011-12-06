@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="css/uit.css" />
 <!DOCTYPE html>
 
-<table class="footer" >
+<table class="footer" wight="100%" >
     <tr>
     <td  width="31px" align="right"><img src="<bean:message key="image.uitlogo"/>" width="31" height="32" alt="<bean:message key="image.uitlogo.alttext"/>" longdesc="http://www.uit.edu.vn" /></td>
     <td class="sub_footer">
