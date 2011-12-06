@@ -99,7 +99,7 @@
                 <u><a href =<%=href%> name=<%=listSubject.get(i).getSubjectId()%> style="color:#680a12" ><%=listSubject.get(i).getSubjectNameVn() %></a></u> <!--Vietnamese Subject Name-->
             </div>    
         <% } %>
-        <table cellspacing="0" style="border: 1px #B4B1A2 solid ; margin-left: 17px " width="738px"  >
+        <table cellspacing="0" style="border: 1px #B4B1A2 solid ; margin-left: 17px " width="777px"  >
             <tr class="color_title_table">
                 <td width="60px"></td><td width="140px"></td>
                 <td width="80px" style="font-weight: bold "><bean:message key="text.orderChapter"/></td>
