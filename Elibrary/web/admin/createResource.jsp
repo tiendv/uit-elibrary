@@ -10,6 +10,7 @@
 <%@page import="uit.elib.dto.Subject"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="uit.elib.bo.ResourceBO"%>
+<%@ page pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <%@ taglib uri="http://java.fckeditor.net" prefix="FCK" %>
 <%@taglib uri="http://struts.apache.org/tags-html"  prefix="html"%>
