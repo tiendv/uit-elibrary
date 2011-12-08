@@ -79,7 +79,6 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
             temp.setSummaryVn(createResourceActionForm.getFckChapterSummaryVN());
             temp.setSummaryEn(createResourceActionForm.getFckChapterSummaryEN());
             rsBO.addNew(temp);
-            rsBO.update(temp);
             return mapping.findForward(SUCCESSCREATECHAPTER);
         }
         
@@ -94,16 +93,12 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
             tempSJ = sjBO.getById(createResourceActionForm.getDropSubjectNameInProject(), true);
             temp.setSubject(tempSJ);
             temp.setPostDate(sqlDate);
-            FormFile fileProject = createResourceActionForm.getFileProject();
-            /**
-             * 
-             */
-        
+            FormFile fileProject = createResourceActionForm.getFileProject();       
             if(!fileProject.getFileName().isEmpty())
             {   temp.setSize(fileProject.getFileSize());
                 temp.setUploadName(fileProject.getFileName());
                 String filePath = getServlet().getServletContext().getRealPath("/") +"upload";
-                //create the upload folder if not exists
+                  //create the upload folder if not exists
                 file = new File(filePath);
                 if(!file.exists()){
                     file.mkdir();
@@ -111,6 +106,8 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
                 file = File.createTempFile( "project_file","",file);
                 fileOutputStream = new FileOutputStream(request.getServletContext().getRealPath("/")+"upload/"+file.getName());
                 fileOutputStream.write(fileProject.getFileData());
+                //fileOutputStream.flush();
+                
                 temp.setServerName(file.getName());
                 String []suffixFile = fileProject.getFileName().split("\\.");
                 temp.setFormat(suffixFile[suffixFile.length-1]);
