@@ -102,7 +102,7 @@
                     <table  border="0" cellspacing="0" cellpadding="5">
                         <tr>
                             <td class="label"><bean:message key="text.projectNameEN"/></td>
-                            <td><input class="textbox" name="txtProjectUSName" type="text"/></td>
+                            <td><input class="textbox" name="txtProjectNameEN" type="text"/></td>
                             <td class="label"><bean:message key="text.projectAuthor"/></td>
                             <td><input  name="txtAuthorProject" type="text"/></td>
                         </tr>
@@ -110,14 +110,13 @@
                             <td class="label" ><bean:message key="text.nameSubject"/></td>
                             <td>
                                 <%if(language==1) {%>
-                                <select  name="dropSubjectNameInChapter">
+                                <select id="dropSubjectNameInProject"  name="dropSubjectNameInProject">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameEn}</option>
                                     </c:forEach>
-                                </select>
+                                
                                 <%}%>
                                 <%if(language==2) {%>
-                                <select  name="dropSubjectNameInChapter">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameVn}</option>
                                     </c:forEach>
