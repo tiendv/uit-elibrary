@@ -45,7 +45,16 @@ public class FacultyBO extends ManagerBase<Faculty> {
             return null;
         }
     }
+     public List getAllFaculty(String []order) {
+        try {
+            List<Faculty> list = getBySQLQuery(order, 0);
+            return list;
 
+        } catch (Exception ex) {
+            Logger.getLogger(Subject.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
      
  
 }
