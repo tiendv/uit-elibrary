@@ -142,14 +142,14 @@
                             <td class="label" ><bean:message key="text.nameSubject"/></td>
                             <td>
                                 <%if(language==1) {%>
-                                <select  name="dropSubjectNameInChapter">
+                                <select  name="dropSubjectNameInReadingAndPicture">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameEn}</option>
                                     </c:forEach>
-                                </select>
+                               
                                 <%}%>
                                 <%if(language==2) {%>
-                                <select  name="dropSubjectNameInChapter">
+                               
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameVn}</option>
                                     </c:forEach>
@@ -174,14 +174,13 @@
                             <td class="label"><bean:message key="text.nameSubject"/></td>
                             <td>
                                 <%if(language==1) {%>
-                                <select id="dropSubjectName" name="dropSubjectName">
+                                <select id="dropSubjectName" name="dropSubjectNameInResourceChapter">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameEn}</option>
                                     </c:forEach>
-                                </select>
+                               
                                 <%}%>
                                 <%if(language==2) {%>
-                                <select id="dropSubjectName"  name="dropSubjectName">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameVn}</option>
                                     </c:forEach>
@@ -190,7 +189,7 @@
                             </td>
                             <td class="label"><bean:message key="text.orderchapter"/></td>
                             <td>
-                                <select id ="txtNote" name="txtNote">
+                                <select id ="txtNote" name="dropOrderChapterSubject">
                                 </select>
                             </td>
                         </tr>
