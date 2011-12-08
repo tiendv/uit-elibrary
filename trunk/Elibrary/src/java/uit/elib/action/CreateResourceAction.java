@@ -106,7 +106,7 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
                 file = File.createTempFile( "project_file","",file);
                 fileOutputStream = new FileOutputStream(request.getServletContext().getRealPath("/")+"upload/"+file.getName());
                 fileOutputStream.write(fileProject.getFileData());
-                //fileOutputStream.flush();
+                fileOutputStream.flush();
                 
                 temp.setServerName(file.getName());
                 String []suffixFile = fileProject.getFileName().split("\\.");
@@ -125,14 +125,14 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
              temp.setSummaryEn(createResourceActionForm.getTxtNote());
              tempSJ = sjBO.getById(createResourceActionForm.getDropSubjectNameInReadingAndPicture(), true);
              temp.setSubject(tempSJ);
-             FormFile picuterProject = createResourceActionForm.getFilePictureReading();
+             FormFile pictureReading = createResourceActionForm.getFilePictureReading();
             /**
              * 
              */
         
-            if(!picuterProject.getFileName().isEmpty())
-            {   temp.setSize(picuterProject.getFileSize());
-                temp.setUploadName(picuterProject.getFileName());
+            if(!pictureReading.getFileName().isEmpty())
+            {   temp.setSize(pictureReading.getFileSize());
+                temp.setUploadName(pictureReading.getFileName());
                 String filePath = getServlet().getServletContext().getRealPath("/") +"upload";
                 //create the upload folder if not exists
                 file = new File(filePath);
@@ -141,23 +141,26 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
                 }
                 file = File.createTempFile( "Image_file","",file);
                 fileOutputStream = new FileOutputStream(request.getServletContext().getRealPath("/")+"upload/"+file.getName());
-                fileOutputStream.write(picuterProject.getFileData());
+                fileOutputStream.write(pictureReading.getFileData());
                 temp.setServerName(file.getName());
-                String []suffixFile = picuterProject.getFileName().split("\\.");
+                String []suffixFile = pictureReading.getFileName().split("\\.");
                 temp.setFormat(suffixFile[suffixFile.length-1]);
                 fileOutputStream.close();
             }
             rsBO.addNew(temp);
             return mapping.findForward(SUCCESSCREATEPROJECT); 
          }
-         
+         /**
+          * Resource type = video, 
+          */
           if(typeResource == 5 || typeResource == 10 || typeResource == 11)
          {
             
              tempSJ = sjBO.getById(createResourceActionForm.getDropSubjectNameInResourceChapter(), true);
              temp.setSubject(tempSJ);
-             temp.setOrderChapter(createResourceActionForm.getDropOrderChapterSubject());
-             FormFile resourceChapterProject = createResourceActionForm.getFilePictureReading();
+             Resource tempRS = rsBO.getById(createResourceActionForm.getDropOrderChapterSubject(), true); 
+             temp.setOrderChapter(tempRS.getOrderChapter());
+             FormFile resourceChapterProject = createResourceActionForm.getFileResourceChapter();
             /**
              * 
              */
