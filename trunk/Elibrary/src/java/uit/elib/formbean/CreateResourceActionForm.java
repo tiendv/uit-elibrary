@@ -19,7 +19,15 @@ public class CreateResourceActionForm extends org.apache.struts.action.ActionFor
     
     private String txtResourceName;
     private int dropResourceType;;
-    private String txtChapterNameEN;
+    private String txtChapterUSName;
+
+    public String getTxtChapterUSName() {
+        return txtChapterUSName;
+    }
+
+    public void setTxtChapterUSName(String txtChapterUSName) {
+        this.txtChapterUSName = txtChapterUSName;
+    }
     private int txtOrderChapter;
     private int dropSubjectNameInChapter;
     private String fckChapterSummaryVN;
@@ -138,14 +146,6 @@ public class CreateResourceActionForm extends org.apache.struts.action.ActionFor
 
     public void setTxtAuthorProject(String txtAuthorProject) {
         this.txtAuthorProject = txtAuthorProject;
-    }
-
-    public String getTxtChapterNameEN() {
-        return txtChapterNameEN;
-    }
-
-    public void setTxtChapterNameEN(String txtChapterNameEN) {
-        this.txtChapterNameEN = txtChapterNameEN;
     }
 
     public String getTxtNote() {
