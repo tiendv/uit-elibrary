@@ -45,10 +45,9 @@
                                 <c:forEach items="${resourceTypeBO.allResourcecategory}" var="item">
                                     <option value="${item.resourceCategoryId}">${item.resourceCategoryNameEn}</option>
                                 </c:forEach>
-                            </select>
+                           
                             <%}%>
                             <%if(language==2) {%>
-                            <select id="dropResourceType"  name="dropResourceType">
                                 <c:forEach items="${resourceTypeBO.allResourcecategory}" var="item">
                                     <option value="${item.resourceCategoryId}">${item.resourceCategoryNameVn}</option>
                                 </c:forEach>
@@ -64,20 +63,19 @@
                             <td class="label"><bean:message key="text.nameChapterEN"/></td>
                             <td><input class="textbox" name="txtChapterUSName" type="text"/></td>
                             <td class="label"><bean:message key="text.orderChapter"/></td>
-                            <td><input class="textbox" name="txtOderChapter" type="text"/></td>
+                            <td><input class="textbox" name="txtOrderChapter" type="text"/></td>
                         </tr>
                         <tr>
                             <td><bean:message key="text.nameSubject"/></td>
                             <td>
                                 <%if(language==1) {%>
-                                <select  id="dropSubjectNameInChapter">
+                                <select  id="dropSubjectNameInChapter" name="dropSubjectNameInChapter">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameEn}</option>
                                     </c:forEach>
-                                </select>
+                              
                                 <%}%>
                                 <%if(language==2) {%>
-                                <select  id="dropSubjectNameInChapter">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameVn}</option>
                                     </c:forEach>
@@ -87,13 +85,13 @@
                         </tr>
                     </table>
                     <h2><bean:message key="text.chapterSummaryVN"/></h2>
-                    <FCK:editor  instanceName="fckChapterSummary" height="300px">
+                    <FCK:editor  instanceName="fckChapterSummaryVN" height="300px">
                         <jsp:attribute name="value">
                         </jsp:attribute>
                     </FCK:editor>
                     <hr>
                     <h2><bean:message key="text.chapterSummaryEN"/></h2>
-                    <FCK:editor  instanceName="fckChapterSummaryUS" height="300px">
+                    <FCK:editor  instanceName="fckChapterSummaryEN" height="300px">
                         <jsp:attribute name="value">
                         </jsp:attribute>
                     </FCK:editor>

@@ -73,7 +73,7 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
         if(typeResource == 7)
         {   
             tempSJ = sjBO.getById(createResourceActionForm.getDropSubjectNameInChapter(), true);
-            temp.setResourceNameEn(createResourceActionForm.getTxtChapterNameEN());
+            temp.setResourceNameEn(createResourceActionForm.getTxtChapterUSName());
             temp.setOrderChapter(createResourceActionForm.getTxtOrderChapter());
             temp.setSubject(tempSJ);
             temp.setSummaryVn(createResourceActionForm.getFckChapterSummaryVN());
