@@ -19,21 +19,29 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div style="font-size: 20px ;color:#680a12; padding-left: 17px; padding-bottom:10px "><bean:message key="text.leftmenu.faculty"/>  </div>
-        <table style="margin-left: 30px " width="500px">               
+        <% 
+            List<Faculty> listFaculty;
+            listFaculty = (List<Faculty>)request.getAttribute("listFaculty");
+            int s=0;                     
+            for(int f=0;f<listFaculty.size();f++){
+        %>
+        <div style="font-size: 20px ;color:#680a12; padding-left: 17px; padding-bottom:10px "><%=listFaculty.get(f).getFacultyNameEn() %></div>
+        <table style="margin-left: 30px " width="600px">               
             <% 
                 List<Subject> listSubject;
-                listSubject = (List<Subject>)request.getAttribute("listSubject");
+                listSubject = (List<Subject>)request.getAttribute("listSubject");             
                 int language =1; // English
                 Locale locale = request.getLocale();
                 if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
                     language=2; // VietNamese
             %>
             <%                 
-                for(int i=0;i<listSubject.size();i=i+2) {
+                for(int i=s;i<listSubject.size();i=i+2) {
+                    if(listSubject.get(i).getFaculty().getFacultyId()!=listFaculty.get(f).getFacultyId())
+                        break;
                     String href = "#"+listSubject.get(i).getSubjectId().toString();
             %>
-            <tr>          
+            <tr>      
             <td width="250px" style="color: #680a12">              
                     <img src="image/black-arrow.gif" width="3" height="5" alt="black-arrow"/>
                     <% if(language==1) { %>
@@ -44,7 +52,7 @@
                     <% } %>                         
             </td>
             <td width="250px" style="color: #680a12">
-                <% if(i+1<listSubject.size()){ %>
+                <% if(i+1<listSubject.size() && (listSubject.get(i).getFaculty().getFacultyId()==listFaculty.get(f).getFacultyId())){ %>
                     <img src="image/black-arrow.gif" width="3" height="5" alt="black-arrow"/>
                     <% if(language==1) {%>
                         <a href =<%=href%> style="color:#680a12" > <%=listSubject.get(i+1).getSubjectNameEn()%> </a> <!--English Subject Name-->
@@ -82,12 +90,16 @@
             </ul>
         </div>   
         <% 
-            List<Resource> listResource;
-            listResource = (List<Resource>)request.getAttribute("listResource");
+            List<List<Resource>> arrayListResource = (List<List<Resource>>) request.getAttribute("arrayListResource");
         %> 
-        <%  int j=0;
-            for(int i=0;i<listSubject.size();i++) {
+        <%  
+            for(int i=s;i<listSubject.size();i++) {
                 String href="./SubjectHome.do?subjectID="+listSubject.get(i).getSubjectId();
+                if(listSubject.get(i).getFaculty().getFacultyId()!=listFaculty.get(f).getFacultyId())
+                {     
+                    s=i;
+                    break;
+                }
         %>
         <% if(language==1) {%>
             <div  style=" font-size: 12px; margin-left: 17px ; padding-top: 7px; padding-bottom:2px;  font-weight: bold; color: #680a12">
@@ -105,8 +117,10 @@
                 <td width="80px" style="font-weight: bold "><bean:message key="text.orderChapter"/></td>
                 <td width="458px" style="font-weight: bold"><bean:message key="text.resourceName"/></td>
             </tr>
-            <% int color =0; %>
-            <% for(;j<listResource.size();j++) {%>
+            <% int color =0;
+               List<Resource> listResource = arrayListResource.get(s);
+            %>
+            <% for(int j=0;j<listResource.size();j++) {%>
                  <%
                     int newestPosition=-1;
                     int lecturePosition =-1;
@@ -218,7 +232,7 @@
                     }
                 } %>
         </table>
-        <% } %> 
+        <% }%><div style="clear:both;height: 30px "></div>  <%} %> 
     </body>
 </html>
 

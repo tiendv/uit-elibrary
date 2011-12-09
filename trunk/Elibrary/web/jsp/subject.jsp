@@ -20,7 +20,7 @@
     </head>
     <body>
         <div style="font-size: 20px ;color:#680a12; padding-left: 17px; padding-bottom:10px "><bean:message key="text.subject"/>  </div>
-        <table style="margin-left: 30px " width="100%">               
+        <table style="margin-left: 30px " width="600px">               
             <% 
                 List<Subject> listSubject;
                 listSubject = (List<Subject>)request.getAttribute("listSubject");
