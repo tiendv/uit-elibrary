@@ -84,8 +84,7 @@ public class ResourceBO extends ManagerBase<Resource> {
       }
       public List getAllChapterOfSubject (int subjectID)
       {
-           String query = "SubjectId=" + subjectID;
-            
+           String query = "SubjectId=" + subjectID;  
             List<Resource> list;
         try {
             list = getBySQLQuery(query, null, 0);
@@ -100,7 +99,6 @@ public class ResourceBO extends ManagerBase<Resource> {
        public int countNumberChapterOfSubject (int subjectID)
       {
            String query = "[SubjectId]='" + subjectID +"'";
-            
             List<Resource> list;
         try {
             list = getBySQLQuery(query, null, 0);
@@ -111,7 +109,15 @@ public class ResourceBO extends ManagerBase<Resource> {
         }
                  
       }
-
+      public List<List<Resource>> getAllResource(String []where,String [] sort) {
+        try {
+            List<List<Resource>> arrayList = getBySQLQuery(where, sort, 0);
+            return arrayList;
+        } catch (Exception ex) {
+            Logger.getLogger(Subject.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+     }  
     
      
  
