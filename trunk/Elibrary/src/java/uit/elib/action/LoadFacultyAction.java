@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import uit.elib.bo.FacultyBO;
 import uit.elib.bo.ResourceBO;
 import uit.elib.bo.SubjectBO;
+import uit.elib.dto.Faculty;
 import uit.elib.dto.Resource;
 import uit.elib.dto.Subject;
 
@@ -38,24 +40,34 @@ public class LoadFacultyAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+        //Faculty
+        FacultyBO tempFacultyBO = FacultyBO.getFacultyBO();
+        List<Faculty> listFaculty = new ArrayList<Faculty>();
+        String []order = new String[1];
+        order[0]= "facultyId";
+        listFaculty=tempFacultyBO.getAllFaculty(order);
+        request.setAttribute("listFaculty", listFaculty);       
+        //Subject
         SubjectBO tempSubjectBO = SubjectBO.getSubjectBO();
         List<Subject> listSubject = new ArrayList<Subject>();
-        String []order = new String[1];
-        order[0]= "subjectId";
-        String where ="subjectCategoryId = 2";
+        order = new String[2];
+        order[0]= "faculty";
+        order[1]= "subjectId";
+        String where ="subjectCategoryID = 2";
         listSubject=tempSubjectBO.getAllSubject(where,order);
         request.setAttribute("listSubject", listSubject);
-               
-        ResourceBO tempResourceBO = ResourceBO.getResourceBO();
-        List<Resource> listResource = new ArrayList<Resource>();
+        //Order
         order = new String[3];
         order[0]= "subject";
         order[1]= "orderChapter";
         order[2]= "postDate";
-        where = "orderChapter is not null";
-        listResource=tempResourceBO.getAllResource(where,order);
-        request.setAttribute("listResource", listResource);         
-       
+        ResourceBO tempResourceBO = ResourceBO.getResourceBO();
+        List<List<Resource>> arrayListResource = new ArrayList<List<Resource>>();
+        String []whereSubjectId = new String[listSubject.size()];
+        for(int i= 0;i<listSubject.size();i++)  
+            whereSubjectId[i] = "orderChapter is not null and subjectId ="+listSubject.get(i).getSubjectId();
+        arrayListResource=tempResourceBO.getAllResource(whereSubjectId,order); 
+        request.setAttribute("arrayListResource", arrayListResource);         
         return mapping.findForward(SUCCESS);
     }
 }
