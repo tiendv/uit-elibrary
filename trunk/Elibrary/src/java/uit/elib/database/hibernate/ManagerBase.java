@@ -250,4 +250,43 @@ public abstract class ManagerBase<T> extends HibernateUtil {
 
         return listTemp;
     }
+    
+    @SuppressWarnings("static-access")
+    public List<List<T>> getBySQLQuery(String []where, String[] orders, int maxResult) throws Exception {       
+        List<List<T>> arrayList = new ArrayList<List<T>>();
+        String[] temp;
+        for(int i=0;i<where.length;i++)
+        {
+            List<T> list = null;
+            beginTransaction();
+            // create criteria from persitent class
+            criteria = getCurrentSession().createCriteria(getPersistentClass());
+            // add where clause
+            if (where[i] != null && !where[i].equals("")) {
+                criteria.add(restrictions.sqlRestriction(where[i]));
+            }
+            // add order list into criteria
+            if (orders != null) {
+                for (int j = 0; j < orders.length; j++) {
+                    if (orders[j].contains(" ")) {
+                        temp = orders[j].split(" ");
+                        if (temp[1].equalsIgnoreCase("desc")) {
+                            criteria.addOrder(order.desc(temp[0]));
+                        }
+                    } else {
+                        criteria.addOrder(order.asc(orders[j]));
+                    }
+                }
+            }
+            // set max result if it greater -1
+            if (maxResult > 0) {
+                criteria.setMaxResults(maxResult);
+            }
+            list = criteria.list();
+            //criteria = null;
+            commit();arrayList.add(list);
+        }
+        close();
+        return arrayList;
+    }  
 }

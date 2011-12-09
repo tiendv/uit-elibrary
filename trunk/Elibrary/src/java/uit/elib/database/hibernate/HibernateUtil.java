@@ -58,7 +58,22 @@ public class HibernateUtil {
             }
         }
     }
-
+    /**
+     * Commit transaction
+     */    
+    protected void commit() {
+        if (session != null) {
+            session.getTransaction().commit();
+        }
+    }
+    /**
+     * Commit transaction and close session
+     */    
+    protected void close() {
+            if (session.isOpen()) {
+                session.close();
+            }
+        }    
     /**
      * Get Current Session
      * @return session
