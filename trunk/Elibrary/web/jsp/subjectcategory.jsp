@@ -146,6 +146,53 @@
         <!--End of ResourceCategoryID=9 IF -->
         
         
+        
+        <!--Begin Load Video ( ResourceCategoryID=11, video) -->
+        
+        <%if(resourceCategoryID==11) {%>
+        <div class="hyperlink_title_subject"><a href="Loadsubject.do"><bean:message key ="text.menu.video"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
+            <% if(language==1){%>
+                    <%=subject.getSubjectNameEn()%>
+            <%}if(language==2){%>
+                    <%=subject.getSubjectNameVn()%>
+            <%}%>
+            </a> > <bean:message key ="text.menu.reading"/></div>
+        <table class="resource_table" >
+            <tr class="color_title_table">
+                <td width="100px"><bean:message key="text.OrderNumber"/> </td>
+                <td width="638px"><bean:message key="text.Document"/> </td>
+            </tr>
+                <%
+                    int count = 1; //thứ tự
+                    for(int i = 0; i<listResource.size();i++){
+                 %>
+                 <tr>
+                 <td <% if(color%2==0){ %> 
+                                    class="color_table2"
+                                <%}%>>
+                     <%=count%></td>
+                 <td <% if(color%2==0){ %> 
+                                    class="color_table2"
+                                <%}%>>
+                     <% if(language==1) {%>
+                         <u>  <%=listResource.get(i).getResourceNameEn()%> </u>
+                     <%}%>
+                     <% if(language==2) {%>
+                        <u> <%=listResource.get(i).getResourceNameVn()%> </u>
+                     <%}%>
+                 </td>
+                 <% count++;%>
+                 <%color++;%>
+                 <%}%>
+            </tr>
+         </table>
+        <%}%> 
+        
+        
+        
+        <!--End of ResourceCategoryID=11 IF -->
+        
+        
          <!-- Begin load resource by OrderChapter (ResourceCategoryID=4, bài tập) -->
         <%if(resourceCategoryID==4) {%>
         
