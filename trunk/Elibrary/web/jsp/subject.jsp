@@ -37,20 +37,20 @@
             <td width="250px" style="color: #680a12">              
                     <img src="image/black-arrow.gif" width="3" height="5" alt="black-arrow"/>
                     <% if(language==1) { %>
-                        <a href =<%=href%> style="color:#680a12 " > <%=listSubject.get(i).getSubjectNameEn()%>  </a> <!--English Subject Name-->
+                        <a href =<%=href%> class="href_subject" > <%=listSubject.get(i).getSubjectNameEn()%>  </a> <!--English Subject Name-->
                     <% } %> 
                     <% if(language==2) {%>
-                        <a href =<%=href%> style="color:#680a12 " ><%=listSubject.get(i).getSubjectNameVn()%> </a> <!--Vietnamese Subject Name-->
-                    <% } %>                         
+                        <a href =<%=href%> class="href_subject" ><%=listSubject.get(i).getSubjectNameVn()%> </a> <!--Vietnamese Subject Name-->
+                    <% } %>  
             </td>
             <td width="250px" style="color: #680a12">
                 <% if(i+1<listSubject.size()){ %>
                     <img src="image/black-arrow.gif" width="3" height="5" alt="black-arrow"/>
                     <% if(language==1) {%>
-                        <a href =<%=href%> style="color:#680a12" > <%=listSubject.get(i+1).getSubjectNameEn()%> </a> <!--English Subject Name-->
+                        <a href =<%=href%> class="href_subject" > <%=listSubject.get(i+1).getSubjectNameEn()%> </a> <!--English Subject Name-->
                     <% } %> 
                     <% if(language==2) {%>
-                        <a href =<%=href%> style="color:#680a12" > <%=listSubject.get(i+1).getSubjectNameVn()%> </a> <!--Vietnamese Subject Name-->
+                        <a href =<%=href%> class="href_subject" > <%=listSubject.get(i+1).getSubjectNameVn()%> </a> <!--Vietnamese Subject Name-->
                     <% } %>
 
                 <% } %>    

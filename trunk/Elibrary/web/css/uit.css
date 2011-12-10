@@ -528,3 +528,8 @@ background-position:0px -486px;
     width: 139px;
     font-size: 12px;
 }
+.href_subject
+{
+    text-decoration: none;
+    color:#680a12;
+}
