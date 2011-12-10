@@ -10,20 +10,20 @@
 <table width="100%" border="0" cellspacing="2" cellpadding="2">
         <tr>
             <td >&nbsp;</td>
-          </tr>
+        </tr>
         <tr>
- <td  class="leftmenu_td_title">Giáo trình</td>
- 	        </tr>
-            <tr>
+            <td  class="leftmenu_td_title"><bean:message key="text.menu.adminpage"/></td>
+ 	</tr>
+        <tr>
             <td class="leftmenu_td_link"><a href="#"></a></td>
-          </tr>
-          <tr>
-              <td class="leftmenu_td_link"><a href="LoadCreateSubject.do"><bean:message key="text.leftmenu.createsubject"/></a></td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
+            <td class="leftmenu_td_link"><a href="LoadCreateSubject.do"><bean:message key="text.leftmenu.createsubject"/></a></td>
+        </tr>
+        <tr>
             <td class="leftmenu_td_link"><a href="LoadCreateResource.do"><bean:message key="text.leftmenu.createresource"/></a></td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
             <td >&nbsp;</td>
-          </tr>       
+        </tr>       
 </table>
