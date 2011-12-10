@@ -51,6 +51,7 @@
         }
         window.onload = function() { 
                         setContent(); 
+                        init();
         } 
     </script>
 </html:html>
