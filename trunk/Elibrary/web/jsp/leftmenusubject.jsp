@@ -52,6 +52,9 @@
             <td class="leftmenu_td_link"><a href="SubjectCategory.do?subjectID=<%=subjectID%>&resourceCategoryID=4&orderChapter=<%=orderChapter%>"><bean:message  key="text.menu.assignments"/></a></td>
           </tr>
           <tr>
+            <td class="leftmenu_td_link"><a href="SubjectCategory.do?subjectID=<%=subjectID%>&resourceCategoryID=5&orderChapter=<%=orderChapter%>"><bean:message  key="text.menu.example"/></a></td>
+          </tr>
+          <tr>
             <td class="leftmenu_td_link"><a href="SubjectCategory.do?subjectID=<%=subjectID%>&resourceCategoryID=6&orderChapter=<%=orderChapter%>"><bean:message  key="text.menu.project"/></a></td>
           </tr>
           <tr>
