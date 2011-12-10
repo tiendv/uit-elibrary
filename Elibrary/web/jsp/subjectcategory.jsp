@@ -103,7 +103,7 @@
         <!--Begin Load Reading ( ResourceCategoryID=9, tài liệu tham khảo) -->
         
         <%if(resourceCategoryID==9) {%>
-        <div class="hyperlink_title_subject"><a href="Loadsubject.do"><bean:message key ="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
+        <div class="hyperlink_title_subject"><a href="LoadSubject.do"><bean:message key ="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
             <% if(language==1){%>
                     <%=subject.getSubjectNameEn()%>
             <%}if(language==2){%>
@@ -158,7 +158,7 @@
         <!--Begin Load Video ( ResourceCategoryID=11, video) -->
         
         <%if(resourceCategoryID==11) {%>
-        <div class="hyperlink_title_subject"><a href="Loadsubject.do"><bean:message key ="text.menu.video"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
+        <div class="hyperlink_title_subject"><a href="LoadSubject.do"><bean:message key ="text.menu.video"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
             <% if(language==1){%>
                     <%=subject.getSubjectNameEn()%>
             <%}if(language==2){%>
