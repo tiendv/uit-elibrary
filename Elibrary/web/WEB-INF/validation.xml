@@ -70,5 +70,78 @@
         </form>
 
    </formset>
-
+   <formset>
+        <form name="CreateSubjectForm">
+            <field 
+                property="txtSubjectName"
+                depends="required">
+                <arg key="text.SubjectNameVN"/>
+            </field> 
+            <field 
+                property="txtSubjectNameUS"
+                depends="required">
+                <arg key="text.SubjectNameEN"/>
+            </field>
+            <field 
+                property="txtSubjectCode"
+                depends="required">
+                <arg key="text.SubjectCode"/>
+            </field>
+            <field 
+                property="txtPeriodOfTheory"
+                depends="required,integer">
+                <arg key="text.periodOfTheory"/>
+            </field>
+            <field 
+                property="txtPeriodOfPractice"
+                depends="required,integer">
+                <arg key="text.periodOfPractice"/>
+            </field>
+            <field 
+                property="txtMidtermGrade"
+                depends="required,integer">
+                <arg key="text.midtermGrade"/>
+            </field>
+            <field 
+                property="txtFinalGrade"
+                depends="required,integer">
+                <arg key="text.finalGrade"/>
+            </field>
+            <field 
+                property="txtPrerequisiteSubject"
+                depends="required">
+                <arg key="text.prerequisiteSubjectEN"/>
+            </field>
+            <field 
+                property="txtPrerequisiteSubjectVN"
+                depends="required">
+                <arg key="text.prerequisiteSubjectVN"/>
+            </field>            
+            <field 
+                property="txtTimeTeaching"
+                depends="required,integer">
+                <arg key="text.timeTeaching"/>
+            </field>
+            <field 
+                property="txtTeacherName"
+                depends="required">
+                <arg key="text.teacher"/>
+            </field>
+            <field 
+                property="txtLevel"
+                depends="required">
+                <arg key="text.level"/>
+            </field>
+            <field 
+                property="txtNumberChapter"
+                depends="required,integer">
+                <arg key="text.numberchapter"/>
+            </field>
+            <field 
+                property="txtCreditNumber"
+                depends="required,integer">
+                <arg key="text.creditNumber"/>
+            </field>          
+        </form>
+   </formset>
 </form-validation>
