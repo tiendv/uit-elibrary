@@ -8,14 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessage;
 import org.apache.struts.upload.FormFile;
 
 /**
  *
- * @author tiendv
+ * @author Nguyen Hoang Tan
  */
-public class CreateResourceActionForm extends org.apache.struts.action.ActionForm {
+public class CreateResourceForm extends org.apache.struts.action.ActionForm {
     
     private String txtResourceName;
     private int dropResourceType;;
@@ -183,7 +182,7 @@ public class CreateResourceActionForm extends org.apache.struts.action.ActionFor
     /**
      *
      */
-    public CreateResourceActionForm() {
+    public CreateResourceForm() {
         super();
         // TODO Auto-generated constructor stub
     }

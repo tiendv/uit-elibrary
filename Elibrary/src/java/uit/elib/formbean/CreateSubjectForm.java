@@ -3,37 +3,44 @@
  * and open the template in the editor.
  */
 package uit.elib.formbean;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessage;
 
 /**
  *
- * @author tiendv
+ * @author Nguyen Hoang Tan
  */
-public class CreateSubjectActionForm extends org.apache.struts.action.ActionForm {
-
+public class CreateSubjectForm extends org.apache.struts.action.ActionForm {
 
     private String txtSubjectNameUS;
     private int dropSubjectCategory;
     private String txtSubjectCode;
-    private int txtPeriodOfTheory;
-    private int txtPeriodOfPractice;
-    private int txtMidtermGrade;
-    private int txtFinalGrade;
+    private String txtPeriodOfTheory;
+    private String txtPeriodOfPractice;
+    private String txtMidtermGrade;
+    private String txtFinalGrade;
     private String txtPrerequisiteSubject;
-    private String txtSubjectTime;
+    private String txtPrerequisiteSubjectVN;
+    private String txtTimeTeaching;
     private String txtTeacherName;
     private String txtLevel;
-    private int dropSubjectFaculty;
+    private int dropFaculty;
     private String fckintroductionVN;
     private String fckintroductionUS;
     private String fckProjectRequitementVN;
     private String fckProjectRequitementUS;
     private String txtSubjectName;
+    private String txtNumberChapter;
+    private String txtCreditNumber;
+
+    public int getDropFaculty() {
+        return dropFaculty;
+    }
+
+    public void setDropFaculty(int dropFaculty) {
+        this.dropFaculty = dropFaculty;
+    }
 
     public int getDropSubjectCategory() {
         return dropSubjectCategory;
@@ -43,22 +50,6 @@ public class CreateSubjectActionForm extends org.apache.struts.action.ActionForm
         this.dropSubjectCategory = dropSubjectCategory;
     }
 
-    public int getDropSubjectFaculty() {
-        return dropSubjectFaculty;
-    }
-
-    public void setDropSubjectFaculty(int dropSubjectFaculty) {
-        this.dropSubjectFaculty = dropSubjectFaculty;
-    }
-
-    public String getTxtSubjectNameUS() {
-        return txtSubjectNameUS;
-    }
-
-    public void setTxtSubjectNameUS(String txtSubjectNameUS) {
-        this.txtSubjectNameUS = txtSubjectNameUS;
-    }
-    
     public String getFckProjectRequitementUS() {
         return fckProjectRequitementUS;
     }
@@ -91,11 +82,19 @@ public class CreateSubjectActionForm extends org.apache.struts.action.ActionForm
         this.fckintroductionVN = fckintroductionVN;
     }
 
-    public int getTxtFinalGrade() {
+    public String getTxtCreditNumber() {
+        return txtCreditNumber;
+    }
+
+    public void setTxtCreditNumber(String txtCreditNumber) {
+        this.txtCreditNumber = txtCreditNumber;
+    }
+
+    public String getTxtFinalGrade() {
         return txtFinalGrade;
     }
 
-    public void setTxtFinalGrade(int txtFinalGrade) {
+    public void setTxtFinalGrade(String txtFinalGrade) {
         this.txtFinalGrade = txtFinalGrade;
     }
 
@@ -107,27 +106,35 @@ public class CreateSubjectActionForm extends org.apache.struts.action.ActionForm
         this.txtLevel = txtLevel;
     }
 
-    public int getTxtMidtermGrade() {
+    public String getTxtMidtermGrade() {
         return txtMidtermGrade;
     }
 
-    public void setTxtMidtermGrade(int txtMidtermGrade) {
+    public void setTxtMidtermGrade(String txtMidtermGrade) {
         this.txtMidtermGrade = txtMidtermGrade;
     }
 
-    public int getTxtPeriodOfPractice() {
+    public String getTxtNumberChapter() {
+        return txtNumberChapter;
+    }
+
+    public void setTxtNumberChapter(String txtNumberChapter) {
+        this.txtNumberChapter = txtNumberChapter;
+    }
+
+    public String getTxtPeriodOfPractice() {
         return txtPeriodOfPractice;
     }
 
-    public void setTxtPeriodOfPractice(int txtPeriodOfPractice) {
+    public void setTxtPeriodOfPractice(String txtPeriodOfPractice) {
         this.txtPeriodOfPractice = txtPeriodOfPractice;
     }
 
-    public int getTxtPeriodOfTheory() {
+    public String getTxtPeriodOfTheory() {
         return txtPeriodOfTheory;
     }
 
-    public void setTxtPeriodOfTheory(int txtPeriodOfTheory) {
+    public void setTxtPeriodOfTheory(String txtPeriodOfTheory) {
         this.txtPeriodOfTheory = txtPeriodOfTheory;
     }
 
@@ -137,6 +144,14 @@ public class CreateSubjectActionForm extends org.apache.struts.action.ActionForm
 
     public void setTxtPrerequisiteSubject(String txtPrerequisiteSubject) {
         this.txtPrerequisiteSubject = txtPrerequisiteSubject;
+    }
+
+    public String getTxtPrerequisiteSubjectVN() {
+        return txtPrerequisiteSubjectVN;
+    }
+
+    public void setTxtPrerequisiteSubjectVN(String txtPrerequisiteSubjectVN) {
+        this.txtPrerequisiteSubjectVN = txtPrerequisiteSubjectVN;
     }
 
     public String getTxtSubjectCode() {
@@ -155,12 +170,12 @@ public class CreateSubjectActionForm extends org.apache.struts.action.ActionForm
         this.txtSubjectName = txtSubjectName;
     }
 
-    public String getTxtSubjectTime() {
-        return txtSubjectTime;
+    public String getTxtSubjectNameUS() {
+        return txtSubjectNameUS;
     }
 
-    public void setTxtSubjectTime(String txtSubjectTime) {
-        this.txtSubjectTime = txtSubjectTime;
+    public void setTxtSubjectNameUS(String txtSubjectNameUS) {
+        this.txtSubjectNameUS = txtSubjectNameUS;
     }
 
     public String getTxtTeacherName() {
@@ -170,6 +185,15 @@ public class CreateSubjectActionForm extends org.apache.struts.action.ActionForm
     public void setTxtTeacherName(String txtTeacherName) {
         this.txtTeacherName = txtTeacherName;
     }
+
+    public String getTxtTimeTeaching() {
+        return txtTimeTeaching;
+    }
+
+    public void setTxtTimeTeaching(String txtTimeTeaching) {
+        this.txtTimeTeaching = txtTimeTeaching;
+    }
+
     
    
     /**
