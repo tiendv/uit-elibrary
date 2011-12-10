@@ -16,16 +16,40 @@
     <head>
         <link rel="stylesheet" type="text/css" href="css/uit.css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title><bean:message key="text.leftmenu.faculty"/></title>
     </head>
     <body>
+        <div class="title_h1"><bean:message key="text.leftmenu.faculty"/></div>
+        <div class="af_legends">
+            <ul class="legendList">
+            <li class="lectureNotes" alt="Lecture notes"
+                title="<bean:message key="text.menu.lecturenote"/>"><bean:message key="text.menu.lecturenote"/></li>
+            <li class="projectsExample"
+                alt="Projects"
+                title="<bean:message key="text.menu.project"/>"><bean:message key="text.menu.project"/></li>
+            <li class="imageGallery" alt="Image Galleries"
+                title="<bean:message key="text.imageGallery"/>"><bean:message key="text.imageGallery"/></li>
+            <li class="multimediaContent"
+                alt="Video"
+                title="<bean:message key="text.video"/>"><bean:message key="text.video"/></li>
+            <li class="assignmentsSolutions"
+                alt="Assignments"
+                title="<bean:message key="text.Assignments"/>"><bean:message key="text.Assignments"/></li>
+            <li class="examsSolutions"
+                alt="Example"
+                title="<bean:message key="text.Example"/>"><bean:message key="text.Example"/></li>
+            <li class="onlineTextBooks"
+                alt="Reading"
+                title="<bean:message key="text.Reading"/>"><bean:message key="text.Reading"/></li>            
+            </ul>
+        </div>   
         <% 
             List<Faculty> listFaculty;
             listFaculty = (List<Faculty>)request.getAttribute("listFaculty");
             int s=0;                     
             for(int f=0;f<listFaculty.size();f++){
         %>
-        <div style="font-size: 20px ;color:#680a12; padding-left: 17px; padding-bottom:10px "><%=listFaculty.get(f).getFacultyNameEn() %></div>
+        <div class="title_h1"><%=listFaculty.get(f).getFacultyNameEn() %></div>
         <table style="margin-left: 30px " width="600px">               
             <% 
                 List<Subject> listSubject;
@@ -66,29 +90,6 @@
             </tr>
             <% } %>
         </table><br/>
-        <div class="af_legends">
-            <ul class="legendList">
-            <li class="lectureNotes" alt="Lecture notes"
-                title="<bean:message key="text.menu.lecturenote"/>"><bean:message key="text.menu.lecturenote"/></li>
-            <li class="projectsExample"
-                alt="Projects"
-                title="<bean:message key="text.menu.project"/>"><bean:message key="text.menu.project"/></li>
-            <li class="imageGallery" alt="Image Galleries"
-                title="<bean:message key="text.imageGallery"/>"><bean:message key="text.imageGallery"/></li>
-            <li class="multimediaContent"
-                alt="Video"
-                title="<bean:message key="text.video"/>"><bean:message key="text.video"/></li>
-            <li class="assignmentsSolutions"
-                alt="Assignments"
-                title="<bean:message key="text.Assignments"/>"><bean:message key="text.Assignments"/></li>
-            <li class="examsSolutions"
-                alt="Example"
-                title="<bean:message key="text.Example"/>"><bean:message key="text.Example"/></li>
-            <li class="onlineTextBooks"
-                alt="Reading"
-                title="<bean:message key="text.Reading"/>"><bean:message key="text.Reading"/></li>            
-            </ul>
-        </div>   
         <% 
             List<List<Resource>> arrayListResource = (List<List<Resource>>) request.getAttribute("arrayListResource");
         %> 
@@ -111,11 +112,11 @@
                 <u><a href =<%=href%> name=<%=listSubject.get(i).getSubjectId()%> style="color:#680a12" ><%=listSubject.get(i).getSubjectNameVn() %></a></u> <!--Vietnamese Subject Name-->
             </div>    
         <% } %>
-        <table cellspacing="0" style="border: 1px #B4B1A2 solid ; margin-left: 17px " width="777px"  >
+        <table class="table_chapter" >
             <tr class="color_title_table">
-                <td width="60px"></td><td width="140px"></td>
-                <td width="80px" style="font-weight: bold "><bean:message key="text.orderChapter"/></td>
-                <td width="458px" style="font-weight: bold"><bean:message key="text.resourceName"/></td>
+                <td class="td_chapter_1"></td><td class="td_chapter_2"></td>
+                <td class="td_chapter_3"><bean:message key="text.OrderNumber"/></td>
+                <td class="td_chapter_4"><bean:message key="text.ChapterTitle"/></td>
             </tr>
             <% int color =0;
                List<Resource> listResource = arrayListResource.get(s);
