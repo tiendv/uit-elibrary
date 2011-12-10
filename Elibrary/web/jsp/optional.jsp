@@ -1,6 +1,6 @@
 <%-- 
-    Document   : optional
-    Created on : Dec 6, 2011, 4:53:11 AM
+    Document   : faculty
+    Created on : Dec 6, 2011, 4:44:10 AM
     Author     : Nguyen Hoang Tan
 --%>
 
@@ -16,48 +16,10 @@
     <head>
         <link rel="stylesheet" type="text/css" href="css/uit.css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title><bean:message key="text.leftmenu.faculty"/></title>
     </head>
     <body>
         <div class="title_h1"><bean:message key="text.leftmenu.optional"/></div>
-        <table style="margin-left: 30px " width="600px">               
-            <% 
-                List<Subject> listSubject;
-                listSubject = (List<Subject>)request.getAttribute("listSubject");
-                int language =1; // English
-                Locale locale = request.getLocale();
-                if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
-                    language=2; // VietNamese
-            %>
-            <%                 
-                for(int i=0;i<listSubject.size();i=i+2) {
-                    String href = "#"+listSubject.get(i).getSubjectId().toString();
-            %>
-            <tr>          
-            <td width="250px" style="color: #680a12">              
-                    <img src="image/black-arrow.gif" width="3" height="5" alt="black-arrow"/>
-                    <% if(language==1) { %>
-                        <a href =<%=href%> style="color:#680a12 " > <%=listSubject.get(i).getSubjectNameEn()%>  </a> <!--English Subject Name-->
-                    <% } %> 
-                    <% if(language==2) {%>
-                        <a href =<%=href%> style="color:#680a12 " ><%=listSubject.get(i).getSubjectNameVn()%> </a> <!--Vietnamese Subject Name-->
-                    <% } %>                         
-            </td>
-            <td width="250px" style="color: #680a12">
-                <% if(i+1<listSubject.size()){ %>
-                    <img src="image/black-arrow.gif" width="3" height="5" alt="black-arrow"/>
-                    <% if(language==1) {%>
-                        <a href =<%=href%> style="color:#680a12" > <%=listSubject.get(i+1).getSubjectNameEn()%> </a> <!--English Subject Name-->
-                    <% } %> 
-                    <% if(language==2) {%>
-                        <a href =<%=href%> style="color:#680a12" > <%=listSubject.get(i+1).getSubjectNameVn()%> </a> <!--Vietnamese Subject Name-->
-                    <% } %>
-
-                <% } %>    
-            </td>
-            </tr>
-            <% } %>
-        </table><br/>
         <div class="af_legends">
             <ul class="legendList">
             <li class="lectureNotes" alt="Lecture notes"
@@ -80,14 +42,70 @@
                 alt="Reading"
                 title="<bean:message key="text.Reading"/>"><bean:message key="text.Reading"/></li>            
             </ul>
-        </div>   
+        </div>
         <% 
-            List<Resource> listResource;
-            listResource = (List<Resource>)request.getAttribute("listResource");
+            List<Subject> listSubject;
+            listSubject = (List<Subject>)request.getAttribute("listSubject");             
+            int language =1; // English
+            Locale locale = request.getLocale();
+            if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
+                language=2; // VietNamese
+        %>            
+        <% 
+            List<Faculty> listFaculty;
+            listFaculty = (List<Faculty>)request.getAttribute("listFaculty");
+            int s=0;                     
+            for(int f=0;f<listFaculty.size();f++){
+        %>        
+        <% if(language==1) { %>
+            <div class="title_h1"><%=listFaculty.get(f).getFacultyNameEn() %></div>  <!--English Faculty Name-->
+        <% } %> 
+        <% if(language==2) {%>
+            <div class="title_h1"><%=listFaculty.get(f).getFacultyNameVn() %></div> <!--Vietnamese Faculty Name-->
+        <% } %>   
+        <table style="margin-left: 30px " width="600px">               
+            <%                 
+                for(int i=s;i<listSubject.size();i=i+2) {
+                    if(listSubject.get(i).getFaculty().getFacultyId()!=listFaculty.get(f).getFacultyId())
+                        break;
+                    String href = "#"+listSubject.get(i).getSubjectId().toString();
+            %>
+            <tr>      
+            <td width="250px" style="color: #680a12">              
+                    <img src="image/black-arrow.gif" width="3" height="5" alt="black-arrow"/>
+                    <% if(language==1) { %>
+                        <a href =<%=href%> style="color:#680a12 " > <%=listSubject.get(i).getSubjectNameEn()%>  </a> <!--English Subject Name-->
+                    <% } %> 
+                    <% if(language==2) {%>
+                        <a href =<%=href%> style="color:#680a12 " ><%=listSubject.get(i).getSubjectNameVn()%> </a> <!--Vietnamese Subject Name-->
+                    <% } %>                         
+            </td>
+            <td width="250px" style="color: #680a12">
+                <% if(i+1<listSubject.size() && (listSubject.get(i).getFaculty().getFacultyId()==listFaculty.get(f).getFacultyId())){ %>
+                    <img src="image/black-arrow.gif" width="3" height="5" alt="black-arrow"/>
+                    <% if(language==1) {%>
+                        <a href =<%=href%> style="color:#680a12" > <%=listSubject.get(i+1).getSubjectNameEn()%> </a> <!--English Subject Name-->
+                    <% } %> 
+                    <% if(language==2) {%>
+                        <a href =<%=href%> style="color:#680a12" > <%=listSubject.get(i+1).getSubjectNameVn()%> </a> <!--Vietnamese Subject Name-->
+                    <% } %>
+
+                <% } %>    
+            </td>
+            </tr>
+            <% } %>
+        </table><br/>
+        <% 
+            List<List<Resource>> arrayListResource = (List<List<Resource>>) request.getAttribute("arrayListResource");
         %> 
-        <%  int j=0;
-            for(int i=0;i<listSubject.size();i++) {
+        <%  
+            for(int i=s;i<listSubject.size();i++) {
                 String href="./SubjectHome.do?subjectID="+listSubject.get(i).getSubjectId();
+                if(listSubject.get(i).getFaculty().getFacultyId()!=listFaculty.get(f).getFacultyId())
+                {     
+                    s=i;
+                    break;
+                }
         %>
         <% if(language==1) {%>
             <div  style=" font-size: 12px; margin-left: 17px ; padding-top: 7px; padding-bottom:2px;  font-weight: bold; color: #680a12">
@@ -105,8 +123,10 @@
                 <td class="td_chapter_3"><bean:message key="text.OrderNumber"/></td>
                 <td class="td_chapter_4"><bean:message key="text.ChapterTitle"/></td>
             </tr>
-            <% int color =0; %>
-            <% for(;j<listResource.size();j++) {%>
+            <% int color =0;
+               List<Resource> listResource = arrayListResource.get(s);
+            %>
+            <% for(int j=0;j<listResource.size();j++) {%>
                  <%
                     int newestPosition=-1;
                     int lecturePosition =-1;
@@ -176,8 +196,8 @@
                         <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+8+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.imageGallery"/>" class="imageGallery" title="<bean:message key="text.imageGallery"/>"></a>   <% } %>
                     <% if(resourceCategoryId==9 ){ %>
                         <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+9+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.Reading"/>" class="onlineTextBooks" title="<bean:message key="text.Reading"/>"></a><% } %>
-                    <% if(resourceCategoryId==10 ){ %>
-                        <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+10+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.menu.lecturenote"/>" class="lectureNotes" title="<bean:message key="text.menu.lecturenote"/>"></a><% } %>                            
+                     <% if(resourceCategoryId==10 ){ %>
+                        <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+10+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.menu.lecturenote"/>" class="lectureNotes" title="<bean:message key="text.menu.lecturenote"/>"></a><% } %>                           
                     <% if(resourceCategoryId==11 ){ %>
                         <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+11+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.video"/>" class="multimediaContent" title="<bean:message key="text.video"/>"></a>   <% } %>
                     <%}%>       
@@ -218,6 +238,7 @@
                     }
                 } %>
         </table>
-        <% } %> 
+        <% }%><div style="clear:both;height: 30px "></div>  <%} %> 
     </body>
 </html>
+
