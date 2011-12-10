@@ -7,8 +7,10 @@
 
 <struts-config>
     <form-beans>
-        <form-bean name="CreateResourceActionForm" type="uit.elib.formbean.CreateResourceActionForm"/>
-        <form-bean name="CreateSubjectActionForm" type="uit.elib.formbean.CreateSubjectActionForm"/>
+        <form-bean name="LoadCreateSubjectForm" type="uit.elib.formbean.LoadCreateSubjectForm"/>
+        <form-bean name="LoadCreateResourceForm" type="uit.elib.formbean.LoadCreateResourceForm"/>
+        <form-bean name="CreateResourceForm" type="uit.elib.formbean.CreateResourceForm"/>
+        <form-bean name="CreateSubjectForm" type="uit.elib.formbean.CreateSubjectForm"/>
     </form-beans>
     
     <global-exceptions>
@@ -21,49 +23,54 @@
     </global-forwards>
 
     <action-mappings>
-        <action input="/" name="CreateSubjectActionForm" path="/CreateSubject" scope="session" type="uit.elib.action.CreateSubjectAction">
-            <forward name="success" path="/Welcome.do"/>
-        </action>
-        <action path="/LoadSubject" type="uit.elib.action.LoadSubjectAction">           
+        <action path="/LoadSubject" type="uit.elib.action.LoadSubjectAction" scope="session">           
             <forward name="success" path=".loadSubject"/>
         </action>
-        <action path="/LoadFaculty" type="uit.elib.action.LoadFacultyAction">           
+        <action path="/LoadFaculty" type="uit.elib.action.LoadFacultyAction" scope="session">           
             <forward name="success" path=".loadFaculty"/>
         </action>
-        <action path="/LoadBase" type="uit.elib.action.LoadBaseAction">           
+        <action path="/LoadBase" type="uit.elib.action.LoadBaseAction" scope="session">           
             <forward name="success" path=".loadBase"/>
         </action>
-        <action path="/LoadOptional" type="uit.elib.action.LoadOptionalAction">           
+        <action path="/LoadOptional" type="uit.elib.action.LoadOptionalAction" scope="session">           
             <forward name="success" path=".loadOptional"/>
         </action>        
-        <action  path="/SubjectHome" type="uit.elib.action.SubjectHomeAction">
+        <action  path="/SubjectHome" type="uit.elib.action.SubjectHomeAction" scope="session">
             <forward name="success" path=".subjectHome"/>
         </action>
-
-        <action path="/LoadLectureNote" type="uit.elib.action.LoadInfoSubjectAction">           
+        <action path="/LoadLectureNote" type="uit.elib.action.LoadInfoSubjectAction" scope="session">           
             <forward name="success" path=".loadLectureNote"/>
         </action>
-        <action path="/LoadProject" type="uit.elib.action.LoadInfoSubjectAction">           
+        <action path="/LoadProject" type="uit.elib.action.LoadInfoSubjectAction" scope="session">           
             <forward name="success" path=".loadProject"/>
         </action>
-        <action path="/SubjectCategory" type="uit.elib.action.LoadSubjectCategoryAction">           
+        <action path="/SubjectCategory" type="uit.elib.action.LoadSubjectCategoryAction" scope="session">           
             <forward name="success" path=".loadSubjectCategory"/>
-
         </action>
-        <action path="/Syllabus" type="uit.elib.action.SyllabusAction">
+        <action path="/Syllabus" type="uit.elib.action.SyllabusAction" scope="session">
             <forward name="success" path=".syllabus"/>
+        </action> 
+        <action path="/CreateResource" name="CreateResourceForm" type="uit.elib.action.CreateResourceAction" scope="session">
+            <forward name="success" path=".createResource"/>
         </action>
-
-        <action path="/DownLoad" type="uit.elib.action.DownLoadAction"/>  
-        <action input="/admin/createResource.jsp" name="CreateResourceActionForm" path="/CreateResource" scope="session" type="uit.elib.action.CreateResourceAction"/>
-        <action path="/AjaxGetChapterBySubjectID" type="uit.elib.action.AjaxGetChapterBySubjectID"/>
-        <action path="/Welcome" forward=".homepage"/>
-        <action path="/Admin" forward=".adminPage"/>
-        <action path="/materialPage" forward=".materialPage"/>
-        <action path="/lecturesPage" forward=".lecturesPage"/>
-        <action path="/generalinformationPage" forward=".generalinformationPage"/>
-        <action path="/createResource" forward=".createResourcePage"/>
-        <action path="/Locale" type="uit.elib.action.languageSelectAction" parameter="method" validate="false"/>
+        <action path="/CreateSubject" name="CreateSubjectForm" type="uit.elib.action.CreateSubjectAction" scope="session">
+            <forward name="success" path=".createSubject"/>
+        </action>        
+        <action path="/LoadCreateResource" name="LoadCreateResourceForm" type="uit.elib.action.LoadCreateResourceAction" scope="session">
+            <forward name="success" path=".createResource"/>
+        </action>
+        <action path="/LoadCreateSubject" name="LoadCreateSubjectForm" type="uit.elib.action.LoadCreateSubjectAction" scope="session">
+            <forward name="success" path=".createSubject"/>
+        </action>
+        <action path="/DownLoad" type="uit.elib.action.DownLoadAction"  scope="session"/>  
+        <action path="/AjaxGetChapterBySubjectID" type="uit.elib.action.AjaxGetChapterBySubjectID"  scope="session"/>
+        <action path="/Welcome" forward=".homepage"  scope="session"/>
+        <action path="/Admin" forward=".adminPage"  scope="session"/>
+        <action path="/materialPage" forward=".materialPage"  scope="session"/>
+        <action path="/lecturesPage" forward=".lecturesPage"  scope="session"/>
+        <action path="/generalinformationPage" forward=".generalinformationPage"  scope="session"/>
+        <action path="/createResource" forward=".createResourcePage"  scope="session"/>
+        <action path="/Locale" type="uit.elib.action.languageSelectAction" parameter="method" validate="false"  scope="session"/>
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
