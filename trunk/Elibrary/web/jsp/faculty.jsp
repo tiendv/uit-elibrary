@@ -42,23 +42,29 @@
                 alt="Reading"
                 title="<bean:message key="text.Reading"/>"><bean:message key="text.Reading"/></li>            
             </ul>
-        </div>   
+        </div>
+        <% 
+            List<Subject> listSubject;
+            listSubject = (List<Subject>)request.getAttribute("listSubject");             
+            int language =1; // English
+            Locale locale = request.getLocale();
+            if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
+                language=2; // VietNamese
+        %>            
         <% 
             List<Faculty> listFaculty;
             listFaculty = (List<Faculty>)request.getAttribute("listFaculty");
             int s=0;                     
             for(int f=0;f<listFaculty.size();f++){
-        %>
-        <div class="title_h1"><%=listFaculty.get(f).getFacultyNameEn() %></div>
+        %>    
+        <% if(language==1) { %>
+            <div class="title_h1"><%=listFaculty.get(f).getFacultyNameEn() %></div>  <!--English Faculty Name-->
+        <% } %> 
+        <% if(language==2) {%>
+            <div class="title_h1"><%=listFaculty.get(f).getFacultyNameVn() %></div> <!--Vietnamese Faculty Name-->
+        <% } %>         
+        
         <table style="margin-left: 30px " width="600px">               
-            <% 
-                List<Subject> listSubject;
-                listSubject = (List<Subject>)request.getAttribute("listSubject");             
-                int language =1; // English
-                Locale locale = request.getLocale();
-                if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
-                    language=2; // VietNamese
-            %>
             <%                 
                 for(int i=s;i<listSubject.size();i=i+2) {
                     if(listSubject.get(i).getFaculty().getFacultyId()!=listFaculty.get(f).getFacultyId())
