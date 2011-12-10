@@ -153,7 +153,7 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
          /**
           * Resource type = video, 
           */
-          if(typeResource == 5 || typeResource == 10 || typeResource == 11)
+          if(typeResource == 4 || typeResource == 5 || typeResource == 10 || typeResource == 11)
          {
             
              tempSJ = sjBO.getById(createResourceActionForm.getDropSubjectNameInResourceChapter(), true);

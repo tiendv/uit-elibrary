@@ -167,7 +167,7 @@
                     </table>
 
                 </div>
-                <%-- Add resource with resource type is video,example,slide,pdf (ID =5,10,11) --%>
+                <%-- Add resource with resource type is assignments,video,example,slide,pdf (ID =4,5,10,11) --%>
                 <div id="divResourceChapter" class="resourceChapter" style="display: none">
                     <table width="100%" border="0" cellspacing="0" cellpadding="5">
                         <tr>
@@ -235,7 +235,7 @@
             document.getElementById("divPictureandReading").style.display = "block";
              document.getElementById("divResourceChapter").style.display = "none";
         }
-        if (chosenoption.value=="5"||chosenoption.value=="10"||chosenoption.value=="11"){
+        if (chosenoption.value=="4"||chosenoption.value=="5"||chosenoption.value=="10"||chosenoption.value=="11"){
             document.getElementById("divResourceChapter").style.display = "block";
             document.getElementById("divProject").style.display = "none";
             document.getElementById("divChapter").style.display = "none";
