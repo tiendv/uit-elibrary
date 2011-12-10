@@ -1,7 +1,7 @@
 <%-- 
     Document   : createSubject
-    Created on : Nov 22, 2011, 11:12:12 AM
-    Author     : tiendv
+    Created on : December 10, 2011, 10:29:19 AM
+    Author     : Nguyen Hoang Tan
 --%>
 
 
@@ -23,9 +23,7 @@
 
 
 <div style="overflow: auto;height: 600px;">
-    <form name="createSubject" method="post" action="CreateSubject.do">
-     <jsp:useBean id="subjectCategoryBO" class="uit.elib.bo.SubjectCategoryBO" scope="page">    
-     <jsp:useBean id="subjectFacultyBO" class="uit.elib.bo.FacultyBO" scope="page">
+    <html:form  method="post" action="CreateSubject" onsubmit="return validateCreateSubjectForm(this)">
     <h1> <bean:message key="text.newSubject"/> </h1>
     <table width="100%">
         <%int language =1; // English
@@ -34,79 +32,76 @@
                         language = 2; // VietNamese
         %>
         <tr>
+
             <td><bean:message key="text.SubjectNameVN"/></td>
-            <td><input name="txtSubjectName" type="text"/></td>
+            <td><html:text property="txtSubjectName"/></td>
             <td><bean:message key="text.SubjectNameEN"/></td>
-            <td><input name="txtSubjectNameUS" type="text"/></td>
-        </tr>
+            <td><html:text property="txtSubjectNameUS" /></td>
+        </tr> 
         <tr>
             <td><bean:message key="text.SubjectCategory"/></td>
             <td>
                 <%if(language==1) {%>
-                    <select  name="dropSubjectCategory" class="cssdropbox">
-                        <c:forEach items="${subjectCategoryBO.allSubjectCategory}" var="item">
-                            <option value="${item.subjectCategoryId}">${item.subjectCategoryNameEn}</option>
-                        </c:forEach>
-                    </select> 
+                <html:select  property="dropSubjectCategory" onchange="check()" styleClass="combobox" > 
+                        <html:optionsCollection name="LoadCreateSubjectForm"  property="listDropSubjectCategory" value="subjectCategoryId" label="subjectCategoryNameEn"  ></html:optionsCollection>
+                    </html:select> 
                 <%}%>
                 <%if(language==2) {%>
-                    <select  name="dropSubjectCategory" class="cssdropbox">
-                        <c:forEach items="${subjectCategoryBO.allSubjectCategory}" var="item">
-                            <option value="${item.subjectCategoryId}">${item.subjectCategoryNameVn}</option>
-                        </c:forEach>
-                    </select> 
+                <html:select  property="dropSubjectCategory" onchange="check()" styleClass="combobox" > 
+                        <html:optionsCollection name="LoadCreateSubjectForm"  property="listDropSubjectCategory" value="subjectCategoryId" label="subjectCategoryNameVn" ></html:optionsCollection>
+                    </html:select> 
                 <%}%>
             </td>
-            <td><bean:message key="text.codeSubject"/></td>
-            <td><input name="txtSubjectCode" type="text"/></td>
-        </tr>
-        <tr>
-            <td><bean:message key="text.periodOfTheory"/></td>
-            <td><input name="txtPeriodOfTheory" type="text"/></td>
-            <td><bean:message key="text.periodOfPractice"/></td>
-            <td><input name="txtPeriodOfPractice" type="text"/></td>
-        </tr>
-        <tr>
-            <td><bean:message key="text.midtermGrade"/></td>
-            <td><input name="txtMidtermGrade" type="text"/></td>
-            <td><bean:message key="text.finalGrade"/></td>
-            <td><input name="txtFinalGrade" type="text"/></td>
-        </tr>
-        <tr>
-            <td><bean:message key="text.prerequisiteSubjectEN"/></td>
-            <td><input name="txtPrerequisiteSubject" type="text"/></td>
-            <td><bean:message key="text.timeTeaching"/></td>
-            <td><input name="txtSubjectTime" type="text"/></td>
-        </tr>
-        <tr>
-            <td><bean:message key="text.teacher"/></td>
-            <td><input name="txtTeacherName" type="text" /></td>
-            <td><bean:message key="text.level"/></td>
-            <td><input name="txtLevel" type="text"/></td>
-        </tr>
-        <tr>
             <td><bean:message key="text.faculty"/></td>
             <td>
                 <% if(language==1) {%>
-                    <select  name="dropSubjectFaculty" class="cssdropbox">
-                        <c:forEach items="${subjectFacultyBO.allFaculty}" var="item">
-                          <option value="${item.facultyId}">${item.facultyNameEn}</option>
-                        </c:forEach>
-                    </select> 
+                    <html:select  property="dropFaculty" styleClass="combobox" > 
+                        <html:optionsCollection name="LoadCreateSubjectForm"  property="listDropFaculty" value="facultyId" label="facultyNameEn"></html:optionsCollection>
+                    </html:select>
                 <%}%>
                 <% if(language==2) {%>
-                    <select  name="dropSubjectFaculty" class="cssdropbox">
-                        <c:forEach items="${subjectFacultyBO.allFaculty}" var="item">
-                          <option value="${item.facultyId}">${item.facultyNameVn}</option>
-                        </c:forEach>
-                    </select> 
+                    <html:select  property="dropFaculty" styleClass="combobox" > 
+                        <html:optionsCollection name="LoadCreateSubjectForm"  property="listDropFaculty" value="facultyId" label="facultyNameVn"></html:optionsCollection>
+                    </html:select>
                 <%}%>
-            </td>
-            <td>
-            </td>
-            <td>
-                
-            </td>
+             </td>            
+
+        </tr>
+        <tr>
+             <td><bean:message key="text.creditNumber"/></td>
+             <td><html:text property="txtCreditNumber" /></td>
+             <td><bean:message key="text.SubjectCode"/></td>
+             <td><html:text property="txtSubjectCode" /></td>           
+        </tr>
+        <tr>
+            <td><bean:message key="text.periodOfTheory"/></td>
+            <td><html:text property="txtPeriodOfTheory" /></td>
+            <td><bean:message key="text.periodOfPractice"/></td>
+            <td><html:text property="txtPeriodOfPractice" /></td>
+        </tr>
+        <tr>
+            <td><bean:message key="text.midtermGrade"/></td>
+            <td><html:text property="txtMidtermGrade" /></td>
+            <td><bean:message key="text.finalGrade"/></td>
+            <td><html:text property="txtFinalGrade" /></td>
+        </tr>
+        <tr>
+            <td><bean:message key="text.prerequisiteSubjectVN"/></td>
+            <td><html:text property="txtPrerequisiteSubjectVN" /></td>
+            <td><bean:message key="text.prerequisiteSubjectEN"/></td>
+            <td><html:text property="txtPrerequisiteSubject" /></td>
+        </tr>
+        <tr>
+            <td><bean:message key="text.timeTeaching"/></td>
+            <td><html:text property="txtTimeTeaching" /></td>
+            <td><bean:message key="text.teacher"/></td>
+            <td><html:text property="txtTeacherName" /></td>
+        </tr>
+        <tr>
+            <td><bean:message key="text.level"/></td>
+            <td><html:text property="txtLevel" /></td>
+            <td><bean:message key="text.numberchapter"/></td>
+            <td><html:text property="txtNumberChapter" /></td>
         </tr>
     </table>
     
@@ -143,10 +138,29 @@
         </FCK:editor>
     <hr>
     <div style="text-align: left">
-        <input type="submit" value=<bean:message key="text.buttonCancel"/>  />
-        <input type="submit" value=<bean:message key="text.buttonCreate"/>  />
+        <html:submit property="btnSubmit" disabled="true"><bean:message key="text.buttonCreate"/></html:submit><noscript><bean:message key="text.noScript"/></noscript> 
     </div>
-    </jsp:useBean>
-    </jsp:useBean>
-    </form>
+    <html:javascript formName="CreateSubjectForm"/>
+    </html:form>
 </div>
+<script type="text/javascript">
+    function init()
+    {
+        document.CreateSubjectForm.btnSubmit.disabled=false;
+        document.CreateSubjectForm.dropFaculty.disabled=true;
+        document.CreateSubjectForm.dropFaculty.selectedIndex=-1;
+        document.CreateSubjectForm.dropSubjectCategory.selectedIndex=0;
+    }
+    function check()
+    { 
+        document.CreateSubjectForm.dropFaculty.disabled=false;
+        document.CreateSubjectForm.dropFaculty.selectedIndex=0;
+        if(document.CreateSubjectForm.dropSubjectCategory.value==1)
+        {
+            document.CreateSubjectForm.dropFaculty.disabled=true;
+            document.CreateSubjectForm.dropFaculty.selectedIndex=-1;
+        }          
+ 
+    } 
+  
+</script>
