@@ -19,7 +19,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div style="font-size: 20px ;color:#680a12; padding-left: 17px; padding-bottom:10px "><bean:message key="text.leftmenu.base"/>  </div>
+        <div class="title_h1"><bean:message key="text.leftmenu.base"/></div>
         <table style="margin-left: 30px " width="600px">               
             <% 
                 List<Subject> listSubject;
@@ -99,11 +99,11 @@
                 <u><a href =<%=href%> name=<%=listSubject.get(i).getSubjectId()%> style="color:#680a12" ><%=listSubject.get(i).getSubjectNameVn() %></a></u> <!--Vietnamese Subject Name-->
             </div>    
         <% } %>
-        <table cellspacing="0" style="border: 1px #B4B1A2 solid ; margin-left: 17px " width="777px"  >
+        <table class="table_chapter" >
             <tr class="color_title_table">
-                <td width="60px"></td><td width="140px"></td>
-                <td width="80px" style="font-weight: bold "><bean:message key="text.orderChapter"/></td>
-                <td width="458px" style="font-weight: bold"><bean:message key="text.resourceName"/></td>
+                <td class="td_chapter_1"></td><td class="td_chapter_2"></td>
+                <td class="td_chapter_3"><bean:message key="text.OrderNumber"/></td>
+                <td class="td_chapter_4"><bean:message key="text.ChapterTitle"/></td>
             </tr>
             <% int color =0; %>
             <% for(;j<listResource.size();j++) {%>
