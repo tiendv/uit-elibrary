@@ -15,7 +15,7 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.upload.FormFile;
 import uit.elib.bo.*;
 import uit.elib.dto.*;
-import uit.elib.formbean.CreateResourceActionForm;
+import uit.elib.formbean.CreateResourceForm;
 
 /**
  *
@@ -43,7 +43,7 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
             throws Exception {
         request.setCharacterEncoding("UTF-8");
         
-        CreateResourceActionForm createResourceActionForm = (CreateResourceActionForm)form;
+        CreateResourceForm createResourceActionForm = (CreateResourceForm)form;
         
         ResourceBO rsBO = ResourceBO.getResourceBO();
         SubjectBO sjBO = SubjectBO.getSubjectBO();
@@ -58,7 +58,7 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
         java.sql.Date sqlDate = new Date(utilDate.getTime());
         
         
-        SubjectCategoryBO sjcBO = SubjectCategoryBO.getSubjectBO();
+        SubjectCategoryBO sjcBO = SubjectCategoryBO.getSubjectCategoryBO();
         Resource temp = new Resource();
         temp.setResourceNameVn(createResourceActionForm.getTxtResourceName());
         

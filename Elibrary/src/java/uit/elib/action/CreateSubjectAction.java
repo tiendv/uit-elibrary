@@ -15,7 +15,7 @@ import uit.elib.bo.SubjectBO;
 import uit.elib.bo.SubjectCategoryBO;
 import uit.elib.dto.Faculty;
 import uit.elib.dto.Subjectcategory;
-import uit.elib.formbean.CreateSubjectActionForm;
+import uit.elib.formbean.CreateSubjectForm;
 
 /**
  *
@@ -41,15 +41,16 @@ public class CreateSubjectAction extends org.apache.struts.action.Action {
             throws Exception {
           request.setCharacterEncoding("UTF-8");
         
-        CreateSubjectActionForm subjectFormBean = (CreateSubjectActionForm) form;
+        CreateSubjectForm subjectFormBean = (CreateSubjectForm) form;
         
         // Get infor category
         Subjectcategory tempCategory;
-        tempCategory = SubjectCategoryBO.getSubjectBO().getById(subjectFormBean.getDropSubjectCategory(), true);
+        tempCategory = SubjectCategoryBO.getSubjectCategoryBO().getById(subjectFormBean.getDropSubjectCategory(), true);
         
         // Get infor faculty
-        Faculty tempFaculty;
-        tempFaculty = FacultyBO.getFacultyBO().getById(subjectFormBean.getDropSubjectFaculty(), true);
+        Faculty tempFaculty=null;
+        if(subjectFormBean.getDropSubjectCategory()!=1)
+            tempFaculty = FacultyBO.getFacultyBO().getById(subjectFormBean.getDropFaculty(), true);
                 
         SubjectBO subjectBO = SubjectBO.getSubjectBO();
         Subject temp = new Subject(); 
@@ -58,12 +59,13 @@ public class CreateSubjectAction extends org.apache.struts.action.Action {
         temp.setSubjectNameVn(subjectFormBean.getTxtSubjectName());
         temp.setSubjectcategory(tempCategory);
         temp.setCourseCode(subjectFormBean.getTxtSubjectCode());
-        temp.setPeriodOfTheory(subjectFormBean.getTxtPeriodOfTheory());
-        temp.setPeriodOfPractice(subjectFormBean.getTxtPeriodOfPractice());
-        temp.setMidtermGrade(subjectFormBean.getTxtMidtermGrade());
-        temp.setFinalGrade(subjectFormBean.getTxtFinalGrade());
+        temp.setPeriodOfTheory(Integer.parseInt(subjectFormBean.getTxtPeriodOfTheory()));
+        temp.setPeriodOfPractice(Integer.parseInt(subjectFormBean.getTxtPeriodOfPractice()));
+        temp.setMidtermGrade(Integer.parseInt(subjectFormBean.getTxtMidtermGrade()));
+        temp.setFinalGrade(Integer.parseInt(subjectFormBean.getTxtFinalGrade()));
+        temp.setPrerequisiteSubjectVn(subjectFormBean.getTxtPrerequisiteSubjectVN());
         temp.setPrerequisiteSubjectEn(subjectFormBean.getTxtPrerequisiteSubject());
-        temp.setTimeTeaching(subjectFormBean.getTxtSubjectTime());
+        temp.setTimeTeaching(String.valueOf(subjectFormBean.getTxtTimeTeaching()));
         temp.setTeacher(subjectFormBean.getTxtTeacherName());
         temp.setLevel(subjectFormBean.getTxtLevel());
         temp.setFaculty(tempFaculty);
@@ -71,7 +73,27 @@ public class CreateSubjectAction extends org.apache.struts.action.Action {
         temp.setSubjectIntroduceEn(subjectFormBean.getFckintroductionUS());
         temp.setProjectRequirementVn(subjectFormBean.getFckintroductionVN());
         temp.setProjectRequirementEn(subjectFormBean.getFckProjectRequitementUS());
-        subjectBO.addNew(temp);  
+        temp.setNumberChapter(Integer.parseInt(subjectFormBean.getTxtNumberChapter()));
+        temp.setNumberOfCredit(Integer.parseInt(subjectFormBean.getTxtCreditNumber()));
+        subjectBO.addNew(temp);
+        //reset form
+        subjectFormBean.setTxtSubjectNameUS("");
+        subjectFormBean.setTxtSubjectName("");
+        subjectFormBean.setDropSubjectCategory(0);
+        subjectFormBean.setDropFaculty(-1);
+        subjectFormBean.setTxtCreditNumber("");
+        subjectFormBean.setTxtSubjectCode("");
+        subjectFormBean.setTxtPeriodOfTheory("");
+        subjectFormBean.setTxtPeriodOfPractice("");
+        subjectFormBean.setTxtMidtermGrade("");
+        subjectFormBean.setTxtFinalGrade("");
+        subjectFormBean.setTxtPrerequisiteSubject("");
+        subjectFormBean.setTxtPrerequisiteSubjectVN("");
+        subjectFormBean.setTxtTimeTeaching("");
+        subjectFormBean.setTxtTeacherName("");
+        subjectFormBean.setTxtLevel("");
+        subjectFormBean.setTxtNumberChapter("");
+        
         return mapping.findForward(SUCCESS);
     }
 }
