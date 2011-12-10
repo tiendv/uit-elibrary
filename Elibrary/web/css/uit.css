@@ -480,13 +480,14 @@ background-position:0px -486px;
     color: #680a12;
     height: 30px;
     font-weight: bold;
+    width:100%;
 }
 .resource_table{
     border: 1px;
     border-color:#B4B1A2;
     border-style: solid ; 
     margin-left: 17px;
-    width: 738px;
+    width: 98%;
     text-align: center;
     
 }
