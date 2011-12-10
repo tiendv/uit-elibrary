@@ -533,3 +533,15 @@ background-position:0px -486px;
     text-decoration: none;
     color:#680a12;
 }
+.subject
+{
+    font-size: 12px; 
+    margin-left: 17px; 
+    padding-top: 7px; 
+    padding-bottom:2px;  
+    font-weight: bold; 
+}
+.subject a
+{
+    color: #680a12;
+}

@@ -109,13 +109,13 @@
                 }
         %>
         <% if(language==1) {%>
-            <div  style=" font-size: 12px; margin-left: 17px ; padding-top: 7px; padding-bottom:2px;  font-weight: bold; color: #680a12">
-                <u><a href =<%=href%> name=<%=listSubject.get(i).getSubjectId()%> style="color:#680a12"><%=listSubject.get(i).getSubjectNameEn() %></a></u> <!--English Subject Name-->
+            <div class="subject">
+                <a href =<%=href%> name=<%=listSubject.get(i).getSubjectId()%> ><%=listSubject.get(i).getSubjectNameEn() %></a> <!--English Subject Name-->
             </div>    
         <% } %> 
         <% if(language==2) {%>
-            <div style="font-size: 12px; margin-left: 17px ; padding-top: 7px; padding-bottom:2px; font-weight: bold; color: #680a12">
-                <u><a href =<%=href%> name=<%=listSubject.get(i).getSubjectId()%> style="color:#680a12" ><%=listSubject.get(i).getSubjectNameVn() %></a></u> <!--Vietnamese Subject Name-->
+            <div class="subject">
+                <a href =<%=href%> name=<%=listSubject.get(i).getSubjectId()%>  ><%=listSubject.get(i).getSubjectNameVn() %></a> <!--Vietnamese Subject Name-->
             </div>    
         <% } %>
         <table class="table_chapter" >
