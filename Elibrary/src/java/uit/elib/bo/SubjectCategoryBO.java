@@ -20,7 +20,7 @@ public class SubjectCategoryBO extends ManagerBase<Subjectcategory> {
     public SubjectCategoryBO() throws Exception {
     }
 
-    public static SubjectCategoryBO getSubjectBO() throws Exception{
+    public static SubjectCategoryBO getSubjectCategoryBO() throws Exception{
         if(subjectCategorytBO == null){
             subjectCategorytBO = new SubjectCategoryBO();
         }
