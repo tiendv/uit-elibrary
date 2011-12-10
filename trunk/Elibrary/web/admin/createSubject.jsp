@@ -34,13 +34,13 @@
                         language = 2; // VietNamese
         %>
         <tr>
-            <td><bean:message key="text.nameSubjectVN"/></td>
+            <td><bean:message key="text.SubjectNameVN"/></td>
             <td><input name="txtSubjectName" type="text"/></td>
-            <td><bean:message key="text.nameSubjectEN"/></td>
+            <td><bean:message key="text.SubjectNameEN"/></td>
             <td><input name="txtSubjectNameUS" type="text"/></td>
         </tr>
         <tr>
-            <td><bean:message key="text.nameSubjectCategory"/></td>
+            <td><bean:message key="text.SubjectCategory"/></td>
             <td>
                 <%if(language==1) {%>
                     <select  name="dropSubjectCategory" class="cssdropbox">
