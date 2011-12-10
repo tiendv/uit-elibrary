@@ -66,20 +66,20 @@
                                     class="color_table2"
                                 <%}%> >              
                         <% if(language==1) {%>
-                        <p><u>  <%=listChapter.get(i).getResourceNameEn()%></u> </p>
+                        <p>  <%=listChapter.get(i).getResourceNameEn()%> </p>
                         <% } %> 
                         <% if(language==2) {%>
-                            <u> <%=listChapter.get(i).getResourceNameVn()%> </u>
+                             <%=listChapter.get(i).getResourceNameVn()%> 
                         <% } %>                         
              </td>
              <td <% if(color%2==0){ %> 
                                 class="color_table2"
                                 <%}%> >              
                         <% if(language==1) {%>
-                             <u> <%=listChapter.get(i).getSummaryEn()%> </u>
+                             <%=listChapter.get(i).getSummaryEn()%> 
                         <% } %> 
                         <% if(language==2) {%>
-                            <u> <%=listChapter.get(i).getSummaryVn()%> </u>
+                             <%=listChapter.get(i).getSummaryVn()%> 
                         <% } %>                         
              </td>
              <td <% if(color%2==0){ %> 
@@ -128,10 +128,18 @@
                                     class="color_table2"
                                 <%}%>>
                      <% if(language==1) {%>
-                         <u>  <%=listResource.get(i).getResourceNameEn()%> </u>
+                        <%if(listResource.get(i).getServerName() != null){%><!--Nếu có link download thì cho download -->
+                            <a href="DownLoad.do?resourceID=<%=listResource.get(i).getResourceId()%>" > <%=listResource.get(i).getResourceNameEn() %> </a>
+                        <%}else{%>
+                              <%=listResource.get(i).getResourceNameEn()%> 
+                        <%}%>
                      <%}%>
                      <% if(language==2) {%>
-                        <u> <%=listResource.get(i).getResourceNameVn()%> </u>
+                        <%if(listResource.get(i).getServerName() != null){%><!--Nếu có link download thì cho download -->
+                            <a href="DownLoad.do?resourceID=<%=listResource.get(i).getResourceId()%>" > <%=listResource.get(i).getResourceNameVn() %> </a>
+                        <%}else{%>
+                               <%=listResource.get(i).getResourceNameVn()%> 
+                        <%}%>
                      <%}%>
                  </td>
                  <% count++;%>
@@ -175,10 +183,10 @@
                                     class="color_table2"
                                 <%}%>>
                      <% if(language==1) {%>
-                         <u>  <%=listResource.get(i).getResourceNameEn()%> </u>
+                           <%=listResource.get(i).getResourceNameEn()%> 
                      <%}%>
                      <% if(language==2) {%>
-                        <u> <%=listResource.get(i).getResourceNameVn()%> </u>
+                         <%=listResource.get(i).getResourceNameVn()%> 
                      <%}%>
                  </td>
                  <% count++;%>
@@ -224,20 +232,20 @@
                                     class="color_table2"
                                 <%}%> >              
                         <% if(language==1) {%>
-                        <p><u>  <%=listChapter.get(i).getResourceNameEn()%></u> </p>
+                        <p>  <%=listChapter.get(i).getResourceNameEn()%> </p>
                         <% } %> 
                         <% if(language==2) {%>
-                            <u> <%=listChapter.get(i).getResourceNameVn()%> </u>
+                            <%=listChapter.get(i).getResourceNameVn()%> 
                         <% } %>                         
              </td>
              <td <% if(color%2==0){ %> 
                                 class="color_table2"
                                 <%}%> >              
                         <% if(language==1) {%>
-                             <u> <%=listChapter.get(i).getSummaryEn()%> </u>
+                              <%=listChapter.get(i).getSummaryEn()%> 
                         <% } %> 
                         <% if(language==2) {%>
-                            <u> <%=listChapter.get(i).getSummaryVn()%> </u>
+                             <%=listChapter.get(i).getSummaryVn()%> 
                         <% } %>                         
              </td>
              <td <% if(color%2==0){ %> 
@@ -269,21 +277,21 @@
             <%}%>
             </a> > <bean:message key ="text.menu.project"/></div>
         
-        <div><a><h2><bean:message key="text.ProjectRequirementTitle"/>:</h2></a></div>
+            <div class="hyperlink_title_subject"><a><h2><bean:message key="text.ProjectRequirementTitle"/>:</h2></a></div>
         <% if(language==1){%>
-            <u> <%=subject.getProjectRequirementEn()%> </u>
+            <div class="hyperlink_title_subject"><%=subject.getProjectRequirementEn()%></div>
         <%}%>
         <% if(language==2){%>
-            <u>  <%=subject.getProjectRequirementVn()%> </u>
+            <div class="hyperlink_title_subject"><%=subject.getProjectRequirementVn()%></div> 
         <%}%>
         
-        <div><a><h2><bean:message key="text.ListTemplateProject"/></h2></a></div>
+        <div class="hyperlink_title_subject"><a><h2><bean:message key="text.ListTemplateProject"/></h2></a></div>
         <table class="resource_table" >
             <tr class="color_title_table">
-                <td width="100px"><bean:message key="text.OrderNumber"/> </td>
-                <td width="200px"><bean:message key="text.projectAuthor"/> </td>
-                <td width="328px"><bean:message key="text.projectNameEN"/> </td>
-                <td width="110px"><bean:message key="text.note"/> </td>
+                <td width="12%"><bean:message key="text.OrderNumber"/> </td>
+                <td width="20%"><bean:message key="text.projectAuthor"/> </td>
+                <td width="53%"><bean:message key="text.projectNameEN"/> </td>
+                <td width="15%"><bean:message key="text.note"/> </td>
             </tr>
                 <%
                     int count = 1; //thứ tự
