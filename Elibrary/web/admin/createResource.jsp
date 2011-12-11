@@ -207,14 +207,16 @@
                         <tr>
                             <td class="label"><bean:message key="text.nameSubject"/></td>
                             <td>
+                                <select id="dropSubjectName" name="dropSubjectNameInSysllabus">
                                 <%if(language==1) {%>
-                                <select id="dropSubjectName" name="dropSubjectNameInResourceChapter">
+                                
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameEn}</option>
                                     </c:forEach>
                                
                                 <%}%>
                                 <%if(language==2) {%>
+
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameVn}</option>
                                     </c:forEach>

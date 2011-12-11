@@ -189,7 +189,7 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
           if(typeResource == 12)
          {
             
-             tempSJ = sjBO.getById(createResourceActionForm.getDropSubjectNameInResourceChapter(), true);
+             tempSJ = sjBO.getById(createResourceActionForm.getDropSubjectNameInSysllabus(), true);
              temp.setSubject(tempSJ);
              FormFile resourceChapterProject = createResourceActionForm.getFileResourceChapter();
             /**

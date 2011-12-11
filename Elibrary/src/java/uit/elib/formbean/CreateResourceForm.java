@@ -34,6 +34,15 @@ public class CreateResourceForm extends org.apache.struts.action.ActionForm {
     private int dropOrderChapterSubject;
     private FormFile fileResourceChapter;
     private String hiddenResourceType;
+    private int dropSubjectNameInSysllabus;
+
+    public int getDropSubjectNameInSysllabus() {
+        return dropSubjectNameInSysllabus;
+    }
+
+    public void setDropSubjectNameInSysllabus(int dropSubjectNameInSysllabus) {
+        this.dropSubjectNameInSysllabus = dropSubjectNameInSysllabus;
+    }
     
     public String getTxtChapterUSName() {
         return txtChapterUSName;
