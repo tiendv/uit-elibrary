@@ -24,10 +24,7 @@
             String imageLink="./image/default.jpg";
             if(request.getAttribute("imageLink")!=null)
                 imageLink =(String)request.getAttribute("imageLink");
-            if(request.getAttribute("subject")==null)
-                response.sendRedirect("/Welcome.do");
-            List<Subject> listSubject=(List<Subject>)request.getAttribute("subject");
-            Subject subject =  listSubject.get(0);
+            Subject subject =  (Subject)request.getAttribute("subject");
             // get current language
             int language =1; // English
             if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))

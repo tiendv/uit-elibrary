@@ -50,6 +50,7 @@
         </action>
         <action path="/Syllabus" type="uit.elib.action.SyllabusAction" scope="session">
             <forward name="success" path=".syllabus"/>
+            <forward name="unsuccess" path="/Welcome.do"/>
         </action> 
         <action path="/CreateResource" name="CreateResourceForm" type="uit.elib.action.CreateResourceAction" scope="session">
             <forward name="success" path=".createResource"/>

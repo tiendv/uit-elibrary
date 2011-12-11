@@ -23,7 +23,7 @@ public class SyllabusAction extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
-
+    private static final String UNSUCCESS = "unsuccess";
     /**
      * This is the action called from the Struts framework.
      * @param mapping The ActionMapping used to select this instance.
@@ -54,17 +54,22 @@ public class SyllabusAction extends org.apache.struts.action.Action {
             if(checkInt(request.getParameter("subjectID")))
             {
                 int id = Integer.parseInt(request.getParameter("subjectID"));
-                //get subject
-                List<Subject> listSubject=SubjectBO.getSubjectBO().getSubject(id);
-                Subject subject = listSubject.get(0);
-                //get resource
-                String[] sort = new String[]{"resourceId"}; 
-                List<Resource>listResource =ResourceBO.getResourceBO().getAllResource("SubjectID="+id+" and ResourceCategoryID=12", sort);
-                //set Attribute
-                request.setAttribute("subject", subject);
-                request.setAttribute("listResource", listResource);
-            }     
-        } 
-        return mapping.findForward(SUCCESS);
-    }
+                List<Subject>listSubject=SubjectBO.getSubjectBO().getSubject(id);
+                if(listSubject.size()>0)
+                {
+                    //get subject
+                    Subject subject = listSubject.get(0);
+                    //get resource
+                    String[] sort = new String[]{"resourceId"}; 
+                    List<Resource>listResource =ResourceBO.getResourceBO().getAllResource("SubjectID="+id+" and ResourceCategoryID=12", sort);
+                    //set Attribute
+                    request.setAttribute("subject", subject);
+                    request.setAttribute("listResource", listResource);
+                    return mapping.findForward(SUCCESS);
+                 }   
+             }
+         }
+         return mapping.findForward(UNSUCCESS);
+      }     
+       
 }
