@@ -38,34 +38,34 @@
         > <bean:message key="text.menu.syllabus"/></div>
         
         <%if(language==1) {%>
-            <div style="color:#680a12;font-size: 30px; padding-left: 10px "><%=subject.getSubjectNameEn()%></div>
+            <div style="color:#680a12;font-size: 30px; padding-left: 15px "><%=subject.getSubjectNameEn()%></div>
         <%}%>
         <%if(language==2) {%>
-            <div style="color:#680a12;font-size: 30px; padding-left: 10px "><%=subject.getSubjectNameVn()%></div>
+            <div style="color:#680a12;font-size: 30px; padding-left: 15px "><%=subject.getSubjectNameVn()%></div>
         <%}%></br>
         
-        <div style="padding-left: 10px;padding-bottom: 5px "><b><bean:message key="text.timeTeaching"/> : </b>
+        <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.timeTeaching"/> : </b>
              <%=subject.getTimeTeaching() %> <bean:message key="text.weeks"/></div>
-        <div style="padding-left: 10px;padding-bottom: 5px "><b><bean:message key="text.periodOfTheory"/> : </b>
+        <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.periodOfTheory"/> : </b>
              <%=subject.getPeriodOfTheory() %></div>
-        <div style="padding-left: 10px;padding-bottom: 5px "><b><bean:message key="text.periodOfPractice"/> : </b>
+        <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.periodOfPractice"/> : </b>
              <%=subject.getPeriodOfPractice() %></div>
         
         <% if(language==1){%>
-            <div style="padding-left: 10px;padding-bottom: 5px "><b><bean:message key="text.prerequisiteSubject"/> : </b>
+            <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.prerequisiteSubject"/> : </b>
             <%=subject.getPrerequisiteSubjectEn() %></div>
         <%}%>
         <% if(language==2){%>
-            <div style="padding-left: 10px;padding-bottom: 5px "><b><bean:message key="text.prerequisiteSubject"/> : </b>
+            <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.prerequisiteSubject"/> : </b>
                 <%=subject.getPrerequisiteSubjectVn() %></div>
         <%}%>
                 
-        <div style="font-weight: bold; padding-left: 10px;padding-bottom: 5px "><bean:message key="text.ProjectRequirementTitle"/> : </div>
+        <div style="font-weight: bold; padding-left: 17px;padding-bottom: 5px "><bean:message key="text.ProjectRequirementTitle"/> : </div>
         <%if(language==1) {%>
-            <div style="padding-left: 10px;padding-bottom: 5px"><%=subject.getProjectRequirementEn() %></div>   
+            <div style="padding-left: 17px;padding-bottom: 5px"><%=subject.getProjectRequirementEn() %></div>   
         <%}%>
         <%if(language==2) {%>
-            <div style="padding-left: 10px;padding-bottom: 5px"><%=subject.getProjectRequirementVn() %></div>
+            <div style="padding-left: 17px;padding-bottom: 5px"><%=subject.getProjectRequirementVn() %></div>
         <%}%>
         <%if(subject.getMidtermGrade()>0 || subject.getFinalGrade()>0 ) {%>
         <table class="resource_table ">
@@ -88,7 +88,7 @@
     </table>
     <%}%>        
     <%if(listResource.size()>0) {%>
-       <div style="padding-left: 13px;padding-top: 5px"><a href="./DownLoad.do?resourceID=<%=listResource.get(0).getResourceId() %>" style="color:#680a12;" ><bean:message key="text.downloadhere"/></a></div>  
+       <div style="padding-left: 17px;padding-top: 5px"><a href="./DownLoad.do?resourceID=<%=listResource.get(0).getResourceId() %>" style="color:#680a12;" ><bean:message key="text.downloadhere"/></a></div>  
     <%}%>
     </body>
 </html>
