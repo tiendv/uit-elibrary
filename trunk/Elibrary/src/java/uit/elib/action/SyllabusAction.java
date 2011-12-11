@@ -54,10 +54,9 @@ public class SyllabusAction extends org.apache.struts.action.Action {
             if(checkInt(request.getParameter("subjectID")))
             {
                 int id = Integer.parseInt(request.getParameter("subjectID"));
-                //Entity
-                Subject subject= new Subject(); 
                 //get subject
-                subject=SubjectBO.getSubjectBO().getSubjectByID(id);
+                List<Subject> listSubject=SubjectBO.getSubjectBO().getSubject(id);
+                Subject subject = listSubject.get(0);
                 //get resource
                 String[] sort = new String[]{"resourceId"}; 
                 List<Resource>listResource =ResourceBO.getResourceBO().getAllResource("SubjectID="+id+" and ResourceCategoryID=12", sort);

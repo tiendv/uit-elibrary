@@ -37,6 +37,7 @@
         </action>        
         <action  path="/SubjectHome" type="uit.elib.action.SubjectHomeAction" scope="session">
             <forward name="success" path=".subjectHome"/>
+            <forward name="unsuccess" path="/Welcome.do"/>
         </action>
         <action path="/LoadLectureNote" type="uit.elib.action.LoadInfoSubjectAction" scope="session">           
             <forward name="success" path=".loadLectureNote"/>

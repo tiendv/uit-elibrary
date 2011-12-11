@@ -24,7 +24,7 @@ public class SubjectHomeAction extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
-
+    private static final String UNSUCCESS = "unsuccess";
     /**
      * This is the action called from the Struts framework.
      * @param mapping The ActionMapping used to select this instance.
@@ -55,23 +55,27 @@ public class SubjectHomeAction extends org.apache.struts.action.Action {
             if(checkInt(request.getParameter("subjectID")))
             {
                 int id = Integer.parseInt(request.getParameter("subjectID"));
-                //Entity
-                Subject subject= new Subject();
-                List<Resource> listResource = new ArrayList<Resource>();   
-                //get subject
-                subject=SubjectBO.getSubjectBO().getSubjectByID(id);
-                //set Attribute for subject
-                request.setAttribute("subject", subject);
-                //get image link of subject
-                if(ResourceBO.getResourceBO().getAllResourceOfSubjectAndResourceCategory(id, 8).size()>0)
+                List<Subject>listSubject=SubjectBO.getSubjectBO().getSubject(id);
+                if(listSubject.size()>0)
                 {
-                    listResource=ResourceBO.getResourceBO().getAllResourceOfSubjectAndResourceCategory(id, 8);
-                    String imageLink = "./upload/"+listResource.get(0).getServerName().toString();
-                    request.setAttribute("imageLink", imageLink); 
+                    //Entity
+                    Subject subject= new Subject();
+                    List<Resource> listResource = new ArrayList<Resource>();   
+                    //get subject
+
+                    //set Attribute for subject
+                    request.setAttribute("subject", listSubject);
+                    //get image link of subject
+                    if(ResourceBO.getResourceBO().getAllResourceOfSubjectAndResourceCategory(id, 8).size()>0)
+                    {
+                        listResource=ResourceBO.getResourceBO().getAllResourceOfSubjectAndResourceCategory(id, 8);
+                        String imageLink = "./upload/"+listResource.get(0).getServerName().toString();
+                        request.setAttribute("imageLink", imageLink); 
+                    }
+                    return mapping.findForward(SUCCESS);
                 }
-                
             }
         }     
-        return mapping.findForward(SUCCESS);
+        return mapping.findForward(UNSUCCESS);
     }
 }
