@@ -71,7 +71,7 @@ public class CreateSubjectAction extends org.apache.struts.action.Action {
         temp.setFaculty(tempFaculty);
         temp.setSubjectIntroduceVn(subjectFormBean.getFckintroductionVN());
         temp.setSubjectIntroduceEn(subjectFormBean.getFckintroductionUS());
-        temp.setProjectRequirementVn(subjectFormBean.getFckintroductionVN());
+        temp.setProjectRequirementVn(subjectFormBean.getFckProjectRequitementVN());
         temp.setProjectRequirementEn(subjectFormBean.getFckProjectRequitementUS());
         temp.setNumberChapter(Integer.parseInt(subjectFormBean.getTxtNumberChapter()));
         temp.setNumberOfCredit(Integer.parseInt(subjectFormBean.getTxtCreditNumber()));
