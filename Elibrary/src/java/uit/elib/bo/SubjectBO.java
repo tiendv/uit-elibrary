@@ -68,9 +68,9 @@ public class SubjectBO extends ManagerBase<Subject> {
       * @param id : ID of object
       * @return Subject with ID
       */
-     public Subject getSubjectByID (int id) {
+     public List<Subject> getSubject (int id) {
         try {
-            return getById(id, true);
+            return getAllSubject("SubjectID="+id, null);
         } catch (Exception ex) {
             Logger.getLogger(SubjectBO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
