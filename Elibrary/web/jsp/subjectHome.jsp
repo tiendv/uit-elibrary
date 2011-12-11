@@ -41,10 +41,10 @@
         </div>
         
                     <%if(language==1) {%>
-                    <th><div style="color:#680a12;font-size: 30px; padding-left: 15px "><%=subject.getSubjectNameEn()%></div></th>
+                        <div class="title_h1"><%=subject.getSubjectNameEn()%></div>
                     <%}%>
                     <%if(language==2) {%>
-                        <th><div style="color:#680a12;font-size: 30px; padding-left: 15px "><%=subject.getSubjectNameVn()%></div></th>
+                        <div class="title_h1"><%=subject.getSubjectNameVn()%></div>
                     <%}%>
         <table>
                 <tr>
