@@ -39,18 +39,14 @@
         </a>
         > <bean:message key="text.menu.subjecthome"/>
         </div>
-        <table>
-            <thead>
-                <tr>
+        
                     <%if(language==1) {%>
-                        <th colspan="2" style="color:#680a12;font-size: 30px "><%=subject.getSubjectNameEn()%></th>
+                    <th><div style="color:#680a12;font-size: 30px; padding-left: 15px ">subject.getSubjectNameEn()%></div></th>
                     <%}%>
                     <%if(language==2) {%>
-                        <th colspan="2" style="color:#680a12;font-size: 30px "><%=subject.getSubjectNameVn()%></th>
+                        <th><div style="color:#680a12;font-size: 30px; padding-left: 15px "><%=subject.getSubjectNameVn()%></div></th>
                     <%}%>
-                </tr>
-            </thead>
-            <tbody>
+        <table>
                 <tr>
                     <td rowspan="7"><%if(!imageLink.equals("")){ %><img src="<%=imageLink%>" width="<bean:message key="image.subject.width"/>" height="<bean:message key="image.subject.height"/>"/><%}%></td>
                 </tr>
@@ -72,7 +68,6 @@
                 <tr>
                     <td><b><bean:message key="text.level"/>:</b> <%=subject.getLevel()%></td> 
                 </tr>
-            </tbody>
         </table>
         <%if(language==1) {%>
             <div style="padding-left: 8px;font-weight: bold"><bean:message key="text.introductionSubjectEN"/>:</div> <div style="padding-left: 8px"><%=subject.getSubjectIntroduceEn()%></div>
