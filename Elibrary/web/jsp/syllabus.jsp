@@ -4,8 +4,10 @@
     Author     : Nguyen Hoang Tan
 --%>
 
+<%@page import="java.util.List"%>
 <%@page import="org.apache.struts.Globals"%>
 <%@page import="uit.elib.dto.Subject"%>
+<%@page import="uit.elib.dto.Resource"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <!DOCTYPE html>
@@ -19,6 +21,7 @@
         <%
 
             Subject subject =(Subject)request.getAttribute("subject");
+            List<Resource> listResource = (List<Resource>)request.getAttribute("listResource");
             // get current language
             int language =1; // English
             if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
@@ -63,7 +66,8 @@
         <%}%>
         <%if(language==2) {%>
             <div style="padding-left: 10px;padding-bottom: 5px"><%=subject.getProjectRequirementVn() %></div>
-        <%}%>        
+        <%}%>
+        <%if(subject.getMidtermGrade()>0 || subject.getFinalGrade()>0 ) {%>
         <table class="resource_table ">
         <thead>
             <tr class="color_title_table">
@@ -82,6 +86,9 @@
             </tr>
         </tbody>
     </table>
-
+    <%}%>        
+    <%if(listResource.size()>0) {%>
+       <div style="padding-left: 13px;padding-top: 5px"><a href="./DownLoad.do?resourceID=<%=listResource.get(0).getResourceId() %>" style="color:#680a12;" ><bean:message key="text.downloadhere"/></a></div>  
+    <%}%>
     </body>
 </html>
