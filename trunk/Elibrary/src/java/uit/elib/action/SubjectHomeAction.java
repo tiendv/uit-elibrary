@@ -58,13 +58,11 @@ public class SubjectHomeAction extends org.apache.struts.action.Action {
                 List<Subject>listSubject=SubjectBO.getSubjectBO().getSubject(id);
                 if(listSubject.size()>0)
                 {
-                    //Entity
-                    Subject subject= new Subject();
                     List<Resource> listResource = new ArrayList<Resource>();   
                     //get subject
-
+                    Subject subject = listSubject.get(0);
                     //set Attribute for subject
-                    request.setAttribute("subject", listSubject);
+                    request.setAttribute("subject", subject);
                     //get image link of subject
                     if(ResourceBO.getResourceBO().getAllResourceOfSubjectAndResourceCategory(id, 8).size()>0)
                     {
