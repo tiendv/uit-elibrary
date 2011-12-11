@@ -115,9 +115,14 @@
                 <td width="100px"><bean:message key="text.OrderNumber"/> </td>
                 <td width="638px"><bean:message key="text.Document"/> </td>
             </tr>
+                <%if(listResource.size()==0){ %> <!--Nếu chưa có tài nguyên thì hiện "đang cập nhật" -->
+                    <td></td>
+                    <td>Đang cập nhật...</td>
+                 <%}%>
                 <%
                     int count = 1; //thứ tự
                     for(int i = 0; i<listResource.size();i++){
+                        
                  %>
                  <tr>
                  <td <% if(color%2==0){ %> 
@@ -164,7 +169,7 @@
             <%}if(language==2){%>
                     <%=subject.getSubjectNameVn()%>
             <%}%>
-            </a> > <bean:message key ="text.menu.reading"/></div>
+            </a> > <bean:message key ="text.menu.video"/></div>
         <table class="resource_table" >
             <tr class="color_title_table">
                 <td width="100px"><bean:message key="text.OrderNumber"/> </td>
@@ -356,6 +361,11 @@
                 <td width="53%"><bean:message key="text.projectNameEN"/> </td>
                 <td width="15%"><bean:message key="text.note"/> </td>
             </tr>
+            <%if(listResource.size()==0){ %> <!--Nếu chưa có tài nguyên thì hiện "đang cập nhật" -->
+                    <td></td>
+                    <td></td>
+                    <td>Đang cập nhật...</td>
+                 <%}%>
                 <%
                     int count = 1; //thứ tự
                     for(int i = 0; i<listResource.size();i++){
