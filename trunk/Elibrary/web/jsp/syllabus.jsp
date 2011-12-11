@@ -38,10 +38,10 @@
         > <bean:message key="text.menu.syllabus"/></div>
         
         <%if(language==1) {%>
-            <div style="color:#680a12;font-size: 30px; padding-left: 15px "><%=subject.getSubjectNameEn()%></div>
+            <div class="title_h1"><%=subject.getSubjectNameEn()%></div>
         <%}%>
         <%if(language==2) {%>
-            <div style="color:#680a12;font-size: 30px; padding-left: 15px "><%=subject.getSubjectNameVn()%></div>
+            <div class="title_h1"><%=subject.getSubjectNameVn()%></div>
         <%}%></br>
         
         <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.timeTeaching"/> : </b>
