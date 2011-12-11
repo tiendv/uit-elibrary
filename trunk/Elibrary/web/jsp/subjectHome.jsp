@@ -41,7 +41,7 @@
         </div>
         
                     <%if(language==1) {%>
-                    <th><div style="color:#680a12;font-size: 30px; padding-left: 15px ">subject.getSubjectNameEn()%></div></th>
+                    <th><div style="color:#680a12;font-size: 30px; padding-left: 15px "><%=subject.getSubjectNameEn()%></div></th>
                     <%}%>
                     <%if(language==2) {%>
                         <th><div style="color:#680a12;font-size: 30px; padding-left: 15px "><%=subject.getSubjectNameVn()%></div></th>
