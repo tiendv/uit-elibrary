@@ -251,24 +251,28 @@
              document.getElementById("divProject").style.display = "none";
              document.getElementById("divPictureandReading").style.display = "none";
              document.getElementById("divResourceChapter").style.display = "none";
+             document.getElementById("divResourceSyllabus").style.display = "none";
         }
         if (chosenoption.value=="6"){
             document.getElementById("divProject").style.display = "block";
             document.getElementById("divChapter").style.display = "none";
             document.getElementById("divPictureandReading").style.display = "none";
             document.getElementById("divResourceChapter").style.display = "none";
+            document.getElementById("divResourceSyllabus").style.display = "none";
         }
          if (chosenoption.value=="8"||chosenoption.value=="9"){
             document.getElementById("divProject").style.display = "none";
             document.getElementById("divChapter").style.display = "none";
             document.getElementById("divPictureandReading").style.display = "block";
-             document.getElementById("divResourceChapter").style.display = "none";
+            document.getElementById("divResourceChapter").style.display = "none";
+            document.getElementById("divResourceSyllabus").style.display = "none";
         }
         if (chosenoption.value=="4"||chosenoption.value=="5"||chosenoption.value=="10"||chosenoption.value=="11"){
             document.getElementById("divResourceChapter").style.display = "block";
             document.getElementById("divProject").style.display = "none";
             document.getElementById("divChapter").style.display = "none";
             document.getElementById("divPictureandReading").style.display = "none";
+            document.getElementById("divResourceSyllabus").style.display = "none";
             var id = document.getElementById("dropSubjectName").value;
             $.ajax({
                 type: "POST",
@@ -278,16 +282,17 @@
                 document.getElementById("txtNote").innerHTML = msg;
             });            
         }  
-if (chosenoption.value=="12"){
-            document.getElementById("divResourceSyllabus").style.display = "block";
-                         document.getElementById("divProject").style.display = "none";
+        if (chosenoption.value=="12"){
+             document.getElementById("divResourceSyllabus").style.display = "block";
+             document.getElementById("divProject").style.display = "none";
              document.getElementById("divPictureandReading").style.display = "none";
-             document.getElementById("divResourceChapter").style.display = "none";}        
-        document.getElementById("hiddenResourceType").value=chosenoption.value;
+             document.getElementById("divResourceChapter").style.display = "none";
+        }
+        document.getElementById("hiddenResourceType").value=chosenoption.value;        
     }
-    
-    var selectTypeResource=document.getElementById("dropSubjectName");
-    selectTypeResource.onchange=function(){ //run some code when "onchange" event fires
+        
+        var selectTypeResource=document.getElementById("dropSubjectName");
+        selectTypeResource.onchange=function(){ //run some code when "onchange" event fires
         var id = document.getElementById("dropSubjectName").value;
         $.ajax({
             type: "POST",
