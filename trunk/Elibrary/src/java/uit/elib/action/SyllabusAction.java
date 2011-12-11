@@ -4,12 +4,15 @@
  */
 package uit.elib.action;
 
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import uit.elib.bo.ResourceBO;
 import uit.elib.bo.SubjectBO;
+import uit.elib.dto.Resource;
 import uit.elib.dto.Subject;
 
 /**
@@ -55,8 +58,12 @@ public class SyllabusAction extends org.apache.struts.action.Action {
                 Subject subject= new Subject(); 
                 //get subject
                 subject=SubjectBO.getSubjectBO().getSubjectByID(id);
+                //get resource
+                String[] sort = new String[]{"resourceId"}; 
+                List<Resource>listResource =ResourceBO.getResourceBO().getAllResource("SubjectID="+id+" and ResourceCategoryID=12", sort);
                 //set Attribute
                 request.setAttribute("subject", subject);
+                request.setAttribute("listResource", listResource);
             }     
         } 
         return mapping.findForward(SUCCESS);
