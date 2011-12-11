@@ -186,7 +186,37 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
             rsBO.addNew(temp);
             return mapping.findForward(SUCCESSCREATEPROJECT); 
          }
+          if(typeResource == 12)
+         {
+            
+             tempSJ = sjBO.getById(createResourceActionForm.getDropSubjectNameInResourceChapter(), true);
+             temp.setSubject(tempSJ);
+             FormFile resourceChapterProject = createResourceActionForm.getFileResourceChapter();
+            /**
+             * 
+             */
         
+            if(!resourceChapterProject.getFileName().isEmpty())
+            {   temp.setSize(resourceChapterProject.getFileSize());
+                temp.setUploadName(resourceChapterProject.getFileName());
+                String filePath = getServlet().getServletContext().getRealPath("/") +"upload";
+                //create the upload folder if not exists
+                file = new File(filePath);
+                if(!file.exists()){
+                    file.mkdir();
+                }
+                file = File.createTempFile( "ResourceChapter_file","",file);
+                fileOutputStream = new FileOutputStream(request.getServletContext().getRealPath("/")+"upload/"+file.getName());
+                fileOutputStream.write(resourceChapterProject.getFileData());
+                temp.setServerName(file.getName());
+                String []suffixFile = resourceChapterProject.getFileName().split("\\.");
+                temp.setFormat(suffixFile[suffixFile.length-1]);
+                temp.setPostDate(sqlDate);
+                fileOutputStream.close();
+            }
+            rsBO.addNew(temp);
+            return mapping.findForward(SUCCESSCREATEPROJECT); 
+         }        
         return mapping.findForward(SUCCESS);
     }
 }
