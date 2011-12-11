@@ -201,6 +201,35 @@
                     </table>
 
                 </div>
+                <%-- Add resource with resource type (ID =12) --%>
+                <div id="divResourceSyllabus" class="resourceChapter" style="display: none">
+                <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                        <tr>
+                            <td class="label"><bean:message key="text.nameSubject"/></td>
+                            <td>
+                                <%if(language==1) {%>
+                                <select id="dropSubjectName" name="dropSubjectNameInResourceChapter">
+                                    <c:forEach items="${subjectBO.allSubject}" var="item">
+                                        <option value="${item.subjectId}">${item.subjectNameEn}</option>
+                                    </c:forEach>
+                               
+                                <%}%>
+                                <%if(language==2) {%>
+                                    <c:forEach items="${subjectBO.allSubject}" var="item">
+                                        <option value="${item.subjectId}">${item.subjectNameVn}</option>
+                                    </c:forEach>
+                                </select>
+                                <%}%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">
+                                <bean:message key="text.uploadFile"/><input type="file" name="fileResourceChapter"/>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>                            
                  <div id="diveButtonCreate" class="buttonCreateResource" style="display: none">
                     <input type="submit"  value=<bean:message key="text.buttonCreate" />  />
                 </div>
@@ -248,8 +277,12 @@
             }).done(function( msg ) {
                 document.getElementById("txtNote").innerHTML = msg;
             });            
-        }
-        
+        }  
+if (chosenoption.value=="12"){
+            document.getElementById("divResourceSyllabus").style.display = "block";
+                         document.getElementById("divProject").style.display = "none";
+             document.getElementById("divPictureandReading").style.display = "none";
+             document.getElementById("divResourceChapter").style.display = "none";}        
         document.getElementById("hiddenResourceType").value=chosenoption.value;
     }
     
