@@ -88,8 +88,8 @@
                     <%for(int k=0;k<listResource.size();k++)
                         if(Integer.parseInt(listChapter.get(i).getOrderChapter().toString())== Integer.parseInt(listResource.get(k).getOrderChapter().toString()))
                            {%>
-                     <u> <a href="DownLoad.do?resourceID=<%=listResource.get(k).getResourceId()%>" > <%=listResource.get(k).getFormat() %> </a> </u>
-                    <%}%>
+                     <a href="DownLoad.do?resourceID=<%=listResource.get(k).getResourceId()%>" alt="<bean:message key="text.lecturenote"/>" class="multimediaContent" title="<bean:message key="text.lecturenote"/>"></a>
+                     <%}%>
              </td>
              <%color++;%>
         </tr>
@@ -214,7 +214,7 @@
                     <%for(int k=0;k<listResource.size();k++)
                         if(Integer.parseInt(listChapter.get(i).getOrderChapter().toString())== Integer.parseInt(listResource.get(k).getOrderChapter().toString()))
                            {%>
-                     <u> <a href="DownLoad.do?resourceID=<%=listResource.get(k).getResourceId()%>" > <%=listResource.get(k).getFormat() %> </a> </u>
+                     <a href="DownLoad.do?resourceID=<%=listResource.get(k).getResourceId()%>" alt="<bean:message key="text.video"/>" class="multimediaContent" title="<bean:message key="text.video"/>"></a>
                     <%}%>
              </td>
              <%color++;%>
@@ -280,7 +280,7 @@
                     <%for(int k=0;k<listResource.size();k++)
                         if(Integer.parseInt(listChapter.get(i).getOrderChapter().toString())== Integer.parseInt(listResource.get(k).getOrderChapter().toString()))
                            {%>
-                     <u> <a href="DownLoad.do?resourceID=<%=listResource.get(k).getResourceId()%>" > <%=listResource.get(k).getFormat() %> </a> </u>
+                      <a href="DownLoad.do?resourceID=<%=listResource.get(k).getResourceId()%>" alt="<bean:message key="text.assignments"/>" class="multimediaContent" title="<bean:message key="text.assignments"/>"></a>
                     <%}%>
              </td>
              <%color++;%>
@@ -344,7 +344,7 @@
                     <%for(int k=0;k<listResource.size();k++)
                         if(Integer.parseInt(listChapter.get(i).getOrderChapter().toString())== Integer.parseInt(listResource.get(k).getOrderChapter().toString()))
                            {%>
-                     <u> <a href="DownLoad.do?resourceID=<%=listResource.get(k).getResourceId()%>" > <%=listResource.get(k).getFormat() %> </a> </u>
+                     <a href="DownLoad.do?resourceID=<%=listResource.get(k).getResourceId()%>" alt="<bean:message key="text.example"/>" class="multimediaContent" title="<bean:message key="text.example"/>"></a>
                     <%}%>
              </td>
              <%color++;%>

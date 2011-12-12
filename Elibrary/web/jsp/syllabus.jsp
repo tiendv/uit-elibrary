@@ -78,26 +78,45 @@
         <%if(language==2) {%>
             <div style="padding-left: 17px;padding-bottom: 5px"><%=subject.getProjectRequirementVn() %></div>
         <%}%>
-        <%if(subject.getMidtermGrade()>0 || subject.getFinalGrade()>0 ) {%>
-        <table class="resource_table ">
-        <thead>
-            <tr class="color_title_table">
-                <th style="height: 8px; text-align: center"><bean:message key="text.grade"/></th>
-                <th style="height: 8px; text-align: center"><bean:message key="text.percent"/></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td style="text-align: center"><bean:message key="text.midtermGrade"/></td>
-                <td style="text-align: center"><%=subject.getMidtermGrade() %> %</td>
-            </tr>
-            <tr style="background-color:#E2E1D9">
-                <td style="text-align: center"><bean:message key="text.finalGrade"/></td>
-                <td style="text-align: center"><%=subject.getFinalGrade() %> %</td>
-            </tr>
-        </tbody>
-    </table>
-    <%}%>        
+        <%if(subject.getMidtermGrade()!=0 || subject.getFinalGrade()!=0 ) {%>
+            <table class="resource_table">
+                <thead>
+                    <tr class="color_title_table">
+                        <th style="height: 8px; text-align: center"><bean:message key="text.grade"/></th>
+                        <th style="height: 8px; text-align: center"><bean:message key="text.percent"/></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: center"><bean:message key="text.midtermGrade"/></td>
+                        <td style="text-align: center"><%=subject.getMidtermGrade() %> %</td>
+                    </tr>
+                    <tr style="background-color:#E2E1D9">
+                        <td style="text-align: center"><bean:message key="text.finalGrade"/></td>
+                        <td style="text-align: center"><%=subject.getFinalGrade() %> %</td>
+                    </tr>
+                </tbody>
+            </table>
+        <%}else{%>
+            <table class="resource_table">
+                <thead>
+                    <tr class="color_title_table">
+                        <th style="height: 8px; text-align: center"><bean:message key="text.grade"/></th>
+                        <th style="height: 8px; text-align: center"><bean:message key="text.percent"/></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: center"><bean:message key="text.midtermGrade"/></td>
+                        <td style="text-align: center"><bean:message key="text.updating"/></td>
+                    </tr>
+                    <tr style="background-color:#E2E1D9">
+                        <td style="text-align: center"><bean:message key="text.finalGrade"/></td>
+                        <td style="text-align: center"><bean:message key="text.updating"/></td>
+                    </tr>
+                </tbody>
+            </table>
+        <%}%>
     <%if(listResource.size()>0) {%>
        <div style="padding-left: 17px;padding-top: 5px"><a href="./DownLoad.do?resourceID=<%=listResource.get(0).getResourceId() %>" style="color:#680a12;" ><bean:message key="text.downloadhere"/></a></div>  
     <%}%>
