@@ -183,7 +183,7 @@
                   %>                                                                            
                 <% if(listSubject.get(i).getSubjectId().equals(listResource.get(j).getSubject().getSubjectId()))  // if resource belong to subject
                 { %> 
-                <td width="70px"              
+                <td width="160px"  class="td_chapter_border"              
                         style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
                     <%=listResource.get(lecturePosition).getOrderChapter() %> <!--Chapter-->
                 </td>  
