@@ -62,7 +62,15 @@
         <% } %> 
         <% if(language==2) {%>
             <div class="title_h1"><%=listFaculty.get(f).getFacultyNameVn() %></div> <!--Vietnamese Faculty Name-->
-        <% } %>   
+        <% } %> 
+        <%
+           if(listSubject.get(s).getFaculty().getFacultyId()!=listFaculty.get(f).getFacultyId()){
+        %>         
+            <div style="margin-left: 30px;color: #680a12">
+                <img src="image/black-arrow.gif" width="3" height="5" alt="black-arrow"/>
+                <bean:message key="text.updating"/>
+            </div>
+        <% } %>         
         <table style="margin-left: 30px " width="600px">               
             <%                 
                 for(int i=s;i<listSubject.size();i=i+2) {
@@ -119,9 +127,10 @@
         <% } %>
         <table class="table_chapter" >
             <tr class="color_title_table">
-                <td class="td_chapter_1"></td><td class="td_chapter_2"></td>
                 <td class="td_chapter_3"><bean:message key="text.orderchapter"/></td>
                 <td class="td_chapter_4"><bean:message key="text.chaptertitle"/></td>
+                <td class="td_chapter_2"></td>                
+                <td class="td_chapter_1"></td>   
             </tr>
             <% int color =0;
                List<Resource> listResource = arrayListResource.get(i);
@@ -174,20 +183,27 @@
                   %>                                                                            
                 <% if(listSubject.get(i).getSubjectId().equals(listResource.get(j).getSubject().getSubjectId()))  // if resource belong to subject
                 { %> 
-                <td width="40px" 
-                    <% if(color%2==0){ %> 
-                        style="background-color:#E2E1D9"
-                    <%}%>                               >
-                    <% if(oneMonth==true) {%>
-                        <img src="image/new-icon.gif" width="18" height="5" alt="new-icon"/> <!-- new icon  -->
-                    <% } %>
-                </td>
-
+                <td width="70px"              
+                        style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
+                    <%=listResource.get(lecturePosition).getOrderChapter() %> <!--Chapter-->
+                </td>  
+                <% if(language==1) {%>                              
+                    <td width="354px"              
+                            style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
+                        <%=listResource.get(lecturePosition).getResourceNameEn() %> <!--English Resource Name-->
+                    </td>
+                <% } %> 
+                <% if(language==2) {%>                               
+                    <td width="354px"                           
+                        style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
+                        <%=listResource.get(lecturePosition).getResourceNameVn() %> <!--Vietnamese Resource Name-->
+                    </td>
+                <% } %>
                 <td width="140px" 
                     <% if(color%2==0){ %>
                         style="background-color:#E2E1D9"<%}%>>
-                    <% if(numberOfResource==1){%>                    
-                    <div class="displayIcon">
+                    <% if(numberOfResource==1){%>
+                        <div class="displayIcon">
                         <%
                         for(int a=0;a<11;a++){
                             int resourceCategoryId = -1;
@@ -210,29 +226,17 @@
                             <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+11+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.video"/>" class="multimediaContent" title="<bean:message key="text.video"/>"></a>   <% } %>
                         <%}%>       
                         </div>
-                    <%}%>
-                    <%if(numberOfResource==0){%>
-                        <div style="color:#680a12"><bean:message key="text.updating"/></div>
-                    <%}%>                           
+                    <%}%>  
                 </td>
-                    <td width="70px"              
-                            style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
-                        <%=listResource.get(lecturePosition).getOrderChapter() %> <!--Chapter-->
-                    </td>  
-                <% if(language==1) {%>                              
-                    <td width="354px"              
-                            style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
-                        <%=listResource.get(lecturePosition).getResourceNameEn() %> <!--English Resource Name-->
-                    </td>
-                <% } %> 
-                <% if(language==2) {%>                               
-                    <td width="354px"                           
-                        style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
-                        <%=listResource.get(lecturePosition).getResourceNameVn() %> <!--Vietnamese Resource Name-->
-                    </td>
+                <td width="40px" 
+                    <% if(color%2==0){ %> 
+                        style="background-color:#E2E1D9"
+                    <%}%>                               >
+                    <% if(oneMonth==true) {%>
+                        <img src="image/new-icon.gif" width="18" height="5" alt="new-icon"/> <!-- new icon  -->
+                    <% } %>
+                </td>                
                 <% } %>
-                <% } %>
-
                 <% if(!listSubject.get(i).getSubjectId().equals(listResource.get(j).getSubject().getSubjectId()))  break;
                 %>
                 <% color ++; %>
