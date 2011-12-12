@@ -108,6 +108,7 @@
             <% int color =0; %>
             <% for(;j<listResource.size();j++) {%>
                  <%
+                    int numberOfResource=0;
                     int newestPosition=-1;
                     int lecturePosition =-1;
                     int []arrayIcon = new int[11] ;
@@ -119,7 +120,13 @@
                         break;
                     }
                     while(chapter==listResource.get(j).getOrderChapter()&&(listSubject.get(i).getSubjectId().equals(listResource.get(j).getSubject().getSubjectId()))){
-                        if(newestPosition==-1)
+                       if(numberOfResource==0)
+                       {
+                            int rCID = listResource.get(j).getResourcecategory().getResourceCategoryId();
+                                if(rCID==4||rCID==5||rCID==6||rCID==8||rCID==9||rCID==10||rCID==11)
+                                    numberOfResource=1;
+                       } 
+                       if(newestPosition==-1)
                             newestPosition=j;
                         if(listResource.get(j).getResourcecategory().getResourceCategoryId()==7)
                             lecturePosition=j;
@@ -159,29 +166,34 @@
                 <td width="140px" 
                     <% if(color%2==0){ %>
                         style="background-color:#E2E1D9"<%}%>>
-                    <div class="displayIcon">
-                    <%
-                    for(int a=0;a<11;a++){
-                        int resourceCategoryId = -1;
-                        if(arrayIcon[a]==1)
-                        resourceCategoryId=a+1 ;
-                    %>                           
-                    <% if(resourceCategoryId==4 ){ %>
-                        <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+4+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.assignments"/>" class="assignmentsSolutions" title="<bean:message key="text.assignments"/>"></a><% } %>
-                    <% if(resourceCategoryId==5 ){ %>
-                        <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+5+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.example"/>" class="examsSolutions" title="<bean:message key="text.example"/>"></a>  <% } %>
-                    <% if(resourceCategoryId==6 ){ %>
-                        <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+6+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.menu.project"/>" class="projectsExample" title="<bean:message key="text.menu.project"/>"></a>  <% } %>
-                    <% if(resourceCategoryId==8 ){ %>
-                        <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+8+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.imagegallery"/>" class="imageGallery" title="<bean:message key="text.imagegallery"/>"></a>   <% } %>
-                    <% if(resourceCategoryId==9 ){ %>
-                        <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+9+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.reading"/>" class="onlineTextBooks" title="<bean:message key="text.reading"/>"></a><% } %>
-                     <% if(resourceCategoryId==10 ){ %>
-                        <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+10+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.menu.lecturenote"/>" class="lectureNotes" title="<bean:message key="text.menu.lecturenote"/>"></a><% } %>                           
-                    <% if(resourceCategoryId==11 ){ %>
-                        <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+11+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.video"/>" class="multimediaContent" title="<bean:message key="text.video"/>"></a>   <% } %>
-                    <%}%>       
-                    </div> 
+                    <% if(numberOfResource==1){%>
+                        <div class="displayIcon">
+                        <%
+                        for(int a=0;a<11;a++){
+                            int resourceCategoryId = -1;
+                            if(arrayIcon[a]==1)
+                            resourceCategoryId=a+1 ;
+                        %>                           
+                        <% if(resourceCategoryId==4 ){ %>
+                            <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+4+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.assignments"/>" class="assignmentsSolutions" title="<bean:message key="text.assignments"/>"></a><% } %>
+                        <% if(resourceCategoryId==5 ){ %>
+                            <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+5+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.example"/>" class="examsSolutions" title="<bean:message key="text.example"/>"></a>  <% } %>
+                        <% if(resourceCategoryId==6 ){ %>
+                            <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+6+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.menu.project"/>" class="projectsExample" title="<bean:message key="text.menu.project"/>"></a>  <% } %>
+                        <% if(resourceCategoryId==8 ){ %>
+                            <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+8+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.imagegallery"/>" class="imageGallery" title="<bean:message key="text.imagegallery"/>"></a>   <% } %>
+                        <% if(resourceCategoryId==9 ){ %>
+                            <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+9+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.reading"/>" class="onlineTextBooks" title="<bean:message key="text.reading"/>"></a><% } %>
+                         <% if(resourceCategoryId==10 ){ %>
+                            <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+10+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.menu.lecturenote"/>" class="lectureNotes" title="<bean:message key="text.menu.lecturenote"/>"></a><% } %>                           
+                        <% if(resourceCategoryId==11 ){ %>
+                            <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+11+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.video"/>" class="multimediaContent" title="<bean:message key="text.video"/>"></a>   <% } %>
+                        <%}%>       
+                        </div>
+                    <%}%>
+                    <%if(numberOfResource==0){%>
+                        <div style="color:#680a12"><bean:message key="text.updating"/></div>
+                    <%}%>   
                 </td>
                     <td width="70px"              
                             style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
