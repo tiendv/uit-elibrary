@@ -35,7 +35,7 @@
                     int color=1;
         %>
         
-        <!-- Begin load resource by OrderChapter (ResourceCategoryID= 10, giáo trình) -->
+        <!-- Begin load resource by OrderChapter (ResourceCategoryID= 10, bài giảng) -->
         <%if(resourceCategoryID==10) {%>
         
         <div class="hyperlink_title_subject" ><a href="LoadSubject.do"><bean:message key ="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
@@ -64,7 +64,7 @@
              </td>
              <td <% if(color%2==0){ %> 
                                     class="color_table2"
-                                <%}%> >              
+                                <%}%>>              
                         <% if(language==1) {%>
                         <p>  <%=listChapter.get(i).getResourceNameEn()%> </p>
                         <% } %> 
@@ -163,44 +163,65 @@
         <!--Begin Load Video ( ResourceCategoryID=11, video) -->
         
         <%if(resourceCategoryID==11) {%>
-        <div class="hyperlink_title_subject"><a href="LoadSubject.do"><bean:message key ="text.menu.video"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
-            <% if(language==1){%>
-                    <%=subject.getSubjectNameEn()%>
-            <%}if(language==2){%>
-                    <%=subject.getSubjectNameVn()%>
-            <%}%>
-            </a> > <bean:message key ="text.menu.video"/></div>
-        <table class="resource_table" >
-            <tr class="color_title_table">
-                <td width="100px"><bean:message key="text.OrderNumber"/> </td>
-                <td width="638px"><bean:message key="text.Document"/> </td>
-            </tr>
-                <%
-                    int count = 1; //thứ tự
-                    for(int i = 0; i<listResource.size();i++){
-                 %>
-                 <tr>
-                 <td <% if(color%2==0){ %> 
-                                    class="color_table2"
-                                <%}%>>
-                     <%=count%></td>
-                 <td <% if(color%2==0){ %> 
-                                    class="color_table2"
-                                <%}%>>
-                     <% if(language==1) {%>
-                           <%=listResource.get(i).getResourceNameEn()%> 
-                     <%}%>
-                     <% if(language==2) {%>
-                         <%=listResource.get(i).getResourceNameVn()%> 
-                     <%}%>
-                 </td>
-                 <% count++;%>
-                 <%color++;%>
-                 <%}%>
-            </tr>
-         </table>
-        <%}%> 
         
+        <div class="hyperlink_title_subject" ><a href="LoadSubject.do"><bean:message key ="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
+                <% if(language==1){%>
+                    <%=subject.getSubjectNameEn()%>
+                <%}if(language==2){%>
+                    <%=subject.getSubjectNameVn()%>
+                    <%}%>
+            </a> > <bean:message key ="text.menu.video"/></div>
+        <table  class="resource_table">
+            <tr  class="color_title_table"> <!-- title -->
+                <td width="80px"><bean:message key="text.OrderChapter" /></td>
+                <td width="230px"><bean:message key="text.ChapterTitle" /></td>
+                <td width="330px"><bean:message key="text.Summary" /></td>
+                <td width="98px"><bean:message key="text.Document" /></td>
+            </tr>
+        <% 
+                    
+                    for(int i = 0; i<listChapter.size();i++){
+        %>
+        <tr>
+            <td <% if(color%2==0){ %> 
+                                    class="color_table2"
+                                <%}%> > 
+                               <%=listChapter.get(i).getOrderChapter()%>
+             </td>
+             <td <% if(color%2==0){ %> 
+                                    class="color_table2"
+                                <%}%>>              
+                        <% if(language==1) {%>
+                        <p>  <%=listChapter.get(i).getResourceNameEn()%> </p>
+                        <% } %> 
+                        <% if(language==2) {%>
+                             <%=listChapter.get(i).getResourceNameVn()%> 
+                        <% } %>                         
+             </td>
+             <td <% if(color%2==0){ %> 
+                                class="color_table2"
+                                <%}%> >              
+                        <% if(language==1) {%>
+                             <%=listChapter.get(i).getSummaryEn()%> 
+                        <% } %> 
+                        <% if(language==2) {%>
+                             <%=listChapter.get(i).getSummaryVn()%> 
+                        <% } %>                         
+             </td>
+             <td <% if(color%2==0){ %> 
+                                    class="color_table2"
+                                <%}%>  >
+                    <%for(int k=0;k<listResource.size();k++)
+                        if(Integer.parseInt(listChapter.get(i).getOrderChapter().toString())== Integer.parseInt(listResource.get(k).getOrderChapter().toString()))
+                           {%>
+                     <u> <a href="DownLoad.do?resourceID=<%=listResource.get(k).getResourceId()%>" > <%=listResource.get(k).getFormat() %> </a> </u>
+                    <%}%>
+             </td>
+             <%color++;%>
+        </tr>
+                <%}%>
+        </table> 
+        <%}%>
         
         
         <!--End of ResourceCategoryID=11 IF -->
