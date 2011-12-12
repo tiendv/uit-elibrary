@@ -101,9 +101,10 @@
         <% } %>
         <table class="table_chapter" >
             <tr class="color_title_table">
-                <td class="td_chapter_1"></td><td class="td_chapter_2"></td>
                 <td class="td_chapter_3"><bean:message key="text.orderchapter"/></td>
                 <td class="td_chapter_4"><bean:message key="text.chaptertitle"/></td>
+                <td class="td_chapter_2"></td>
+                <td class="td_chapter_1"></td>
             </tr>
             <% int color =0; %>
             <% for(;j<listResource.size();j++) {%>
@@ -154,15 +155,22 @@
                   %>                                                                            
                 <% if(listSubject.get(i).getSubjectId().equals(listResource.get(j).getSubject().getSubjectId()))  // if resource belong to subject
                 { %> 
-                <td width="40px" 
-                    <% if(color%2==0){ %> 
-                        style="background-color:#E2E1D9"
-                    <%}%>                               >
-                    <% if(oneMonth==true) {%>
-                        <img src="image/new-icon.gif" width="18" height="5" alt="new-icon"/> <!-- new icon  -->
-                    <% } %>
-                </td>
-
+                    <td width="70px"              
+                            style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
+                        <%=listResource.get(lecturePosition).getOrderChapter() %> <!--Chapter-->
+                    </td>  
+                <% if(language==1) {%>                              
+                    <td width="354px"              
+                            style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
+                        <%=listResource.get(lecturePosition).getResourceNameEn() %> <!--English Resource Name-->
+                    </td>
+                <% } %> 
+                <% if(language==2) {%>                               
+                    <td width="354px"                           
+                        style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
+                        <%=listResource.get(lecturePosition).getResourceNameVn() %> <!--Vietnamese Resource Name-->
+                    </td>
+                <% } %>
                 <td width="140px" 
                     <% if(color%2==0){ %>
                         style="background-color:#E2E1D9"<%}%>>
@@ -191,26 +199,15 @@
                         <%}%>       
                         </div>
                     <%}%>
-                    <%if(numberOfResource==0){%>
-                        <div style="color:#680a12"><bean:message key="text.updating"/></div>
-                    <%}%> 
                 </td>
-                    <td width="70px"              
-                            style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
-                        <%=listResource.get(lecturePosition).getOrderChapter() %> <!--Chapter-->
-                    </td>  
-                <% if(language==1) {%>                              
-                    <td width="354px"              
-                            style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
-                        <%=listResource.get(lecturePosition).getResourceNameEn() %> <!--English Resource Name-->
-                    </td>
-                <% } %> 
-                <% if(language==2) {%>                               
-                    <td width="354px"                           
-                        style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
-                        <%=listResource.get(lecturePosition).getResourceNameVn() %> <!--Vietnamese Resource Name-->
-                    </td>
-                <% } %>
+                <td width="40px" 
+                    <% if(color%2==0){ %> 
+                        style="background-color:#E2E1D9"
+                    <%}%>                               >
+                    <% if(oneMonth==true) {%>
+                        <img src="image/new-icon.gif" width="18" height="5" alt="new-icon"/> <!-- new icon  -->
+                    <% } %>
+                </td>                
                 <% } %>
 
                 <% if(!listSubject.get(i).getSubjectId().equals(listResource.get(j).getSubject().getSubjectId()))  break;
