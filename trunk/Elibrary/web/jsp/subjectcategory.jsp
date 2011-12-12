@@ -57,7 +57,7 @@
                     for(int i = 0; i<listChapter.size();i++){
         %>
         <tr>
-            <td <% if(color%2==0){ %> 
+            <td style="text-align: center;"<% if(color%2==0){ %> 
                                     class="color_table2"
                                 <%}%> > 
                                <%=listChapter.get(i).getOrderChapter()%>
@@ -125,7 +125,7 @@
                         
                  %>
                  <tr>
-                 <td <% if(color%2==0){ %> 
+                 <td style="text-align: center;"<% if(color%2==0){ %> 
                                     class="color_table2"
                                 <%}%>>
                      <%=count%></td>
@@ -181,7 +181,7 @@
                     for(int i = 0; i<listChapter.size();i++){
         %>
         <tr>
-            <td <% if(color%2==0){ %> 
+            <td style="text-align: center;"<% if(color%2==0){ %> 
                                     class="color_table2"
                                 <%}%> > 
                                <%=listChapter.get(i).getOrderChapter()%>
@@ -245,7 +245,7 @@
                     for(int i = 0; i<listChapter.size();i++){
         %>
         <tr>
-            <td <% if(color%2==0){ %> 
+            <td style="text-align: center;"<% if(color%2==0){ %> 
                                     class="color_table2"
                                 <%}%> > 
                                <%=listChapter.get(i).getOrderChapter()%>
@@ -324,7 +324,7 @@
                     for(int i = 0; i<listResource.size();i++){
                  %>
                  <tr>
-                 <td <% if(color%2==0){ %> 
+                 <td style="text-align: center;"<% if(color%2==0){ %> 
                                     class="color_table2"
                      <%}%>>
                         <%=count%>

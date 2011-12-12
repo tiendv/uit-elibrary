@@ -509,6 +509,7 @@ background-position:0px -486px;
     height: 30px;
     font-weight: bold;
     width:100%;
+    text-align: center;
 }
 .resource_table{
     border: 1px;
