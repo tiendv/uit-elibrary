@@ -66,19 +66,19 @@
                 alt="Projects"
                 title="<bean:message key="text.menu.project"/>"><bean:message key="text.menu.project"/></li>
             <li class="imageGallery" alt="Image Galleries"
-                title="<bean:message key="text.imageGallery"/>"><bean:message key="text.imageGallery"/></li>
+                title="<bean:message key="text.imagegallery"/>"><bean:message key="text.imagegallery"/></li>
             <li class="multimediaContent"
                 alt="Video"
                 title="<bean:message key="text.video"/>"><bean:message key="text.video"/></li>
             <li class="assignmentsSolutions"
                 alt="Assignments"
-                title="<bean:message key="text.Assignments"/>"><bean:message key="text.Assignments"/></li>
+                title="<bean:message key="text.assignments"/>"><bean:message key="text.assignments"/></li>
             <li class="examsSolutions"
                 alt="Example"
-                title="<bean:message key="text.Example"/>"><bean:message key="text.Example"/></li>
+                title="<bean:message key="text.example"/>"><bean:message key="text.example"/></li>
             <li class="onlineTextBooks"
                 alt="Reading"
-                title="<bean:message key="text.Reading"/>"><bean:message key="text.Reading"/></li>            
+                title="<bean:message key="text.reading"/>"><bean:message key="text.reading"/></li>            
             </ul>
         </div>   
         <% 
@@ -102,8 +102,8 @@
         <table class="table_chapter" >
             <tr class="color_title_table">
                 <td class="td_chapter_1"></td><td class="td_chapter_2"></td>
-                <td class="td_chapter_3"><bean:message key="text.OrderNumber"/></td>
-                <td class="td_chapter_4"><bean:message key="text.ChapterTitle"/></td>
+                <td class="td_chapter_3"><bean:message key="text.ordernumber"/></td>
+                <td class="td_chapter_4"><bean:message key="text.chaptertitle"/></td>
             </tr>
             <% int color =0; %>
             <% for(;j<listResource.size();j++) {%>
@@ -167,15 +167,15 @@
                         resourceCategoryId=a+1 ;
                     %>                           
                     <% if(resourceCategoryId==4 ){ %>
-                        <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+4+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.Assignments"/>" class="assignmentsSolutions" title="<bean:message key="text.Assignments"/>"></a><% } %>
+                        <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+4+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.assignments"/>" class="assignmentsSolutions" title="<bean:message key="text.assignments"/>"></a><% } %>
                     <% if(resourceCategoryId==5 ){ %>
-                        <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+5+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.Example"/>" class="examsSolutions" title="<bean:message key="text.Example"/>"></a>  <% } %>
+                        <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+5+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.example"/>" class="examsSolutions" title="<bean:message key="text.example"/>"></a>  <% } %>
                     <% if(resourceCategoryId==6 ){ %>
                         <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+6+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.menu.project"/>" class="projectsExample" title="<bean:message key="text.menu.project"/>"></a>  <% } %>
                     <% if(resourceCategoryId==8 ){ %>
-                        <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+8+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.imageGallery"/>" class="imageGallery" title="<bean:message key="text.imageGallery"/>"></a>   <% } %>
+                        <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+8+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.imagegallery"/>" class="imageGallery" title="<bean:message key="text.imagegallery"/>"></a>   <% } %>
                     <% if(resourceCategoryId==9 ){ %>
-                        <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+9+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.Reading"/>" class="onlineTextBooks" title="<bean:message key="text.Reading"/>"></a><% } %>
+                        <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+9+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.reading"/>" class="onlineTextBooks" title="<bean:message key="text.reading"/>"></a><% } %>
                      <% if(resourceCategoryId==10 ){ %>
                         <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+10+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.menu.lecturenote"/>" class="lectureNotes" title="<bean:message key="text.menu.lecturenote"/>"></a><% } %>                           
                     <% if(resourceCategoryId==11 ){ %>

@@ -44,7 +44,7 @@
             <div class="title_h1"><%=subject.getSubjectNameVn()%></div>
         <%}%></br>
         
-        <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.timeTeaching"/> : </b>
+        <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.timeteaching"/> : </b>
             <%if(Integer.parseInt(subject.getTimeTeaching())==0){%>
                 <bean:message key="text.updating"/>
             <%}else{%>
@@ -52,26 +52,26 @@
             <%}%>
         </div>
         <%if(subject.getPeriodOfTheory()!=0 || subject.getPeriodOfPractice()!=0){%>
-            <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.periodOfTheory"/> : </b>
+            <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.periodoftheory"/> : </b>
                  <%=subject.getPeriodOfTheory() %></div>
-            <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.periodOfPractice"/> : </b>
+            <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.periodofpractice"/> : </b>
                  <%=subject.getPeriodOfPractice() %></div>
         <%}else{%>
-            <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.periodOfTheory"/> : </b>
+            <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.periodoftheory"/> : </b>
                  <bean:message key="text.updating"/></div>
-            <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.periodOfPractice"/> : </b>
+            <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.periodofpractice"/> : </b>
                  <bean:message key="text.updating"/></div>
         <%}%>
         <% if(language==1){%>
-            <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.prerequisiteSubject"/> : </b>
+            <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.prerequisitesubject"/> : </b>
             <%=subject.getPrerequisiteSubjectEn() %></div>
         <%}%>
         <% if(language==2){%>
-            <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.prerequisiteSubject"/> : </b>
+            <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.prerequisitesubject"/> : </b>
                 <%=subject.getPrerequisiteSubjectVn() %></div>
         <%}%>
                 
-        <div style="font-weight: bold; padding-left: 17px;padding-bottom: 5px "><bean:message key="text.ProjectRequirementTitle"/> : </div>
+        <div style="font-weight: bold; padding-left: 17px;padding-bottom: 5px "><bean:message key="text.projectrequirementtitle"/> : </div>
         <%if(language==1) {%>
             <div style="padding-left: 17px;padding-bottom: 5px"><%=subject.getProjectRequirementEn() %></div>   
         <%}%>
@@ -88,11 +88,11 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td style="text-align: center"><bean:message key="text.midtermGrade"/></td>
+                        <td style="text-align: center"><bean:message key="text.midtermgrade"/></td>
                         <td style="text-align: center"><%=subject.getMidtermGrade() %> %</td>
                     </tr>
                     <tr style="background-color:#E2E1D9">
-                        <td style="text-align: center"><bean:message key="text.finalGrade"/></td>
+                        <td style="text-align: center"><bean:message key="text.finalgrade"/></td>
                         <td style="text-align: center"><%=subject.getFinalGrade() %> %</td>
                     </tr>
                 </tbody>
@@ -107,11 +107,11 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td style="text-align: center"><bean:message key="text.midtermGrade"/></td>
+                        <td style="text-align: center"><bean:message key="text.midtermgrade"/></td>
                         <td style="text-align: center"><bean:message key="text.updating"/></td>
                     </tr>
                     <tr style="background-color:#E2E1D9">
-                        <td style="text-align: center"><bean:message key="text.finalGrade"/></td>
+                        <td style="text-align: center"><bean:message key="text.finalgrade"/></td>
                         <td style="text-align: center"><bean:message key="text.updating"/></td>
                     </tr>
                 </tbody>
