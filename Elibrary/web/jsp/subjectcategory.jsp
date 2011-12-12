@@ -47,10 +47,10 @@
             </a> > <bean:message key ="text.menu.lecturenote"/></div>
         <table  class="resource_table">
             <tr  class="color_title_table"> <!-- title -->
-                <td width="80px"><bean:message key="text.OrderChapter" /></td>
-                <td width="230px"><bean:message key="text.ChapterTitle" /></td>
-                <td width="330px"><bean:message key="text.Summary" /></td>
-                <td width="98px"><bean:message key="text.Document" /></td>
+                <td width="80px"><bean:message key="text.orderchapter" /></td>
+                <td width="230px"><bean:message key="text.chaptertitle" /></td>
+                <td width="330px"><bean:message key="text.summary" /></td>
+                <td width="98px"><bean:message key="text.document" /></td>
             </tr>
         <% 
                     
@@ -112,8 +112,8 @@
             </a> > <bean:message key ="text.menu.reading"/></div>
         <table class="resource_table" >
             <tr class="color_title_table">
-                <td width="100px"><bean:message key="text.OrderNumber"/> </td>
-                <td width="638px"><bean:message key="text.Document"/> </td>
+                <td width="100px"><bean:message key="text.ordernumber"/> </td>
+                <td width="638px"><bean:message key="text.document"/> </td>
             </tr>
                 <%if(listResource.size()==0){ %> <!--Nếu chưa có tài nguyên thì hiện "đang cập nhật" -->
                     <td></td>
@@ -173,10 +173,10 @@
             </a> > <bean:message key ="text.menu.video"/></div>
         <table  class="resource_table">
             <tr  class="color_title_table"> <!-- title -->
-                <td width="80px"><bean:message key="text.OrderChapter" /></td>
-                <td width="230px"><bean:message key="text.ChapterTitle" /></td>
-                <td width="330px"><bean:message key="text.Summary" /></td>
-                <td width="98px"><bean:message key="text.Document" /></td>
+                <td width="80px"><bean:message key="text.orderchapter" /></td>
+                <td width="230px"><bean:message key="text.chaptertitle" /></td>
+                <td width="330px"><bean:message key="text.summary" /></td>
+                <td width="98px"><bean:message key="text.document" /></td>
             </tr>
         <% 
                     
@@ -239,10 +239,10 @@
             </a> > <bean:message key ="text.menu.assignments"/></div>
         <table  class="resource_table">
             <tr  class="color_title_table"> <!-- title -->
-                <td width="80px"><bean:message key="text.OrderChapter" /></td>
-                <td width="230px"><bean:message key="text.ChapterTitle" /></td>
-                <td width="330px"><bean:message key="text.Summary" /></td>
-                <td width="98px"><bean:message key="text.Document" /></td>
+                <td width="80px"><bean:message key="text.orderchapter" /></td>
+                <td width="230px"><bean:message key="text.chaptertitle" /></td>
+                <td width="330px"><bean:message key="text.summary" /></td>
+                <td width="98px"><bean:message key="text.document" /></td>
             </tr>
         <% 
                     
@@ -303,10 +303,10 @@
             </a> > <bean:message key ="text.menu.example"/></div>
         <table  class="resource_table">
             <tr  class="color_title_table"> <!-- title -->
-                <td width="80px"><bean:message key="text.OrderChapter" /></td>
-                <td width="230px"><bean:message key="text.ChapterTitle" /></td>
-                <td width="330px"><bean:message key="text.Summary" /></td>
-                <td width="98px"><bean:message key="text.Document" /></td>
+                <td width="80px"><bean:message key="text.orderchapter" /></td>
+                <td width="230px"><bean:message key="text.chaptertitle" /></td>
+                <td width="330px"><bean:message key="text.summary" /></td>
+                <td width="98px"><bean:message key="text.document" /></td>
             </tr>
         <% 
                     
@@ -366,7 +366,7 @@
             <%}%>
             </a> > <bean:message key ="text.menu.project"/></div>
         
-            <div class="hyperlink_title_subject"><a><h2><bean:message key="text.ProjectRequirementTitle"/>:</h2></a></div>
+            <div class="hyperlink_title_subject"><a><h2><bean:message key="text.projectrequirementtitle"/>:</h2></a></div>
         <% if(language==1){%>
             <div class="hyperlink_title_subject"><%=subject.getProjectRequirementEn()%></div>
         <%}%>
@@ -374,12 +374,12 @@
             <div class="hyperlink_title_subject"><%=subject.getProjectRequirementVn()%></div> 
         <%}%>
         
-        <div class="hyperlink_title_subject"><a><h2><bean:message key="text.ListTemplateProject"/></h2></a></div>
+        <div class="hyperlink_title_subject"><a><h2><bean:message key="text.listtemplateproject"/></h2></a></div>
         <table class="resource_table" >
             <tr class="color_title_table">
-                <td width="12%"><bean:message key="text.OrderNumber"/> </td>
-                <td width="20%"><bean:message key="text.projectAuthor"/> </td>
-                <td width="53%"><bean:message key="text.projectNameEN"/> </td>
+                <td width="12%"><bean:message key="text.ordernumber"/> </td>
+                <td width="20%"><bean:message key="text.projectauthor"/> </td>
+                <td width="53%"><bean:message key="text.projectnameen"/> </td>
                 <td width="15%"><bean:message key="text.note"/> </td>
             </tr>
             <%if(listResource.size()==0){ %> <!--Nếu chưa có tài nguyên thì hiện "đang cập nhật" -->

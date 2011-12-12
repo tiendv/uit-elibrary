@@ -36,9 +36,9 @@
                 <h2> <bean:message key="text.chosetypeofresourced"/></h2>
                 <table width="100%" border="0" cellspacing="0" cellpadding="5">
                     <tr>
-                        <td><bean:message key="text.resourceName"/></td>
+                        <td><bean:message key="text.resourcename"/></td>
                         <td><input name="txtResourceName" type="text"/></td>
-                        <td><bean:message key="text.typeofResource"/></td>
+                        <td><bean:message key="text.typeofresource"/></td>
                         <td>
                             <%if(language==1) {%>
                             <select id="dropResourceType"  name="dropResourceType">
@@ -60,13 +60,13 @@
                 <div  id="divChapter" class="chapter"  style="display: none">
                     <table width="100%" border="0" cellspacing="0" cellpadding="5">
                         <tr>
-                            <td class="label"><bean:message key="text.nameChapterEN"/></td>
+                            <td class="label"><bean:message key="text.namechapteren"/></td>
                             <td><input class="textbox" name="txtChapterUSName" type="text"/></td>
-                            <td class="label"><bean:message key="text.orderChapter"/></td>
+                            <td class="label"><bean:message key="text.orderchapter"/></td>
                             <td><input class="textbox" name="txtOrderChapter" type="text"/></td>
                         </tr>
                         <tr>
-                            <td><bean:message key="text.nameSubject"/></td>
+                            <td><bean:message key="text.namesubject"/></td>
                             <td>
                                 <%if(language==1) {%>
                                 <select  id="dropSubjectNameInChapter" name="dropSubjectNameInChapter">
@@ -84,13 +84,13 @@
                             </td>
                         </tr>
                     </table>
-                    <h2><bean:message key="text.chapterSummaryVN"/></h2>
+                    <h2><bean:message key="text.chaptersummaryvn"/></h2>
                     <FCK:editor  instanceName="fckChapterSummaryVN" height="300px">
                         <jsp:attribute name="value">
                         </jsp:attribute>
                     </FCK:editor>
                     <hr>
-                    <h2><bean:message key="text.chapterSummaryEN"/></h2>
+                    <h2><bean:message key="text.chaptersummaryen"/></h2>
                     <FCK:editor  instanceName="fckChapterSummaryEN" height="300px">
                         <jsp:attribute name="value">
                         </jsp:attribute>
@@ -101,16 +101,16 @@
                 <div id="divProject" class="project" style="display: none">
                     <table  border="0" cellspacing="0" cellpadding="5">
                         <tr>
-                            <td class="label"><bean:message key="text.projectNameEN"/></td>
+                            <td class="label"><bean:message key="text.projectnameen"/></td>
                             <td><input class="textbox" name="txtProjectNameEN" type="text"/></td>
-                            <td class="label"><bean:message key="text.projectAuthor"/></td>
+                            <td class="label"><bean:message key="text.projectauthor"/></td>
                             <td><input  name="txtAuthorProject" type="text"/></td>
                         </tr>
                         <tr>
-                            <td class="label" ><bean:message key="text.nameSubject"/></td>
+                            <td class="label" ><bean:message key="text.namesubject"/></td>
                             <td>
                                 <%if(language==1) {%>
-                                <select id="dropSubjectNameInProject"  name="dropSubjectNameInProject">
+                                <select id="dropSubjectNameInProject"  name="dropsubjectnameinproject">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameEn}</option>
                                     </c:forEach>
@@ -126,20 +126,20 @@
                         </tr>
                         <tr>
                             <td class="label">
-                                 <bean:message key="text.uploadFile"/><input type="file" name="fileProject"/>
+                                 <bean:message key="text.uploadfile"/><input type="file" name="fileProject"/>
                             </td>
                             
                         </tr>
                     </table>
                 </div>
-                <%-- Add resource with resource type is Pictuer, Reading (ID =8,9) --%>
+                <%-- Add resource with resource type is Picture, Reading (ID =8,9) --%>
 
                 <div id="divPictureandReading"  class="pictureandreading" style="display: none">
                     <table width="100%" border="0" cellspacing="0" cellpadding="5">
                         <tr>
                             <td class="label"><bean:message key="text.note"/></td>
                             <td><input name="txtNote" type="text"/></td>
-                            <td class="label" ><bean:message key="text.nameSubject"/></td>
+                            <td class="label" ><bean:message key="text.namesubject"/></td>
                             <td>
                                 <%if(language==1) {%>
                                 <select  name="dropSubjectNameInReadingAndPicture">
@@ -159,7 +159,7 @@
                         </tr>
                         <tr>
                             <td class="label">
-                                <bean:message key="text.uploadFile"/><input type="file" name="filePictureReading"/>
+                                <bean:message key="text.uploadfile"/><input type="file" name="filePictureReading"/>
                             </td>
                             
                         </tr>
@@ -171,7 +171,7 @@
                 <div id="divResourceChapter" class="resourceChapter" style="display: none">
                     <table width="100%" border="0" cellspacing="0" cellpadding="5">
                         <tr>
-                            <td class="label"><bean:message key="text.nameSubject"/></td>
+                            <td class="label"><bean:message key="text.namesubject"/></td>
                             <td>
                                 <%if(language==1) {%>
                                 <select id="dropSubjectName" name="dropSubjectNameInResourceChapter">
@@ -195,7 +195,7 @@
                         </tr>
                         <tr>
                             <td class="label">
-                                <bean:message key="text.uploadFile"/><input type="file" name="fileResourceChapter"/>
+                                <bean:message key="text.uploadfile"/><input type="file" name="fileResourceChapter"/>
                             </td>
                         </tr>
                     </table>
@@ -205,7 +205,7 @@
                 <div id="divResourceSyllabus" class="resourceChapter" style="display: none">
                 <table width="100%" border="0" cellspacing="0" cellpadding="5">
                         <tr>
-                            <td class="label"><bean:message key="text.nameSubject"/></td>
+                            <td class="label"><bean:message key="text.namesubject"/></td>
                             <td>
                                 <select id="dropSubjectName" name="dropSubjectNameInSysllabus">
                                 <%if(language==1) {%>
@@ -226,14 +226,14 @@
                         </tr>
                         <tr>
                             <td class="label">
-                                <bean:message key="text.uploadFile"/><input type="file" name="fileResourceChapter"/>
+                                <bean:message key="text.uploadfile"/><input type="file" name="fileResourceChapter"/>
                             </td>
                         </tr>
                     </table>
 
                 </div>                            
                  <div id="diveButtonCreate" class="buttonCreateResource" style="display: none">
-                    <input type="submit"  value=<bean:message key="text.buttonCreate" />  />
+                    <input type="submit"  value=<bean:message key="text.buttoncreate" />  />
                 </div>
             </jsp:useBean>
         </jsp:useBean>

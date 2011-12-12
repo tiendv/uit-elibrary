@@ -52,25 +52,25 @@
                 <td rowspan="7"><%if(!imageLink.equals("")){ %><img src="<%=imageLink%>" width="<bean:message key="image.subject.width"/>" height="<bean:message key="image.subject.height"/>"/><%}%></td>
             </tr>
             <tr>
-                <td><b><bean:message key="text.creditNumber"/>:</b> <%=subject.getNumberOfCredit()%></td>
+                <td><b><bean:message key="text.creditnumber"/>:</b> <%=subject.getNumberOfCredit()%></td>
             </tr>
             <%if(subject.getPeriodOfPractice()!=0 || subject.getPeriodOfTheory()!=0){%>
                 <tr>
-                    <td><b><bean:message key="text.periodOfTheory"/>:</b> <%=subject.getPeriodOfTheory()%></td>
+                    <td><b><bean:message key="text.periodoftheory"/>:</b> <%=subject.getPeriodOfTheory()%></td>
                 </tr>
                 <tr>
-                    <td><b><bean:message key="text.periodOfPractice"/>:</b> <%=subject.getPeriodOfPractice()%></td>
+                    <td><b><bean:message key="text.periodofpractice"/>:</b> <%=subject.getPeriodOfPractice()%></td>
                 </tr>
             <%}else{%>
                 <tr>
-                    <td><b><bean:message key="text.periodOfTheory"/>:</b> <bean:message key="text.updating"/></td>
+                    <td><b><bean:message key="text.periodoftheory"/>:</b> <bean:message key="text.updating"/></td>
                 </tr>
                 <tr>
-                    <td><b><bean:message key="text.periodOfPractice"/>:</b> <bean:message key="text.updating"/></td>
+                    <td><b><bean:message key="text.periodofpractice"/>:</b> <bean:message key="text.updating"/></td>
                 </tr>
             <%}%>
             <tr>
-                <td><b><bean:message key="text.courceCode"/>:</b> <%=subject.getCourseCode()%></td>
+                <td><b><bean:message key="text.courcecode"/>:</b> <%=subject.getCourseCode()%></td>
             </tr>
             <tr>
                 <td><b><bean:message key="text.teacher"/>:</b> <%=subject.getTeacher()%></td>
@@ -80,10 +80,10 @@
             </tr>
         </table>
         <%if(language==1) {%>
-            <div style="padding-left: 8px;font-weight: bold"><bean:message key="text.introductionSubjectEN"/>:</div> <div style="padding-left: 8px"><%=subject.getSubjectIntroduceEn()%></div>
+            <div style="padding-left: 8px;font-weight: bold"><bean:message key="text.introductionsubjecten"/>:</div> <div style="padding-left: 8px"><%=subject.getSubjectIntroduceEn()%></div>
         <%}%>    
         <%if(language==2) {%>
-            <div style="padding-left: 8px;font-weight: bold"><bean:message key="text.introductionSubjectVN"/>:</div> <div style="padding-left: 8px"><%=subject.getSubjectIntroduceVn()%></div>
+            <div style="padding-left: 8px;font-weight: bold"><bean:message key="text.introductionsubjectvn"/>:</div> <div style="padding-left: 8px"><%=subject.getSubjectIntroduceVn()%></div>
         <%}%> 
     </body>
 </html>
