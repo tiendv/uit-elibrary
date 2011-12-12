@@ -64,19 +64,19 @@
              </td>
              <td <% if(color%2==0){ %> 
                                     class="color_table2"
-                                <%}%>>              
+                                <%}%> >              
                         <% if(language==1) {%>
-                        <p>  <%=listChapter.get(i).getResourceNameEn()%> </p>
+                            <%=listChapter.get(i).getResourceNameEn()%>
                         <% } %> 
                         <% if(language==2) {%>
-                             <%=listChapter.get(i).getResourceNameVn()%> 
+                            <%=listChapter.get(i).getResourceNameVn()%> 
                         <% } %>                         
              </td>
              <td <% if(color%2==0){ %> 
                                 class="color_table2"
                                 <%}%> >              
                         <% if(language==1) {%>
-                             <%=listChapter.get(i).getSummaryEn()%> 
+                              <%=listChapter.get(i).getSummaryEn()%> 
                         <% } %> 
                         <% if(language==2) {%>
                              <%=listChapter.get(i).getSummaryVn()%> 
@@ -88,8 +88,9 @@
                     <%for(int k=0;k<listResource.size();k++)
                         if(Integer.parseInt(listChapter.get(i).getOrderChapter().toString())== Integer.parseInt(listResource.get(k).getOrderChapter().toString()))
                            {%>
-                     <a href="DownLoad.do?resourceID=<%=listResource.get(k).getResourceId()%>" alt="<bean:message key="text.lecturenote"/>" class="multimediaContent" title="<bean:message key="text.lecturenote"/>"></a>
-                     <%}%>
+                      
+                      <a  href="DownLoad.do?resourceID=<%=listResource.get(k).getResourceId()%>" alt="<bean:message key="text.menu.lecturenote"/>" class="lectureNotes" title="<bean:message key="text.menu.lecturenote"/>"></a>
+                      <%}%>
              </td>
              <%color++;%>
         </tr>
