@@ -58,9 +58,6 @@
             <td class="leftmenu_td_link"><a href="SubjectCategory.do?subjectID=<%=subjectID%>&resourceCategoryID=6&orderChapter=<%=orderChapter%>"><bean:message  key="text.menu.project"/></a></td>
           </tr>
           <tr>
-            <td class="leftmenu_td_link"><a href="SubjectCategory.do?subjectID=<%=subjectID%>&resourceCategoryID=11&orderChapter=<%=orderChapter%>"><bean:message  key="text.menu.video"/></a></td>
-          </tr>
-          <tr>
             <td >&nbsp;</td>
           </tr>
  </table>
