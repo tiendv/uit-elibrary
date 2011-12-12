@@ -120,7 +120,7 @@
         <table class="table_chapter" >
             <tr class="color_title_table">
                 <td class="td_chapter_1"></td><td class="td_chapter_2"></td>
-                <td class="td_chapter_3"><bean:message key="text.ordernumber"/></td>
+                <td class="td_chapter_3"><bean:message key="text.orderchapter"/></td>
                 <td class="td_chapter_4"><bean:message key="text.chaptertitle"/></td>
             </tr>
             <% int color =0;

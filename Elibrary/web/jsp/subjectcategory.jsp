@@ -112,7 +112,7 @@
             </a> > <bean:message key ="text.menu.reading"/></div>
         <table class="resource_table" >
             <tr class="color_title_table">
-                <td width="100px"><bean:message key="text.ordernumber"/> </td>
+                <td width="100px"><bean:message key="text.orderchapter"/> </td>
                 <td width="638px"><bean:message key="text.document"/> </td>
             </tr>
                 <%if(listResource.size()==0){ %> <!--Nếu chưa có tài nguyên thì hiện "đang cập nhật" -->
@@ -377,7 +377,7 @@
         <div class="hyperlink_title_subject"><a><h2><bean:message key="text.listtemplateproject"/></h2></a></div>
         <table class="resource_table" >
             <tr class="color_title_table">
-                <td width="12%"><bean:message key="text.ordernumber"/> </td>
+                <td width="12%"><bean:message key="text.orderchapter"/> </td>
                 <td width="20%"><bean:message key="text.projectauthor"/> </td>
                 <td width="53%"><bean:message key="text.projectnameen"/> </td>
                 <td width="15%"><bean:message key="text.note"/> </td>
