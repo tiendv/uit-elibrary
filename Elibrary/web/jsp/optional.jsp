@@ -124,7 +124,7 @@
                 <td class="td_chapter_4"><bean:message key="text.ChapterTitle"/></td>
             </tr>
             <% int color =0;
-               List<Resource> listResource = arrayListResource.get(s);
+               List<Resource> listResource = arrayListResource.get(i);
             %>
             <% for(int j=0;j<listResource.size();j++) {%>
                  <%
