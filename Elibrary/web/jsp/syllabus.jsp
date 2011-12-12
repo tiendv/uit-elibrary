@@ -45,12 +45,23 @@
         <%}%></br>
         
         <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.timeTeaching"/> : </b>
-             <%=subject.getTimeTeaching() %> <bean:message key="text.weeks"/></div>
-        <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.periodOfTheory"/> : </b>
-             <%=subject.getPeriodOfTheory() %></div>
-        <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.periodOfPractice"/> : </b>
-             <%=subject.getPeriodOfPractice() %></div>
-        
+            <%if(Integer.parseInt(subject.getTimeTeaching())==0){%>
+                <bean:message key="text.updating"/>
+            <%}else{%>
+                <%=subject.getTimeTeaching() %> <bean:message key="text.weeks"/>
+            <%}%>
+        </div>
+        <%if(subject.getPeriodOfTheory()!=0 || subject.getPeriodOfPractice()!=0){%>
+            <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.periodOfTheory"/> : </b>
+                 <%=subject.getPeriodOfTheory() %></div>
+            <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.periodOfPractice"/> : </b>
+                 <%=subject.getPeriodOfPractice() %></div>
+        <%}else{%>
+            <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.periodOfTheory"/> : </b>
+                 <bean:message key="text.updating"/></div>
+            <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.periodOfPractice"/> : </b>
+                 <bean:message key="text.updating"/></div>
+        <%}%>
         <% if(language==1){%>
             <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.prerequisiteSubject"/> : </b>
             <%=subject.getPrerequisiteSubjectEn() %></div>
