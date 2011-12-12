@@ -123,13 +123,20 @@
 }
 .td_chapter_3
 {
-        width:90px;
-        font-weight: bold
+        width:160px;
+        font-weight: bold;
+        text-align: center;
 }
 .td_chapter_4
 {
         width:458px;
         font-weight: bold;
+}
+.td_chapter_border{
+    border-right: 1px;
+    border-right-style:solid;
+    border-right-color:#B4B1A2;
+    text-align: center;
 }
 .title_h1 {
         font-size: 20px ;

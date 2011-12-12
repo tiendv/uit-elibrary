@@ -155,13 +155,13 @@
                   %>                                                                            
                 <% if(listSubject.get(i).getSubjectId().equals(listResource.get(j).getSubject().getSubjectId()))  // if resource belong to subject
                 { %> 
-                    <td width="70px"              
-                            style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
+                    <td width="160px"  class="td_chapter_border"            
+                            style="text-align: center;<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
                         <%=listResource.get(lecturePosition).getOrderChapter() %> <!--Chapter-->
                     </td>  
                 <% if(language==1) {%>                              
                     <td width="354px"              
-                            style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
+                            style=" <% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
                         <%=listResource.get(lecturePosition).getResourceNameEn() %> <!--English Resource Name-->
                     </td>
                 <% } %> 
