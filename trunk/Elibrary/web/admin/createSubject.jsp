@@ -24,7 +24,7 @@
 
 <div style="overflow: auto;height: 600px;">
     <html:form  method="post" action="CreateSubject" onsubmit="return validateCreateSubjectForm(this)">
-    <h1> <bean:message key="text.newSubject"/> </h1>
+    <h1> <bean:message key="text.newsubject"/> </h1>
     <table width="100%">
         <%int language =1; // English
                     Locale locale = request.getLocale();
@@ -33,13 +33,13 @@
         %>
         <tr>
 
-            <td><bean:message key="text.SubjectNameVN"/></td>
+            <td><bean:message key="text.subjectnamevn"/></td>
             <td><html:text property="txtSubjectName"/></td>
-            <td><bean:message key="text.SubjectNameEN"/></td>
+            <td><bean:message key="text.subjectnameen"/></td>
             <td><html:text property="txtSubjectNameUS" /></td>
         </tr> 
         <tr>
-            <td><bean:message key="text.SubjectCategory"/></td>
+            <td><bean:message key="text.subjectcategory"/></td>
             <td>
                 <%if(language==1) {%>
                 <html:select  property="dropSubjectCategory" onchange="check()" styleClass="combobox" > 
@@ -68,31 +68,31 @@
 
         </tr>
         <tr>
-             <td><bean:message key="text.creditNumber"/></td>
+             <td><bean:message key="text.creditnumber"/></td>
              <td><html:text property="txtCreditNumber" /></td>
-             <td><bean:message key="text.SubjectCode"/></td>
+             <td><bean:message key="text.subjectcode"/></td>
              <td><html:text property="txtSubjectCode" /></td>           
         </tr>
         <tr>
-            <td><bean:message key="text.periodOfTheory"/></td>
+            <td><bean:message key="text.periodoftheory"/></td>
             <td><html:text property="txtPeriodOfTheory" /></td>
-            <td><bean:message key="text.periodOfPractice"/></td>
+            <td><bean:message key="text.periodofpractice"/></td>
             <td><html:text property="txtPeriodOfPractice" /></td>
         </tr>
         <tr>
-            <td><bean:message key="text.midtermGrade"/></td>
+            <td><bean:message key="text.midtermgrade"/></td>
             <td><html:text property="txtMidtermGrade" /></td>
-            <td><bean:message key="text.finalGrade"/></td>
+            <td><bean:message key="text.finalgrade"/></td>
             <td><html:text property="txtFinalGrade" /></td>
         </tr>
         <tr>
-            <td><bean:message key="text.prerequisiteSubjectVN"/></td>
+            <td><bean:message key="text.prerequisitesubjectvn"/></td>
             <td><html:text property="txtPrerequisiteSubjectVN" /></td>
-            <td><bean:message key="text.prerequisiteSubjectEN"/></td>
+            <td><bean:message key="text.prerequisitesubjecten"/></td>
             <td><html:text property="txtPrerequisiteSubject" /></td>
         </tr>
         <tr>
-            <td><bean:message key="text.timeTeaching"/></td>
+            <td><bean:message key="text.timeteaching"/></td>
             <td><html:text property="txtTimeTeaching" /></td>
             <td><bean:message key="text.teacher"/></td>
             <td><html:text property="txtTeacherName" /></td>
@@ -106,7 +106,7 @@
     </table>
     
     <hr>
-    <h2><bean:message key="text.introductionSubjectVN"/></h2>
+    <h2><bean:message key="text.introductionsubjectvn"/></h2>
    
         <FCK:editor  instanceName="fckintroductionVN" height="300px">
             <jsp:attribute name="value">
@@ -115,21 +115,21 @@
         </FCK:editor>
     <hr>
     
-    <h2><bean:message key="text.introductionSubjectEN"/></h2>
+    <h2><bean:message key="text.introductionsubjecten"/></h2>
     <FCK:editor instanceName="fckintroductionUS" height="300px">
         <jsp:attribute name="value">
             
         </jsp:attribute>
     </FCK:editor>
     <hr>
-    <h2><bean:message key="text.projectRequirementVN"/></h2>
+    <h2><bean:message key="text.projectrequirementvn"/></h2>
         <FCK:editor  instanceName="fckProjectRequitementVN" height="300px">
             <jsp:attribute name="value">
 
             </jsp:attribute>
         </FCK:editor>
     <hr>
-    <h2><bean:message key="text.projectRequirementEN"/></h2>
+    <h2><bean:message key="text.projectrequirementen"/></h2>
 
         <FCK:editor  instanceName="fckProjectRequitementUS" height="300px">
             <jsp:attribute name="value">
@@ -138,7 +138,7 @@
         </FCK:editor>
     <hr>
     <div style="text-align: left">
-        <html:submit property="btnSubmit" disabled="true"><bean:message key="text.buttonCreate"/></html:submit><noscript><bean:message key="text.noScript"/></noscript> 
+        <html:submit property="btnSubmit" disabled="true"><bean:message key="text.buttoncreate"/></html:submit><noscript><bean:message key="text.noscript"/></noscript> 
     </div>
     <html:javascript formName="CreateSubjectForm"/>
     </html:form>
