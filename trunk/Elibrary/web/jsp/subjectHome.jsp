@@ -54,14 +54,23 @@
             <tr>
                 <td><b><bean:message key="text.creditNumber"/>:</b> <%=subject.getNumberOfCredit()%></td>
             </tr>
+            <%if(subject.getPeriodOfPractice()!=0 || subject.getPeriodOfTheory()!=0){%>
+                <tr>
+                    <td><b><bean:message key="text.periodOfTheory"/>:</b> <%=subject.getPeriodOfTheory()%></td>
+                </tr>
+                <tr>
+                    <td><b><bean:message key="text.periodOfPractice"/>:</b> <%=subject.getPeriodOfPractice()%></td>
+                </tr>
+            <%}else{%>
+                <tr>
+                    <td><b><bean:message key="text.periodOfTheory"/>:</b> <bean:message key="text.updating"/></td>
+                </tr>
+                <tr>
+                    <td><b><bean:message key="text.periodOfPractice"/>:</b> <bean:message key="text.updating"/></td>
+                </tr>
+            <%}%>
             <tr>
-                <td><b><bean:message key="text.periodOfTheory"/>:</b> <%=subject.getPeriodOfTheory()%></td>
-            </tr>
-            <tr>
-                <td><b><bean:message key="text.periodOfPractice"/>:</b> <%=subject.getPeriodOfPractice()%></td>
-            </tr>
-            <tr>
-                <td><b><bean:message key="text.courceCode"/>:</b> <%=subject.getNumberOfCredit()%></td>
+                <td><b><bean:message key="text.courceCode"/>:</b> <%=subject.getCourseCode()%></td>
             </tr>
             <tr>
                 <td><b><bean:message key="text.teacher"/>:</b> <%=subject.getTeacher()%></td>
@@ -71,7 +80,7 @@
             </tr>
         </table>
         <%if(language==1) {%>
-            <div style="padding-left: 8px;font-weight: bold"><bean:message key="text.introductionSubjectEN"/>:</div> <div style="padding-left: 8px"><%=subject.getSubjectIntroduceEn()%></div>
+        <div class="text_title_format"><bean:message key="text.introductionSubjectEN"/>:</div> <div style="padding-left: 8px"><%=subject.getSubjectIntroduceEn()%></div>
         <%}%>    
         <%if(language==2) {%>
             <div style="padding-left: 8px;font-weight: bold"><bean:message key="text.introductionSubjectVN"/>:</div> <div style="padding-left: 8px"><%=subject.getSubjectIntroduceVn()%></div>
