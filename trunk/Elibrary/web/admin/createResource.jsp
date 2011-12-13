@@ -286,7 +286,7 @@
             var id = document.getElementById("dropSubjectName").value;
             $.ajax({
                 type: "POST",
-                url: "AjaxGetChapterBySubjectID.do",
+                url: "LoadChapterAction.do",
                 data: "id="+id
             }).done(function( msg ) {
                 document.getElementById("txtNote").innerHTML = msg;
@@ -306,7 +306,7 @@
         var id = document.getElementById("dropSubjectName").value;
         $.ajax({
             type: "POST",
-            url: "AjaxGetChapterBySubjectID.do",
+            url: "LoadChapterAction.do",
             data: "id="+id
         }).done(function( msg ) {
             document.getElementById("txtNote").innerHTML = msg;

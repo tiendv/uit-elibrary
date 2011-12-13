@@ -18,7 +18,7 @@ import uit.elib.dto.Resource;
  *
  * @author Hoang
  */
-public class AjaxGetChapterBySubjectID extends org.apache.struts.action.Action {
+public class LoadChapterAction extends org.apache.struts.action.Action {
     
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
