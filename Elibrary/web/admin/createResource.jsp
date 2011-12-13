@@ -36,8 +36,12 @@
                 <h2> <bean:message key="text.chosetypeofresourced"/></h2>
                 <table width="100%" border="0" cellspacing="0" cellpadding="5">
                     <tr>
-                        <td><bean:message key="text.resourcename"/></td>
-                        <td><input name="txtResourceName" type="text"/></td>
+                        <td><bean:message key="text.resourcenameen"/></td>
+                        <td><input name="txtResourceNameEN" type="text"/></td>
+                        <td><bean:message key="text.resourcenamevn"/></td>
+                        <td><input name="txtResourceNameVN" type="text"/></td>
+                    </tr>
+                    <tr>
                         <td><bean:message key="text.typeofresource"/></td>
                         <td>
                             <%if(language==1) {%>
@@ -230,7 +234,7 @@
                         </tr>
                         <tr>
                             <td class="label">
-                                <bean:message key="text.uploadfile"/><input type="file" name="fileResourceChapter"/>
+                                <bean:message key="text.uploadfile"/><input type="file" name="fileResourceSysllabus"/>
                             </td>
                         </tr>
                     </table>

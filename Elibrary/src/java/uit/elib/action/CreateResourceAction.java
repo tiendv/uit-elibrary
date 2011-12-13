@@ -60,8 +60,8 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
         
         SubjectCategoryBO sjcBO = SubjectCategoryBO.getSubjectCategoryBO();
         Resource temp = new Resource();
-        temp.setResourceNameVn(createResourceActionForm.getTxtResourceName());
-        
+        temp.setResourceNameVn(createResourceActionForm.getTxtResourceNameVN());
+        temp.setResourceNameEn(createResourceActionForm.getTxtResourceNameEN());        
         int typeResource = Integer.parseInt(createResourceActionForm.getHiddenResourceType());
         tempRC = rscBO.getById(typeResource,true);
         temp.setResourcecategory(tempRC);
@@ -191,7 +191,7 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
             
              tempSJ = sjBO.getById(createResourceActionForm.getDropSubjectNameInSysllabus(), true);
              temp.setSubject(tempSJ);
-             FormFile resourceChapterProject = createResourceActionForm.getFileResourceChapter();
+             FormFile resourceChapterProject = createResourceActionForm.getFileResourceSysllabus();
             /**
              * 
              */
