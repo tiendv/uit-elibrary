@@ -187,7 +187,7 @@
                             </td>
                             <td class="label"><bean:message key="text.orderchapter"/></td>
                             <td>
-                                <div id ="chapter" name="dropOrderChapterSubject"></div>            
+                                <div id ="chapter"></div>            
                             </td>
                         </tr>
                         <tr>

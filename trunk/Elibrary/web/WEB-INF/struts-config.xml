@@ -54,7 +54,10 @@
         <action path="/LoadCreateResource" forward=".createResource"/>
         <action path="/CreateSubject" name="CreateSubjectForm" type="uit.elib.action.CreateSubjectAction" scope="session">
             <forward name="success" path=".createSubject"/>
-        </action>        
+        </action>
+        <action path="/CreateResource" name="CreateResourceForm" type="uit.elib.action.CreateResourceAction" scope="session">
+            <forward name="success" path=".createResource"/>
+        </action>           
         <action path="/LoadCreateSubject" name="LoadCreateSubjectForm" type="uit.elib.action.LoadCreateSubjectAction" scope="session">
             <forward name="success" path=".createSubject"/>
         </action>
