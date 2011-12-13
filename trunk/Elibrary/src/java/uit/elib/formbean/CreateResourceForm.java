@@ -16,7 +16,8 @@ import org.apache.struts.upload.FormFile;
  */
 public class CreateResourceForm extends org.apache.struts.action.ActionForm {
     
-    private String txtResourceName;
+    private String txtResourceNameVN;
+    private String txtResourceNameEN;
     private int dropResourceType;;
     private String txtChapterUSName;
     private int txtOrderChapter;
@@ -27,6 +28,7 @@ public class CreateResourceForm extends org.apache.struts.action.ActionForm {
     private String txtAuthorProject;
     private int dropSubjectNameInProject;
     private FormFile fileProject;
+    private FormFile fileResourceSysllabus;
     private String txtNote;
     private int dropSubjectNameInReadingAndPicture;
     private FormFile filePictureReading;
@@ -35,6 +37,30 @@ public class CreateResourceForm extends org.apache.struts.action.ActionForm {
     private FormFile fileResourceChapter;
     private String hiddenResourceType;
     private int dropSubjectNameInSysllabus;
+
+    public String getTxtResourceNameEN() {
+        return txtResourceNameEN;
+    }
+
+    public void setTxtResourceNameEN(String txtResourceNameEN) {
+        this.txtResourceNameEN = txtResourceNameEN;
+    }
+
+    public String getTxtResourceNameVN() {
+        return txtResourceNameVN;
+    }
+
+    public void setTxtResourceNameVN(String txtResourceNameVN) {
+        this.txtResourceNameVN = txtResourceNameVN;
+    }
+
+    public FormFile getFileResourceSysllabus() {
+        return fileResourceSysllabus;
+    }
+
+    public void setFileResourceSysllabus(FormFile fileResourceSysllabus) {
+        this.fileResourceSysllabus = fileResourceSysllabus;
+    }
 
     public int getDropSubjectNameInSysllabus() {
         return dropSubjectNameInSysllabus;
@@ -178,14 +204,6 @@ public class CreateResourceForm extends org.apache.struts.action.ActionForm {
 
     public void setTxtProjectNameEN(String txtProjectNameEN) {
         this.txtProjectNameEN = txtProjectNameEN;
-    }
-
-    public String getTxtResourceName() {
-        return txtResourceName;
-    }
-
-    public void setTxtResourceName(String txtResourceName) {
-        this.txtResourceName = txtResourceName;
     }
 
     /**
