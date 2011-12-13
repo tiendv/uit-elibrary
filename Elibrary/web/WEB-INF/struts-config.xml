@@ -8,7 +8,6 @@
 <struts-config>
     <form-beans>
         <form-bean name="LoadCreateSubjectForm" type="uit.elib.formbean.LoadCreateSubjectForm"/>
-        <form-bean name="LoadCreateResourceForm" type="uit.elib.formbean.LoadCreateResourceForm"/>
         <form-bean name="CreateResourceForm" type="uit.elib.formbean.CreateResourceForm"/>
         <form-bean name="CreateSubjectForm" type="uit.elib.formbean.CreateSubjectForm"/>
     </form-beans>
@@ -52,13 +51,11 @@
             <forward name="success" path=".syllabus"/>
             <forward name="unsuccess" path="/Welcome.do"/>
         </action> 
-        <action path="/CreateResource" name="CreateResourceForm" type="uit.elib.action.CreateResourceAction" scope="session">
-            <forward name="success" path=".createResource"/>
-        </action>
+        <action path="/LoadCreateResource" forward=".createResource"/>
         <action path="/CreateSubject" name="CreateSubjectForm" type="uit.elib.action.CreateSubjectAction" scope="session">
             <forward name="success" path=".createSubject"/>
         </action>        
-        <action path="/LoadCreateResource" name="LoadCreateResourceForm" type="uit.elib.action.LoadCreateResourceAction" scope="session">
+        <action path="/LoadCreateResource" type="uit.elib.action.LoadCreateResourceAction" scope="session">
             <forward name="success" path=".createResource"/>
         </action>
         <action path="/LoadCreateSubject" name="LoadCreateSubjectForm" type="uit.elib.action.LoadCreateSubjectAction" scope="session">
