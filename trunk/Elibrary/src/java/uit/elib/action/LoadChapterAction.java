@@ -40,15 +40,15 @@ public class LoadChapterAction extends org.apache.struts.action.Action {
         String id = request.getParameter("id");
         int subjectID = Integer.parseInt(id);
         List<Resource> chapters = ResourceBO.getResourceBO().getAllResourceOfSubjectAndResourceCategory(subjectID,7);
-
         response.setCharacterEncoding("UTF-8");
+        response.getWriter().println("<select name=\"dropOrderChapterSubject\">");        
         for (int i = 0; i < chapters.size(); i++) {
             Resource resource = chapters.get(i);
             response.getWriter().println("<option value = "+ resource.getResourceId() +" >");
             response.getWriter().println(resource.getOrderChapter());
             response.getWriter().println("</option>");
         }
-                
+        response.getWriter().println("</select>");        
         return mapping.findForward(SUCCESS);
     }
 }
