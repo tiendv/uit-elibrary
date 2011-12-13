@@ -10,6 +10,7 @@ import org.hibernate.cfg.*;
 import org.hibernate.*;
 import org.hibernate.Session;
 import org.hibernate.criterion.*;
+import org.hibernate.stat.Statistics;
 
 /**
  *
@@ -43,8 +44,12 @@ public class HibernateUtil {
      * Begin a transaction
      */
     protected void beginTransaction() {
+
         session = sessionFactory.getCurrentSession();
         session.beginTransaction();
+        Statistics statistics = sessionFactory.getStatistics();
+        statistics.setStatisticsEnabled(true);
+        statistics.logSummary();
     }
 
     /**
