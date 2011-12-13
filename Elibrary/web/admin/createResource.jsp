@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : createResource
     Created on : Nov 25, 2011, 3:24:32 PM
     Author     : tiendv
@@ -42,15 +42,13 @@
                             <select id="dropResourceType"  name="dropResourceType">
                                 <c:forEach items="${resourceTypeBO.allResourcecategory}" var="item">
                                     <option value="${item.resourceCategoryId}">${item.resourceCategoryNameEn}</option>
-                                </c:forEach>
-                           
+                                </c:forEach> 
                             <%}%>
                             <%if(language==2) {%>
                             <select id="dropResourceType"  name="dropResourceType">
                                 <c:forEach items="${resourceTypeBO.allResourcecategory}" var="item">
                                     <option value="${item.resourceCategoryId}">${item.resourceCategoryNameVn}</option>
                                 </c:forEach>
-                           
                             <%}%>
                         </td>
                     </tr>                    
@@ -78,7 +76,6 @@
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameEn}</option>
                                     </c:forEach>
-                              
                                 <%}%>
                                 <%if(language==2) {%>
                                 <select  id="dropSubjectNameInChapter" name="dropSubjectNameInChapter">
@@ -152,27 +149,22 @@
                                 <select  name="dropSubjectNameInReadingAndPicture">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameEn}</option>
-                                    </c:forEach>
-                               
+                                    </c:forEach>                           
                                 <%}%>
                                 <%if(language==2) {%>
                                 <select  name="dropSubjectNameInReadingAndPicture">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameVn}</option>
-                                    </c:forEach>
-                               
+                                    </c:forEach>                        
                                 <%}%>
                             </td>
                         </tr>
                         <tr>
                             <td class="label">
                                 <bean:message key="text.uploadfile"/><input type="file" name="filePictureReading"/>
-                            </td>
-                            
-                        </tr>
-                        
+                            </td>                         
+                        </tr>                      
                     </table>
-
                 </div>
                 <%-- Add resource with resource type is assignments,video,example,slide,pdf (ID =4,5,10,11) --%>
                 <div id="divResourceChapter" class="resourceChapter" style="display: none">
@@ -184,21 +176,18 @@
                                 <select id="dropSubjectName" name="dropSubjectNameInResourceChapter">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameEn}</option>
-                                    </c:forEach>
-                               
+                                    </c:forEach> 
                                 <%}%>
                                  <%if(language==2) {%>
                                 <select id="dropSubjectName" name="dropSubjectNameInResourceChapter">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameVn}</option>
                                     </c:forEach>
-                               
                                 <%}%>
                             </td>
                             <td class="label"><bean:message key="text.orderchapter"/></td>
                             <td>
-                                <select id ="txtNote" name="dropOrderChapterSubject">
-                                </select>
+                                <div id ="chapter" name="dropOrderChapterSubject"></div>            
                             </td>
                         </tr>
                         <tr>
@@ -207,7 +196,6 @@
                             </td>
                         </tr>
                     </table>
-
                 </div>
                 <%-- Add resource with resource type (ID =12) --%>
                 <div id="divResourceSyllabus" class="resourceChapter" style="display: none">
@@ -217,18 +205,14 @@
                             <td>
                                 <select id="dropSubjectName" name="dropSubjectNameInSysllabus">
                                 <%if(language==1) {%>
-                                
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameEn}</option>
                                     </c:forEach>
-                               
                                 <%}%>
-                                 <%if(language==2) {%>
-                                
+                                 <%if(language==2) {%>   
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameVn}</option>
                                     </c:forEach>
-                               
                                 <%}%>
                             </td>
                         </tr>
@@ -238,7 +222,6 @@
                             </td>
                         </tr>
                     </table>
-
                 </div>                            
                  <div id="diveButtonCreate" class="buttonCreateResource" style="display: none">
                     <input type="submit"  value=<bean:message key="text.buttoncreate" />  />
@@ -251,7 +234,7 @@
 <script type="text/javascript">
 
     var selectTypeResource=document.getElementById("dropResourceType");
-    selectTypeResource.onchange=function(){ 
+    selectTypeResource.onchange=function(){
         //run some code when "onchange" event fires
         document.getElementById("diveButtonCreate").style.display = "block";
         
@@ -289,7 +272,7 @@
                 url: "LoadChapterAction.do",
                 data: "id="+id
             }).done(function( msg ) {
-                document.getElementById("txtNote").innerHTML = msg;
+                document.getElementById("chapter").innerHTML = msg;
             });            
         }  
         if (chosenoption.value=="12"){
@@ -309,9 +292,7 @@
             url: "LoadChapterAction.do",
             data: "id="+id
         }).done(function( msg ) {
-            document.getElementById("txtNote").innerHTML = msg;
+            document.getElementById("chapter").innerHTML = msg;
         });
-
     }
-
 </script>
