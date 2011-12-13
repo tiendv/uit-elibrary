@@ -10,6 +10,10 @@
     <property name="hibernate.transaction.auto_close_session">false</property>
     <property name="hibernate.transaction.flush_before_completion">true</property>
     <property name="hibernate.current_session_context_class">thread</property> 
+    <property name="format_sql">true</property>
+    <property name="use_sql_comments">true</property>
+    <property name="default_batch_fetch_size">4</property>
+    <property name="fetch">subselect</property>
     <mapping resource="uit/elib/dto/Resourcecategory.hbm.xml"/>
     <mapping resource="uit/elib/dto/Resource.hbm.xml"/>
     <mapping resource="uit/elib/dto/Subject.hbm.xml"/>
