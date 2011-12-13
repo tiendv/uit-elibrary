@@ -88,9 +88,15 @@
                     <%for(int k=0;k<listResource.size();k++)
                         if(Integer.parseInt(listChapter.get(i).getOrderChapter().toString())== Integer.parseInt(listResource.get(k).getOrderChapter().toString()))
                            {%>
-                      
-                      <a  href="DownLoad.do?resourceID=<%=listResource.get(k).getResourceId()%>" alt="<bean:message key="text.menu.lecturenote"/>" class="lectureNotes" title="<bean:message key="text.menu.lecturenote"/>"></a>
-                      <%}%>
+                           <div class="displayIcon"><a  href = "DownLoad.do?resourceID=<%=listResource.get(k).getResourceId()%>" alt="<bean:message key="text.menu.lecturenote"/>" class="lectureNotes" 
+                                                        <% if(language==1) {%>
+                            title="<%=listResource.get(k).getResourceNameEn()%>"
+                        <% } %> 
+                        <% if(language==2) {%>
+                            title="<%=listResource.get(k).getResourceNameVn()%>" 
+                        <% } %>></a></div>
+                           
+                        <%}%>
              </td>
              <%color++;%>
         </tr>
