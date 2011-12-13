@@ -21,48 +21,57 @@ public class languageSelectAction extends DispatchAction {
     private ActionForward myAction;
     private static final String LOCATE_ACTION_PATTERN = "(/Locale.do).*";
     private static final String DEFAUFT_RETURN = "/Welcome.do";
-    private static String preAction = "/Welcome.do";
 
     public ActionForward vietnamese(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         String webHttp = request.getRequestURL().toString();
+        System.out.print("URL :"+webHttp);
         webHttp = webHttp.substring(0,webHttp.lastIndexOf("/"));
         String url = request.getParameter("page");
-        url = formatToPath(url,webHttp);
+        System.out.print("URL :"+url);
+        url = formatToPath(url,webHttp,request);
+        System.out.print("URL FORMAT:"+url);
         request.getSession().setAttribute(
                 Globals.LOCALE_KEY, new Locale("vn"));
         if (!url.isEmpty()) {
             myAction = new ActionForward(url);
         }
-        preAction = url;
+        request.getSession().setAttribute("PreAction", url);
         return myAction;
     }
 
     public ActionForward english(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+        System.out.print("ENGLISH");
         String webHttp = request.getRequestURL().toString();
+        System.out.print("URL :"+webHttp);
         webHttp = webHttp.substring(0,webHttp.lastIndexOf("/"));
         String url = request.getParameter("page");
-        url = formatToPath(url,webHttp);
+        System.out.print("URL :"+url);
+        url = formatToPath(url,webHttp,request);
+        System.out.print("URL FORMAT:"+url);
         request.getSession().setAttribute(
                 Globals.LOCALE_KEY, Locale.ENGLISH);
         if (!url.isEmpty()) {
             myAction = new ActionForward(url);
         }
-        preAction = url;
+        request.getSession().setAttribute("PreAction", url);
         return myAction;
     }
 
-    public static String formatToPath(String url,String webHttp) {
+    public static String formatToPath(String url,String webHttp,HttpServletRequest request) {
         String result = "";
         result = url.replace(webHttp, "");
         if ("/".equals(result.trim()) || "".equals(result.trim())) {
             result = DEFAUFT_RETURN;
         }
         if (result.matches(LOCATE_ACTION_PATTERN)) {
-            result = preAction;
+            result = (String) request.getSession().getAttribute("PreAction");
+            if(result == null){
+                result = DEFAUFT_RETURN;
+            }
         }
         return result;
     }
