@@ -50,14 +50,11 @@
         <action path="/Syllabus" type="uit.elib.action.SyllabusAction" scope="session">
             <forward name="success" path=".syllabus"/>
             <forward name="unsuccess" path="/Welcome.do"/>
-        </action> 
+        </action>
         <action path="/LoadCreateResource" forward=".createResource"/>
         <action path="/CreateSubject" name="CreateSubjectForm" type="uit.elib.action.CreateSubjectAction" scope="session">
             <forward name="success" path=".createSubject"/>
         </action>        
-        <action path="/LoadCreateResource" type="uit.elib.action.LoadCreateResourceAction" scope="session">
-            <forward name="success" path=".createResource"/>
-        </action>
         <action path="/LoadCreateSubject" name="LoadCreateSubjectForm" type="uit.elib.action.LoadCreateSubjectAction" scope="session">
             <forward name="success" path=".createSubject"/>
         </action>
@@ -68,7 +65,6 @@
         <action path="/materialPage" forward=".materialPage"  scope="session"/>
         <action path="/lecturesPage" forward=".lecturesPage"  scope="session"/>
         <action path="/generalinformationPage" forward=".generalinformationPage"  scope="session"/>
-        <action path="/createResource" forward=".createResourcePage"  scope="session"/>
         <action path="/Locale" type="uit.elib.action.languageSelectAction" parameter="method" validate="false"  scope="session"/>
     </action-mappings>
     
