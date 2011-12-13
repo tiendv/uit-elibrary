@@ -25,8 +25,6 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
-    private static final String SUCCESSCREATECHAPTER ="createchapter";
-    private static final String  SUCCESSCREATEPROJECT ="createproject";
 
     /**
      * This is the action called from the Struts framework.
@@ -79,7 +77,6 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
             temp.setSummaryVn(createResourceActionForm.getFckChapterSummaryVN());
             temp.setSummaryEn(createResourceActionForm.getFckChapterSummaryEN());
             rsBO.addNew(temp);
-            return mapping.findForward(SUCCESSCREATECHAPTER);
         }
         
         /**
@@ -114,7 +111,6 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
                 fileOutputStream.close();
             }
             rsBO.addNew(temp);
-            return mapping.findForward(SUCCESSCREATEPROJECT);
         }
          /***
           *  Picture and Reading
@@ -148,7 +144,6 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
                 fileOutputStream.close();
             }
             rsBO.addNew(temp);
-            return mapping.findForward(SUCCESSCREATEPROJECT); 
          }
          /**
           * Resource type = video, 
@@ -184,7 +179,6 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
                 fileOutputStream.close();
             }
             rsBO.addNew(temp);
-            return mapping.findForward(SUCCESSCREATEPROJECT); 
          }
           if(typeResource == 12)
          {
@@ -215,8 +209,11 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
                 fileOutputStream.close();
             }
             rsBO.addNew(temp);
-            return mapping.findForward(SUCCESSCREATEPROJECT); 
-         }        
+         }
+        Boolean success =true;
+        request.setAttribute("success",success);
+        String href="./LoadCreateResource.do";
+        request.setAttribute("href",href);
         return mapping.findForward(SUCCESS);
     }
 }
