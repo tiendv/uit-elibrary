@@ -45,7 +45,7 @@ public class AjaxGetChapterBySubjectID extends org.apache.struts.action.Action {
         for (int i = 0; i < chapters.size(); i++) {
             Resource resource = chapters.get(i);
             response.getWriter().println("<option value = "+ resource.getResourceId() +" >");
-            response.getWriter().println(resource.getResourceNameEn());
+            response.getWriter().println(resource.getOrderChapter());
             response.getWriter().println("</option>");
         }
                 
