@@ -59,7 +59,7 @@
             <forward name="success" path=".createSubject"/>
         </action>
         <action path="/DownLoad" type="uit.elib.action.DownLoadAction"  scope="session"/>  
-        <action path="/AjaxGetChapterBySubjectID" type="uit.elib.action.AjaxGetChapterBySubjectID"  scope="session"/>
+        <action path="/LoadChapterAction" type="uit.elib.action.LoadChapterAction"  scope="session"/>
         <action path="/Welcome" forward=".homepage"  scope="session"/>
         <action path="/Admin" forward=".adminPage"  scope="session"/>
         <action path="/materialPage" forward=".materialPage"  scope="session"/>
