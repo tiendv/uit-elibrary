@@ -44,7 +44,7 @@ public class LoadChapterAction extends org.apache.struts.action.Action {
         response.getWriter().println("<select name=\"dropOrderChapterSubject\">");        
         for (int i = 0; i < chapters.size(); i++) {
             Resource resource = chapters.get(i);
-            response.getWriter().println("<option value = "+ resource.getResourceId() +" >");
+            response.getWriter().println("<option value = "+ resource.getOrderChapter() +" >");
             response.getWriter().println(resource.getOrderChapter());
             response.getWriter().println("</option>");
         }
