@@ -153,8 +153,7 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
             
              tempSJ = sjBO.getById(createResourceActionForm.getDropSubjectNameInResourceChapter(), true);
              temp.setSubject(tempSJ);
-             Resource tempRS = rsBO.getById(createResourceActionForm.getDropOrderChapterSubject(), true); 
-             temp.setOrderChapter(tempRS.getOrderChapter());
+             temp.setOrderChapter(createResourceActionForm.getDropOrderChapterSubject());
              FormFile resourceChapterProject = createResourceActionForm.getFileResourceChapter();
             /**
              * 
