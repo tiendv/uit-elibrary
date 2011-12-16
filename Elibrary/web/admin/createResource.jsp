@@ -269,7 +269,7 @@
             var id = document.getElementById("dropSubjectName").value;
             $.ajax({
                 type: "POST",
-                url: "LoadChapterAction.do",
+                url: "LoadChapter.do",
                 data: "id="+id
             }).done(function( msg ) {
                 document.getElementById("chapter").innerHTML = msg;
@@ -289,7 +289,7 @@
         var id = document.getElementById("dropSubjectName").value;
         $.ajax({
             type: "POST",
-            url: "LoadChapterAction.do",
+            url: "LoadChapter.do",
             data: "id="+id
         }).done(function( msg ) {
             document.getElementById("chapter").innerHTML = msg;
