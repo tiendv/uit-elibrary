@@ -28,6 +28,10 @@
         <action path="/LoadFaculty" type="uit.elib.action.LoadFacultyAction" scope="session">           
             <forward name="success" path=".loadFaculty"/>
         </action>
+        <action path="/LoadListOfSubject" name="LoadCreateSubjectForm" type="uit.elib.action.LoadListOfSubjectAction" scope="session">
+            <forward name="success" path=".LoadListOfSubject"/>
+        </action>
+        <action path="/LoadListSubjectOfCategory" type="uit.elib.action.LoadListSubjectOfCategoryAction"  scope="session"/>
         <action path="/LoadBase" type="uit.elib.action.LoadBaseAction" scope="session">           
             <forward name="success" path=".loadBase"/>
         </action>
