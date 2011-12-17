@@ -4,6 +4,7 @@
  */
 package uit.elib.formbean;
 import java.util.List;
+import uit.elib.bo.FacultyBO;
 import uit.elib.dto.Faculty;
 import uit.elib.dto.Subjectcategory;
 
@@ -49,4 +50,5 @@ public class LoadCreateSubjectForm extends org.apache.struts.action.ActionForm {
     public void setListDropSubjectCategory(List<Subjectcategory> listDropSubjectCategory) {
         this.listDropSubjectCategory = listDropSubjectCategory;
     }
+
 }
