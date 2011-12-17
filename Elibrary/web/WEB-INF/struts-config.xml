@@ -21,7 +21,7 @@
         <forward name="admin"  path="/Admin.do"/>
     </global-forwards>
 
-    <action-mappings>
+    <action-mappings>       
         <action path="/LoadSubject" type="uit.elib.action.LoadSubjectAction" scope="session">           
             <forward name="success" path=".loadSubject"/>
         </action>
@@ -52,6 +52,7 @@
             <forward name="unsuccess" path="/Welcome.do"/>
         </action>
         <action path="/LoadCreateResource" forward=".createResource"/>
+        <action path="/LoadResource" forward=".loadResource"/>
         <action path="/CreateSubject" name="CreateSubjectForm" type="uit.elib.action.CreateSubjectAction" scope="session">
             <forward name="success" path="/jsp/success.jsp"/>
         </action>
@@ -61,8 +62,10 @@
         <action path="/LoadCreateSubject" name="LoadCreateSubjectForm" type="uit.elib.action.LoadCreateSubjectAction" scope="session">
             <forward name="success" path=".createSubject"/>
         </action>
+        <action path="/DeleteResource" type="uit.elib.action.DeleteResourceAction"/>
+        <action path="/LoadResourceTable" type="uit.elib.action.LoadResourceTableAction" scope="session"/>
         <action path="/DownLoad" type="uit.elib.action.DownLoadAction"  scope="session"/>  
-        <action path="/LoadChapterAction" type="uit.elib.action.LoadChapterAction"  scope="session"/>
+        <action path="/LoadChapter" type="uit.elib.action.LoadChapterAction"  scope="session"/>
         <action path="/Welcome" forward=".homepage"  scope="session"/>
         <action path="/Admin" forward=".adminPage"  scope="session"/>
         <action path="/materialPage" forward=".materialPage"  scope="session"/>
