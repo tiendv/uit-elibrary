@@ -19,7 +19,11 @@ public class ResourceBO extends ManagerBase<Resource> {
     public ResourceBO() throws Exception {
 
     }
-
+    public int DeleteResource(String sql) throws Exception
+    {
+        return excecuteSQl(sql);
+        
+    }
     public static ResourceBO getResourceBO() throws Exception{
          if (resourceBO == null ){
               resourceBO = new ResourceBO();
