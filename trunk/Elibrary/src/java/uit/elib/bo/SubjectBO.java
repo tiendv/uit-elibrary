@@ -40,7 +40,7 @@ public class SubjectBO extends ManagerBase<Subject> {
             return null;
         }
     } 
-     public List getAllSubject(String where,String[] sort) {
+     public List<Subject> getAllSubject(String where,String[] sort) {
         try {
             List<Subject> list = getBySQLQuery(where,sort, 0);
             return list;
@@ -50,6 +50,7 @@ public class SubjectBO extends ManagerBase<Subject> {
             return null;
         }
     }        
+        
      public List getAllSubject() {
         try {
             String[] sort = new String[]{"subjectId"}; // tang dan

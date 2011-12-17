@@ -31,7 +31,7 @@ public class SubjectCategoryBO extends ManagerBase<Subjectcategory> {
      * @return List Subject In Database order by subject ID
      */
     
-     public List getAllSubjectCategory() {
+     public List<Subjectcategory> getAllSubjectCategory() {
         try {
             String[] sort = new String[]{"subjectCategoryId"}; // tang dan
             //String[] sort = new String[]{"name desc"}; // giam dan
