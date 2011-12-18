@@ -63,8 +63,6 @@
                 <div  id="divChapter" class="chapter"  style="display: none">
                     <table width="100%" border="0" cellspacing="0" cellpadding="5">
                         <tr>
-                            <td class="label"><bean:message key="text.namechapteren"/></td>
-                            <td><input class="textbox" name="txtChapterUSName" type="text"/></td>
                             <td class="label"><bean:message key="text.orderchapter"/></td>
                             <td><input class="textbox" name="txtOrderChapter" type="text"/></td>
                         </tr>
