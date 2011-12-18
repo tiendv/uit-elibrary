@@ -15,6 +15,7 @@ import uit.elib.bo.ResourceBO;
 import uit.elib.bo.SubjectBO;
 import uit.elib.dto.Resource;
 import uit.elib.dto.Subject;
+import uit.elib.utility.IsNumber;
 
 /**
  *
@@ -33,26 +34,15 @@ public class SubjectHomeAction extends org.apache.struts.action.Action {
      * @param response The HTTP Response we are processing.
      * @throws java.lang.Exception
      * @return
-     */
-    boolean checkInt(String resourceID)
-    {
-        try
-        {
-            int x = Integer.parseInt(resourceID);
-            return true;
-        }
-        catch(Exception ex)
-        {
-            return false;
-        }
-    }    
+     */  
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+        IsNumber isNumber = new IsNumber();
         if(request.getParameter("subjectID")!=null)
         {
-            if(checkInt(request.getParameter("subjectID")))
+            if(isNumber.checkInt(request.getParameter("subjectID")))
             {
                 int id = Integer.parseInt(request.getParameter("subjectID"));
                 List<Subject>listSubject=SubjectBO.getSubjectBO().getSubject(id);
