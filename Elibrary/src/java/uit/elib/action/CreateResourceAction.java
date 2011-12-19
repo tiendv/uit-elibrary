@@ -41,7 +41,7 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
             throws Exception {
         request.setCharacterEncoding("UTF-8");
         
-        CreateResourceForm createResourceActionForm = (CreateResourceForm)form;
+        CreateResourceForm createResourceForm = (CreateResourceForm)form;
         
         ResourceBO rsBO = ResourceBO.getResourceBO();
         SubjectBO sjBO = SubjectBO.getSubjectBO();
@@ -51,30 +51,27 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
         FileOutputStream fileOutputStream; // save to server
         
         Resourcecategory tempRC= new Resourcecategory();
-        ResourceCategoryBO rscBO = ResourceCategoryBO.getResourceCategoryBO();
         java.util.Date utilDate = new java.util.Date();
         java.sql.Date sqlDate = new Date(utilDate.getTime());
         
-        
-        SubjectCategoryBO sjcBO = SubjectCategoryBO.getSubjectCategoryBO();
         Resource temp = new Resource();
-        temp.setResourceNameVn(createResourceActionForm.getTxtResourceNameVN());
-        temp.setResourceNameEn(createResourceActionForm.getTxtResourceNameEN());        
-        int typeResource = Integer.parseInt(createResourceActionForm.getHiddenResourceType());
-        tempRC = rscBO.getById(typeResource,true);
+        temp.setResourceNameVn(createResourceForm.getTxtResourceNameVN());
+        temp.setResourceNameEn(createResourceForm.getTxtResourceNameEN());        
+        int resourceCategoryID = createResourceForm.getDropResourceCategory();
+        tempRC.setResourceCategoryId(resourceCategoryID);
         temp.setResourcecategory(tempRC);
-        
+        temp.setPostDate(sqlDate);
         /**
          * 
          * create chapter
          */
-        if(typeResource == 7)
+        if(resourceCategoryID == 7)
         {   
-            tempSJ = sjBO.getById(createResourceActionForm.getDropSubjectNameInChapter(), true);
-            temp.setOrderChapter(createResourceActionForm.getTxtOrderChapter());
+            tempSJ = sjBO.getById(createResourceForm.getDropSubjectInChapter(), true);
+            temp.setOrderChapter(createResourceForm.getTxtOrderChapter());
             temp.setSubject(tempSJ);
-            temp.setSummaryVn(createResourceActionForm.getFckChapterSummaryVN());
-            temp.setSummaryEn(createResourceActionForm.getFckChapterSummaryEN());
+            temp.setSummaryVn(createResourceForm.getFckChapterSummaryVN());
+            temp.setSummaryEn(createResourceForm.getFckChapterSummaryEN());
             rsBO.addNew(temp);
         }
         
@@ -82,14 +79,13 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
          * Create project
          */
         
-         if(typeResource == 6)
+         if(resourceCategoryID == 6)
         {
-            temp.setResourceNameEn(createResourceActionForm.getTxtProjectNameEN());
-            temp.setAuthor(createResourceActionForm.getTxtAuthorProject());
-            tempSJ = sjBO.getById(createResourceActionForm.getDropSubjectNameInProject(), true);
+            temp.setResourceNameEn(createResourceForm.getTxtProjectNameEN());
+            temp.setAuthor(createResourceForm.getTxtAuthorProject());
+            tempSJ = sjBO.getById(createResourceForm.getDropSubjectInProject(), true);
             temp.setSubject(tempSJ);
-            temp.setPostDate(sqlDate);
-            FormFile fileProject = createResourceActionForm.getFileProject();       
+            FormFile fileProject = createResourceForm.getFileProject();       
             if(!fileProject.getFileName().isEmpty())
             {   temp.setSize(fileProject.getFileSize());
                 temp.setUploadName(fileProject.getFileName());
@@ -115,12 +111,12 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
           *  Picture and Reading
           */
          
-         if(typeResource == 8 || typeResource == 9)
+         if(resourceCategoryID == 8 || resourceCategoryID == 9)
          {
-             temp.setSummaryEn(createResourceActionForm.getTxtNote());
-             tempSJ = sjBO.getById(createResourceActionForm.getDropSubjectNameInReadingAndPicture(), true);
+             temp.setSummaryEn(createResourceForm.getTxtNote());
+             tempSJ = sjBO.getById(createResourceForm.getDropSubjectInReadingAndPicture(), true);
              temp.setSubject(tempSJ);
-             FormFile pictureReading = createResourceActionForm.getFilePictureReading();
+             FormFile pictureReading = createResourceForm.getFilePictureReading();
             /**
              * 
              */
@@ -147,13 +143,13 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
          /**
           * Resource type = video, 
           */
-          if(typeResource == 4 || typeResource == 5 || typeResource == 10 || typeResource == 11)
+          if(resourceCategoryID == 4 || resourceCategoryID == 5 || resourceCategoryID == 10 || resourceCategoryID == 11)
          {
             
-             tempSJ = sjBO.getById(createResourceActionForm.getDropSubjectNameInResourceChapter(), true);
+             tempSJ = sjBO.getById(createResourceForm.getDropSubjectInResourceChapter(), true);
              temp.setSubject(tempSJ);
-             temp.setOrderChapter(createResourceActionForm.getDropOrderChapterSubject());
-             FormFile resourceChapterProject = createResourceActionForm.getFileResourceChapter();
+             temp.setOrderChapter(createResourceForm.getDropOrderChapterSubject());
+             FormFile resourceChapterProject = createResourceForm.getFileResourceChapter();
             /**
              * 
              */
@@ -173,17 +169,16 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
                 temp.setServerName(file.getName());
                 String []suffixFile = resourceChapterProject.getFileName().split("\\.");
                 temp.setFormat(suffixFile[suffixFile.length-1]);
-                temp.setPostDate(sqlDate);
                 fileOutputStream.close();
             }
             rsBO.addNew(temp);
          }
-          if(typeResource == 12)
+          if(resourceCategoryID == 12)
          {
             
-             tempSJ = sjBO.getById(createResourceActionForm.getDropSubjectNameInSysllabus(), true);
+             tempSJ = sjBO.getById(createResourceForm.getDropSubjectInSysllabus(), true);
              temp.setSubject(tempSJ);
-             FormFile resourceChapterProject = createResourceActionForm.getFileResourceSysllabus();
+             FormFile resourceChapterProject = createResourceForm.getFileResourceSysllabus();
             /**
              * 
              */
@@ -203,7 +198,6 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
                 temp.setServerName(file.getName());
                 String []suffixFile = resourceChapterProject.getFileName().split("\\.");
                 temp.setFormat(suffixFile[suffixFile.length-1]);
-                temp.setPostDate(sqlDate);
                 fileOutputStream.close();
             }
             rsBO.addNew(temp);

@@ -18,25 +18,24 @@ public class CreateResourceForm extends org.apache.struts.action.ActionForm {
     
     private String txtResourceNameVN;
     private String txtResourceNameEN;
-    private int dropResourceType;;
+    private int dropResourceCategory;
     private String txtChapterUSName;
     private int txtOrderChapter;
-    private int dropSubjectNameInChapter;
+    private int dropSubjectInChapter;
     private String fckChapterSummaryVN;
     private String fckChapterSummaryEN;
     private String txtProjectNameEN;
     private String txtAuthorProject;
-    private int dropSubjectNameInProject;
+    private int dropSubjectInProject;
     private FormFile fileProject;
     private FormFile fileResourceSysllabus;
     private String txtNote;
-    private int dropSubjectNameInReadingAndPicture;
+    private int dropSubjectInReadingAndPicture;
     private FormFile filePictureReading;
-    private int dropSubjectNameInResourceChapter;
+    private int dropSubjectInResourceChapter;
     private int dropOrderChapterSubject;
     private FormFile fileResourceChapter;
-    private String hiddenResourceType;
-    private int dropSubjectNameInSysllabus;
+    private int dropSubjectInSysllabus;
 
     public String getTxtResourceNameEN() {
         return txtResourceNameEN;
@@ -62,12 +61,12 @@ public class CreateResourceForm extends org.apache.struts.action.ActionForm {
         this.fileResourceSysllabus = fileResourceSysllabus;
     }
 
-    public int getDropSubjectNameInSysllabus() {
-        return dropSubjectNameInSysllabus;
+    public int getDropSubjectInSysllabus() {
+        return dropSubjectInSysllabus;
     }
 
-    public void setDropSubjectNameInSysllabus(int dropSubjectNameInSysllabus) {
-        this.dropSubjectNameInSysllabus = dropSubjectNameInSysllabus;
+    public void setDropSubjectInSysllabus(int dropSubjectInSysllabus) {
+        this.dropSubjectInSysllabus = dropSubjectInSysllabus;
     }
     
     public String getTxtChapterUSName() {
@@ -110,52 +109,44 @@ public class CreateResourceForm extends org.apache.struts.action.ActionForm {
         this.fileResourceChapter = fileResourceChapter;
     }
 
-    public String getHiddenResourceType() {
-        return hiddenResourceType;
+    public int getDropResourceCategory() {
+        return dropResourceCategory;
     }
 
-    public void setHiddenResourceType(String hiddenResourceType) {
-        this.hiddenResourceType = hiddenResourceType;
-    }
-    
-    public int getDropResourceType() {
-        return dropResourceType;
+    public void setDropResourceCategory(int dropResourceCategory) {
+        this.dropResourceCategory = dropResourceCategory;
     }
 
-    public void setDropResourceType(int dropResourceType) {
-        this.dropResourceType = dropResourceType;
+    public int getDropSubjectInChapter() {
+        return dropSubjectInChapter;
     }
 
-    public int getDropSubjectNameInChapter() {
-        return dropSubjectNameInChapter;
+    public void setDropSubjectInChapter(int dropSubjectInChapter) {
+        this.dropSubjectInChapter = dropSubjectInChapter;
     }
 
-    public void setDropSubjectNameInChapter(int dropSubjectNameInChapter) {
-        this.dropSubjectNameInChapter = dropSubjectNameInChapter;
+    public int getDropSubjectInProject() {
+        return dropSubjectInProject;
     }
 
-    public int getDropSubjectNameInProject() {
-        return dropSubjectNameInProject;
+    public void setDropSubjectInProject(int dropSubjectInProject) {
+        this.dropSubjectInProject = dropSubjectInProject;
     }
 
-    public void setDropSubjectNameInProject(int dropSubjectNameInProject) {
-        this.dropSubjectNameInProject = dropSubjectNameInProject;
+    public int getDropSubjectInReadingAndPicture() {
+        return dropSubjectInReadingAndPicture;
     }
 
-    public int getDropSubjectNameInReadingAndPicture() {
-        return dropSubjectNameInReadingAndPicture;
+    public void setDropSubjectInReadingAndPicture(int dropSubjectInReadingAndPicture) {
+        this.dropSubjectInReadingAndPicture = dropSubjectInReadingAndPicture;
     }
 
-    public void setDropSubjectNameInReadingAndPicture(int dropSubjectNameInReadingAndPicture) {
-        this.dropSubjectNameInReadingAndPicture = dropSubjectNameInReadingAndPicture;
+    public int getDropSubjectInResourceChapter() {
+        return dropSubjectInResourceChapter;
     }
 
-    public int getDropSubjectNameInResourceChapter() {
-        return dropSubjectNameInResourceChapter;
-    }
-
-    public void setDropSubjectNameInResourceChapter(int dropSubjectNameInResourceChapter) {
-        this.dropSubjectNameInResourceChapter = dropSubjectNameInResourceChapter;
+    public void setDropSubjectInResourceChapter(int dropSubjectInResourceChapter) {
+        this.dropSubjectInResourceChapter = dropSubjectInResourceChapter;
     }
 
     public String getFckChapterSummaryVN() {

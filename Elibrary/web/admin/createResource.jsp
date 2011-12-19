@@ -22,30 +22,27 @@
  <link href="<html:rewrite page='/css/uit.css'/>" rel="stylesheet" type="text/css" />
 
 <div style="overflow: auto;height: 600px;">
-    <form name="createResource" method="post" action="CreateResource.do"  enctype="multipart/form-data">
+    <form id="createResource" method="post" action="CreateResource.do"  enctype="multipart/form-data">
         <jsp:useBean id="resourceTypeBO" class="uit.elib.bo.ResourceCategoryBO" scope="page">
         <jsp:useBean id="subjectBO" class="uit.elib.bo.SubjectBO" scope="page">
         <jsp:useBean id="resourceBO" class="uit.elib.bo.ResourceBO" scope="page">
                 <%int language =1; // English
-                    Locale locale = request.getLocale();
                     if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
                         language = 2; // VietNamese
                 %>
-                <input id="hiddenResourceType" name="hiddenResourceType" type="hidden"/>
-                <input id="hiddenSubjectSelectInResourceChapter" name="hiddenSubjectSelectInResourceChapter" type="hidden"/>
                 <h2> <bean:message key="text.chosetypeofresourced"/></h2>
                 <table width="100%" border="0" cellspacing="0" cellpadding="5">
                     <tr>
                         <td><bean:message key="text.typeofresource"/></td>
                         <td>
                             <%if(language==1) {%>
-                            <select id="dropResourceType"  name="dropResourceType">
+                            <select id="dropResourceCategory" name="dropResourceCategory" onchange="changeResourceCategory()">
                                 <c:forEach items="${resourceTypeBO.allResourcecategory}" var="item">
                                     <option value="${item.resourceCategoryId}">${item.resourceCategoryNameEn}</option>
                                 </c:forEach> 
                             <%}%>
                             <%if(language==2) {%>
-                            <select id="dropResourceType"  name="dropResourceType">
+                            <select id="dropResourceCategory" name="dropResourceCategory" onchange="changeResourceCategory()">
                                 <c:forEach items="${resourceTypeBO.allResourcecategory}" var="item">
                                     <option value="${item.resourceCategoryId}">${item.resourceCategoryNameVn}</option>
                                 </c:forEach>
@@ -54,9 +51,9 @@
                     </tr>                    
                     <tr>
                         <td><bean:message key="text.resourcenameen"/></td>
-                        <td><input name="txtResourceNameEN" type="text"/></td>
+                        <td><input id="txtResourceNameEN" name="txtResourceNameEN" type="text"/></td>
                         <td><bean:message key="text.resourcenamevn"/></td>
-                        <td><input name="txtResourceNameVN" type="text"/></td>
+                        <td><input id="txtResourceNameVN" name="txtResourceNameVN" type="text"/></td>
                     </tr>
                 </table>
                 <%-- Add resource with resource type is chapter (ID =7) --%>
@@ -64,19 +61,19 @@
                     <table width="100%" border="0" cellspacing="0" cellpadding="5">
                         <tr>
                             <td class="label"><bean:message key="text.orderchapter"/></td>
-                            <td><input class="textbox" name="txtOrderChapter" type="text"/></td>
+                            <td><input class="textbox" id="txtOrderChapter" name="txtOrderChapter" type="text"/></td>
                         </tr>
                         <tr>
                             <td><bean:message key="text.namesubject"/></td>
                             <td>
                                 <%if(language==1) {%>
-                                <select  id="dropSubjectNameInChapter" name="dropSubjectNameInChapter">
+                                <select  id="dropSubjectInChapter" name="dropSubjectInChapter">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameEn}</option>
                                     </c:forEach>
                                 <%}%>
                                 <%if(language==2) {%>
-                                <select  id="dropSubjectNameInChapter" name="dropSubjectNameInChapter">
+                                <select  id="dropSubjectInChapter" name="dropSubjectInChapter" >
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameVn}</option>
                                     </c:forEach>
@@ -103,22 +100,22 @@
                     <table  border="0" cellspacing="0" cellpadding="5">
                         <tr>
                             <td class="label"><bean:message key="text.projectnameen"/></td>
-                            <td><input class="textbox" name="txtProjectNameEN" type="text"/></td>
+                            <td><input class="textbox" id="txtProjectNameEN" name="txtProjectNameEN" type="text"/></td>
                             <td class="label"><bean:message key="text.projectauthor"/></td>
-                            <td><input  name="txtAuthorProject" type="text"/></td>
+                            <td><input id="txtAuthorProject" name="txtAuthorProject" type="text"/></td>
                         </tr>
                         <tr>
                             <td class="label" ><bean:message key="text.namesubject"/></td>
                             <td>
                                 <%if(language==1) {%>
-                                <select id="dropSubjectNameInProject"  name="dropsubjectnameinproject">
+                                <select id="dropSubjectInProject" name="dropSubjectInProject" >
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameEn}</option>
                                     </c:forEach>
                                 
                                 <%}%>
                                  <%if(language==2) {%>
-                                <select id="dropSubjectNameInProject"  name="dropsubjectnameinproject">
+                                <select id="dropSubjectInProject" name="dropSubjectInProject" >
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameVn}</option>
                                     </c:forEach>
@@ -140,17 +137,17 @@
                     <table width="100%" border="0" cellspacing="0" cellpadding="5">
                         <tr>
                             <td class="label"><bean:message key="text.note"/></td>
-                            <td><input name="txtNote" type="text"/></td>
+                            <td><input id="txtNote" name="txtNote" type="text"/></td>
                             <td class="label" ><bean:message key="text.namesubject"/></td>
                             <td>
                                 <%if(language==1) {%>
-                                <select  name="dropSubjectNameInReadingAndPicture">
+                                <select  id="dropSubjectInReadingAndPicture" name="dropSubjectInReadingAndPicture">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameEn}</option>
                                     </c:forEach>                           
                                 <%}%>
                                 <%if(language==2) {%>
-                                <select  name="dropSubjectNameInReadingAndPicture">
+                                <select  id="dropSubjectInReadingAndPicture" name="dropSubjectInReadingAndPicture" >
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameVn}</option>
                                     </c:forEach>                        
@@ -171,13 +168,13 @@
                             <td class="label"><bean:message key="text.namesubject"/></td>
                             <td>
                                 <%if(language==1) {%>
-                                <select id="dropSubjectName" name="dropSubjectNameInResourceChapter">
+                                <select id="dropSubjectInResourceChapter" name="dropSubjectInResourceChapter" onchange="changeSubject(this.value)" >
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameEn}</option>
                                     </c:forEach> 
                                 <%}%>
                                  <%if(language==2) {%>
-                                <select id="dropSubjectName" name="dropSubjectNameInResourceChapter">
+                                <select id="dropSubjectInResourceChapter" name="dropSubjectInResourceChapter" onchange="changeSubject(this.value)">
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameVn}</option>
                                     </c:forEach>
@@ -201,7 +198,7 @@
                         <tr>
                             <td class="label"><bean:message key="text.namesubject"/></td>
                             <td>
-                                <select id="dropSubjectName" name="dropSubjectNameInSysllabus">
+                                <select id="dropSubjectInSysllabus" name="dropSubjectInSysllabus" >
                                 <%if(language==1) {%>
                                     <c:forEach items="${subjectBO.allSubject}" var="item">
                                         <option value="${item.subjectId}">${item.subjectNameEn}</option>
@@ -231,18 +228,17 @@
 </div>     
 <script type="text/javascript">
 
-    var selectTypeResource=document.getElementById("dropResourceType");
-    selectTypeResource.onchange=function(){
+        function changeResourceCategory(){
         //run some code when "onchange" event fires
         document.getElementById("diveButtonCreate").style.display = "block";
         
-        var chosenoption=this.options[this.selectedIndex]; //this refers to "selectmenu"
+        var chosenoption=document.getElementById("dropResourceCategory");
         if (chosenoption.value=="7"){
             document.getElementById("divChapter").style.display = "block";
-             document.getElementById("divProject").style.display = "none";
-             document.getElementById("divPictureandReading").style.display = "none";
-             document.getElementById("divResourceChapter").style.display = "none";
-             document.getElementById("divResourceSyllabus").style.display = "none";
+            document.getElementById("divProject").style.display = "none";
+            document.getElementById("divPictureandReading").style.display = "none";
+            document.getElementById("divResourceChapter").style.display = "none";
+            document.getElementById("divResourceSyllabus").style.display = "none";
         }
         if (chosenoption.value=="6"){
             document.getElementById("divProject").style.display = "block";
@@ -264,7 +260,7 @@
             document.getElementById("divChapter").style.display = "none";
             document.getElementById("divPictureandReading").style.display = "none";
             document.getElementById("divResourceSyllabus").style.display = "none";
-            var id = document.getElementById("dropSubjectName").value;
+            var id = document.getElementById("dropSubjectInResourceChapter").value;
             $.ajax({
                 type: "POST",
                 url: "LoadChapter.do",
@@ -274,23 +270,30 @@
             });            
         }  
         if (chosenoption.value=="12"){
-             document.getElementById("divResourceSyllabus").style.display = "block";
-             document.getElementById("divProject").style.display = "none";
-             document.getElementById("divPictureandReading").style.display = "none";
-             document.getElementById("divResourceChapter").style.display = "none";
+            document.getElementById("divResourceSyllabus").style.display = "block";
+            document.getElementById("divProject").style.display = "none";
+            document.getElementById("divPictureandReading").style.display = "none";
+            document.getElementById("divResourceChapter").style.display = "none";
         }
-        document.getElementById("hiddenResourceType").value=chosenoption.value;        
+        if (chosenoption.value=="1" || chosenoption.value=="2" ||chosenoption.value=="3")
+        {
+            document.getElementById("divResourceChapter").style.display = "none";
+            document.getElementById("divProject").style.display = "none";
+            document.getElementById("divChapter").style.display = "none";
+            document.getElementById("divPictureandReading").style.display = "none";
+            document.getElementById("divResourceSyllabus").style.display = "none"; 
+            document.getElementById("diveButtonCreate").style.display = "none";
+        }
     }
         
-        var selectTypeResource=document.getElementById("dropSubjectName");
-        selectTypeResource.onchange=function(){ //run some code when "onchange" event fires
-        var id = document.getElementById("dropSubjectName").value;
-        $.ajax({
-            type: "POST",
-            url: "LoadChapter.do",
-            data: "id="+id
-        }).done(function( msg ) {
-            document.getElementById("chapter").innerHTML = msg;
-        });
-    }
+    function changeSubject(subjectID){ //run some code when "onchange" event fires
+    var id = subjectID;
+    $.ajax({
+        type: "POST",
+        url: "LoadChapter.do",
+        data: "id="+id
+    }).done(function( msg ) {
+        document.getElementById("chapter").innerHTML = msg;
+    });
+}
 </script>
