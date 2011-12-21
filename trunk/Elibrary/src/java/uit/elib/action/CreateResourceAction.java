@@ -81,7 +81,6 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
         
          if(resourceCategoryID == 6)
         {
-            temp.setResourceNameEn(createResourceForm.getTxtProjectNameEN());
             temp.setAuthor(createResourceForm.getTxtAuthorProject());
             tempSJ = sjBO.getById(createResourceForm.getDropSubjectInProject(), true);
             temp.setSubject(tempSJ);
@@ -113,7 +112,6 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
          
          if(resourceCategoryID == 8 || resourceCategoryID == 9)
          {
-             temp.setSummaryEn(createResourceForm.getTxtNote());
              tempSJ = sjBO.getById(createResourceForm.getDropSubjectInReadingAndPicture(), true);
              temp.setSubject(tempSJ);
              FormFile pictureReading = createResourceForm.getFilePictureReading();

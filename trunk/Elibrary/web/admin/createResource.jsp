@@ -99,8 +99,6 @@
                 <div id="divProject" class="project" style="display: none">
                     <table  border="0" cellspacing="0" cellpadding="5">
                         <tr>
-                            <td class="label"><bean:message key="text.projectnameen"/></td>
-                            <td><input class="textbox" id="txtProjectNameEN" name="txtProjectNameEN" type="text"/></td>
                             <td class="label"><bean:message key="text.projectauthor"/></td>
                             <td><input id="txtAuthorProject" name="txtAuthorProject" type="text"/></td>
                         </tr>
@@ -136,8 +134,6 @@
                 <div id="divPictureandReading"  class="pictureandreading" style="display: none">
                     <table width="100%" border="0" cellspacing="0" cellpadding="5">
                         <tr>
-                            <td class="label"><bean:message key="text.note"/></td>
-                            <td><input id="txtNote" name="txtNote" type="text"/></td>
                             <td class="label" ><bean:message key="text.namesubject"/></td>
                             <td>
                                 <%if(language==1) {%>

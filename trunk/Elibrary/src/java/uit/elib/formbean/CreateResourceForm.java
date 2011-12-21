@@ -3,11 +3,6 @@
  * and open the template in the editor.
  */
 package uit.elib.formbean;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionMapping;
 import org.apache.struts.upload.FormFile;
 
 /**
@@ -19,17 +14,14 @@ public class CreateResourceForm extends org.apache.struts.action.ActionForm {
     private String txtResourceNameVN;
     private String txtResourceNameEN;
     private int dropResourceCategory;
-    private String txtChapterUSName;
     private int txtOrderChapter;
     private int dropSubjectInChapter;
     private String fckChapterSummaryVN;
     private String fckChapterSummaryEN;
-    private String txtProjectNameEN;
     private String txtAuthorProject;
     private int dropSubjectInProject;
     private FormFile fileProject;
     private FormFile fileResourceSysllabus;
-    private String txtNote;
     private int dropSubjectInReadingAndPicture;
     private FormFile filePictureReading;
     private int dropSubjectInResourceChapter;
@@ -67,14 +59,6 @@ public class CreateResourceForm extends org.apache.struts.action.ActionForm {
 
     public void setDropSubjectInSysllabus(int dropSubjectInSysllabus) {
         this.dropSubjectInSysllabus = dropSubjectInSysllabus;
-    }
-    
-    public String getTxtChapterUSName() {
-        return txtChapterUSName;
-    }
-
-    public void setTxtChapterUSName(String txtChapterUSName) {
-        this.txtChapterUSName = txtChapterUSName;
     }
 
     public int getDropOrderChapterSubject() {
@@ -172,15 +156,7 @@ public class CreateResourceForm extends org.apache.struts.action.ActionForm {
     public void setTxtAuthorProject(String txtAuthorProject) {
         this.txtAuthorProject = txtAuthorProject;
     }
-
-    public String getTxtNote() {
-        return txtNote;
-    }
-
-    public void setTxtNote(String txtNote) {
-        this.txtNote = txtNote;
-    }
-
+    
     public int getTxtOrderChapter() {
         return txtOrderChapter;
     }
@@ -189,31 +165,5 @@ public class CreateResourceForm extends org.apache.struts.action.ActionForm {
         this.txtOrderChapter = txtOrderChapter;
     }
 
-    public String getTxtProjectNameEN() {
-        return txtProjectNameEN;
-    }
 
-    public void setTxtProjectNameEN(String txtProjectNameEN) {
-        this.txtProjectNameEN = txtProjectNameEN;
-    }
-
-    /**
-     *
-     */
-    public CreateResourceForm() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-    /**
-     * This is the action called from the Struts framework.
-     * @param mapping The ActionMapping used to select this instance.
-     * @param request The HTTP Request we are processing.
-     * @return
-     */
-    public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
-        ActionErrors errors = new ActionErrors();
-       
-        return errors;
-    }
 }
