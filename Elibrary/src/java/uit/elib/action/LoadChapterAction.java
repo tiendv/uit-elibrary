@@ -50,6 +50,6 @@ public class LoadChapterAction extends org.apache.struts.action.Action {
             response.getWriter().println("</option>");
         }
         response.getWriter().println("</select>");        
-        return mapping.findForward(SUCCESS);
+        return null;
     }
 }
