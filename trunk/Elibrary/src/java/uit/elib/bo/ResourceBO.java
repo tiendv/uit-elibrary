@@ -122,7 +122,10 @@ public class ResourceBO extends ManagerBase<Resource> {
             return null;
         }
      }  
-    
+     public void updateResource(Resource r)throws Exception
+     {
+         update(r);
+     }
      
  
 }

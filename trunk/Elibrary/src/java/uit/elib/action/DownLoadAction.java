@@ -6,9 +6,12 @@ package uit.elib.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.chain.contexts.ActionContext;
+import org.hibernate.Session;
 import uit.elib.bo.ResourceBO;
 import uit.elib.dto.Resource;
 
@@ -58,6 +61,16 @@ public class DownLoadAction extends org.apache.struts.action.Action {
                 if(resource.getUploadName()!=null &&resource.getServerName()!=null ){
                     response.setHeader("Content-Disposition","attachment;filename="+resource.getUploadName()) ;
                     actionForward= new ActionForward("/upload/"+resource.getServerName());
+                    if(resource.getDownloadNumber()==null)
+                        resource.setDownloadNumber(0);
+                    resource.setDownloadNumber(resource.getDownloadNumber()+1);
+                    HttpSession session = request.getSession();
+                    if(session.getAttribute(resourceID)==null)
+                    {
+                        session.setAttribute(resourceID, 1);
+                        ResourceBO.getResourceBO().updateResource(resource);
+                    }
+                    
                 } 
             }   
         }
