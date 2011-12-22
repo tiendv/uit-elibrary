@@ -10,8 +10,6 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.chain.contexts.ActionContext;
-import org.hibernate.Session;
 import uit.elib.bo.ResourceBO;
 import uit.elib.dto.Resource;
 
