@@ -45,13 +45,13 @@ public abstract class ManagerBase<T> extends HibernateUtil {
     }
 
     /**
-     * Update or Add a entity and commit it to Database
+     * Update entity and commit it to Database
      * @param entity
      * @throws Exception
      */
     public void update(T entity) throws Exception {
         beginTransaction();
-        getCurrentSession().saveOrUpdate(entity);
+        getCurrentSession().update(entity);
         commitAndClose();
     }
 
