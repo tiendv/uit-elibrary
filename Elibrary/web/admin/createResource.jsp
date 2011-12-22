@@ -35,18 +35,18 @@
                     <tr>
                         <td><bean:message key="text.typeofresource"/></td>
                         <td>
-                            <%if(language==1) {%>
                             <select id="dropResourceCategory" name="dropResourceCategory" onchange="changeResourceCategory()">
-                                <c:forEach items="${resourceTypeBO.allResourcecategory}" var="item">
-                                    <option value="${item.resourceCategoryId}">${item.resourceCategoryNameEn}</option>
-                                </c:forEach> 
-                            <%}%>
-                            <%if(language==2) {%>
-                            <select id="dropResourceCategory" name="dropResourceCategory" onchange="changeResourceCategory()">
-                                <c:forEach items="${resourceTypeBO.allResourcecategory}" var="item">
-                                    <option value="${item.resourceCategoryId}">${item.resourceCategoryNameVn}</option>
-                                </c:forEach>
-                            <%}%>
+                                <%if(language==1) {%>
+                                    <c:forEach items="${resourceTypeBO.allResourcecategory}" var="item">
+                                        <option value="${item.resourceCategoryId}">${item.resourceCategoryNameEn}</option>
+                                    </c:forEach> 
+                                <%}%>
+                                <%if(language==2) {%>
+                                    <c:forEach items="${resourceTypeBO.allResourcecategory}" var="item">
+                                        <option value="${item.resourceCategoryId}">${item.resourceCategoryNameVn}</option>
+                                    </c:forEach>
+                                <%}%>
+                            </select>
                         </td>
                     </tr>                    
                     <tr>
@@ -66,19 +66,18 @@
                         <tr>
                             <td><bean:message key="text.namesubject"/></td>
                             <td>
-                                <%if(language==1) {%>
                                 <select  id="dropSubjectInChapter" name="dropSubjectInChapter">
-                                    <c:forEach items="${subjectBO.allSubject}" var="item">
-                                        <option value="${item.subjectId}">${item.subjectNameEn}</option>
-                                    </c:forEach>
-                                <%}%>
-                                <%if(language==2) {%>
-                                <select  id="dropSubjectInChapter" name="dropSubjectInChapter" >
-                                    <c:forEach items="${subjectBO.allSubject}" var="item">
-                                        <option value="${item.subjectId}">${item.subjectNameVn}</option>
-                                    </c:forEach>
-                              
-                                <%}%>
+                                    <%if(language==1) {%>                               
+                                        <c:forEach items="${subjectBO.allSubject}" var="item">
+                                            <option value="${item.subjectId}">${item.subjectNameEn}</option>
+                                        </c:forEach>
+                                    <%}%>
+                                    <%if(language==2) {%>
+                                        <c:forEach items="${subjectBO.allSubject}" var="item">
+                                            <option value="${item.subjectId}">${item.subjectNameVn}</option>
+                                        </c:forEach>
+                                    <%}%>
+                                </select>
                             </td>
                         </tr>
                     </table>
@@ -105,20 +104,18 @@
                         <tr>
                             <td class="label" ><bean:message key="text.namesubject"/></td>
                             <td>
-                                <%if(language==1) {%>
                                 <select id="dropSubjectInProject" name="dropSubjectInProject" >
-                                    <c:forEach items="${subjectBO.allSubject}" var="item">
-                                        <option value="${item.subjectId}">${item.subjectNameEn}</option>
-                                    </c:forEach>
-                                
-                                <%}%>
-                                 <%if(language==2) {%>
-                                <select id="dropSubjectInProject" name="dropSubjectInProject" >
-                                    <c:forEach items="${subjectBO.allSubject}" var="item">
-                                        <option value="${item.subjectId}">${item.subjectNameVn}</option>
-                                    </c:forEach>
-                                
-                                <%}%>
+                                    <%if(language==1) {%>     
+                                        <c:forEach items="${subjectBO.allSubject}" var="item">
+                                            <option value="${item.subjectId}">${item.subjectNameEn}</option>
+                                        </c:forEach>                   
+                                    <%}%>
+                                     <%if(language==2) {%>
+                                        <c:forEach items="${subjectBO.allSubject}" var="item">
+                                            <option value="${item.subjectId}">${item.subjectNameVn}</option>
+                                        </c:forEach>
+                                    <%}%>
+                                </select>
                             </td>
                         </tr>
                         <tr>
@@ -136,18 +133,18 @@
                         <tr>
                             <td class="label" ><bean:message key="text.namesubject"/></td>
                             <td>
-                                <%if(language==1) {%>
                                 <select  id="dropSubjectInReadingAndPicture" name="dropSubjectInReadingAndPicture">
-                                    <c:forEach items="${subjectBO.allSubject}" var="item">
-                                        <option value="${item.subjectId}">${item.subjectNameEn}</option>
-                                    </c:forEach>                           
-                                <%}%>
-                                <%if(language==2) {%>
-                                <select  id="dropSubjectInReadingAndPicture" name="dropSubjectInReadingAndPicture" >
-                                    <c:forEach items="${subjectBO.allSubject}" var="item">
-                                        <option value="${item.subjectId}">${item.subjectNameVn}</option>
-                                    </c:forEach>                        
-                                <%}%>
+                                    <%if(language==1) {%>
+                                        <c:forEach items="${subjectBO.allSubject}" var="item">
+                                            <option value="${item.subjectId}">${item.subjectNameEn}</option>
+                                        </c:forEach>                           
+                                    <%}%>
+                                    <%if(language==2) {%>
+                                        <c:forEach items="${subjectBO.allSubject}" var="item">
+                                            <option value="${item.subjectId}">${item.subjectNameVn}</option>
+                                        </c:forEach>                        
+                                    <%}%>
+                                </select>
                             </td>
                         </tr>
                         <tr>
@@ -163,18 +160,18 @@
                         <tr>
                             <td class="label"><bean:message key="text.namesubject"/></td>
                             <td>
-                                <%if(language==1) {%>
                                 <select id="dropSubjectInResourceChapter" name="dropSubjectInResourceChapter" onchange="changeSubject(this.value)" >
-                                    <c:forEach items="${subjectBO.allSubject}" var="item">
-                                        <option value="${item.subjectId}">${item.subjectNameEn}</option>
-                                    </c:forEach> 
-                                <%}%>
-                                 <%if(language==2) {%>
-                                <select id="dropSubjectInResourceChapter" name="dropSubjectInResourceChapter" onchange="changeSubject(this.value)">
-                                    <c:forEach items="${subjectBO.allSubject}" var="item">
-                                        <option value="${item.subjectId}">${item.subjectNameVn}</option>
-                                    </c:forEach>
-                                <%}%>
+                                    <%if(language==1) {%>
+                                        <c:forEach items="${subjectBO.allSubject}" var="item">
+                                            <option value="${item.subjectId}">${item.subjectNameEn}</option>
+                                        </c:forEach> 
+                                    <%}%>
+                                     <%if(language==2) {%>
+                                        <c:forEach items="${subjectBO.allSubject}" var="item">
+                                            <option value="${item.subjectId}">${item.subjectNameVn}</option>
+                                        </c:forEach>
+                                    <%}%>
+                                </select>
                             </td>
                             <td class="label"><bean:message key="text.orderchapter"/></td>
                             <td>
@@ -195,16 +192,17 @@
                             <td class="label"><bean:message key="text.namesubject"/></td>
                             <td>
                                 <select id="dropSubjectInSysllabus" name="dropSubjectInSysllabus" >
-                                <%if(language==1) {%>
-                                    <c:forEach items="${subjectBO.allSubject}" var="item">
-                                        <option value="${item.subjectId}">${item.subjectNameEn}</option>
-                                    </c:forEach>
-                                <%}%>
-                                 <%if(language==2) {%>   
-                                    <c:forEach items="${subjectBO.allSubject}" var="item">
-                                        <option value="${item.subjectId}">${item.subjectNameVn}</option>
-                                    </c:forEach>
-                                <%}%>
+                                    <%if(language==1) {%>
+                                        <c:forEach items="${subjectBO.allSubject}" var="item">
+                                            <option value="${item.subjectId}">${item.subjectNameEn}</option>
+                                        </c:forEach>
+                                    <%}%>
+                                     <%if(language==2) {%>   
+                                        <c:forEach items="${subjectBO.allSubject}" var="item">
+                                            <option value="${item.subjectId}">${item.subjectNameVn}</option>
+                                        </c:forEach>
+                                    <%}%>
+                                </select>
                             </td>
                         </tr>
                         <tr>
