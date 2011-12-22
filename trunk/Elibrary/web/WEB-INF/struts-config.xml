@@ -7,6 +7,7 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="EditResourceForm" type="uit.elib.formbean.EditResourceForm"/>
         <form-bean name="LoadCreateSubjectForm" type="uit.elib.formbean.LoadCreateSubjectForm"/>
         <form-bean name="CreateResourceForm" type="uit.elib.formbean.CreateResourceForm"/>
         <form-bean name="CreateSubjectForm" type="uit.elib.formbean.CreateSubjectForm"/>
@@ -66,10 +67,17 @@
         <action path="/LoadCreateSubject" name="LoadCreateSubjectForm" type="uit.elib.action.LoadCreateSubjectAction" scope="session">
             <forward name="success" path=".createSubject"/>
         </action>
+        <action path="/LoadEditResource" name="EditResourceForm" type="uit.elib.action.LoadEditResourceAction">
+            <forward name="success" path=".editResource"/>
+            <forward name="unsuccess" path="/Welcome.do"/>
+        </action>
+        <action name="EditResourceForm" path="/EditResource" scope="session" type="uit.elib.action.EditResourceAction">
+            <forward name="success" path="/jsp/success.jsp"/>
+        </action>            
         <action path="/DeleteResource" type="uit.elib.action.DeleteResourceAction"/>
         <action path="/LoadResourceTable" type="uit.elib.action.LoadResourceTableAction" scope="session"/>
         <action path="/DownLoad" type="uit.elib.action.DownLoadAction"  scope="session"/>  
-        <action path="/LoadChapter" type="uit.elib.action.LoadChapterAction"  scope="session"/>
+        <action path="/LoadChapter" type="uit.elib.action.LoadChapterAction" scope="session"/>  
         <action path="/Welcome" forward=".homepage"  scope="session"/>
         <action path="/Admin" forward=".adminPage"  scope="session"/>
         <action path="/materialPage" forward=".materialPage"  scope="session"/>

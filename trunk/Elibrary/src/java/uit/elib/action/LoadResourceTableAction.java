@@ -80,6 +80,9 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
                         response.getWriter().println("<td>");
                         response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listResource.get(i).getResourceId() +"\" />");
                         response.getWriter().println("</td>");
+                        response.getWriter().println("<td>");
+                        response.getWriter().println("<input type=\"submit\" value=\"Edit\" onclick=\"editResource("+listResource.get(i).getResourceId() +")\" />");
+                        response.getWriter().println("</td>");                        
                         response.getWriter().println("</tr>");
                     }
                 }
@@ -96,6 +99,9 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
                         response.getWriter().println("</td>");
                         response.getWriter().println("<td>");
                         response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listResource.get(i).getResourceId() +"\" />");
+                        response.getWriter().println("</td>");
+                        response.getWriter().println("<td>");
+                        response.getWriter().println("<input type=\"submit\" value=\"Edit\" onclick=\"editResource("+listResource.get(i).getResourceId() +")\" />");
                         response.getWriter().println("</td>");                        
                         response.getWriter().println("</tr>");
                     }                
@@ -128,6 +134,9 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
                         response.getWriter().println("</td>");
                         response.getWriter().println("<td>");
                         response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listResource.get(i).getResourceId() +"\" />");
+                        response.getWriter().println("</td>");
+                        response.getWriter().println("<td>");
+                        response.getWriter().println("<input type=\"submit\" value=\"Edit\" onclick=\"editResource("+listResource.get(i).getResourceId() +")\" />");
                         response.getWriter().println("</td>");                        
                         response.getWriter().println("</tr>");
                     }
@@ -145,6 +154,9 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
                         response.getWriter().println("</td>");
                         response.getWriter().println("<td>");
                         response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listResource.get(i).getResourceId() +"\" />");
+                        response.getWriter().println("</td>"); 
+                        response.getWriter().println("<td>");
+                        response.getWriter().println("<input type=\"submit\" value=\"Edit\" onclick=\"editResource("+listResource.get(i).getResourceId() +")\" />");
                         response.getWriter().println("</td>");                        
                         response.getWriter().println("</tr>");
                     }
@@ -163,6 +175,6 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
                 response.getWriter().println("Đang cập nhật");
         }
 
-        return mapping.findForward(SUCCESS);
+        return null;
     }
 }

@@ -67,8 +67,8 @@
 </table>
 <div id="divTable" ></div>
 
-
 <script type="text/javascript">
+ 
     function init()
     {     
         changeChapter();          
@@ -143,5 +143,10 @@
         }).done(function(){
             changeTable();
         });          
-    }    
+    }
+    
+    function editResource(resourcesID)
+    {
+        window.location = "LoadEditResource.do?resourceID="+resourcesID;
+    }
 </script>

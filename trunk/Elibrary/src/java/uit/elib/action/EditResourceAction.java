@@ -13,15 +13,17 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.upload.FormFile;
-import uit.elib.bo.*;
-import uit.elib.dto.*;
-import uit.elib.formbean.CreateResourceForm;
+import uit.elib.bo.ResourceBO;
+import uit.elib.dto.Resource;
+import uit.elib.dto.Resourcecategory;
+import uit.elib.dto.Subject;
+import uit.elib.formbean.EditResourceForm;
 
 /**
  *
- * @author tiendv
+ * @author Nguyen Hoang Tan
  */
-public class CreateResourceAction extends org.apache.struts.action.Action {
+public class EditResourceAction extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
@@ -39,13 +41,13 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+        
         request.setCharacterEncoding("UTF-8");
         
-        CreateResourceForm createResourceForm = (CreateResourceForm)form;
-        
-        ResourceBO rsBO = ResourceBO.getResourceBO();
-        
+        EditResourceForm createResourceForm = (EditResourceForm)form;      
+        ResourceBO rsBO = ResourceBO.getResourceBO();       
         Subject subject = new Subject();
+        Resource  oldResource =  new Resource ();
         File file;     // manage name
         FileOutputStream fileOutputStream; // save to server
         
@@ -55,9 +57,12 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
         
         Resource resource = new Resource();
         resource.setResourceNameVn(createResourceForm.getTxtResourceNameVN());
-        resource.setResourceNameEn(createResourceForm.getTxtResourceNameEN());        
-        int resourceCategoryID = createResourceForm.getDropResourceCategory();
+        resource.setResourceNameEn(createResourceForm.getTxtResourceNameEN());
+        int resourceID = createResourceForm.getTxtResourceID();
+        oldResource = rsBO.getResourceByID(resourceID);
+        int resourceCategoryID = oldResource.getResourcecategory().getResourceCategoryId();
         resourceCategory.setResourceCategoryId(resourceCategoryID);
+        resource.setResourceId(resourceID);
         resource.setResourcecategory(resourceCategory);
         resource.setPostDate(sqlDate);
         /**
@@ -84,7 +89,8 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
             resource.setSubject(subject);
             FormFile fileProject = createResourceForm.getFileProject();       
             if(!fileProject.getFileName().isEmpty())
-            {   resource.setSize(fileProject.getFileSize());
+            {   
+                resource.setSize(fileProject.getFileSize());
                 resource.setUploadName(fileProject.getFileName());
                 String filePath = getServlet().getServletContext().getRealPath("/") +"upload";
                   //create the upload folder if not exists
@@ -100,6 +106,13 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
                 resource.setServerName(file.getName());
                 String []suffixFile = fileProject.getFileName().split("\\.");
                 resource.setFormat(suffixFile[suffixFile.length-1]);
+                
+                // delete old file
+                if(oldResource.getServerName()!=null)
+                {
+                    File oldFile =  new File(request.getServletContext().getRealPath("/")+"upload/"+oldResource.getServerName());
+                    oldFile.delete();
+                }                
                 fileOutputStream.close();
             }
         }
@@ -133,6 +146,12 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
                 resource.setFormat(suffixFile[suffixFile.length-1]);
                 if(resourceCategoryID == 9)
                     resource.setDownloadNumber(0);
+                // delete old file
+                if(oldResource.getServerName()!=null)
+                {
+                    File oldFile =  new File(request.getServletContext().getRealPath("/")+"upload/"+oldResource.getServerName());
+                    oldFile.delete();
+                }  
                 fileOutputStream.close();
             }
          }
@@ -166,6 +185,12 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
                 String []suffixFile = resourceChapterProject.getFileName().split("\\.");
                 resource.setFormat(suffixFile[suffixFile.length-1]);
                 resource.setDownloadNumber(0);
+                // delete old file
+                if(oldResource.getServerName()!=null)
+                {
+                    File oldFile =  new File(request.getServletContext().getRealPath("/")+"upload/"+oldResource.getServerName());
+                    oldFile.delete();
+                }                  
                 fileOutputStream.close();
             }
          }
@@ -195,14 +220,20 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
                 String []suffixFile = resourceChapterProject.getFileName().split("\\.");
                 resource.setFormat(suffixFile[suffixFile.length-1]);
                 resource.setDownloadNumber(0);
+                // delete old file
+                if(oldResource.getServerName()!=null)
+                {
+                    File oldFile =  new File(request.getServletContext().getRealPath("/")+"upload/"+oldResource.getServerName());
+                    oldFile.delete();
+                }                  
                 fileOutputStream.close();
             }
-            
-         }
-        rsBO.addNew(resource);  
+           
+        }  
+        rsBO.updateResource(resource);  
         Boolean success =true;
         request.setAttribute("success",success);
-        String href="./LoadCreateResource.do";
+        String href="./LoadResource.do";
         request.setAttribute("href",href);
         return mapping.findForward(SUCCESS);
     }
