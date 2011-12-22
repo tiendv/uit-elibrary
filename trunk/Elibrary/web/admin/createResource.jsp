@@ -268,6 +268,7 @@
         if (chosenoption.value=="12"){
             document.getElementById("divResourceSyllabus").style.display = "block";
             document.getElementById("divProject").style.display = "none";
+            document.getElementById("divChapter").style.display = "none";
             document.getElementById("divPictureandReading").style.display = "none";
             document.getElementById("divResourceChapter").style.display = "none";
         }
