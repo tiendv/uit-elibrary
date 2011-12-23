@@ -49,13 +49,18 @@
                             </select>
                         </td>
                     </tr>                    
-                    <tr>
-                        <td><bean:message key="text.resourcenameen"/></td>
-                        <td><input id="txtResourceNameEN" name="txtResourceNameEN" type="text"/></td>
-                        <td><bean:message key="text.resourcenamevn"/></td>
-                        <td><input id="txtResourceNameVN" name="txtResourceNameVN" type="text"/></td>
-                    </tr>
                 </table>
+                 <%-- Resource Name --%>           
+                 <div  id="divResourceName" class="resourceName"  style="display: block"> 
+                     <table width="100%" border="0" cellspacing="0" cellpadding="5">  
+                        <tr>
+                            <td><bean:message key="text.resourcenameen" /></td>
+                            <td><input id="txtResourceNameEN" name="txtResourceNameEN" type="text"/></td>
+                            <td><bean:message key="text.resourcenamevn"/></td>
+                            <td><input id="txtResourceNameVN" name="txtResourceNameVN" type="text"/></td>
+                        </tr>
+                    </table>
+                </div>                            
                 <%-- Add resource with resource type is chapter (ID =7) --%>
                 <div  id="divChapter" class="chapter"  style="display: none">
                     <table width="100%" border="0" cellspacing="0" cellpadding="5">
@@ -221,11 +226,13 @@
     </form>
 </div>     
 <script type="text/javascript">
-
-        function changeResourceCategory(){
+    function init(){
+        changeResourceCategory();
+    }
+    function changeResourceCategory(){
         //run some code when "onchange" event fires
         document.getElementById("diveButtonCreate").style.display = "block";
-        
+        document.getElementById("divResourceName").style.display = "block";
         var chosenoption=document.getElementById("dropResourceCategory");
         if (chosenoption.value=="7"){
             document.getElementById("divChapter").style.display = "block";
@@ -269,6 +276,7 @@
             document.getElementById("divChapter").style.display = "none";
             document.getElementById("divPictureandReading").style.display = "none";
             document.getElementById("divResourceChapter").style.display = "none";
+            document.getElementById("divResourceName").style.display = "none";
         }
         if (chosenoption.value=="1" || chosenoption.value=="2" ||chosenoption.value=="3")
         {
