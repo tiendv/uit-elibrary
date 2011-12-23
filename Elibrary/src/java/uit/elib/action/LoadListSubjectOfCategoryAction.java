@@ -102,13 +102,15 @@ public class LoadListSubjectOfCategoryAction extends org.apache.struts.action.Ac
                         response.getWriter().println("<td class=color_table2>");
                     else
                         response.getWriter().println("<td>");
-                    response.getWriter().println("<input type=checkbox name=ckb value=ON/>");
+                    response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listSubject.get(i).getSubjectId() +"\" />");
                     response.getWriter().println("</td>");        
                     response.getWriter().println("</tr>");
                     color++;
                 }
                 response.getWriter().println("</table>");
             }
+            response.getWriter().println("<input type=\"hidden\" id=\"listSize\" value=\""+listSubject.size()+"\" />");
+            response.getWriter().println("<div id=\"btnDelete\"><input type=\"submit\" value=\"Delete\" onclick=\"deletesubject()\"/></div>");
         }
         return mapping.findForward(SUCCESS);
     }
