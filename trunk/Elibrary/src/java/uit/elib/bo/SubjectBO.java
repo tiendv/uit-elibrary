@@ -78,5 +78,8 @@ public class SubjectBO extends ManagerBase<Subject> {
         }
      }
      
- 
+     public int DeleteSubject(String sql) throws Exception
+     {
+         return excecuteSQl(sql);
+     }
 }

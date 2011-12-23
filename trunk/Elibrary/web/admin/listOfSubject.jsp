@@ -53,7 +53,7 @@
         <%}%>
         <!--End load dropdownlist Subjectcategory + Faculty -->
         <div id="divResult"></div>
-        <div id="divspace" style="width: 90%;"></div><input style="margin-left: 90%;" type="submit" value="<bean:message key="text.delete"/>" name="btn_delete" />
+        <div id="divspace" style="width: 90%;"></div><input style="margin-left: 90%;" type="submit" value="<bean:message key="text.delete"/>" name="btnDelete" onclick="deleteSubject()"/>
         </form>
         <script type="text/javascript">
                 var idCategory=0;
@@ -123,5 +123,21 @@
                 
             });
             }
-                
+            function deletesubject()
+            {
+                var listSize = document.getElementById("listSize").value;
+                var subjectsID = "";
+                for(var i = 0; i<listSize;i++)
+                    {
+                        if((document.getElementById(i).checked== true))
+                            subjectsID= subjectsID + document.getElementById(i).value+",";
+                    }
+                    $.ajax({
+                        type: "POST",
+                        url:"DeleteSubject.do",
+                        data: "subjectsID=" + subjectsID
+                    }).done(function(){
+                        check();
+                    })
+             }
         </script>
