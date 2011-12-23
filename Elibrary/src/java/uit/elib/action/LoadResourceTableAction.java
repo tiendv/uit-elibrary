@@ -12,7 +12,9 @@ import org.apache.struts.action.ActionMapping;
 import java.util.List;
 import org.apache.struts.Globals;
 import uit.elib.bo.ResourceBO;
+import uit.elib.bo.SubjectBO;
 import uit.elib.dto.Resource;
+import uit.elib.dto.Subject;
 /**
  *
  * @author Nguyen Hoang Tan
@@ -40,7 +42,7 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
         int subjectID = Integer.parseInt(request.getParameter("subjectID")); 
         String [] sort = new String[1];
         sort[0]="resourceId";
-        String where=where="ResourceCategoryID="+resourceCategoryID+" and subjectID="+subjectID;
+        String where="ResourceCategoryID="+resourceCategoryID+" and subjectID="+subjectID;
         if(resourceCategoryID==4 || resourceCategoryID==5 || resourceCategoryID==10 || resourceCategoryID==11)
         {
             chapterID = Integer.parseInt(request.getParameter("chapterID"));
@@ -48,6 +50,7 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
         }
         ResourceBO resourceBO = ResourceBO.getResourceBO();
         List<Resource> listResource = resourceBO.getAllResource(where,sort);
+        SubjectBO subjectBO =  SubjectBO.getSubjectBO();
         response.setCharacterEncoding("UTF-8");
         int language =1; // English
         if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
@@ -74,8 +77,8 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
                         response.getWriter().println(i+1);
                         response.getWriter().println("</td>");
                         response.getWriter().println("<td>");
-                        List<Resource> listChapter =resourceBO.getAllResourceOfSubjectAndResourceCategory(subjectID, 7);
-                        response.getWriter().println(listChapter.get(0).getResourceNameEn());
+                        List<Subject> listSubject = subjectBO.getSubject(subjectID);
+                        response.getWriter().println(listSubject.get(0).getSubjectNameEn());
                         response.getWriter().println("</td>");
                         response.getWriter().println("<td>");
                         response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listResource.get(i).getResourceId() +"\" />");
@@ -129,8 +132,8 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
                         response.getWriter().println(i+1);
                         response.getWriter().println("</td>");
                         response.getWriter().println("<td>");
-                        List<Resource> listChapter =resourceBO.getAllResourceOfSubjectAndResourceCategory(subjectID, 7);
-                        response.getWriter().println(listChapter.get(0).getResourceNameVn());
+                        List<Subject> listSubject = subjectBO.getSubject(subjectID);
+                        response.getWriter().println(listSubject.get(0).getSubjectNameVn());
                         response.getWriter().println("</td>");
                         response.getWriter().println("<td>");
                         response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listResource.get(i).getResourceId() +"\" />");
