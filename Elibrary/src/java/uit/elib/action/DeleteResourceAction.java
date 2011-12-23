@@ -9,15 +9,14 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import uit.elib.bo.ResourceBO;
+import java.util.List;
+import uit.elib.dto.Resource;
 
 /**
  *
  * @author Nguyen Hoang Tan
  */
 public class DeleteResourceAction extends org.apache.struts.action.Action {
-
-    /* forward name="success" path="" */
-    private static final String SUCCESS = "success";
 
     /**
      * This is the action called from the Struts framework.
@@ -35,7 +34,20 @@ public class DeleteResourceAction extends org.apache.struts.action.Action {
         String resourcesID = request.getParameter("resourcesID");
         resourcesID=resourcesID.substring(0,resourcesID.length()-1);
         ResourceBO resourceBO = ResourceBO.getResourceBO();
-        resourceBO.DeleteResource("delete from resource where ResourceID in("+resourcesID+")");
-        return mapping.findForward(SUCCESS);
+        int resourceCategoryID = Integer.parseInt(request.getParameter("resourceCategoryID"));
+        // if resource category is Chapter (=7), delete all chapter and resource belong to chapter
+        if(resourceCategoryID==7)
+        {
+            int subjectID = Integer.parseInt(request.getParameter("subjectID"));
+            String []resourceID = resourcesID.split(",");
+            List<Resource> listResource = resourceBO.getAllResource("ResourceID in("+resourcesID+")", null);
+            for(int i=0;i<listResource.size();i++)
+                resourceBO.DeleteResource("delete from resource where SubjectID =("+subjectID+") and OrderChapter ="+listResource.get(i).getOrderChapter() +"");
+        }
+        else
+        {
+            resourceBO.DeleteResource("delete from resource where ResourceID in("+resourcesID+")");
+        }
+        return mapping.findForward(null);
     }
 }
