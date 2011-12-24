@@ -36,7 +36,7 @@ public class SubjectBO extends ManagerBase<Subject> {
             return list;
 
         } catch (Exception ex) {
-            Logger.getLogger(Subject.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SubjectBO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     } 
@@ -46,7 +46,7 @@ public class SubjectBO extends ManagerBase<Subject> {
             return list;
 
         } catch (Exception ex) {
-            Logger.getLogger(Subject.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SubjectBO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }        
@@ -60,7 +60,7 @@ public class SubjectBO extends ManagerBase<Subject> {
             return list;
 
         } catch (Exception ex) {
-            Logger.getLogger(Subject.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SubjectBO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
@@ -78,8 +78,13 @@ public class SubjectBO extends ManagerBase<Subject> {
         }
      }
      
-     public int DeleteSubject(String sql) throws Exception
+     public int DeleteSubject(String sql)
      {
-         return excecuteSQl(sql);
+         try {
+            return excecuteSQl(sql);
+        } catch (Exception ex) {
+            Logger.getLogger(SubjectBO.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }            
      }
 }

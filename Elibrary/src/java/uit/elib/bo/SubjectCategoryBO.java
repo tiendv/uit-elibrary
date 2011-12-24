@@ -40,7 +40,7 @@ public class SubjectCategoryBO extends ManagerBase<Subjectcategory> {
             return list;
 
         } catch (Exception ex) {
-            Logger.getLogger(Subject.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SubjectCategoryBO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
