@@ -108,9 +108,10 @@ public class LoadListSubjectOfCategoryAction extends org.apache.struts.action.Ac
                     color++;
                 }
                 response.getWriter().println("</table>");
+                response.getWriter().println("<input type=\"hidden\" id=\"listSize\" value=\""+listSubject.size()+"\" />");
+                response.getWriter().println("<div id=\"btnDelete\"><input type=\"submit\" value=\"Delete\" onclick=\"deletesubject()\"/></div>");
             }
-            response.getWriter().println("<input type=\"hidden\" id=\"listSize\" value=\""+listSubject.size()+"\" />");
-            response.getWriter().println("<div id=\"btnDelete\"><input type=\"submit\" value=\"Delete\" onclick=\"deletesubject()\"/></div>");
+            
         }
         return mapping.findForward(SUCCESS);
     }
