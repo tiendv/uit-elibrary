@@ -3,20 +3,20 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Dec 24, 2011 2:17:24 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="uit.elib.dto.Resourcecategory" table="resourcecategory" catalog="elibrary">
-        <id name="resourceCategoryId" type="int">
-            <column name="ResourceCategoryID" />
+    <class name="uit.elib.dto.Level" table="level" catalog="elibrary">
+        <id name="levelId" type="int">
+            <column name="LevelID" />
             <generator class="assigned" />
         </id>
-        <property name="resourceCategoryNameVn" type="string">
-            <column name="ResourceCategoryNameVN" />
+        <property name="levelNameEn" type="string">
+            <column name="LevelNameEN" length="45" />
         </property>
-        <property name="resourceCategoryNameEn" type="string">
-            <column name="ResourceCategoryNameEN" />
+        <property name="levelNameVn" type="string">
+            <column name="LevelNameVN" length="45" />
         </property>
         <set name="resources" inverse="true">
             <key>
-                <column name="ResourceCategoryID" />
+                <column name="LevelID" />
             </key>
             <one-to-many class="uit.elib.dto.Resource" />
         </set>
