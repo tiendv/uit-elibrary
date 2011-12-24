@@ -42,7 +42,7 @@ public class ResourceCategoryBO extends ManagerBase<Resourcecategory> {
             return list;
 
         } catch (Exception ex) {
-            Logger.getLogger(Subject.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ResourceCategoryBO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
         
@@ -54,7 +54,7 @@ public class ResourceCategoryBO extends ManagerBase<Resourcecategory> {
             return list;
 
         } catch (Exception ex) {
-            Logger.getLogger(Subject.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ResourceCategoryBO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
         

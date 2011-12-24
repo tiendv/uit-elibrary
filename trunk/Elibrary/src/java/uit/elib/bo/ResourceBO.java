@@ -42,7 +42,7 @@ public class ResourceBO extends ManagerBase<Resource> {
             return list;
 
         } catch (Exception ex) {
-            Logger.getLogger(Subject.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ResourceBO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
      }    
@@ -55,7 +55,7 @@ public class ResourceBO extends ManagerBase<Resource> {
             return list;
 
         } catch (Exception ex) {
-            Logger.getLogger(Subject.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ResourceBO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
      }
@@ -118,13 +118,17 @@ public class ResourceBO extends ManagerBase<Resource> {
             List<List<Resource>> arrayList = getBySQLQuery(where, sort, 0);
             return arrayList;
         } catch (Exception ex) {
-            Logger.getLogger(Subject.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ResourceBO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
      }  
      public void updateResource(Resource r)throws Exception
      {
-         update(r);
+         try {
+             update(r);
+        } catch (Exception ex) {
+            Logger.getLogger(ResourceBO.class.getName()).log(Level.SEVERE, null, ex);
+        }             
      }
      
  

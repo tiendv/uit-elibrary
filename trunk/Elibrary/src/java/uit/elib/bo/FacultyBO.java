@@ -41,7 +41,7 @@ public class FacultyBO extends ManagerBase<Faculty> {
             return list;
 
         } catch (Exception ex) {
-            Logger.getLogger(Subject.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FacultyBO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
@@ -51,7 +51,7 @@ public class FacultyBO extends ManagerBase<Faculty> {
             return list;
 
         } catch (Exception ex) {
-            Logger.getLogger(Subject.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FacultyBO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
