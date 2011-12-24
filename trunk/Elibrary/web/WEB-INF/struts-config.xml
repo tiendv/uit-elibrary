@@ -56,7 +56,6 @@
             <forward name="success" path=".syllabus"/>
             <forward name="unsuccess" path="/Welcome.do"/>
         </action>
-        <action path="/LoadCreateResource" forward=".createResource"/>
         <action path="/LoadResource" forward=".loadResource"/>
         <action path="/CreateSubject" name="CreateSubjectForm" type="uit.elib.action.CreateSubjectAction" scope="session">
             <forward name="success" path="/jsp/success.jsp"/>
@@ -74,6 +73,9 @@
         <action name="EditResourceForm" path="/EditResource" scope="session" type="uit.elib.action.EditResourceAction">
             <forward name="success" path="/jsp/success.jsp"/>
         </action>
+        <action path="/LoadCreateResource" type="uit.elib.action.LoadCreateResourceAction">
+            <forward name="success" path=".createResource"/>
+        </action>          
         <action path="/DeleteSubject" type="uit.elib.action.DeleteSubjectAction"/>
         <action path="/DeleteResource" type="uit.elib.action.DeleteResourceAction"/>
         <action path="/LoadResourceTable" type="uit.elib.action.LoadResourceTableAction" scope="session"/>
