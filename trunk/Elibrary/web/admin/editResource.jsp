@@ -497,6 +497,7 @@
                 data: "id="+id
             }).done(function( msg ) {
                 document.getElementById("chapter").innerHTML = msg;
+                document.getElementById("dropOrderChapterSubject").value=<%=listResource.get(0).getOrderChapter()%>;
             });            
         }  
         if (chosenoption.value=="12"){
@@ -526,7 +527,6 @@
         data: "id="+id
     }).done(function( msg ) {
         document.getElementById("chapter").innerHTML = msg;
-        document.getElementById("dropOrderChapterSubject").value=<%=listResource.get(0).getOrderChapter()%>;
-    });z
+    });
 }
 </script>

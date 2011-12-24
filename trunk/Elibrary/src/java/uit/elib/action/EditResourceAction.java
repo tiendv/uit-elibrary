@@ -47,7 +47,6 @@ public class EditResourceAction extends org.apache.struts.action.Action {
         EditResourceForm createResourceForm = (EditResourceForm)form;      
         ResourceBO rsBO = ResourceBO.getResourceBO();       
         Subject subject = new Subject();
-        Resource  oldResource =  new Resource ();
         File file;     // manage name
         FileOutputStream fileOutputStream; // save to server
         
@@ -59,8 +58,8 @@ public class EditResourceAction extends org.apache.struts.action.Action {
         resource.setResourceNameVn(createResourceForm.getTxtResourceNameVN());
         resource.setResourceNameEn(createResourceForm.getTxtResourceNameEN());
         int resourceID = createResourceForm.getTxtResourceID();
-        oldResource = rsBO.getResourceByID(resourceID);
-        int resourceCategoryID = oldResource.getResourcecategory().getResourceCategoryId();
+        resource = rsBO.getResourceByID(resourceID);
+        int resourceCategoryID = resource.getResourcecategory().getResourceCategoryId();
         resourceCategory.setResourceCategoryId(resourceCategoryID);
         resource.setResourceId(resourceID);
         resource.setResourcecategory(resourceCategory);
@@ -90,6 +89,13 @@ public class EditResourceAction extends org.apache.struts.action.Action {
             FormFile fileProject = createResourceForm.getFileProject();       
             if(!fileProject.getFileName().isEmpty())
             {   
+                
+                // delete old file
+                if(resource.getServerName()!=null)
+                {
+                    File oldFile =  new File(request.getServletContext().getRealPath("/")+"upload/"+resource.getServerName());
+                    oldFile.delete();
+                }                   
                 resource.setSize(Double.valueOf(String.valueOf(fileProject.getFileSize())));
                 resource.setUploadName(fileProject.getFileName());
                 String filePath = getServlet().getServletContext().getRealPath("/") +"upload";
@@ -105,14 +111,7 @@ public class EditResourceAction extends org.apache.struts.action.Action {
                 resource.setDownloadNumber(0);
                 resource.setServerName(file.getName());
                 String []suffixFile = fileProject.getFileName().split("\\.");
-                resource.setFormat(suffixFile[suffixFile.length-1]);
-                
-                // delete old file
-                if(oldResource.getServerName()!=null)
-                {
-                    File oldFile =  new File(request.getServletContext().getRealPath("/")+"upload/"+oldResource.getServerName());
-                    oldFile.delete();
-                }                
+                resource.setFormat(suffixFile[suffixFile.length-1]);             
                 fileOutputStream.close();
             }
         }
@@ -130,7 +129,14 @@ public class EditResourceAction extends org.apache.struts.action.Action {
              */
         
             if(!pictureReading.getFileName().isEmpty())
-            {   resource.setSize(Double.valueOf(String.valueOf(pictureReading.getFileSize())));
+            {   
+                // delete old file
+                if(resource.getServerName()!=null)
+                {
+                    File oldFile =  new File(request.getServletContext().getRealPath("/")+"upload/"+resource.getServerName());
+                    oldFile.delete();
+                }                  
+                resource.setSize(Double.valueOf(String.valueOf(pictureReading.getFileSize())));
                 resource.setUploadName(pictureReading.getFileName());
                 String filePath = getServlet().getServletContext().getRealPath("/") +"upload";
                 //create the upload folder if not exists
@@ -146,12 +152,6 @@ public class EditResourceAction extends org.apache.struts.action.Action {
                 resource.setFormat(suffixFile[suffixFile.length-1]);
                 if(resourceCategoryID == 9)
                     resource.setDownloadNumber(0);
-                // delete old file
-                if(oldResource.getServerName()!=null)
-                {
-                    File oldFile =  new File(request.getServletContext().getRealPath("/")+"upload/"+oldResource.getServerName());
-                    oldFile.delete();
-                }  
                 fileOutputStream.close();
             }
          }
@@ -170,7 +170,14 @@ public class EditResourceAction extends org.apache.struts.action.Action {
              */
         
             if(!resourceChapterProject.getFileName().isEmpty())
-            {   resource.setSize(Double.valueOf(String.valueOf(resourceChapterProject.getFileSize())));
+            {   
+                // delete old file
+                if(resource.getServerName()!=null)
+                {
+                    File oldFile =  new File(request.getServletContext().getRealPath("/")+"upload/"+resource.getServerName());
+                    oldFile.delete();
+                }                    
+                resource.setSize(Double.valueOf(String.valueOf(resourceChapterProject.getFileSize())));
                 resource.setUploadName(resourceChapterProject.getFileName());
                 String filePath = getServlet().getServletContext().getRealPath("/") +"upload";
                 //create the upload folder if not exists
@@ -184,13 +191,7 @@ public class EditResourceAction extends org.apache.struts.action.Action {
                 resource.setServerName(file.getName());
                 String []suffixFile = resourceChapterProject.getFileName().split("\\.");
                 resource.setFormat(suffixFile[suffixFile.length-1]);
-                resource.setDownloadNumber(0);
-                // delete old file
-                if(oldResource.getServerName()!=null)
-                {
-                    File oldFile =  new File(request.getServletContext().getRealPath("/")+"upload/"+oldResource.getServerName());
-                    oldFile.delete();
-                }                  
+                resource.setDownloadNumber(0);              
                 fileOutputStream.close();
             }
          }
@@ -205,7 +206,14 @@ public class EditResourceAction extends org.apache.struts.action.Action {
              */
         
             if(!resourceChapterProject.getFileName().isEmpty())
-            {   resource.setSize(Double.valueOf(String.valueOf(resourceChapterProject.getFileSize())));
+            {   
+                // delete old file
+                if(resource.getServerName()!=null)
+                {
+                    File oldFile =  new File(request.getServletContext().getRealPath("/")+"upload/"+resource.getServerName());
+                    oldFile.delete();
+                }      
+                resource.setSize(Double.valueOf(String.valueOf(resourceChapterProject.getFileSize())));
                 resource.setUploadName(resourceChapterProject.getFileName());
                 String filePath = getServlet().getServletContext().getRealPath("/") +"upload";
                 //create the upload folder if not exists
@@ -219,13 +227,7 @@ public class EditResourceAction extends org.apache.struts.action.Action {
                 resource.setServerName(file.getName());
                 String []suffixFile = resourceChapterProject.getFileName().split("\\.");
                 resource.setFormat(suffixFile[suffixFile.length-1]);
-                resource.setDownloadNumber(0);
-                // delete old file
-                if(oldResource.getServerName()!=null)
-                {
-                    File oldFile =  new File(request.getServletContext().getRealPath("/")+"upload/"+oldResource.getServerName());
-                    oldFile.delete();
-                }                  
+                resource.setDownloadNumber(0);            
                 fileOutputStream.close();
             }
            
