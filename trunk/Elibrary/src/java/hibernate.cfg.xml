@@ -19,5 +19,6 @@
     <mapping resource="uit/elib/dto/Subject.hbm.xml"/>
     <mapping resource="uit/elib/dto/Subjectcategory.hbm.xml"/>
     <mapping resource="uit/elib/dto/Faculty.hbm.xml"/>
+    <mapping resource="uit/elib/dto/Level.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
