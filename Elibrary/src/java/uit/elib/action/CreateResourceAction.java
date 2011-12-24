@@ -84,7 +84,7 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
             resource.setSubject(subject);
             FormFile fileProject = createResourceForm.getFileProject();       
             if(!fileProject.getFileName().isEmpty())
-            {   resource.setSize(fileProject.getFileSize());
+            {   resource.setSize(Double.valueOf(String.valueOf(fileProject.getFileSize())));
                 resource.setUploadName(fileProject.getFileName());
                 String filePath = getServlet().getServletContext().getRealPath("/") +"upload";
                   //create the upload folder if not exists
@@ -117,7 +117,7 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
              */
         
             if(!pictureReading.getFileName().isEmpty())
-            {   resource.setSize(pictureReading.getFileSize());
+            {   resource.setSize(Double.valueOf(String.valueOf(pictureReading.getFileSize())));
                 resource.setUploadName(pictureReading.getFileName());
                 String filePath = getServlet().getServletContext().getRealPath("/") +"upload";
                 //create the upload folder if not exists
@@ -151,7 +151,7 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
              */
         
             if(!resourceChapterProject.getFileName().isEmpty())
-            {   resource.setSize(resourceChapterProject.getFileSize());
+            {   resource.setSize(Double.valueOf(String.valueOf(resourceChapterProject.getFileSize())));
                 resource.setUploadName(resourceChapterProject.getFileName());
                 String filePath = getServlet().getServletContext().getRealPath("/") +"upload";
                 //create the upload folder if not exists
@@ -180,7 +180,7 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
              */
         
             if(!resourceChapterProject.getFileName().isEmpty())
-            {   resource.setSize(resourceChapterProject.getFileSize());
+            {   resource.setSize(Double.valueOf(String.valueOf(resourceChapterProject.getFileSize())));
                 resource.setUploadName(resourceChapterProject.getFileName());
                 String filePath = getServlet().getServletContext().getRealPath("/") +"upload";
                 //create the upload folder if not exists

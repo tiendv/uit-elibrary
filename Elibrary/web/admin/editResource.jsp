@@ -5,6 +5,7 @@
 --%>
 
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="uit.elib.dto.Resource"%>
 <%@page import="org.apache.struts.Globals"%>
 <%@page import="java.util.Locale"%>
@@ -28,8 +29,9 @@
             int language =1; // English
             if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
                 language = 2; // VietNamese
-            float Kb=0; // size file (KB)
-            float Mb=0; // size file (MB)  
+            String Kb=""; // size file (KB)
+            String Mb=""; // size file (MB) 
+            DecimalFormat dec = new DecimalFormat("#.##");            
             List listResourceCategory = (List)request.getAttribute("listResourceCategory");
             List listSubject = (List)request.getAttribute("listSubject");
             List<Resource> listResource = (List<Resource>)request.getAttribute("listResource");
@@ -182,8 +184,8 @@
                                     <bean:message key="text.size"/>
                                 </td>
                                 <td>
-                                    <% Kb=listResource.get(0).getSize()/1000;
-                                       Mb=listResource.get(0).getSize()/1000000;  
+                                    <% Kb=dec.format(listResource.get(0).getSize()/1000);
+                                       Mb=dec.format(listResource.get(0).getSize()/1000000);  
                                     %>
                                     <%=Mb%>Mb(<%=Kb%>Kb)     
                                 </td>
@@ -268,14 +270,15 @@
                                     <div class="displayIcon"><a class="onlineTextBooks" href="DownLoad.do?resourceID=<%=listResource.get(0).getResourceId()%>"/></div>
                                 </td>
                             </tr>
+                            <%if(listResource.get(0).getUploadName()!=null){ 
+                                String imageLink = "./upload/"+listResource.get(0).getServerName().toString();
+                            %>
+                            <tr>
+                                <td ><img src="<%=imageLink%>" width="300" height="300"/></td>
+                            </tr>
+                            <%}%>                            
                         <%}%>
-                        <%if(listResource.get(0).getUploadName()!=null){ 
-                            String imageLink = "./upload/"+listResource.get(0).getServerName().toString();
-                        %>
-                        <tr>
-                            <td ><img src="<%=imageLink%>" width="300" height="300"/></td>
-                        </tr>
-                        <%}%>
+
                         <tr>
                             <td class="label">
                                 <bean:message key="text.uploadfile"/><input type="file" name="filePictureReading"/>
@@ -427,9 +430,6 @@
                                     <bean:message key="text.size"/>
                                 </td>
                                 <td>
-                                    <% Kb=listResource.get(0).getSize()/1000;
-                                       Mb=listResource.get(0).getSize()/1000000;  
-                                    %>
                                     <%=Mb%>Mb(<%=Kb%>Kb)     
                                 </td>
                             </tr>                          
@@ -527,6 +527,6 @@
     }).done(function( msg ) {
         document.getElementById("chapter").innerHTML = msg;
         document.getElementById("dropOrderChapterSubject").value=<%=listResource.get(0).getOrderChapter()%>;
-    });
+    });z
 }
 </script>
