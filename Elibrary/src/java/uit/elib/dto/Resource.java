@@ -1,5 +1,5 @@
 package uit.elib.dto;
-// Generated Dec 5, 2011 10:21:40 PM by Hibernate Tools 3.2.1.GA
+// Generated Dec 24, 2011 2:17:20 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -12,44 +12,52 @@ public class Resource  implements java.io.Serializable {
 
      private Integer resourceId;
      private Resourcecategory resourcecategory;
+     private Level level;
      private Subject subject;
      private String resourceNameVn;
      private String resourceNameEn;
-     private Integer size;
-     private String serverName;
      private String summaryVn;
      private String summaryEn;
      private Date postDate;
-     private Integer viewerNumber;
-     private Integer downloadNumber;
+     private Double size;
      private String format;
      private String language;
-     private Integer voteMark;
+     private Integer downloadNumber;
+     private String serverName;
+     private String uploadName;
      private Integer orderChapter;
      private String author;
-     private String uploadName;
+     private String teacher;
+     private String class_;
+     private Integer year;
+     private String schoolYear;
+     private String school;
 
     public Resource() {
     }
 
-    public Resource(Resourcecategory resourcecategory, Subject subject, String resourceNameVn, String resourceNameEn, Integer size, String serverName, String summaryVn, String summaryEn, Date postDate, Integer viewerNumber, Integer downloadNumber, String format, String language, Integer voteMark, Integer orderChapter, String author, String uploadName) {
+    public Resource(Resourcecategory resourcecategory, Level level, Subject subject, String resourceNameVn, String resourceNameEn, String summaryVn, String summaryEn, Date postDate, Double size, String format, String language, Integer downloadNumber, String serverName, String uploadName, Integer orderChapter, String author, String teacher, String class_, Integer year, String schoolYear, String school) {
        this.resourcecategory = resourcecategory;
+       this.level = level;
        this.subject = subject;
        this.resourceNameVn = resourceNameVn;
        this.resourceNameEn = resourceNameEn;
-       this.size = size;
-       this.serverName = serverName;
        this.summaryVn = summaryVn;
        this.summaryEn = summaryEn;
        this.postDate = postDate;
-       this.viewerNumber = viewerNumber;
-       this.downloadNumber = downloadNumber;
+       this.size = size;
        this.format = format;
        this.language = language;
-       this.voteMark = voteMark;
+       this.downloadNumber = downloadNumber;
+       this.serverName = serverName;
+       this.uploadName = uploadName;
        this.orderChapter = orderChapter;
        this.author = author;
-       this.uploadName = uploadName;
+       this.teacher = teacher;
+       this.class_ = class_;
+       this.year = year;
+       this.schoolYear = schoolYear;
+       this.school = school;
     }
    
     public Integer getResourceId() {
@@ -65,6 +73,13 @@ public class Resource  implements java.io.Serializable {
     
     public void setResourcecategory(Resourcecategory resourcecategory) {
         this.resourcecategory = resourcecategory;
+    }
+    public Level getLevel() {
+        return this.level;
+    }
+    
+    public void setLevel(Level level) {
+        this.level = level;
     }
     public Subject getSubject() {
         return this.subject;
@@ -87,20 +102,6 @@ public class Resource  implements java.io.Serializable {
     public void setResourceNameEn(String resourceNameEn) {
         this.resourceNameEn = resourceNameEn;
     }
-    public Integer getSize() {
-        return this.size;
-    }
-    
-    public void setSize(Integer size) {
-        this.size = size;
-    }
-    public String getServerName() {
-        return this.serverName;
-    }
-    
-    public void setServerName(String serverName) {
-        this.serverName = serverName;
-    }
     public String getSummaryVn() {
         return this.summaryVn;
     }
@@ -122,19 +123,12 @@ public class Resource  implements java.io.Serializable {
     public void setPostDate(Date postDate) {
         this.postDate = postDate;
     }
-    public Integer getViewerNumber() {
-        return this.viewerNumber;
+    public Double getSize() {
+        return this.size;
     }
     
-    public void setViewerNumber(Integer viewerNumber) {
-        this.viewerNumber = viewerNumber;
-    }
-    public Integer getDownloadNumber() {
-        return this.downloadNumber;
-    }
-    
-    public void setDownloadNumber(Integer downloadNumber) {
-        this.downloadNumber = downloadNumber;
+    public void setSize(Double size) {
+        this.size = size;
     }
     public String getFormat() {
         return this.format;
@@ -150,12 +144,26 @@ public class Resource  implements java.io.Serializable {
     public void setLanguage(String language) {
         this.language = language;
     }
-    public Integer getVoteMark() {
-        return this.voteMark;
+    public Integer getDownloadNumber() {
+        return this.downloadNumber;
     }
     
-    public void setVoteMark(Integer voteMark) {
-        this.voteMark = voteMark;
+    public void setDownloadNumber(Integer downloadNumber) {
+        this.downloadNumber = downloadNumber;
+    }
+    public String getServerName() {
+        return this.serverName;
+    }
+    
+    public void setServerName(String serverName) {
+        this.serverName = serverName;
+    }
+    public String getUploadName() {
+        return this.uploadName;
+    }
+    
+    public void setUploadName(String uploadName) {
+        this.uploadName = uploadName;
     }
     public Integer getOrderChapter() {
         return this.orderChapter;
@@ -171,12 +179,40 @@ public class Resource  implements java.io.Serializable {
     public void setAuthor(String author) {
         this.author = author;
     }
-    public String getUploadName() {
-        return this.uploadName;
+    public String getTeacher() {
+        return this.teacher;
     }
     
-    public void setUploadName(String uploadName) {
-        this.uploadName = uploadName;
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
+    }
+    public String getClass_() {
+        return this.class_;
+    }
+    
+    public void setClass_(String class_) {
+        this.class_ = class_;
+    }
+    public Integer getYear() {
+        return this.year;
+    }
+    
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+    public String getSchoolYear() {
+        return this.schoolYear;
+    }
+    
+    public void setSchoolYear(String schoolYear) {
+        this.schoolYear = schoolYear;
+    }
+    public String getSchool() {
+        return this.school;
+    }
+    
+    public void setSchool(String school) {
+        this.school = school;
     }
 
 
