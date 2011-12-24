@@ -73,9 +73,9 @@
         </action>
         <action name="EditResourceForm" path="/EditResource" scope="session" type="uit.elib.action.EditResourceAction">
             <forward name="success" path="/jsp/success.jsp"/>
-        </action>            
-        <action path="/DeleteResource" type="uit.elib.action.DeleteResourceAction"/>
+        </action>
         <action path="/DeleteSubject" type="uit.elib.action.DeleteSubjectAction"/>
+        <action path="/DeleteResource" type="uit.elib.action.DeleteResourceAction"/>
         <action path="/LoadResourceTable" type="uit.elib.action.LoadResourceTableAction" scope="session"/>
         <action path="/DownLoad" type="uit.elib.action.DownLoadAction"  scope="session"/>  
         <action path="/LoadChapter" type="uit.elib.action.LoadChapterAction" scope="session"/>  
