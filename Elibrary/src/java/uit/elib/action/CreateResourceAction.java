@@ -53,13 +53,62 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
         java.util.Date utilDate = new java.util.Date();
         java.sql.Date sqlDate = new Date(utilDate.getTime());
         
-        Resource resource = new Resource();
-        resource.setResourceNameVn(createResourceForm.getTxtResourceNameVN());
-        resource.setResourceNameEn(createResourceForm.getTxtResourceNameEN());        
+        Resource resource = new Resource();      
         int resourceCategoryID = createResourceForm.getDropResourceCategory();
+        if(resourceCategoryID!=8)//image
+        {
+            resource.setResourceNameVn(createResourceForm.getTxtResourceNameVN());
+            resource.setResourceNameEn(createResourceForm.getTxtResourceNameEN());  
+        }
         resourceCategory.setResourceCategoryId(resourceCategoryID);
         resource.setResourcecategory(resourceCategory);
         resource.setPostDate(sqlDate);
+        /**
+         * 
+         * create Thesis
+         */        
+        if(resourceCategoryID == 2)
+        {
+            
+            Level level  = new Level();
+            level.setLevelId(createResourceForm.getDropLevel());
+            Faculty faculty = new Faculty();
+            faculty.setFacultyId(createResourceForm.getDropFaculty());
+            resource.setLevel(level);
+            resource.setFaculty(faculty);
+            resource.setAuthor(createResourceForm.getTxtThesisAuthor());
+            resource.setTeacher(createResourceForm.getTxtTeacher());
+            resource.setClass_(createResourceForm.getTxtClass());
+            resource.setSchool(createResourceForm.getTxtSchool());
+            resource.setYear(createResourceForm.getTxtYear());
+            resource.setSchoolYear(createResourceForm.getTxtSchoolYear());
+            FormFile fileThesis = createResourceForm.getFileThesis();
+            resource.setSummaryVn(createResourceForm.getFckThesisSummaryVN());
+            resource.setSummaryEn(createResourceForm.getFckThesisSummaryEN());            
+            /**
+             * 
+             */
+        
+            if(!fileThesis.getFileName().isEmpty())
+            {   resource.setSize(Double.valueOf(String.valueOf(fileThesis.getFileSize())));
+                resource.setUploadName(fileThesis.getFileName());
+                String filePath = getServlet().getServletContext().getRealPath("/") +"upload";
+                //create the upload folder if not exists
+                file = new File(filePath);
+                if(!file.exists()){
+                    file.mkdir();
+                }
+                file = File.createTempFile("File_Thesis_","",file);
+                fileOutputStream = new FileOutputStream(request.getServletContext().getRealPath("/")+"upload/"+file.getName());
+                fileOutputStream.write(fileThesis.getFileData());
+                resource.setServerName(file.getName());
+                String []suffixFile = fileThesis.getFileName().split("\\.");
+                resource.setFormat(suffixFile[suffixFile.length-1]);
+                resource.setDownloadNumber(0);
+                fileOutputStream.close();
+            }
+            
+         }        
         /**
          * 
          * create chapter
@@ -79,7 +128,7 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
         
          if(resourceCategoryID == 6)
         {
-            resource.setAuthor(createResourceForm.getTxtAuthorProject());
+            resource.setAuthor(createResourceForm.getTxtProjectAuthor());
             subject.setSubjectId(createResourceForm.getDropSubjectInProject());
             resource.setSubject(subject);
             FormFile fileProject = createResourceForm.getFileProject();       
@@ -92,7 +141,7 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
                 if(!file.exists()){
                     file.mkdir();
                 }
-                file = File.createTempFile( "project_file","",file);
+                file = File.createTempFile("File_Project_","",file);
                 fileOutputStream = new FileOutputStream(request.getServletContext().getRealPath("/")+"upload/"+file.getName());
                 fileOutputStream.write(fileProject.getFileData());
                 fileOutputStream.flush();
@@ -111,44 +160,49 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
          {
              subject.setSubjectId(createResourceForm.getDropSubjectInReadingAndPicture());
              resource.setSubject(subject);
-             FormFile pictureReading = createResourceForm.getFilePictureReading();
-            /**
-             * 
-             */
-        
-            if(!pictureReading.getFileName().isEmpty())
-            {   resource.setSize(Double.valueOf(String.valueOf(pictureReading.getFileSize())));
-                resource.setUploadName(pictureReading.getFileName());
+             FormFile filePictureReading = createResourceForm.getFilePictureReading();
+
+             if(!filePictureReading.getFileName().isEmpty())
+             {  
                 String filePath = getServlet().getServletContext().getRealPath("/") +"upload";
                 //create the upload folder if not exists
                 file = new File(filePath);
                 if(!file.exists()){
                     file.mkdir();
+                }              
+                fileOutputStream=null;
+                String []suffixFile = filePictureReading.getFileName().split("\\.");
+                if(resourceCategoryID == 8) // Image
+                {
+                    file = File.createTempFile("Image_","."+suffixFile[suffixFile.length-1],file);
+                    fileOutputStream = new FileOutputStream(request.getServletContext().getRealPath("/")+"upload/"+file.getName());
+                    fileOutputStream.write(filePictureReading.getFileData());                   
+                    resource.setServerName(file.getName());
                 }
-                file = File.createTempFile( "Image_file","",file);
-                fileOutputStream = new FileOutputStream(request.getServletContext().getRealPath("/")+"upload/"+file.getName());
-                fileOutputStream.write(pictureReading.getFileData());
-                resource.setServerName(file.getName());
-                String []suffixFile = pictureReading.getFileName().split("\\.");
-                resource.setFormat(suffixFile[suffixFile.length-1]);
-                if(resourceCategoryID == 9)
+                if(resourceCategoryID == 9)// Reading
+                {
+                    file = File.createTempFile("File_Reading_","",file);
+                    fileOutputStream = new FileOutputStream(request.getServletContext().getRealPath("/")+"upload/"+file.getName());
+                    fileOutputStream.write(filePictureReading.getFileData());
+                    resource.setServerName(file.getName());
                     resource.setDownloadNumber(0);
+                    resource.setFormat(suffixFile[suffixFile.length-1]);
+                    resource.setSize(Double.valueOf(String.valueOf(filePictureReading.getFileSize())));     
+                    resource.setUploadName(filePictureReading.getFileName());
+                }
                 fileOutputStream.close();
-            }
+             }
          }
          /**
-          * Resource type = video, 
+          *  Assignment, Example, Lecture, Video, 
           */
           if(resourceCategoryID == 4 || resourceCategoryID == 5 || resourceCategoryID == 10 || resourceCategoryID == 11)
-         {
+          {
             
              subject.setSubjectId(createResourceForm.getDropSubjectInResourceChapter());
              resource.setSubject(subject);
              resource.setOrderChapter(createResourceForm.getDropOrderChapterSubject());
              FormFile resourceChapterProject = createResourceForm.getFileResourceChapter();
-            /**
-             * 
-             */
         
             if(!resourceChapterProject.getFileName().isEmpty())
             {   resource.setSize(Double.valueOf(String.valueOf(resourceChapterProject.getFileSize())));
@@ -159,7 +213,14 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
                 if(!file.exists()){
                     file.mkdir();
                 }
-                file = File.createTempFile( "ResourceChapter_file","",file);
+                if(resourceCategoryID == 4)
+                    file = File.createTempFile("File_Assignment_","",file);
+                if(resourceCategoryID == 5)
+                    file = File.createTempFile("File_Example_","",file);
+                if(resourceCategoryID == 10)
+                    file = File.createTempFile("File_Lecture_","",file);
+                if(resourceCategoryID == 11)
+                    file = File.createTempFile("File_Video_","",file);                
                 fileOutputStream = new FileOutputStream(request.getServletContext().getRealPath("/")+"upload/"+file.getName());
                 fileOutputStream.write(resourceChapterProject.getFileData());
                 resource.setServerName(file.getName());
@@ -169,30 +230,33 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
                 fileOutputStream.close();
             }
          }
+        /**
+         * Syllabus
+         */         
           if(resourceCategoryID == 12)
-         {
+          {
             
              subject.setSubjectId(createResourceForm.getDropSubjectInSysllabus());
              resource.setSubject(subject);
-             FormFile resourceChapterProject = createResourceForm.getFileResourceSysllabus();
+             FormFile fileSyllabus = createResourceForm.getFileSyllabus();
             /**
              * 
              */
         
-            if(!resourceChapterProject.getFileName().isEmpty())
-            {   resource.setSize(Double.valueOf(String.valueOf(resourceChapterProject.getFileSize())));
-                resource.setUploadName(resourceChapterProject.getFileName());
+            if(!fileSyllabus.getFileName().isEmpty())
+            {   resource.setSize(Double.valueOf(String.valueOf(fileSyllabus.getFileSize())));
+                resource.setUploadName(fileSyllabus.getFileName());
                 String filePath = getServlet().getServletContext().getRealPath("/") +"upload";
                 //create the upload folder if not exists
                 file = new File(filePath);
                 if(!file.exists()){
                     file.mkdir();
                 }
-                file = File.createTempFile( "ResourceChapter_file","",file);
+                file = File.createTempFile("File_Syllabus_","",file);
                 fileOutputStream = new FileOutputStream(request.getServletContext().getRealPath("/")+"upload/"+file.getName());
-                fileOutputStream.write(resourceChapterProject.getFileData());
+                fileOutputStream.write(fileSyllabus.getFileData());
                 resource.setServerName(file.getName());
-                String []suffixFile = resourceChapterProject.getFileName().split("\\.");
+                String []suffixFile = fileSyllabus.getFileName().split("\\.");
                 resource.setFormat(suffixFile[suffixFile.length-1]);
                 resource.setDownloadNumber(0);
                 fileOutputStream.close();

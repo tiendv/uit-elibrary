@@ -18,16 +18,123 @@ public class CreateResourceForm extends org.apache.struts.action.ActionForm {
     private int dropSubjectInChapter;
     private String fckChapterSummaryVN;
     private String fckChapterSummaryEN;
-    private String txtAuthorProject;
+    private String txtProjectAuthor;
     private int dropSubjectInProject;
     private FormFile fileProject;
-    private FormFile fileResourceSysllabus;
+    private FormFile fileSyllabus;
     private int dropSubjectInReadingAndPicture;
     private FormFile filePictureReading;
     private int dropSubjectInResourceChapter;
     private int dropOrderChapterSubject;
     private FormFile fileResourceChapter;
     private int dropSubjectInSysllabus;
+    private String txtThesisAuthor;
+    private String txtTeacher;
+    private String txtClass;
+    private String txtSchool;
+    private int txtYear;
+    private String txtSchoolYear;
+    private FormFile fileThesis;
+    private int dropLevel;
+    private int dropFaculty;
+    private String fckThesisSummaryVN;
+    private String fckThesisSummaryEN;
+
+    public String getFckThesisSummaryEN() {
+        return fckThesisSummaryEN;
+    }
+
+    public void setFckThesisSummaryEN(String fckThesisSummaryEN) {
+        this.fckThesisSummaryEN = fckThesisSummaryEN;
+    }
+
+    public String getFckThesisSummaryVN() {
+        return fckThesisSummaryVN;
+    }
+
+    public void setFckThesisSummaryVN(String fckThesisSummaryVN) {
+        this.fckThesisSummaryVN = fckThesisSummaryVN;
+    }
+    
+    public int getDropFaculty() {
+        return dropFaculty;
+    }
+
+    public void setDropFaculty(int dropFaculty) {
+        this.dropFaculty = dropFaculty;
+    }
+
+    public int getDropLevel() {
+        return dropLevel;
+    }
+
+    public void setDropLevel(int dropLevel) {
+        this.dropLevel = dropLevel;
+    }
+    
+    public FormFile getFileThesis() {
+        return fileThesis;
+    }
+
+    public void setFileThesis(FormFile fileThesis) {
+        this.fileThesis = fileThesis;
+    }
+
+    public String getTxtClass() {
+        return txtClass;
+    }
+
+    public void setTxtClass(String txtClass) {
+        this.txtClass = txtClass;
+    }
+
+    public String getTxtSchool() {
+        return txtSchool;
+    }
+
+    public void setTxtSchool(String txtSchool) {
+        this.txtSchool = txtSchool;
+    }
+
+    public String getTxtSchoolYear() {
+        return txtSchoolYear;
+    }
+
+    public void setTxtSchoolYear(String txtSchoolYear) {
+        this.txtSchoolYear = txtSchoolYear;
+    }
+
+    public String getTxtTeacher() {
+        return txtTeacher;
+    }
+
+    public void setTxtTeacher(String txtTeacher) {
+        this.txtTeacher = txtTeacher;
+    }
+
+    public int getTxtYear() {
+        return txtYear;
+    }
+
+    public void setTxtYear(int txtYear) {
+        this.txtYear = txtYear;
+    }
+    
+    public String getTxtProjectAuthor() {
+        return txtProjectAuthor;
+    }
+
+    public void setTxtProjectAuthor(String txtProjectAuthor) {
+        this.txtProjectAuthor = txtProjectAuthor;
+    }
+
+    public String getTxtThesisAuthor() {
+        return txtThesisAuthor;
+    }
+
+    public void setTxtThesisAuthor(String txtThesisAuthor) {
+        this.txtThesisAuthor = txtThesisAuthor;
+    }
 
     public String getTxtResourceNameEN() {
         return txtResourceNameEN;
@@ -45,12 +152,12 @@ public class CreateResourceForm extends org.apache.struts.action.ActionForm {
         this.txtResourceNameVN = txtResourceNameVN;
     }
 
-    public FormFile getFileResourceSysllabus() {
-        return fileResourceSysllabus;
+    public FormFile getFileSyllabus() {
+        return fileSyllabus;
     }
 
-    public void setFileResourceSysllabus(FormFile fileResourceSysllabus) {
-        this.fileResourceSysllabus = fileResourceSysllabus;
+    public void setFileSyllabus(FormFile fileResourceSysllabus) {
+        this.fileSyllabus = fileResourceSysllabus;
     }
 
     public int getDropSubjectInSysllabus() {
@@ -149,14 +256,6 @@ public class CreateResourceForm extends org.apache.struts.action.ActionForm {
         this.fckChapterSummaryEN = fckChapterSummaryEN;
     }
 
-    public String getTxtAuthorProject() {
-        return txtAuthorProject;
-    }
-
-    public void setTxtAuthorProject(String txtAuthorProject) {
-        this.txtAuthorProject = txtAuthorProject;
-    }
-    
     public int getTxtOrderChapter() {
         return txtOrderChapter;
     }
