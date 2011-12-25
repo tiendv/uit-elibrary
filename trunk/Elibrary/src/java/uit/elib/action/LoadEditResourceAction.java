@@ -12,8 +12,12 @@ import org.apache.struts.action.ActionMapping;
 import uit.elib.bo.ResourceBO;
 import uit.elib.utility.IsNumber;
 import java.util.List;
+import uit.elib.bo.FacultyBO;
+import uit.elib.bo.LevelBO;
 import uit.elib.bo.ResourceCategoryBO;
 import uit.elib.bo.SubjectBO;
+import uit.elib.dto.Faculty;
+import uit.elib.dto.Level;
 import uit.elib.dto.Resource;
 import uit.elib.dto.Resourcecategory;
 import uit.elib.dto.Subject;
@@ -47,6 +51,8 @@ public class LoadEditResourceAction extends org.apache.struts.action.Action {
                 int resourceID = Integer.parseInt(request.getParameter("resourceID"));
                 ResourceBO resourceBO = ResourceBO.getResourceBO();
                 List<Resource> listResource = resourceBO.getAllResource("resourceId="+resourceID, null);
+                List<Level> listLevel = LevelBO.getLevelBO().getAllLevel();
+                List<Faculty> listFaculty = FacultyBO.getFacultyBO().getAllFaculty();
                 if(listResource.size()>0)
                 {
                     ResourceCategoryBO resourceCategoryBO = ResourceCategoryBO.getResourceCategoryBO();
@@ -56,6 +62,8 @@ public class LoadEditResourceAction extends org.apache.struts.action.Action {
                     request.setAttribute("listResource", listResource);
                     request.setAttribute("listResourceCategory", listResourceCategory);
                     request.setAttribute("listSubject", listSubject);
+                    request.setAttribute("listLevel", listLevel);
+                    request.setAttribute("listFaculty", listFaculty);                    
                     return mapping.findForward(SUCCESS);
                 }
             }

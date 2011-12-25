@@ -76,6 +76,10 @@
     function changeChapter()
     {
         var resourceCategoryID = document.getElementById("dropResourceCategory").value;
+        if(resourceCategoryID==2)
+            document.getElementById("dropSubject").disabled=true;
+        else
+            document.getElementById("dropSubject").disabled=false;
         if(resourceCategoryID==4 || resourceCategoryID==5 || resourceCategoryID==10 || resourceCategoryID==11)
         {
             var subjectID = document.getElementById("dropSubject").value;
