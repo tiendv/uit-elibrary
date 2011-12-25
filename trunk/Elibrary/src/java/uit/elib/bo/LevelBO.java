@@ -17,7 +17,13 @@ public class LevelBO extends ManagerBase<Level> {
 
     public LevelBO() throws Exception {
     }
-    public List getAllResource() {
+    public static LevelBO getLevelBO() throws Exception{
+        if(levelBO == null){
+            levelBO = new LevelBO();
+        }
+        return levelBO;
+    }    
+    public List getAllLevel() {
     try {
         String[] sort = new String[]{"levelId"}; // tang dan
         //String[] sort = new String[]{"name desc"}; // giam dan
