@@ -48,6 +48,8 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
             chapterID = Integer.parseInt(request.getParameter("chapterID"));
             where="ResourceCategoryID="+resourceCategoryID+" and subjectID="+subjectID+" and orderChapter="+chapterID;
         }
+        if(resourceCategoryID==2) //Thesis
+            where="ResourceCategoryID="+resourceCategoryID;
         ResourceBO resourceBO = ResourceBO.getResourceBO();
         List<Resource> listResource = resourceBO.getAllResource(where,sort);
         SubjectBO subjectBO =  SubjectBO.getSubjectBO();
@@ -68,7 +70,7 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
                 response.getWriter().println("Resource Name");
                 response.getWriter().println("</td>");        
                 response.getWriter().println("</tr>");
-                if(resourceCategoryID ==12)
+                if(resourceCategoryID ==12 || resourceCategoryID ==8) // Syllabus || Image
                 {    
                     for(int i=0;i<listResource.size();i++)
                     {       
@@ -78,7 +80,10 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
                         response.getWriter().println("</td>");
                         response.getWriter().println("<td>");
                         List<Subject> listSubject = subjectBO.getSubject(subjectID);
-                        response.getWriter().println(listSubject.get(0).getSubjectNameEn());
+                        if(resourceCategoryID ==12)
+                            response.getWriter().println(listSubject.get(0).getSubjectNameEn()+ " Syllabus" );
+                        if(resourceCategoryID ==8)
+                            response.getWriter().println(listSubject.get(0).getSubjectNameEn()+ " Image");   
                         response.getWriter().println("</td>");
                         response.getWriter().println("<td>");
                         response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listResource.get(i).getResourceId() +"\" />");
@@ -123,7 +128,7 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
                 response.getWriter().println("Tên tài nguyên");
                 response.getWriter().println("</td>");        
                 response.getWriter().println("</tr>");
-                if(resourceCategoryID ==12)
+                if(resourceCategoryID ==12 || resourceCategoryID ==8) // Syllabus || Image
                 {    
                     for(int i=0;i<listResource.size();i++)
                     {
@@ -133,7 +138,10 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
                         response.getWriter().println("</td>");
                         response.getWriter().println("<td>");
                         List<Subject> listSubject = subjectBO.getSubject(subjectID);
-                        response.getWriter().println(listSubject.get(0).getSubjectNameVn());
+                        if(resourceCategoryID ==12)
+                            response.getWriter().println("Đề cương môn học "+listSubject.get(0).getSubjectNameVn());
+                        if(resourceCategoryID ==8)
+                            response.getWriter().println("Ảnh môn học "+listSubject.get(0).getSubjectNameVn());                        
                         response.getWriter().println("</td>");
                         response.getWriter().println("<td>");
                         response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listResource.get(i).getResourceId() +"\" />");
