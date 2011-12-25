@@ -1,13 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 24, 2011 2:17:24 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Dec 25, 2011 1:02:41 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="uit.elib.dto.Resource" table="resource" catalog="elibrary">
         <id name="resourceId" type="java.lang.Integer">
             <column name="ResourceID" />
             <generator class="identity" />
         </id>
+        <many-to-one name="faculty" class="uit.elib.dto.Faculty" fetch="select">
+            <column name="FacultyID" />
+        </many-to-one>
         <many-to-one name="resourcecategory" class="uit.elib.dto.Resourcecategory" fetch="select">
             <column name="ResourceCategoryID" />
         </many-to-one>
