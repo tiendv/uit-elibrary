@@ -11,7 +11,9 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import uit.elib.bo.FacultyBO;
 import uit.elib.bo.SubjectCategoryBO;
+import uit.elib.dto.Faculty;
 import uit.elib.formbean.LoadCreateSubjectForm;
+import java.util.List;
 
 /**
  *
@@ -38,11 +40,11 @@ public class LoadCreateSubjectAction extends org.apache.struts.action.Action {
         LoadCreateSubjectForm loadCreateSubjectForm = (LoadCreateSubjectForm)form;
         //faculty
         FacultyBO facultyBO = FacultyBO.getFacultyBO();
-        loadCreateSubjectForm.setListDropFaculty(facultyBO.getAllFaculty());
+        List<Faculty> listFaculty = facultyBO.getAllFaculty();
+        loadCreateSubjectForm.setListDropFaculty(listFaculty);
         //Subject Category
         SubjectCategoryBO subjectCategoryBO = SubjectCategoryBO.getSubjectCategoryBO();
         loadCreateSubjectForm.setListDropSubjectCategory(subjectCategoryBO.getAllSubjectCategory());
-        
         return mapping.findForward(SUCCESS);
     }
 }
