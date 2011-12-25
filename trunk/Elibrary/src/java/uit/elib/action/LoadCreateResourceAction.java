@@ -10,8 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import uit.elib.bo.FacultyBO;
+import uit.elib.bo.LevelBO;
 import uit.elib.bo.ResourceCategoryBO;
 import uit.elib.bo.SubjectBO;
+import uit.elib.dto.Faculty;
+import uit.elib.dto.Level;
 import uit.elib.dto.Resourcecategory;
 import uit.elib.dto.Subject;
 
@@ -39,8 +43,12 @@ public class LoadCreateResourceAction extends org.apache.struts.action.Action {
             throws Exception {
         List<Subject> listSubject = SubjectBO.getSubjectBO().getAllSubject();
         List<Resourcecategory> listResourceCategory = ResourceCategoryBO.getResourceCategoryBO().getAllResourcecategory();
+        List<Level> listLevel = LevelBO.getLevelBO().getAllLevel();
+        List<Faculty> listFaculty = FacultyBO.getFacultyBO().getAllFaculty();
         request.setAttribute("listResourceCategory", listResourceCategory);
         request.setAttribute("listSubject", listSubject);
+        request.setAttribute("listLevel", listLevel);
+        request.setAttribute("listFaculty", listFaculty);
         return mapping.findForward(SUCCESS);
     }
 }

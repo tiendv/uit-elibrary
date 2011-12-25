@@ -24,12 +24,14 @@
     <form id="createResource" method="post" action="CreateResource.do"  enctype="multipart/form-data">
         <%
             List listResourceCategory = (List)request.getAttribute("listResourceCategory");
-            List listSubject = (List)request.getAttribute("listSubject");            
+            List listSubject = (List)request.getAttribute("listSubject");
+            List listFaculty = (List)request.getAttribute("listFaculty");
+            List listLevel = (List)request.getAttribute("listLevel");                            
             int language =1; // English
             if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
                 language = 2; // VietNamese
         %>
-        <h2> <bean:message key="text.chosetypeofresourced"/></h2>
+        <h2> <bean:message key="text.insertnewresource"/></h2>
         <table width="100%" border="0" cellspacing="0" cellpadding="5">
             <tr>
                 <td><bean:message key="text.typeofresource"/></td>
@@ -62,7 +64,76 @@
         </div> 
         <%-- Add resource with resource category is thesis (ID =2) --%> 
         <div  id="divThesis" class="thesis"  style="display: none">
-
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                <tr>
+                    <td><bean:message key="text.level"/></td>
+                    <td>
+                        <select id="dropLevel" name="dropLevel" >
+                            <%if(language==1) {%>
+                                <c:forEach items="${listLevel}" var="item">
+                                    <option value="${item.levelId}">${item.levelNameEn}</option>
+                                </c:forEach> 
+                            <%}%>
+                            <%if(language==2) {%>
+                                <c:forEach items="${listLevel}" var="item">
+                                    <option value="${item.levelId}">${item.levelNameVn}</option>
+                                </c:forEach>
+                            <%}%>
+                        </select>
+                    </td>
+                </tr>  
+                <tr>
+                    <td><bean:message key="text.faculty"/></td>
+                    <td>
+                        <select id="dropFaculty" name="dropFaculty" >
+                            <%if(language==1) {%>
+                                <c:forEach items="${listFaculty}" var="item">
+                                    <option value="${item.facultyId}">${item.facultyNameEn}</option>
+                                </c:forEach> 
+                            <%}%>
+                            <%if(language==2) {%>
+                                <c:forEach items="${listFaculty}" var="item">
+                                    <option value="${item.facultyId}">${item.facultyNameVn}</option>
+                                </c:forEach>
+                            <%}%>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><bean:message key="text.author"/></td>
+                    <td><input class="textbox" id="txtThesisAuthor" name="txtThesisAuthor" type="text"/></td>
+                    <td><bean:message key="text.teacher"/></td>
+                    <td><input class="textbox" id="txtTeacher" name="txtTeacher" type="text"/></td>                    
+                </tr>
+                <tr>
+                    <td><bean:message key="text.class"/></td>
+                    <td><input class="textbox" id="txtClass" name="txtClass" type="text"/></td>
+                    <td><bean:message key="text.school"/></td>
+                    <td><input class="textbox" id="txtSchool" name="txtSchool" type="text"/></td>                    
+                </tr>
+                <tr>
+                    <td><bean:message key="text.year"/></td>
+                    <td><input class="textbox" id="txtYear" name="txtYear" type="text"/></td>
+                    <td><bean:message key="text.schoolyear"/></td>
+                    <td><input class="textbox" id="txtSchoolYear" name="txtSchoolYear" type="text"/></td>                    
+                </tr> 
+                <tr>
+                    <td class="label">
+                        <bean:message key="text.uploadfile"/><input type="file" name="fileThesis"/>
+                    </td>                 
+                </tr>                
+            </table>
+            <h2><bean:message key="text.thesissummaryvn"/></h2>
+            <FCK:editor  instanceName="fckThesisSummaryVN" height="300px">
+                <jsp:attribute name="value">
+                </jsp:attribute>
+            </FCK:editor>
+            <hr>
+            <h2><bean:message key="text.thesissummaryen"/></h2>
+            <FCK:editor  instanceName="fckThesisSummaryEN" height="300px">
+                <jsp:attribute name="value">
+                </jsp:attribute>
+            </FCK:editor>                          
         </div>    
         <%-- Add resource with resource category is chapter (ID =7) --%>
         <div  id="divChapter" class="chapter"  style="display: none">
@@ -107,7 +178,7 @@
             <table  border="0" cellspacing="0" cellpadding="5">
                 <tr>
                     <td class="label"><bean:message key="text.projectauthor"/></td>
-                    <td><input id="txtAuthorProject" name="txtAuthorProject" type="text"/></td>
+                    <td><input id="txtProjectAuthor" name="txtProjectAuthor" type="text"/></td>
                 </tr>
                 <tr>
                     <td class="label" ><bean:message key="text.namesubject"/></td>
@@ -215,12 +286,12 @@
                 </tr>
                 <tr>
                     <td class="label">
-                        <bean:message key="text.uploadfile"/><input type="file" name="fileResourceSysllabus"/>
+                        <bean:message key="text.uploadfile"/><input type="file" name="fileSyllabus"/>
                     </td>
                 </tr>
             </table>
         </div>                            
-         <div id="diveButtonCreate" class="buttonCreateResource" style="display: none">
+         <div id="divButtonCreate" class="buttonCreateResource" style="display: none">
             <input type="submit"  value=<bean:message key="text.buttoncreate" />  />
         </div>
     </form>
@@ -231,15 +302,26 @@
     }
     function changeResourceCategory(){
         //run some code when "onchange" event fires
-        document.getElementById("diveButtonCreate").style.display = "block";
+        document.getElementById("divButtonCreate").style.display = "block";
         document.getElementById("divResourceName").style.display = "block";
         var chosenoption=document.getElementById("dropResourceCategory");
+         if (chosenoption.value=="2"){
+            document.getElementById("divThesis").style.display = "block";            
+            document.getElementById("divChapter").style.display = "none";
+            document.getElementById("divProject").style.display = "none";
+            document.getElementById("divPictureandReading").style.display = "none";
+            document.getElementById("divResourceChapter").style.display = "none";
+            document.getElementById("divResourceSyllabus").style.display = "none";
+            document.getElementById("divResourceName").style.display = "block";
+        }       
         if (chosenoption.value=="7"){
             document.getElementById("divChapter").style.display = "block";
             document.getElementById("divProject").style.display = "none";
             document.getElementById("divPictureandReading").style.display = "none";
             document.getElementById("divResourceChapter").style.display = "none";
             document.getElementById("divResourceSyllabus").style.display = "none";
+            document.getElementById("divThesis").style.display = "none";
+            document.getElementById("divResourceName").style.display = "block";
         }
         if (chosenoption.value=="6"){
             document.getElementById("divProject").style.display = "block";
@@ -247,6 +329,8 @@
             document.getElementById("divPictureandReading").style.display = "none";
             document.getElementById("divResourceChapter").style.display = "none";
             document.getElementById("divResourceSyllabus").style.display = "none";
+            document.getElementById("divThesis").style.display = "none";
+            document.getElementById("divResourceName").style.display = "block";
         }
          if (chosenoption.value=="8"||chosenoption.value=="9"){
             document.getElementById("divProject").style.display = "none";
@@ -254,6 +338,11 @@
             document.getElementById("divPictureandReading").style.display = "block";
             document.getElementById("divResourceChapter").style.display = "none";
             document.getElementById("divResourceSyllabus").style.display = "none";
+            document.getElementById("divThesis").style.display = "none";
+            if (chosenoption.value=="8")
+                document.getElementById("divResourceName").style.display = "none";
+            if (chosenoption.value=="9")
+                document.getElementById("divResourceName").style.display = "block";
         }
         if (chosenoption.value=="4"||chosenoption.value=="5"||chosenoption.value=="10"||chosenoption.value=="11"){
             document.getElementById("divResourceChapter").style.display = "block";
@@ -261,6 +350,8 @@
             document.getElementById("divChapter").style.display = "none";
             document.getElementById("divPictureandReading").style.display = "none";
             document.getElementById("divResourceSyllabus").style.display = "none";
+            document.getElementById("divThesis").style.display = "none";
+            document.getElementById("divResourceName").style.display = "block";
             var id = document.getElementById("dropSubjectInResourceChapter").value;
             $.ajax({
                 type: "POST",
@@ -277,15 +368,19 @@
             document.getElementById("divPictureandReading").style.display = "none";
             document.getElementById("divResourceChapter").style.display = "none";
             document.getElementById("divResourceName").style.display = "none";
+            document.getElementById("divThesis").style.display = "none";
+            document.getElementById("divResourceName").style.display = "block";
         }
-        if (chosenoption.value=="1" || chosenoption.value=="2" ||chosenoption.value=="3")
+        if (chosenoption.value=="1" ||chosenoption.value=="3")
         {
             document.getElementById("divResourceChapter").style.display = "none";
             document.getElementById("divProject").style.display = "none";
             document.getElementById("divChapter").style.display = "none";
             document.getElementById("divPictureandReading").style.display = "none";
             document.getElementById("divResourceSyllabus").style.display = "none"; 
-            document.getElementById("diveButtonCreate").style.display = "none";
+            document.getElementById("divButtonCreate").style.display = "none";
+            document.getElementById("divResourceName").style.display = "none";
+            document.getElementById("divThesis").style.display = "none";
         }
     }
         
