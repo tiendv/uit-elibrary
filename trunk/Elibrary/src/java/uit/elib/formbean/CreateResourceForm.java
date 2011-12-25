@@ -27,7 +27,7 @@ public class CreateResourceForm extends org.apache.struts.action.ActionForm {
     private int dropSubjectInResourceChapter;
     private int dropOrderChapterSubject;
     private FormFile fileResourceChapter;
-    private int dropSubjectInSysllabus;
+    private int dropSubjectInSyllabus;
     private String txtThesisAuthor;
     private String txtTeacher;
     private String txtClass;
@@ -160,12 +160,12 @@ public class CreateResourceForm extends org.apache.struts.action.ActionForm {
         this.fileSyllabus = fileResourceSysllabus;
     }
 
-    public int getDropSubjectInSysllabus() {
-        return dropSubjectInSysllabus;
+    public int getDropSubjectInSyllabus() {
+        return dropSubjectInSyllabus;
     }
 
-    public void setDropSubjectInSysllabus(int dropSubjectInSysllabus) {
-        this.dropSubjectInSysllabus = dropSubjectInSysllabus;
+    public void setDropSubjectInSyllabus(int dropSubjectInSyllabus) {
+        this.dropSubjectInSyllabus = dropSubjectInSyllabus;
     }
 
     public int getDropOrderChapterSubject() {
