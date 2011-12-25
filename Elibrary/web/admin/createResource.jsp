@@ -52,7 +52,7 @@
             </tr>                    
         </table>
          <%-- Resource Name --%>           
-         <div  id="divResourceName" class="resourceName"  style="display: block"> 
+         <div  id="divResourceName" class="resourceName"  style="display: none"> 
              <table width="100%" border="0" cellspacing="0" cellpadding="5">  
                 <tr>
                     <td><bean:message key="text.resourcenameen" /></td>
@@ -270,7 +270,7 @@
                 <tr>
                     <td class="label"><bean:message key="text.namesubject"/></td>
                     <td>
-                        <select id="dropSubjectInSysllabus" name="dropSubjectInSysllabus" >
+                        <select id="dropSubjectInSyllabus" name="dropSubjectInSyllabus" >
                             <%if(language==1) {%>
                                 <c:forEach items="${listSubject}" var="item">
                                     <option value="${item.subjectId}">${item.subjectNameEn}</option>
@@ -303,7 +303,6 @@
     function changeResourceCategory(){
         //run some code when "onchange" event fires
         document.getElementById("divButtonCreate").style.display = "block";
-        document.getElementById("divResourceName").style.display = "block";
         var chosenoption=document.getElementById("dropResourceCategory");
          if (chosenoption.value=="2"){
             document.getElementById("divThesis").style.display = "block";            
@@ -369,7 +368,6 @@
             document.getElementById("divResourceChapter").style.display = "none";
             document.getElementById("divResourceName").style.display = "none";
             document.getElementById("divThesis").style.display = "none";
-            document.getElementById("divResourceName").style.display = "block";
         }
         if (chosenoption.value=="1" ||chosenoption.value=="3")
         {

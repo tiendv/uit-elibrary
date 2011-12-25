@@ -55,7 +55,7 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
         
         Resource resource = new Resource();      
         int resourceCategoryID = createResourceForm.getDropResourceCategory();
-        if(resourceCategoryID!=8)//image
+        if(resourceCategoryID!=8&&resourceCategoryID!=12)//image && syllabus
         {
             resource.setResourceNameVn(createResourceForm.getTxtResourceNameVN());
             resource.setResourceNameEn(createResourceForm.getTxtResourceNameEN());  
@@ -236,7 +236,7 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
           if(resourceCategoryID == 12)
           {
             
-             subject.setSubjectId(createResourceForm.getDropSubjectInSysllabus());
+             subject.setSubjectId(createResourceForm.getDropSubjectInSyllabus());
              resource.setSubject(subject);
              FormFile fileSyllabus = createResourceForm.getFileSyllabus();
             /**
