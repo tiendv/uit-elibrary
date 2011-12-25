@@ -1,5 +1,5 @@
 package uit.elib.dto;
-// Generated Dec 24, 2011 2:17:20 PM by Hibernate Tools 3.2.1.GA
+// Generated Dec 25, 2011 1:02:34 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -15,6 +15,7 @@ public class Faculty  implements java.io.Serializable {
      private String facultyNameEn;
      private String facultyNameVn;
      private Set subjects = new HashSet(0);
+     private Set resources = new HashSet(0);
 
     public Faculty() {
     }
@@ -23,11 +24,12 @@ public class Faculty  implements java.io.Serializable {
     public Faculty(int facultyId) {
         this.facultyId = facultyId;
     }
-    public Faculty(int facultyId, String facultyNameEn, String facultyNameVn, Set subjects) {
+    public Faculty(int facultyId, String facultyNameEn, String facultyNameVn, Set subjects, Set resources) {
        this.facultyId = facultyId;
        this.facultyNameEn = facultyNameEn;
        this.facultyNameVn = facultyNameVn;
        this.subjects = subjects;
+       this.resources = resources;
     }
    
     public int getFacultyId() {
@@ -57,6 +59,13 @@ public class Faculty  implements java.io.Serializable {
     
     public void setSubjects(Set subjects) {
         this.subjects = subjects;
+    }
+    public Set getResources() {
+        return this.resources;
+    }
+    
+    public void setResources(Set resources) {
+        this.resources = resources;
     }
 
 

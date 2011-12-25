@@ -1,5 +1,5 @@
 package uit.elib.dto;
-// Generated Dec 24, 2011 2:17:20 PM by Hibernate Tools 3.2.1.GA
+// Generated Dec 25, 2011 1:02:34 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -11,6 +11,7 @@ public class Resource  implements java.io.Serializable {
 
 
      private Integer resourceId;
+     private Faculty faculty;
      private Resourcecategory resourcecategory;
      private Level level;
      private Subject subject;
@@ -36,7 +37,8 @@ public class Resource  implements java.io.Serializable {
     public Resource() {
     }
 
-    public Resource(Resourcecategory resourcecategory, Level level, Subject subject, String resourceNameVn, String resourceNameEn, String summaryVn, String summaryEn, Date postDate, Double size, String format, String language, Integer downloadNumber, String serverName, String uploadName, Integer orderChapter, String author, String teacher, String class_, Integer year, String schoolYear, String school) {
+    public Resource(Faculty faculty, Resourcecategory resourcecategory, Level level, Subject subject, String resourceNameVn, String resourceNameEn, String summaryVn, String summaryEn, Date postDate, Double size, String format, String language, Integer downloadNumber, String serverName, String uploadName, Integer orderChapter, String author, String teacher, String class_, Integer year, String schoolYear, String school) {
+       this.faculty = faculty;
        this.resourcecategory = resourcecategory;
        this.level = level;
        this.subject = subject;
@@ -66,6 +68,13 @@ public class Resource  implements java.io.Serializable {
     
     public void setResourceId(Integer resourceId) {
         this.resourceId = resourceId;
+    }
+    public Faculty getFaculty() {
+        return this.faculty;
+    }
+    
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
     }
     public Resourcecategory getResourcecategory() {
         return this.resourcecategory;
