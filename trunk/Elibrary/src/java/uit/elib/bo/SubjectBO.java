@@ -87,4 +87,8 @@ public class SubjectBO extends ManagerBase<Subject> {
             return 0;
         }            
      }
+     public void UpdateSubject(Subject sj) throws Exception
+     {
+         update(sj);
+     }
 }
