@@ -45,7 +45,7 @@ public class LoadListSubjectOfCategoryAction extends org.apache.struts.action.Ac
             //begin visible TABLE
             response.getWriter().println("<table class=resource_table>");
                 response.getWriter().println("<tr class=color_title_table>");//Title of table
-                response.getWriter().println("<td width=25%>");
+                response.getWriter().println("<td width=20%>");
                 if(language==1) //EN
                     response.getWriter().println("Subject code");
                 if(language==2) //VI
@@ -57,11 +57,17 @@ public class LoadListSubjectOfCategoryAction extends org.apache.struts.action.Ac
                 if(language==2) //VI
                     response.getWriter().println("Tên môn học");
                 response.getWriter().println("</td>");
-                response.getWriter().println("<td width=15%>");
+                response.getWriter().println("<td width=10%>");
                 if(language==1) //EN
                     response.getWriter().println("Delete");
                 if(language==2) //VI
                     response.getWriter().println("Xóa");
+                response.getWriter().println("</td>");
+                response.getWriter().println("<td width=10%>");
+                if(language==1) //EN
+                    response.getWriter().println("Edit");
+                if(language==2) //VI
+                    response.getWriter().println("Sửa");
                 response.getWriter().println("</td>");
                 response.getWriter().println("</tr>");
             if(listSubject.size()==0)
@@ -98,20 +104,28 @@ public class LoadListSubjectOfCategoryAction extends org.apache.struts.action.Ac
                     if(language==2)
                     response.getWriter().println(listSubject.get(i).getSubjectNameVn().toString());
                     response.getWriter().println("</td>");
-                    if(color%2==0)//thay đổi màu xen kẽ cho dòng
+                    if(color%2==0)//thay đổi màu xen kẽ cho dòng ( xóa)
                         response.getWriter().println("<td class=color_table2>");
                     else
                         response.getWriter().println("<td>");
                     response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listSubject.get(i).getSubjectId() +"\" />");
-                    response.getWriter().println("</td>");        
+                    response.getWriter().println("</td>");
+                    
+                    if(color%2==0)//thay đổi màu xen kẽ cho dòng(sửa)
+                        response.getWriter().println("<td class=color_table2>");
+                    else
+                        response.getWriter().println("<td>");
+                    if(language==1)
+                        response.getWriter().println("<input type=\"submit\" value=\"Edit\" onclick=\"editsubject("+listSubject.get(i).getSubjectId() +")\" />");
+                    if(language==2)
+                        response.getWriter().println("<input type=\"submit\" value=\"Sửa\" onclick=\"editsubject("+listSubject.get(i).getSubjectId() +")\" />");
+                    response.getWriter().println("</td>");
                     response.getWriter().println("</tr>");
                     color++;
                 }
                 response.getWriter().println("</table>");
                 response.getWriter().println("<input type=\"hidden\" id=\"listSize\" value=\""+listSubject.size()+"\" />");
-                response.getWriter().println("<div id=\"btnDelete\"><input type=\"submit\" value=\"Delete\" onclick=\"deletesubject()\"/></div>");
             }
-            
         }
         return mapping.findForward(SUCCESS);
     }
