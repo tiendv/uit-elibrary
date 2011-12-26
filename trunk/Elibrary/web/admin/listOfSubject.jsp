@@ -140,7 +140,11 @@
                         data: "subjectsID=" + subjectsID
                     }).done(function(msg){
                         
-                        alert("sdfsd");
                     })
+             }
+             function editsubject(subjectID)
+             {
+                 window.location = "LoadEditSubject.do?subjectID="+subjectID;
+                 alert("success");
              }
         </script>
