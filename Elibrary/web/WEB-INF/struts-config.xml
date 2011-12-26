@@ -7,6 +7,7 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="EditSubjectForm" type="uit.elib.formbean.EditSubjectForm"/>
         <form-bean name="EditResourceForm" type="uit.elib.formbean.EditResourceForm"/>
         <form-bean name="LoadCreateSubjectForm" type="uit.elib.formbean.LoadCreateSubjectForm"/>
         <form-bean name="CreateResourceForm" type="uit.elib.formbean.CreateResourceForm"/>
@@ -70,12 +71,19 @@
             <forward name="success" path=".editResource"/>
             <forward name="unsuccess" path="/Welcome.do"/>
         </action>
+        <action path="/LoadEditSubject" name="EditSubjectForm" type="uit.elib.action.LoadEditSubjectAction">
+            <forward name="success" path=".editSubject"/>
+            <forward name="unsuccess" path="/Welcome.do"/>
+        </action>
         <action name="EditResourceForm" path="/EditResource" scope="session" type="uit.elib.action.EditResourceAction">
+            <forward name="success" path="/jsp/success.jsp"/>
+        </action>
+        <action name="EditSubjectForm" path="/EditSubject" scope="session" type="uit.elib.action.EditSubjectAction">
             <forward name="success" path="/jsp/success.jsp"/>
         </action>
         <action path="/LoadCreateResource" type="uit.elib.action.LoadCreateResourceAction">
             <forward name="success" path=".createResource"/>
-        </action>          
+        </action>       
         <action path="/DeleteSubject" type="uit.elib.action.DeleteSubjectAction"/>
         <action path="/DeleteResource" type="uit.elib.action.DeleteResourceAction"/>
         <action path="/LoadResourceTable" type="uit.elib.action.LoadResourceTableAction" scope="session"/>
