@@ -309,7 +309,7 @@ public class EditResourceAction extends org.apache.struts.action.Action {
         rsBO.updateResource(resource);  
         Boolean success =true;
         request.setAttribute("success",success);
-        String href="./LoadResource.do";
+        String href="./LoadListOfResource.do";
         request.setAttribute("href",href);
         return mapping.findForward(SUCCESS);
     }

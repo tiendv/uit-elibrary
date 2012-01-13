@@ -21,7 +21,7 @@
  <link href="<html:rewrite page='/css/uit.css'/>" rel="stylesheet" type="text/css" />
 
 <div style="overflow: auto;height: 600px;">
-    <form id="createResource" method="post" action="CreateResource.do"  enctype="multipart/form-data">
+     <form id="createResource" method="post" action="CreateResource.do"  enctype="multipart/form-data"> 
         <%
             List listResourceCategory = (List)request.getAttribute("listResourceCategory");
             List listSubject = (List)request.getAttribute("listSubject");
@@ -119,7 +119,7 @@
                 </tr> 
                 <tr>
                     <td class="label">
-                        <bean:message key="text.uploadfile"/><input type="file" name="fileThesis"/>
+                        <bean:message key="text.uploadfile"/><input id="fileThesis" type="file" name="fileThesis"/>
                     </td>                 
                 </tr>                
             </table>
@@ -134,7 +134,40 @@
                 <jsp:attribute name="value">
                 </jsp:attribute>
             </FCK:editor>                          
-        </div>    
+        </div>
+        <%-- Add resource with resource category is project (ID =6) --%>
+
+        <div id="divProject" class="project" style="display: none">
+            <table  border="0" cellspacing="0" cellpadding="5">
+                <tr>
+                    <td class="label"><bean:message key="text.projectauthor"/></td>
+                    <td><input id="txtProjectAuthor" name="txtProjectAuthor" type="text"/></td>
+                </tr>
+                <tr>
+                    <td class="label" ><bean:message key="text.namesubject"/></td>
+                    <td>
+                        <select id="dropSubjectInProject" name="dropSubjectInProject" >
+                            <%if(language==1) {%>     
+                                <c:forEach items="${listSubject}" var="item">
+                                    <option value="${item.subjectId}">${item.subjectNameEn}</option>
+                                </c:forEach>                   
+                            <%}%>
+                             <%if(language==2) {%>
+                                <c:forEach items="${listSubject}" var="item">
+                                    <option value="${item.subjectId}">${item.subjectNameVn}</option>
+                                </c:forEach>
+                            <%}%>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">
+                         <bean:message key="text.uploadfile"/><input type="file" id="fileProject" name="fileProject"/>
+                    </td>
+
+                </tr>
+            </table>
+        </div>            
         <%-- Add resource with resource category is chapter (ID =7) --%>
         <div  id="divChapter" class="chapter"  style="display: none">
             <table width="100%" border="0" cellspacing="0" cellpadding="5">
@@ -172,39 +205,7 @@
                 </jsp:attribute>
             </FCK:editor>
         </div>
-        <%-- Add resource with resource category is project (ID =6) --%>
 
-        <div id="divProject" class="project" style="display: none">
-            <table  border="0" cellspacing="0" cellpadding="5">
-                <tr>
-                    <td class="label"><bean:message key="text.projectauthor"/></td>
-                    <td><input id="txtProjectAuthor" name="txtProjectAuthor" type="text"/></td>
-                </tr>
-                <tr>
-                    <td class="label" ><bean:message key="text.namesubject"/></td>
-                    <td>
-                        <select id="dropSubjectInProject" name="dropSubjectInProject" >
-                            <%if(language==1) {%>     
-                                <c:forEach items="${listSubject}" var="item">
-                                    <option value="${item.subjectId}">${item.subjectNameEn}</option>
-                                </c:forEach>                   
-                            <%}%>
-                             <%if(language==2) {%>
-                                <c:forEach items="${listSubject}" var="item">
-                                    <option value="${item.subjectId}">${item.subjectNameVn}</option>
-                                </c:forEach>
-                            <%}%>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="label">
-                         <bean:message key="text.uploadfile"/><input type="file" name="fileProject"/>
-                    </td>
-
-                </tr>
-            </table>
-        </div>
         <%-- Add resource with resource category is Picture, Reading (ID =8,9) --%>
 
         <div id="divPictureandReading"  class="pictureandreading" style="display: none">
@@ -228,12 +229,12 @@
                 </tr>
                 <tr>
                     <td class="label">
-                        <bean:message key="text.uploadfile"/><input type="file" name="filePictureReading"/>
+                        <bean:message key="text.uploadfile"/><input type="file" id="filePictureReading" name="filePictureReading"/>
                     </td>                         
                 </tr>                      
             </table>
         </div>
-        <%-- Add resource with resource category is assignments,video,example,slide,pdf (ID =4,5,10,11) --%>
+        <%-- Add resource with resource category is assignments,example,lecture note,video (ID =4,5,10,11) --%>
         <div id="divResourceChapter" class="resourceChapter" style="display: none">
             <table width="100%" border="0" cellspacing="0" cellpadding="5">
                 <tr>
@@ -259,12 +260,12 @@
                 </tr>
                 <tr>
                     <td class="label">
-                        <bean:message key="text.uploadfile"/><input type="file" name="fileResourceChapter"/>
+                        <bean:message key="text.uploadfile"/><input type="file" id="fileResourceChapter" name="fileResourceChapter"/>
                     </td>
                 </tr>
             </table>
         </div>
-        <%-- Add resource with resource category (ID =12) --%>
+        <%-- Add resource with resource category is Syllabus (ID =12) --%>
         <div id="divResourceSyllabus" class="resourceChapter" style="display: none">
         <table width="100%" border="0" cellspacing="0" cellpadding="5">
                 <tr>
@@ -286,20 +287,135 @@
                 </tr>
                 <tr>
                     <td class="label">
-                        <bean:message key="text.uploadfile"/><input type="file" name="fileSyllabus"/>
+                        <bean:message key="text.uploadfile"/><input type="file" id="fileSyllabus" name="fileSyllabus"/>
                     </td>
                 </tr>
             </table>
         </div>                            
-         <div id="divButtonCreate" class="buttonCreateResource" style="display: none">
-            <input type="submit"  value=<bean:message key="text.buttoncreate" />  />
-        </div>
+
     </form>
+    <div id="divButtonCreate" class="buttonCreateResource" style="display: none">
+         <input type="submit"  value=<bean:message key="text.buttoncreate" /> onclick="validate()" />
+    </div>                 
 </div>     
 <script type="text/javascript">
     function init(){
         changeResourceCategory();
     }
+    // Resource Name is not null
+    function validateResourceName()
+    {
+        var alertString = "";
+        if($("#txtResourceNameEN").val().trim(" ").length==0)
+            alertString ="<bean:message key="text.resourcenameen" /> <bean:message key="text.required" />";
+        if($("#txtResourceNameVN").val().trim(" ").length==0)    
+            alertString =alertString+"\r\n<bean:message key="text.resourcenamevn" /> <bean:message key="text.required" />";
+        return alertString;
+    }
+    function validate(){
+        var chosenoption=document.getElementById("dropResourceCategory");
+        if (chosenoption.value=="2"){ // thesis
+            var alertString =validateResourceName();
+            if($("#fileThesis").val().trim(" ").length==0) // file
+                alertString =alertString+"\r\n<bean:message key="text.donotchoose" /> <bean:message key="text.uploadfile" />";
+            if($("#txtThesisAuthor").val().trim(" ").length==0) // author
+                alertString =alertString+"\r\n<bean:message key="text.author" /> <bean:message key="text.required" />";
+            if($("#txtTeacher").val().trim(" ").length==0) // teacher
+                alertString =alertString+"\r\n<bean:message key="text.teacher" /> <bean:message key="text.required" />";
+            if($("#txtClass").val().trim(" ").length==0) // class
+                alertString =alertString+"\r\n<bean:message key="text.class" /> <bean:message key="text.required" />";
+            if($("#txtSchool").val().trim(" ").length==0) // school
+                alertString =alertString+"\r\n<bean:message key="text.school" /> <bean:message key="text.required" />";
+            if($("#txtYear").val().trim(" ").length==0) // year
+                alertString =alertString+"\r\n<bean:message key="text.year" /> <bean:message key="text.required" />";
+            if($("#txtSchoolYear").val().trim(" ").length==0) // school year
+                alertString =alertString+"\r\n<bean:message key="text.schoolyear" /> <bean:message key="text.required" />";
+            if(FCKeditorAPI.GetInstance("fckThesisSummaryVN").GetXHTML().length==0) // ThesisSummaryVN
+                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryvn" /> <bean:message key="text.required" />";
+            if(FCKeditorAPI.GetInstance("fckThesisSummaryEN").GetXHTML().length==0) // ThesisSummaryEN
+                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryen" /> <bean:message key="text.required" />";       
+            if(alertString!="")
+                alert(alertString);
+            if(alertString=="")
+            {   
+                if(isNaN($("#txtYear").val())) // year is number
+                   alert("<bean:message key="text.year" /> <bean:message key="text.isnotnumber" />");
+                if(!isNaN($("#txtYear").val()))
+                    document.forms["createResource"].submit(); //submit
+            }
+        }
+        if (chosenoption.value=="6"){ // project
+            var alertString =validateResourceName();
+            if($("#txtProjectAuthor").val().trim(" ").length==0) // chapter
+                alertString =alertString+"\r\n<bean:message key="text.projectauthor" /> <bean:message key="text.required" />";
+            if($("#fileProject").val().trim(" ").length==0) // file
+                alertString =alertString+"\r\n<bean:message key="text.donotchoose" /> <bean:message key="text.uploadfile" />";
+            if(alertString!="")
+                alert(alertString);
+            if(alertString=="")
+                document.forms["createResource"].submit();            
+        }       
+        if (chosenoption.value=="7"){ //chapter
+            var alertString =validateResourceName();
+            if($("#txtOrderChapter").val().trim(" ").length==0) // chapter
+                alertString =alertString+"\r\n<bean:message key="text.orderchapter" /> <bean:message key="text.required" />";
+            if(FCKeditorAPI.GetInstance("fckChapterSummaryVN").GetXHTML().length==0) // 
+                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryvn" /> <bean:message key="text.required" />";
+            if(FCKeditorAPI.GetInstance("fckChapterSummaryEN").GetXHTML().length==0) // 
+                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryen" /> <bean:message key="text.required" />";             
+            if(alertString!="")
+                alert(alertString);
+            if(alertString=="")
+            {                
+                if(isNaN($("#txtOrderChapter").val())) // chapter is number
+                   alert("<bean:message key="text.orderchapter" /> <bean:message key="text.isnotnumber" />");
+                if(!isNaN($("#txtOrderChapter").val()))
+                    document.forms["createResource"].submit();
+            }    
+        }
+        if (chosenoption.value=="8"||chosenoption.value=="9"){
+            if(chosenoption.value=="8") // picture
+            {
+                var alertString = "";
+                if($("#filePictureReading").val().trim(" ").length==0) // file
+                    alertString =alertString+"\r\n<bean:message key="text.donotchoose" /> <bean:message key="text.imagegallery" />";
+                if(alertString!="")
+                    alert(alertString);
+                if(alertString=="")
+                    document.forms["createResource"].submit(); 
+            }
+            if(chosenoption.value=="9") //reading
+            {
+                var alertString = validateResourceName();
+                if($("#filePictureReading").val().trim(" ").length==0) // file
+                    alertString =alertString+"\r\n<bean:message key="text.donotchoose" /> <bean:message key="text.uploadfile" />";
+                if(alertString!="")
+                    alert(alertString);
+                if(alertString=="")
+                    document.forms["createResource"].submit(); 
+            }            
+        }
+        if (chosenoption.value=="4"||chosenoption.value=="5"||chosenoption.value=="10"||chosenoption.value=="11") //assignments,example,lecture note,video
+        {
+            var alertString = validateResourceName();
+            if($("#fileResourceChapter").val().trim(" ").length==0) // file
+                alertString =alertString+"\r\n<bean:message key="text.donotchoose" /> <bean:message key="text.uploadfile" />";
+            if(alertString!="")
+                alert(alertString);
+            if(alertString=="")
+                document.forms["createResource"].submit();     
+        }  
+        if (chosenoption.value=="12") //Syllabus
+        {
+            var alertString = "";
+            if($("#fileSyllabus").val().trim(" ").length==0) // file
+                alertString =alertString+"\r\n<bean:message key="text.donotchoose" /> <bean:message key="text.uploadfile" />";
+            if(alertString!="")
+                alert(alertString);
+            if(alertString=="")
+                document.forms["createResource"].submit(); 
+        }
+    }    
     function changeResourceCategory(){
         //run some code when "onchange" event fires
         document.getElementById("divButtonCreate").style.display = "block";
@@ -312,15 +428,6 @@
             document.getElementById("divResourceChapter").style.display = "none";
             document.getElementById("divResourceSyllabus").style.display = "none";
             document.getElementById("divResourceName").style.display = "block";
-        }       
-        if (chosenoption.value=="7"){
-            document.getElementById("divChapter").style.display = "block";
-            document.getElementById("divProject").style.display = "none";
-            document.getElementById("divPictureandReading").style.display = "none";
-            document.getElementById("divResourceChapter").style.display = "none";
-            document.getElementById("divResourceSyllabus").style.display = "none";
-            document.getElementById("divThesis").style.display = "none";
-            document.getElementById("divResourceName").style.display = "block";
         }
         if (chosenoption.value=="6"){
             document.getElementById("divProject").style.display = "block";
@@ -330,8 +437,17 @@
             document.getElementById("divResourceSyllabus").style.display = "none";
             document.getElementById("divThesis").style.display = "none";
             document.getElementById("divResourceName").style.display = "block";
+        }        
+        if (chosenoption.value=="7"){
+            document.getElementById("divChapter").style.display = "block";
+            document.getElementById("divProject").style.display = "none";
+            document.getElementById("divPictureandReading").style.display = "none";
+            document.getElementById("divResourceChapter").style.display = "none";
+            document.getElementById("divResourceSyllabus").style.display = "none";
+            document.getElementById("divThesis").style.display = "none";
+            document.getElementById("divResourceName").style.display = "block";
         }
-         if (chosenoption.value=="8"||chosenoption.value=="9"){
+        if (chosenoption.value=="8"||chosenoption.value=="9"){
             document.getElementById("divProject").style.display = "none";
             document.getElementById("divChapter").style.display = "none";
             document.getElementById("divPictureandReading").style.display = "block";
