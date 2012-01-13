@@ -110,7 +110,7 @@
         <put name="content"   value="/admin/editSubject.jsp" />
         <put name="leftmenu"   value="/admin/layout/leftmenu.jsp" />
     </definition> 
-    <definition name=".loadResource" extends=".homepage">
+    <definition name=".loadListOfResource" extends=".homepage">
         <put name="title"  value=" UIT library Administrator" />
         <put name="description"  value="UIT library Administrator" />
         <put name="header" value="/jsp/header.jsp" />
