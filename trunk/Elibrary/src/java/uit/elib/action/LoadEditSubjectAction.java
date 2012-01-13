@@ -4,6 +4,7 @@
  */
 package uit.elib.action;
 
+import java.lang.NullPointerException;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,6 +26,7 @@ public class LoadEditSubjectAction extends org.apache.struts.action.Action {
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
     private static final String UNSUCCESS = "unsuccess";
+    private int NullPointerException;
     
     /**
      * This is the action called from the Struts framework.
@@ -48,6 +50,9 @@ public class LoadEditSubjectAction extends org.apache.struts.action.Action {
                 request.setAttribute("subjectInfo",subjectInfo);
                 request.setAttribute("listSubjectCategory", SubjectCategoryBO.getSubjectCategoryBO().getAllSubjectCategory());
                 request.setAttribute("listFaculty", FacultyBO.getFacultyBO().getAll());
+                int facultyID = Integer.parseInt(request.getParameter("facultyID"));
+                request.setAttribute("hiddenFacultyID",facultyID );
+                request.setAttribute("hiddenSubjectCategoryID", subjectInfo.get(0).getSubjectcategory().getSubjectCategoryId());
                 return mapping.findForward(SUCCESS);
             }
         }

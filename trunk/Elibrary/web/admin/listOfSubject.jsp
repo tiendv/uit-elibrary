@@ -22,7 +22,7 @@
 %>
 <input id="hiddenlanguage" name="hiddenlanguage" value=<%=language%> type="hidden"/>
         <!--Begin load dropdownlist Subjectcategory + Faculty -->
-        <form method="POST" style="margin-left: 10px;">
+        <div style="margin-left: 15px;">
         <%if(language==1){%>
             <bean:message key="text.subjectcategory"/> <!--EN title subjectcategory -->
             <select id="dropSubjectCategory"  name="dropSubjectCategory" onchange="check()">
@@ -51,10 +51,11 @@
                 </c:forEach>
             </select>
         <%}%>
+        </div>
         <!--End load dropdownlist Subjectcategory + Faculty -->
         <div id="divResult"></div>
         <div id="divspace" style="width: 90%;"></div><input style="margin-left: 90%;" type="submit" value="<bean:message key="text.delete"/>" name="btnDelete" onclick="deletesubject()"/>
-        </form>
+        
         <script type="text/javascript">
                 var idCategory=0;
                 var idFaculty=0;
@@ -144,7 +145,6 @@
              }
              function editsubject(subjectID)
              {
-                 window.location = "LoadEditSubject.do?subjectID="+subjectID;
-                 alert("success");
+                 window.location = "LoadEditSubject.do?subjectID="+subjectID+"&facultyID="+idFaculty;
              }
         </script>

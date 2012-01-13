@@ -18,8 +18,6 @@ import uit.elib.dto.Subject;
  */
 public class LoadListSubjectOfCategoryAction extends org.apache.struts.action.Action{
     
-    private static final String SUCCESS = "success";
-    
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
@@ -127,6 +125,6 @@ public class LoadListSubjectOfCategoryAction extends org.apache.struts.action.Ac
                 response.getWriter().println("<input type=\"hidden\" id=\"listSize\" value=\""+listSubject.size()+"\" />");
             }
         }
-        return mapping.findForward(SUCCESS);
+        return mapping.findForward(null);
     }
 }
