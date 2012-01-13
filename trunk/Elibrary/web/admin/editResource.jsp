@@ -193,7 +193,7 @@
                 <%}%>                    
                 <tr>
                     <td class="label">
-                        <bean:message key="text.uploadfile"/><input type="file" name="fileThesis"/>
+                        <bean:message key="text.uploadfile"/><input type="file" id="fileThesis" name="fileThesis"/>
                     </td>                 
                 </tr>                
             </table>
@@ -210,56 +210,7 @@
                     <%=listResource.get(0).getSummaryEn()%>
                 </jsp:attribute>
             </FCK:editor>                          
-        </div>                 
-        <%-- Add resource with resource type is chapter (ID =7) --%>
-        <div  id="divChapter" class="chapter"  style="display: none">
-            <table width="100%" border="0" cellspacing="0" cellpadding="5">
-                <tr>
-                    <td class="label"><bean:message key="text.orderchapter"/></td>
-                    <td><input class="textbox" id="txtOrderChapter" name="txtOrderChapter" type="text" value="<%=listResource.get(0).getOrderChapter()%>"/></td>
-                </tr>
-                <tr>
-                    <td><bean:message key="text.namesubject"/></td>
-                    <td>
-                        <select  id="dropSubjectInChapter" name="dropSubjectInChapter">
-                        <%if(language==1) {%>
-                            <c:forEach items="${listSubject}" var="item">
-                                <c:if test="${item.subjectId!=listResource.get(0).getSubject().getSubjectId()}">
-                                    <option value="${item.subjectId}">${item.subjectNameEn}</option>
-                                </c:if> 
-                                <c:if test="${item.subjectId==listResource.get(0).getSubject().getSubjectId()}">
-                                    <option value="${item.subjectId}" selected="selected">${item.subjectNameEn}</option>
-                                </c:if>                                              
-                            </c:forEach>
-                        <%}%>
-                        <%if(language==2) {%>
-                            <c:forEach items="${listSubject}" var="item">
-                                <c:if test="${item.subjectId!=listResource.get(0).getSubject().getSubjectId()}">
-                                    <option value="${item.subjectId}">${item.subjectNameVn}</option>
-                                </c:if> 
-                                <c:if test="${item.subjectId==listResource.get(0).getSubject().getSubjectId()}">
-                                    <option value="${item.subjectId}" selected="selected">${item.subjectNameVn}</option>
-                                </c:if> 
-                            </c:forEach>                       
-                        <%}%>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-            <h2><bean:message key="text.chaptersummaryvn"/></h2>
-            <FCK:editor  instanceName="fckChapterSummaryVN" height="300px">
-                <jsp:attribute name="value">
-                    <%=listResource.get(0).getSummaryVn()%>
-                </jsp:attribute>
-            </FCK:editor>
-            <hr>
-            <h2><bean:message key="text.chaptersummaryen"/></h2>
-            <FCK:editor  instanceName="fckChapterSummaryEN" height="300px">
-                <jsp:attribute name="value">
-                    <%=listResource.get(0).getSummaryEn()%>
-                </jsp:attribute>
-            </FCK:editor>
-        </div>
+        </div> 
         <%-- Add resource with resource type is project (ID =6) --%>
 
         <div id="divProject" class="project" style="display: none">
@@ -334,11 +285,61 @@
                 <%}%>    
                 <tr>
                     <td class="label">
-                         <bean:message key="text.uploadfile"/><input type="file" name="fileProject"/>
+                         <bean:message key="text.uploadfile"/><input type="file" id="fileProject" name="fileProject"/>
                     </td>    
                 </tr>
             </table>
+        </div>            
+        <%-- Add resource with resource type is chapter (ID =7) --%>
+        <div  id="divChapter" class="chapter"  style="display: none">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                <tr>
+                    <td class="label"><bean:message key="text.orderchapter"/></td>
+                    <td><input class="textbox" id="txtOrderChapter" name="txtOrderChapter" type="text" value="<%=listResource.get(0).getOrderChapter()%>"/></td>
+                </tr>
+                <tr>
+                    <td><bean:message key="text.namesubject"/></td>
+                    <td>
+                        <select  id="dropSubjectInChapter" name="dropSubjectInChapter">
+                        <%if(language==1) {%>
+                            <c:forEach items="${listSubject}" var="item">
+                                <c:if test="${item.subjectId!=listResource.get(0).getSubject().getSubjectId()}">
+                                    <option value="${item.subjectId}">${item.subjectNameEn}</option>
+                                </c:if> 
+                                <c:if test="${item.subjectId==listResource.get(0).getSubject().getSubjectId()}">
+                                    <option value="${item.subjectId}" selected="selected">${item.subjectNameEn}</option>
+                                </c:if>                                              
+                            </c:forEach>
+                        <%}%>
+                        <%if(language==2) {%>
+                            <c:forEach items="${listSubject}" var="item">
+                                <c:if test="${item.subjectId!=listResource.get(0).getSubject().getSubjectId()}">
+                                    <option value="${item.subjectId}">${item.subjectNameVn}</option>
+                                </c:if> 
+                                <c:if test="${item.subjectId==listResource.get(0).getSubject().getSubjectId()}">
+                                    <option value="${item.subjectId}" selected="selected">${item.subjectNameVn}</option>
+                                </c:if> 
+                            </c:forEach>                       
+                        <%}%>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <h2><bean:message key="text.chaptersummaryvn"/></h2>
+            <FCK:editor  instanceName="fckChapterSummaryVN" height="300px">
+                <jsp:attribute name="value">
+                    <%=listResource.get(0).getSummaryVn()%>
+                </jsp:attribute>
+            </FCK:editor>
+            <hr>
+            <h2><bean:message key="text.chaptersummaryen"/></h2>
+            <FCK:editor  instanceName="fckChapterSummaryEN" height="300px">
+                <jsp:attribute name="value">
+                    <%=listResource.get(0).getSummaryEn()%>
+                </jsp:attribute>
+            </FCK:editor>
         </div>
+
         <%-- Add resource with resource type is Picture, Reading (ID =8,9) --%>
 
         <div id="divPictureandReading"  class="pictureandreading" style="display: none">
@@ -414,7 +415,7 @@
 
                 <tr>
                     <td class="label">
-                        <bean:message key="text.uploadfile"/><input type="file" name="filePictureReading"/>
+                        <bean:message key="text.uploadfile"/><input type="file" id="filePictureReading" name="filePictureReading"/>
                     </td>                         
                 </tr>                      
             </table>
@@ -506,12 +507,12 @@
                 <%}%>                          
                 <tr>
                     <td class="label">
-                        <bean:message key="text.uploadfile"/><input type="file" name="fileResourceChapter"/>
+                        <bean:message key="text.uploadfile"/><input type="file" id="fileResourceChapter" name="fileResourceChapter"/>
                     </td>
                 </tr>
             </table>
         </div>
-        <%-- Add resource with resource type (ID =12) --%>
+        <%-- Add resource with resource type is Syllabus (ID =12) --%>
         <div id="divResourceSyllabus" class="resourceChapter" style="display: none">
         <table width="100%" border="0" cellspacing="0" cellpadding="5">
                 <tr>
@@ -577,20 +578,106 @@
                 <%}%>                         
                 <tr>
                     <td class="label">
-                        <bean:message key="text.uploadfile"/><input type="file" name="fileSyllabus"/>
+                        <bean:message key="text.uploadfile"/><input type="file" id="fileSyllabus" name="fileSyllabus"/>
                     </td>
                 </tr>
             </table>
          </div>                            
-         <div id="diveButtonCreate" class="buttonCreateResource" style="display: none">
-            <input type="submit"  value=<bean:message key="text.buttoncreate" />  />
-        </div>
     </form>
+    <div id="diveButtonCreate" class="buttonCreateResource" style="display: none">
+        <input type="submit"  value=<bean:message key="text.buttoncreate"  /> onclick="validate()" />
+    </div>                
 </div>     
 <script type="text/javascript">
     function init(){
         changeResourceCategory();
     }
+    // Resource Name is not null
+    function validateResourceName()
+    {
+        var alertString = "";
+        if($("#txtResourceNameEN").val().trim(" ").length==0)
+            alertString ="<bean:message key="text.resourcenameen" /> <bean:message key="text.required" />";
+        if($("#txtResourceNameVN").val().trim(" ").length==0)    
+            alertString =alertString+"\r\n<bean:message key="text.resourcenamevn" /> <bean:message key="text.required" />";
+        return alertString;
+    }
+    function validate(){
+        var chosenoption=document.getElementById("dropResourceCategory");
+        if (chosenoption.value=="2"){ // thesis
+            var alertString =validateResourceName();
+            if($("#txtThesisAuthor").val().trim(" ").length==0) // author
+                alertString =alertString+"\r\n<bean:message key="text.author" /> <bean:message key="text.required" />";
+            if($("#txtTeacher").val().trim(" ").length==0) // teacher
+                alertString =alertString+"\r\n<bean:message key="text.teacher" /> <bean:message key="text.required" />";
+            if($("#txtClass").val().trim(" ").length==0) // class
+                alertString =alertString+"\r\n<bean:message key="text.class" /> <bean:message key="text.required" />";
+            if($("#txtSchool").val().trim(" ").length==0) // school
+                alertString =alertString+"\r\n<bean:message key="text.school" /> <bean:message key="text.required" />";
+            if($("#txtYear").val().trim(" ").length==0) // year
+                alertString =alertString+"\r\n<bean:message key="text.year" /> <bean:message key="text.required" />";
+            if($("#txtSchoolYear").val().trim(" ").length==0) // school year
+                alertString =alertString+"\r\n<bean:message key="text.schoolyear" /> <bean:message key="text.required" />";
+            if(FCKeditorAPI.GetInstance("fckThesisSummaryVN").GetXHTML().length==0) // ThesisSummaryVN
+                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryvn" /> <bean:message key="text.required" />";
+            if(FCKeditorAPI.GetInstance("fckThesisSummaryEN").GetXHTML().length==0) // ThesisSummaryEN
+                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryen" /> <bean:message key="text.required" />";       
+            if(alertString!="")
+                alert(alertString);
+            if(alertString=="")
+            {   
+                if(isNaN($("#txtYear").val())) // year is number
+                   alert("<bean:message key="text.year" /> <bean:message key="text.isnotnumber" />");
+                if(!isNaN($("#txtYear").val()))
+                    document.forms["createResource"].submit(); //submit
+            }
+        }
+        if (chosenoption.value=="6"){ // project
+            var alertString =validateResourceName();
+            if($("#txtProjectAuthor").val().trim(" ").length==0) // chapter
+                alertString =alertString+"\r\n<bean:message key="text.projectauthor" /> <bean:message key="text.required" />";
+            if(alertString!="")
+                alert(alertString);
+            if(alertString=="")
+                document.forms["createResource"].submit();            
+        }       
+        if (chosenoption.value=="7"){ //chapter
+            var alertString =validateResourceName();
+            if($("#txtOrderChapter").val().trim(" ").length==0) // chapter
+                alertString =alertString+"\r\n<bean:message key="text.orderchapter" /> <bean:message key="text.required" />";
+            if(FCKeditorAPI.GetInstance("fckChapterSummaryVN").GetXHTML().length==0) // 
+                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryvn" /> <bean:message key="text.required" />";
+            if(FCKeditorAPI.GetInstance("fckChapterSummaryEN").GetXHTML().length==0) // 
+                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryen" /> <bean:message key="text.required" />";             
+            if(alertString!="")
+                alert(alertString);
+            if(alertString=="")
+            {                
+                if(isNaN($("#txtOrderChapter").val())) // chapter is number
+                   alert("<bean:message key="text.orderchapter" /> <bean:message key="text.isnotnumber" />");
+                if(!isNaN($("#txtOrderChapter").val()))
+                    document.forms["createResource"].submit();
+            }    
+        }
+        if (chosenoption.value=="8"||chosenoption.value=="9"){
+            if(chosenoption.value=="9") //reading
+            {
+                var alertString = validateResourceName();
+                if(alertString!="")
+                    alert(alertString);
+                if(alertString=="")
+                    document.forms["createResource"].submit(); 
+            }            
+        }
+        if (chosenoption.value=="4"||chosenoption.value=="5"||chosenoption.value=="10"||chosenoption.value=="11") //assignments,example,lecture note,video
+        {
+            var alertString = validateResourceName();
+            if(alertString!="")
+                alert(alertString);
+            if(alertString=="")
+                document.forms["createResource"].submit();     
+        }  
+    }      
     function changeResourceCategory(){
         //run some code when "onchange" event fires
         document.getElementById("diveButtonCreate").style.display = "block";
