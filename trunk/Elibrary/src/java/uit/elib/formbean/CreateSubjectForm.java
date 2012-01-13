@@ -26,10 +26,10 @@ public class CreateSubjectForm extends org.apache.struts.action.ActionForm {
     private String txtTeacherName;
     private String txtLevel;
     private int dropFaculty;
-    private String fckintroductionVN;
-    private String fckintroductionUS;
-    private String fckProjectRequitementVN;
-    private String fckProjectRequitementUS;
+    private String FckIntroductionVN;
+    private String FckIntroductionEN;
+    private String FckProjectRequitementVN;
+    private String FckProjectRequitementEN;
     private String txtSubjectName;
     private String txtNumberChapter;
     private String txtCreditNumber;
@@ -50,36 +50,36 @@ public class CreateSubjectForm extends org.apache.struts.action.ActionForm {
         this.dropSubjectCategory = dropSubjectCategory;
     }
 
-    public String getFckProjectRequitementUS() {
-        return fckProjectRequitementUS;
+    public String getFckProjectRequitementEN() {
+        return FckProjectRequitementEN;
     }
 
-    public void setFckProjectRequitementUS(String fckProjectRequitementUS) {
-        this.fckProjectRequitementUS = fckProjectRequitementUS;
+    public void setFckProjectRequitementEN(String FckProjectRequitementEN) {
+        this.FckProjectRequitementEN = FckProjectRequitementEN;
     }
 
     public String getFckProjectRequitementVN() {
-        return fckProjectRequitementVN;
+        return FckProjectRequitementVN;
     }
 
-    public void setFckProjectRequitementVN(String fckProjectRequitementVN) {
-        this.fckProjectRequitementVN = fckProjectRequitementVN;
+    public void setFckProjectRequitementVN(String FckProjectRequitementVN) {
+        this.FckProjectRequitementVN = FckProjectRequitementVN;
     }
 
-    public String getFckintroductionUS() {
-        return fckintroductionUS;
+    public String getFckIntroductionEN() {
+        return FckIntroductionEN;
     }
 
-    public void setFckintroductionUS(String fckintroductionUS) {
-        this.fckintroductionUS = fckintroductionUS;
+    public void setFckIntroductionEN(String FckIntroductionEN) {
+        this.FckIntroductionEN = FckIntroductionEN;
     }
 
-    public String getFckintroductionVN() {
-        return fckintroductionVN;
+    public String getFckIntroductionVN() {
+        return FckIntroductionVN;
     }
 
-    public void setFckintroductionVN(String fckintroductionVN) {
-        this.fckintroductionVN = fckintroductionVN;
+    public void setFckIntroductionVN(String FckIntroductionVN) {
+        this.FckIntroductionVN = FckIntroductionVN;
     }
 
     public String getTxtCreditNumber() {

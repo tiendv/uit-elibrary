@@ -57,7 +57,7 @@
             <forward name="success" path=".syllabus"/>
             <forward name="unsuccess" path="/Welcome.do"/>
         </action>
-        <action path="/LoadResource" forward=".loadResource"/>
+        <action path="/LoadListOfResource" forward=".loadListOfResource"/>
         <action path="/CreateSubject" name="CreateSubjectForm" type="uit.elib.action.CreateSubjectAction" scope="session">
             <forward name="success" path="/jsp/success.jsp"/>
         </action>

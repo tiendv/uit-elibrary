@@ -27,6 +27,6 @@
             <td class="leftmenu_td_link"><a href="LoadListOfSubject.do"><bean:message key="text.listofsubject"/></a></td>
         </tr>
         <tr>     
-            <td class="leftmenu_td_link"><a href="LoadResource.do"><bean:message key="text.leftmenu.viewresource"/></a></td>
+            <td class="leftmenu_td_link"><a href="LoadListOfResource.do"><bean:message key="text.leftmenu.listofresource"/></a></td>
         </tr>
 </table>

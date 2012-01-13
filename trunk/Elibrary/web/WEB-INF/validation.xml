@@ -75,52 +75,52 @@
             <field 
                 property="txtSubjectName"
                 depends="required">
-                <arg key="text.SubjectNameVN"/>
+                <arg key="text.subjectnamevn"/>
             </field> 
             <field 
                 property="txtSubjectNameUS"
                 depends="required">
-                <arg key="text.SubjectNameEN"/>
+                <arg key="text.subjectnameen"/>
             </field>
             <field 
                 property="txtSubjectCode"
                 depends="required">
-                <arg key="text.SubjectCode"/>
+                <arg key="text.subjectcode"/>
             </field>
             <field 
                 property="txtPeriodOfTheory"
                 depends="required,integer">
-                <arg key="text.periodOfTheory"/>
+                <arg key="text.periodoftheory"/>
             </field>
             <field 
                 property="txtPeriodOfPractice"
                 depends="required,integer">
-                <arg key="text.periodOfPractice"/>
+                <arg key="text.periodofpractice"/>
             </field>
             <field 
                 property="txtMidtermGrade"
                 depends="required,integer">
-                <arg key="text.midtermGrade"/>
+                <arg key="text.midtermgrade"/>
             </field>
             <field 
                 property="txtFinalGrade"
                 depends="required,integer">
-                <arg key="text.finalGrade"/>
+                <arg key="text.finalgrade"/>
             </field>
             <field 
                 property="txtPrerequisiteSubject"
                 depends="required">
-                <arg key="text.prerequisiteSubjectEN"/>
+                <arg key="text.prerequisitesubject"/>
             </field>
             <field 
                 property="txtPrerequisiteSubjectVN"
                 depends="required">
-                <arg key="text.prerequisiteSubjectVN"/>
+                <arg key="text.prerequisitesubjectvn"/>
             </field>            
             <field 
                 property="txtTimeTeaching"
                 depends="required,integer">
-                <arg key="text.timeTeaching"/>
+                <arg key="text.timeteaching"/>
             </field>
             <field 
                 property="txtTeacherName"
@@ -140,8 +140,28 @@
             <field 
                 property="txtCreditNumber"
                 depends="required,integer">
-                <arg key="text.creditNumber"/>
-            </field>          
+                <arg key="text.creditnumber"/>
+            </field>
+            <field 
+                property="fckIntroductionVN"
+                depends="required">
+                <arg key="text.introductionsubjectvn"/>
+            </field>
+            <field 
+                property="fckIntroductionEN"
+                depends="required">
+                <arg key="text.introductionsubjecten"/>
+            </field>
+            <field 
+                property="fckProjectRequitementVN"
+                depends="required">
+                <arg key="text.projectrequirementvn"/>
+            </field>
+            <field 
+                property="fckProjectRequitementEN"
+                depends="required">
+                <arg key="text.projectrequirementen"/>
+            </field>             
         </form>
    </formset>
 </form-validation>

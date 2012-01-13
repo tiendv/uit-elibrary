@@ -103,42 +103,34 @@
             <td><bean:message key="text.numberchapter"/></td>
             <td><html:text property="txtNumberChapter" /></td>
         </tr>
-    </table>
-    
+    </table>   
     <hr>
     <h2><bean:message key="text.introductionsubjectvn"/></h2>
-   
-        <FCK:editor  instanceName="fckintroductionVN" height="300px">
+        <FCK:editor instanceName="fckIntroductionVN" height="300px">
             <jsp:attribute name="value">
-
             </jsp:attribute>
         </FCK:editor>
     <hr>
-    
     <h2><bean:message key="text.introductionsubjecten"/></h2>
-    <FCK:editor instanceName="fckintroductionUS" height="300px">
-        <jsp:attribute name="value">
-            
-        </jsp:attribute>
-    </FCK:editor>
+        <FCK:editor instanceName="fckIntroductionEN" height="300px">
+            <jsp:attribute name="value">
+            </jsp:attribute>
+        </FCK:editor>
     <hr>
     <h2><bean:message key="text.projectrequirementvn"/></h2>
-        <FCK:editor  instanceName="fckProjectRequitementVN" height="300px">
+        <FCK:editor instanceName="fckProjectRequitementVN" height="300px">
             <jsp:attribute name="value">
-
             </jsp:attribute>
         </FCK:editor>
     <hr>
     <h2><bean:message key="text.projectrequirementen"/></h2>
-
-        <FCK:editor  instanceName="fckProjectRequitementUS" height="300px">
+        <FCK:editor instanceName="fckProjectRequitementEN" height="300px">
             <jsp:attribute name="value">
-
             </jsp:attribute>
         </FCK:editor>
     <hr>
     <div style="text-align: left">
-        <html:submit property="btnSubmit" disabled="true"><bean:message key="text.buttoncreate"/></html:submit><noscript><bean:message key="text.noscript"/></noscript> 
+        <html:submit property="btnSubmit" onclick="beforeValidation()" disabled="true"><bean:message key="text.buttoncreate"/></html:submit><noscript><bean:message key="text.noscript"/></noscript> 
     </div>
     <html:javascript formName="CreateSubjectForm"/>
     </html:form>
@@ -162,5 +154,12 @@
         }          
  
     } 
-  
+    function beforeValidation()
+    {
+       document.getElementById("fckIntroductionVN").value = FCKeditorAPI.GetInstance("fckIntroductionVN").GetXHTML();
+       document.getElementById("fckIntroductionEN").value = FCKeditorAPI.GetInstance("fckIntroductionEN").GetXHTML();
+       document.getElementById("fckProjectRequitementVN").value = FCKeditorAPI.GetInstance("fckProjectRequitementVN").GetXHTML();
+       document.getElementById("fckProjectRequitementEN").value = FCKeditorAPI.GetInstance("fckProjectRequitementEN").GetXHTML();
+       
+    }
 </script>
