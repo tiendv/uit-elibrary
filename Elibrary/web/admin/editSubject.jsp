@@ -33,10 +33,11 @@
                     List<Subject> subjectInfo = (List<Subject>)request.getAttribute("subjectInfo");
                     List<Faculty> listFaculty = (List<Faculty>)request.getAttribute("listFaculty");
                     List<Subjectcategory> listSubjectCategory = (List<Subjectcategory>)request.getAttribute("listSubjectCategory");
+                   
         %>
-        <!-- <input id="hiddenSubjectCategoryID" name="hiddenSubjectCategoryID" type="text" value= "<%=request.getAttribute("hiddensubjectCategoryID") %>" />
-        <input id="hiddenFacultyID" name="hiddenFacultyID" type="text" value= "<%=request.getAttribute("hiddenFacultyID") %>"  />
-        -->
+        <input id="hiddenSubjectCategoryID" name="hiddenSubjectCategoryID" type="hidden" value= "<%=request.getAttribute("hiddenSubjectCategoryID").toString() %>" />
+        <input id="hiddenFacultyID" name="hiddenFacultyID" type="hidden" value= "<%=request.getAttribute("hiddenFacultyID").toString()%>"  />
+        
         <input type="hidden" name="txtSubjectID" value="<%=subjectInfo.get(0).getSubjectId()%>" />
         <table width="100%">    
         <tr>
@@ -64,12 +65,12 @@
             <td><bean:message key="text.faculty"/></td>
             <td>
                 <% if(language==1) {%>
-                    <html:select  property="dropFaculty" styleClass="combobox" > 
+                    <html:select  property="dropFaculty" onchange="check()" styleClass="combobox" > 
                         <html:optionsCollection name="LoadCreateSubjectForm"  property="listDropFaculty" value="facultyId" label="facultyNameEn"></html:optionsCollection>
                     </html:select>
                 <%}%>
                 <% if(language==2) {%>
-                    <html:select  property="dropFaculty" styleClass="combobox" > 
+                    <html:select  property="dropFaculty" onchange="check()" styleClass="combobox" > 
                         <html:optionsCollection name="LoadCreateSubjectForm"  property="listDropFaculty" value="facultyId" label="facultyNameVn"></html:optionsCollection>
                     </html:select>
                 <%}%>
@@ -147,7 +148,7 @@
         </FCK:editor>
     <hr>
     <div style="text-align: left">
-        <html:submit property="btnSubmit" disabled="false"><bean:message key="text.buttonedit"/></html:submit><noscript><bean:message key="text.noscript"/></noscript> 
+        <html:submit property="btnSubmit" ><bean:message key="text.buttonedit"/></html:submit><noscript><bean:message key="text.noscript"/></noscript> 
     </div>
     <html:javascript formName="CreateSubjectForm"/>
     </html:form>
@@ -156,12 +157,15 @@
   
     function init()
     {
-        document.CreateSubjectForm.btnSubmit.disabled=false;
-        document.CreateSubjectForm.dropFaculty.disabled=true;
-        document.CreateSubjectForm.dropFaculty.selectedIndex=-1;
-        document.CreateSubjectForm.dropSubjectCategory.selectedIndex=0;
-//        document.CreateSubjectForm.dropFaculty.selectedIndex=hiddenFacultyID;
-//        document.CreateSubjectForm.dropSubjectCategory.selectedIndex=hiddenSubjectCategoryID;
+//        document.getElementById("btnSubmit")=false;
+//        document.CreateSubjectForm.btnSubmit.disabled=false;
+//        document.CreateSubjectForm.dropFaculty.disabled=true;
+//        document.CreateSubjectForm.dropFaculty.selectedIndex=document.getElementById("hiddenFacultyID");
+//        document.CreateSubjectForm.dropSubjectCategory.selectedIndex=document.getElementById("hiddenSubjectCategoryID");
+        
+        document.getElementById("dropFaculty").disable=false;
+        document.getElementById("dropFaculty").selectedIndex=document.getElementById("hiddenFacultyID");
+        document.getElementById("dropSubjectCategory").selectedIndex=document.getElementById("hiddenSubjectCategoryID");
     }
     function check()
     { 
