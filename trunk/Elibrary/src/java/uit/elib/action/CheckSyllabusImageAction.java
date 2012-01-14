@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package uit.elib.action;
 
 import java.util.List;
@@ -16,13 +15,10 @@ import uit.elib.dto.Resource;
 
 /**
  *
- * @author Hoang
+ * @author Nguyen Hoang Tan
  */
-public class LoadChapterAction extends org.apache.struts.action.Action {
-    
-    /* forward name="success" path="" */
-    private static final String SUCCESS = "success";
-    
+public class CheckSyllabusImageAction extends org.apache.struts.action.Action {
+
     /**
      * This is the action called from the Struts framework.
      * @param mapping The ActionMapping used to select this instance.
@@ -36,20 +32,11 @@ public class LoadChapterAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-
-        String id = request.getParameter("id");
-        int subjectID = Integer.parseInt(id);
-        ResourceBO resourceBO = ResourceBO.getResourceBO();
-        List<Resource> chapters = resourceBO.getAllResource(subjectID,7);
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().println("<select class=\"combobox\" id=\"dropOrderChapterSubject\" name=\"dropOrderChapterSubject\">");        
-        for (int i = 0; i < chapters.size(); i++) {
-            Resource resource = chapters.get(i);
-            response.getWriter().println("<option value = "+ resource.getOrderChapter() +" >");
-            response.getWriter().println(resource.getOrderChapter());
-            response.getWriter().println("</option>");
-        }
-        response.getWriter().println("</select>");        
+        int subjectID = Integer.parseInt(request.getParameter("id"));
+        int resourceCategoryID = Integer.parseInt(request.getParameter("resourceCategoryID"));
+        List<Resource> listResource= ResourceBO.getResourceBO().getAllResource(subjectID, resourceCategoryID);
+        if(listResource.size()>0)
+            response.getWriter().println("1");
         return null;
     }
 }

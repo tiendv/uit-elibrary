@@ -59,7 +59,7 @@ public class ResourceBO extends ManagerBase<Resource> {
             return null;
         }
      }
-      public List<Resource> getAllResourceOfSubjectAndResourceCategory(int subjectID, int resourcecategoryID)
+      public List getAllResource(int subjectID, int resourcecategoryID)
       {
           String query = "SubjectId="+subjectID + " and ResourceCategoryId="+resourcecategoryID;
           List<Resource> list;

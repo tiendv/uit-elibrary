@@ -54,9 +54,9 @@ public class SubjectHomeAction extends org.apache.struts.action.Action {
                     //set Attribute for subject
                     request.setAttribute("subject", subject);
                     //get image link of subject
-                    if(ResourceBO.getResourceBO().getAllResourceOfSubjectAndResourceCategory(id, 8).size()>0)
+                    if(ResourceBO.getResourceBO().getAllResource(id, 8).size()>0)
                     {
-                        listResource=ResourceBO.getResourceBO().getAllResourceOfSubjectAndResourceCategory(id, 8);
+                        listResource=ResourceBO.getResourceBO().getAllResource(id, 8);
                         String imageLink = "./upload/"+listResource.get(0).getServerName().toString();
                         request.setAttribute("imageLink", imageLink); 
                     }
