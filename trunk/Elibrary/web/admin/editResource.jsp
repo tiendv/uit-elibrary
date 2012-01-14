@@ -108,8 +108,6 @@
                             <%}%>
                         </select>
                     </td>
-                </tr>  
-                <tr>
                     <td><bean:message key="text.faculty"/></td>
                     <td>
                         <select id="dropFaculty" name="dropFaculty" >
@@ -157,6 +155,12 @@
                 <%if(listResource.get(0).getUploadName()!=null){%>
                     <tr>
                         <td>
+                            <bean:message key="text.download"/>
+                        </td>
+                        <td>
+                            <div class="displayIcon"><a href="DownLoad.do?resourceID=<%=listResource.get(0).getResourceId()%>"/></div>
+                        </td>
+                        <td>
                             <bean:message key="text.uploadname"/>
                         </td>
                         <td>
@@ -170,8 +174,6 @@
                         <td>
                             <%=listResource.get(0).getDownloadNumber()%>
                         </td>
-                    </tr>
-                    <tr>
                         <td>
                             <bean:message key="text.size"/>
                         </td>
@@ -182,20 +184,11 @@
                             <%=Mb%>Mb(<%=Kb%>Kb)     
                         </td>
                     </tr>                          
-                    <tr>
-                        <td>
-                            <bean:message key="text.download"/>
-                        </td>
-                        <td>
-                            <div class="displayIcon"><a href="DownLoad.do?resourceID=<%=listResource.get(0).getResourceId()%>"/></div>
-                        </td>
-                    </tr>
                 <%}%>                    
                 <tr>
-                    <td class="label">
-                        <bean:message key="text.uploadfile"/><input type="file" id="fileThesis" name="fileThesis"/>
-                    </td>                 
-                </tr>                
+                    <td class="label"><bean:message key="text.uploadfile"/></td>
+                    <td><input id="fileThesis" type="file" name="fileThesis"/></td>
+                </tr>                 
             </table>
             <h2><bean:message key="text.thesissummaryvn"/></h2>
             <FCK:editor  instanceName="fckThesisSummaryVN" height="300px">
@@ -284,9 +277,8 @@
                     </tr>
                 <%}%>    
                 <tr>
-                    <td class="label">
-                         <bean:message key="text.uploadfile"/><input type="file" id="fileProject" name="fileProject"/>
-                    </td>    
+                    <td class="label"><bean:message key="text.uploadfile"/></td>
+                    <td><input type="file" id="fileProject" name="fileProject"/></td>
                 </tr>
             </table>
         </div>            
@@ -374,6 +366,12 @@
                 <%if(listResource.get(0).getUploadName()!=null && listResource.get(0).getResourcecategory().getResourceCategoryId()==9){ %>
                     <tr>
                         <td>
+                            <bean:message key="text.download"/>
+                        </td>
+                        <td>
+                            <div class="displayIcon"><a class="onlineTextBooks" href="DownLoad.do?resourceID=<%=listResource.get(0).getResourceId()%>"/></div>
+                        </td>
+                        <td>
                             <bean:message key="text.uploadname"/>
                         </td>
                         <td>
@@ -387,8 +385,6 @@
                         <td>
                             <%=listResource.get(0).getDownloadNumber()%>
                         </td>
-                    </tr>
-                    <tr>
                         <td>
                             <bean:message key="text.size"/>
                         </td>
@@ -396,28 +392,18 @@
                             <%=Mb%>Mb(<%=Kb%>Kb)       
                         </td>
                     </tr>                          
-                    <tr>
-                        <td>
-                            <bean:message key="text.download"/>
-                        </td>
-                        <td>
-                            <div class="displayIcon"><a class="onlineTextBooks" href="DownLoad.do?resourceID=<%=listResource.get(0).getResourceId()%>"/></div>
-                        </td>
-                    </tr>
-                    <%if(listResource.get(0).getUploadName()!=null){ 
-                        String imageLink = "./upload/"+listResource.get(0).getServerName().toString();
-                    %>
+                <%}%>                                
+                <tr>
+                    <td class="label"><bean:message key="text.uploadfile"/></td>
+                    <td><input type="file" id="filePictureReading" name="filePictureReading"/></td>
+                </tr>
+                <%if(listResource.get(0).getServerName()!=null){ 
+                    String imageLink = "./upload/"+listResource.get(0).getServerName().toString();
+                %>
                     <tr>
                         <td ><img src="<%=imageLink%>" width="300" height="300"/></td>
                     </tr>
-                    <%}%>                            
-                <%}%>
-
-                <tr>
-                    <td class="label">
-                        <bean:message key="text.uploadfile"/><input type="file" id="filePictureReading" name="filePictureReading"/>
-                    </td>                         
-                </tr>                      
+                <%}%>                
             </table>
         </div>
         <%-- Add resource with resource type is assignments,video,example,slide,pdf (ID =4,5,10,11) --%>
@@ -457,30 +443,6 @@
                 <%if(listResource.get(0).getUploadName()!=null){ %>
                     <tr>
                         <td>
-                            <bean:message key="text.uploadname"/>
-                        </td>
-                        <td>
-                            <%=listResource.get(0).getUploadName() %>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <bean:message key="text.downloadnumber"/>
-                        </td>
-                        <td>
-                            <%=listResource.get(0).getDownloadNumber()%>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <bean:message key="text.size"/>
-                        </td>
-                        <td>
-                            <%=Mb%>Mb(<%=Kb%>Kb)       
-                        </td>
-                    </tr>                          
-                    <tr>
-                        <td>
                             <bean:message key="text.download"/>
                         </td>
                         <%if(listResource.get(0).getResourcecategory().getResourceCategoryId()==4){%>
@@ -503,12 +465,31 @@
                                 <div class="displayIcon"><a class="multimediaContent" href="DownLoad.do?resourceID=<%=listResource.get(0).getResourceId()%>"/></div>
                             </td>
                         <%}%>                                  
+                        <td>
+                            <bean:message key="text.uploadname"/>
+                        </td>
+                        <td>
+                            <%=listResource.get(0).getUploadName() %>
+                        </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <bean:message key="text.downloadnumber"/>
+                        </td>
+                        <td>
+                            <%=listResource.get(0).getDownloadNumber()%>
+                        </td>
+                        <td>
+                            <bean:message key="text.size"/>
+                        </td>
+                        <td>
+                            <%=Mb%>Mb(<%=Kb%>Kb)       
+                        </td>
+                    </tr>                          
                 <%}%>                          
                 <tr>
-                    <td class="label">
-                        <bean:message key="text.uploadfile"/><input type="file" id="fileResourceChapter" name="fileResourceChapter"/>
-                    </td>
+                    <td class="label"><bean:message key="text.uploadfile"/></td>
+                    <td><input type="file" id="fileResourceChapter" name="fileResourceChapter"/></td>
                 </tr>
             </table>
         </div>
@@ -545,6 +526,12 @@
                 <%if(listResource.get(0).getUploadName()!=null){%>
                     <tr>
                         <td>
+                            <bean:message key="text.download"/>
+                        </td>
+                        <td>
+                            <div class="displayIcon"><a href="DownLoad.do?resourceID=<%=listResource.get(0).getResourceId()%>"/></div>
+                        </td>
+                        <td>
                             <bean:message key="text.uploadname"/>
                         </td>
                         <td>
@@ -558,8 +545,6 @@
                         <td>
                             <%=listResource.get(0).getDownloadNumber()%>
                         </td>
-                    </tr>
-                    <tr>
                         <td>
                             <bean:message key="text.size"/>
                         </td>
@@ -567,19 +552,10 @@
                             <%=Mb%>Mb(<%=Kb%>Kb)     
                         </td>
                     </tr>                          
-                    <tr>
-                        <td>
-                            <bean:message key="text.download"/>
-                        </td>
-                        <td>
-                            <div class="displayIcon"><a href="DownLoad.do?resourceID=<%=listResource.get(0).getResourceId()%>"/></div>
-                        </td>
-                    </tr>
                 <%}%>                         
                 <tr>
-                    <td class="label">
-                        <bean:message key="text.uploadfile"/><input type="file" id="fileSyllabus" name="fileSyllabus"/>
-                    </td>
+                    <td class="label"><bean:message key="text.uploadfile"/></td>
+                    <td><input type="file" id="fileSyllabus" name="fileSyllabus"/></td>
                 </tr>
             </table>
          </div>                            
