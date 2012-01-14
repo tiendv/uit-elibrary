@@ -81,8 +81,6 @@
                             <%}%>
                         </select>
                     </td>
-                </tr>  
-                <tr>
                     <td><bean:message key="text.faculty"/></td>
                     <td>
                         <select id="dropFaculty" name="dropFaculty" >
@@ -98,7 +96,7 @@
                             <%}%>
                         </select>
                     </td>
-                </tr>
+                </tr>    
                 <tr>
                     <td><bean:message key="text.author"/></td>
                     <td><input class="textbox" id="txtThesisAuthor" name="txtThesisAuthor" type="text"/></td>
@@ -118,9 +116,8 @@
                     <td><input class="textbox" id="txtSchoolYear" name="txtSchoolYear" type="text"/></td>                    
                 </tr> 
                 <tr>
-                    <td class="label">
-                        <bean:message key="text.uploadfile"/><input id="fileThesis" type="file" name="fileThesis"/>
-                    </td>                 
+                    <td class="label"><bean:message key="text.uploadfile"/></td>
+                    <td><input id="fileThesis" type="file" name="fileThesis"/></td>
                 </tr>                
             </table>
             <h2><bean:message key="text.thesissummaryvn"/></h2>
@@ -161,10 +158,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="label">
-                         <bean:message key="text.uploadfile"/><input type="file" id="fileProject" name="fileProject"/>
-                    </td>
-
+                    <td class="label"><bean:message key="text.uploadfile"/></td>
+                    <td><input type="file" id="fileProject" name="fileProject"/></td>
                 </tr>
             </table>
         </div>            
@@ -228,9 +223,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="label">
-                        <bean:message key="text.uploadfile"/><input type="file" id="filePictureReading" name="filePictureReading"/>
-                    </td>                         
+                    <td class="label"><bean:message key="text.uploadfile"/></td>
+                    <td><input type="file" id="filePictureReading" name="filePictureReading"/></td>
                 </tr>                      
             </table>
         </div>
@@ -259,9 +253,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="label">
-                        <bean:message key="text.uploadfile"/><input type="file" id="fileResourceChapter" name="fileResourceChapter"/>
-                    </td>
+                    <td class="label"><bean:message key="text.uploadfile"/></td>
+                    <td><input type="file" id="fileResourceChapter" name="fileResourceChapter"/></td>
                 </tr>
             </table>
         </div>
@@ -286,9 +279,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="label">
-                        <bean:message key="text.uploadfile"/><input type="file" id="fileSyllabus" name="fileSyllabus"/>
-                    </td>
+                    <td class="label"><bean:message key="text.uploadfile"/></td>
+                    <td><input type="file" id="fileSyllabus" name="fileSyllabus"/></td>
                 </tr>
             </table>
         </div>                            
