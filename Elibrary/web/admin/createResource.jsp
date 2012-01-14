@@ -33,9 +33,9 @@
         %>
         <h2> <bean:message key="text.insertnewresource"/></h2>
         <div class="resource2" >
-            <div style="width: 175px;float: left "><bean:message key="text.typeofresource"/></div>
-            <div style="width: 175px;float: right ">
-                <select id="dropResourceCategory" name="dropResourceCategory" class="combobox" onchange="changeResourceCategory()">
+            <div class="resource_left"><bean:message key="text.typeofresource"/></div>
+            <div class="resource_left">
+                <select class="combobox" id="dropResourceCategory" name="dropResourceCategory" onchange="changeResourceCategory()">
                     <%if(language==1) {%>
                         <c:forEach items="${listResourceCategory}" var="item">
                             <option value="${item.resourceCategoryId}">${item.resourceCategoryNameEn}</option>
@@ -49,17 +49,17 @@
                 </select>
             </div>                    
         </div>
-        <div style="clear:both;padding-top: 3px;"></div>        
+        <div class="cleared"></div>        
         <%-- Resource Name --%>           
         <div  id="divResourceName" class="resourceName"  style="width: 700px;padding-left: 3px;display: none">
-             <div style="width: 175px;float: left;"><bean:message key="text.resourcenameen" /></div>
+             <div class="resource_left"><bean:message key="text.resourcenameen" /></div>
              <div class="resource_left"><input class="textbox" id="txtResourceNameEN" name="txtResourceNameEN" type="text"/></div>
              <div class="resource_left"><bean:message key="text.resourcenamevn"/></div>
              <div class="resource_left"><input class="textbox" id="txtResourceNameVN" name="txtResourceNameVN" type="text"/></div>
         </div>
-        <div style="clear:both;padding-top: 3px;"></div>           
+        <div class="cleared"></div>           
         <%-- Add resource with resource category is thesis (ID =2) --%> 
-        <div  id="divThesis" class="thesis"  style="display: none">
+        <div  id="divThesis" style="display: none">
             <div class="resource1">
                 <div class="resource_left"><bean:message key="text.level"/></div>
                 <div class="resource_left">
@@ -92,7 +92,7 @@
                     </select>
                 </div>
             </div>
-            <div style="clear:both;padding-top: 3px"></div>              
+            <div class="cleared"></div>              
             <div class="resource1">
                 <div class="resource_left"><bean:message key="text.author"/></div>
                 <div class="resource_left"><input class="textbox" id="txtThesisAuthor" name="txtThesisAuthor" type="text"/></div>
@@ -133,7 +133,7 @@
         </div>
         <%-- Add resource with resource category is project (ID =6) --%>
 
-        <div id="divProject" class="project" style="display: none">
+        <div id="divProject" style="display: none">
             <div class="resource1">
                 <div class="resource_left"><bean:message key="text.namesubject"/></div>
                 <div class="resource_left">
@@ -161,11 +161,11 @@
             <div class="cleared"></div>     
         </div>            
         <%-- Add resource with resource category is chapter (ID =7) --%>
-        <div  id="divChapter" class="chapter"  style="display: none">
+        <div  id="divChapter" style="display: none">
             <div class="resource1">
                 <div class="resource_left"><bean:message key="text.namesubject"/></div>       
                 <div class="resource_left">
-                    <select  id="dropSubjectInChapter" name="dropSubjectInChapter" class="combobox">
+                    <select class="combobox" id="dropSubjectInChapter" name="dropSubjectInChapter" >
                         <%if(language==1) {%>                               
                             <c:forEach items="${listSubject}" var="item">
                                 <option value="${item.subjectId}">${item.subjectNameEn}</option>
@@ -197,7 +197,7 @@
 
         <%-- Add resource with resource category is Picture, Reading (ID =8,9) --%>
 
-        <div id="divPictureandReading"  class="pictureandreading" style="display: none">
+        <div id="divPictureandReading" style="display: none">
             <div class="resource2">
                 <div class="resource_left"><bean:message key="text.namesubject"/></div>
                 <div class="resource_left">
@@ -223,7 +223,7 @@
             <div class="cleared"></div>    
         </div>
         <%-- Add resource with resource category is assignments,example,lecture note,video (ID =4,5,10,11) --%>
-        <div id="divResourceChapter" class="resourceChapter" style="display: none">
+        <div id="divResourceChapter" style="display: none">
             <div class="resource1">
                 <div class="resource_left"><bean:message key="text.namesubject"/></div>
                 <div class="resource_left">
@@ -253,7 +253,7 @@
             <div class="cleared"></div>    
         </div>
         <%-- Add resource with resource category is Syllabus (ID =12) --%>
-        <div id="divResourceSyllabus" class="resourceChapter" style="display: none">
+        <div id="divResourceSyllabus" style="display: none">
             <div class="resource2">
                 <div class="resource_left"><bean:message key="text.namesubject"/></div>
                 <div class="resource_left">
@@ -279,7 +279,7 @@
             <div class="cleared"></div>    
         </div>                            
     </form>                   
-    <div id="divButtonCreate" class="buttonCreateResource" style="display: none">
+    <div id="divButtonCreate" style="display: none">
          <input type="submit"  value=<bean:message key="text.buttoncreate" /> onclick="validate()" />
     </div>                 
 </div>     
