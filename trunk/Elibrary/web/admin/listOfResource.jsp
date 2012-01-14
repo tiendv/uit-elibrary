@@ -27,7 +27,7 @@
             <bean:message key="text.typeofresource"/>
         </td>
         <td>
-            <select id="dropResourceCategory" onchange="changeChapter()">
+            <select class="combobox" id="dropResourceCategory" onchange="changeChapter()">
                 <c:forEach items="${resourceCategoryBO.allResourcecategory}" var="item">
                     <%if(language==1) {%>
                         <option value="${item.resourceCategoryId}">${item.resourceCategoryNameEn}</option>
@@ -44,7 +44,7 @@
             <bean:message key="text.subject"/>
         </td>
         <td>
-            <select id="dropSubject" onchange="changeChapter()">
+            <select class="combobox" id="dropSubject" onchange="changeChapter()">
                 <c:forEach items="${subjectBO.allSubject}" var="item">
                     <%if(language==1){%>
                         <option value="${item.subjectId}" >${item.subjectNameEn}</option>

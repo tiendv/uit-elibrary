@@ -42,7 +42,7 @@ public class LoadChapterAction extends org.apache.struts.action.Action {
         ResourceBO resourceBO = ResourceBO.getResourceBO();
         List<Resource> chapters = resourceBO.getAllResourceOfSubjectAndResourceCategory(subjectID,7);
         response.setCharacterEncoding("UTF-8");
-        response.getWriter().println("<select id=\"dropOrderChapterSubject\" name=\"dropOrderChapterSubject\">");        
+        response.getWriter().println("<select class=\"combobox\" id=\"dropOrderChapterSubject\" name=\"dropOrderChapterSubject\">");        
         for (int i = 0; i < chapters.size(); i++) {
             Resource resource = chapters.get(i);
             response.getWriter().println("<option value = "+ resource.getOrderChapter() +" >");
