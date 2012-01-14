@@ -15,19 +15,9 @@
 .wrapper{
     width: 70%; 
     margin: 0 auto;
-
 }
 .language { margin: 0;}
-.cssEnglish {
-    
-}
-.cssVietNamese
-{
- 
-    
-}
-.cssdropbox {width: 149px;}
-.textbox {width: 140px;}
+.textbox {width: 160px;}
 .label {width: 148px;}
 .divEditor {
     width: 100%;
@@ -70,7 +60,11 @@
     width:45%;
     text-align: center;
 }
-.cleared {clear:both;}
+.cleared 
+{
+    clear:both;
+    padding-top: 3px;
+}
 .content {
     
 	font-family: Arial, Helvetica, sans-serif;
@@ -541,8 +535,13 @@ background-position:0px -486px;
 }
 /* END: AV PAGE ICONS */
 .combobox{
-    width: 139px;
-    font-size: 12px;
+    width: 166px;
+    font-size: 13px;
+    overflow: scroll;
+}
+.fileupload
+{
+    size: 100;
 }
 .href_subject
 {
@@ -560,4 +559,19 @@ background-position:0px -486px;
 .subject a
 {
     color: #680a12;
+}
+div.resource1
+{
+    width: 700px;
+    padding-left: 3px;
+}
+div.resource2
+{
+    width: 350px;
+    padding-left: 3px;    
+}
+div.resource_left
+{
+    width: 175px;
+    float: left;
 }
