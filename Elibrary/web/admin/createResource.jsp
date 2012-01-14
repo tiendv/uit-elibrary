@@ -135,7 +135,7 @@
 
         <div id="divProject" style="display: none">
             <div class="resource1">
-                <div class="resource_left"><bean:message key="text.namesubject"/></div>
+                <div class="resource_left"><bean:message key="text.subject"/></div>
                 <div class="resource_left">
                     <select class="combobox" id="dropSubjectInProject" name="dropSubjectInProject" >
                         <%if(language==1) {%>     
@@ -163,7 +163,7 @@
         <%-- Add resource with resource category is chapter (ID =7) --%>
         <div  id="divChapter" style="display: none">
             <div class="resource1">
-                <div class="resource_left"><bean:message key="text.namesubject"/></div>       
+                <div class="resource_left"><bean:message key="text.subject"/></div>       
                 <div class="resource_left">
                     <select class="combobox" id="dropSubjectInChapter" name="dropSubjectInChapter" >
                         <%if(language==1) {%>                               
@@ -199,7 +199,7 @@
 
         <div id="divPictureandReading" style="display: none">
             <div class="resource2">
-                <div class="resource_left"><bean:message key="text.namesubject"/></div>
+                <div class="resource_left"><bean:message key="text.subject"/></div>
                 <div class="resource_left">
                     <select class="combobox" id="dropSubjectInReadingAndPicture" name="dropSubjectInReadingAndPicture" >
                         <%if(language==1) {%>
@@ -225,7 +225,7 @@
         <%-- Add resource with resource category is assignments,example,lecture note,video (ID =4,5,10,11) --%>
         <div id="divResourceChapter" style="display: none">
             <div class="resource1">
-                <div class="resource_left"><bean:message key="text.namesubject"/></div>
+                <div class="resource_left"><bean:message key="text.subject"/></div>
                 <div class="resource_left">
                     <select class="combobox" id="dropSubjectInResourceChapter" name="dropSubjectInResourceChapter" onchange="changeSubject(this.value)" >
                         <%if(language==1) {%>
@@ -255,7 +255,7 @@
         <%-- Add resource with resource category is Syllabus (ID =12) --%>
         <div id="divResourceSyllabus" style="display: none">
             <div class="resource2">
-                <div class="resource_left"><bean:message key="text.namesubject"/></div>
+                <div class="resource_left"><bean:message key="text.subject"/></div>
                 <div class="resource_left">
                     <select class="combobox" id="dropSubjectInSyllabus" name="dropSubjectInSyllabus" >
                         <%if(language==1) {%>
@@ -367,7 +367,19 @@
                 if(alertString!="")
                     alert(alertString);
                 if(alertString=="")
-                    document.forms["createResource"].submit(); 
+                {
+                    var id = document.getElementById("dropSubjectInReadingAndPicture").value;
+                    $.ajax({
+                        type: "POST",
+                        url: "CheckSyllabusImage.do",
+                        data: "id="+id +"&resourceCategoryID="+chosenoption.value
+                    }).done(function( msg ) {
+                        if(msg=="")
+                            document.forms["createResource"].submit();
+                        if(msg!="")
+                            alert("<bean:message key="text.subject"/> <bean:message key="text.exist"/> <bean:message key="text.imagegallery"/>");
+                    });             
+                }     
             }
             if(chosenoption.value=="9") //reading
             {
@@ -398,7 +410,19 @@
             if(alertString!="")
                 alert(alertString);
             if(alertString=="")
-                document.forms["createResource"].submit(); 
+            {
+                var id = document.getElementById("dropSubjectInSyllabus").value;
+                $.ajax({
+                    type: "POST",
+                    url: "CheckSyllabusImage.do",
+                    data: "id="+id +"&resourceCategoryID="+chosenoption.value
+                }).done(function( msg ) {
+                    if(msg=="")
+                        document.forms["createResource"].submit();
+                    if(msg!="")
+                        alert("<bean:message key="text.subject"/> <bean:message key="text.exist"/> <bean:message key="text.menu.syllabus"/>");
+                });  
+            }
         }
     }    
     function changeResourceCategory(){

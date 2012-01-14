@@ -83,7 +83,8 @@
         </action>
         <action path="/LoadCreateResource" type="uit.elib.action.LoadCreateResourceAction">
             <forward name="success" path=".createResource"/>
-        </action>       
+        </action>
+        <action path="/CheckSyllabusImage" type="uit.elib.action.CheckSyllabusImageAction"/>
         <action path="/DeleteSubject" type="uit.elib.action.DeleteSubjectAction"/>
         <action path="/DeleteResource" type="uit.elib.action.DeleteResourceAction"/>
         <action path="/LoadResourceTable" type="uit.elib.action.LoadResourceTableAction" scope="session"/>
