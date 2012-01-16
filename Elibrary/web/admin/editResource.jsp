@@ -214,7 +214,7 @@
             </div>
             <div class="cleared"></div>   
             <div class="resource2">
-                <div class="resource_left"><bean:message key="text.namesubject"/></div>
+                <div class="resource_left"><bean:message key="text.subject"/></div>
                 <div class="resource_left">
                     <%if(language==1) {%>
                     <select class="combobox" id="dropSubjectInProject" name="dropSubjectInProject" >
@@ -291,7 +291,7 @@
         <%-- Add resource with resource type is chapter (ID =7) --%>
         <div  id="divChapter" style="display: none">        
             <div class="resource1">
-                <div class="resource_left"><bean:message key="text.namesubject"/></div>
+                <div class="resource_left"><bean:message key="text.subject"/></div>
                 <div class="resource_left">
                     <select class="combobox"  id="dropSubjectInChapter" name="dropSubjectInChapter">
                     <%if(language==1) {%>
@@ -337,7 +337,7 @@
         <%-- Add resource with resource type is Picture, Reading (ID =8,9) --%>
         <div id="divPictureandReading" style="display: none">        
             <div class="resource2">
-                <div class="resource_left"><bean:message key="text.namesubject"/></div>
+                <div class="resource_left"><bean:message key="text.subject"/></div>
                 <div class="resource_left">
                     <select class="combobox"  id="dropSubjectInReadingAndPicture" name="dropSubjectInReadingAndPicture">
                     <%if(language==1) {%>                  
@@ -410,7 +410,7 @@
         <%-- Add resource with resource type is assignments,video,example,slide,pdf (ID =4,5,10,11) --%>
         <div id="divResourceChapter" style="display: none">    
             <div class="resource1">
-                <div class="resource_left"><bean:message key="text.namesubject"/></div>
+                <div class="resource_left"><bean:message key="text.subject"/></div>
                 <div class="resource_left">
                     <select class="combobox" id="dropSubjectInResourceChapter" name="dropSubjectInResourceChapter" onchange="changeSubject(this.value)" >
                     <%if(language==1) {%>
@@ -494,12 +494,12 @@
                 <div class="resource_left"><bean:message key="text.uploadfile"/></div>
                 <div class="resource_left"><input type="file" id="fileResourceChapter" name="fileResourceChapter"/></div>
             </div>
-            <div class="cleared"></div>     
+            <div class="cleared"></div>
         </div>
         <%-- Add resource with resource type is Syllabus (ID =12) --%>
         <div id="divResourceSyllabus" style="display: none">
                 <div class="resource2">
-                    <div class="resource_left"><bean:message key="text.namesubject"/></div>
+                    <div class="resource_left"><bean:message key="text.subject"/></div>
                     <div class="resource_left">
                         <select class="combobox" id="dropSubjectInSyllabus" name="dropSubjectInSyllabus" >
                         <%if(language==1) {%>
