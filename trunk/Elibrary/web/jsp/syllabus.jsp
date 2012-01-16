@@ -14,7 +14,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title><bean:message key="text.syllabus"/></title>
         <link href="<html:rewrite page='/css/uit.css'/>" rel="stylesheet" type="text/css" />
     </head>
     <body>
@@ -27,7 +27,7 @@
             if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
                 language=2; // VietNamese            
         %>
-        <div class="hyperlink_title_subject"><a href= "LoadSubject.do"><bean:message key="text.menu.subject"/></a> ><a href="SubjectHome.do?subjectID=<%=subject.getSubjectId()%>"> 
+        <div class="hyperlink_title_subject"><a href= "LoadSubject.do"><bean:message key="text.subject"/></a> ><a href="SubjectHome.do?subjectID=<%=subject.getSubjectId()%>"> 
         <%if(language==1) {%>
             <%=subject.getSubjectNameEn()%> 
         <%}%>
@@ -35,7 +35,7 @@
             <%=subject.getSubjectNameVn()%> 
         <%}%>
             </a>
-        > <bean:message key="text.menu.syllabus"/></div>
+        > <bean:message key="text.syllabus"/></div>
         
         <%if(language==1) {%>
             <div class="title_h1"><%=subject.getSubjectNameEn()%></div>
