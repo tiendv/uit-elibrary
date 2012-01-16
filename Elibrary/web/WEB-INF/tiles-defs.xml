@@ -128,6 +128,15 @@
         <put name="content"   value="/jsp/subject.jsp" />
         <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
     </definition>
+     <definition name=".loadThesis" extends=".homepage">
+        <put name="title"  value=" Subject" />
+        <put name="description"  value="Subject" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/jsp/thesis.jsp" />
+        <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
+    </definition>    
      <definition name=".loadBase" extends=".homepage">
         <put name="title"  value=" Base" />
         <put name="description"  value="Base" />

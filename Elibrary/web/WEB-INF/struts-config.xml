@@ -84,6 +84,10 @@
         <action path="/LoadCreateResource" type="uit.elib.action.LoadCreateResourceAction">
             <forward name="success" path=".createResource"/>
         </action>
+        <action path="/LoadThesis" type="uit.elib.action.LoadThesisAction">
+            <forward name="success" path=".loadThesis"/>
+            <forward name="unsuccess" path="/Welcome.do"/>
+        </action>            
         <action path="/CheckSyllabusImage" type="uit.elib.action.CheckSyllabusImageAction"/>
         <action path="/DeleteSubject" type="uit.elib.action.DeleteSubjectAction"/>
         <action path="/DeleteResource" type="uit.elib.action.DeleteResourceAction"/>

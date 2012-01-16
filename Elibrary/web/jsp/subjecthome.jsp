@@ -31,7 +31,7 @@
                 language=2; // VietNamese            
         %>
         <div class="hyperlink_title_subject">
-            <a href= "LoadSubject.do"><bean:message key="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subject.getSubjectId()%>">
+            <a href= "LoadSubject.do"><bean:message key="text.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subject.getSubjectId()%>">
         <%if(language==1) {%>
             <%=subject.getSubjectNameEn()%>
         <%}%>
@@ -39,7 +39,7 @@
             <%=subject.getSubjectNameVn()%>
         <%}%>
         </a>
-        > <bean:message key="text.menu.subjecthome"/>
+        > <bean:message key="text.subjecthome"/>
         </div>
         <%if(language==1) {%>
             <div class="title_h1"><%=subject.getSubjectNameEn()%></div>

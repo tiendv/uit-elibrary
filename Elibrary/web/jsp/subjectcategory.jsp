@@ -38,13 +38,13 @@
         <!-- Begin load resource by OrderChapter (ResourceCategoryID= 10, bài giảng) -->
         <%if(resourceCategoryID==10) {%>
         
-        <div class="hyperlink_title_subject" ><a href="LoadSubject.do"><bean:message key ="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
+        <div class="hyperlink_title_subject" ><a href="LoadSubject.do"><bean:message key ="text.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
                 <% if(language==1){%>
                     <%=subject.getSubjectNameEn()%>
                 <%}if(language==2){%>
                     <%=subject.getSubjectNameVn()%>
                     <%}%>
-            </a> > <bean:message key ="text.menu.lecturenote"/></div>
+            </a> > <bean:message key ="text.lecturenote"/></div>
         <table  class="resource_table">
             <tr  class="color_title_table"> <!-- title -->
                 <td width="80px"><bean:message key="text.orderchapter" /></td>
@@ -88,7 +88,7 @@
                     <%for(int k=0;k<listResource.size();k++)
                         if(Integer.parseInt(listChapter.get(i).getOrderChapter().toString())== Integer.parseInt(listResource.get(k).getOrderChapter().toString()))
                            {%>
-                           <div class="displayIcon"><a  href = "DownLoad.do?resourceID=<%=listResource.get(k).getResourceId()%>" alt="<bean:message key="text.menu.lecturenote"/>" class="lectureNotes" 
+                           <div class="displayIcon"><a  href = "DownLoad.do?resourceID=<%=listResource.get(k).getResourceId()%>" alt="<bean:message key="text.lecturenote"/>" class="lectureNotes" 
                                                         <% if(language==1) {%>
                             title="<%=listResource.get(k).getResourceNameEn()%>"
                         <% } %> 
@@ -110,13 +110,13 @@
         <!--Begin Load Reading ( ResourceCategoryID=9, tài liệu tham khảo) -->
         
         <%if(resourceCategoryID==9) {%>
-        <div class="hyperlink_title_subject"><a href="LoadSubject.do"><bean:message key ="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
+        <div class="hyperlink_title_subject"><a href="LoadSubject.do"><bean:message key ="text.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
             <% if(language==1){%>
                     <%=subject.getSubjectNameEn()%>
             <%}if(language==2){%>
                     <%=subject.getSubjectNameVn()%>
             <%}%>
-            </a> > <bean:message key ="text.menu.reading"/></div>
+            </a> > <bean:message key ="text.reading"/></div>
         <table class="resource_table" >
             <tr class="color_title_table">
                 <td width="100px"><bean:message key="text.orderchapter"/> </td>
@@ -169,13 +169,13 @@
          <!-- Begin load resource by OrderChapter (ResourceCategoryID=4, bài tập) -->
         <%if(resourceCategoryID==4) {%>
         
-        <div class="hyperlink_title_subject" ><a href="LoadSubject.do"><bean:message key ="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
+        <div class="hyperlink_title_subject" ><a href="LoadSubject.do"><bean:message key ="text.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
                 <% if(language==1){%>
                     <%=subject.getSubjectNameEn()%>
                 <%}if(language==2){%>
                     <%=subject.getSubjectNameVn()%>
                     <%}%>
-            </a> > <bean:message key ="text.menu.assignments"/></div>
+            </a> > <bean:message key ="text.assignments"/></div>
         <table  class="resource_table">
             <tr  class="color_title_table"> <!-- title -->
                 <td width="80px"><bean:message key="text.orderchapter" /></td>
@@ -233,13 +233,13 @@
         <!-- Begin load resource by OrderChapter (ResourceCategoryID=5, ví dụ) -->
         <%if(resourceCategoryID==5) {%>
         
-        <div class="hyperlink_title_subject" ><a href="LoadSubject.do"><bean:message key ="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
+        <div class="hyperlink_title_subject" ><a href="LoadSubject.do"><bean:message key ="text.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
                 <% if(language==1){%>
                     <%=subject.getSubjectNameEn()%>
                 <%}if(language==2){%>
                     <%=subject.getSubjectNameVn()%>
                     <%}%>
-            </a> > <bean:message key ="text.menu.example"/></div>
+            </a> > <bean:message key ="text.example"/></div>
         <table  class="resource_table">
             <tr  class="color_title_table"> <!-- title -->
                 <td width="80px"><bean:message key="text.orderchapter" /></td>
@@ -297,13 +297,13 @@
         <!--Begin of ResourceCategoryID = 6 (đồ án môn học) -->
         
         <%if(resourceCategoryID==6) {%>
-        <div class="hyperlink_title_subject"><a href="LoadSubject.do"><bean:message key ="text.menu.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
+        <div class="hyperlink_title_subject"><a href="LoadSubject.do"><bean:message key ="text.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
             <% if(language==1){%>
                     <%=subject.getSubjectNameEn()%>
             <%}if(language==2){%>
                     <%=subject.getSubjectNameVn()%>
             <%}%>
-            </a> > <bean:message key ="text.menu.project"/></div>
+            </a> > <bean:message key ="text.project"/></div>
         
             <div class="hyperlink_title_subject"><a class="title_h1"><bean:message key="text.projectrequirementtitle"/>:</a></div>
         <% if(language==1){%>

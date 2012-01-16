@@ -71,6 +71,20 @@ public class ResourceBO extends ManagerBase<Resource> {
             return null;
         }
       }
+      public List getAllResourceByFR(int facultyID, int resourcecategoryID)
+      {
+          String query = "FacultyId="+facultyID + " and ResourceCategoryId="+resourcecategoryID;
+          String []order = new String[1];
+          order[1]="PostDate desc";
+          List<Resource> list;
+        try {
+            list = getBySQLQuery(query, order, 0);
+            return  list;
+        } catch (Exception ex) {
+            Logger.getLogger(ResourceBO.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+      }      
      /**
        * 
        * @param resourceID
