@@ -16,17 +16,17 @@
     <head>
         <link rel="stylesheet" type="text/css" href="css/uit.css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title><bean:message key="text.leftmenu.faculty"/></title>
+        <title><bean:message key="text.faculty"/></title>
     </head>
     <body>
-        <div class="title_h1"><bean:message key="text.leftmenu.faculty"/></div>
+        <div class="title_h1"><bean:message key="text.faculty"/></div>
         <div class="af_legends">
             <ul class="legendList">
             <li class="lectureNotes" alt="Lecture notes"
-                title="<bean:message key="text.menu.lecturenote"/>"><bean:message key="text.menu.lecturenote"/></li>
+                title="<bean:message key="text.lecturenote"/>"><bean:message key="text.lecturenote"/></li>
             <li class="projectsExample"
                 alt="Projects"
-                title="<bean:message key="text.menu.project"/>"><bean:message key="text.menu.project"/></li>
+                title="<bean:message key="text.project"/>"><bean:message key="text.project"/></li>
             <li class="imageGallery" alt="Image Galleries"
                 title="<bean:message key="text.imagegallery"/>"><bean:message key="text.imagegallery"/></li>
             <li class="multimediaContent"
@@ -215,13 +215,13 @@
                         <% if(resourceCategoryId==5 ){ %>
                             <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+5+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.example"/>" class="examsSolutions" title="<bean:message key="text.example"/>"></a>  <% } %>
                         <% if(resourceCategoryId==6 ){ %>
-                            <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+6+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.menu.project"/>" class="projectsExample" title="<bean:message key="text.menu.project"/>"></a>  <% } %>
+                            <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+6+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.project"/>" class="projectsExample" title="<bean:message key="text.project"/>"></a>  <% } %>
                         <% if(resourceCategoryId==8 ){ %>
                             <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+8+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.imagegallery"/>" class="imageGallery" title="<bean:message key="text.imagegallery"/>"></a>   <% } %>
                         <% if(resourceCategoryId==9 ){ %>
                             <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+9+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.reading"/>" class="onlineTextBooks" title="<bean:message key="text.reading"/>"></a><% } %>
                          <% if(resourceCategoryId==10 ){ %>
-                            <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+10+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.menu.lecturenote"/>" class="lectureNotes" title="<bean:message key="text.menu.lecturenote"/>"></a><% } %>                           
+                            <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+10+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.lecturenote"/>" class="lectureNotes" title="<bean:message key="text.lecturenote"/>"></a><% } %>                           
                         <% if(resourceCategoryId==11 ){ %>
                             <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+11+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.video"/>" class="multimediaContent" title="<bean:message key="text.video"/>"></a>   <% } %>
                         <%}%>       

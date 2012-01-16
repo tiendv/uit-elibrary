@@ -15,7 +15,7 @@
             <td >&nbsp;</td>
           </tr>
         <tr>
-                <td  class="leftmenu_td_title">Nội dung</td>
+            <td  class="leftmenu_td_title">Nội dung</td>
         </tr>
         <% int subjectID, orderChapter ; 
             IsNumber isnumber = new IsNumber(); // kiểm tra có phải là số không
@@ -35,29 +35,28 @@
         else
             orderChapter = 1;
         %>
-             <tr>
-            <td class="leftmenu_td_link"><a href="SubjectHome.do?subjectID=<%=subjectID%>"><bean:message  key="text.menu.subjecthome"/></a></td>
-          </tr>
-            <tr>
-            <td class="leftmenu_td_link"><a href="Syllabus.do?subjectID=<%=subjectID%>"><bean:message  key="text.menu.syllabus"/></a></td>
-          </tr>
-          <tr>
-            
-            <td class="leftmenu_td_link"><a href="SubjectCategory.do?subjectID=<%=subjectID%>&resourceCategoryID=10&orderChapter=<%=orderChapter%>" > <bean:message  key="text.menu.lecturenote"/></a></td>
-          </tr>
-          <tr>
-            <td class="leftmenu_td_link"><a href="SubjectCategory.do?subjectID=<%=subjectID%>&resourceCategoryID=9&orderChapter=<%=orderChapter%>"> <bean:message  key="text.menu.reading"/></a></td>
-          </tr>
-          <tr>
-            <td class="leftmenu_td_link"><a href="SubjectCategory.do?subjectID=<%=subjectID%>&resourceCategoryID=4&orderChapter=<%=orderChapter%>"><bean:message  key="text.menu.assignments"/></a></td>
-          </tr>
-          <tr>
-            <td class="leftmenu_td_link"><a href="SubjectCategory.do?subjectID=<%=subjectID%>&resourceCategoryID=5&orderChapter=<%=orderChapter%>"><bean:message  key="text.menu.example"/></a></td>
-          </tr>
-          <tr>
-            <td class="leftmenu_td_link"><a href="SubjectCategory.do?subjectID=<%=subjectID%>&resourceCategoryID=6&orderChapter=<%=orderChapter%>"><bean:message  key="text.menu.project"/></a></td>
-          </tr>
-          <tr>
+        <tr>
+            <td class="leftmenu_td_link"><a href="SubjectHome.do?subjectID=<%=subjectID%>"><bean:message  key="text.subjecthome"/></a></td>
+        </tr>
+        <tr>
+            <td class="leftmenu_td_link"><a href="Syllabus.do?subjectID=<%=subjectID%>"><bean:message  key="text.syllabus"/></a></td>
+        </tr>
+        <tr>          
+            <td class="leftmenu_td_link"><a href="SubjectCategory.do?subjectID=<%=subjectID%>&resourceCategoryID=10&orderChapter=<%=orderChapter%>" > <bean:message  key="text.lecturenote"/></a></td>
+        </tr>
+        <tr>
+            <td class="leftmenu_td_link"><a href="SubjectCategory.do?subjectID=<%=subjectID%>&resourceCategoryID=9&orderChapter=<%=orderChapter%>"> <bean:message  key="text.reading"/></a></td>
+        </tr>
+        <tr>
+            <td class="leftmenu_td_link"><a href="SubjectCategory.do?subjectID=<%=subjectID%>&resourceCategoryID=4&orderChapter=<%=orderChapter%>"><bean:message  key="text.assignments"/></a></td>
+        </tr>
+        <tr>
+            <td class="leftmenu_td_link"><a href="SubjectCategory.do?subjectID=<%=subjectID%>&resourceCategoryID=5&orderChapter=<%=orderChapter%>"><bean:message  key="text.example"/></a></td>
+        </tr>
+        <tr>
+            <td class="leftmenu_td_link"><a href="SubjectCategory.do?subjectID=<%=subjectID%>&resourceCategoryID=6&orderChapter=<%=orderChapter%>"><bean:message  key="text.project"/></a></td>
+        </tr>
+        <tr>
             <td >&nbsp;</td>
-          </tr>
+        </tr>
  </table>

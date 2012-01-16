@@ -12,21 +12,21 @@
             <td >&nbsp;</td>
         </tr>
         <tr>
-            <td  class="leftmenu_td_title"><bean:message key="text.menu.adminpage"/></td>
+            <td  class="leftmenu_td_title"><bean:message key="text.adminpage"/></td>
  	</tr>
         <tr>
             <td class="leftmenu_td_link"><a href="#"></a></td>
         </tr>
         <tr>
-            <td class="leftmenu_td_link"><a href="LoadCreateSubject.do"><bean:message key="text.leftmenu.createsubject"/></a></td>
+            <td class="leftmenu_td_link"><a href="LoadCreateSubject.do"><bean:message key="text.createsubject"/></a></td>
         </tr>
         <tr>
-            <td class="leftmenu_td_link"><a href="LoadCreateResource.do"><bean:message key="text.leftmenu.createresource"/></a></td>
+            <td class="leftmenu_td_link"><a href="LoadCreateResource.do"><bean:message key="text.createresource"/></a></td>
         </tr>
         <tr>
             <td class="leftmenu_td_link"><a href="LoadListOfSubject.do"><bean:message key="text.listofsubject"/></a></td>
         </tr>
         <tr>     
-            <td class="leftmenu_td_link"><a href="LoadListOfResource.do"><bean:message key="text.leftmenu.listofresource"/></a></td>
+            <td class="leftmenu_td_link"><a href="LoadListOfResource.do"><bean:message key="text.listofresource"/></a></td>
         </tr>
 </table>

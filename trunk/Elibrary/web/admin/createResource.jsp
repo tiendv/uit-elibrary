@@ -420,7 +420,7 @@
                     if(msg=="")
                         document.forms["createResource"].submit();
                     if(msg!="")
-                        alert("<bean:message key="text.subject"/> <bean:message key="text.exist"/> <bean:message key="text.menu.syllabus"/>");
+                        alert("<bean:message key="text.subject"/> <bean:message key="text.exist"/> <bean:message key="text.syllabus"/>");
                 });  
             }
         }

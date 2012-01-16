@@ -31,7 +31,16 @@ public class FacultyBO extends ManagerBase<Faculty> {
      * 
      * @return List Subject In Database order by subject ID
      */
-    
+     public List getAllFaculty(int facultyID){
+        try {
+            List<Faculty> list = getBySQLQuery("FacultyId="+facultyID, null, 1);
+            return list;
+
+        } catch (Exception ex) {
+            Logger.getLogger(FacultyBO.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }         
+     }
      public List getAllFaculty() {
         try {
             String[] sort = new String[]{"facultyId"}; // tang dan

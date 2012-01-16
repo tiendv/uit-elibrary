@@ -38,49 +38,45 @@
     // End -->
 </script>
 <!DOCTYPE html>
-
  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-            <td>
-                  <bean:message key="text.webtitle.resource"/>
-                  <br/>
-                  <bean:message key="text.webtitle.resource1"/>
-            </td>
-            <td class="language" style="width: 50%;height: 100px;text-align: right" valign="bottom">
-                    <!-- ENGLISH LOCALE-->
-                        <td>
-                        
-                    <div class="cssEnglish">
-                    <form method="post" action="./Locale.do" id="English_Form">
-                        <input type="hidden" name="method" value="english"/>
-                        <script language="javscript" type="text/javascript">
-                            document.write('<input type="hidden" name="page" value='+ document.location.href +'>');
-                        </script>
-                        <a href="#" onclick='document.forms["English_Form"].submit();'>
-                         <img src="<bean:message key="image.en"/>" alt="<bean:message key="image.en.alttext"/>"/>
-                        </a>
-                    </form>
-                   </div>
-                        </td>
-                    <!-- END ENGLISH LOCALE-->
+    <tr>
+        <td>
+            <bean:message key="text.webtitle.resource"/>
+            <br/>
+            <bean:message key="text.webtitle.resource1"/>
+        </td>
+        <td class="language" style="width: 50%;height: 100px;text-align: right" valign="bottom">
+            <!-- ENGLISH LOCALE-->
+        <td>     
+            <div class="cssEnglish">
+            <form method="post" action="./Locale.do" id="English_Form">
+                <input type="hidden" name="method" value="english"/>
+                <script language="javscript" type="text/javascript">
+                document.write('<input type="hidden" name="page" value='+ document.location.href +'>');
+                </script>
+                <a href="#" onclick='document.forms["English_Form"].submit();'>
+                <img src="<bean:message key="image.en"/>" alt="<bean:message key="image.en.alttext"/>"/>
+                </a>
+            </form>
+            </div>
+        </td>
+        <!-- END ENGLISH LOCALE-->
 
-                    <!-- VIETNAMESE LOCALE-->
-                    <td>
-                   <div class="cssVietNamese">
-                    <form method="post" action="./Locale.do" id="Vietnamese_Form">
-                        <input type="hidden" name="method" value="vietnamese"/>
-                        <script language="javscript" type="text/javascript">
-                            document.write('<input type="hidden" name="page" value='+ document.location.href +'>');
-                        </script>
-                        <a href="#" onclick='document.forms["Vietnamese_Form"].submit();'>
-                            <img src="<bean:message key="image.vn"/>" alt="<bean:message key="image.vn.alttext"/>"/>
-                         </a>
-                    </form>
-                   </div>
-                         </td>
-                        
-                    <!-- END VIETNAMESE LOCALE-->
+        <!-- VIETNAMESE LOCALE-->
+        <td>
+            <div class="cssVietNamese">
+            <form method="post" action="./Locale.do" id="Vietnamese_Form">
+                <input type="hidden" name="method" value="vietnamese"/>
+                <script language="javscript" type="text/javascript">
+                document.write('<input type="hidden" name="page" value='+ document.location.href +'>');
+                </script>
+                <a href="#" onclick='document.forms["Vietnamese_Form"].submit();'>
+                <img src="<bean:message key="image.vn"/>" alt="<bean:message key="image.vn.alttext"/>"/>
+                </a>
+            </form>
+            </div>
+        </td>
 
-             </td>
-          </tr>
+        <!-- END VIETNAMESE LOCALE-->
+    </tr>
   </table>

@@ -11,41 +11,40 @@
 <!DOCTYPE html>
 <table width="100%"  border="0" cellspacing="2" cellpadding="2">
     <% %>
-        <tr>
-            <td >&nbsp;</td>
-          </tr>
-        <tr>
-            <td  class="leftmenu_td_title"><bean:message key="text.menu.subject"/></td>
- 	        </tr>
-            <tr>
-                <td class="leftmenu_td_link"><a href="./LoadBase.do"><bean:message key="text.leftmenu.base"/></a></td>
-          </tr>
-          <tr>
-            <td class="leftmenu_td_link"><a href="./LoadFaculty.do"><bean:message key="text.leftmenu.faculty"/></a></td>
-          </tr>
-          <tr>
-            <td class="leftmenu_td_link"><a href="./LoadOptional.do"><bean:message key="text.leftmenu.optional"/></a></td>
-          </tr>
-          <tr>
-            <td >&nbsp;</td>
-          </tr>
-        <tr>
-            <td  class="leftmenu_td_title" ><bean:message key="text.menu.thesis"/></td>
- 	        </tr>
-            <tr>
-                <td class="leftmenu_td_link"><a href="#"><bean:message key="text.leftmenu.computerscience"/></a></td>
-          </tr>
-           <tr>
-            <td class="leftmenu_td_link"><a href="#"><bean:message key="text.leftmenu.softwareengineering"/></a></td>
-          </tr>
-          
-          <tr>
-            <td class="leftmenu_td_link"><a href="#"><bean:message key="text.leftmenu.informationsystem"/></a></td>
-          </tr>
-           <tr>
-            <td class="leftmenu_td_link"><a href="#"><bean:message key="text.leftmenu.computertechnical"/></a></td>
-          </tr>
-          <tr>
-            <td class="leftmenu_td_link"><a href="#"><bean:message key="text.leftmenu.computernetwork"/></a></td>
-          </tr>
+    <tr>
+        <td >&nbsp;</td>
+    </tr>
+    <tr>
+        <td  class="leftmenu_td_title"><bean:message key="text.subject"/></td>
+    </tr>
+    <tr>
+        <td class="leftmenu_td_link"><a href="./LoadBase.do"><bean:message key="text.base"/></a></td>
+    </tr>
+    <tr>
+        <td class="leftmenu_td_link"><a href="./LoadFaculty.do"><bean:message key="text.faculty"/></a></td>
+    </tr>
+    <tr>
+        <td class="leftmenu_td_link"><a href="./LoadOptional.do"><bean:message key="text.optional"/></a></td>
+    </tr>
+    <tr>
+        <td >&nbsp;</td>
+    </tr>
+    <tr>
+        <td  class="leftmenu_td_title" ><bean:message key="text.thesis"/></td>
+    </tr>
+    <tr>
+        <td class="leftmenu_td_link"><a href="#"><bean:message key="text.computerscience"/></a></td>
+    </tr>
+    <tr>
+        <td class="leftmenu_td_link"><a href="#"><bean:message key="text.softwareengineering"/></a></td>
+    </tr>
+    <tr>
+        <td class="leftmenu_td_link"><a href="#"><bean:message key="text.informationsystem"/></a></td>
+    </tr>
+    <tr>
+        <td class="leftmenu_td_link"><a href="#"><bean:message key="text.computertechnical"/></a></td>
+    </tr>
+    <tr>
+        <td class="leftmenu_td_link"><a href="#"><bean:message key="text.computernetwork"/></a></td>
+    </tr>
 </table>
