@@ -71,11 +71,9 @@ public class ResourceBO extends ManagerBase<Resource> {
             return null;
         }
       }
-      public List getAllResourceByFR(int facultyID, int resourcecategoryID)
+      public List getAllResourceByFR(int facultyID, int resourcecategoryID, String []order)
       {
           String query = "FacultyId="+facultyID + " and ResourceCategoryId="+resourcecategoryID;
-          String []order = new String[1];
-          order[1]="PostDate desc";
           List<Resource> list;
         try {
             list = getBySQLQuery(query, order, 0);
@@ -114,7 +112,7 @@ public class ResourceBO extends ManagerBase<Resource> {
                  
       }
       
-       public int countNumberChapterOfSubject (int subjectID)
+      public int countNumberChapterOfSubject (int subjectID)
       {
            String query = "[SubjectId]='" + subjectID +"'";
             List<Resource> list;
