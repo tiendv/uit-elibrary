@@ -4,14 +4,139 @@
     Author     : Nguyen Hoang Tan
 --%>
 
+<%@page import="uit.elib.dto.Level"%>
+<%@page import="org.apache.struts.Globals"%>
+<%@page import="java.util.Locale"%>
+<%@page import="uit.elib.dto.Faculty"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.util.List"%>
+<%@page import="uit.elib.dto.Resource"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/uit.css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title><bean:message key="text.thesis"/> </title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+
+        <div style="clear:both"></div> 
+        <% 
+            List<Resource> listResource =  (List<Resource>)request.getAttribute("listResource");
+            List<Faculty> listFaculty=  (List<Faculty>)request.getAttribute("listFaculty");
+            List<Level> listLevel =  (List<Level>)request.getAttribute("listLevel");
+            int language =1; // English
+            Locale locale = request.getLocale();
+            if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
+                language=2; // VietNamese
+            if(listResource.size()>0){
+            int r=0;                     
+            for(int l=0;l<listLevel.size();l++){
+                if(language==1) { %>
+                    <div class="title_h1"><%=listLevel.get(l).getLevelNameEn() %></div>  <!--English Faculty Name-->
+                <% } %> 
+                <% if(language==2) {%>
+                    <div class="title_h1"><%=listLevel.get(l).getLevelNameVn() %></div> <!--Vietnamese Faculty Name-->
+                <% } %>         
+                <%
+                   if(listResource.get(r).getLevel().getLevelId()!=listLevel.get(l).getLevelId()){
+                %>
+                    <div style="margin-left: 30px;color: #680a12">
+                        <img src="image/black-arrow.gif" width="3" height="5" alt="black-arrow"/>
+                        <bean:message key="text.updating"/>
+                    </div>
+                <%  }
+                    if(listResource.get(r).getLevel().getLevelId()==listLevel.get(l).getLevelId()){  %> 
+                <table style="margin-left: 30px " width="600px"> 
+                    <%                 
+                        for(int i=r;i<listResource.size();i=i+2) {
+                            if(listResource.get(i).getLevel().getLevelId()!=listLevel.get(l).getLevelId())
+                                break;
+                            String href = "#"+listResource.get(i).getResourceId().toString();
+                    %>
+                    <tr>      
+                    <td width="250px" style="color: #680a12">              
+                            <img src="image/black-arrow.gif" width="3" height="5" alt="black-arrow"/>
+                            <% if(language==1) { %>
+                                <a href =<%=href%> class="href_subject" > <%=listResource.get(i).getResourceNameEn()%>  </a> <!--English Resource Name-->
+                            <% } %> 
+                            <% if(language==2) {%>
+                                <a href =<%=href%> class="href_subject" ><%=listResource.get(i).getResourceNameVn()%> </a> <!--Vietnamese Resource Name-->
+                            <% } %>                         
+                    </td>
+                    <td width="250px" style="color: #680a12">
+                        <% if(i+1<listResource.size() && (listResource.get(i).getLevel().getLevelId()==listLevel.get(l).getLevelId())){ %>
+                            <img src="image/black-arrow.gif" width="3" height="5" alt="black-arrow"/>
+                            <% if(language==1) {%>
+                                <a href =<%=href%> class="href_subject" > <%=listResource.get(i+1).getResourceNameEn()%> </a> <!--English Resource Name-->
+                            <% } %> 
+                            <% if(language==2) {%>
+                                <a href =<%=href%> class="href_subject" > <%=listResource.get(i+1).getResourceNameVn()%> </a> <!--Vietnamese Resource Name-->
+                            <% } %>
+
+                        <% } %>    
+                    </td>
+                    </tr>
+                    <% } %>
+                </table><div style="clear:both"> </div>
+                <div class="color_title_table" >
+                    <div style="float:left;width:160px"><bean:message key="text.ordernumber"/></div>
+                    <div style="float:left;width:458px"><bean:message key="text.thesisname"/></div>
+                    <div style="float:left;width:140px"></div>                
+                    <div style="float:left;width:60px"></div>                
+                </div>
+      
+                    <%  
+                        int color=0;
+                        int number =0;
+                        for(int i=r;i<listResource.size();i++) {
+                            String href="./LoadThesisDetail.do?resourceID="+listResource.get(i).getResourceId();
+                            if(listResource.get(i).getLevel().getLevelId()!=listLevel.get(l).getLevelId())
+                            {     
+                                r=i;
+                                break;
+                            }
+                    %>
+                    <% Date date = new Date();
+                       boolean oneMonth = false; 
+                       if(listResource.get(i).getPostDate()!=null)
+                       {
+                           long time= date.getTime()- listResource.get(i).getPostDate().getTime(); // time = today - postdate
+                           if(time<=((long)30*24*60*60*1000)) // time <= 30 days
+                               oneMonth=true;
+                       }                    
+                    %>
+                   <div style="width:100%">    
+                        <div  class="td_chapter_border"           
+                                style="float:left;width:160px;<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
+                            <%=number++%> <!--Chapter-->
+                        </div>  
+                        <% if(language==1) {%>                              
+                            <div              
+                                 style="float:left;width:554px; <% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
+                                <%=listResource.get(i).getResourceNameEn() %> <!--English Resource Name-->
+                            </div>
+                        <% } %> 
+                        <% if(language==2) {%>                               
+                            <div                           
+                                 style="float:left;width:554px;<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
+                                <%=listResource.get(i).getResourceNameVn() %> <!--Vietnamese Resource Name-->
+                            </div>
+                        <% } %>
+                        <div  
+                            <% if(color%2==0){ %> 
+                                style="float:left;width:40px;background-color:#E2E1D9"
+                            <%}%>                               >
+                            <% if(oneMonth==true) {%>
+                                <img src="image/new-icon.gif" width="18" height="5" alt="new-icon"/> <!-- new icon  -->
+                            <% } %>
+                        </div>
+                    </div >     
+                   
+                    <% color ++; %>
+                
+            <% }}}}%>
     </body>
 </html>

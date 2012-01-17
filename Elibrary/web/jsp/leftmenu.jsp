@@ -33,18 +33,18 @@
         <td  class="leftmenu_td_title" ><bean:message key="text.thesis"/></td>
     </tr>
     <tr>
-        <td class="leftmenu_td_link"><a href="#"><bean:message key="text.computerscience"/></a></td>
+        <td class="leftmenu_td_link"><a href="./LoadThesis.do?facultyID=1"><bean:message key="text.computerscience"/></a></td>
     </tr>
     <tr>
-        <td class="leftmenu_td_link"><a href="#"><bean:message key="text.softwareengineering"/></a></td>
+        <td class="leftmenu_td_link"><a href="./LoadThesis.do?facultyID=2"><bean:message key="text.softwareengineering"/></a></td>
     </tr>
     <tr>
-        <td class="leftmenu_td_link"><a href="#"><bean:message key="text.informationsystem"/></a></td>
+        <td class="leftmenu_td_link"><a href="./LoadThesis.do?facultyID=3"><bean:message key="text.informationsystem"/></a></td>
     </tr>
     <tr>
-        <td class="leftmenu_td_link"><a href="#"><bean:message key="text.computertechnical"/></a></td>
+        <td class="leftmenu_td_link"><a href="./LoadThesis.do?facultyID=4"><bean:message key="text.computertechnical"/></a></td>
     </tr>
     <tr>
-        <td class="leftmenu_td_link"><a href="#"><bean:message key="text.computernetwork"/></a></td>
+        <td class="leftmenu_td_link"><a href="./LoadThesis.do?facultyID=5"><bean:message key="text.computernetwork"/></a></td>
     </tr>
 </table>
