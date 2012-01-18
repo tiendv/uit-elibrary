@@ -21,7 +21,6 @@
         <title><bean:message key="text.thesis"/> </title>
     </head>
     <body>
-
         <div style="clear:both"></div> 
         <% 
             List<Resource> listResource =  (List<Resource>)request.getAttribute("listResource");
@@ -80,13 +79,14 @@
                     </td>
                     </tr>
                     <% } %>
-                </table><div style="clear:both"> </div>
-                <div class="color_title_table" >
-                    <div style="float:left;width:160px"><bean:message key="text.ordernumber"/></div>
-                    <div style="float:left;width:458px"><bean:message key="text.thesisname"/></div>
-                    <div style="float:left;width:140px"></div>                
-                    <div style="float:left;width:60px"></div>                
-                </div>
+                </table>
+                <table class="table_chapter" >
+                    <tr class="color_title_table">
+                        <td class="td_chapter_3"><bean:message key="text.orderchapter"/></td>
+                        <td class="td_chapter_4"><bean:message key="text.chaptertitle"/></td>
+                        <td class="td_chapter_2"></td>                
+                        <td class="td_chapter_1"></td>                
+                    </tr>
       
                     <%  
                         int color=0;
@@ -108,35 +108,39 @@
                                oneMonth=true;
                        }                    
                     %>
-                   <div style="width:100%">    
-                        <div  class="td_chapter_border"           
-                                style="float:left;width:160px;<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
+                   <tr>    
+                        <td width="160px"  class="td_chapter_border"              
+                        style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
                             <%=number++%> <!--Chapter-->
-                        </div>  
+                        </td>  
                         <% if(language==1) {%>                              
-                            <div              
-                                 style="float:left;width:554px; <% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
+                            <td width="354px"              
+                                style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
                                 <%=listResource.get(i).getResourceNameEn() %> <!--English Resource Name-->
-                            </div>
+                            </td>
                         <% } %> 
                         <% if(language==2) {%>                               
-                            <div                           
-                                 style="float:left;width:554px;<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
+                            <td width="354px"                           
+                                style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
                                 <%=listResource.get(i).getResourceNameVn() %> <!--Vietnamese Resource Name-->
-                            </div>
+                            </td>
                         <% } %>
-                        <div  
+                        <td width="140px"
                             <% if(color%2==0){ %> 
-                                style="float:left;width:40px;background-color:#E2E1D9"
+                                style="background-color:#E2E1D9"
+                            <%}%>                               >                          
+                        </td>
+                        <td width="40px"
+                            <% if(color%2==0){ %> 
+                                style="background-color:#E2E1D9"
                             <%}%>                               >
                             <% if(oneMonth==true) {%>
                                 <img src="image/new-icon.gif" width="18" height="5" alt="new-icon"/> <!-- new icon  -->
                             <% } %>
-                        </div>
-                    </div >     
-                   
-                    <% color ++; %>
-                
-            <% }}}}%>
+                        </td>
+                    </tr >              
+                    <% color ++; } %>
+                </table>
+            <% }}}%>
     </body>
 </html>
