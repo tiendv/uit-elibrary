@@ -59,6 +59,18 @@ public class ResourceBO extends ManagerBase<Resource> {
             return null;
         }
      }
+      public List getAllResource(int resourcecategoryID,String []order)
+      {
+          String query = "ResourceCategoryId="+resourcecategoryID;
+          List<Resource> list;
+        try {
+            list = getBySQLQuery(query, order, 0);
+            return  list;
+        } catch (Exception ex) {
+            Logger.getLogger(ResourceBO.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+      }      
       public List getAllResource(int subjectID, int resourcecategoryID)
       {
           String query = "SubjectId="+subjectID + " and ResourceCategoryId="+resourcecategoryID;

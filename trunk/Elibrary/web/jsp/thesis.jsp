@@ -53,26 +53,25 @@
                         for(int i=r;i<listResource.size();i=i+2) {
                             if(listResource.get(i).getLevel().getLevelId()!=listLevel.get(l).getLevelId())
                                 break;
-                            String href = "#"+listResource.get(i).getResourceId().toString();
                     %>
                     <tr>      
                     <td width="250px" style="color: #680a12">              
                             <img src="image/black-arrow.gif" width="3" height="5" alt="black-arrow"/>
                             <% if(language==1) { %>
-                                <a href =<%=href%> class="href_subject" > <%=listResource.get(i).getResourceNameEn()%>  </a> <!--English Resource Name-->
+                                <a href ="#<%=listResource.get(i).getResourceId()%>" class="href_subject" > <%=listResource.get(i).getResourceNameEn()%>  </a> <!--English Resource Name-->
                             <% } %> 
                             <% if(language==2) {%>
-                                <a href =<%=href%> class="href_subject" ><%=listResource.get(i).getResourceNameVn()%> </a> <!--Vietnamese Resource Name-->
+                                <a href ="#<%=listResource.get(i).getResourceId()%>" class="href_subject" ><%=listResource.get(i).getResourceNameVn()%> </a> <!--Vietnamese Resource Name-->
                             <% } %>                         
                     </td>
                     <td width="250px" style="color: #680a12">
-                        <% if(i+1<listResource.size() && (listResource.get(i).getLevel().getLevelId()==listLevel.get(l).getLevelId())){ %>
+                        <% if(i+1<listResource.size() && (listResource.get(i+1).getLevel().getLevelId()==listLevel.get(l).getLevelId())){ %>
                             <img src="image/black-arrow.gif" width="3" height="5" alt="black-arrow"/>
                             <% if(language==1) {%>
-                                <a href =<%=href%> class="href_subject" > <%=listResource.get(i+1).getResourceNameEn()%> </a> <!--English Resource Name-->
+                                <a href ="#<%=listResource.get(i+1).getResourceId()%>" class="href_subject" > <%=listResource.get(i+1).getResourceNameEn()%> </a> <!--English Resource Name-->
                             <% } %> 
                             <% if(language==2) {%>
-                                <a href =<%=href%> class="href_subject" > <%=listResource.get(i+1).getResourceNameVn()%> </a> <!--Vietnamese Resource Name-->
+                                <a href ="#<%=listResource.get(i+1).getResourceId()%>" class="href_subject" > <%=listResource.get(i+1).getResourceNameVn()%> </a> <!--Vietnamese Resource Name-->
                             <% } %>
 
                         <% } %>    
@@ -116,13 +115,13 @@
                         <% if(language==1) {%>                              
                             <td width="354px"              
                                 style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
-                                <%=listResource.get(i).getResourceNameEn() %> <!--English Resource Name-->
+                                <a name="<%=listResource.get(i).getResourceId()%>"><%=listResource.get(i).getResourceNameEn() %></a> <!--English Resource Name-->
                             </td>
                         <% } %> 
                         <% if(language==2) {%>                               
                             <td width="354px"                           
                                 style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
-                                <%=listResource.get(i).getResourceNameVn() %> <!--Vietnamese Resource Name-->
+                                <a name="<%=listResource.get(i).getResourceId()%>"><%=listResource.get(i).getResourceNameVn() %></a> <!--Vietnamese Resource Name-->
                             </td>
                         <% } %>
                         <td width="140px"
