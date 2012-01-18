@@ -129,8 +129,8 @@
         <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
     </definition>
      <definition name=".loadThesis" extends=".homepage">
-        <put name="title"  value=" Subject" />
-        <put name="description"  value="Subject" />
+        <put name="title"  value=" Thesis" />
+        <put name="description"  value="Thesis" />
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
         <put name="footer" value="/jsp/footer.jsp" />
