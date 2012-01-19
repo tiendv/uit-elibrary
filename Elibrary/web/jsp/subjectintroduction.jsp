@@ -41,12 +41,6 @@
         </a>
         > <bean:message key="text.subjectintroduction"/>
         </div>
-        <%if(language==1) {%>
-            <div class="title_h1"><%=subject.getSubjectNameEn()%></div>
-        <%}%>
-        <%if(language==2) {%>
-            <div class="title_h1"><%=subject.getSubjectNameVn()%></div>
-        <%}%>
         <table>
             <tr>
                 <td rowspan="7"><%if(!imageLink.equals("")){ %><img src="<%=imageLink%>" width="<bean:message key="image.subject.width"/>" height="<bean:message key="image.subject.height"/>"/><%}%></td>

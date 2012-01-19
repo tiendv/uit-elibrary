@@ -38,7 +38,7 @@
         <!-- Begin load resource by OrderChapter (ResourceCategoryID= 10, bài giảng) -->
         <%if(resourceCategoryID==10) {%>
         
-        <div class="hyperlink_title_subject" ><a href="LoadSubject.do"><bean:message key ="text.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
+        <div class="hyperlink_title_subject" ><a href="LoadSubject.do"><bean:message key ="text.subject"/></a> > <a href="SubjectIntroduction.do?subjectID=<%=subjectID%>">
                 <% if(language==1){%>
                     <%=subject.getSubjectNameEn()%>
                 <%}if(language==2){%>
@@ -110,7 +110,7 @@
         <!--Begin Load Reading ( ResourceCategoryID=9, tài liệu tham khảo) -->
         
         <%if(resourceCategoryID==9) {%>
-        <div class="hyperlink_title_subject"><a href="LoadSubject.do"><bean:message key ="text.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
+        <div class="hyperlink_title_subject"><a href="LoadSubject.do"><bean:message key ="text.subject"/></a> > <a href="SubjectIntroduction.do?subjectID=<%=subjectID%>">
             <% if(language==1){%>
                     <%=subject.getSubjectNameEn()%>
             <%}if(language==2){%>
@@ -169,7 +169,7 @@
          <!-- Begin load resource by OrderChapter (ResourceCategoryID=4, bài tập) -->
         <%if(resourceCategoryID==4) {%>
         
-        <div class="hyperlink_title_subject" ><a href="LoadSubject.do"><bean:message key ="text.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
+        <div class="hyperlink_title_subject" ><a href="LoadSubject.do"><bean:message key ="text.subject"/></a> > <a href="SubjectIntroduction.do?subjectID=<%=subjectID%>">
                 <% if(language==1){%>
                     <%=subject.getSubjectNameEn()%>
                 <%}if(language==2){%>
@@ -233,7 +233,7 @@
         <!-- Begin load resource by OrderChapter (ResourceCategoryID=5, ví dụ) -->
         <%if(resourceCategoryID==5) {%>
         
-        <div class="hyperlink_title_subject" ><a href="LoadSubject.do"><bean:message key ="text.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
+        <div class="hyperlink_title_subject" ><a href="LoadSubject.do"><bean:message key ="text.subject"/></a> > <a href="SubjectIntroduction.do?subjectID=<%=subjectID%>">
                 <% if(language==1){%>
                     <%=subject.getSubjectNameEn()%>
                 <%}if(language==2){%>
@@ -297,7 +297,7 @@
         <!--Begin of ResourceCategoryID = 6 (đồ án môn học) -->
         
         <%if(resourceCategoryID==6) {%>
-        <div class="hyperlink_title_subject"><a href="LoadSubject.do"><bean:message key ="text.subject"/></a> > <a href="SubjectHome.do?subjectID=<%=subjectID%>">
+        <div class="hyperlink_title_subject"><a href="LoadSubject.do"><bean:message key ="text.subject"/></a> > <a href="SubjectIntroduction.do?subjectID=<%=subjectID%>">
             <% if(language==1){%>
                     <%=subject.getSubjectNameEn()%>
             <%}if(language==2){%>
