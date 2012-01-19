@@ -40,8 +40,8 @@
         <action path="/LoadOptional" type="uit.elib.action.LoadOptionalAction" scope="session">           
             <forward name="success" path=".loadOptional"/>
         </action>        
-        <action  path="/SubjectHome" type="uit.elib.action.SubjectHomeAction" scope="session">
-            <forward name="success" path=".subjectHome"/>
+        <action path="/SubjectIntroduction" type="uit.elib.action.LoadSubjectIntroductionAction" scope="session">
+            <forward name="success" path=".subjectIntroduction"/>
             <forward name="unsuccess" path="/Welcome.do"/>
         </action>
         <action path="/LoadLectureNote" type="uit.elib.action.LoadInfoSubjectAction" scope="session">           
@@ -53,7 +53,7 @@
         <action path="/SubjectCategory" type="uit.elib.action.LoadSubjectCategoryAction" scope="session">           
             <forward name="success" path=".loadSubjectCategory"/>
         </action>
-        <action path="/Syllabus" type="uit.elib.action.SyllabusAction" scope="session">
+        <action path="/Syllabus" type="uit.elib.action.LoadSyllabusAction" scope="session">
             <forward name="success" path=".syllabus"/>
             <forward name="unsuccess" path="/Welcome.do"/>
         </action>
@@ -85,6 +85,10 @@
             <forward name="success" path=".createResource"/>
         </action>
         <action path="/LoadThesis" type="uit.elib.action.LoadThesisAction">
+            <forward name="success" path=".loadThesis"/>
+            <forward name="unsuccess" path="/Welcome.do"/>
+        </action>
+        <action path="/LoadThesisDetail" type="uit.elib.action.LoadThesisDetailAction">
             <forward name="success" path=".loadThesis"/>
             <forward name="unsuccess" path="/Welcome.do"/>
         </action>            

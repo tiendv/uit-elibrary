@@ -1,5 +1,5 @@
 <%-- 
-    Document   : introduceSubject
+    Document   : subjectIntroduction
     Created on : Dec 1, 2011, 5:29:55 PM
     Author     : Nguyen Hoang Tan
 --%>
@@ -39,7 +39,7 @@
             <%=subject.getSubjectNameVn()%>
         <%}%>
         </a>
-        > <bean:message key="text.subjecthome"/>
+        > <bean:message key="text.subjectintroduction"/>
         </div>
         <%if(language==1) {%>
             <div class="title_h1"><%=subject.getSubjectNameEn()%></div>
@@ -80,10 +80,10 @@
             </tr>
         </table>
         <%if(language==1) {%>
-            <div style="padding-left: 8px;font-weight: bold"><bean:message key="text.introductionsubjecten"/>:</div> <div style="padding-left: 8px"><%=subject.getSubjectIntroduceEn()%></div>
+            <div style="padding-left: 8px;font-weight: bold"><bean:message key="text.subjectintroductionen"/>:</div> <div style="padding-left: 8px"><%=subject.getSubjectIntroduceEn()%></div>
         <%}%>    
         <%if(language==2) {%>
-            <div style="padding-left: 8px;font-weight: bold"><bean:message key="text.introductionsubjectvn"/>:</div> <div style="padding-left: 8px"><%=subject.getSubjectIntroduceVn()%></div>
+            <div style="padding-left: 8px;font-weight: bold"><bean:message key="text.subjectintroductionvn"/>:</div> <div style="padding-left: 8px"><%=subject.getSubjectIntroduceVn()%></div>
         <%}%> 
     </body>
 </html>
