@@ -105,13 +105,13 @@
         </tr>
     </table>   
     <hr>
-    <h2><bean:message key="text.introductionsubjectvn"/></h2>
+    <h2><bean:message key="text.subjectintroductionvn"/></h2>
         <FCK:editor instanceName="fckIntroductionVN" height="300px">
             <jsp:attribute name="value">
             </jsp:attribute>
         </FCK:editor>
     <hr>
-    <h2><bean:message key="text.introductionsubjecten"/></h2>
+    <h2><bean:message key="text.subjectintroductionen"/></h2>
         <FCK:editor instanceName="fckIntroductionEN" height="300px">
             <jsp:attribute name="value">
             </jsp:attribute>

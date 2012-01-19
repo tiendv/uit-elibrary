@@ -182,13 +182,13 @@
         <put name="content"   value="/project.jsp" />
         <put name="leftmenu"   value="/jsp/leftmenusubject.jsp" />
     </definition>
-    <definition name=".subjectHome" extends=".homepage">
+    <definition name=".subjectIntroduction" extends=".homepage">
         <put name="title"  value="Project Information" />
         <put name="description"  value="Project Information" />
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
         <put name="footer" value="/jsp/footer.jsp" />
-        <put name="content"   value="/jsp/subjecthome.jsp" />
+        <put name="content"   value="/jsp/subjectintroduction.jsp" />
         <put name="leftmenu"   value="/jsp/leftmenusubject.jsp" />
     </definition>
     <definition name=".syllabus" extends=".homepage">

@@ -34,10 +34,10 @@
             int r=0;                     
             for(int l=0;l<listLevel.size();l++){
                 if(language==1) { %>
-                    <div class="title_h1"><%=listLevel.get(l).getLevelNameEn() %></div>  <!--English Faculty Name-->
+                    <div class="title_h1"><%=listLevel.get(l).getLevelNameEn() %></div>  <!--English Level Name-->
                 <% } %> 
                 <% if(language==2) {%>
-                    <div class="title_h1"><%=listLevel.get(l).getLevelNameVn() %></div> <!--Vietnamese Faculty Name-->
+                    <div class="title_h1"><%=listLevel.get(l).getLevelNameVn() %></div> <!--Vietnamese Level Name-->
                 <% } %>         
                 <%
                    if(listResource.get(r).getLevel().getLevelId()!=listLevel.get(l).getLevelId()){
@@ -88,15 +88,15 @@
                     </tr>
       
                     <%  
-                        int color=0;
-                        int number =0;
-                        for(int i=r;i<listResource.size();i++) {
-                            String href="./LoadThesisDetail.do?resourceID="+listResource.get(i).getResourceId();
-                            if(listResource.get(i).getLevel().getLevelId()!=listLevel.get(l).getLevelId())
-                            {     
+                       int color=0;
+                       int number =0;
+                       for(int i=r;i<listResource.size();i++) {
+                           String href="./LoadThesisDetail.do?resourceID="+listResource.get(i).getResourceId();
+                           if(listResource.get(i).getLevel().getLevelId()!=listLevel.get(l).getLevelId())
+                           {     
                                 r=i;
                                 break;
-                            }
+                           }
                     %>
                     <% Date date = new Date();
                        boolean oneMonth = false; 
@@ -110,18 +110,18 @@
                    <tr>    
                         <td width="160px"  class="td_chapter_border"              
                         style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
-                            <%=number++%> <!--Chapter-->
+                            <%=number++%> 
                         </td>  
                         <% if(language==1) {%>                              
                             <td width="354px"              
                                 style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
-                                <a name="<%=listResource.get(i).getResourceId()%>"><%=listResource.get(i).getResourceNameEn() %></a> <!--English Resource Name-->
+                                <a href="<%=href%>" class="href_subject" name="<%=listResource.get(i).getResourceId()%>"><%=listResource.get(i).getResourceNameEn() %></a> <!--English Resource Name-->
                             </td>
                         <% } %> 
                         <% if(language==2) {%>                               
                             <td width="354px"                           
                                 style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
-                                <a name="<%=listResource.get(i).getResourceId()%>"><%=listResource.get(i).getResourceNameVn() %></a> <!--Vietnamese Resource Name-->
+                                <a href="<%=href%>" class="href_subject" name="<%=listResource.get(i).getResourceId()%>"><%=listResource.get(i).getResourceNameVn() %></a> <!--Vietnamese Resource Name-->
                             </td>
                         <% } %>
                         <td width="140px"
