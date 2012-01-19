@@ -27,7 +27,7 @@
             if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
                 language=2; // VietNamese            
         %>
-        <div class="hyperlink_title_subject"><a href= "LoadSubject.do"><bean:message key="text.subject"/></a> ><a href="SubjectHome.do?subjectID=<%=subject.getSubjectId()%>"> 
+        <div class="hyperlink_title_subject"><a href= "LoadSubject.do"><bean:message key="text.subject"/></a> ><a href="SubjectIntroduction.do?subjectID=<%=subject.getSubjectId()%>"> 
         <%if(language==1) {%>
             <%=subject.getSubjectNameEn()%> 
         <%}%>
@@ -36,15 +36,7 @@
         <%}%>
             </a>
         > <bean:message key="text.syllabus"/></div>
-        
-        <%if(language==1) {%>
-            <div class="title_h1"><%=subject.getSubjectNameEn()%></div>
-        <%}%>
-        <%if(language==2) {%>
-            <div class="title_h1"><%=subject.getSubjectNameVn()%></div>
-        <%}%></br>
-        
-        <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.timeteaching"/> : </b>
+        <div style="padding-left: 8px;padding-bottom: 5px "><b><bean:message key="text.timeteaching"/> : </b>
             <%if(Integer.parseInt(subject.getTimeTeaching())==0){%>
                 <bean:message key="text.updating"/>
             <%}else{%>
@@ -52,31 +44,31 @@
             <%}%>
         </div>
         <%if(subject.getPeriodOfTheory()!=0 || subject.getPeriodOfPractice()!=0){%>
-            <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.periodoftheory"/> : </b>
+            <div style="padding-left: 8px;padding-bottom: 5px "><b><bean:message key="text.periodoftheory"/> : </b>
                  <%=subject.getPeriodOfTheory() %></div>
-            <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.periodofpractice"/> : </b>
+            <div style="padding-left: 8px;padding-bottom: 5px "><b><bean:message key="text.periodofpractice"/> : </b>
                  <%=subject.getPeriodOfPractice() %></div>
         <%}else{%>
-            <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.periodoftheory"/> : </b>
+            <div style="padding-left: 8px;padding-bottom: 5px "><b><bean:message key="text.periodoftheory"/> : </b>
                  <bean:message key="text.updating"/></div>
-            <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.periodofpractice"/> : </b>
+            <div style="padding-left: 8px;padding-bottom: 5px "><b><bean:message key="text.periodofpractice"/> : </b>
                  <bean:message key="text.updating"/></div>
         <%}%>
         <% if(language==1){%>
-            <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.prerequisitesubject"/> : </b>
+            <div style="padding-left: 8px;padding-bottom: 5px "><b><bean:message key="text.prerequisitesubject"/> : </b>
             <%=subject.getPrerequisiteSubjectEn() %></div>
         <%}%>
         <% if(language==2){%>
-            <div style="padding-left: 17px;padding-bottom: 5px "><b><bean:message key="text.prerequisitesubject"/> : </b>
+            <div style="padding-left: 8px;padding-bottom: 5px "><b><bean:message key="text.prerequisitesubject"/> : </b>
                 <%=subject.getPrerequisiteSubjectVn() %></div>
         <%}%>
                 
         <div style="font-weight: bold; padding-left: 17px;padding-bottom: 5px "><bean:message key="text.projectrequirementtitle"/> : </div>
         <%if(language==1) {%>
-            <div style="padding-left: 17px;padding-bottom: 5px"><%=subject.getProjectRequirementEn() %></div>   
+            <div style="padding-left: 8px;padding-bottom: 5px"><%=subject.getProjectRequirementEn() %></div>   
         <%}%>
         <%if(language==2) {%>
-            <div style="padding-left: 17px;padding-bottom: 5px"><%=subject.getProjectRequirementVn() %></div>
+            <div style="padding-left: 8px;padding-bottom: 5px"><%=subject.getProjectRequirementVn() %></div>
         <%}%>
         <%if(subject.getMidtermGrade()!=0 || subject.getFinalGrade()!=0 ) {%>
             <table class="resource_table">

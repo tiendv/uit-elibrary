@@ -36,7 +36,7 @@
             orderChapter = 1;
         %>
         <tr>
-            <td class="leftmenu_td_link"><a href="SubjectIntroduction.do?subjectID=<%=subjectID%>"><bean:message  key="text.subjecthome"/></a></td>
+            <td class="leftmenu_td_link"><a href="SubjectIntroduction.do?subjectID=<%=subjectID%>"><bean:message  key="text.subjectintroduction"/></a></td>
         </tr>
         <tr>
             <td class="leftmenu_td_link"><a href="Syllabus.do?subjectID=<%=subjectID%>"><bean:message  key="text.syllabus"/></a></td>
