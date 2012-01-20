@@ -89,7 +89,7 @@
             <forward name="unsuccess" path="/Welcome.do"/>
         </action>
         <action path="/LoadThesisDetail" type="uit.elib.action.LoadThesisDetailAction">
-            <forward name="success" path=".loadThesis"/>
+            <forward name="success" path=".loadThesisDetail"/>
             <forward name="unsuccess" path="/Welcome.do"/>
         </action>            
         <action path="/CheckSyllabusImage" type="uit.elib.action.CheckSyllabusImageAction"/>

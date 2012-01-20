@@ -136,7 +136,16 @@
         <put name="footer" value="/jsp/footer.jsp" />
         <put name="content"   value="/jsp/thesis.jsp" />
         <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
-    </definition>    
+    </definition>
+     <definition name=".loadThesisDetail" extends=".homepage">
+        <put name="title"  value=" Thesis" />
+        <put name="description"  value="Thesis" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/jsp/thesisdetail.jsp" />
+        <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
+    </definition>     
      <definition name=".loadBase" extends=".homepage">
         <put name="title"  value=" Base" />
         <put name="description"  value="Base" />

@@ -10,7 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import uit.elib.bo.FacultyBO;
+import uit.elib.bo.LevelBO;
 import uit.elib.bo.ResourceBO;
+import uit.elib.dto.Faculty;
+import uit.elib.dto.Level;
 import uit.elib.dto.Resource;
 import uit.elib.utility.IsNumber;
 
@@ -46,7 +50,11 @@ public class LoadThesisDetailAction extends org.apache.struts.action.Action {
                 List<Resource> listResource = resourceBO.getAllResource("resourceId="+resourceID, null);
                 if(listResource.size()>0)
                 {
-                    
+                    List<Level> listLevel = LevelBO.getLevelBO().getAllLevel(listResource.get(0).getLevel().getLevelId());
+                    List<Faculty> listFaculty = FacultyBO.getFacultyBO().getAllFaculty(listResource.get(0).getFaculty().getFacultyId());
+                    request.setAttribute("listResource", listResource);
+                    request.setAttribute("listLevel", listLevel);
+                    request.setAttribute("listFaculty", listFaculty);
                     return mapping.findForward(SUCCESS);
                 }
             }
