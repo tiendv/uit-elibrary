@@ -20,7 +20,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
  <link href="<html:rewrite page='/css/uit.css'/>" rel="stylesheet" type="text/css" />
 
-<div style="overflow: auto;height: 600px;">
+ <div class="resource">
      <form id="createResource" method="post" action="CreateResource.do"  enctype="multipart/form-data"> 
         <%
             List listResourceCategory = (List)request.getAttribute("listResourceCategory");
@@ -51,7 +51,7 @@
         </div>
         <div class="cleared"></div>        
         <%-- Resource Name --%>           
-        <div  id="divResourceName" class="resourceName"  style="width: 700px;padding-left: 3px;display: none">
+        <div  id="divResourceName" class="resource1" >
              <div class="resource_left"><bean:message key="text.resourcenameen" /></div>
              <div class="resource_left"><input class="textbox" id="txtResourceNameEN" name="txtResourceNameEN" type="text"/></div>
              <div class="resource_left"><bean:message key="text.resourcenamevn"/></div>
@@ -59,7 +59,7 @@
         </div>
         <div class="cleared"></div>           
         <%-- Add resource with resource category is thesis (ID =2) --%> 
-        <div  id="divThesis" style="display: none">
+        <div  id="divThesis" class="none">
             <div class="resource1">
                 <div class="resource_left"><bean:message key="text.level"/></div>
                 <div class="resource_left">
@@ -133,7 +133,7 @@
         </div>
         <%-- Add resource with resource category is project (ID =6) --%>
 
-        <div id="divProject" style="display: none">
+        <div id="divProject" class="none">
             <div class="resource1">
                 <div class="resource_left"><bean:message key="text.subject"/></div>
                 <div class="resource_left">
@@ -161,7 +161,7 @@
             <div class="cleared"></div>     
         </div>            
         <%-- Add resource with resource category is chapter (ID =7) --%>
-        <div  id="divChapter" style="display: none">
+        <div  id="divChapter" class="none">
             <div class="resource1">
                 <div class="resource_left"><bean:message key="text.subject"/></div>       
                 <div class="resource_left">
@@ -197,7 +197,7 @@
 
         <%-- Add resource with resource category is Picture, Reading (ID =8,9) --%>
 
-        <div id="divPictureandReading" style="display: none">
+        <div id="divPictureandReading" class="none">
             <div class="resource2">
                 <div class="resource_left"><bean:message key="text.subject"/></div>
                 <div class="resource_left">
@@ -223,7 +223,7 @@
             <div class="cleared"></div>    
         </div>
         <%-- Add resource with resource category is assignments,example,lecture note,video (ID =4,5,10,11) --%>
-        <div id="divResourceChapter" style="display: none">
+        <div id="divResourceChapter" class="none">
             <div class="resource1">
                 <div class="resource_left"><bean:message key="text.subject"/></div>
                 <div class="resource_left">
@@ -253,7 +253,7 @@
             <div class="cleared"></div>    
         </div>
         <%-- Add resource with resource category is Syllabus (ID =12) --%>
-        <div id="divResourceSyllabus" style="display: none">
+        <div id="divResourceSyllabus" class="none">
             <div class="resource2">
                 <div class="resource_left"><bean:message key="text.subject"/></div>
                 <div class="resource_left">
@@ -279,7 +279,7 @@
             <div class="cleared"></div>    
         </div>                            
     </form>                   
-    <div id="divButtonCreate" style="display: none">
+    <div id="divButtonCreate" class="none">
          <input type="submit"  value=<bean:message key="text.buttoncreate" /> onclick="validate()" />
     </div>                 
 </div>     

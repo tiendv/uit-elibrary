@@ -25,7 +25,7 @@
 <div style="overflow: hidden; min-height: 600px;">
     <html:form  method="post" action="CreateSubject" onsubmit="return validateCreateSubjectForm(this)">
     <h1> <bean:message key="text.newsubject"/> </h1>
-    <table width="100%">
+    <table class="table1">
         <%int language =1; // English
                     Locale locale = request.getLocale();
                     if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))

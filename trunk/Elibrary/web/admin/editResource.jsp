@@ -22,7 +22,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
  <link href="<html:rewrite page='/css/uit.css'/>" rel="stylesheet" type="text/css" />
 
-<div style="overflow: auto;height: 600px;">
+<div class="resource">
     <form id="EditResourceForm" name="EditResourceForm" method="post" action="EditResource.do"  enctype="multipart/form-data">
         <%
             int language =1; // English
@@ -67,7 +67,7 @@
         </div>
         <div class="cleared"></div>          
         <%-- Resource Name --%>           
-        <div id="divResourceName" style="display: none">      
+        <div id="divResourceName" class="none">      
             <div class="resource1">
                 <div class="resource_left"><bean:message key="text.resourcenameen" /></div>
                 <div class="resource_left"><input class="textbox" id="txtResourceNameEN" name="txtResourceNameEN" type="text" value="<%=listResource.get(0).getResourceNameEn()%>"/></div>
@@ -77,7 +77,7 @@
         </div>
         <div class="cleared"></div>    
         <%-- Add resource with resource category is thesis (ID =2) --%> 
-        <div  id="divThesis" style="display: none"> 
+        <div  id="divThesis" class="none"> 
             <div class="resource1">
                 <div class="resource_left"><bean:message key="text.level"/></div>
                 <div class="resource_left">
@@ -207,7 +207,7 @@
             </FCK:editor>                          
         </div>
         <%-- Add resource with resource type is project (ID =6) --%>
-        <div id="divProject" style="display: none">
+        <div id="divProject" class="none">
             <div class="resource2">
                 <div class="resource_left"><bean:message key="text.projectauthor"/></div>
                 <div class="resource_left"><input id="txtProjectAuthor" name="txtProjectAuthor" type="text" value="<%=listResource.get(0).getAuthor()%>"/></div>
@@ -289,7 +289,7 @@
             <div class="cleared"></div>       
         </div>            
         <%-- Add resource with resource type is chapter (ID =7) --%>
-        <div  id="divChapter" style="display: none">        
+        <div  id="divChapter" class="none">        
             <div class="resource1">
                 <div class="resource_left"><bean:message key="text.subject"/></div>
                 <div class="resource_left">
@@ -335,7 +335,7 @@
             </FCK:editor>  
         </div> 
         <%-- Add resource with resource type is Picture, Reading (ID =8,9) --%>
-        <div id="divPictureandReading" style="display: none">        
+        <div id="divPictureandReading" class="none">        
             <div class="resource2">
                 <div class="resource_left"><bean:message key="text.subject"/></div>
                 <div class="resource_left">
@@ -404,11 +404,11 @@
             <%if(listResource.get(0).getServerName()!=null&& listResource.get(0).getResourcecategory().getResourceCategoryId()==8){ 
                 String imageLink = "./upload/"+listResource.get(0).getServerName().toString();
             %>
-                <div><img src="<%=imageLink%>" width="300" height="300"/></div>
+                <div><img src="<%=imageLink%>" class="image"/></div>
             <%}%>                            
         </div>
         <%-- Add resource with resource type is assignments,video,example,slide,pdf (ID =4,5,10,11) --%>
-        <div id="divResourceChapter" style="display: none">    
+        <div id="divResourceChapter" class="none">    
             <div class="resource1">
                 <div class="resource_left"><bean:message key="text.subject"/></div>
                 <div class="resource_left">
@@ -497,7 +497,7 @@
             <div class="cleared"></div>
         </div>
         <%-- Add resource with resource type is Syllabus (ID =12) --%>
-        <div id="divResourceSyllabus" style="display: none">
+        <div id="divResourceSyllabus" class="none">
                 <div class="resource2">
                     <div class="resource_left"><bean:message key="text.subject"/></div>
                     <div class="resource_left">
@@ -565,7 +565,7 @@
                 <div class="cleared"></div>      
          </div>                            
     </form>               
-    <div id="diveButtonCreate" style="display: none">
+    <div id="diveButtonCreate" class="none">
         <input type="submit"  value=<bean:message key="text.buttoncreate"  /> onclick="validate()" />
     </div>                
 </div>     
