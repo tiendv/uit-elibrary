@@ -22,7 +22,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 
-<div style="overflow: auto;height: 600px;">
+<div style="overflow: hidden; min-height: 600px;">
     <html:form  method="post" action="CreateSubject" onsubmit="return validateCreateSubjectForm(this)">
     <h1> <bean:message key="text.newsubject"/> </h1>
     <table width="100%">

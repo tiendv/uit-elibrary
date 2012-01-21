@@ -31,9 +31,9 @@ public class EditSubjectForm extends org.apache.struts.action.ActionForm {
     private String txtLevel;
     private int dropFaculty;
     private String fckintroductionVN;
-    private String fckintroductionUS;
+    private String fckintroductionEN;
     private String fckProjectRequitementVN;
-    private String fckProjectRequitementUS;
+    private String fckProjectRequitementEN;
     private String txtSubjectName;
     private String txtNumberChapter;
     private String txtCreditNumber;
@@ -63,12 +63,12 @@ public class EditSubjectForm extends org.apache.struts.action.ActionForm {
         this.dropSubjectCategory = dropSubjectCategory;
     }
 
-    public String getFckProjectRequitementUS() {
-        return fckProjectRequitementUS;
+    public String getFckProjectRequitementEN() {
+        return fckProjectRequitementEN;
     }
 
-    public void setFckProjectRequitementUS(String fckProjectRequitementUS) {
-        this.fckProjectRequitementUS = fckProjectRequitementUS;
+    public void setFckProjectRequitementEN(String fckProjectRequitementEN) {
+        this.fckProjectRequitementEN = fckProjectRequitementEN;
     }
 
     public String getFckProjectRequitementVN() {
@@ -79,12 +79,12 @@ public class EditSubjectForm extends org.apache.struts.action.ActionForm {
         this.fckProjectRequitementVN = fckProjectRequitementVN;
     }
 
-    public String getFckintroductionUS() {
-        return fckintroductionUS;
+    public String getFckintroductionEN() {
+        return fckintroductionEN;
     }
 
-    public void setFckintroductionUS(String fckintroductionUS) {
-        this.fckintroductionUS = fckintroductionUS;
+    public void setFckintroductionEN(String fckintroductionEN) {
+        this.fckintroductionEN = fckintroductionEN;
     }
 
     public String getFckintroductionVN() {
