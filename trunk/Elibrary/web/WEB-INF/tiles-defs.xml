@@ -191,7 +191,7 @@
         <put name="content"   value="/project.jsp" />
         <put name="leftmenu"   value="/jsp/leftmenusubject.jsp" />
     </definition>
-    <definition name=".loadSubjectIntroduction" extends=".homepage">
+    <definition name=".subjectIntroduction" extends=".homepage">
         <put name="title"  value="Project Information" />
         <put name="description"  value="Project Information" />
         <put name="header" value="/jsp/header.jsp" />
