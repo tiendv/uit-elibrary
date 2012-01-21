@@ -86,7 +86,7 @@
         %> 
         <%  int j=0;
             for(int i=0;i<listSubject.size();i++) {
-                String href="./LoadSubjectIntroduction.do?subjectID="+listSubject.get(i).getSubjectId();
+                String href="./SubjectIntroduction.do?subjectID="+listSubject.get(i).getSubjectId();
         %>
         <% if(language==1) {%>
             <div class="subject">

@@ -21,7 +21,6 @@
         <title><bean:message key="text.thesis"/> </title>
     </head>
     <body>
-        <div style="clear:both"></div> 
         <% 
             List<Resource> listResource =  (List<Resource>)request.getAttribute("listResource");
             List<Faculty> listFaculty=  (List<Faculty>)request.getAttribute("listFaculty");
@@ -42,21 +41,21 @@
                 <%
                    if(listResource.get(r).getLevel().getLevelId()!=listLevel.get(l).getLevelId()){
                 %>
-                    <div style="margin-left: 30px;color: #680a12">
-                        <img src="image/black-arrow.gif" width="3" height="5" alt="black-arrow"/>
+                    <div class="thesis_update">
+                        <img src="image/black-arrow.gif" class="image_black_arrow" alt="black-arrow"/>
                         <bean:message key="text.updating"/>
                     </div>
-                <%  }
+                 <%  }
                     if(listResource.get(r).getLevel().getLevelId()==listLevel.get(l).getLevelId()){  %> 
-                <table style="margin-left: 30px " width="600px"> 
+                    <table class="thesis_table"> 
                     <%                 
                         for(int i=r;i<listResource.size();i=i+2) {
                             if(listResource.get(i).getLevel().getLevelId()!=listLevel.get(l).getLevelId())
                                 break;
                     %>
                     <tr>      
-                    <td width="250px" style="color: #680a12">              
-                            <img src="image/black-arrow.gif" width="3" height="5" alt="black-arrow"/>
+                    <td class="thesis_row">              
+                            <img src="image/black-arrow.gif" class="image_black_arrow" alt="black-arrow"/>
                             <% if(language==1) { %>
                                 <a href ="#<%=listResource.get(i).getResourceId()%>" class="href_subject" > <%=listResource.get(i).getResourceNameEn()%>  </a> <!--English Resource Name-->
                             <% } %> 
@@ -64,9 +63,9 @@
                                 <a href ="#<%=listResource.get(i).getResourceId()%>" class="href_subject" ><%=listResource.get(i).getResourceNameVn()%> </a> <!--Vietnamese Resource Name-->
                             <% } %>                         
                     </td>
-                    <td width="250px" style="color: #680a12">
+                    <td class="thesis_row">
                         <% if(i+1<listResource.size() && (listResource.get(i+1).getLevel().getLevelId()==listLevel.get(l).getLevelId())){ %>
-                            <img src="image/black-arrow.gif" width="3" height="5" alt="black-arrow"/>
+                            <img src="image/black-arrow.gif" class="image_black_arrow" alt="black-arrow"/>
                             <% if(language==1) {%>
                                 <a href ="#<%=listResource.get(i+1).getResourceId()%>" class="href_subject" > <%=listResource.get(i+1).getResourceNameEn()%> </a> <!--English Resource Name-->
                             <% } %> 
@@ -81,10 +80,10 @@
                 </table>
                 <table class="table_chapter" >
                     <tr class="color_title_table">
-                        <td class="td_chapter_3"><bean:message key="text.orderchapter"/></td>
-                        <td class="td_chapter_4"><bean:message key="text.chaptertitle"/></td>
-                        <td class="td_chapter_2"></td>                
-                        <td class="td_chapter_1"></td>                
+                        <td class="td_chapter_1"><bean:message key="text.orderchapter"/></td>
+                        <td class="td_chapter_2"><bean:message key="text.chaptertitle"/></td>
+                        <td class="td_chapter_3"></td>                
+                        <td class="td_chapter_4"></td>                
                     </tr>
       
                     <%  
@@ -108,33 +107,29 @@
                        }                    
                     %>
                    <tr>    
-                        <td width="160px"  class="td_chapter_border"              
-                        style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
+                        <td <% if(color%2==0){ %>class="td_chapter_1_content_even"<%}%> 
+                            <% if(color%2!=0){ %>class="td_chapter_1_content_odd"<%}%> >
                             <%=number++%> 
                         </td>  
                         <% if(language==1) {%>                              
-                            <td width="354px"              
-                                style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
+                            <td <% if(color%2==0){ %>class="td_chapter_2_content_even"<%}%> 
+                                <% if(color%2!=0){ %>class="td_chapter_2_content_odd"<%}%> >
                                 <a href="<%=href%>" class="href_subject" name="<%=listResource.get(i).getResourceId()%>"><%=listResource.get(i).getResourceNameEn() %></a> <!--English Resource Name-->
                             </td>
                         <% } %> 
                         <% if(language==2) {%>                               
-                            <td width="354px"                           
-                                style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
+                            <td <% if(color%2==0){ %>class="td_chapter_2_content_even"<%}%> 
+                                <% if(color%2!=0){ %>class="td_chapter_2_content_odd"<%}%> >
                                 <a href="<%=href%>" class="href_subject" name="<%=listResource.get(i).getResourceId()%>"><%=listResource.get(i).getResourceNameVn() %></a> <!--Vietnamese Resource Name-->
                             </td>
                         <% } %>
-                        <td width="140px"
-                            <% if(color%2==0){ %> 
-                                style="background-color:#E2E1D9"
-                            <%}%>                               >                          
+                        <td <% if(color%2==0){ %>class="td_chapter_3_content_even"<%}%> 
+                            <% if(color%2!=0){ %>class="td_chapter_3_content_odd"<%}%> >                        
                         </td>
-                        <td width="40px"
-                            <% if(color%2==0){ %> 
-                                style="background-color:#E2E1D9"
-                            <%}%>                               >
+                        <td <% if(color%2==0){ %>class="td_chapter_4_content_even"<%}%> 
+                            <% if(color%2!=0){ %>class="td_chapter_4_content_odd"<%}%> >
                             <% if(oneMonth==true) {%>
-                                <img src="image/new-icon.gif" width="18" height="5" alt="new-icon"/> <!-- new icon  -->
+                                <img src="image/new-icon.gif" class="image_newicon" alt="new-icon"/> <!-- new icon  -->
                             <% } %>
                         </td>
                     </tr >              

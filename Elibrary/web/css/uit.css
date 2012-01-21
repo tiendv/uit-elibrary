@@ -675,3 +675,51 @@ div.resource_left
     margin-left: 30px;
     color: #680a12;
 }
+.subjectintroduction_title
+{
+    padding-left: 8px;
+    font-weight: bold;
+}
+.subjectintroduction
+{
+    padding-left: 8px;
+    padding-top: 1px;
+}
+.syllabus_col
+{
+   padding-left: 8px;
+   padding-bottom: 5px; 
+}
+.syllabus_col_title
+{
+    height: 8px; 
+    text-align: center;
+}
+.syllabus_col_color
+{
+    background-color:#E2E1D9;
+}
+.syllabus_download
+{
+    padding-left: 17px;
+    padding-top: 5px;
+}
+.center
+{
+    text-align: center;
+}
+.thesis_update
+{
+    margin-left: 30px;
+    color: #680a12;
+}
+.thesis_table
+{
+    margin-left: 30px ;
+    width:600px;
+}
+.thesis_row
+{
+    width:250px; 
+    color: #680a12;
+}

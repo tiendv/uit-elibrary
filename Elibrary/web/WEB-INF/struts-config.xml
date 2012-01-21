@@ -40,8 +40,8 @@
         <action path="/LoadOptional" type="uit.elib.action.LoadOptionalAction" scope="session">           
             <forward name="success" path=".loadOptional"/>
         </action>        
-        <action path="/LoadSubjectIntroduction" type="uit.elib.action.LoadSubjectIntroductionAction" scope="session">
-            <forward name="success" path=".loadSubjectIntroduction"/>
+        <action path="/SubjectIntroduction" type="uit.elib.action.LoadSubjectIntroductionAction" scope="session">
+            <forward name="success" path=".subjectIntroduction"/>
             <forward name="unsuccess" path="/Welcome.do"/>
         </action>
         <action path="/LoadLectureNote" type="uit.elib.action.LoadInfoSubjectAction" scope="session">           

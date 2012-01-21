@@ -43,7 +43,7 @@
         </div>
         <table>
             <tr>
-                <td rowspan="7"><%if(!imageLink.equals("")){ %><img src="<%=imageLink%>" width="<bean:message key="image.subject.width"/>" height="<bean:message key="image.subject.height"/>"/><%}%></td>
+                <td rowspan="7"><img src="<%=imageLink%>" width="<bean:message key="image.subject.width"/>" height="<bean:message key="image.subject.height"/>"/></td>
             </tr>
             <tr>
                 <td><b><bean:message key="text.creditnumber"/>:</b> <%=subject.getNumberOfCredit()%></td>
@@ -74,10 +74,10 @@
             </tr>
         </table>
         <%if(language==1) {%>
-            <div style="padding-left: 8px;font-weight: bold"><bean:message key="text.subjectintroductionen"/>:</div> <div style="padding-left: 8px"><%=subject.getSubjectIntroduceEn()%></div>
+            <div class="subjectintroduction_title"><bean:message key="text.subjectintroduction"/>:</div> <div class="subjectintroduction"><%=subject.getSubjectIntroduceEn()%></div>
         <%}%>    
         <%if(language==2) {%>
-            <div style="padding-left: 8px;font-weight: bold"><bean:message key="text.subjectintroductionvn"/>:</div> <div style="padding-left: 8px"><%=subject.getSubjectIntroduceVn()%></div>
+            <div class="subjectintroduction_title"><bean:message key="text.subjectintroduction"/>:</div> <div class="subjectintroduction"><%=subject.getSubjectIntroduceVn()%></div>
         <%}%> 
     </body>
 </html>

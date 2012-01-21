@@ -107,7 +107,7 @@
         %> 
         <%  
             for(int i=s;i<listSubject.size();i++) {
-                String href="./LoadSubjectIntroduction.do?subjectID="+listSubject.get(i).getSubjectId();
+                String href="./SubjectIntroduction.do?subjectID="+listSubject.get(i).getSubjectId();
                 if(listSubject.get(i).getFaculty().getFacultyId()!=listFaculty.get(f).getFacultyId())
                 {     
                     s=i;

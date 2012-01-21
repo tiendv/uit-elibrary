@@ -36,7 +36,7 @@
         <%}%>
             </a>
         > <bean:message key="text.syllabus"/></div>
-        <div style="padding-left: 8px;padding-bottom: 5px "><b><bean:message key="text.timeteaching"/> : </b>
+        <div class="syllabus_col"><b><bean:message key="text.timeteaching"/> : </b>
             <%if(Integer.parseInt(subject.getTimeTeaching())==0){%>
                 <bean:message key="text.updating"/>
             <%}else{%>
@@ -44,48 +44,49 @@
             <%}%>
         </div>
         <%if(subject.getPeriodOfTheory()!=0 || subject.getPeriodOfPractice()!=0){%>
-            <div style="padding-left: 8px;padding-bottom: 5px "><b><bean:message key="text.periodoftheory"/> : </b>
+            <div class="syllabus_col"><b><bean:message key="text.periodoftheory"/> : </b>
                  <%=subject.getPeriodOfTheory() %></div>
-            <div style="padding-left: 8px;padding-bottom: 5px "><b><bean:message key="text.periodofpractice"/> : </b>
+            <div class="syllabus_col"><b><bean:message key="text.periodofpractice"/> : </b>
                  <%=subject.getPeriodOfPractice() %></div>
         <%}else{%>
-            <div style="padding-left: 8px;padding-bottom: 5px "><b><bean:message key="text.periodoftheory"/> : </b>
+            <div class="syllabus_col"><b><bean:message key="text.periodoftheory"/> : </b>
                  <bean:message key="text.updating"/></div>
-            <div style="padding-left: 8px;padding-bottom: 5px "><b><bean:message key="text.periodofpractice"/> : </b>
+            <div class="syllabus_col"><b><bean:message key="text.periodofpractice"/> : </b>
                  <bean:message key="text.updating"/></div>
         <%}%>
         <% if(language==1){%>
-            <div style="padding-left: 8px;padding-bottom: 5px "><b><bean:message key="text.prerequisitesubject"/> : </b>
+            <div class="syllabus_col"><b><bean:message key="text.prerequisitesubject"/> : </b>
             <%=subject.getPrerequisiteSubjectEn() %></div>
         <%}%>
         <% if(language==2){%>
-            <div style="padding-left: 8px;padding-bottom: 5px "><b><bean:message key="text.prerequisitesubject"/> : </b>
+            <div class="syllabus_col"><b><bean:message key="text.prerequisitesubject"/> : </b>
                 <%=subject.getPrerequisiteSubjectVn() %></div>
         <%}%>
                 
-        <div style="font-weight: bold; padding-left: 17px;padding-bottom: 5px "><bean:message key="text.projectrequirementtitle"/> : </div>
         <%if(language==1) {%>
-            <div style="padding-left: 8px;padding-bottom: 5px"><%=subject.getProjectRequirementEn() %></div>   
+            <div class="syllabus_col"><b><bean:message key="text.projectrequirementtitle"/> : </b>
+                <%=subject.getProjectRequirementEn() %></div>   
         <%}%>
         <%if(language==2) {%>
-            <div style="padding-left: 8px;padding-bottom: 5px"><%=subject.getProjectRequirementVn() %></div>
+            <div class="syllabus_col"><b><bean:message key="text.projectrequirementtitle"/> : </b>
+                <%=subject.getProjectRequirementVn() %></div>
         <%}%>
         <%if(subject.getMidtermGrade()!=0 || subject.getFinalGrade()!=0 ) {%>
             <table class="resource_table">
                 <thead>
                     <tr class="color_title_table">
-                        <th style="height: 8px; text-align: center"><bean:message key="text.grade"/></th>
-                        <th style="height: 8px; text-align: center"><bean:message key="text.percent"/></th>
+                        <th class="syllabus_col_title"><bean:message key="text.grade"/></th>
+                        <th class="syllabus_col_title"><bean:message key="text.percent"/></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td style="text-align: center"><bean:message key="text.midtermgrade"/></td>
-                        <td style="text-align: center"><%=subject.getMidtermGrade() %> %</td>
+                        <td class="center"><bean:message key="text.midtermgrade"/></td>
+                        <td class="center"><%=subject.getMidtermGrade() %> %</td>
                     </tr>
-                    <tr style="background-color:#E2E1D9">
-                        <td style="text-align: center"><bean:message key="text.finalgrade"/></td>
-                        <td style="text-align: center"><%=subject.getFinalGrade() %> %</td>
+                    <tr class="syllabus_col_color">
+                        <td class="center"><bean:message key="text.finalgrade"/></td>
+                        <td class="center"><%=subject.getFinalGrade() %> %</td>
                     </tr>
                 </tbody>
             </table>
@@ -93,24 +94,24 @@
             <table class="resource_table">
                 <thead>
                     <tr class="color_title_table">
-                        <th style="height: 8px; text-align: center"><bean:message key="text.grade"/></th>
-                        <th style="height: 8px; text-align: center"><bean:message key="text.percent"/></th>
+                        <th class="syllabus_col_title"><bean:message key="text.grade"/></th>
+                        <th class="syllabus_col_title"><bean:message key="text.percent"/></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td style="text-align: center"><bean:message key="text.midtermgrade"/></td>
-                        <td style="text-align: center"><bean:message key="text.updating"/></td>
+                        <td class="center"><bean:message key="text.midtermgrade"/></td>
+                        <td class="center"><bean:message key="text.updating"/></td>
                     </tr>
-                    <tr style="background-color:#E2E1D9">
-                        <td style="text-align: center"><bean:message key="text.finalgrade"/></td>
-                        <td style="text-align: center"><bean:message key="text.updating"/></td>
+                    <tr class="syllabus_col_color">
+                        <td class="center"><bean:message key="text.finalgrade"/></td>
+                        <td class="center"><bean:message key="text.updating"/></td>
                     </tr>
                 </tbody>
             </table>
         <%}%>
     <%if(listResource.size()>0) {%>
-       <div style="padding-left: 17px;padding-top: 5px"><a href="./DownLoad.do?resourceID=<%=listResource.get(0).getResourceId() %>" style="color:#680a12;" ><bean:message key="text.downloadhere"/></a></div>  
+       <div class="syllabus_download"><a href="./DownLoad.do?resourceID=<%=listResource.get(0).getResourceId() %>" style="color:#680a12;" ><bean:message key="text.downloadhere"/></a></div>  
     <%}%>
     </body>
 </html>

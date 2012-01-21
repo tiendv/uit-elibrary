@@ -640,16 +640,24 @@
                     document.forms["EditResourceForm"].submit();
             }    
         }
-        if (chosenoption.value=="8"||chosenoption.value=="9"){
-            if(chosenoption.value=="9") //reading
-            {
-                var alertString = validateResourceName();
-                if(alertString!="")
-                    alert(alertString);
-                if(alertString=="")
-                    document.forms["EditResourceForm"].submit(); 
-            }            
-        }
+        if(chosenoption.value=="8") //picture
+        {
+            var alertString = "";
+            if($("#filePictureReading").val().length==0) // file upload
+                alertString =alertString+"\r\n<bean:message key="text.imagegallery" /> <bean:message key="text.required" />";
+            if(alertString!="")
+                alert(alertString);
+            if(alertString=="")
+                document.forms["EditResourceForm"].submit(); 
+        }          
+        if(chosenoption.value=="9") //reading
+        {
+            var alertString = validateResourceName();
+            if(alertString!="")
+                alert(alertString);
+            if(alertString=="")
+                document.forms["EditResourceForm"].submit(); 
+        }            
         if (chosenoption.value=="4"||chosenoption.value=="5"||chosenoption.value=="10"||chosenoption.value=="11") //assignments,example,lecture note,video
         {
             var alertString = validateResourceName();
