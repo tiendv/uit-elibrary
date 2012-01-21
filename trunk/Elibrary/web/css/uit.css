@@ -65,6 +65,11 @@
     clear:both;
     padding-top: 3px;
 }
+.cleared 
+{
+    clear:both;
+    padding-top: 3px;
+}
 .content {
     
 	font-family: Arial, Helvetica, sans-serif;
@@ -120,24 +125,77 @@
         width:98%;
         border-collapse:collapse;
 }
+
 .td_chapter_1
-{
-        width:60px;
-}
-.td_chapter_2
-{
-        width:140px;
-}
-.td_chapter_3
 {
         width:160px;
         font-weight: bold;
         text-align: center;
 }
-.td_chapter_4
+.td_chapter_1_content_even
+{
+        width:160px;
+        text-align: center;
+        background-color:#E2E1D9;
+        color:#680a12;
+        border-right: 1px;
+        border-right-style:solid;
+        border-right-color:#B4B1A2;    
+}
+.td_chapter_1_content_odd
+{
+        width:160px;
+        text-align: center;
+        color:#680a12;
+        border-right: 1px;
+        border-right-style:solid;
+        border-right-color:#B4B1A2;          
+}
+.td_chapter_2
 {
         width:458px;
         font-weight: bold;
+}
+.td_chapter_2_content_even
+{
+        width:458px;
+        background-color:#E2E1D9;
+        color:#680a12;
+}
+.td_chapter_2_content_odd
+{
+        width:458px;
+        color:#680a12;
+}
+.td_chapter_3
+{
+        width:140px;
+}
+.td_chapter_3_content_even
+{
+        width:140px;
+        background-color:#E2E1D9;
+        color:#680a12;        
+}
+.td_chapter_3_content_odd
+{
+        width:140px;
+        color:#680a12;        
+}
+.td_chapter_4
+{
+        width:60px;
+}
+.td_chapter_4_content_even
+{
+        width:60px;
+        background-color:#E2E1D9;
+        color:#680a12;          
+}
+.td_chapter_4_content_odd
+{
+        width:60px;
+        color:#680a12;
 }
 .td_chapter_border{
     border-right: 1px;
@@ -507,7 +565,16 @@ background-position:5px -486px;
 div.displayIcon a.ocwScholar {
 background-position:0px -486px;
 }
-
+.subjecttable
+{
+    margin-left: 30px; 
+    width:600px;
+}
+.subjectname
+{
+    width:250px;
+    color: #680a12;
+}
 .course_table .af {
 	width:65px;
 }
@@ -588,12 +655,23 @@ div.resource_left
     width: 175px;
     float: left;
 }
-image
+.image
 {
     width:300px; 
     height:300px;
 }
-fckeditor
+.image_black_arrow
 {
-    height:300px;
+    width:3px; 
+    height:5px;
+}
+.image_newicon
+{
+    width:18px; 
+    height:5px;
+}
+.updatesubject
+{
+    margin-left: 30px;
+    color: #680a12;
 }
