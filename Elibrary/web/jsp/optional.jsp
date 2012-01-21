@@ -66,20 +66,20 @@
         <%
            if(listSubject.get(s).getFaculty().getFacultyId()!=listFaculty.get(f).getFacultyId()){
         %>         
-            <div style="margin-left: 30px;color: #680a12">
-                <img src="image/black-arrow.gif" width="3" height="5" alt="black-arrow"/>
+            <div class="updatesubject">
+                <img src="image/black-arrow.gif" class="image_black_arrow" alt="black-arrow"/>
                 <bean:message key="text.updating"/>
             </div>
         <% } %>         
-        <table style="margin-left: 30px " width="600px">               
+        <table class="subjecttable">               
             <%                 
                 for(int i=s;i<listSubject.size();i=i+2) {
                     if(listSubject.get(i).getFaculty().getFacultyId()!=listFaculty.get(f).getFacultyId())
                         break;
             %>
             <tr>      
-            <td width="250px" style="color: #680a12">              
-                    <img src="image/black-arrow.gif" width="3" height="5" alt="black-arrow"/>
+            <td class="subjectname">              
+                    <img src="image/black-arrow.gif" class="image_black_arrow" alt="black-arrow"/>
                     <% if(language==1) { %>
                         <a href ="#<%=listSubject.get(i).getSubjectId()%>" class="href_subject" > <%=listSubject.get(i).getSubjectNameEn()%>  </a> <!--English Subject Name-->
                     <% } %> 
@@ -87,9 +87,9 @@
                         <a href ="#<%=listSubject.get(i).getSubjectId()%>" class="href_subject" ><%=listSubject.get(i).getSubjectNameVn()%> </a> <!--Vietnamese Subject Name-->
                     <% } %>                         
             </td>
-            <td width="250px" style="color: #680a12">
+            <td class="subjectname">
                 <% if(i+1<listSubject.size() && (listSubject.get(i).getFaculty().getFacultyId()==listFaculty.get(f).getFacultyId())){ %>
-                    <img src="image/black-arrow.gif" width="3" height="5" alt="black-arrow"/>
+                    <img src="image/black-arrow.gif" class="image_black_arrow" alt="black-arrow"/>
                     <% if(language==1) {%>
                         <a href ="#<%=listSubject.get(i+1).getSubjectId()%>" class="href_subject" > <%=listSubject.get(i+1).getSubjectNameEn()%> </a> <!--English Subject Name-->
                     <% } %> 
@@ -107,7 +107,7 @@
         %> 
         <%  
             for(int i=s;i<listSubject.size();i++) {
-                String href="./SubjectHome.do?subjectID="+listSubject.get(i).getSubjectId();
+                String href="./LoadSubjectIntroduction.do?subjectID="+listSubject.get(i).getSubjectId();
                 if(listSubject.get(i).getFaculty().getFacultyId()!=listFaculty.get(f).getFacultyId())
                 {     
                     s=i;
@@ -126,10 +126,10 @@
         <% } %>
         <table class="table_chapter" >
             <tr class="color_title_table">
-                <td class="td_chapter_3"><bean:message key="text.orderchapter"/></td>
-                <td class="td_chapter_4"><bean:message key="text.chaptertitle"/></td>
-                <td class="td_chapter_2"></td>                
-                <td class="td_chapter_1"></td>   
+                <td class="td_chapter_1"><bean:message key="text.orderchapter"/></td>
+                <td class="td_chapter_2"><bean:message key="text.chaptertitle"/></td>
+                <td class="td_chapter_3"></td>                
+                <td class="td_chapter_4"></td>   
             </tr>
             <% int color =0;
                List<Resource> listResource = arrayListResource.get(i);
@@ -182,25 +182,24 @@
                   %>                                                                            
                 <% if(listSubject.get(i).getSubjectId().equals(listResource.get(j).getSubject().getSubjectId()))  // if resource belong to subject
                 { %> 
-                <td width="160px"  class="td_chapter_border"              
-                        style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
+                <td <% if(color%2==0){ %>class="td_chapter_1_content_even"<%}%> 
+                    <% if(color%2!=0){ %>class="td_chapter_1_content_odd"<%}%> >
                     <%=listResource.get(lecturePosition).getOrderChapter() %> <!--Chapter-->
                 </td>  
                 <% if(language==1) {%>                              
-                    <td width="354px"              
-                            style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
+                    <td <% if(color%2==0){ %>class="td_chapter_2_content_even"<%}%> 
+                        <% if(color%2!=0){ %>class="td_chapter_2_content_odd"<%}%> >
                         <%=listResource.get(lecturePosition).getResourceNameEn() %> <!--English Resource Name-->
                     </td>
                 <% } %> 
                 <% if(language==2) {%>                               
-                    <td width="354px"                           
-                        style="<% if(color%2==0){ %>background-color:#E2E1D9;<%}%> color:#680a12">
+                    <td <% if(color%2==0){ %>class="td_chapter_2_content_even"<%}%> 
+                        <% if(color%2!=0){ %>class="td_chapter_2_content_odd"<%}%> >
                         <%=listResource.get(lecturePosition).getResourceNameVn() %> <!--Vietnamese Resource Name-->
                     </td>
                 <% } %>
-                <td width="140px" 
-                    <% if(color%2==0){ %>
-                        style="background-color:#E2E1D9"<%}%>>
+                    <td <% if(color%2==0){ %>class="td_chapter_3_content_even"<%}%> 
+                        <% if(color%2!=0){ %>class="td_chapter_3_content_odd"<%}%> >
                     <% if(numberOfResource==1){%>
                         <div class="displayIcon">
                         <%
@@ -227,12 +226,10 @@
                         </div>
                     <%}%>  
                 </td>
-                <td width="40px" 
-                    <% if(color%2==0){ %> 
-                        style="background-color:#E2E1D9"
-                    <%}%>                               >
+                <td <% if(color%2==0){ %>class="td_chapter_4_content_even"<%}%> 
+                    <% if(color%2!=0){ %>class="td_chapter_4_content_odd"<%}%> >
                     <% if(oneMonth==true) {%>
-                        <img src="image/new-icon.gif" width="18" height="5" alt="new-icon"/> <!-- new icon  -->
+                        <img src="image/new-icon.gif" class="image_newicon" alt="new-icon"/> <!-- new icon  -->
                     <% } %>
                 </td>                
                 <% } %>
@@ -253,7 +250,7 @@
                     }
                 } %>
         </table>
-        <% }%><div style="clear:both;height: 30px "></div>  <%} %> 
+        <%}}%> 
     </body>
 </html>
 
