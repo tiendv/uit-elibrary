@@ -24,7 +24,7 @@
 <%@page import="uit.elib.bo.SubjectBO" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <div style="overflow: hidden;">
-    <html:form  method="post" action="EditSubject" onsubmit="return validateCreateSubjectForm(this)">
+    <html:form  method="post" action="EditSubject" onsubmit="return validateEditSubjectForm(this)">
     <h1> <bean:message key="text.editsubject"/> </h1>    
      
         <%int language =1; // English
@@ -116,17 +116,17 @@
     </table>
     
     <hr>
-    <h2><bean:message key="text.introductionsubjectvn"/></h2>
+    <h2><bean:message key="text.subjectintroductionvn"/></h2>
    
-        <FCK:editor  instanceName="fckintroductionVN" height="300px">
+        <FCK:editor  instanceName="fckIntroductionVN" height="300px">
             <jsp:attribute name="value">
                 <%=subjectInfo.get(0).getSubjectIntroduceVn() %>
             </jsp:attribute>
         </FCK:editor>
     <hr>
     
-    <h2><bean:message key="text.introductionsubjecten"/></h2>
-    <FCK:editor instanceName="fckintroductionUS" height="300px">
+    <h2><bean:message key="text.subjectintroductionen"/></h2>
+    <FCK:editor instanceName="fckIntroductionEN" height="300px">
         <jsp:attribute name="value">
             <%=subjectInfo.get(0).getSubjectIntroduceEn() %>
         </jsp:attribute>
@@ -140,8 +140,7 @@
         </FCK:editor>
     <hr>
     <h2><bean:message key="text.projectrequirementen"/></h2>
-
-        <FCK:editor  instanceName="fckProjectRequitementUS" height="300px">
+        <FCK:editor  instanceName="fckProjectRequitementEN" height="300px">
             <jsp:attribute name="value">
                 <%=subjectInfo.get(0).getProjectRequirementEn() %>
             </jsp:attribute>
@@ -150,7 +149,7 @@
     <div style="text-align: left">
         <html:submit property="btnSubmit" ><bean:message key="text.buttonedit"/></html:submit><noscript><bean:message key="text.noscript"/></noscript> 
     </div>
-    <html:javascript formName="CreateSubjectForm"/>
+    <html:javascript formName="EditSubjectForm"/>
     </html:form>
 </div>
 <script type="text/javascript">

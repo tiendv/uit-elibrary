@@ -145,12 +145,106 @@
             <field 
                 property="fckIntroductionVN"
                 depends="required">
-                <arg key="text.introductionsubjectvn"/>
+                <arg key="text.subjectintroductionvn"/>
             </field>
             <field 
                 property="fckIntroductionEN"
                 depends="required">
-                <arg key="text.introductionsubjecten"/>
+                <arg key="text.subjectintroductionen"/>
+            </field>
+            <field 
+                property="fckProjectRequitementVN"
+                depends="required">
+                <arg key="text.projectrequirementvn"/>
+            </field>
+            <field 
+                property="fckProjectRequitementEN"
+                depends="required">
+                <arg key="text.projectrequirementen"/>
+            </field>             
+        </form>
+   </formset>
+   <formset>
+        <form name="EditSubjectForm">
+            <field 
+                property="txtSubjectName"
+                depends="required">
+                <arg key="text.subjectnamevn"/>
+            </field> 
+            <field 
+                property="txtSubjectNameUS"
+                depends="required">
+                <arg key="text.subjectnameen"/>
+            </field>
+            <field 
+                property="txtSubjectCode"
+                depends="required">
+                <arg key="text.subjectcode"/>
+            </field>
+            <field 
+                property="txtPeriodOfTheory"
+                depends="required,integer">
+                <arg key="text.periodoftheory"/>
+            </field>
+            <field 
+                property="txtPeriodOfPractice"
+                depends="required,integer">
+                <arg key="text.periodofpractice"/>
+            </field>
+            <field 
+                property="txtMidtermGrade"
+                depends="required,integer">
+                <arg key="text.midtermgrade"/>
+            </field>
+            <field 
+                property="txtFinalGrade"
+                depends="required,integer">
+                <arg key="text.finalgrade"/>
+            </field>
+            <field 
+                property="txtPrerequisiteSubject"
+                depends="required">
+                <arg key="text.prerequisitesubject"/>
+            </field>
+            <field 
+                property="txtPrerequisiteSubjectVN"
+                depends="required">
+                <arg key="text.prerequisitesubjectvn"/>
+            </field>            
+            <field 
+                property="txtTimeTeaching"
+                depends="required,integer">
+                <arg key="text.timeteaching"/>
+            </field>
+            <field 
+                property="txtTeacherName"
+                depends="required">
+                <arg key="text.teacher"/>
+            </field>
+            <field 
+                property="txtLevel"
+                depends="required">
+                <arg key="text.level"/>
+            </field>
+            <field 
+                property="txtNumberChapter"
+                depends="required,integer">
+                <arg key="text.numberchapter"/>
+            </field>
+            <field 
+                property="txtCreditNumber"
+                depends="required,integer">
+                <arg key="text.creditnumber"/>
+            </field>
+            <field 
+                property="fckIntroductionVN"
+                depends="required">
+                <arg key="text.subjectintroductionvn"/>
+            </field>
+            <field 
+                property="fckIntroductionEN"
+                depends="required">
+                <arg key="text.subjectintroductionen"/>
             </field>
             <field 
                 property="fckProjectRequitementVN"

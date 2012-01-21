@@ -68,9 +68,9 @@ public class EditSubjectAction extends org.apache.struts.action.Action {
         temp.setLevel(subjectFormBean.getTxtLevel());
         temp.setFaculty(tempFaculty);
         temp.setSubjectIntroduceVn(subjectFormBean.getFckintroductionVN());
-        temp.setSubjectIntroduceEn(subjectFormBean.getFckintroductionUS());
+        temp.setSubjectIntroduceEn(subjectFormBean.getFckintroductionEN());
         temp.setProjectRequirementVn(subjectFormBean.getFckProjectRequitementVN());
-        temp.setProjectRequirementEn(subjectFormBean.getFckProjectRequitementUS());
+        temp.setProjectRequirementEn(subjectFormBean.getFckProjectRequitementEN());
         temp.setNumberChapter(Integer.parseInt(subjectFormBean.getTxtNumberChapter()));
         temp.setNumberOfCredit(Integer.parseInt(subjectFormBean.getTxtCreditNumber()));
         subjectBO.UpdateSubject(temp);
