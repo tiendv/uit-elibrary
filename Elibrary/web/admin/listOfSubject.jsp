@@ -140,7 +140,7 @@
                         url:"DeleteSubject.do",
                         data: "subjectsID=" + subjectsID
                     }).done(function(msg){
-                        
+                        window.location = "LoadListOfSubject.do";
                     })
              }
              function editsubject(subjectID)
