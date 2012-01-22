@@ -30,8 +30,8 @@ public class EditSubjectForm extends org.apache.struts.action.ActionForm {
     private String txtTeacherName;
     private String txtLevel;
     private int dropFaculty;
-    private String fckintroductionVN;
-    private String fckintroductionEN;
+    private String fckIntroductionVN;
+    private String fckIntroductionEN;
     private String fckProjectRequitementVN;
     private String fckProjectRequitementEN;
     private String txtSubjectName;
@@ -79,20 +79,20 @@ public class EditSubjectForm extends org.apache.struts.action.ActionForm {
         this.fckProjectRequitementVN = fckProjectRequitementVN;
     }
 
-    public String getFckintroductionEN() {
-        return fckintroductionEN;
+    public String getFckIntroductionEN() {
+        return fckIntroductionEN;
     }
 
-    public void setFckintroductionEN(String fckintroductionEN) {
-        this.fckintroductionEN = fckintroductionEN;
+    public void setFckIntroductionEN(String fckIntroductionEN) {
+        this.fckIntroductionEN = fckIntroductionEN;
     }
 
-    public String getFckintroductionVN() {
-        return fckintroductionVN;
+    public String getFckIntroductionVN() {
+        return fckIntroductionVN;
     }
 
-    public void setFckintroductionVN(String fckintroductionVN) {
-        this.fckintroductionVN = fckintroductionVN;
+    public void setFckIntroductionVN(String fckIntroductionVN) {
+        this.fckIntroductionVN = fckIntroductionVN;
     }
 
     public String getTxtCreditNumber() {

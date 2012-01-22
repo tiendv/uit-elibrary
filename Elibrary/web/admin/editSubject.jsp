@@ -147,7 +147,7 @@
         </FCK:editor>
     <hr>
     <div style="text-align: left">
-        <html:submit property="btnSubmit" ><bean:message key="text.buttonedit"/></html:submit><noscript><bean:message key="text.noscript"/></noscript> 
+        <html:submit property="btnSubmit" onclick="beforeValidation()"><bean:message key="text.buttonedit"/></html:submit><noscript><bean:message key="text.noscript"/></noscript> 
     </div>
     <html:javascript formName="EditSubjectForm"/>
     </html:form>
@@ -177,5 +177,12 @@
         }          
  
     } 
-  
+    function beforeValidation()
+    {
+       document.getElementById("fckIntroductionVN").value = FCKeditorAPI.GetInstance("fckIntroductionVN").GetXHTML();
+       document.getElementById("fckIntroductionEN").value = FCKeditorAPI.GetInstance("fckIntroductionEN").GetXHTML();
+       document.getElementById("fckProjectRequitementVN").value = FCKeditorAPI.GetInstance("fckProjectRequitementVN").GetXHTML();
+       document.getElementById("fckProjectRequitementEN").value = FCKeditorAPI.GetInstance("fckProjectRequitementEN").GetXHTML();
+       
+    }
 </script>
