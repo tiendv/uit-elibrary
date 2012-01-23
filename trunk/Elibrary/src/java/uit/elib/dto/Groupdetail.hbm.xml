@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 24, 2012 1:47:30 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="uit.elib.dto.Groupdetail" table="groupdetail" catalog="elibrary">
+        <id name="groupDetailId" type="java.lang.Integer">
+            <column name="GroupDetailID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="group" class="uit.elib.dto.Group" fetch="select">
+            <column name="GroupID" />
+        </many-to-one>
+        <many-to-one name="resourcecategory" class="uit.elib.dto.Resourcecategory" fetch="select">
+            <column name="ResourceCategoryID" />
+        </many-to-one>
+        <property name="value" type="java.lang.Integer">
+            <column name="Value" />
+        </property>
+    </class>
+</hibernate-mapping>

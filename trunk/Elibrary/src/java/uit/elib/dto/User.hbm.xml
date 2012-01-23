@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 24, 2012 1:47:30 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="uit.elib.dto.User" table="user" catalog="elibrary">
+        <id name="userName" type="string">
+            <column name="UserName" length="45" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="group" class="uit.elib.dto.Group" fetch="select">
+            <column name="GroupID" />
+        </many-to-one>
+        <many-to-one name="faculty" class="uit.elib.dto.Faculty" fetch="select">
+            <column name="FacultyID" />
+        </many-to-one>
+        <many-to-one name="level" class="uit.elib.dto.Level" fetch="select">
+            <column name="Level" />
+        </many-to-one>
+        <property name="loginName" type="string">
+            <column name="LoginName" length="45" />
+        </property>
+        <property name="passWord" type="string">
+            <column name="PassWord" length="65535" />
+        </property>
+        <property name="class_" type="string">
+            <column name="Class" length="45" />
+        </property>
+        <property name="schoolYear" type="string">
+            <column name="SchoolYear" length="45" />
+        </property>
+        <property name="expiredDay" type="timestamp">
+            <column name="ExpiredDay" length="19" />
+        </property>
+        <property name="realName" type="string">
+            <column name="RealName" />
+        </property>
+        <property name="birthday" type="timestamp">
+            <column name="Birthday" length="19" />
+        </property>
+        <property name="address" type="string">
+            <column name="Address" />
+        </property>
+        <property name="workPlace" type="string">
+            <column name="WorkPlace" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="Status" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 24, 2012 1:47:30 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="uit.elib.dto.News" table="news" catalog="elibrary">
+        <id name="newsId" type="java.lang.Integer">
+            <column name="NewsID" />
+            <generator class="identity" />
+        </id>
+        <property name="newsTitle" type="string">
+            <column name="NewsTitle" length="45" />
+        </property>
+        <property name="newsImage" type="string">
+            <column name="NewsImage" length="45" />
+        </property>
+        <property name="newsHeadline" type="string">
+            <column name="NewsHeadline" />
+        </property>
+        <property name="newsContent" type="string">
+            <column name="NewsContent" length="65535" />
+        </property>
+        <property name="postDate" type="timestamp">
+            <column name="PostDate" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

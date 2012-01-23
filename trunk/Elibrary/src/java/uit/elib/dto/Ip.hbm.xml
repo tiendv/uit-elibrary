@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 24, 2012 1:47:30 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="uit.elib.dto.Ip" table="ip" catalog="elibrary">
+        <id name="ipid" type="java.lang.Integer">
+            <column name="IPID" />
+            <generator class="identity" />
+        </id>
+        <property name="ipvalue" type="string">
+            <column name="IPValue" length="45" />
+        </property>
+        <property name="ipstatus" type="string">
+            <column name="IPStatus" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>
