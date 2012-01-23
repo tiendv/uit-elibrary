@@ -1,5 +1,5 @@
 package uit.elib.dto;
-// Generated Dec 25, 2011 1:02:34 PM by Hibernate Tools 3.2.1.GA
+// Generated Jan 24, 2012 1:47:29 AM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -14,6 +14,7 @@ public class Resourcecategory  implements java.io.Serializable {
      private int resourceCategoryId;
      private String resourceCategoryNameVn;
      private String resourceCategoryNameEn;
+     private Set groupdetails = new HashSet(0);
      private Set resources = new HashSet(0);
 
     public Resourcecategory() {
@@ -23,10 +24,11 @@ public class Resourcecategory  implements java.io.Serializable {
     public Resourcecategory(int resourceCategoryId) {
         this.resourceCategoryId = resourceCategoryId;
     }
-    public Resourcecategory(int resourceCategoryId, String resourceCategoryNameVn, String resourceCategoryNameEn, Set resources) {
+    public Resourcecategory(int resourceCategoryId, String resourceCategoryNameVn, String resourceCategoryNameEn, Set groupdetails, Set resources) {
        this.resourceCategoryId = resourceCategoryId;
        this.resourceCategoryNameVn = resourceCategoryNameVn;
        this.resourceCategoryNameEn = resourceCategoryNameEn;
+       this.groupdetails = groupdetails;
        this.resources = resources;
     }
    
@@ -50,6 +52,13 @@ public class Resourcecategory  implements java.io.Serializable {
     
     public void setResourceCategoryNameEn(String resourceCategoryNameEn) {
         this.resourceCategoryNameEn = resourceCategoryNameEn;
+    }
+    public Set getGroupdetails() {
+        return this.groupdetails;
+    }
+    
+    public void setGroupdetails(Set groupdetails) {
+        this.groupdetails = groupdetails;
     }
     public Set getResources() {
         return this.resources;
