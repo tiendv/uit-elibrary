@@ -1,5 +1,5 @@
 package uit.elib.dto;
-// Generated Jan 24, 2012 1:47:29 AM by Hibernate Tools 3.2.1.GA
+// Generated Jan 24, 2012 2:15:42 AM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -22,7 +22,6 @@ public class Resource  implements java.io.Serializable {
      private Date postDate;
      private Double size;
      private String format;
-     private String language;
      private Integer downloadNumber;
      private String serverName;
      private String uploadName;
@@ -37,7 +36,7 @@ public class Resource  implements java.io.Serializable {
     public Resource() {
     }
 
-    public Resource(Faculty faculty, Resourcecategory resourcecategory, Level level, Subject subject, String resourceNameVn, String resourceNameEn, String summaryVn, String summaryEn, Date postDate, Double size, String format, String language, Integer downloadNumber, String serverName, String uploadName, Integer orderChapter, String author, String teacher, String class_, Integer year, String schoolYear, String school) {
+    public Resource(Faculty faculty, Resourcecategory resourcecategory, Level level, Subject subject, String resourceNameVn, String resourceNameEn, String summaryVn, String summaryEn, Date postDate, Double size, String format, Integer downloadNumber, String serverName, String uploadName, Integer orderChapter, String author, String teacher, String class_, Integer year, String schoolYear, String school) {
        this.faculty = faculty;
        this.resourcecategory = resourcecategory;
        this.level = level;
@@ -49,7 +48,6 @@ public class Resource  implements java.io.Serializable {
        this.postDate = postDate;
        this.size = size;
        this.format = format;
-       this.language = language;
        this.downloadNumber = downloadNumber;
        this.serverName = serverName;
        this.uploadName = uploadName;
@@ -145,13 +143,6 @@ public class Resource  implements java.io.Serializable {
     
     public void setFormat(String format) {
         this.format = format;
-    }
-    public String getLanguage() {
-        return this.language;
-    }
-    
-    public void setLanguage(String language) {
-        this.language = language;
     }
     public Integer getDownloadNumber() {
         return this.downloadNumber;
