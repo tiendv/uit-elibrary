@@ -29,4 +29,7 @@
         <tr>     
             <td class="leftmenu_td_link"><a href="LoadListOfResource.do"><bean:message key="text.listofresource"/></a></td>
         </tr>
+        <tr>     
+            <td class="leftmenu_td_link"><a href="LoadCreateNews.do"><bean:message key="text.createnews"/></a></td>
+        </tr>        
 </table>
