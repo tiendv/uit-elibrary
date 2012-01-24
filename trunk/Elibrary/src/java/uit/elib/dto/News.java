@@ -1,5 +1,5 @@
 package uit.elib.dto;
-// Generated Jan 24, 2012 2:15:42 AM by Hibernate Tools 3.2.1.GA
+// Generated Jan 25, 2012 1:04:40 AM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -11,20 +11,26 @@ public class News  implements java.io.Serializable {
 
 
      private Integer newsId;
-     private String newsTitle;
+     private String newsTitleEn;
+     private String newsTitleVn;
      private String newsImage;
-     private String newsHeadline;
-     private String newsContent;
+     private String newsHeadlineEn;
+     private String newsHeadlineVn;
+     private String newsContentEn;
+     private String newsContentVn;
      private Date postDate;
 
     public News() {
     }
 
-    public News(String newsTitle, String newsImage, String newsHeadline, String newsContent, Date postDate) {
-       this.newsTitle = newsTitle;
+    public News(String newsTitleEn, String newsTitleVn, String newsImage, String newsHeadlineEn, String newsHeadlineVn, String newsContentEn, String newsContentVn, Date postDate) {
+       this.newsTitleEn = newsTitleEn;
+       this.newsTitleVn = newsTitleVn;
        this.newsImage = newsImage;
-       this.newsHeadline = newsHeadline;
-       this.newsContent = newsContent;
+       this.newsHeadlineEn = newsHeadlineEn;
+       this.newsHeadlineVn = newsHeadlineVn;
+       this.newsContentEn = newsContentEn;
+       this.newsContentVn = newsContentVn;
        this.postDate = postDate;
     }
    
@@ -35,12 +41,19 @@ public class News  implements java.io.Serializable {
     public void setNewsId(Integer newsId) {
         this.newsId = newsId;
     }
-    public String getNewsTitle() {
-        return this.newsTitle;
+    public String getNewsTitleEn() {
+        return this.newsTitleEn;
     }
     
-    public void setNewsTitle(String newsTitle) {
-        this.newsTitle = newsTitle;
+    public void setNewsTitleEn(String newsTitleEn) {
+        this.newsTitleEn = newsTitleEn;
+    }
+    public String getNewsTitleVn() {
+        return this.newsTitleVn;
+    }
+    
+    public void setNewsTitleVn(String newsTitleVn) {
+        this.newsTitleVn = newsTitleVn;
     }
     public String getNewsImage() {
         return this.newsImage;
@@ -49,19 +62,33 @@ public class News  implements java.io.Serializable {
     public void setNewsImage(String newsImage) {
         this.newsImage = newsImage;
     }
-    public String getNewsHeadline() {
-        return this.newsHeadline;
+    public String getNewsHeadlineEn() {
+        return this.newsHeadlineEn;
     }
     
-    public void setNewsHeadline(String newsHeadline) {
-        this.newsHeadline = newsHeadline;
+    public void setNewsHeadlineEn(String newsHeadlineEn) {
+        this.newsHeadlineEn = newsHeadlineEn;
     }
-    public String getNewsContent() {
-        return this.newsContent;
+    public String getNewsHeadlineVn() {
+        return this.newsHeadlineVn;
     }
     
-    public void setNewsContent(String newsContent) {
-        this.newsContent = newsContent;
+    public void setNewsHeadlineVn(String newsHeadlineVn) {
+        this.newsHeadlineVn = newsHeadlineVn;
+    }
+    public String getNewsContentEn() {
+        return this.newsContentEn;
+    }
+    
+    public void setNewsContentEn(String newsContentEn) {
+        this.newsContentEn = newsContentEn;
+    }
+    public String getNewsContentVn() {
+        return this.newsContentVn;
+    }
+    
+    public void setNewsContentVn(String newsContentVn) {
+        this.newsContentVn = newsContentVn;
     }
     public Date getPostDate() {
         return this.postDate;
