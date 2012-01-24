@@ -655,6 +655,10 @@ div.resource_left
     width: 175px;
     float: left;
 }
+div.resource_right
+{
+    float: left;
+}
 .image
 {
     width:300px; 
@@ -722,4 +726,9 @@ div.resource_left
 {
     width:250px; 
     color: #680a12;
+}
+.textarea
+{
+    width: 745px;
+    padding-left: 3px;
 }

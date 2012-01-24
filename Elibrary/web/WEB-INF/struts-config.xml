@@ -7,6 +7,7 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="CreateNewsForm" type="uit.elib.formbean.CreateNewsForm"/>
         <form-bean name="EditSubjectForm" type="uit.elib.formbean.EditSubjectForm"/>
         <form-bean name="EditResourceForm" type="uit.elib.formbean.EditResourceForm"/>
         <form-bean name="LoadCreateSubjectForm" type="uit.elib.formbean.LoadCreateSubjectForm"/>
@@ -91,6 +92,9 @@
         <action path="/LoadThesisDetail" type="uit.elib.action.LoadThesisDetailAction">
             <forward name="success" path=".loadThesisDetail"/>
             <forward name="unsuccess" path="/Welcome.do"/>
+        </action>
+        <action path="/CreateNews" name="CreateNewsForm" type="uit.elib.action.CreateNewsAction">
+            <forward name="success" path="/jsp/success.jsp"/>
         </action>            
         <action path="/CheckSyllabusImage" type="uit.elib.action.CheckSyllabusImageAction"/>
         <action path="/DeleteSubject" type="uit.elib.action.DeleteSubjectAction"/>
@@ -100,6 +104,7 @@
         <action path="/LoadChapter" type="uit.elib.action.LoadChapterAction" scope="session"/>  
         <action path="/Welcome" forward=".homepage"  scope="session"/>
         <action path="/Admin" forward=".adminPage"  scope="session"/>
+        <action path="/LoadCreateNews" forward=".createNews"  scope="session"/>
         <action path="/materialPage" forward=".materialPage"  scope="session"/>
         <action path="/lecturesPage" forward=".lecturesPage"  scope="session"/>
         <action path="/generalinformationPage" forward=".generalinformationPage"  scope="session"/>
