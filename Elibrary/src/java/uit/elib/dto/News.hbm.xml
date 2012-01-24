@@ -1,24 +1,33 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Jan 24, 2012 2:15:46 AM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Jan 25, 2012 1:04:40 AM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="uit.elib.dto.News" table="news" catalog="elibrary">
         <id name="newsId" type="java.lang.Integer">
             <column name="NewsID" />
             <generator class="identity" />
         </id>
-        <property name="newsTitle" type="string">
-            <column name="NewsTitle" length="45" />
+        <property name="newsTitleEn" type="string">
+            <column name="NewsTitleEN" length="45" />
+        </property>
+        <property name="newsTitleVn" type="string">
+            <column name="NewsTitleVN" length="45" />
         </property>
         <property name="newsImage" type="string">
             <column name="NewsImage" length="45" />
         </property>
-        <property name="newsHeadline" type="string">
-            <column name="NewsHeadline" />
+        <property name="newsHeadlineEn" type="string">
+            <column name="NewsHeadlineEN" />
         </property>
-        <property name="newsContent" type="string">
-            <column name="NewsContent" length="65535" />
+        <property name="newsHeadlineVn" type="string">
+            <column name="NewsHeadlineVN" />
+        </property>
+        <property name="newsContentEn" type="string">
+            <column name="NewsContentEN" length="65535" />
+        </property>
+        <property name="newsContentVn" type="string">
+            <column name="NewsContentVN" length="65535" />
         </property>
         <property name="postDate" type="timestamp">
             <column name="PostDate" length="19" />
