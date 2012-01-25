@@ -31,5 +31,8 @@
         </tr>
         <tr>     
             <td class="leftmenu_td_link"><a href="LoadCreateNews.do"><bean:message key="text.createnews"/></a></td>
-        </tr>        
+        </tr>
+        <tr>     
+            <td class="leftmenu_td_link"><a href="LoadListOfNews.do"><bean:message key="text.listofnews"/></a></td>
+        </tr>         
 </table>

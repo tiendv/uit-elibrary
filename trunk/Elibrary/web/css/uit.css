@@ -732,3 +732,23 @@ div.resource_right
     width: 745px;
     padding-left: 3px;
 }
+.td1
+{
+    width: 20%;
+}
+.td2
+{
+    width: 60%;
+}
+.td3
+{
+    width: 10%;
+}
+.td4
+{
+    width: 10%;
+}
+.btndelete
+{
+    margin-left: 90%;
+}

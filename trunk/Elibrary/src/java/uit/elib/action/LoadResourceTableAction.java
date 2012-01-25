@@ -64,16 +64,16 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
             {
                 response.getWriter().println("<table class=\"resource_table\">");
                 response.getWriter().println("<tr class=\"color_title_table\">");
-                response.getWriter().println("<td width=5%>");
+                response.getWriter().println("<td class=\"td1\">");
                 response.getWriter().println("Number");
                 response.getWriter().println("</td>");
-                response.getWriter().println("<td width=75%>");
+                response.getWriter().println("<td wclass=\"td2\">");
                 response.getWriter().println("Resource Name");
                 response.getWriter().println("</td>");
-                response.getWriter().println("<td width=10%>");
+                response.getWriter().println("<td class=\"td3\">");
                 response.getWriter().println("Delete");
                 response.getWriter().println("</td>");
-                response.getWriter().println("<td width=10%>");
+                response.getWriter().println("<td class=\"td4\">");
                 response.getWriter().println("Edit");
                 response.getWriter().println("</td>");                
                 response.getWriter().println("</tr>");
@@ -81,33 +81,24 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
                 {    
                     for(int i=0;i<listResource.size();i++)
                     {       
-                        response.getWriter().println("<tr>");
                         if(color%2==0)
-                            response.getWriter().println("<td class=color_table2>");
+                            response.getWriter().println("<tr class=\"color_table2\">");
                         else
-                            response.getWriter().println("<td>");
+                            response.getWriter().println("<tr>");
+                        response.getWriter().println("<td>");
                         response.getWriter().println(i+1);
                         response.getWriter().println("</td>");
-                        if(color%2==0)
-                            response.getWriter().println("<td class=color_table2>");
-                        else
-                            response.getWriter().println("<td>");
+                        response.getWriter().println("<td>");
                         List<Subject> listSubject = subjectBO.getSubject(subjectID);
                         if(resourceCategoryID ==12)
                             response.getWriter().println(listSubject.get(0).getSubjectNameEn()+ " Syllabus" );
                         if(resourceCategoryID ==8)
                             response.getWriter().println(listSubject.get(0).getSubjectNameEn()+ " Image");   
                         response.getWriter().println("</td>");
-                        if(color%2==0)
-                            response.getWriter().println("<td class=color_table2>");
-                        else
-                            response.getWriter().println("<td>");
+                        response.getWriter().println("<td>");
                         response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listResource.get(i).getResourceId() +"\" />");
                         response.getWriter().println("</td>");
-                        if(color%2==0)
-                            response.getWriter().println("<td class=color_table2>");
-                        else
-                            response.getWriter().println("<td>");
+                        response.getWriter().println("<td>");
                         response.getWriter().println("<input type=\"submit\" value=\"Edit\" onclick=\"editResource("+listResource.get(i).getResourceId() +")\" />");
                         response.getWriter().println("</td>");                        
                         response.getWriter().println("</tr>");
@@ -118,29 +109,20 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
                 {
                     for(int i=0;i<listResource.size();i++)
                     {
-                        response.getWriter().println("<tr>");
                         if(color%2==0)
-                            response.getWriter().println("<td class=color_table2>");
+                            response.getWriter().println("<tr class=\"color_table2\">");
                         else
-                            response.getWriter().println("<td>");
+                            response.getWriter().println("<tr>");
+                        response.getWriter().println("<td>");
                         response.getWriter().println(i+1);
                         response.getWriter().println("</td>");
-                        if(color%2==0)
-                            response.getWriter().println("<td class=color_table2>");
-                        else
-                            response.getWriter().println("<td>");
+                        response.getWriter().println("<td>");
                         response.getWriter().println(listResource.get(i).getResourceNameEn());
                         response.getWriter().println("</td>");
-                        if(color%2==0)
-                            response.getWriter().println("<td class=color_table2>");
-                        else
-                            response.getWriter().println("<td>");
+                        response.getWriter().println("<td>");
                         response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listResource.get(i).getResourceId() +"\" />");
                         response.getWriter().println("</td>");
-                        if(color%2==0)
-                            response.getWriter().println("<td class=color_table2>");
-                        else
-                            response.getWriter().println("<td>");
+                        response.getWriter().println("<td>");
                         response.getWriter().println("<input type=\"submit\" value=\"Edit\" onclick=\"editResource("+listResource.get(i).getResourceId() +")\" />");
                         response.getWriter().println("</td>");                        
                         response.getWriter().println("</tr>");
@@ -148,22 +130,22 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
                     }                
                 }
                 response.getWriter().println("</table>"); 
-                response.getWriter().println("<div style=\"margin-left: 90%\"id=\"btnDelete\"><input type=\"submit\" value=\"Delete\" onclick=\"deleteResource()\"/></div>");
+                response.getWriter().println("<div class=\"btndelete\" id=\"btnDelete\"><input type=\"submit\" value=\"Delete\" onclick=\"deleteResource()\"/></div>");
             }
             if(language==2)
             {
                 response.getWriter().println("<table class=\"resource_table\">");
                 response.getWriter().println("<tr class=\"color_title_table\">");
-                response.getWriter().println("<td width=5%>");
+                response.getWriter().println("<td class=\"td1\">");
                 response.getWriter().println("STT");
                 response.getWriter().println("</td>");
-                response.getWriter().println("<td width=75%>");
+                response.getWriter().println("<td class=\"td2\">");
                 response.getWriter().println("Tên tài nguyên");
                 response.getWriter().println("</td>");
-                response.getWriter().println("<td width=10%>");
+                response.getWriter().println("<td class=\"td3\">");
                 response.getWriter().println("Xóa");
                 response.getWriter().println("</td>");
-                response.getWriter().println("<td width=10%>");
+                response.getWriter().println("<td class=\"td4\">");
                 response.getWriter().println("Sửa");
                 response.getWriter().println("</td>");                
                 response.getWriter().println("</tr>");
@@ -171,33 +153,24 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
                 {    
                     for(int i=0;i<listResource.size();i++)
                     {
-                        response.getWriter().println("<tr>");
                         if(color%2==0)
-                            response.getWriter().println("<td class=color_table2>");
+                            response.getWriter().println("<tr class=\"color_table2\">");
                         else
-                            response.getWriter().println("<td>");
+                            response.getWriter().println("<tr>");
+                        response.getWriter().println("<td>");
                         response.getWriter().println(i+1);
                         response.getWriter().println("</td>");
-                        if(color%2==0)
-                            response.getWriter().println("<td class=color_table2>");
-                        else
-                            response.getWriter().println("<td>");
+                        response.getWriter().println("<td>");
                         List<Subject> listSubject = subjectBO.getSubject(subjectID);
                         if(resourceCategoryID ==12)
                             response.getWriter().println("Đề cương môn học "+listSubject.get(0).getSubjectNameVn());
                         if(resourceCategoryID ==8)
                             response.getWriter().println("Ảnh môn học "+listSubject.get(0).getSubjectNameVn());                        
                         response.getWriter().println("</td>");
-                        if(color%2==0)
-                            response.getWriter().println("<td class=color_table2>");
-                        else
-                            response.getWriter().println("<td>");
+                        response.getWriter().println("<td>");
                         response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listResource.get(i).getResourceId() +"\" />");
                         response.getWriter().println("</td>");
-                        if(color%2==0)
-                            response.getWriter().println("<td class=color_table2>");
-                        else
-                            response.getWriter().println("<td>");
+                        response.getWriter().println("<td>");
                         response.getWriter().println("<input type=\"submit\" value=\"Sửa\" onclick=\"editResource("+listResource.get(i).getResourceId() +")\" />");
                         response.getWriter().println("</td>");                        
                         response.getWriter().println("</tr>");
@@ -208,29 +181,20 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
                 {                
                     for(int i=0;i<listResource.size();i++)
                     {
-                        response.getWriter().println("<tr>");
                         if(color%2==0)
-                            response.getWriter().println("<td class=color_table2>");
+                            response.getWriter().println("<tr class=\"color_table2\">");
                         else
-                            response.getWriter().println("<td>");
+                            response.getWriter().println("<tr>");
+                        response.getWriter().println("<td>");
                         response.getWriter().println(i+1);
                         response.getWriter().println("</td>");
-                        if(color%2==0)
-                            response.getWriter().println("<td class=color_table2>");
-                        else
-                            response.getWriter().println("<td>");
+                        response.getWriter().println("<td>");
                         response.getWriter().println(listResource.get(i).getResourceNameVn());
                         response.getWriter().println("</td>");
-                        if(color%2==0)
-                            response.getWriter().println("<td class=color_table2>");
-                        else
-                            response.getWriter().println("<td>");
+                        response.getWriter().println("<td>");
                         response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listResource.get(i).getResourceId() +"\" />");
                         response.getWriter().println("</td>"); 
-                        if(color%2==0)
-                            response.getWriter().println("<td class=color_table2>");
-                        else
-                            response.getWriter().println("<td>");
+                        response.getWriter().println("<td>");
                         response.getWriter().println("<input type=\"submit\" value=\"Sửa\" onclick=\"editResource("+listResource.get(i).getResourceId() +")\" />");
                         response.getWriter().println("</td>");                        
                         response.getWriter().println("</tr>");
@@ -238,7 +202,7 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
                     }
                 }
                 response.getWriter().println("</table>");
-                response.getWriter().println("<div style=\"margin-left: 90%\" id=\"btnDelete\"><input type=\"submit\" value=\"Xóa\" onclick=\"deleteResource()\"/></div>");
+                response.getWriter().println("<div class=\"btndelete\" id=\"btnDelete\"><input type=\"submit\" value=\"Xóa\" onclick=\"deleteResource()\"/></div>");
             }
             response.getWriter().println("<input type=\"hidden\" id=\"listSize\" value=\""+listResource.size()+"\" />");
 
