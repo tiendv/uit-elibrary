@@ -7,6 +7,7 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="EditNewsForm" type="uit.elib.formbean.EditNewsForm"/>
         <form-bean name="CreateNewsForm" type="uit.elib.formbean.CreateNewsForm"/>
         <form-bean name="EditSubjectForm" type="uit.elib.formbean.EditSubjectForm"/>
         <form-bean name="EditResourceForm" type="uit.elib.formbean.EditResourceForm"/>
@@ -95,7 +96,17 @@
         </action>
         <action path="/CreateNews" name="CreateNewsForm" type="uit.elib.action.CreateNewsAction">
             <forward name="success" path="/jsp/success.jsp"/>
+        </action>
+        <action path="/LoadEditNews" name="EditNewsForm" type="uit.elib.action.LoadEditNewsAction">
+            <forward name="success" path=".editNews"/>
+            <forward name="unsuccess" path="/Welcome.do"/>
+        </action>
+        <action path="/EditNews" name="EditNewsForm" type="uit.elib.action.EditNewsAction">
+            <forward name="success" path="/jsp/success.jsp"/>
         </action>            
+        <action path="/DeleteNews" type="uit.elib.action.DeleteNewsAction"/>
+        <action path="/LoadListOfNews" forward =".listOfNews"/>
+        <action path="/LoadNewsTable" type="uit.elib.action.LoadNewsTableAction"/>
         <action path="/CheckSyllabusImage" type="uit.elib.action.CheckSyllabusImageAction"/>
         <action path="/DeleteSubject" type="uit.elib.action.DeleteSubjectAction"/>
         <action path="/DeleteResource" type="uit.elib.action.DeleteResourceAction"/>

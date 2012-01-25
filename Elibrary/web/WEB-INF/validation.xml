@@ -101,7 +101,39 @@
                 depends="required">
                 <arg key="text.contentvn"/>
             </field>             
-        </form>       
+        </form>
+        <form name="EditNewsForm">
+            <field 
+                property="txtTitleEN"
+                depends="required">
+                <arg key="text.titleen"/>
+            </field>
+            <field 
+                property="txtTitleVN"
+                depends="required">
+                <arg key="text.titlevn"/>
+            </field>
+            <field 
+                property="txtHeadlineEN"
+                depends="required">
+                <arg key="text.headlineen"/>
+            </field>
+            <field 
+                property="txtHeadlineVN"
+                depends="required">
+                <arg key="text.headlinevn"/>
+            </field>
+            <field 
+                property="fckContentEN"
+                depends="required">
+                <arg key="text.contenten"/>
+            </field>
+            <field 
+                property="fckContentVN"
+                depends="required">
+                <arg key="text.contentvn"/>
+            </field>             
+        </form>         
         <form name="CreateSubjectForm">
             <field 
                 property="txtSubjectName"

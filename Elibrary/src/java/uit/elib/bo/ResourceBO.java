@@ -21,7 +21,12 @@ public class ResourceBO extends ManagerBase<Resource> {
     }
     public int DeleteResource(String sql) throws Exception
     {
-        return excecuteSQl(sql);
+        try {
+            return excecuteSQl(sql);
+        } catch (Exception ex) {
+            Logger.getLogger(ResourceBO.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }  
         
     }
     public static ResourceBO getResourceBO() throws Exception{

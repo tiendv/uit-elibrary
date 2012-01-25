@@ -43,25 +43,25 @@ public class LoadListSubjectOfCategoryAction extends org.apache.struts.action.Ac
             //begin visible TABLE
             response.getWriter().println("<table class=resource_table>");
                 response.getWriter().println("<tr class=color_title_table>");//Title of table
-                response.getWriter().println("<td width=20%>");
+                response.getWriter().println("<td class=td1>");
                 if(language==1) //EN
                     response.getWriter().println("Subject code");
                 if(language==2) //VI
                     response.getWriter().println("Mã môn học");
                 response.getWriter().println("</td>");
-                response.getWriter().println("<td width=60%>");
+                response.getWriter().println("<td class=td2>");
                 if(language==1) //EN
                     response.getWriter().println("Subject name");
                 if(language==2) //VI
                     response.getWriter().println("Tên môn học");
                 response.getWriter().println("</td>");
-                response.getWriter().println("<td width=10%>");
+                response.getWriter().println("<td class=td3>");
                 if(language==1) //EN
                     response.getWriter().println("Delete");
                 if(language==2) //VI
                     response.getWriter().println("Xóa");
                 response.getWriter().println("</td>");
-                response.getWriter().println("<td width=10%>");
+                response.getWriter().println("<td class=td4>");
                 if(language==1) //EN
                     response.getWriter().println("Edit");
                 if(language==2) //VI
