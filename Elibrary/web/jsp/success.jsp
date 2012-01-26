@@ -13,7 +13,7 @@
 <%@taglib uri="http://struts.apache.org/tags-bean-el" prefix="bean" %>
 <title><bean:message key="text.success"/></title> 
  <link href="./css/jquery-ui.css" rel="stylesheet" type="text/css"/> 
- <script src="./js/jquery-1.6.2.min.js"></script> 
+ <script src="./js/jquery-1.7.1.min.js"></script> 
  <script src="./js/jquery-ui-1.8.16.custom.min.js"></script> 
  
   <script type="text/javascript"> 

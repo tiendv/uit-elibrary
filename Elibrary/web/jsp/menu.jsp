@@ -14,6 +14,7 @@
         <td class="menu_td_link"><a class="menu_link" href="Welcome.do" ><bean:message  key="text.home"/></a></td>
         <td class="menu_td_link"><a class="menu_link" href="LoadSubject.do"><bean:message  key="text.subject"/></a></td>
         <td class="menu_td_link"><a class="menu_link" href="LoadThesis.do"><bean:message key ="text.thesis"/></a></td>
+        <td class="menu_td_link"><a class="menu_link" href="LoadAllNews.do"><bean:message key ="text.news"/></a></td>
         <td class="menu_td_link"><a class="menu_link" href="#"><bean:message  key="text.paper"/></a></td>
         <td class="menu_td_link"><a class="menu_link" href="#"><bean:message  key="text.help"/></a></td>
         <td class="menu_td_link"><a class="menu_link" href="Admin.do"><bean:message key="text.adminpage"/></a></td>

@@ -65,11 +65,6 @@
     clear:both;
     padding-top: 3px;
 }
-.cleared 
-{
-    clear:both;
-    padding-top: 3px;
-}
 .content {
     
 	font-family: Arial, Helvetica, sans-serif;
@@ -260,7 +255,7 @@
 	border-right-style: dotted;
 	border-right-color: #FFF;
 	text-align: center;
-	width: 90px;
+	width: 82px;
 	vertical-align: middle;
 }
 .menu_td_link:hover {
@@ -661,8 +656,13 @@ div.resource_right
 }
 .image
 {
-    width:300px; 
-    height:300px;
+    max-width:500px; 
+    max-height:500px;
+}
+.imagenews
+{
+    max-height: 260px;
+    max-width: 440px;
 }
 .image_black_arrow
 {
@@ -712,6 +712,11 @@ div.resource_right
 {
     text-align: center;
 }
+.boldcenter
+{
+    text-align: center;
+    font-weight: bold;
+}
 .thesis_update
 {
     margin-left: 30px;
@@ -751,4 +756,28 @@ div.resource_right
 .btndelete
 {
     margin-left: 90%;
+}
+.left
+{
+    padding-left: 2px;
+}
+.smallimage
+{
+    max-height: 150px;
+    max-width: 150px;
+}
+.leftimagenews
+{
+    float:left;
+    width: 155px;
+}
+.leftheadlinenews
+{
+    float:left;
+    width: 345px;
+}
+.bold{
+    font-weight: bold;
+    padding-left: 2px;
+    padding-bottom: 5px;
 }

@@ -4,88 +4,114 @@
     Author     : Admin
 --%>
 
+<%@page import="org.apache.struts.Globals"%>
+<%@page import="java.util.Locale"%>
+<%@page import="java.util.List"%>
+<%@page import="uit.elib.dto.News"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="<html:rewrite page='/css/featuredcontentglider.css'/>" />
+<script type="text/javascript" src="<html:rewrite page='/js/featuredcontentglider.js'/>"></script>
 <table width="100%" border="0" cellspacing="1" cellpadding="1">
-              <tr>
-                <td class="td_slide_show">
-                 <div class="fn_image">
-                 <script type="text/javascript" src="js/ja.js"></script>
-<script type="text/javascript">fadetime = 4000;</script>
-<div id="ja_header_jsfade" style="position:relative;width:100%;height:195px;overflow:hidden;;z-index:1;">
-<img src="image/IMG_01.jpg" alt="" title="" style="position: absolute; top: 0pt; left: 0pt; display: none; z-index: 1; opacity: -0.01;">
-<img src="image/IMG_02.jpg" alt="" title="" style="position: absolute; top: 0pt; left: 0pt; display: none; z-index: 1; opacity: -0.01;">
-<img src="image/IMG_03.jpg" alt="" title="" style="position: absolute; top: 0pt; left: 0pt; display: none; z-index: 1; opacity: -0.01;">
-<img src="image/IMG_04.jpg" alt="" title="" style="position: absolute; top: 0pt; left: 0pt; display: none; z-index: 1; opacity: -0.01;">
-
-</div>
-</div>
-               
-                </td>
-              </tr>
-            </table></td>
-          </tr>
-          <tr>
-            <td><table width="100%" border="0" cellspacing="5" cellpadding="2">
-             
-              <tr>
-                <td align="left" valign="top" class="td_course_item"><table width="100%" border="0" cellspacing="2" cellpadding="2">
-                  <tr>
-                    <td width="20"><img src="image/bookIcon.gif" width="26" height="23" /></td>
-                    <td><h2 class="title_h3">Giáo trình mới cập nhật</h2></td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td><img src="image/course_detail.jpg" width="294" height="91" /></td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td class="title_h4">The Artificial Leaf
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td>This recently developed device uses the sun to separate water into hydrogen and oxygen, according to a recently published paper in Science. Senior author and MIT professor Daniel Nocera's Principles of Inorganic Chemistry II course materials are available here on OCW.</td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                  </tr>                 
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                  </tr>
-                </table></td>
-                <td align="left" valign="top"><table width="100%" border="0" cellspacing="2" cellpadding="2">
-                  <tr>
+    <tr>
+        <td class="td_slide_show">
+            <div class="fn_image">
+            <script type="text/javascript" src="js/ja.js"></script>
+            <script type="text/javascript">fadetime = 4000;</script>
+            <div id="ja_header_jsfade" style="position:relative;width:100%;height:195px;overflow:hidden;;z-index:1;">
+            <img src="image/IMG_01.jpg" alt="" title="" style="position: absolute; top: 0pt; left: 0pt; display: none; z-index: 1; opacity: -0.01;">
+            <img src="image/IMG_02.jpg" alt="" title="" style="position: absolute; top: 0pt; left: 0pt; display: none; z-index: 1; opacity: -0.01;">
+            <img src="image/IMG_03.jpg" alt="" title="" style="position: absolute; top: 0pt; left: 0pt; display: none; z-index: 1; opacity: -0.01;">
+            <img src="image/IMG_04.jpg" alt="" title="" style="position: absolute; top: 0pt; left: 0pt; display: none; z-index: 1; opacity: -0.01;">
+            </div>
+            </div>
+        </td>
+    </tr>
+</table>
+<table width="100%" border="0" cellspacing="5" cellpadding="2">    
+    <tr>
+        <td align="left" valign="top" class="td_course_item">
+            <% 
+                List<News> listNews = (List<News>)request.getAttribute("listNews");
+                int language =1; // English
+                Locale locale = request.getLocale();
+                if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
+                    language=2; // VietNamese                
+                if(listNews.size()>0){%>
+                <script type="text/javascript">
+                featuredcontentglider.init({
+                        gliderid: "canadaprovinces", //ID of main glider container
+                        contentclass: "glidecontent", //Shared CSS class name of each glider content
+                        togglerid: "p-select", //ID of toggler container
+                        remotecontent: "", //Get gliding contents from external file on server? "filename" or "" to disable
+                        selected: 0, //Default selected content index (0=1st)
+                        persiststate: false, //Remember last content shown within browser session (true/false)?
+                        speed: 500, //Glide animation duration (in milliseconds)
+                        direction: "rightleft", //set direction of glide: "updown", "downup", "leftright", or "rightleft"
+                        autorotate: true, //Auto rotate contents (true/false)?
+                        autorotateconfig: [5000, 0] //if auto rotate enabled, set [milliseconds_btw_rotations, cycles_before_stopping]
+                })
+                </script>
+                <div id="canadaprovinces" class="glidecontentwrapper">
+                    <% for(int i=0;i<listNews.size();i++) {%>
+                        <div class="glidecontent">
+                            <% if(language==1) { %>
+                                <div class="boldcenter"><a href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><%=listNews.get(i).getNewsTitleEn()%></a></div>
+                                <%
+                                String imageLink = "./image/news.jpg";
+                                if(listNews.get(i).getNewsImage()!=null){ 
+                                     imageLink = "./upload/"+listNews.get(i).getNewsImage().toString();%>                                                     
+                                <%}%>
+                                <div class="center"><a href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><img src="<%=imageLink%>" class="imagenews"/></a></div>
+                                <div><%=listNews.get(i).getNewsHeadlineEn()%></div>
+                            <%}%>
+                            <% if(language==2) { %>
+                                <div class="boldcenter"><a href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><%=listNews.get(i).getNewsTitleVn()%></a></div>
+                                <%
+                                String imageLink = "./image/news.jpg";
+                                if(listNews.get(i).getNewsImage()!=null){ 
+                                     imageLink = "./upload/"+listNews.get(i).getNewsImage().toString();%>                                                     
+                                <%}%>
+                                <div class="center"><a href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><img src="<%=imageLink%>" class="imagenews"/></a></div>
+                                <div><%=listNews.get(i).getNewsHeadlineVn()%></div>
+                            <%}%>                        
+                        </div>
+                    <%}%>
+                </div>
+                <div id="p-select" class="glidecontenttoggler">
+                <a href="#" class="prev"><img border="0" src="image/icon_pre.jpg" /></a>
+                <% for(int i=0;i<listNews.size();i++) {%>
+                    <a href="#" class="toc"><%=i+1%></a>
+                <%}%>
+                <a href="#" class="next"><img border="0" src="image/icon_next.jpg" /></a>
+                </div>
+            <%}%>
+        </td>
+        <td align="left" valign="top">
+            <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                <tr>
                     <td class="title_h3">Các đơn vị tham gia</td>
-                  </tr>
-                  <tr>
+                </tr>
+                <tr>
                     <td><img src="image/uit.png" width="100%" /></td>
-                  </tr>
-                  <tr>
+                </tr>
+                <tr>
                     <td><img src="image/isatd.png"  width="100%" /></td>
-                  </tr>
-                  <tr>
+                </tr>
+                <tr>
                     <td><img src="image/ntt.png" width="100%" /></td>
-                  </tr>
-                  <tr>
+                </tr>
+                <tr>
                     <td><img src="image/stu.png" width="100%" /></td>
-                  </tr>
-                  <tr>
+                </tr>
+                <tr>
                     <td><img src="image/duytan.png" width="100%"/></td>
-                  </tr>
-                  <tr>
+                </tr>
+                <tr>
                     <td>&nbsp;</td>
-                  </tr>
-                </table></td>
-              </tr>
-</table></td>
+                </tr>
+            </table>      
+        </td>
+    </tr>
+</table>
