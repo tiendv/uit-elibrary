@@ -43,17 +43,28 @@ public class NewsBO extends ManagerBase<News> {
             return null;
         }
     }
-    public List getAllNews(String query,String []order)
+    public List getAllNews(String where,String []order)
     {
         List<News> list;
         try {
-            list = getBySQLQuery(query, order, 0);
+            list = getBySQLQuery(where, order, 0);
             return  list;
         } catch (Exception ex) {
             Logger.getLogger(NewsBO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
-    }    
+    }
+    public List getAllNews(String where,String []order,int maxResult)
+    {
+        List<News> list;
+        try {
+            list = getBySQLQuery(where, order,maxResult );
+            return  list;
+        } catch (Exception ex) {
+            Logger.getLogger(NewsBO.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }     
     public int DeleteNews(String sql) throws Exception
     {
         try {

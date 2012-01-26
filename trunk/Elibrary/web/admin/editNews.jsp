@@ -14,7 +14,7 @@
 <%
     List<News> listNews = (List<News>)request.getAttribute("listNews");
 %>
-<h1><bean:message key="text.createnews"/></h1>
+<h1><bean:message key="text.editnews"/></h1>
 <html:form method="post" action="EditNews" enctype="multipart/form-data" onsubmit="return validateEditNewsForm(this)"> 
     <input type="hidden" name="txtID" value="<%=listNews.get(0).getNewsId()%>" />
     <%if(listNews.get(0).getNewsImage()!=null){ 

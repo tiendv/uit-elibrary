@@ -103,6 +103,16 @@
         </action>
         <action path="/EditNews" name="EditNewsForm" type="uit.elib.action.EditNewsAction">
             <forward name="success" path="/jsp/success.jsp"/>
+        </action>
+        <action path="/Welcome" type="uit.elib.action.WelcomeAction">
+            <forward name="success" path=".homepage"/>
+        </action>
+        <action path="/LoadNews" type="uit.elib.action.LoadNewsAction">
+            <forward name="success" path=".loadNews"/>
+            <forward name="unsuccess" path="/Welcome.do"/>
+        </action>
+        <action path="/LoadAllNews" type="uit.elib.action.LoadAllNewsAction">
+            <forward name="success" path=".listAllNews"/>
         </action>            
         <action path="/DeleteNews" type="uit.elib.action.DeleteNewsAction"/>
         <action path="/LoadListOfNews" forward =".listOfNews"/>
@@ -113,12 +123,8 @@
         <action path="/LoadResourceTable" type="uit.elib.action.LoadResourceTableAction" scope="session"/>
         <action path="/DownLoad" type="uit.elib.action.DownLoadAction"  scope="session"/>  
         <action path="/LoadChapter" type="uit.elib.action.LoadChapterAction" scope="session"/>  
-        <action path="/Welcome" forward=".homepage"  scope="session"/>
         <action path="/Admin" forward=".adminPage"  scope="session"/>
         <action path="/LoadCreateNews" forward=".createNews"  scope="session"/>
-        <action path="/materialPage" forward=".materialPage"  scope="session"/>
-        <action path="/lecturesPage" forward=".lecturesPage"  scope="session"/>
-        <action path="/generalinformationPage" forward=".generalinformationPage"  scope="session"/>
         <action path="/Locale" type="uit.elib.action.languageSelectAction" parameter="method" validate="false"  scope="session"/>
     </action-mappings>
     

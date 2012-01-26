@@ -73,33 +73,63 @@
         <form name="CreateNewsForm">
             <field 
                 property="txtTitleEN"
-                depends="required">
+                depends="required,maxlength">
                 <arg key="text.titleen"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>100</var-value>
+                </var>            
             </field>
             <field 
                 property="txtTitleVN"
-                depends="required">
+                depends="required,maxlength">
                 <arg key="text.titlevn"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>100</var-value>
+                </var>                 
             </field>
             <field 
                 property="txtHeadlineEN"
-                depends="required">
+                depends="required,maxlength">
                 <arg key="text.headlineen"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>500</var-value>
+                </var>                 
             </field>
             <field 
                 property="txtHeadlineVN"
-                depends="required">
+                depends="required,maxlength">
                 <arg key="text.headlinevn"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>500</var-value>
+                </var>                 
             </field>
             <field 
                 property="fckContentEN"
-                depends="required">
+                depends="required,maxlength">
                 <arg key="text.contenten"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>65535</var-value>
+                </var>                 
             </field>
             <field 
                 property="fckContentVN"
-                depends="required">
+                depends="required,maxlength">
                 <arg key="text.contentvn"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>65535</var-value>
+                </var>                 
             </field>             
         </form>
         <form name="EditNewsForm">
