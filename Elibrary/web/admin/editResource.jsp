@@ -70,9 +70,9 @@
         <div id="divResourceName" class="none">      
             <div class="resource1">
                 <div class="resource_left"><bean:message key="text.resourcenameen" /></div>
-                <div class="resource_left"><input class="textbox" id="txtResourceNameEN" name="txtResourceNameEN" type="text" value="<%=listResource.get(0).getResourceNameEn()%>"/></div>
+                <div class="resource_left"><input class="textbox" id="txtResourceNameEN" name="txtResourceNameEN" type="text" value="<%=listResource.get(0).getResourceNameEn()%>"  maxlength="255"/></div>
                 <div class="resource_left"><bean:message key="text.resourcenamevn"/></div>
-                <div class="resource_left"><input class="textbox" id="txtResourceNameVN" name="txtResourceNameVN" type="text" value="<%=listResource.get(0).getResourceNameVn()%>"/></div>
+                <div class="resource_left"><input class="textbox" id="txtResourceNameVN" name="txtResourceNameVN" type="text" value="<%=listResource.get(0).getResourceNameVn()%>"  maxlength="255"/></div>
             </div>
         </div>
         <div class="cleared"></div>    
@@ -133,23 +133,23 @@
             <div class="cleared"></div>         
             <div class="resource1">
                 <div class="resource_left"><bean:message key="text.author"/></div>
-                <div class="resource_left"><input class="textbox" id="txtThesisAuthor" name="txtThesisAuthor" type="text" value="<%=listResource.get(0).getAuthor()%>"/></div>
+                <div class="resource_left"><input class="textbox" id="txtThesisAuthor" name="txtThesisAuthor" type="text" value="<%=listResource.get(0).getAuthor()%>"  maxlength="255"/></div>
                 <div class="resource_left"><bean:message key="text.teacher"/></div>
-                <div class="resource_left"><input class="textbox" id="txtTeacher" name="txtTeacher" type="text" value="<%=listResource.get(0).getTeacher()%>"/></div>                    
+                <div class="resource_left"><input class="textbox" id="txtTeacher" name="txtTeacher" type="text" value="<%=listResource.get(0).getTeacher()%>"  maxlength="255"/></div>                    
             </div>
             <div class="cleared"></div> 
             <div class="resource1">
                 <div class="resource_left"><bean:message key="text.class"/></div>
-                <div class="resource_left"><input class="textbox" id="txtClass" name="txtClass" type="text" value="<%=listResource.get(0).getClass_()%>"/></div>
+                <div class="resource_left"><input class="textbox" id="txtClass" name="txtClass" type="text" value="<%=listResource.get(0).getClass_()%>" maxlength="45"/></div>
                 <div class="resource_left"><bean:message key="text.school"/></div>
-                <div class="resource_left"><input class="textbox" id="txtSchool" name="txtSchool" type="text" value="<%=listResource.get(0).getSchool()%>"/></div>                    
+                <div class="resource_left"><input class="textbox" id="txtSchool" name="txtSchool" type="text" value="<%=listResource.get(0).getSchool()%>" maxlength="255"/></div>                    
             </div>
             <div class="cleared"></div> 
             <div class="resource1">
                 <div class="resource_left"><bean:message key="text.year"/></div>
-                <div class="resource_left"><input class="textbox" id="txtYear" name="txtYear" type="text" value="<%=listResource.get(0).getYear()%>"/></div>
+                <div class="resource_left"><input class="textbox" id="txtYear" name="txtYear" type="text" value="<%=listResource.get(0).getYear()%>" maxlength="4"/></div>
                 <div class="resource_left"><bean:message key="text.schoolyear"/></div>
-                <div class="resource_left"><input class="textbox" id="txtSchoolYear" name="txtSchoolYear" type="text" value="<%=listResource.get(0).getSchoolYear()%>"/></div>                    
+                <div class="resource_left"><input class="textbox" id="txtSchoolYear" name="txtSchoolYear" type="text" value="<%=listResource.get(0).getSchoolYear()%>" maxlength="45"/></div>                    
             </div>
             <div class="cleared"></div> 
             <%if(listResource.get(0).getUploadName()!=null){%>
@@ -189,7 +189,7 @@
             <%}%>                    
             <div class="resource2">
                 <div class="resource_left"><bean:message key="text.uploadfile"/></div>
-                <div class="resource_left"><input id="fileThesis" type="file" name="fileThesis"/></div>
+                <div class="resource_left"><input id="fileThesis" type="file" name="fileThesis" size="25"/></div>
             </div>
             <div class="cleared"></div>       
             <h2><bean:message key="text.thesissummaryvn"/></h2>
@@ -210,7 +210,7 @@
         <div id="divProject" class="none">
             <div class="resource2">
                 <div class="resource_left"><bean:message key="text.projectauthor"/></div>
-                <div class="resource_left"><input id="txtProjectAuthor" name="txtProjectAuthor" type="text" value="<%=listResource.get(0).getAuthor()%>"/></div>
+                <div class="resource_left"><input id="txtProjectAuthor" name="txtProjectAuthor" type="text" value="<%=listResource.get(0).getAuthor()%>" maxlength="255"/></div>
             </div>
             <div class="cleared"></div>   
             <div class="resource2">
@@ -284,7 +284,7 @@
             <%}%>    
             <div class="resource2">
                 <div class="resource_left"><bean:message key="text.uploadfile"/></div>
-                <div class="resource_left"><input type="file" id="fileProject" name="fileProject"/></div>
+                <div class="resource_left"><input type="file" id="fileProject" name="fileProject" size="25"/></div>
             </div>
             <div class="cleared"></div>       
         </div>            
@@ -317,7 +317,7 @@
                     </select>
                 </div>
                 <div class="resource_left"><bean:message key="text.orderchapter"/></div>
-                <div class="resource_left"><input class="textbox" id="txtOrderChapter" name="txtOrderChapter" type="text" value="<%=listResource.get(0).getOrderChapter()%>"/></div>    
+                <div class="resource_left"><input class="textbox" id="txtOrderChapter" name="txtOrderChapter" type="text" value="<%=listResource.get(0).getOrderChapter()%>" maxlength="2"/></div>    
             </div>
             <div class="cleared"></div>          
             <h2><bean:message key="text.chaptersummaryvn"/></h2>
@@ -398,7 +398,7 @@
             <%}%>                                
             <div class="resource2">
                 <div class="resource_left"><bean:message key="text.uploadfile"/></div>
-                <div class="resource_left"><input type="file" id="filePictureReading" name="filePictureReading"/></div>
+                <div class="resource_left"><input type="file" id="filePictureReading" name="filePictureReading" size="25"/></div>
             </div>
             <div class="cleared"></div>    
             <%if(listResource.get(0).getServerName()!=null&& listResource.get(0).getResourcecategory().getResourceCategoryId()==8){ 
@@ -492,7 +492,7 @@
             <%}%>                          
             <div class="resource2">
                 <div class="resource_left"><bean:message key="text.uploadfile"/></div>
-                <div class="resource_left"><input type="file" id="fileResourceChapter" name="fileResourceChapter"/></div>
+                <div class="resource_left"><input type="file" id="fileResourceChapter" name="fileResourceChapter" size="25"/></div>
             </div>
             <div class="cleared"></div>
         </div>
@@ -560,7 +560,7 @@
                 <%}%>                         
                 <div class="resource2">
                     <div class="resource_left"><bean:message key="text.uploadfile"/></div>
-                    <div class="resource_left"><input type="file" id="fileSyllabus" name="fileSyllabus"/></div>
+                    <div class="resource_left"><input type="file" id="fileSyllabus" name="fileSyllabus" size="25"/></div>
                 </div>
                 <div class="cleared"></div>      
          </div>                            
@@ -602,7 +602,11 @@
             if(FCKeditorAPI.GetInstance("fckThesisSummaryVN").GetXHTML().length==0) // ThesisSummaryVN
                 alertString =alertString+"\r\n<bean:message key="text.chaptersummaryvn" /> <bean:message key="text.required" />";
             if(FCKeditorAPI.GetInstance("fckThesisSummaryEN").GetXHTML().length==0) // ThesisSummaryEN
-                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryen" /> <bean:message key="text.required" />";       
+                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryen" /> <bean:message key="text.required" />";
+            if(FCKeditorAPI.GetInstance("fckThesisSummaryVN").GetXHTML().length>65535) // ThesisSummaryVN
+                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryvn" /> <bean:message key="text.greatthan" /> 65535 <bean:message key="text.chars" />";
+            if(FCKeditorAPI.GetInstance("fckThesisSummaryEN").GetXHTML().length>65535) // ThesisSummaryEN
+                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryen" /> <bean:message key="text.greatthan" /> 65535 <bean:message key="text.chars" />";            
             if(alertString!="")
                 alert(alertString);
             if(alertString=="")
@@ -629,7 +633,11 @@
             if(FCKeditorAPI.GetInstance("fckChapterSummaryVN").GetXHTML().length==0) // 
                 alertString =alertString+"\r\n<bean:message key="text.chaptersummaryvn" /> <bean:message key="text.required" />";
             if(FCKeditorAPI.GetInstance("fckChapterSummaryEN").GetXHTML().length==0) // 
-                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryen" /> <bean:message key="text.required" />";             
+                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryen" /> <bean:message key="text.required" />";
+                if(FCKeditorAPI.GetInstance("fckChapterSummaryVN").GetXHTML().length>65535) // 
+                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryvn" />  <bean:message key="text.greatthan" /> 65535 <bean:message key="text.chars" />";
+            if(FCKeditorAPI.GetInstance("fckChapterSummaryEN").GetXHTML().length>65535) // 
+                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryen" />  <bean:message key="text.greatthan" /> 65535 <bean:message key="text.chars" />";          
             if(alertString!="")
                 alert(alertString);
             if(alertString=="")

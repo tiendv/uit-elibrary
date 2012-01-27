@@ -34,9 +34,9 @@
         <tr>
 
             <td><bean:message key="text.subjectnamevn"/></td>
-            <td><html:text styleClass="textbox" property="txtSubjectName"/></td>
+            <td><html:text styleClass="textbox" property="txtSubjectName" maxlength="255"/></td>
             <td><bean:message key="text.subjectnameen"/></td>
-            <td><html:text styleClass="textbox" property="txtSubjectNameUS" /></td>
+            <td><html:text styleClass="textbox" property="txtSubjectNameUS" maxlength="255"/></td>
         </tr> 
         <tr>
             <td><bean:message key="text.subjectcategory"/></td>
@@ -69,39 +69,39 @@
         </tr>
         <tr>
              <td><bean:message key="text.creditnumber"/></td>
-             <td><html:text styleClass="textbox" property="txtCreditNumber" /></td>
+             <td><html:text styleClass="textbox" property="txtCreditNumber" maxlength="2"/></td>
              <td><bean:message key="text.subjectcode"/></td>
-             <td><html:text styleClass="textbox" property="txtSubjectCode" /></td>           
+             <td><html:text styleClass="textbox" property="txtSubjectCode" maxlength="45"/></td>           
         </tr>
         <tr>
             <td><bean:message key="text.periodoftheory"/></td>
-            <td><html:text styleClass="textbox" property="txtPeriodOfTheory" /></td>
+            <td><html:text styleClass="textbox" property="txtPeriodOfTheory" maxlength="3"/></td>
             <td><bean:message key="text.periodofpractice"/></td>
-            <td><html:text styleClass="textbox" property="txtPeriodOfPractice" /></td>
+            <td><html:text styleClass="textbox" property="txtPeriodOfPractice" maxlength="3"/></td>
         </tr>
         <tr>
             <td><bean:message key="text.midtermgrade"/></td>
-            <td><html:text styleClass="textbox" property="txtMidtermGrade" /></td>
+            <td><html:text styleClass="textbox" property="txtMidtermGrade" maxlength="3"/></td>
             <td><bean:message key="text.finalgrade"/></td>
-            <td><html:text styleClass="textbox" property="txtFinalGrade" /></td>
+            <td><html:text styleClass="textbox" property="txtFinalGrade" maxlength="3"/></td>
         </tr>
         <tr>
             <td><bean:message key="text.prerequisitesubjectvn"/></td>
-            <td><html:text styleClass="textbox" property="txtPrerequisiteSubjectVN" /></td>
+            <td><html:text styleClass="textbox" property="txtPrerequisiteSubjectVN" maxlength="255"/></td>
             <td><bean:message key="text.prerequisitesubjecten"/></td>
-            <td><html:text styleClass="textbox" property="txtPrerequisiteSubject" /></td>
+            <td><html:text styleClass="textbox" property="txtPrerequisiteSubject" maxlength="255"/></td>
         </tr>
         <tr>
             <td><bean:message key="text.timeteaching"/></td>
-            <td><html:text styleClass="textbox" property="txtTimeTeaching" /></td>
+            <td><html:text styleClass="textbox" property="txtTimeTeaching" maxlength="2" /></td>
             <td><bean:message key="text.teacher"/></td>
-            <td><html:text styleClass="textbox" property="txtTeacherName" /></td>
+            <td><html:text styleClass="textbox" property="txtTeacherName" maxlength="255" /></td>
         </tr>
         <tr>
             <td><bean:message key="text.level"/></td>
-            <td><html:text styleClass="textbox" property="txtLevel" /></td>
+            <td><html:text styleClass="textbox" property="txtLevel" maxlength="45"/></td>
             <td><bean:message key="text.numberchapter"/></td>
-            <td><html:text styleClass="textbox" property="txtNumberChapter" /></td>
+            <td><html:text styleClass="textbox" property="txtNumberChapter" maxlength="2" /></td>
         </tr>
     </table>   
     <hr>

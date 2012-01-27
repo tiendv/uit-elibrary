@@ -53,9 +53,9 @@
         <%-- Resource Name --%>           
         <div  id="divResourceName" class="resource1" >
              <div class="resource_left"><bean:message key="text.resourcenameen" /></div>
-             <div class="resource_left"><input class="textbox" id="txtResourceNameEN" name="txtResourceNameEN" type="text"/></div>
+             <div class="resource_left"><input class="textbox" id="txtResourceNameEN" name="txtResourceNameEN" type="text" maxlength="255"/></div>
              <div class="resource_left"><bean:message key="text.resourcenamevn"/></div>
-             <div class="resource_left"><input class="textbox" id="txtResourceNameVN" name="txtResourceNameVN" type="text"/></div>
+             <div class="resource_left"><input class="textbox" id="txtResourceNameVN" name="txtResourceNameVN" type="text" maxlength="255"/></div>
         </div>
         <div class="cleared"></div>           
         <%-- Add resource with resource category is thesis (ID =2) --%> 
@@ -95,23 +95,23 @@
             <div class="cleared"></div>              
             <div class="resource1">
                 <div class="resource_left"><bean:message key="text.author"/></div>
-                <div class="resource_left"><input class="textbox" id="txtThesisAuthor" name="txtThesisAuthor" type="text"/></div>
+                <div class="resource_left"><input class="textbox" id="txtThesisAuthor" name="txtThesisAuthor" type="text"  maxlength="255"/></div>
                 <div class="resource_left"><bean:message key="text.teacher"/></div>
-                <div class="resource_left"><input class="textbox" id="txtTeacher" name="txtTeacher" type="text"/></div>                    
+                <div class="resource_left"><input class="textbox" id="txtTeacher" name="txtTeacher" type="text"  maxlength="255"/></div>                    
             </div>
             <div class="cleared"></div>     
             <div class="resource1">
                 <div class="resource_left"><bean:message key="text.class"/></div>
-                <div class="resource_left"><input class="textbox" id="txtClass" name="txtClass" type="text"/></div>
+                <div class="resource_left"><input class="textbox" id="txtClass" name="txtClass" type="text" maxlength="45"/></div>
                 <div class="resource_left"><bean:message key="text.school"/></div>
-                <div class="resource_left"><input class="textbox" id="txtSchool" name="txtSchool" type="text"/></div>                    
+                <div class="resource_left"><input class="textbox" id="txtSchool" name="txtSchool" type="text" maxlength="255"/></div>                    
             </div>
             <div class="cleared"></div>     
             <div class="resource1">
                 <div class="resource_left"><bean:message key="text.year"/></div>
-                <div class="resource_left"><input class="textbox" id="txtYear" name="txtYear" type="text"/></div>
+                <div class="resource_left"><input class="textbox" id="txtYear" name="txtYear" type="text" maxlength="4"/></div>
                 <div class="resource_left"><bean:message key="text.schoolyear"/></div>
-                <div class="resource_left"><input class="textbox" id="txtSchoolYear" name="txtSchoolYear" type="text"/></div>                    
+                <div class="resource_left"><input class="textbox" id="txtSchoolYear" name="txtSchoolYear" type="text" maxlength="45"/></div>                    
             </div>
             <div class="cleared"></div>     
             <div class="resource2">
@@ -151,7 +151,7 @@
                     </select>
                 </div>                
                 <div class="resource_left"><bean:message key="text.projectauthor"/></div>
-                <div class="resource_left"><input class="textbox" id="txtProjectAuthor" name="txtProjectAuthor" type="text"/></div>
+                <div class="resource_left"><input class="textbox" id="txtProjectAuthor" name="txtProjectAuthor" type="text" maxlength="255"/></div>
             </div>
             <div class="cleared"></div>         
             <div class="resource2">
@@ -179,7 +179,7 @@
                     </select>
                 </div>
                 <div class="resource_left"><bean:message key="text.orderchapter"/></div>
-                <div class="resource_left"><input class="textbox" id="txtOrderChapter" name="txtOrderChapter" type="text"/></div>                    
+                <div class="resource_left"><input class="textbox" id="txtOrderChapter" name="txtOrderChapter" type="text" maxlength="2"/></div>                    
             </div>
             <div class="cleared"></div>      
             <h2><bean:message key="text.chaptersummaryvn"/></h2>
@@ -318,7 +318,11 @@
             if(FCKeditorAPI.GetInstance("fckThesisSummaryVN").GetXHTML().length==0) // ThesisSummaryVN
                 alertString =alertString+"\r\n<bean:message key="text.chaptersummaryvn" /> <bean:message key="text.required" />";
             if(FCKeditorAPI.GetInstance("fckThesisSummaryEN").GetXHTML().length==0) // ThesisSummaryEN
-                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryen" /> <bean:message key="text.required" />";       
+                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryen" /> <bean:message key="text.required" />";
+            if(FCKeditorAPI.GetInstance("fckThesisSummaryVN").GetXHTML().length>65535) // ThesisSummaryVN
+                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryvn" /> <bean:message key="text.greatthan" /> 65535 <bean:message key="text.chars" />";
+            if(FCKeditorAPI.GetInstance("fckThesisSummaryEN").GetXHTML().length>65535) // ThesisSummaryEN
+                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryen" /> <bean:message key="text.greatthan" /> 65535 <bean:message key="text.chars" />";             
             if(alertString!="")
                 alert(alertString);
             if(alertString=="")
@@ -347,7 +351,11 @@
             if(FCKeditorAPI.GetInstance("fckChapterSummaryVN").GetXHTML().length==0) // 
                 alertString =alertString+"\r\n<bean:message key="text.chaptersummaryvn" /> <bean:message key="text.required" />";
             if(FCKeditorAPI.GetInstance("fckChapterSummaryEN").GetXHTML().length==0) // 
-                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryen" /> <bean:message key="text.required" />";             
+                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryen" /> <bean:message key="text.required" />";
+            if(FCKeditorAPI.GetInstance("fckChapterSummaryVN").GetXHTML().length>65535) // 
+                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryvn" />  <bean:message key="text.greatthan" /> 65535 <bean:message key="text.chars" />";
+            if(FCKeditorAPI.GetInstance("fckChapterSummaryEN").GetXHTML().length>65535) // 
+                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryen" />  <bean:message key="text.greatthan" /> 65535 <bean:message key="text.chars" />";             
             if(alertString!="")
                 alert(alertString);
             if(alertString=="")

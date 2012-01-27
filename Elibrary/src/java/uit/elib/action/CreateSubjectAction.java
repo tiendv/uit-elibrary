@@ -65,7 +65,7 @@ public class CreateSubjectAction extends org.apache.struts.action.Action {
         temp.setFinalGrade(Integer.parseInt(subjectFormBean.getTxtFinalGrade()));
         temp.setPrerequisiteSubjectVn(subjectFormBean.getTxtPrerequisiteSubjectVN());
         temp.setPrerequisiteSubjectEn(subjectFormBean.getTxtPrerequisiteSubject());
-        temp.setTimeTeaching(String.valueOf(subjectFormBean.getTxtTimeTeaching()));
+        temp.setTimeTeaching(Integer.parseInt(subjectFormBean.getTxtTimeTeaching()));
         temp.setTeacher(subjectFormBean.getTxtTeacherName());
         temp.setLevel(subjectFormBean.getTxtLevel());
         temp.setFaculty(tempFaculty);

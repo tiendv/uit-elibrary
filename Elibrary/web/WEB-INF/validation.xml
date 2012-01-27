@@ -73,23 +73,13 @@
         <form name="CreateNewsForm">
             <field 
                 property="txtTitleEN"
-                depends="required,maxlength">
-                <arg key="text.titleen"/>
-                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
-                <var>
-                    <var-name>maxlength</var-name>
-                    <var-value>100</var-value>
-                </var>            
+                depends="required">
+                <arg key="text.titleen"/>            
             </field>
             <field 
                 property="txtTitleVN"
-                depends="required,maxlength">
-                <arg key="text.titlevn"/>
-                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
-                <var>
-                    <var-name>maxlength</var-name>
-                    <var-value>100</var-value>
-                </var>                 
+                depends="required">
+                <arg key="text.titlevn"/>              
             </field>
             <field 
                 property="txtHeadlineEN"
@@ -135,23 +125,13 @@
         <form name="EditNewsForm">
             <field 
                 property="txtTitleEN"
-                depends="required,maxlength">
-                <arg key="text.titleen"/>
-                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
-                <var>
-                    <var-name>maxlength</var-name>
-                    <var-value>100</var-value>
-                </var>            
+                depends="required">
+                <arg key="text.titleen"/>           
             </field>
             <field 
                 property="txtTitleVN"
-                depends="required,maxlength">
-                <arg key="text.titlevn"/>
-                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
-                <var>
-                    <var-name>maxlength</var-name>
-                    <var-value>100</var-value>
-                </var>                 
+                depends="required">
+                <arg key="text.titlevn"/>                
             </field>
             <field 
                 property="txtHeadlineEN"
@@ -267,23 +247,43 @@
             </field>
             <field 
                 property="fckIntroductionVN"
-                depends="required">
+                depends="required,maxlength">
                 <arg key="text.subjectintroductionvn"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>65535</var-value>
+                </var>                  
             </field>
             <field 
                 property="fckIntroductionEN"
-                depends="required">
+                depends="required,maxlength">
                 <arg key="text.subjectintroductionen"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>65535</var-value>
+                </var>                  
             </field>
             <field 
                 property="fckProjectRequitementVN"
-                depends="required">
+                depends="required,maxlength">
                 <arg key="text.projectrequirementvn"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>65535</var-value>
+                </var>                  
             </field>
             <field 
                 property="fckProjectRequitementEN"
-                depends="required">
+                depends="required,maxlength">
                 <arg key="text.projectrequirementen"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>65535</var-value>
+                </var>                  
             </field>             
         </form>
         <form name="EditSubjectForm">
@@ -359,23 +359,43 @@
             </field>
             <field 
                 property="fckIntroductionVN"
-                depends="required">
+                depends="required,maxlength">
                 <arg key="text.subjectintroductionvn"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>65535</var-value>
+                </var>                 
             </field>
             <field 
                 property="fckIntroductionEN"
-                depends="required">
+                depends="required,maxlength">
                 <arg key="text.subjectintroductionen"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>65535</var-value>
+                </var>                 
             </field>
             <field 
                 property="fckProjectRequitementVN"
-                depends="required">
+                depends="required,maxlength">
                 <arg key="text.projectrequirementvn"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>65535</var-value>
+                </var>                 
             </field>
             <field 
                 property="fckProjectRequitementEN"
-                depends="required">
+                depends="required,maxlength">
                 <arg key="text.projectrequirementen"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>65535</var-value>
+                </var>                 
             </field>             
         </form>
    </formset>

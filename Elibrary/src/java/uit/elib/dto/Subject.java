@@ -1,5 +1,5 @@
 package uit.elib.dto;
-// Generated Jan 25, 2012 1:04:40 AM by Hibernate Tools 3.2.1.GA
+// Generated Jan 28, 2012 12:43:51 AM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -28,7 +28,7 @@ public class Subject  implements java.io.Serializable {
      private String prerequisiteSubjectEn;
      private Integer midtermGrade;
      private Integer finalGrade;
-     private String timeTeaching;
+     private Integer timeTeaching;
      private String projectRequirementEn;
      private String projectRequirementVn;
      private Integer numberChapter;
@@ -37,7 +37,7 @@ public class Subject  implements java.io.Serializable {
     public Subject() {
     }
 
-    public Subject(Faculty faculty, Subjectcategory subjectcategory, String subjectNameVn, String subjectNameEn, String subjectIntroduceVn, String subjectIntroduceEn, Integer numberOfCredit, String level, Integer periodOfTheory, Integer periodOfPractice, String courseCode, String teacher, String prerequisiteSubjectVn, String prerequisiteSubjectEn, Integer midtermGrade, Integer finalGrade, String timeTeaching, String projectRequirementEn, String projectRequirementVn, Integer numberChapter, Set resources) {
+    public Subject(Faculty faculty, Subjectcategory subjectcategory, String subjectNameVn, String subjectNameEn, String subjectIntroduceVn, String subjectIntroduceEn, Integer numberOfCredit, String level, Integer periodOfTheory, Integer periodOfPractice, String courseCode, String teacher, String prerequisiteSubjectVn, String prerequisiteSubjectEn, Integer midtermGrade, Integer finalGrade, Integer timeTeaching, String projectRequirementEn, String projectRequirementVn, Integer numberChapter, Set resources) {
        this.faculty = faculty;
        this.subjectcategory = subjectcategory;
        this.subjectNameVn = subjectNameVn;
@@ -180,11 +180,11 @@ public class Subject  implements java.io.Serializable {
     public void setFinalGrade(Integer finalGrade) {
         this.finalGrade = finalGrade;
     }
-    public String getTimeTeaching() {
+    public Integer getTimeTeaching() {
         return this.timeTeaching;
     }
     
-    public void setTimeTeaching(String timeTeaching) {
+    public void setTimeTeaching(Integer timeTeaching) {
         this.timeTeaching = timeTeaching;
     }
     public String getProjectRequirementEn() {

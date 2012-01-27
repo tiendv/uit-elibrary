@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Jan 25, 2012 1:04:40 AM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Jan 28, 2012 12:43:55 AM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="uit.elib.dto.Resource" table="resource" catalog="elibrary">
         <id name="resourceId" type="java.lang.Integer">
@@ -21,16 +21,16 @@
             <column name="SubjectID" />
         </many-to-one>
         <property name="resourceNameVn" type="string">
-            <column name="ResourceNameVN" length="65535" />
+            <column name="ResourceNameVN" />
         </property>
         <property name="resourceNameEn" type="string">
-            <column name="ResourceNameEN" length="65535" />
+            <column name="ResourceNameEN" />
         </property>
         <property name="summaryVn" type="string">
-            <column name="SummaryVN" length="16777215" />
+            <column name="SummaryVN" length="65535" />
         </property>
         <property name="summaryEn" type="string">
-            <column name="SummaryEN" length="16777215" />
+            <column name="SummaryEN" length="65535" />
         </property>
         <property name="postDate" type="date">
             <column name="PostDate" length="10" />
