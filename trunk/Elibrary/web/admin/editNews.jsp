@@ -29,9 +29,9 @@
     <div class="cleared"></div>             
     <div class="resource1">
         <div class="resource_left"><bean:message key="text.titleen"/></div>
-        <div class="resource_left"><html:text property="txtTitleEN" styleClass="textbox"/></div>
+        <div class="resource_left"><html:text property="txtTitleEN" styleClass="textbox" maxlength="100"/></div>
         <div class="resource_left"><bean:message key="text.titlevn"/></div>
-        <div class="resource_left"><html:text property="txtTitleVN" styleClass="textbox"/></div>                                 
+        <div class="resource_left"><html:text property="txtTitleVN" styleClass="textbox" maxlength="100"/></div>                                 
     </div>              
     <div class="cleared"></div>           
     <div class="resource1"><bean:message key="text.headlineen"/></div>

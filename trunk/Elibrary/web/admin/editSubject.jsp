@@ -43,9 +43,9 @@
         <tr>
 
             <td><bean:message key="text.subjectnamevn"/></td>
-            <td><input id="txtSubjectName" name="txtSubjectName" type="text" value="<%=subjectInfo.get(0).getSubjectNameVn()%>"/></td>
+            <td><input id="txtSubjectName" name="txtSubjectName" type="text" value="<%=subjectInfo.get(0).getSubjectNameVn()%>" maxlength="255"/></td>
             <td><bean:message key="text.subjectnameen"/></td>
-            <td><input id="txtSubjectNameUS" name="txtSubjectNameUS" type="text" value="<%=subjectInfo.get(0).getSubjectNameEn()%>"/></td>
+            <td><input id="txtSubjectNameUS" name="txtSubjectNameUS" type="text" value="<%=subjectInfo.get(0).getSubjectNameEn()%>" maxlength="255"/></td>
         </tr> 
         <tr>
         
@@ -79,39 +79,39 @@
         </tr>
         <tr>
              <td><bean:message key="text.creditnumber"/></td>
-             <td><input id="txtCreditNumber" name="txtCreditNumber" type="text" value="<%=subjectInfo.get(0).getNumberOfCredit()%>"/></td>
+             <td><input id="txtCreditNumber" name="txtCreditNumber" type="text" value="<%=subjectInfo.get(0).getNumberOfCredit()%>" maxlength="2"/></td>
              <td><bean:message key="text.subjectcode"/></td>
-             <td><input id="txtSubjectCode" name="txtSubjectCode" type="text" value="<%=subjectInfo.get(0).getCourseCode() %>"/></td>
+             <td><input id="txtSubjectCode" name="txtSubjectCode" type="text" value="<%=subjectInfo.get(0).getCourseCode() %>" maxlength="45"/></td>
         </tr>
         <tr>
             <td><bean:message key="text.periodoftheory"/></td>
-            <td><input id="txtPeriodOfTheory" name="txtPeriodOfTheory" type="text" value="<%=subjectInfo.get(0).getPeriodOfTheory() %>"/></td>
+            <td><input id="txtPeriodOfTheory" name="txtPeriodOfTheory" type="text" value="<%=subjectInfo.get(0).getPeriodOfTheory() %>" maxlength="3"/></td>
             <td><bean:message key="text.periodofpractice"/></td>
-            <td><input id="txtPeriodOfPractice" name="txtPeriodOfPractice" type="text" value="<%=subjectInfo.get(0).getPeriodOfPractice() %>"/></td>
+            <td><input id="txtPeriodOfPractice" name="txtPeriodOfPractice" type="text" value="<%=subjectInfo.get(0).getPeriodOfPractice() %>" maxlength="3"/></td>
         </tr>
         <tr>
             <td><bean:message key="text.midtermgrade"/></td>
-            <td><input id="txtMidtermGrade" name="txtMidtermGrade" type="text" value="<%=subjectInfo.get(0).getMidtermGrade() %>"/></td>
+            <td><input id="txtMidtermGrade" name="txtMidtermGrade" type="text" value="<%=subjectInfo.get(0).getMidtermGrade() %>" maxlength="3"/></td>
             <td><bean:message key="text.finalgrade"/></td>
-            <td><input id="txtFinalGrade" name="txtFinalGrade" type="text" value="<%=subjectInfo.get(0).getFinalGrade() %>"/></td>
+            <td><input id="txtFinalGrade" name="txtFinalGrade" type="text" value="<%=subjectInfo.get(0).getFinalGrade() %>" maxlength="3"/></td>
         </tr>
         <tr>
             <td><bean:message key="text.prerequisitesubjectvn"/></td>
-            <td><input id="txtPrerequisiteSubjectVN" name="txtPrerequisiteSubjectVN" type="text" value="<%=subjectInfo.get(0).getPrerequisiteSubjectVn() %>"/></td>
+            <td><input id="txtPrerequisiteSubjectVN" name="txtPrerequisiteSubjectVN" type="text" value="<%=subjectInfo.get(0).getPrerequisiteSubjectVn() %>" maxlength="255"/></td>
             <td><bean:message key="text.prerequisitesubjecten"/></td>
-            <td><input id="txtPrerequisiteSubject" name="txtPrerequisiteSubject" type="text" value="<%=subjectInfo.get(0).getProjectRequirementEn() %>"/></td>
+            <td><input id="txtPrerequisiteSubject" name="txtPrerequisiteSubject" type="text" value="<%=subjectInfo.get(0).getProjectRequirementEn() %>" maxlength="255"/></td>
         </tr>
         <tr>
             <td><bean:message key="text.timeteaching"/></td>
-            <td><input id="txtTimeTeaching" name="txtTimeTeaching" type="text" value="<%=subjectInfo.get(0).getTimeTeaching() %>"/></td>
+            <td><input id="txtTimeTeaching" name="txtTimeTeaching" type="text" value="<%=subjectInfo.get(0).getTimeTeaching() %>" maxlength="2"/></td>
             <td><bean:message key="text.teacher"/></td>
-            <td><input id="txtTeacherName" name="txtTeacherName" type="text" value="<%=subjectInfo.get(0).getTeacher() %>"/></td>
+            <td><input id="txtTeacherName" name="txtTeacherName" type="text" value="<%=subjectInfo.get(0).getTeacher() %>" maxlength="255"/></td>
         </tr>
         <tr>
             <td><bean:message key="text.level"/></td>
-            <td><input id="txtLevel" name="txtLevel" type="text" value="<%=subjectInfo.get(0).getLevel() %>"/></td>
+            <td><input id="txtLevel" name="txtLevel" type="text" value="<%=subjectInfo.get(0).getLevel() %>" maxlength="45"/></td>
             <td><bean:message key="text.numberchapter"/></td>
-            <td><input id="txtNumberChapter" name="txtNumberChapter" type="text" value="<%=subjectInfo.get(0).getNumberChapter() %>"/></td>
+            <td><input id="txtNumberChapter" name="txtNumberChapter" type="text" value="<%=subjectInfo.get(0).getNumberChapter() %>" maxlength="2"/></td>
         </tr>
     </table>
     
