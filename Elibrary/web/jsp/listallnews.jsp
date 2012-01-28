@@ -18,7 +18,7 @@
     for(int i=0;i<listNews.size();i++){
 %>
 <%  if(language==1){%>
-    <div class="bold"><a href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><%=listNews.get(i).getNewsTitleEn()%></a></div>
+<div class="bold"><a class="color" href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><%=listNews.get(i).getNewsTitleEn()%></a></div>
     <%String imageLink = "./image/news.jpg";
     if(listNews.get(i).getNewsImage()!=null) 
          imageLink = "./upload/"+listNews.get(i).getNewsImage().toString();%> 
@@ -29,7 +29,7 @@
     <div class="cleared"></div>
 <%}%>
 <%  if(language==2){%>
-    <div class="bold"><a href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><%=listNews.get(i).getNewsTitleVn()%></a></div>
+    <div class="bold"><a class="color" href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><%=listNews.get(i).getNewsTitleVn()%></a></div>
     <%String imageLink = "./image/news.jpg";
     if(listNews.get(i).getNewsImage()!=null) 
          imageLink = "./upload/"+listNews.get(i).getNewsImage().toString();%>                                                      

@@ -210,9 +210,9 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
         else
         {
             if(language==1)
-                response.getWriter().println("Updating");
+                response.getWriter().println("<div class=\"left\">Updating</div>");
             if(language==2)
-                response.getWriter().println("Đang cập nhật");
+                response.getWriter().println("<div class=\"left\">Đang cập nhật</div>");
         }
 
         return null;

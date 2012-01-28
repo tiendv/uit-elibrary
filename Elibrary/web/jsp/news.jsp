@@ -17,7 +17,7 @@
     if(listNews.size()>0){
 %>
 <%  if(language==1){%>
-    <div class="center"><h2><%=listNews.get(0).getNewsTitleEn()%></h2></div>
+    <div class="newstitle"><%=listNews.get(0).getNewsTitleEn()%></div>
     <%String imageLink = "./image/news.jpg";
     if(listNews.get(0).getNewsImage()!=null) 
          imageLink = "./upload/"+listNews.get(0).getNewsImage().toString();%>                                                      
@@ -25,7 +25,7 @@
     <div class="left"><%=listNews.get(0).getNewsContentEn()%></div>
 <%}%>
 <%  if(language==2){%>
-    <div class="center"><h2><%=listNews.get(0).getNewsTitleVn()%></h2></div>
+    <div class="newstitle"><%=listNews.get(0).getNewsTitleVn()%></div>
     <%String imageLink = "./image/news.jpg";
     if(listNews.get(0).getNewsImage()!=null) 
          imageLink = "./upload/"+listNews.get(0).getNewsImage().toString();%>                                                      

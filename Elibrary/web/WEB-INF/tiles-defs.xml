@@ -52,7 +52,7 @@
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
         <put name="footer" value="/jsp/footer.jsp" />
-        <put name="content"   value="/admin/createSubject.jsp" />
+        <put name="content"   value="/admin/createsubject.jsp" />
         <put name="leftmenu"   value="/admin/layout/leftmenu.jsp" />
     </definition>
     <definition name=".listOfNews" path="/jsp/mainpage.jsp">
@@ -61,7 +61,7 @@
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
         <put name="footer" value="/jsp/footer.jsp" />
-        <put name="content"   value="/admin/listOfNews.jsp" />
+        <put name="content"   value="/admin/listofnews.jsp" />
         <put name="leftmenu"   value="/admin/layout/leftmenu.jsp" />
     </definition>    
     <definition name=".createNews" path="/jsp/mainpage.jsp">
@@ -70,7 +70,7 @@
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
         <put name="footer" value="/jsp/footer.jsp" />
-        <put name="content"   value="/admin/createNews.jsp" />
+        <put name="content"   value="/admin/createnews.jsp" />
         <put name="leftmenu"   value="/admin/layout/leftmenu.jsp" />
     </definition>    
     <definition name=".LoadListOfSubject" path="/jsp/mainpage.jsp">
@@ -79,7 +79,7 @@
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
         <put name="footer" value="/jsp/footer.jsp" />
-        <put name="content"   value="/admin/listOfSubject.jsp" />
+        <put name="content"   value="/admin/listofsubject.jsp" />
         <put name="leftmenu"   value="/admin/layout/leftmenu.jsp" />
     </definition>
     <definition name=".createResource" path="/jsp/mainpage.jsp">
@@ -88,7 +88,7 @@
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
         <put name="footer" value="/jsp/footer.jsp" />
-        <put name="content"   value="/admin/createResource.jsp" />
+        <put name="content"   value="/admin/createresource.jsp" />
         <put name="leftmenu"   value="/admin/layout/leftmenu.jsp" />
     </definition>
     <definition name=".editResource" path="/jsp/mainpage.jsp">
@@ -97,7 +97,7 @@
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
         <put name="footer" value="/jsp/footer.jsp" />
-        <put name="content"   value="/admin/editResource.jsp" />
+        <put name="content"   value="/admin/editresource.jsp" />
         <put name="leftmenu"   value="/admin/layout/leftmenu.jsp" />
     </definition>
     <definition name=".editNews" path="/jsp/mainpage.jsp">
@@ -106,7 +106,7 @@
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
         <put name="footer" value="/jsp/footer.jsp" />
-        <put name="content"   value="/admin/editNews.jsp" />
+        <put name="content"   value="/admin/editnews.jsp" />
         <put name="leftmenu"   value="/admin/layout/leftmenu.jsp" />
     </definition>    
     <definition name=".editSubject" path="/jsp/mainpage.jsp">
@@ -115,7 +115,7 @@
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
         <put name="footer" value="/jsp/footer.jsp" />
-        <put name="content"   value="/admin/editSubject.jsp" />
+        <put name="content"   value="/admin/editsubject.jsp" />
         <put name="leftmenu"   value="/admin/layout/leftmenu.jsp" />
     </definition> 
     <definition name=".loadListOfResource" path="/jsp/mainpage.jsp">
@@ -124,7 +124,7 @@
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
         <put name="footer" value="/jsp/footer.jsp" />
-        <put name="content"   value="/admin/listOfResource.jsp" />
+        <put name="content"   value="/admin/listofresource.jsp" />
         <put name="leftmenu"   value="/admin/layout/leftmenu.jsp" />
     </definition>
      <definition name=".loadSubject" path="/jsp/mainpage.jsp">
