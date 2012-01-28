@@ -19,11 +19,11 @@
             <div class="fn_image">
             <script type="text/javascript" src="js/ja.js"></script>
             <script type="text/javascript">fadetime = 4000;</script>
-            <div id="ja_header_jsfade" style="position:relative;width:100%;height:195px;overflow:hidden;;z-index:1;">
-            <img src="image/IMG_01.jpg" alt="" title="" style="position: absolute; top: 0pt; left: 0pt; display: none; z-index: 1; opacity: -0.01;">
-            <img src="image/IMG_02.jpg" alt="" title="" style="position: absolute; top: 0pt; left: 0pt; display: none; z-index: 1; opacity: -0.01;">
-            <img src="image/IMG_03.jpg" alt="" title="" style="position: absolute; top: 0pt; left: 0pt; display: none; z-index: 1; opacity: -0.01;">
-            <img src="image/IMG_04.jpg" alt="" title="" style="position: absolute; top: 0pt; left: 0pt; display: none; z-index: 1; opacity: -0.01;">
+            <div id="ja_header_jsfade" class="ja_header_jsfade">
+            <img src="image/IMG_01.jpg" alt="" title="" class="advertising">
+            <img src="image/IMG_02.jpg" alt="" title="" class="advertising">
+            <img src="image/IMG_03.jpg" alt="" title="" class="advertising">
+            <img src="image/IMG_04.jpg" alt="" title="" class="advertising">
             </div>
             </div>
         </td>
@@ -57,17 +57,17 @@
                     <% for(int i=0;i<listNews.size();i++) {%>
                         <div class="glidecontent">
                             <% if(language==1) { %>
-                                <div class="boldcenter"><a href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><%=listNews.get(i).getNewsTitleEn()%></a></div>
+                            <div class="newstitle"><a style="color: #b8262b" href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><%=listNews.get(i).getNewsTitleEn()%></a></div>
                                 <%
                                 String imageLink = "./image/news.jpg";
                                 if(listNews.get(i).getNewsImage()!=null){ 
                                      imageLink = "./upload/"+listNews.get(i).getNewsImage().toString();%>                                                     
                                 <%}%>
-                                <div class="center"><a href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><img src="<%=imageLink%>" class="imagenews"/></a></div>
+                                <div><a href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><img src="<%=imageLink%>" class="imagenews"/></a></div>
                                 <div><%=listNews.get(i).getNewsHeadlineEn()%></div>
                             <%}%>
                             <% if(language==2) { %>
-                                <div class="boldcenter"><a href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><%=listNews.get(i).getNewsTitleVn()%></a></div>
+                                <div class="newstitle"><a style="color: #b8262b" href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><%=listNews.get(i).getNewsTitleVn()%></a></div>
                                 <%
                                 String imageLink = "./image/news.jpg";
                                 if(listNews.get(i).getNewsImage()!=null){ 
