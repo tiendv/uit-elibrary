@@ -114,9 +114,9 @@ public class LoadListSubjectOfCategoryAction extends org.apache.struts.action.Ac
                     else
                         response.getWriter().println("<td>");
                     if(language==1)
-                        response.getWriter().println("<input type=\"submit\" value=\"Edit\" onclick=\"editsubject("+listSubject.get(i).getSubjectId() +")\" />");
+                        response.getWriter().println("<input class=\"btn\" type=\"submit\" value=\"Edit\" onclick=\"editsubject("+listSubject.get(i).getSubjectId() +")\" />");
                     if(language==2)
-                        response.getWriter().println("<input type=\"submit\" value=\"Sửa\" onclick=\"editsubject("+listSubject.get(i).getSubjectId() +")\" />");
+                        response.getWriter().println("<input class=\"btn\" type=\"submit\" value=\"Sửa\" onclick=\"editsubject("+listSubject.get(i).getSubjectId() +")\" />");
                     response.getWriter().println("</td>");
                     response.getWriter().println("</tr>");
                     color++;

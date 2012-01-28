@@ -99,7 +99,7 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
                         response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listResource.get(i).getResourceId() +"\" />");
                         response.getWriter().println("</td>");
                         response.getWriter().println("<td>");
-                        response.getWriter().println("<input type=\"submit\" value=\"Edit\" onclick=\"editResource("+listResource.get(i).getResourceId() +")\" />");
+                        response.getWriter().println("<input class=\"btn\" type=\"submit\" value=\"Edit\" onclick=\"editResource("+listResource.get(i).getResourceId() +")\" />");
                         response.getWriter().println("</td>");                        
                         response.getWriter().println("</tr>");
                         color++;
@@ -123,14 +123,14 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
                         response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listResource.get(i).getResourceId() +"\" />");
                         response.getWriter().println("</td>");
                         response.getWriter().println("<td>");
-                        response.getWriter().println("<input type=\"submit\" value=\"Edit\" onclick=\"editResource("+listResource.get(i).getResourceId() +")\" />");
+                        response.getWriter().println("<input class=\"btn\" type=\"submit\" value=\"Edit\" onclick=\"editResource("+listResource.get(i).getResourceId() +")\" />");
                         response.getWriter().println("</td>");                        
                         response.getWriter().println("</tr>");
                         color++;
                     }                
                 }
                 response.getWriter().println("</table>"); 
-                response.getWriter().println("<div class=\"btndelete\" id=\"btnDelete\"><input type=\"submit\" value=\"Delete\" onclick=\"deleteResource()\"/></div>");
+                response.getWriter().println("<div class=\"divdelete\" id=\"divdelete\"><input class=\"btn\" type=\"submit\" value=\"Delete\" onclick=\"deleteResource()\"/></div>");
             }
             if(language==2)
             {
@@ -171,7 +171,7 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
                         response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listResource.get(i).getResourceId() +"\" />");
                         response.getWriter().println("</td>");
                         response.getWriter().println("<td>");
-                        response.getWriter().println("<input type=\"submit\" value=\"Sửa\" onclick=\"editResource("+listResource.get(i).getResourceId() +")\" />");
+                        response.getWriter().println("<input class=\"btn\" type=\"submit\" value=\"Sửa\" onclick=\"editResource("+listResource.get(i).getResourceId() +")\" />");
                         response.getWriter().println("</td>");                        
                         response.getWriter().println("</tr>");
                         color++;
@@ -195,14 +195,14 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
                         response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listResource.get(i).getResourceId() +"\" />");
                         response.getWriter().println("</td>"); 
                         response.getWriter().println("<td>");
-                        response.getWriter().println("<input type=\"submit\" value=\"Sửa\" onclick=\"editResource("+listResource.get(i).getResourceId() +")\" />");
+                        response.getWriter().println("<input class=\"btn\" type=\"submit\" value=\"Sửa\" onclick=\"editResource("+listResource.get(i).getResourceId() +")\" />");
                         response.getWriter().println("</td>");                        
                         response.getWriter().println("</tr>");
                         color++;
                     }
                 }
                 response.getWriter().println("</table>");
-                response.getWriter().println("<div class=\"btndelete\" id=\"btnDelete\"><input type=\"submit\" value=\"Xóa\" onclick=\"deleteResource()\"/></div>");
+                response.getWriter().println("<div class=\"divdelete\" id=\"divdelete\"><input class=\"btn\" type=\"submit\" value=\"Xóa\" onclick=\"deleteResource()\"/></div>");
             }
             response.getWriter().println("<input type=\"hidden\" id=\"listSize\" value=\""+listResource.size()+"\" />");
 
