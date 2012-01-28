@@ -763,9 +763,13 @@ div.resource_right
 {
     width: 10%;
 }
-.btndelete
+.divdelete
 {
     margin-left: 685px;
+}
+.btn
+{
+    width: 60px;
 }
 .left
 {

@@ -77,13 +77,13 @@ public class LoadNewsTableAction extends org.apache.struts.action.Action {
                     response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listNews.get(i).getNewsId()+"\" />");
                     response.getWriter().println("</td>");
                     response.getWriter().println("<td>");
-                    response.getWriter().println("<input type=\"submit\" value=\"Edit\" onclick=editNews(\""+listNews.get(i).getNewsId()+"\") />");
+                    response.getWriter().println("<input class=\"btn\" type=\"submit\" value=\"Edit\" onclick=editNews(\""+listNews.get(i).getNewsId()+"\") />");
                     response.getWriter().println("</td>");        
                     response.getWriter().println("</tr>");        
                     color++;
                 }
                 response.getWriter().println("</table>");
-                response.getWriter().println("<div class=\"btndelete\" id=\"btnDelete\"><input type=\"submit\" value=\"Delete\" onclick=\"deleteResource()\"/></div>");               
+                response.getWriter().println("<div class=\"divdelete\" id=\"divdelete\"><input class=\"btn\" type=\"submit\" value=\"Delete\" onclick=\"deleteResource()\"/></div>");               
             }
             if(language==2){
                 response.getWriter().println("<table class=\"resource_table\">");
@@ -116,13 +116,13 @@ public class LoadNewsTableAction extends org.apache.struts.action.Action {
                     response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listNews.get(i).getNewsId()+"\" />");
                     response.getWriter().println("</td>");
                     response.getWriter().println("<td>");
-                    response.getWriter().println("<input type=\"submit\" value=\"Edit\" onclick=editNews(\""+listNews.get(i).getNewsId()+"\") />");
+                    response.getWriter().println("<input class=\"btn\" type=\"submit\" value=\"Edit\" onclick=editNews(\""+listNews.get(i).getNewsId()+"\") />");
                     response.getWriter().println("</td>");        
                     response.getWriter().println("</tr>");        
                     color++;
                 }
                 response.getWriter().println("</table>");
-                response.getWriter().println("<div class=\"btndelete\" id=\"btnDelete\"><input type=\"submit\" value=\"Delete\" onclick=\"deleteResource()\"/></div>");
+                response.getWriter().println("<div class=\"divdelete\" id=\"divdelete\"><input class=\"btn\" type=\"submit\" value=\"Xóa\" onclick=\"deleteResource()\"/></div>");
             }
             response.getWriter().println("<input type=\"hidden\" id=\"listSize\" value=\""+listNews.size()+"\" />");
         }

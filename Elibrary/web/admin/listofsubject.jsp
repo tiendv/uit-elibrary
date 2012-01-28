@@ -1,5 +1,5 @@
 <%--
-    Document   : listOfSubject
+    Document   : listofsubject
     Created on : Dec 14, 2011, 7:40:22 PM
     Author     : HERO
 --%>
@@ -54,7 +54,7 @@
         </div>
         <!--End load dropdownlist Subjectcategory + Faculty -->
         <div id="divResult"></div>
-        <div id="divspace" class="btndelete"><input type="submit" value="<bean:message key="text.delete"/>" name="btnDelete" onclick="deletesubject()"/></div>
+        <div id="divspace" class="divdelete"><input class="btn" type="submit" value="<bean:message key="text.delete"/>" name="divdelete" onclick="deletesubject()"/></div>
         
         <script type="text/javascript">
                 var idCategory=0;
