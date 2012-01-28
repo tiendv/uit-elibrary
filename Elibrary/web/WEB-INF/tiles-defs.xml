@@ -163,13 +163,13 @@
         <put name="content"   value="/jsp/base.jsp" />
         <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
     </definition>
-     <definition name=".loadNews" path="/jsp/mainpage.jsp">
-        <put name="title"  value=" News" />
-        <put name="description"  value="News" />
+     <definition name=".loadFaculty" path="/jsp/mainpage.jsp">
+        <put name="title"  value=" Faculty" />
+        <put name="description"  value="Faculty" />
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
         <put name="footer" value="/jsp/footer.jsp" />
-        <put name="content"   value="/jsp/news.jsp" />
+        <put name="content"   value="/jsp/faculty.jsp" />
         <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
     </definition>
      <definition name=".loadNews" path="/jsp/mainpage.jsp">
@@ -182,8 +182,8 @@
         <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
     </definition>      
      <definition name=".listAllNews" path="/jsp/mainpage.jsp">
-        <put name="title"  value=" Faculty" />
-        <put name="description"  value="Faculty" />
+        <put name="title"  value=" News" />
+        <put name="description"  value="News" />
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
         <put name="footer" value="/jsp/footer.jsp" />
