@@ -35,6 +35,9 @@
         <action path="/LoadListOfSubject" name="LoadCreateSubjectForm" type="uit.elib.action.LoadListOfSubjectAction" scope="session">
             <forward name="success" path=".LoadListOfSubject"/>
         </action>
+        <action path="/LoadListOfGroup" type="uit.elib.action.LoadListOfGroupAction" scope="session">
+            <forward name="success" path=".LoadListOfGroup"/>
+        </action>
         <action path="/LoadListSubjectOfCategory" type="uit.elib.action.LoadListSubjectOfCategoryAction"  scope="session"/>
         <action path="/LoadBase" type="uit.elib.action.LoadBaseAction" scope="session">           
             <forward name="success" path=".loadBase"/>
@@ -113,7 +116,8 @@
         </action>
         <action path="/LoadAllNews" type="uit.elib.action.LoadAllNewsAction">
             <forward name="success" path=".listAllNews"/>
-        </action>            
+        </action>
+        <action path="/DeleteGroup" type="uit.elib.action.DeleteGroupAction"/>
         <action path="/DeleteNews" type="uit.elib.action.DeleteNewsAction"/>
         <action path="/LoadListOfNews" forward =".listOfNews"/>
         <action path="/LoadNewsTable" type="uit.elib.action.LoadNewsTableAction"/>
