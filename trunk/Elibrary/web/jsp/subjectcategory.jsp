@@ -305,15 +305,14 @@
             <%}%>
             </a> > <bean:message key ="text.project"/></div>
         
-            <div class="hyperlink_title_subject"><a class="title_h1"><bean:message key="text.projectrequirementtitle"/>:</a></div>
+            <div class="hyperlink_title_subject"><h2><bean:message key="text.projectrequirementtitle"/>:</h2></div>
         <% if(language==1){%>
             <div class="hyperlink_title_subject"><%=subject.getProjectRequirementEn()%></div>
         <%}%>
         <% if(language==2){%>
             <div class="hyperlink_title_subject"><%=subject.getProjectRequirementVn()%></div> 
         <%}%>
-        
-        <div class="hyperlink_title_subject"><a class="title_h1"><bean:message key="text.listtemplateproject"/></a></div>
+        <div class="hyperlink_title_subject"><br><h2><bean:message key="text.listtemplateproject"/></h2></div>
         <table class="resource_table" >
             <tr class="color_title_table">
                 <td width="12%"><bean:message key="text.orderchapter"/> </td>
