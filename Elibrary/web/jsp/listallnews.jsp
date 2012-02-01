@@ -39,4 +39,32 @@
          </div>
          <div class="cleared"></div>    
 <%}}}%>
+
+
+
+<div class="box">
+    <div class="font1">Các bài mới</div>
+    <ul class="ul12 ml2 mt2 mb2">
+    <%List<News> listNewNews = (List<News>)request.getAttribute("listNewNews");%>
+    <%for(int i=0;i<listNewNews.size();i++){%>
+        <%  if(language==1){%>
+        <div class="boxcol">
+            <li>
+                <div class="boxcol1"><a class="color" href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><%=listNews.get(i).getNewsTitleEn()%></a></div> 
+                <div class="boxcol2"><img src="image/new-icon.gif" class="image_newicon" alt="new-icon"/></div> <!-- new icon  -->
+            </li>
+        </div>
+        <%}%>
+        <%  if(language==2){%>
+        <div class="boxcol">
+            <li>
+                <div class="boxcol1"><a class="color" href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><%=listNews.get(i).getNewsTitleVn()%></a></div>
+                <div class="boxcol2"><img src="image/new-icon.gif" class="image_newicon" alt="new-icon"/></div> <!-- new icon  -->
+            </li>
+        </div>   
+        <%}%>
+        <div class="cleared"></div>
+    <%}%>    
+    </ul>
+</div>
     

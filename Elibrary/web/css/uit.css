@@ -845,3 +845,34 @@ div.resource_right
     z-index: 1; 
     opacity: -0.01;
 }
+.box
+{
+    background: url("../image/sprite.gif") repeat-x scroll 0 0 transparent;
+    background-position: 0 -2000px;
+    background-repeat: repeat-x; 
+    background: url("../image/cont-news-bg.png") repeat-x scroll 0 0 #FFFFFF;    
+    margin-top: 30px;
+    margin-left: 3px;
+    display: block;
+    width: 755px;
+}
+.boxcol
+{
+    width: 755px;
+}
+.boxcol1
+{
+    width: 680px;
+    float: left;
+}
+.boxcol2
+{
+    width: 20px;
+    float: left;
+}
+.font1
+{
+    color: #004175;
+    font: 700 15px/30px Arial;
+    text-indent: 10px;
+}
