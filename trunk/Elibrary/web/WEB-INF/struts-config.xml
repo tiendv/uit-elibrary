@@ -7,6 +7,7 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="GroupForm" type="uit.elib.formbean.GroupForm"/>
         <form-bean name="LoadCreateUserForm" type="uit.elib.formbean.LoadCreateUserForm"/>
         <form-bean name="CreateUserForm" type="uit.elib.formbean.CreateUserForm"/>
         <form-bean name="EditNewsForm" type="uit.elib.formbean.EditNewsForm"/>
@@ -70,7 +71,10 @@
         </action>
         <action path="/CreateResource" name="CreateResourceForm" type="uit.elib.action.CreateResourceAction" scope="session">
             <forward name="success" path="/jsp/success.jsp"/>
-        </action>           
+        </action>
+        <action name="GroupForm" path="/CreateGroup" scope="session" type="uit.elib.action.CreateGroupAction">
+            <forward name="success" path="/jsp/success.jsp"/>
+        </action>
         <action path="/LoadCreateSubject" name="LoadCreateSubjectForm" type="uit.elib.action.LoadCreateSubjectAction" scope="session">
             <forward name="success" path=".createSubject"/>
         </action>
@@ -137,6 +141,7 @@
         <action path="/LoadChapter" type="uit.elib.action.LoadChapterAction" scope="session"/>  
         <action path="/Admin" forward=".adminPage"  scope="session"/>
         <action path="/LoadCreateNews" forward=".createNews"  scope="session"/>
+        <action path="/LoadCreateGroup" forward=".createGroup"  scope="session"/>
         <action path="/Locale" type="uit.elib.action.languageSelectAction" parameter="method" validate="false"  scope="session"/>
     </action-mappings>
     
