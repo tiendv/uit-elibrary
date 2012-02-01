@@ -50,13 +50,15 @@
     </div>                    
 </div>
 <div class="cleared"></div>        
-<%-- Resource Name --%>           
-<div  id="divResourceName" class="resource1" >
-     <div class="resource_left"><bean:message key="text.resourcenameen" /></div>
-     <div class="resource_left"><input class="textbox" id="txtResourceNameEN" name="txtResourceNameEN" type="text" maxlength="255"/></div>
-     <div class="resource_left"><bean:message key="text.resourcenamevn"/></div>
-     <div class="resource_left"><input class="textbox" id="txtResourceNameVN" name="txtResourceNameVN" type="text" maxlength="255"/></div>
-</div>
+<%-- Resource Name --%>
+<div id="divResourceName" class="none">   
+    <div class="resource1" >
+         <div class="resource_left"><bean:message key="text.resourcenameen" /></div>
+         <div class="resource_left"><input class="textbox" id="txtResourceNameEN" name="txtResourceNameEN" type="text" maxlength="255"/></div>
+         <div class="resource_left"><bean:message key="text.resourcenamevn"/></div>
+         <div class="resource_left"><input class="textbox" id="txtResourceNameVN" name="txtResourceNameVN" type="text" maxlength="255"/></div>
+    </div>
+</div>     
 <div class="cleared"></div>           
 <%-- Add resource with resource category is thesis (ID =2) --%>
 <div  id="divThesis" class="none">
