@@ -43,57 +43,6 @@ public class LoadListOfSubjectAction extends org.apache.struts.action.Action{
             LoadCreateSubjectForm listOfsubjectFormBean = (LoadCreateSubjectForm) form;
             listOfsubjectFormBean.setListDropSubjectCategory(subjectCategoryBO);
             listOfsubjectFormBean.setListDropFaculty(facultyBO);
-//        // Get infor category
-//        Subjectcategory tempCategory;
-//        tempCategory = SubjectCategoryBO.getSubjectCategoryBO().getById(subjectFormBean.getDropSubjectCategory(), true);
-//        
-//        // Get infor faculty
-//        Faculty tempFaculty=null;
-//        if(subjectFormBean.getDropSubjectCategory()!=1)
-//            tempFaculty = FacultyBO.getFacultyBO().getById(subjectFormBean.getDropFaculty(), true);
-//                
-//        SubjectBO subjectBO = SubjectBO.getSubjectBO();
-//        Subject temp = new Subject(); 
-//        
-//        temp.setSubjectNameEn(subjectFormBean.getTxtSubjectNameUS());
-//        temp.setSubjectNameVn(subjectFormBean.getTxtSubjectName());
-//        temp.setSubjectcategory(tempCategory);
-//        temp.setCourseCode(subjectFormBean.getTxtSubjectCode());
-//        temp.setPeriodOfTheory(Integer.parseInt(subjectFormBean.getTxtPeriodOfTheory()));
-//        temp.setPeriodOfPractice(Integer.parseInt(subjectFormBean.getTxtPeriodOfPractice()));
-//        temp.setMidtermGrade(Integer.parseInt(subjectFormBean.getTxtMidtermGrade()));
-//        temp.setFinalGrade(Integer.parseInt(subjectFormBean.getTxtFinalGrade()));
-//        temp.setPrerequisiteSubjectVn(subjectFormBean.getTxtPrerequisiteSubjectVN());
-//        temp.setPrerequisiteSubjectEn(subjectFormBean.getTxtPrerequisiteSubject());
-//        temp.setTimeTeaching(String.valueOf(subjectFormBean.getTxtTimeTeaching()));
-//        temp.setTeacher(subjectFormBean.getTxtTeacherName());
-//        temp.setLevel(subjectFormBean.getTxtLevel());
-//        temp.setFaculty(tempFaculty);
-//        temp.setSubjectIntroduceVn(subjectFormBean.getFckintroductionVN());
-//        temp.setSubjectIntroduceEn(subjectFormBean.getFckintroductionUS());
-//        temp.setProjectRequirementVn(subjectFormBean.getFckProjectRequitementVN());
-//        temp.setProjectRequirementEn(subjectFormBean.getFckProjectRequitementUS());
-//        temp.setNumberChapter(Integer.parseInt(subjectFormBean.getTxtNumberChapter()));
-//        temp.setNumberOfCredit(Integer.parseInt(subjectFormBean.getTxtCreditNumber()));
-//        subjectBO.addNew(temp);
-//        //reset form
-//        subjectFormBean.setTxtSubjectNameUS("");
-//        subjectFormBean.setTxtSubjectName("");
-//        subjectFormBean.setDropSubjectCategory(0);
-//        subjectFormBean.setDropFaculty(-1);
-//        subjectFormBean.setTxtCreditNumber("");
-//        subjectFormBean.setTxtSubjectCode("");
-//        subjectFormBean.setTxtPeriodOfTheory("");
-//        subjectFormBean.setTxtPeriodOfPractice("");
-//        subjectFormBean.setTxtMidtermGrade("");
-//        subjectFormBean.setTxtFinalGrade("");
-//        subjectFormBean.setTxtPrerequisiteSubject("");
-//        subjectFormBean.setTxtPrerequisiteSubjectVN("");
-//        subjectFormBean.setTxtTimeTeaching("");
-//        subjectFormBean.setTxtTeacherName("");
-//        subjectFormBean.setTxtLevel("");
-//        subjectFormBean.setTxtNumberChapter("");
-        
         return mapping.findForward(SUCCESS);
     }
 }

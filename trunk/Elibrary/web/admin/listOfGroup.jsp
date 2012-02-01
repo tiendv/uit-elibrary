@@ -4,6 +4,7 @@
     Author     : HERO
 --%>
 <%@page import="java.util.List"%>
+<%@page import="javax.mail.FetchProfile.Item"%>
 <%@page import="org.apache.struts.Globals"%>
 <%@page import="uit.elib.dto.Group" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -21,9 +22,9 @@
     List<Group> listGroup = (List <Group>)request.getAttribute("listGroup");
     int color=1;
 %>
-<input type="hidden" id="listSize" value="<%=listGroup.size()%>"
+<input type="hidden" id="listSize" value="<%=listGroup.size()%>"/>
+<input style="margin-left: 15px" class="btn" type="submit" value="<bean:message key="text.buttoncreate"/>" onclick="creategroup()"/>
 <table class="resource_table">
-    <tr><br><br></tr>
     <tr class=color_title_table>
         <td class="td1">
             <bean:message key="text.ordernumber"/>
@@ -63,7 +64,7 @@
         <%} else{%>
             <td>
         <%}%>
-        <input type="checkbox" id="<%=i%>" value="<%=listGroup.get(0).getGroupId()%>"/>
+        <input type="checkbox" id="<%=i%>" value="<%=listGroup.get(i).getGroupId()%>"/>
             </td>
         <%if(color%2==0) {%>
             <td class="color_table2">
@@ -76,23 +77,30 @@
     <%color++; %>
     <%}%>
 </table>
-    <input style="margin-left: 90%;" type="submit" value="<bean:message key="text.delete"/>" onclick="deletegroup()"/>
+    <div class="divdelete"> <input class="btn" type="submit" value="<bean:message key="text.delete"/>" name="divdelete" onclick="deletegroup()"/></div>
 <script type="text/javascript">
+
 function deletegroup()
+            {
+                var listSize=document.getElementById("listSize").value;
+                var groupsID = "";
+                for(var i = 0; i<listSize;i++)
+                    {
+                        if((document.getElementById(i).checked== true))
+                            {
+                            groupsID= groupsID + document.getElementById(i).value+",";
+                        }
+                    }
+                    $.ajax({
+                        type: "POST",
+                        url: "DeleteGroup.do",
+                        data: "groupsID="+groupsID
+                    }).done(function(msg){
+                        window.location = "LoadListOfGroup.do";
+                    })
+             }
+function creategroup()
 {
-    var listSize = listSize.toString();
-    var groupsID = "";
-    for (i = 0; i < listSize; i++) 
-    {
-        if(document.getElementById(i).check())
-            groupsID+= document.getElementById(i).value + ",";
-    }
-    $.ajax({
-        type: "POST",
-        url: "DeleteGroup.do",
-        data: "groupsID="+groupsID
-    }).done(function(msg){
-        window.location = "LoadListOfGroup.do";
-    })
+    window.location ="LoadCreateGroup.do";
 }
 </script>
