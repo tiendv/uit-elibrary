@@ -18,6 +18,7 @@ import uit.elib.dto.Group;
 import uit.elib.dto.Level;
 import uit.elib.dto.User;
 import uit.elib.formbean.CreateUserForm;
+import uit.elib.utility.SHA512;
 
 /**
  *
@@ -51,7 +52,9 @@ public class CreateUserAction extends org.apache.struts.action.Action {
         user.setStatus(createUserForm.getDropStatus());
         user.setUserName(createUserForm.getTxtUserName());
         user.setLoginName(createUserForm.getTxtLoginName());
-        user.setPassWord(createUserForm.getTxtPassword());
+        SHA512 sha512 = new SHA512();
+        String password = sha512.SHA512(createUserForm.getTxtPassword());
+        user.setPassWord(password);
         level.setLevelId(createUserForm.getDropLevel());
         user.setLevel(level);
         group.setGroupId(createUserForm.getDropGroup());

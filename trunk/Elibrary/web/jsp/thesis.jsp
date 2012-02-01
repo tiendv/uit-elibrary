@@ -80,8 +80,8 @@
                 </table>
                 <table class="table_chapter" >
                     <tr class="color_title_table">
-                        <td class="td_chapter_1"><bean:message key="text.orderchapter"/></td>
-                        <td class="td_chapter_2"><bean:message key="text.chaptertitle"/></td>
+                        <td class="td_chapter_1"><bean:message key="text.ordernumber"/></td>
+                        <td class="td_chapter_2"><bean:message key="text.thesisname"/></td>
                         <td class="td_chapter_3"></td>                
                         <td class="td_chapter_4"></td>                
                     </tr>
@@ -109,7 +109,7 @@
                    <tr>    
                         <td <% if(color%2==0){ %>class="td_chapter_1_content_even"<%}%> 
                             <% if(color%2!=0){ %>class="td_chapter_1_content_odd"<%}%> >
-                            <%=number++%> 
+                            <%=++number%> 
                         </td>  
                         <% if(language==1) {%>                              
                             <td <% if(color%2==0){ %>class="td_chapter_2_content_even"<%}%> 
