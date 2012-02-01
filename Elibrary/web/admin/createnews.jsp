@@ -18,15 +18,15 @@
             <div class="cleared"></div>               
             <div class="resource1">
                 <div class="resource_left"><bean:message key="text.titleen"/></div>
-                <div class="resource_left"><html:text property="txtTitleEN" styleClass="textbox" maxlength="100"/></div>
+                <div class="resource_left"><html:text property="txtTitleEN" styleClass="textbox" maxlength="100" value=""/></div>
                 <div class="resource_left"><bean:message key="text.titlevn"/></div>
-                <div class="resource_left"><html:text property="txtTitleVN" styleClass="textbox" maxlength="100"/></div>                                 
+                <div class="resource_left"><html:text property="txtTitleVN" styleClass="textbox" maxlength="100" value=""/></div>                                 
             </div>                          
             <div class="cleared"></div>         
             <div class="resource1"><bean:message key="text.headlineen"/></div>
-            <div class="resource1"><html:textarea property="txtHeadlineEN" styleClass="textarea"/></div>
+            <div class="resource1"><html:textarea property="txtHeadlineEN" styleClass="textarea" value=""/></div>
             <div class="resource1"><bean:message key="text.headlinevn"/></div>
-            <div class="resource1"><html:textarea property="txtHeadlineVN" styleClass="textarea"/></div>              
+            <div class="resource1"><html:textarea property="txtHeadlineVN" styleClass="textarea" value=""/></div>              
             <h2><bean:message key="text.contenten"/></h2>
             <FCK:editor  instanceName="fckContentEN" height="300px">
                 <jsp:attribute name="value">

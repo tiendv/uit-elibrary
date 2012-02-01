@@ -412,7 +412,6 @@
                    depends=""
                    msg=""
                    jsFunction="org.apache.commons.validator.javascript.validateUtilities"/>
-
     </global>
 
 </form-validation>

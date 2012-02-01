@@ -37,7 +37,7 @@
             </a>
         > <bean:message key="text.syllabus"/></div>
         <div class="syllabus_col"><b><bean:message key="text.timeteaching"/> : </b>
-            <%if(Integer.parseInt(subject.getTimeTeaching())==0){%>
+            <%if(subject.getTimeTeaching()==0){%>
                 <bean:message key="text.updating"/>
             <%}else{%>
                 <%=subject.getTimeTeaching() %> <bean:message key="text.weeks"/>

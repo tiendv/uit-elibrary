@@ -61,6 +61,10 @@ public class GroupBO extends ManagerBase<Group> {
      }
      public void UpdateGroup(Group g) throws Exception
      {
-         update(g);
+        try {
+             update(g);
+        } catch (Exception ex) {
+            Logger.getLogger(GroupBO.class.getName()).log(Level.SEVERE, null, ex);
+        } 
      }
 }
