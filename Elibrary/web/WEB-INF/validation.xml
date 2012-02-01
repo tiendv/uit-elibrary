@@ -398,6 +398,18 @@
                 </var>                 
             </field>             
         </form>
+        <form name="GroupForm">
+            <field 
+                property="txtGroupNameVN"
+                depends="required">
+                <arg key="text.groupnamevn"/>
+            </field>
+            <field 
+                property="txtGroupNameEN"
+                depends="required">
+                <arg key="text.groupnameen"/>
+            </field>
+        </form>
         <form name="CreateUserForm">
             <field 
                 property="txtUserName"
