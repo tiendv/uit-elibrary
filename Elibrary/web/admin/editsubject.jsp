@@ -23,7 +23,6 @@
 <%@page import="uit.elib.dto.Subjectcategory" %>
 <%@page import="uit.elib.bo.SubjectBO" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<div style="overflow: hidden;">
     <html:form  method="post" action="EditSubject" onsubmit="return validateEditSubjectForm(this)">
     <h1> <bean:message key="text.editsubject"/> </h1>    
      
@@ -39,7 +38,7 @@
         <input id="hiddenFacultyID" name="hiddenFacultyID" type="hidden" value= "<%=request.getAttribute("hiddenFacultyID").toString()%>"  />
         
         <input type="hidden" name="txtSubjectID" value="<%=subjectInfo.get(0).getSubjectId()%>" />
-        <table width="100%">    
+        <table class="table1">    
         <tr>
 
             <td><bean:message key="text.subjectnamevn"/></td>
@@ -118,7 +117,7 @@
     <hr>
     <h2><bean:message key="text.subjectintroductionvn"/></h2>
    
-        <FCK:editor  instanceName="fckIntroductionVN" height="300px">
+        <FCK:editor  instanceName="fckIntroductionVN" height="300px" width="757px">
             <jsp:attribute name="value">
                 <%=subjectInfo.get(0).getSubjectIntroduceVn() %>
             </jsp:attribute>
@@ -126,21 +125,21 @@
     <hr>
     
     <h2><bean:message key="text.subjectintroductionen"/></h2>
-    <FCK:editor instanceName="fckIntroductionEN" height="300px">
+    <FCK:editor instanceName="fckIntroductionEN" height="300px" width="757px">
         <jsp:attribute name="value">
             <%=subjectInfo.get(0).getSubjectIntroduceEn() %>
         </jsp:attribute>
     </FCK:editor>
     <hr>
     <h2><bean:message key="text.projectrequirementvn"/></h2>
-        <FCK:editor  instanceName="fckProjectRequitementVN" height="300px">
+        <FCK:editor  instanceName="fckProjectRequitementVN" height="300px" width="757px">
             <jsp:attribute name="value">
                 <%=subjectInfo.get(0).getProjectRequirementVn() %>
             </jsp:attribute>
         </FCK:editor>
     <hr>
     <h2><bean:message key="text.projectrequirementen"/></h2>
-        <FCK:editor  instanceName="fckProjectRequitementEN" height="300px">
+        <FCK:editor  instanceName="fckProjectRequitementEN" height="300px" width="757px">
             <jsp:attribute name="value">
                 <%=subjectInfo.get(0).getProjectRequirementEn() %>
             </jsp:attribute>
@@ -151,7 +150,6 @@
     </div>
     <html:javascript formName="EditSubjectForm"/>
     </html:form>
-</div>
 <script type="text/javascript">
   
     function init()

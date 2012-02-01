@@ -67,8 +67,8 @@
                                 if(listNews.get(i).getNewsImage()!=null){ 
                                      imageLink = "./upload/"+listNews.get(i).getNewsImage().toString();%>                                                     
                                 <%}%>
-                                <div class="center"><a href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><img src="<%=imageLink%>" class="imagenews"/></a></div>
-                                <div><%=listNews.get(i).getNewsHeadlineEn()%></div>
+                                <div class="newscontent"><a href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><img src="<%=imageLink%>" class="imagenews"/></a></div>
+                                <div class="newsheadline"><%=listNews.get(i).getNewsHeadlineEn()%></div>
                             <%}%>
                             <% if(language==2) { %>
                                 <div class="newstitle"><a style="color: #b8262b" href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><%=listNews.get(i).getNewsTitleVn()%></a></div>
@@ -77,8 +77,8 @@
                                 if(listNews.get(i).getNewsImage()!=null){ 
                                      imageLink = "./upload/"+listNews.get(i).getNewsImage().toString();%>                                                     
                                 <%}%>
-                                <div class="center"><a href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><img src="<%=imageLink%>" class="imagenews"/></a></div>
-                                <div><%=listNews.get(i).getNewsHeadlineVn()%></div>
+                                <div class="newscontent"><a href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><img src="<%=imageLink%>" class="imagenews"/></a></div>
+                                <div class="newsheadline"><%=listNews.get(i).getNewsHeadlineVn()%></div>
                             <%}%>                        
                         </div>
                     <%}%>

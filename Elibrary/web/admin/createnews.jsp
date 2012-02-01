@@ -13,7 +13,7 @@
         <html:form method="post" action="CreateNews" enctype="multipart/form-data" onsubmit="return validateCreateNewsForm(this)">
             <div class="resource1">
                 <div class="resource_left"><bean:message key="text.imagegallery"/></div>
-                <div class="resource_left"><html:file property="fileImage" size="24"/></div>                                
+                <div class="resource_left"><html:file property="fileImage" size="27"/></div>                                
             </div>
             <div class="cleared"></div>               
             <div class="resource1">
@@ -28,13 +28,13 @@
             <div class="resource1"><bean:message key="text.headlinevn"/></div>
             <div class="resource1"><html:textarea property="txtHeadlineVN" styleClass="textarea" value=""/></div>              
             <h2><bean:message key="text.contenten"/></h2>
-            <FCK:editor  instanceName="fckContentEN" height="300px">
+            <FCK:editor  instanceName="fckContentEN" height="300px" width="757px">
                 <jsp:attribute name="value">
                 </jsp:attribute>
             </FCK:editor>
             <hr/>
             <h2><bean:message key="text.contentvn"/></h2>
-            <FCK:editor  instanceName="fckContentVN" height="300px">
+            <FCK:editor  instanceName="fckContentVN" height="300px" width="757px">
                 <jsp:attribute name="value">
                 </jsp:attribute>
             </FCK:editor>
