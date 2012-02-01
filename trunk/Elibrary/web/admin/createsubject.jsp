@@ -21,8 +21,6 @@
 <%@page import="java.util.List" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
-
-<div style="overflow: hidden; min-height: 600px;">
     <html:form  method="post" action="CreateSubject" onsubmit="return validateCreateSubjectForm(this)">
     <h1> <bean:message key="text.newsubject"/> </h1>
     <table class="table1">
@@ -106,25 +104,25 @@
     </table>   
     <hr>
     <h2><bean:message key="text.subjectintroductionvn"/></h2>
-        <FCK:editor instanceName="fckIntroductionVN" height="300px">
+        <FCK:editor instanceName="fckIntroductionVN" height="300px" width="757px">
             <jsp:attribute name="value">
             </jsp:attribute>
         </FCK:editor>
     <hr>
     <h2><bean:message key="text.subjectintroductionen"/></h2>
-        <FCK:editor instanceName="fckIntroductionEN" height="300px">
+        <FCK:editor instanceName="fckIntroductionEN" height="300px" width="757px">
             <jsp:attribute name="value">
             </jsp:attribute>
         </FCK:editor>
     <hr>
     <h2><bean:message key="text.projectrequirementvn"/></h2>
-        <FCK:editor instanceName="fckProjectRequitementVN" height="300px">
+        <FCK:editor instanceName="fckProjectRequitementVN" height="300px" width="757px">
             <jsp:attribute name="value">
             </jsp:attribute>
         </FCK:editor>
     <hr>
     <h2><bean:message key="text.projectrequirementen"/></h2>
-        <FCK:editor instanceName="fckProjectRequitementEN" height="300px">
+        <FCK:editor instanceName="fckProjectRequitementEN" height="300px" width="757px">
             <jsp:attribute name="value">
             </jsp:attribute>
         </FCK:editor>
@@ -134,7 +132,6 @@
     </div>
     <html:javascript formName="CreateSubjectForm"/>
     </html:form>
-</div>
 <script type="text/javascript">
     function init()
     {

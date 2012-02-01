@@ -20,269 +20,269 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
  <link href="<html:rewrite page='/css/uit.css'/>" rel="stylesheet" type="text/css" />
 
- <div class="resource">
-     <form id="createResource" method="post" action="CreateResource.do"  enctype="multipart/form-data">
-        <%
-            List listResourceCategory = (List)request.getAttribute("listResourceCategory");
-            List listSubject = (List)request.getAttribute("listSubject");
-            List listFaculty = (List)request.getAttribute("listFaculty");
-            List listLevel = (List)request.getAttribute("listLevel");                            
-            int language =1; // English
-            if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
-                language = 2; // VietNamese
-        %>
-        <h2> <bean:message key="text.insertnewresource"/></h2>
-        <div class="resource2" >
-            <div class="resource_left"><bean:message key="text.typeofresource"/></div>
-            <div class="resource_left">
-                <select class="combobox" id="dropResourceCategory" name="dropResourceCategory" onchange="changeResourceCategory()">
-                    <%if(language==1) {%>
-                        <c:forEach items="${listResourceCategory}" var="item">
-                            <option value="${item.resourceCategoryId}">${item.resourceCategoryNameEn}</option>
-                        </c:forEach>
-                    <%}%>
-                    <%if(language==2) {%>
-                        <c:forEach items="${listResourceCategory}" var="item">
-                            <option value="${item.resourceCategoryId}">${item.resourceCategoryNameVn}</option>
-                        </c:forEach>
-                    <%}%>
-                </select>
-            </div>                    
-        </div>
-        <div class="cleared"></div>        
-        <%-- Resource Name --%>           
-        <div  id="divResourceName" class="resource1" >
-             <div class="resource_left"><bean:message key="text.resourcenameen" /></div>
-             <div class="resource_left"><input class="textbox" id="txtResourceNameEN" name="txtResourceNameEN" type="text" maxlength="255"/></div>
-             <div class="resource_left"><bean:message key="text.resourcenamevn"/></div>
-             <div class="resource_left"><input class="textbox" id="txtResourceNameVN" name="txtResourceNameVN" type="text" maxlength="255"/></div>
-        </div>
-        <div class="cleared"></div>           
-        <%-- Add resource with resource category is thesis (ID =2) --%>
-        <div  id="divThesis" class="none">
-            <div class="resource1">
-                <div class="resource_left"><bean:message key="text.level"/></div>
-                <div class="resource_left">
-                    <select class="combobox" id="dropLevel" name="dropLevel" >
-                        <%if(language==1) {%>
-                            <c:forEach items="${listLevel}" var="item">
-                                <option value="${item.levelId}">${item.levelNameEn}</option>
-                            </c:forEach>
-                        <%}%>
-                        <%if(language==2) {%>
-                            <c:forEach items="${listLevel}" var="item">
-                                <option value="${item.levelId}">${item.levelNameVn}</option>
-                            </c:forEach>
-                        <%}%>
-                    </select>
-                </div>
-                <div class="resource_left"><bean:message key="text.faculty"/></div>
-                <div class="resource_left">
-                    <select class="combobox" id="dropFaculty" name="dropFaculty" >
-                        <%if(language==1) {%>
-                            <c:forEach items="${listFaculty}" var="item">
-                                <option value="${item.facultyId}">${item.facultyNameEn}</option>
-                            </c:forEach>
-                        <%}%>
-                        <%if(language==2) {%>
-                            <c:forEach items="${listFaculty}" var="item">
-                                <option value="${item.facultyId}">${item.facultyNameVn}</option>
-                            </c:forEach>
-                        <%}%>
-                    </select>
-                </div>
-            </div>
-            <div class="cleared"></div>              
-            <div class="resource1">
-                <div class="resource_left"><bean:message key="text.author"/></div>
-                <div class="resource_left"><input class="textbox" id="txtThesisAuthor" name="txtThesisAuthor" type="text"  maxlength="255"/></div>
-                <div class="resource_left"><bean:message key="text.teacher"/></div>
-                <div class="resource_left"><input class="textbox" id="txtTeacher" name="txtTeacher" type="text"  maxlength="255"/></div>                    
-            </div>
-            <div class="cleared"></div>     
-            <div class="resource1">
-                <div class="resource_left"><bean:message key="text.class"/></div>
-                <div class="resource_left"><input class="textbox" id="txtClass" name="txtClass" type="text" maxlength="45"/></div>
-                <div class="resource_left"><bean:message key="text.school"/></div>
-                <div class="resource_left"><input class="textbox" id="txtSchool" name="txtSchool" type="text" maxlength="255"/></div>                    
-            </div>
-            <div class="cleared"></div>     
-            <div class="resource1">
-                <div class="resource_left"><bean:message key="text.year"/></div>
-                <div class="resource_left"><input class="textbox" id="txtYear" name="txtYear" type="text" maxlength="4"/></div>
-                <div class="resource_left"><bean:message key="text.schoolyear"/></div>
-                <div class="resource_left"><input class="textbox" id="txtSchoolYear" name="txtSchoolYear" type="text" maxlength="45"/></div>                    
-            </div>
-            <div class="cleared"></div>     
-            <div class="resource2">
-                <div class="resource_left"><bean:message key="text.uploadfile"/></div>
-                <div class="resource_left"><input id="fileThesis" type="file" name="fileThesis" size="25"/></div>
-            </div>       
-            <div class="cleared"></div>    
-            <h2><bean:message key="text.thesissummaryvn"/></h2>
-            <FCK:editor  instanceName="fckThesisSummaryVN" height="300px">
-                <jsp:attribute name="value">
-                </jsp:attribute>
-            </FCK:editor>
-            <hr>
-            <h2><bean:message key="text.thesissummaryen"/></h2>
-            <FCK:editor  instanceName="fckThesisSummaryEN" height="300px">
-                <jsp:attribute name="value">
-                </jsp:attribute>
-            </FCK:editor>                          
-        </div>
-        <%-- Add resource with resource category is project (ID =6) --%>
 
-        <div id="divProject" class="none">
-            <div class="resource1">
-                <div class="resource_left"><bean:message key="text.subject"/></div>
-                <div class="resource_left">
-                    <select class="combobox" id="dropSubjectInProject" name="dropSubjectInProject" >
-                        <%if(language==1) {%>     
-                            <c:forEach items="${listSubject}" var="item">
-                                <option value="${item.subjectId}">${item.subjectNameEn}</option>
-                            </c:forEach>                   
-                        <%}%>
-                        <%if(language==2) {%>
-                            <c:forEach items="${listSubject}" var="item">
-                                <option value="${item.subjectId}">${item.subjectNameVn}</option>
-                            </c:forEach>
-                        <%}%>
-                    </select>
-                </div>                
-                <div class="resource_left"><bean:message key="text.projectauthor"/></div>
-                <div class="resource_left"><input class="textbox" id="txtProjectAuthor" name="txtProjectAuthor" type="text" maxlength="255"/></div>
-            </div>
-            <div class="cleared"></div>         
-            <div class="resource2">
-                <div class="resource_left"><bean:message key="text.uploadfile"/></div>
-                <div class="resource_left"><input type="file" id="fileProject" name="fileProject" size="25"/></div>
-            </div>
-            <div class="cleared"></div>     
-        </div>            
-        <%-- Add resource with resource category is chapter (ID =7) --%>
-        <div  id="divChapter" class="none">
-            <div class="resource1">
-                <div class="resource_left"><bean:message key="text.subject"/></div>       
-                <div class="resource_left">
-                    <select class="combobox" id="dropSubjectInChapter" name="dropSubjectInChapter" >
-                        <%if(language==1) {%>                               
-                            <c:forEach items="${listSubject}" var="item">
-                                <option value="${item.subjectId}">${item.subjectNameEn}</option>
-                            </c:forEach>
-                        <%}%>
-                        <%if(language==2) {%>
-                            <c:forEach items="${listSubject}" var="item">
-                                <option value="${item.subjectId}">${item.subjectNameVn}</option>
-                            </c:forEach>
-                        <%}%>
-                    </select>
-                </div>
-                <div class="resource_left"><bean:message key="text.orderchapter"/></div>
-                <div class="resource_left"><input class="textbox" id="txtOrderChapter" name="txtOrderChapter" type="text" maxlength="2"/></div>                    
-            </div>
-            <div class="cleared"></div>      
-            <h2><bean:message key="text.chaptersummaryvn"/></h2>
-            <FCK:editor  instanceName="fckChapterSummaryVN" height="300px">
-                <jsp:attribute name="value">
-                </jsp:attribute>
-            </FCK:editor>
-            <hr>
-            <h2><bean:message key="text.chaptersummaryen"/></h2>
-            <FCK:editor  instanceName="fckChapterSummaryEN" height="300px">
-                <jsp:attribute name="value">
-                </jsp:attribute>
-            </FCK:editor>
+<form id="createResource" method="post" action="CreateResource.do"  enctype="multipart/form-data">
+<%
+    List listResourceCategory = (List)request.getAttribute("listResourceCategory");
+    List listSubject = (List)request.getAttribute("listSubject");
+    List listFaculty = (List)request.getAttribute("listFaculty");
+    List listLevel = (List)request.getAttribute("listLevel");                            
+    int language =1; // English
+    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
+        language = 2; // VietNamese
+%>
+<h2> <bean:message key="text.insertnewresource"/></h2>
+<div class="resource2" >
+    <div class="resource_left"><bean:message key="text.typeofresource"/></div>
+    <div class="resource_left">
+        <select class="combobox" id="dropResourceCategory" name="dropResourceCategory" onchange="changeResourceCategory()">
+            <%if(language==1) {%>
+                <c:forEach items="${listResourceCategory}" var="item">
+                    <option value="${item.resourceCategoryId}">${item.resourceCategoryNameEn}</option>
+                </c:forEach>
+            <%}%>
+            <%if(language==2) {%>
+                <c:forEach items="${listResourceCategory}" var="item">
+                    <option value="${item.resourceCategoryId}">${item.resourceCategoryNameVn}</option>
+                </c:forEach>
+            <%}%>
+        </select>
+    </div>                    
+</div>
+<div class="cleared"></div>        
+<%-- Resource Name --%>           
+<div  id="divResourceName" class="resource1" >
+     <div class="resource_left"><bean:message key="text.resourcenameen" /></div>
+     <div class="resource_left"><input class="textbox" id="txtResourceNameEN" name="txtResourceNameEN" type="text" maxlength="255"/></div>
+     <div class="resource_left"><bean:message key="text.resourcenamevn"/></div>
+     <div class="resource_left"><input class="textbox" id="txtResourceNameVN" name="txtResourceNameVN" type="text" maxlength="255"/></div>
+</div>
+<div class="cleared"></div>           
+<%-- Add resource with resource category is thesis (ID =2) --%>
+<div  id="divThesis" class="none">
+    <div class="resource1">
+        <div class="resource_left"><bean:message key="text.level"/></div>
+        <div class="resource_left">
+            <select class="combobox" id="dropLevel" name="dropLevel" >
+                <%if(language==1) {%>
+                    <c:forEach items="${listLevel}" var="item">
+                        <option value="${item.levelId}">${item.levelNameEn}</option>
+                    </c:forEach>
+                <%}%>
+                <%if(language==2) {%>
+                    <c:forEach items="${listLevel}" var="item">
+                        <option value="${item.levelId}">${item.levelNameVn}</option>
+                    </c:forEach>
+                <%}%>
+            </select>
         </div>
+        <div class="resource_left"><bean:message key="text.faculty"/></div>
+        <div class="resource_left">
+            <select class="combobox" id="dropFaculty" name="dropFaculty" >
+                <%if(language==1) {%>
+                    <c:forEach items="${listFaculty}" var="item">
+                        <option value="${item.facultyId}">${item.facultyNameEn}</option>
+                    </c:forEach>
+                <%}%>
+                <%if(language==2) {%>
+                    <c:forEach items="${listFaculty}" var="item">
+                        <option value="${item.facultyId}">${item.facultyNameVn}</option>
+                    </c:forEach>
+                <%}%>
+            </select>
+        </div>
+    </div>
+    <div class="cleared"></div>              
+    <div class="resource1">
+        <div class="resource_left"><bean:message key="text.author"/></div>
+        <div class="resource_left"><input class="textbox" id="txtThesisAuthor" name="txtThesisAuthor" type="text"  maxlength="255"/></div>
+        <div class="resource_left"><bean:message key="text.teacher"/></div>
+        <div class="resource_left"><input class="textbox" id="txtTeacher" name="txtTeacher" type="text"  maxlength="255"/></div>                    
+    </div>
+    <div class="cleared"></div>     
+    <div class="resource1">
+        <div class="resource_left"><bean:message key="text.class"/></div>
+        <div class="resource_left"><input class="textbox" id="txtClass" name="txtClass" type="text" maxlength="45"/></div>
+        <div class="resource_left"><bean:message key="text.school"/></div>
+        <div class="resource_left"><input class="textbox" id="txtSchool" name="txtSchool" type="text" maxlength="255"/></div>                    
+    </div>
+    <div class="cleared"></div>     
+    <div class="resource1">
+        <div class="resource_left"><bean:message key="text.year"/></div>
+        <div class="resource_left"><input class="textbox" id="txtYear" name="txtYear" type="text" maxlength="4"/></div>
+        <div class="resource_left"><bean:message key="text.schoolyear"/></div>
+        <div class="resource_left"><input class="textbox" id="txtSchoolYear" name="txtSchoolYear" type="text" maxlength="45"/></div>                    
+    </div>
+    <div class="cleared"></div>     
+    <div class="resource2">
+        <div class="resource_left"><bean:message key="text.uploadfile"/></div>
+        <div class="resource_left"><input id="fileThesis" type="file" name="fileThesis" size="27"/></div>
+    </div>       
+    <div class="cleared"></div>    
+    <h2><bean:message key="text.thesissummaryvn"/></h2>
+    <FCK:editor  instanceName="fckThesisSummaryVN" height="300px" width="757px">
+        <jsp:attribute name="value">
+        </jsp:attribute>
+    </FCK:editor>
+    <hr>
+    <h2><bean:message key="text.thesissummaryen"/></h2>
+    <FCK:editor  instanceName="fckThesisSummaryEN" height="300px" width="757px">
+        <jsp:attribute name="value">
+        </jsp:attribute>
+    </FCK:editor>                          
+</div>
+<%-- Add resource with resource category is project (ID =6) --%>
 
-        <%-- Add resource with resource category is Picture, Reading (ID =8,9) --%>
+<div id="divProject" class="none">
+    <div class="resource1">
+        <div class="resource_left"><bean:message key="text.subject"/></div>
+        <div class="resource_left">
+            <select class="combobox" id="dropSubjectInProject" name="dropSubjectInProject" >
+                <%if(language==1) {%>     
+                    <c:forEach items="${listSubject}" var="item">
+                        <option value="${item.subjectId}">${item.subjectNameEn}</option>
+                    </c:forEach>                   
+                <%}%>
+                <%if(language==2) {%>
+                    <c:forEach items="${listSubject}" var="item">
+                        <option value="${item.subjectId}">${item.subjectNameVn}</option>
+                    </c:forEach>
+                <%}%>
+            </select>
+        </div>                
+        <div class="resource_left"><bean:message key="text.projectauthor"/></div>
+        <div class="resource_left"><input class="textbox" id="txtProjectAuthor" name="txtProjectAuthor" type="text" maxlength="255"/></div>
+    </div>
+    <div class="cleared"></div>         
+    <div class="resource2">
+        <div class="resource_left"><bean:message key="text.uploadfile"/></div>
+        <div class="resource_left"><input type="file" id="fileProject" name="fileProject" size="27"/></div>
+    </div>
+    <div class="cleared"></div>     
+</div>            
+<%-- Add resource with resource category is chapter (ID =7) --%>
+<div  id="divChapter" class="none">
+    <div class="resource1">
+        <div class="resource_left"><bean:message key="text.subject"/></div>       
+        <div class="resource_left">
+            <select class="combobox" id="dropSubjectInChapter" name="dropSubjectInChapter" >
+                <%if(language==1) {%>                               
+                    <c:forEach items="${listSubject}" var="item">
+                        <option value="${item.subjectId}">${item.subjectNameEn}</option>
+                    </c:forEach>
+                <%}%>
+                <%if(language==2) {%>
+                    <c:forEach items="${listSubject}" var="item">
+                        <option value="${item.subjectId}">${item.subjectNameVn}</option>
+                    </c:forEach>
+                <%}%>
+            </select>
+        </div>
+        <div class="resource_left"><bean:message key="text.orderchapter"/></div>
+        <div class="resource_left"><input class="textbox" id="txtOrderChapter" name="txtOrderChapter" type="text" maxlength="2"/></div>                    
+    </div>
+    <div class="cleared"></div>      
+    <h2><bean:message key="text.chaptersummaryvn"/></h2>
+    <FCK:editor  instanceName="fckChapterSummaryVN" height="300px" width="757px">
+        <jsp:attribute name="value">
+        </jsp:attribute>
+    </FCK:editor>
+    <hr>
+    <h2><bean:message key="text.chaptersummaryen"/></h2>
+    <FCK:editor  instanceName="fckChapterSummaryEN" height="300px" width="757px">
+        <jsp:attribute name="value">
+        </jsp:attribute>
+    </FCK:editor>
+</div>
 
-        <div id="divPictureandReading" class="none">
-            <div class="resource2">
-                <div class="resource_left"><bean:message key="text.subject"/></div>
-                <div class="resource_left">
-                    <select class="combobox" id="dropSubjectInReadingAndPicture" name="dropSubjectInReadingAndPicture" >
-                        <%if(language==1) {%>
-                            <c:forEach items="${listSubject}" var="item">
-                                <option value="${item.subjectId}">${item.subjectNameEn}</option>
-                            </c:forEach>                           
-                        <%}%>
-                        <%if(language==2) {%>
-                            <c:forEach items="${listSubject}" var="item">
-                                <option value="${item.subjectId}">${item.subjectNameVn}</option>
-                            </c:forEach>                        
-                        <%}%>
-                    </select>
-                </div>
-            </div>
-            <div class="cleared"></div>        
-            <div class="resource2">
-                <div class="resource_left"><bean:message key="text.uploadfile"/></div>
-                <div class="resource_left"><input type="file" id="filePictureReading" name="filePictureReading" size="25"/></div>
-            </div>
-            <div class="cleared"></div>    
+<%-- Add resource with resource category is Picture, Reading (ID =8,9) --%>
+
+<div id="divPictureandReading" class="none">
+    <div class="resource2">
+        <div class="resource_left"><bean:message key="text.subject"/></div>
+        <div class="resource_left">
+            <select class="combobox" id="dropSubjectInReadingAndPicture" name="dropSubjectInReadingAndPicture" >
+                <%if(language==1) {%>
+                    <c:forEach items="${listSubject}" var="item">
+                        <option value="${item.subjectId}">${item.subjectNameEn}</option>
+                    </c:forEach>                           
+                <%}%>
+                <%if(language==2) {%>
+                    <c:forEach items="${listSubject}" var="item">
+                        <option value="${item.subjectId}">${item.subjectNameVn}</option>
+                    </c:forEach>                        
+                <%}%>
+            </select>
         </div>
-        <%-- Add resource with resource category is assignments,example,lecture note,video (ID =4,5,10,11) --%>
-        <div id="divResourceChapter" class="none">
-            <div class="resource1">
-                <div class="resource_left"><bean:message key="text.subject"/></div>
-                <div class="resource_left">
-                    <select class="combobox" id="dropSubjectInResourceChapter" name="dropSubjectInResourceChapter" onchange="changeSubject(this.value)" >
-                        <%if(language==1) {%>
-                            <c:forEach items="${listSubject}" var="item">
-                                <option value="${item.subjectId}">${item.subjectNameEn}</option>
-                            </c:forEach>
-                        <%}%>
-                         <%if(language==2) {%>
-                            <c:forEach items="${listSubject}" var="item">
-                                <option value="${item.subjectId}">${item.subjectNameVn}</option>
-                            </c:forEach>
-                        <%}%>
-                    </select>
-                </div>
-                <div class="resource_left"><bean:message key="text.orderchapter"/></div>
-                <div class="resource_left">
-                    <div id ="chapter"></div>            
-                </div>
-            </div>
-            <div class="cleared"></div>    
-            <div class="resource2">
-                <div class="resource_left"><bean:message key="text.uploadfile"/></div>
-                <div class="resource_left"><input type="file" id="fileResourceChapter" name="fileResourceChapter" size="25"/></div>
-            </div>
-            <div class="cleared"></div>    
+    </div>
+    <div class="cleared"></div>        
+    <div class="resource2">
+        <div class="resource_left"><bean:message key="text.uploadfile"/></div>
+        <div class="resource_left"><input type="file" id="filePictureReading" name="filePictureReading" size="27"/></div>
+    </div>
+    <div class="cleared"></div>    
+</div>
+<%-- Add resource with resource category is assignments,example,lecture note,video (ID =4,5,10,11) --%>
+<div id="divResourceChapter" class="none">
+    <div class="resource1">
+        <div class="resource_left"><bean:message key="text.subject"/></div>
+        <div class="resource_left">
+            <select class="combobox" id="dropSubjectInResourceChapter" name="dropSubjectInResourceChapter" onchange="changeSubject(this.value)" >
+                <%if(language==1) {%>
+                    <c:forEach items="${listSubject}" var="item">
+                        <option value="${item.subjectId}">${item.subjectNameEn}</option>
+                    </c:forEach>
+                <%}%>
+                 <%if(language==2) {%>
+                    <c:forEach items="${listSubject}" var="item">
+                        <option value="${item.subjectId}">${item.subjectNameVn}</option>
+                    </c:forEach>
+                <%}%>
+            </select>
         </div>
-        <%-- Add resource with resource category is Syllabus (ID =12) --%>
-        <div id="divResourceSyllabus" class="none">
-            <div class="resource2">
-                <div class="resource_left"><bean:message key="text.subject"/></div>
-                <div class="resource_left">
-                    <select class="combobox" id="dropSubjectInSyllabus" name="dropSubjectInSyllabus" >
-                        <%if(language==1) {%>
-                            <c:forEach items="${listSubject}" var="item">
-                                <option value="${item.subjectId}">${item.subjectNameEn}</option>
-                            </c:forEach>
-                        <%}%>
-                         <%if(language==2) {%>   
-                            <c:forEach items="${listSubject}" var="item">
-                                <option value="${item.subjectId}">${item.subjectNameVn}</option>
-                            </c:forEach>
-                        <%}%>
-                    </select>
-                </div>
-            </div>
-            <div class="cleared"></div>        
-            <div class="resource2">
-                <div class="resource_left"><bean:message key="text.uploadfile"/></div>
-                <div class="resource_left"><input type="file" id="fileSyllabus" name="fileSyllabus" size="25"/></div>
-            </div>
-            <div class="cleared"></div>    
-        </div>                            
-    </form>                   
-    <div id="divButtonCreate" class="none">
-         <input type="submit"  value=<bean:message key="text.buttoncreate" /> onclick="validate()" />
-    </div>                 
-</div>     
+        <div class="resource_left"><bean:message key="text.orderchapter"/></div>
+        <div class="resource_left">
+            <div id ="chapter"></div>            
+        </div>
+    </div>
+    <div class="cleared"></div>    
+    <div class="resource2">
+        <div class="resource_left"><bean:message key="text.uploadfile"/></div>
+        <div class="resource_left"><input type="file" id="fileResourceChapter" name="fileResourceChapter" size="27"/></div>
+    </div>
+    <div class="cleared"></div>    
+</div>
+<%-- Add resource with resource category is Syllabus (ID =12) --%>
+<div id="divResourceSyllabus" class="none">
+    <div class="resource2">
+        <div class="resource_left"><bean:message key="text.subject"/></div>
+        <div class="resource_left">
+            <select class="combobox" id="dropSubjectInSyllabus" name="dropSubjectInSyllabus" >
+                <%if(language==1) {%>
+                    <c:forEach items="${listSubject}" var="item">
+                        <option value="${item.subjectId}">${item.subjectNameEn}</option>
+                    </c:forEach>
+                <%}%>
+                 <%if(language==2) {%>   
+                    <c:forEach items="${listSubject}" var="item">
+                        <option value="${item.subjectId}">${item.subjectNameVn}</option>
+                    </c:forEach>
+                <%}%>
+            </select>
+        </div>
+    </div>
+    <div class="cleared"></div>        
+    <div class="resource2">
+        <div class="resource_left"><bean:message key="text.uploadfile"/></div>
+        <div class="resource_left"><input type="file" id="fileSyllabus" name="fileSyllabus" size="27"/></div>
+    </div>
+    <div class="cleared"></div>    
+</div>                            
+</form>                   
+<div id="divButtonCreate" class="none">
+ <input type="submit"  value=<bean:message key="text.buttoncreate" /> onclick="validate()" />
+</div>
+<div class="cleared"></div>
 <script type="text/javascript">
     function init(){
         changeResourceCategory();
@@ -513,6 +513,7 @@
             document.getElementById("divResourceName").style.display = "none";
             document.getElementById("divThesis").style.display = "none";
         }
+        setContent();          
     }
         
     function changeSubject(subjectID){ //run some code when "onchange" event fires

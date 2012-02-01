@@ -17,7 +17,7 @@
     margin: 0 auto;
 }
 .language { margin: 0;}
-.textbox {width: 160px;}
+.textbox {width: 176px;}
 .label {width: 148px;}
 .divEditor {
     width: 100%;
@@ -112,7 +112,7 @@
 }
 .table1
 {
-    width:100%;
+    width:775px;
 }
 .table_chapter{
         border: 1px #B4B1A2 solid ;
@@ -603,7 +603,7 @@ background-position:0px -486px;
 }
 /* END: AV PAGE ICONS */
 .combobox{
-    width: 166px;
+    width: 182px;
     font-size: 13px;
     overflow: scroll;
 }
@@ -635,12 +635,12 @@ div.resource
 }
 div.resource1
 {
-    width: 700px;
+    width: 760px;
     padding-left: 3px;
 }
 div.resource2
 {
-    width: 350px;
+    width: 380px;
     padding-left: 3px;    
 }
 div.none
@@ -649,7 +649,7 @@ div.none
 }
 div.resource_left
 {
-    width: 175px;
+    width: 190px;
     float: left;
 }
 div.resource_right
@@ -663,8 +663,8 @@ div.resource_right
 }
 .imagenews
 {
-    max-height: 260px;
-    max-width: 440px;
+    max-height: 220px;
+    max-width: 500px;
     border: none;
 }
 .image_black_arrow
@@ -717,10 +717,20 @@ div.resource_right
 }
 .newstitle
 {
-    font-size: large;
+    font-size: medium;
     font-weight: bold;
     text-align: center;
     color: #b8262b;
+    height: 40px;
+}
+.newscontent
+{
+    text-align: center;
+    height: 220px;
+}
+.newsheadline
+{
+    height:80px;
 }
 .boldcenter
 {
@@ -744,8 +754,9 @@ div.resource_right
 }
 .textarea
 {
-    width: 745px;
+    width: 747px;
     padding-left: 3px;
+    resize: none;
 }
 .td1
 {
@@ -781,7 +792,7 @@ div.resource_right
 }
 .divdelete
 {
-    margin-left: 685px;
+    margin-left: 690px;
 }
 .btn
 {
@@ -793,7 +804,7 @@ div.resource_right
 }
 .smallimage
 {
-    max-height: 150px;
+    max-height: 200px;
     max-width: 150px;
     border: none;
 }
@@ -806,6 +817,7 @@ div.resource_right
 {
     float:left;
     width: 345px;
+    text-align: justify;
 }
 .bold{
     font-weight: bold;

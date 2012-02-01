@@ -76,7 +76,7 @@ public class LoadNewsTableAction extends org.apache.struts.action.Action {
                     response.getWriter().println("<td class=\"center\">");
                     response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listNews.get(i).getNewsId()+"\" />");
                     response.getWriter().println("</td>");
-                    response.getWriter().println("<td>");
+                    response.getWriter().println("<td class=\"center\">");
                     response.getWriter().println("<input class=\"btn\" type=\"submit\" value=\"Edit\" onclick=editNews(\""+listNews.get(i).getNewsId()+"\") />");
                     response.getWriter().println("</td>");        
                     response.getWriter().println("</tr>");        
@@ -115,7 +115,7 @@ public class LoadNewsTableAction extends org.apache.struts.action.Action {
                     response.getWriter().println("<td class=\"center\">");
                     response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listNews.get(i).getNewsId()+"\" />");
                     response.getWriter().println("</td>");
-                    response.getWriter().println("<td>");
+                    response.getWriter().println("<td class=\"center\">");
                     response.getWriter().println("<input class=\"btn\" type=\"submit\" value=\"Sửa\" onclick=editNews(\""+listNews.get(i).getNewsId()+"\") />");
                     response.getWriter().println("</td>");        
                     response.getWriter().println("</tr>");        
