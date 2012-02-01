@@ -9,16 +9,19 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import uit.elib.formbean.GroupForm;
+import uit.elib.dto.Group;
 import uit.elib.bo.GroupBO;
 /**
  *
  * @author HERO
  */
-public class DeleteGroupAction extends org.apache.struts.action.Action {
+public class CreateGroupAction extends org.apache.struts.action.Action {
 
     /*
      * forward name="success" path=""
      */
+    private static final String SUCCESS = "success";
 
     /**
      * This is the action called from the Struts framework.
@@ -34,14 +37,13 @@ public class DeleteGroupAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-                String groupsID = request.getParameter("groupsID");
-                groupsID = groupsID.substring(0, groupsID.length()-1);
-                //String sqlGroupDetail ="delete from groupdetail where GroupID in("+groupsID +")";
-                //String sqlUser ="delete from user where GroupID in("+groupsID +")";
-                String sqlGroup = "delete from group where groupID in("+groupsID+")";
-                //UserBO.getUserBO().DeleteUser(sqlUser);
-                //GroupDetailBO.getGroupDetailBO().DeleteGroupDetail(sqlGroupDetail);
-                GroupBO.getGroupBO().DeleteGroup(sqlGroup);
-        return mapping.findForward(null);
+        request.setCharacterEncoding("UTF-8");
+        GroupForm groupFormBean =(GroupForm)form;
+        Group temp = new Group();
+        temp.setGroupNameEn(groupFormBean.getTxtGroupNameEN());
+        temp.setGroupNameVn(groupFormBean.getTxtGroupNameVN());
+        GroupBO.getGroupBO().addNew(temp);
+        return mapping.findForward(SUCCESS);
+        
     }
 }
