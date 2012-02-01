@@ -398,5 +398,71 @@
                 </var>                 
             </field>             
         </form>
+        <form name="CreateUserForm">
+            <field 
+                property="txtUserName"
+                depends="required">
+                <arg key="text.username"/>            
+            </field>
+            <field 
+                property="txtLoginName"
+                depends="required">
+                <arg key="text.loginname"/>            
+            </field>
+            <field 
+                property="txtRealName"
+                depends="required">
+                <arg key="text.realname"/>            
+            </field> 
+            <field 
+                property="txtPassword"
+                depends="required">
+                <arg key="text.password"/>           
+            </field> 
+            <field 
+                property="txtRePassword"
+                depends="required">
+                <arg key="text.passwordconfirm"/>            
+            </field>
+            <field 
+                property="txtClass"
+                depends="required">
+                <arg key="text.class"/>            
+            </field> 
+            <field 
+                property="txtSchoolYear"
+                depends="required">
+                <arg key="text.schoolyear"/>            
+            </field>
+            <field 
+                property="txtAddress"
+                depends="required">
+                <arg key="text.address"/>            
+            </field>
+            <field 
+                property="txtWorkPlace"
+                depends="required">
+                <arg key="text.workplace"/>            
+            </field> 
+            <field 
+                property="expiredDay"
+                depends="required,date">
+                <arg key="text.expiredday"/>
+                <var>
+                    <var-name>datePattern</var-name>
+                    <var-value>dd/MM/yyyy</var-value>
+                </var>                
+            </field>
+            <field 
+                property="birthday"
+                depends="required,date">
+                <arg key="text.birthday"/>
+                <var>
+                    <var-name>datePattern</var-name>
+                    <var-value>dd/MM/yyyy</var-value>
+                </var>                    
+            </field>
+            
+        </form>         
    </formset>
 </form-validation>

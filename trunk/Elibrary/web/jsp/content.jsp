@@ -54,16 +54,20 @@
                 })
                 </script>
                 <div id="canadaprovinces" class="glidecontentwrapper">
-                    <% for(int i=0;i<listNews.size();i++) {%>
+                    <% 
+                        int size=listNews.size();
+                        if(size>5)
+                            size =5;
+                        for(int i=0;i<size;i++) {%>
                         <div class="glidecontent">
                             <% if(language==1) { %>
-                            <div class="newstitle"><a style="color: #b8262b" href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><%=listNews.get(i).getNewsTitleEn()%></a></div>
+                                <div class="newstitle"><a style="color: #b8262b" href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><%=listNews.get(i).getNewsTitleEn()%></a></div>
                                 <%
                                 String imageLink = "./image/news.jpg";
                                 if(listNews.get(i).getNewsImage()!=null){ 
                                      imageLink = "./upload/"+listNews.get(i).getNewsImage().toString();%>                                                     
                                 <%}%>
-                                <div><a href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><img src="<%=imageLink%>" class="imagenews"/></a></div>
+                                <div class="center"><a href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><img src="<%=imageLink%>" class="imagenews"/></a></div>
                                 <div><%=listNews.get(i).getNewsHeadlineEn()%></div>
                             <%}%>
                             <% if(language==2) { %>
@@ -81,7 +85,8 @@
                 </div>
                 <div id="p-select" class="glidecontenttoggler">
                 <a href="#" class="prev"><img border="0" src="image/icon_pre.jpg" /></a>
-                <% for(int i=0;i<listNews.size();i++) {%>
+                <%      
+                    for(int i=0;i<size;i++) {%>
                     <a href="#" class="toc"><%=i+1%></a>
                 <%}%>
                 <a href="#" class="next"><img border="0" src="image/icon_next.jpg" /></a>

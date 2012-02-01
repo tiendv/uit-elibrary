@@ -25,7 +25,10 @@
         </tr>
         <tr>     
             <td class="leftmenu_td_link"><a href="LoadCreateNews.do"><bean:message key="text.createnews"/></a></td>
-        </tr>      
+        </tr>
+        <tr>     
+            <td class="leftmenu_td_link"><a href="LoadCreateUser.do"><bean:message key="text.createuser"/></a></td>
+        </tr>           
         <tr>
             <td class="leftmenu_td_link"><a href="LoadListOfSubject.do"><bean:message key="text.listofsubject"/></a></td>
         </tr>
