@@ -316,13 +316,13 @@
             if($("#txtSchoolYear").val().trim(" ").length==0) // school year
                 alertString =alertString+"\r\n<bean:message key="text.schoolyear" /> <bean:message key="text.required" />";
             if(FCKeditorAPI.GetInstance("fckThesisSummaryVN").GetXHTML().length==0) // ThesisSummaryVN
-                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryvn" /> <bean:message key="text.required" />";
+                alertString =alertString+"\r\n<bean:message key="text.thesissummaryvn" /> <bean:message key="text.required" />";
             if(FCKeditorAPI.GetInstance("fckThesisSummaryEN").GetXHTML().length==0) // ThesisSummaryEN
-                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryen" /> <bean:message key="text.required" />";
+                alertString =alertString+"\r\n<bean:message key="text.thesissummaryen" /> <bean:message key="text.required" />";
             if(FCKeditorAPI.GetInstance("fckThesisSummaryVN").GetXHTML().length>65535) // ThesisSummaryVN
-                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryvn" /> <bean:message key="text.greatthan" /> 65535 <bean:message key="text.chars" />";
+                alertString =alertString+"\r\n<bean:message key="text.thesissummaryvn" /> <bean:message key="text.greatthan" /> 65535 <bean:message key="text.chars" />";
             if(FCKeditorAPI.GetInstance("fckThesisSummaryEN").GetXHTML().length>65535) // ThesisSummaryEN
-                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryen" /> <bean:message key="text.greatthan" /> 65535 <bean:message key="text.chars" />";             
+                alertString =alertString+"\r\n<bean:message key="text.thesissummaryen" /> <bean:message key="text.greatthan" /> 65535 <bean:message key="text.chars" />";             
             if(alertString!="")
                 alert(alertString);
             if(alertString=="")
