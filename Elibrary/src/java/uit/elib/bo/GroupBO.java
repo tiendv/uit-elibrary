@@ -3,17 +3,17 @@
  * and open the template in the editor.
  */
 package uit.elib.bo;
-import uit.elib.database.hibernate.ManagerBase;
-import uit.elib.dto.*;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import uit.elib.database.hibernate.ManagerBase;
+import uit.elib.dto.Group;
 /**
  *
  * @author HERO
  */
 public class GroupBO extends ManagerBase<Group> {
-    public static GroupBO groupBO = null;
+    private static GroupBO groupBO = null;
     public GroupBO() throws Exception{
     }
     public static GroupBO getGroupBO() throws Exception{
@@ -50,7 +50,7 @@ public class GroupBO extends ManagerBase<Group> {
             return null;
         }
      }
-      public int DeleteGroup(String sql)
+     public int DeleteGroup(String sql) throws Exception
      {
          try {
             return excecuteSQl(sql);

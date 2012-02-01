@@ -37,5 +37,8 @@
         </tr>
         <tr>     
             <td class="leftmenu_td_link"><a href="LoadListOfNews.do"><bean:message key="text.listofnews"/></a></td>
-        </tr>         
+        </tr>
+        <tr>     
+            <td class="leftmenu_td_link"><a href="LoadListOfGroup.do"><bean:message key="text.groupmanagement"/></a></td>
+        </tr>
 </table>
