@@ -34,7 +34,7 @@
                     List<Subjectcategory> listSubjectCategory = (List<Subjectcategory>)request.getAttribute("listSubjectCategory");
                    
         %>
-        <input id="hiddenSubjectCategoryID" name="hiddenSubjectCategoryID" type="hidden" value= "<%=request.getAttribute("hiddenSubjectCategoryID").toString() %>" />
+        <input id="hiddenSubjectCategoryID" name="hiddenSubjectCategoryID" type="hidden" value= "<%=request.getAttribute("hiddenSubjectCategoryID").toString()%>" />
         <input id="hiddenFacultyID" name="hiddenFacultyID" type="hidden" value= "<%=request.getAttribute("hiddenFacultyID").toString()%>"  />
         
         <input type="hidden" name="txtSubjectID" value="<%=subjectInfo.get(0).getSubjectId()%>" />
@@ -47,29 +47,28 @@
             <td><input id="txtSubjectNameUS" name="txtSubjectNameUS" type="text" class="textbox" value="<%=subjectInfo.get(0).getSubjectNameEn()%>" maxlength="255"/></td>
         </tr>
         <tr>
-        
             <td><bean:message key="text.subjectcategory"/></td>
             <td>
                 <%if(language==1) {%>
                 <html:select  property="dropSubjectCategory" onchange="check()" styleClass="combobox" >
-                        <html:optionsCollection name="LoadCreateSubjectForm"  property="listDropSubjectCategory" value="subjectCategoryId" label="subjectCategoryNameEn" ></html:optionsCollection>
-                </html:select>
+                        <html:optionsCollection name="LoadCreateSubjectForm"  property="listDropSubjectCategory" value="subjectCategoryId" label="subjectCategoryNameEn"  ></html:optionsCollection>
+                    </html:select>
                 <%}%>
                 <%if(language==2) {%>
                 <html:select  property="dropSubjectCategory" onchange="check()" styleClass="combobox" >
                         <html:optionsCollection name="LoadCreateSubjectForm"  property="listDropSubjectCategory" value="subjectCategoryId" label="subjectCategoryNameVn" ></html:optionsCollection>
-                </html:select>
+                    </html:select>
                 <%}%>
             </td>
             <td><bean:message key="text.faculty"/></td>
             <td>
                 <% if(language==1) {%>
-                    <html:select  property="dropFaculty" onchange="check()" styleClass="combobox" >
+                    <html:select  property="dropFaculty" styleClass="combobox" >
                         <html:optionsCollection name="LoadCreateSubjectForm"  property="listDropFaculty" value="facultyId" label="facultyNameEn"></html:optionsCollection>
                     </html:select>
                 <%}%>
                 <% if(language==2) {%>
-                    <html:select  property="dropFaculty" onchange="check()" styleClass="combobox" >
+                    <html:select  property="dropFaculty" styleClass="combobox" >
                         <html:optionsCollection name="LoadCreateSubjectForm"  property="listDropFaculty" value="facultyId" label="facultyNameVn"></html:optionsCollection>
                     </html:select>
                 <%}%>
@@ -152,28 +151,31 @@
     </html:form>
 <script type="text/javascript">
   
-    function init()
-    {
+//    function init()
+//    {
 //        document.getElementById("btnSubmit")=false;
 //        document.CreateSubjectForm.btnSubmit.disabled=false;
 //        document.CreateSubjectForm.dropFaculty.disabled=true;
 //        document.CreateSubjectForm.dropFaculty.selectedIndex=document.getElementById("hiddenFacultyID");
 //        document.CreateSubjectForm.dropSubjectCategory.selectedIndex=document.getElementById("hiddenSubjectCategoryID");
-        
-        document.getElementById("dropFaculty").disable=false;
-        document.getElementById("dropFaculty").selectedIndex=document.getElementById("hiddenFacultyID");
-        document.getElementById("dropSubjectCategory").selectedIndex=document.getElementById("hiddenSubjectCategoryID");
+//        document.getElementById("dropFaculty").disable=false;
+//        document.getElementById("dropFaculty").selectedIndex=document.getElementById("hiddenFacultyID");
+//        document.getElementById("dropSubjectCategory").selectedIndex=document.getElementById("hiddenSubjectCategoryID");
+        function init()
+    {
+        document.EditSubjectForm.dropFaculty.disabled=true;
+        document.EditSubjectForm.dropFaculty.selectedIndex=-1;
+        document.EditSubjectForm.dropSubjectCategory.selectedIndex=0;
     }
     function check()
-    {
-        document.CreateSubjectForm.dropFaculty.disabled=false;
-        document.CreateSubjectForm.dropFaculty.selectedIndex=0;
-        if(document.CreateSubjectForm.dropSubjectCategory.value==1)
+    { 
+        document.EditSubjectForm.dropFaculty.disabled=false;
+        document.EditSubjectForm.dropFaculty.selectedIndex=0;
+        if(document.EditSubjectForm.dropSubjectCategory.value==1)
         {
-            document.CreateSubjectForm.dropFaculty.disabled=true;
-            document.CreateSubjectForm.dropFaculty.selectedIndex=-1;
+            document.EditSubjectForm.dropFaculty.disabled=true;
+            document.EditSubjectForm.dropFaculty.selectedIndex=-1;
         }          
- 
     }
     function beforeValidation()
     {
