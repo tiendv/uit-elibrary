@@ -72,7 +72,7 @@
         <action path="/CreateResource" name="CreateResourceForm" type="uit.elib.action.CreateResourceAction" scope="session">
             <forward name="success" path="/jsp/success.jsp"/>
         </action>
-        <action name="GroupForm" path="/CreateGroup" scope="session" type="uit.elib.action.CreateGroupAction">
+        <action path="/CreateGroup" name="GroupForm" type="uit.elib.action.CreateGroupAction" scope="session" >
             <forward name="success" path="/jsp/success.jsp"/>
         </action>
         <action path="/LoadCreateSubject" name="LoadCreateSubjectForm" type="uit.elib.action.LoadCreateSubjectAction" scope="session">

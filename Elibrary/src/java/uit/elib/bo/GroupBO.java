@@ -14,18 +14,15 @@ import uit.elib.dto.Group;
  */
 public class GroupBO extends ManagerBase<Group> {
     private static GroupBO groupBO = null;
-    public GroupBO() throws Exception{
+
+    public GroupBO() throws Exception {
     }
-    public static GroupBO getGroupBO() throws Exception{
+     public static GroupBO getGroupBO() throws Exception{
          if (groupBO == null ){
               groupBO = new GroupBO();
           }
          return groupBO;
     }
-    /**
-     * 
-     * @return List Group In Database order by Group ID
-     */
       public List getAllGroup(String where,String [] sort) {
         try {
 
@@ -56,6 +53,15 @@ public class GroupBO extends ManagerBase<Group> {
             return excecuteSQl(sql);
         } catch (Exception ex) {
             Logger.getLogger(GroupBO.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }            
+     }
+     public int DeleteSubject(String sql)
+     {
+         try {
+            return excecuteSQl(sql);
+        } catch (Exception ex) {
+            Logger.getLogger(SubjectBO.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
         }            
      }

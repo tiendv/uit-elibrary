@@ -37,12 +37,15 @@ public class CreateGroupAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        request.setCharacterEncoding("UTF-8");
         GroupForm groupFormBean =(GroupForm)form;
         Group temp = new Group();
         temp.setGroupNameEn(groupFormBean.getTxtGroupNameEN());
         temp.setGroupNameVn(groupFormBean.getTxtGroupNameVN());
         GroupBO.getGroupBO().addNew(temp);
+        Boolean success =true;
+        request.setAttribute("success",success);     
+        String href="./LoadListOfGroup.do";
+        request.setAttribute("href",href);
         return mapping.findForward(SUCCESS);
         
     }
