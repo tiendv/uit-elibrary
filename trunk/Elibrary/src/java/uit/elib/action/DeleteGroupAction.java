@@ -16,10 +16,6 @@ import uit.elib.bo.GroupBO;
  */
 public class DeleteGroupAction extends org.apache.struts.action.Action {
 
-    /*
-     * forward name="success" path=""
-     */
-
     /**
      * This is the action called from the Struts framework.
      *
@@ -38,10 +34,10 @@ public class DeleteGroupAction extends org.apache.struts.action.Action {
                 groupsID = groupsID.substring(0, groupsID.length()-1);
                 //String sqlGroupDetail ="delete from groupdetail where GroupID in("+groupsID +")";
                 //String sqlUser ="delete from user where GroupID in("+groupsID +")";
-                String sqlGroup = "delete from group where groupID in("+groupsID+")";
+                String sqlgroup = "delete from group where GroupID in("+groupsID+")";
                 //UserBO.getUserBO().DeleteUser(sqlUser);
                 //GroupDetailBO.getGroupDetailBO().DeleteGroupDetail(sqlGroupDetail);
-                GroupBO.getGroupBO().DeleteGroup(sqlGroup);
-        return mapping.findForward(null);
+                GroupBO.getGroupBO().DeleteGroup(sqlgroup);
+        return null;
     }
 }

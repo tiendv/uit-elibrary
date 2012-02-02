@@ -16,7 +16,7 @@
             <bean:message key="text.groupnamevn"/>
         </td>
         <td>
-            <html:text styleClass="textbox" property="txtGroupNameVN"/>
+            <input class="textbox" id="txtGroupNameVN" name="txtGroupNameVN" type="text"  maxlength="255"/>
         </td>
     </tr>
     <tr>
@@ -24,10 +24,18 @@
             <bean:message key="text.groupnameen"/>
         </td>
         <td>
-            <html:text styleClass="textbox" property="txtGroupNameEN"/>
+            <input class="textbox" id="txtGroupNameEN" name="txtGroupNameEN" type="text"  maxlength="255"/>
         </td>
     </tr>
 </table>
 <html:submit property="btnSubmit"><bean:message key="text.buttoncreate"/></html:submit><noscript><bean:message key="text.noscript"/></noscript>
 <html:javascript formName="GroupForm"/>
 </html:form>
+<script type="text/javascript">
+    void init()
+    {
+        document.getElementsById("txtGroupNameVN").value = "";
+        document.getElementsById("txtGroupNameEN").value = "";
+        
+    }
+</script>
