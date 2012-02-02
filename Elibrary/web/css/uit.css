@@ -592,7 +592,7 @@ background-position:0px -486px;
     border-color:#B4B1A2;
     border-style: solid ; 
     margin-left: 17px;
-    width: 98%;
+    width: 740px;
     text-align: left;
     border-collapse:collapse;
     
@@ -606,10 +606,6 @@ background-position:0px -486px;
     width: 182px;
     font-size: 13px;
     overflow: scroll;
-}
-.fileupload
-{
-    size: 100;
 }
 .href_subject
 {
@@ -714,6 +710,12 @@ div.resource_right
 .center
 {
     text-align: center;
+}
+.newstitle2
+{
+    font-weight: bold;
+    padding-left: 2px;
+    padding-bottom: 2px;    
 }
 .newstitle
 {
@@ -824,8 +826,21 @@ div.resource_right
     padding-left: 2px;
     padding-bottom: 5px;
 }
+
 .color
 {
+    color: #b8262b;
+}
+.grey {
+    color: #5F5F5F;
+    font-family: arial,verdana,tahoma;
+    font-size: 11px;
+    padding-left: 2px;
+    padding-bottom: 2px;
+}
+.linkcolor
+{
+    text-decoration: none;
     color: #b8262b;
 }
 .ja_header_jsfade
@@ -856,6 +871,14 @@ div.resource_right
     display: block;
     width: 755px;
 }
+.linews
+{
+    background: url("../image/sprite.gif") repeat-x scroll 0 0 transparent;
+    background-repeat: no-repeat;
+    background-position: 0 -1264px;
+    line-height: 18px;
+    padding-left: 12px;
+}
 .boxcol
 {
     width: 755px;
@@ -864,11 +887,17 @@ div.resource_right
 {
     width: 680px;
     float: left;
+    background: url("../image/sprite.gif") repeat-x scroll 0 0 transparent;
+    background-repeat: no-repeat;
+    background-position: 0 -1264px;
+    line-height: 18px;
+    margin-left: 10px;
+    padding-left: 15px;
+    
 }
 .boxcol2
 {
-    width: 20px;
-    float: left;
+    padding-right: 20px;
 }
 .font1
 {
