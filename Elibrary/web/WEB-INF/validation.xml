@@ -473,8 +473,57 @@
                     <var-name>datePattern</var-name>
                     <var-value>dd/MM/yyyy</var-value>
                 </var>                    
+            </field>     
+        </form>
+        <form name="EditUserForm">
+            <field 
+                property="txtLoginName"
+                depends="required">
+                <arg key="text.loginname"/>            
             </field>
-            
+            <field 
+                property="txtRealName"
+                depends="required">
+                <arg key="text.realname"/>            
+            </field> 
+            <field 
+                property="txtClass"
+                depends="required">
+                <arg key="text.class"/>            
+            </field> 
+            <field 
+                property="txtSchoolYear"
+                depends="required">
+                <arg key="text.schoolyear"/>            
+            </field>
+            <field 
+                property="txtAddress"
+                depends="required">
+                <arg key="text.address"/>            
+            </field>
+            <field 
+                property="txtWorkPlace"
+                depends="required">
+                <arg key="text.workplace"/>            
+            </field> 
+            <field 
+                property="expiredDay"
+                depends="required,date">
+                <arg key="text.expiredday"/>
+                <var>
+                    <var-name>datePattern</var-name>
+                    <var-value>dd/MM/yyyy</var-value>
+                </var>                
+            </field>
+            <field 
+                property="birthday"
+                depends="required,date">
+                <arg key="text.birthday"/>
+                <var>
+                    <var-name>datePattern</var-name>
+                    <var-value>dd/MM/yyyy</var-value>
+                </var>                    
+            </field>     
         </form>         
    </formset>
 </form-validation>

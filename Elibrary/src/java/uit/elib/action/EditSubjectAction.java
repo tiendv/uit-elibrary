@@ -15,7 +15,6 @@ import uit.elib.bo.SubjectCategoryBO;
 import uit.elib.dto.Faculty;
 import uit.elib.dto.Subject;
 import uit.elib.dto.Subjectcategory;
-import uit.elib.formbean.CreateSubjectForm;
 import uit.elib.formbean.EditSubjectForm;
 /**
  *

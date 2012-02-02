@@ -41,4 +41,7 @@
         <tr>     
             <td class="leftmenu_td_link"><a href="LoadListOfGroup.do"><bean:message key="text.groupmanagement"/></a></td>
         </tr>
+        <tr>     
+            <td class="leftmenu_td_link"><a href="LoadListOfUser.do"><bean:message key="text.listofuser"/></a></td>
+        </tr>        
 </table>

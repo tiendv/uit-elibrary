@@ -7,6 +7,7 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="EditUserForm" type="uit.elib.formbean.EditUserForm"/>
         <form-bean name="GroupForm" type="uit.elib.formbean.GroupForm"/>
         <form-bean name="LoadCreateUserForm" type="uit.elib.formbean.LoadCreateUserForm"/>
         <form-bean name="CreateUserForm" type="uit.elib.formbean.CreateUserForm"/>
@@ -129,10 +130,20 @@
         <action path="/LoadCreateUser" name="LoadCreateUserForm" type="uit.elib.action.LoadCreateUserAction">
             <forward name="success" path=".createUser"/>
         </action>
+        <action path="/LoadEditUser" name="EditUserForm" type="uit.elib.action.LoadEditUserAction">
+            <forward name="success" path=".editUser"/>
+            <forward name="unsuccess" path="/Welcome.do"/>
+        </action>            
+        <action path="/EditUser" name="EditUserForm"  scope="session" type="uit.elib.action.EditUserAction">
+            <forward name="success" path="/jsp/success.jsp"/>
+        </action>            
+        <action path="/DeleteUser" type="uit.elib.action.DeleteUserAction"/>
+        <action path="/LoadUserTable" type="uit.elib.action.LoadUserTableAction"/>
         <action input="/" name="LoadCreateUserForm" path="/CheckUser" scope="session" type="uit.elib.action.CheckUserAction"/>
         <action path="/DeleteGroup" type="uit.elib.action.DeleteGroupAction"/>
         <action path="/DeleteNews" type="uit.elib.action.DeleteNewsAction"/>
         <action path="/LoadListOfNews" forward =".listOfNews"/>
+        <action path="/LoadListOfUser" forward =".listOfUser"/>
         <action path="/LoadNewsTable" type="uit.elib.action.LoadNewsTableAction"/>
         <action path="/CheckSyllabusImage" type="uit.elib.action.CheckSyllabusImageAction"/>
         <action path="/DeleteSubject" type="uit.elib.action.DeleteSubjectAction"/>
