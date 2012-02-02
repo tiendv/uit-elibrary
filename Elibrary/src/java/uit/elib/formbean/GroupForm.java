@@ -17,7 +17,15 @@ import org.apache.struts.action.ActionMessage;
 public class GroupForm extends org.apache.struts.action.ActionForm {
     private String txtGroupNameEN;
     private String txtGroupNameVN;
+    private int txtGroupID;
 
+    public int getTxtGroupID() {
+        return txtGroupID;
+    }
+
+    public void setTxtGroupID(int txtGroupID) {
+        this.txtGroupID = txtGroupID;
+    }
     public String getTxtGroupNameEN() {
         return txtGroupNameEN;
     }
