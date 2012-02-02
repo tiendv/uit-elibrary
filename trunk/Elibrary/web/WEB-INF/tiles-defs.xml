@@ -136,6 +136,8 @@
         <put name="content"   value="/admin/editnews.jsp" />
         <put name="leftmenu"   value="/admin/layout/leftmenu.jsp" />
     </definition>
+    <definition name=".editNews" path="/jsp/mainpage.jsp">
+    </definition>
     <definition name=".editUser" path="/jsp/mainpage.jsp">
         <put name="title"  value=" UIT library Administrator" />
         <put name="description"  value="UIT library Administrator" />
@@ -151,7 +153,16 @@
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
         <put name="footer" value="/jsp/footer.jsp" />
-        <put name="content"   value="/admin/editsubject.jsp" />
+        <put name="content"   value="/admin/editnews.jsp" />
+        <put name="leftmenu"   value="/admin/layout/leftmenu.jsp" />
+    </definition>
+    <definition name=".loadEditGroup" path="/jsp/mainpage.jsp">
+        <put name="title"  value=" UIT library Administrator" />
+        <put name="description"  value="UIT library Administrator" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/admin/editgroup.jsp" />
         <put name="leftmenu"   value="/admin/layout/leftmenu.jsp" />
     </definition> 
     <definition name=".loadListOfResource" path="/jsp/mainpage.jsp">

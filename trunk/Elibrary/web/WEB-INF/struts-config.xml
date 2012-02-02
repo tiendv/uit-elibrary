@@ -114,7 +114,14 @@
             <forward name="success" path=".editNews"/>
             <forward name="unsuccess" path="/Welcome.do"/>
         </action>
+        <action path="/LoadEditGroup" type="uit.elib.action.LoadEditGroupAction">
+            <forward name="success" path=".loadEditGroup"/>
+            <forward name="unsuccess" path="/Welcome.do"/>
+        </action>
         <action path="/EditNews" name="EditNewsForm" type="uit.elib.action.EditNewsAction">
+            <forward name="success" path="/jsp/success.jsp"/>
+        </action>
+        <action path="/EditGroup" name="GroupForm" type="uit.elib.action.EditGroupAction">
             <forward name="success" path="/jsp/success.jsp"/>
         </action>
         <action path="/Welcome" type="uit.elib.action.WelcomeAction">
