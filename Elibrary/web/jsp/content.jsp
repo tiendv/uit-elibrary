@@ -4,6 +4,7 @@
     Author     : Admin
 --%>
 
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="org.apache.struts.Globals"%>
 <%@page import="java.util.Locale"%>
 <%@page import="java.util.List"%>
@@ -58,9 +59,13 @@
                         int size=listNews.size();
                         if(size>5)
                             size =5;
-                        for(int i=0;i<size;i++) {%>
+                        for(int i=0;i<size;i++) {
+                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy - HH:mm");
+                            String postDate = simpleDateFormat.format(listNews.get(0).getPostDate());                            
+                    %>
                         <div class="glidecontent">
                             <% if(language==1) { %>
+                                <div class="greyrightcontent"><%=postDate%></div>
                                 <div class="newstitle"><a style="color: #b8262b" href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><%=listNews.get(i).getNewsTitleEn()%></a></div>
                                 <%
                                 String imageLink = "./image/news.jpg";
@@ -71,6 +76,7 @@
                                 <div class="newsheadline"><%=listNews.get(i).getNewsHeadlineEn()%></div>
                             <%}%>
                             <% if(language==2) { %>
+                                <div class="greyrightcontent"><%=postDate%></div>
                                 <div class="newstitle"><a style="color: #b8262b" href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><%=listNews.get(i).getNewsTitleVn()%></a></div>
                                 <%
                                 String imageLink = "./image/news.jpg";

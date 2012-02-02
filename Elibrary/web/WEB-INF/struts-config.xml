@@ -129,6 +129,7 @@
         <action path="/LoadCreateUser" name="LoadCreateUserForm" type="uit.elib.action.LoadCreateUserAction">
             <forward name="success" path=".createUser"/>
         </action>
+        <action input="/" name="LoadCreateUserForm" path="/CheckUser" scope="session" type="uit.elib.action.CheckUserAction"/>
         <action path="/DeleteGroup" type="uit.elib.action.DeleteGroupAction"/>
         <action path="/DeleteNews" type="uit.elib.action.DeleteNewsAction"/>
         <action path="/LoadListOfNews" forward =".listOfNews"/>

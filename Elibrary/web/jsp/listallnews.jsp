@@ -10,7 +10,6 @@
 <%@page import="uit.elib.dto.News"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <!DOCTYPE html>
 <%
     List<News> listNews = (List<News>)request.getAttribute("listNews");
@@ -47,29 +46,4 @@
          </div>
          <div class="cleared"></div>    
 <%}}}%>
-<div class="box">
-    <div class="font1"><bean:message key="text.newnews"/></div>
-    <%List<News> listNewNews = (List<News>)request.getAttribute("listNewNews");%>
-    <%for(int i=0;i<listNewNews.size();i++){%>
-        <%
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            Date date = listNewNews.get(i).getPostDate();
-            String postdate = simpleDateFormat.format(date);
-        %>
-        <%  if(language==1){%>
-        <div class="boxcol">
-            <div class="boxcol1"><a class="linkcolor" href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><%=listNews.get(i).getNewsTitleEn()%> (<%=postdate%>)</a></div> 
-            <div class="boxcol2"><img src="image/new-icon.gif" class="image_newicon" alt="new-icon"/></div> <!-- new icon  -->
-        </div>
-        <%}%>
-        <%  if(language==2){%>
-        <div class="boxcol">
-            <div class="boxcol1"><a class="linkcolor" href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><%=listNews.get(i).getNewsTitleVn()%> (<%=postdate%>)</a></div>
-            <div class="boxcol2"><img src="image/new-icon.gif" class="image_newicon" alt="new-icon"/></div> <!-- new icon  -->
-        </div>   
-        <%}%>
-        <div class="cleared"></div>
-    <%}%>    
-    </ul>
-</div>
     

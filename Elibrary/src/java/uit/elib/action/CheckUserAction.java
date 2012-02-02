@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import uit.elib.bo.ResourceBO;
-import uit.elib.dto.Resource;
+import uit.elib.bo.UserBO;
+import uit.elib.dto.User;
 
 /**
  *
  * @author Nguyen Hoang Tan
  */
-public class CheckSyllabusImageAction extends org.apache.struts.action.Action {
+public class CheckUserAction extends org.apache.struts.action.Action {
 
     /**
      * This is the action called from the Struts framework.
@@ -32,14 +32,14 @@ public class CheckSyllabusImageAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        if(request.getParameter("id")!=null)
-        {   
-            int subjectID = Integer.parseInt(request.getParameter("id"));
-            int resourceCategoryID = Integer.parseInt(request.getParameter("resourceCategoryID"));
-            List<Resource> listResource= ResourceBO.getResourceBO().getAllResource(subjectID, resourceCategoryID);
-            if(listResource.size()>0)
-                response.getWriter().println("1");
-        }
+        if(request.getParameter("username")!=null)
+        {
+            String username= request.getParameter("username");
+            String where = "userName="+"'"+username+"'";
+            List<User> listUser= UserBO.getUserBO().getUser(where);
+            if(listUser.size()>0)
+                response.getWriter().println("1");              
+        }  
         return null;
     }
 }
