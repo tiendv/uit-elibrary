@@ -46,7 +46,10 @@ public class LoadCreateUserAction extends org.apache.struts.action.Action {
         List<Level> listLevel = LevelBO.getLevelBO().getAllLevel();
         loadCreateUserForm.setListDropLevel(listLevel);
         List<Faculty> listFaculty = FacultyBO.getFacultyBO().getAllFaculty();
-        loadCreateUserForm.setListDropFaculty(listFaculty);        
+        loadCreateUserForm.setListDropFaculty(listFaculty);
+        loadCreateUserForm.setDropGroup(listGroup.get(0).getGroupId());
+        loadCreateUserForm.setDropFaculty(listFaculty.get(0).getFacultyId());
+        loadCreateUserForm.setDropLevel(listLevel.get(0).getLevelId());
         return mapping.findForward(SUCCESS);
     }
 }

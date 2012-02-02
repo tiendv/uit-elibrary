@@ -135,7 +135,16 @@
         <put name="footer" value="/jsp/footer.jsp" />
         <put name="content"   value="/admin/editnews.jsp" />
         <put name="leftmenu"   value="/admin/layout/leftmenu.jsp" />
-    </definition>    
+    </definition>
+    <definition name=".editUser" path="/jsp/mainpage.jsp">
+        <put name="title"  value=" UIT library Administrator" />
+        <put name="description"  value="UIT library Administrator" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/admin/edituser.jsp" />
+        <put name="leftmenu"   value="/admin/layout/leftmenu.jsp" />
+    </definition>       
     <definition name=".editSubject" path="/jsp/mainpage.jsp">
         <put name="title"  value=" UIT library Administrator" />
         <put name="description"  value="UIT library Administrator" />
@@ -154,6 +163,15 @@
         <put name="content"   value="/admin/listofresource.jsp" />
         <put name="leftmenu"   value="/admin/layout/leftmenu.jsp" />
     </definition>
+    <definition name=".listOfUser" path="/jsp/mainpage.jsp">
+        <put name="title"  value=" UIT library Administrator" />
+        <put name="description"  value="UIT library Administrator" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/admin/listofuser.jsp" />
+        <put name="leftmenu"   value="/admin/layout/leftmenu.jsp" />
+    </definition>    
      <definition name=".loadSubject" path="/jsp/mainpage.jsp">
         <put name="title"  value=" Subject" />
         <put name="description"  value="Subject" />

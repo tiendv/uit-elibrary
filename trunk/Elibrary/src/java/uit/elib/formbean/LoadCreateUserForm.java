@@ -18,6 +18,9 @@ public class LoadCreateUserForm extends org.apache.struts.action.ActionForm {
     private List<Group> listDropGroup;
     private List<Faculty> listDropFaculty;
     private List<Level> listDropLevel;
+    private int dropGroup;
+    private int dropLevel;
+    private int dropFaculty;    
 
     public List<Faculty> getListDropFaculty() {
         return listDropFaculty;
@@ -42,5 +45,28 @@ public class LoadCreateUserForm extends org.apache.struts.action.ActionForm {
     public void setListDropLevel(List<Level> listDropLevel) {
         this.listDropLevel = listDropLevel;
     }
-    
+
+    public int getDropFaculty() {
+        return dropFaculty;
+    }
+
+    public void setDropFaculty(int dropFaculty) {
+        this.dropFaculty = dropFaculty;
+    }
+
+    public int getDropGroup() {
+        return dropGroup;
+    }
+
+    public void setDropGroup(int dropGroup) {
+        this.dropGroup = dropGroup;
+    }
+
+    public int getDropLevel() {
+        return dropLevel;
+    }
+
+    public void setDropLevel(int dropLevel) {
+        this.dropLevel = dropLevel;
+    }    
 }

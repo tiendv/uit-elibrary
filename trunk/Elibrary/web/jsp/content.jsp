@@ -61,7 +61,7 @@
                             size =5;
                         for(int i=0;i<size;i++) {
                             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy - HH:mm");
-                            String postDate = simpleDateFormat.format(listNews.get(0).getPostDate());                            
+                            String postDate = simpleDateFormat.format(listNews.get(i).getPostDate());                            
                     %>
                         <div class="glidecontent">
                             <% if(language==1) { %>

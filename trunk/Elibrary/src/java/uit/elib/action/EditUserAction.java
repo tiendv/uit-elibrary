@@ -4,9 +4,9 @@
  */
 package uit.elib.action;
 
-import java.util.Date;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -17,14 +17,14 @@ import uit.elib.dto.Faculty;
 import uit.elib.dto.Group;
 import uit.elib.dto.Level;
 import uit.elib.dto.User;
-import uit.elib.formbean.CreateUserForm;
+import uit.elib.formbean.EditUserForm;
 import uit.elib.utility.SHA512;
 
 /**
  *
  * @author Nguyen Hoang Tan
  */
-public class CreateUserAction extends org.apache.struts.action.Action {
+public class EditUserAction extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
@@ -42,43 +42,48 @@ public class CreateUserAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        
-        CreateUserForm createUserForm = (CreateUserForm)form;
-        UserBO userBO = UserBO.getUserBO();
+        EditUserForm editUserForm  = (EditUserForm)form;
         User user = new User();
+        UserBO userBO = UserBO.getUserBO();
+        List<User> listUser =UserBO.getUserBO().getUser("username="+"'"+editUserForm.getTxtUserName()+"'");
+        user = listUser.get(0);
         Level level = new Level();
         Group group = new Group();
         Faculty faculty = new Faculty();
-        user.setStatus(createUserForm.getDropStatus());
-        user.setUserName(createUserForm.getTxtUserName());
-        user.setLoginName(createUserForm.getTxtLoginName());
-        SHA512 sha512 = new SHA512();
-        String password = sha512.SHA512(createUserForm.getTxtPassword());
-        user.setPassWord(password);
-        level.setLevelId(createUserForm.getDropLevel());
+        user.setStatus(editUserForm.getDropStatus());
+        user.setUserName(editUserForm.getTxtUserName());
+        user.setLoginName(editUserForm.getTxtLoginName());
+        if(editUserForm.getTxtPassword().length()>0)
+        {
+            SHA512 sha512 = new SHA512();
+            String password = sha512.SHA512(editUserForm.getTxtPassword());
+            user.setPassWord(password);            
+        }
+        level.setLevelId(editUserForm.getDropLevel());
         user.setLevel(level);
-        group.setGroupId(createUserForm.getDropGroup());
+        group.setGroupId(editUserForm.getDropGroup());
         user.setGroup(group);
-        faculty.setFacultyId(createUserForm.getDropFaculty());
+        faculty.setFacultyId(editUserForm.getDropFaculty());
         user.setFaculty(faculty);
-        user.setRealName(createUserForm.getTxtRealName());
-        user.setClass_(createUserForm.getTxtClass());
-        user.setSchoolYear(createUserForm.getTxtSchoolYear());
-        user.setAddress(createUserForm.getTxtAddress());
-        user.setWorkPlace(createUserForm.getTxtWorkPlace());
+        user.setRealName(editUserForm.getTxtRealName());
+        user.setClass_(editUserForm.getTxtClass());
+        user.setSchoolYear(editUserForm.getTxtSchoolYear());
+        user.setAddress(editUserForm.getTxtAddress());
+        user.setWorkPlace(editUserForm.getTxtWorkPlace());
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy"); 
         Date date ; 
-        date = simpleDateFormat.parse(createUserForm.getBirthday());   
+        date = simpleDateFormat.parse(editUserForm.getBirthday());   
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());
         user.setBirthday(sqlDate);
-        date = simpleDateFormat.parse(createUserForm.getExpiredDay());
+        date = simpleDateFormat.parse(editUserForm.getExpiredDay());
         sqlDate = new java.sql.Date(date.getTime());
         user.setExpiredDay(date);
-        userBO.insert(user);
+        userBO.UpdateUser(user);
         Boolean success =true;
         request.setAttribute("success",success);     
-        String href="./LoadCreateUser.do";
+        String href="./LoadListOfUser.do";
         request.setAttribute("href",href);          
-        return mapping.findForward(SUCCESS);
+        return mapping.findForward(SUCCESS);        
     }
 }
+

@@ -39,13 +39,13 @@ public class EditNewsAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        EditNewsForm createNewsForm = (EditNewsForm)form;
-        FormFile fileImage = createNewsForm.getFileImage();
+        EditNewsForm editNewsForm = (EditNewsForm)form;
+        FormFile fileImage = editNewsForm.getFileImage();
         News news = new News();
-        List<News> listNews =NewsBO.getNewsBO().getAllNews("newsId="+createNewsForm.getTxtID(), null);
+        List<News> listNews =NewsBO.getNewsBO().getAllNews("newsId="+editNewsForm.getTxtID(), null);
         news = listNews.get(0);
-        news.setNewsTitleEn(createNewsForm.getTxtTitleEN());
-        news.setNewsTitleVn(createNewsForm.getTxtTitleVN());
+        news.setNewsTitleEn(editNewsForm.getTxtTitleEN());
+        news.setNewsTitleVn(editNewsForm.getTxtTitleVN());
         if(!fileImage.getFileName().isEmpty())
         {
             // delete old file
@@ -65,10 +65,10 @@ public class EditNewsAction extends org.apache.struts.action.Action {
             fileOutputStream.write(fileImage.getFileData());
             fileOutputStream.close();            
         }
-        news.setNewsHeadlineEn(createNewsForm.getTxtHeadlineEN());
-        news.setNewsHeadlineVn(createNewsForm.getTxtHeadlineVN());        
-        news.setNewsContentEn(createNewsForm.getFckContentEN());
-        news.setNewsContentVn(createNewsForm.getFckContentVN());        
+        news.setNewsHeadlineEn(editNewsForm.getTxtHeadlineEN());
+        news.setNewsHeadlineVn(editNewsForm.getTxtHeadlineVN());        
+        news.setNewsContentEn(editNewsForm.getFckContentEN());
+        news.setNewsContentVn(editNewsForm.getFckContentVN());        
         java.util.Date utilDate = new java.util.Date();
         java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());  
         news.setPostDate(sqlDate);
