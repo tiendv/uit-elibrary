@@ -9,12 +9,19 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import uit.elib.dto.Group;
+import uit.elib.formbean.GroupForm;
 import uit.elib.bo.GroupBO;
 /**
  *
  * @author HERO
  */
-public class DeleteGroupAction extends org.apache.struts.action.Action {
+public class EditGroupAction extends org.apache.struts.action.Action {
+
+    /*
+     * forward name="success" path=""
+     */
+    private static final String SUCCESS = "success";
 
     /**
      * This is the action called from the Struts framework.
@@ -30,14 +37,17 @@ public class DeleteGroupAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-                String groupsID = request.getParameter("groupsID");
-                groupsID = groupsID.substring(0, groupsID.length()-1);
-                //String sqlGroupDetail ="delete from groupdetail where GroupID in("+groupsID +")";
-                //String sqlUser ="delete from user where GroupID in("+groupsID +")";
-                String sqlgroup = "delete from `group` where GroupID in("+groupsID+")";
-                //UserBO.getUserBO().DeleteUser(sqlUser);
-                //GroupDetailBO.getGroupDetailBO().DeleteGroupDetail(sqlGroupDetail);
-                GroupBO.getGroupBO().DeleteGroup(sqlgroup);
-        return null;
+        GroupForm groupFormBean = (GroupForm) form;
+        Group temp = new Group();
+        temp.setGroupId(groupFormBean.getTxtGroupID());
+        temp.setGroupNameEn(groupFormBean.getTxtGroupNameEN());
+        temp.setGroupNameVn(groupFormBean.getTxtGroupNameVN());
+        GroupBO groupBO = GroupBO.getGroupBO();
+        groupBO.UpdateGroup(temp);
+        Boolean success =true;
+        String href="./LoadListOfGroup.do";
+        request.setAttribute("success",success);
+        request.setAttribute("href",href);
+        return mapping.findForward(SUCCESS);
     }
 }

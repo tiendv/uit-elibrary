@@ -23,7 +23,7 @@ public class GroupBO extends ManagerBase<Group> {
           }
          return groupBO;
     }
-      public List getAllGroup(String where,String [] sort) {
+      public List<Group> getAllGroup(String where,String [] sort) {
         try {
 
             List<Group> list = getBySQLQuery(where, sort, 0);

@@ -71,7 +71,7 @@
         <%} else{%>
             <td>
         <%}%>
-        <input type="submit" value=<bean:message key="text.buttonedit"/>>
+        <input type="submit" value="<bean:message key="text.buttonedit"/>" onclick="editgroup(<%=listGroup.get(i).getGroupId()%>)" />
             </td>
     </tr>
     <%color++; %>
@@ -102,5 +102,9 @@ function deletegroup()
 function creategroup()
 {
     window.location ="LoadCreateGroup.do";
+}
+function editgroup(groupID)
+{
+    window.location = "LoadEditGroup.do?groupID="+groupID;
 }
 </script>
