@@ -4,18 +4,26 @@
  */
 package uit.elib.action;
 
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import uit.elib.utility.IsNumber;
 import uit.elib.bo.GroupBO;
+import uit.elib.dto.Group;
 /**
  *
  * @author HERO
  */
-public class DeleteGroupAction extends org.apache.struts.action.Action {
+public class LoadEditGroupAction extends org.apache.struts.action.Action {
 
+    /*
+     * forward name="success" path=""
+     */
+    private static final String SUCCESS = "success";
+    private static final String UNSUCCESS = "unsuccess";
     /**
      * This is the action called from the Struts framework.
      *
@@ -30,14 +38,16 @@ public class DeleteGroupAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-                String groupsID = request.getParameter("groupsID");
-                groupsID = groupsID.substring(0, groupsID.length()-1);
-                //String sqlGroupDetail ="delete from groupdetail where GroupID in("+groupsID +")";
-                //String sqlUser ="delete from user where GroupID in("+groupsID +")";
-                String sqlgroup = "delete from `group` where GroupID in("+groupsID+")";
-                //UserBO.getUserBO().DeleteUser(sqlUser);
-                //GroupDetailBO.getGroupDetailBO().DeleteGroupDetail(sqlGroupDetail);
-                GroupBO.getGroupBO().DeleteGroup(sqlgroup);
-        return null;
+        if(request.getParameter("groupID")!=null)
+        {
+            IsNumber isnumber = new IsNumber();
+            if(isnumber.checkInt(request.getParameter("groupID")))
+            {
+                List<Group> listGroup = GroupBO.getGroupBO().getAllGroup("GroupID="+request.getParameter("groupID"), null);
+                request.setAttribute("listGroup", listGroup);
+                return mapping.findForward(SUCCESS);
+            }
+        }
+        return mapping.findForward(UNSUCCESS);
     }
 }
