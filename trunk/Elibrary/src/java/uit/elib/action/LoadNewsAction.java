@@ -47,7 +47,17 @@ public class LoadNewsAction extends org.apache.struts.action.Action {
                 List<News> listNews = newsBO.getAllNews("newsId="+newsID, null);
                 if(listNews.size()>0)
                 {
-                    request.setAttribute("listNews", listNews);                    
+                    request.setAttribute("listNews", listNews);
+                    java.util.Date today = new java.util.Date();
+                    java.util.Date oldday = new java.util.Date();
+                    oldday.setTime(today.getTime() - 3*24*60*60*1000); // 3 days ago
+                    java.sql.Date sqlToday = new java.sql.Date(today.getTime());
+                    java.sql.Date sqlOldToday = new java.sql.Date(oldday.getTime());
+                    String []order = new String[1];
+                    order[0]="postDate desc";                    
+                    String where ="CAST(postdate AS DATE) >= '"+sqlOldToday+"' and CAST(postdate AS DATE)<= '"+sqlToday+"' and newsID!="+listNews.get(0).getNewsId();
+                    List<News> listNewNews = newsBO.getAllNews(where,order);
+                    request.setAttribute("listNewNews", listNewNews);                    
                     return mapping.findForward(SUCCESS);
                 }
             }

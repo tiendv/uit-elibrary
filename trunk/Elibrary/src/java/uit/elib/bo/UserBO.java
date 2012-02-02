@@ -18,7 +18,7 @@ public class UserBO extends ManagerBase<User> {
     }
     public List getUser() {
         try {
-            String[] sort = new String[]{"userId"}; // tang dan
+            String[] sort = new String[]{"userName"}; // tang dan
             //String[] sort = new String[]{"name desc"}; // giam dan
 
             List<User> list = getBySQLQuery(sort, 0);
@@ -29,6 +29,19 @@ public class UserBO extends ManagerBase<User> {
             return null;
         }
     }
+    public List getUser(String where) {
+        try {
+            String[] sort = new String[]{"userName"}; // tang dan
+            //String[] sort = new String[]{"name desc"}; // giam dan
+
+            List<User> list = getBySQLQuery(where,sort, 0);
+            return list;
+
+        } catch (Exception ex) {
+            Logger.getLogger(UserBO.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }    
     public static UserBO getUserBO() throws Exception{
          if (userBO == null ){
               userBO = new UserBO();

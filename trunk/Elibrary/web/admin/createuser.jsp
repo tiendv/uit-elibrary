@@ -33,7 +33,7 @@
     <div class="cleared"></div>          
     <div class="resource1">
         <div class="resource_left"><bean:message key="text.username"/></div>
-        <div class="resource_left"><html:text property="txtUserName" styleClass="textbox" maxlength="45"/></div>
+        <div class="resource_left"><html:text property="txtUserName" styleClass="textbox" maxlength="45" onchange="validateUserName()"/></div>
         <div class="resource_left"><bean:message key="text.loginname"/></div>
         <div class="resource_left"><html:text property="txtLoginName" styleClass="textbox" maxlength="45"/></div>                                 
     </div>
@@ -113,7 +113,7 @@
         <div class="resource_left"><input class="textbox" type="text" id="expiredDay" name="expiredDay"/></div>                   
     </div>
     <div class="cleared"></div>
-    <html:submit property="btnSubmit" onclick="return hi()" disabled="true"><bean:message key="text.buttoncreate"/></html:submit><noscript><bean:message key="text.noscript"/></noscript>
+    <html:submit property="btnSubmit" onclick="return validate()" disabled="true"><bean:message key="text.buttoncreate"/></html:submit><noscript><bean:message key="text.noscript"/></noscript>
     <html:javascript formName="CreateUserForm"/>    
 </html:form>
 <script type="text/javascript">
@@ -121,15 +121,37 @@
     {
         document.CreateUserForm.btnSubmit.disabled=false;
     }
-    function hi()
+    function validateUserName()
     {
-        if(document.getElementsByName("txtPassword")[0].value != document.getElementsByName("txtRePassword")[0].value)
-        {                alert("khác");
-                return false;}    
-                      
-
-            
-            
+        if(document.getElementsByName("txtUserName")[0].value != "") // check username
+        {
+            var username = document.getElementsByName("txtUserName")[0].value;
+            $.ajax({
+                type: "POST",
+                url: "CheckUser.do",
+                data: "username="+username
+            }).done(function( msg ) {
+                if(msg!="")
+                {                  
+                    var alertString = "";
+                    alertString = "<bean:message key="text.username"/> <bean:message key="text.exist"/>";
+                    alert(alertString);
+                    document.CreateUserForm.btnSubmit.disabled=true;
+                }
+                else
+                    document.CreateUserForm.btnSubmit.disabled=false;
+            });            
+        } 
+    }
+    function validate()
+    {   
+        if(document.getElementsByName("txtPassword")[0].value != "" && document.getElementsByName("txtRePassword")[0].value !="") // check password and password confirm              
+            if(document.getElementsByName("txtPassword")[0].value != document.getElementsByName("txtRePassword")[0].value)
+            {
+                var alertString ="<bean:message key="text.password"/> <bean:message key="text.and"/> <bean:message key="text.passwordconfirm"/> <bean:message key="text.isnotsame"/>" 
+                alert(alertString);
+                return false;
+            }    
     }     
     $(function() {
         $( "#expiredDay" ).datepicker({

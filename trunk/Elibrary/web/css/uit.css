@@ -838,6 +838,19 @@ div.resource_right
     padding-left: 2px;
     padding-bottom: 2px;
 }
+.greyright {
+    color: #5F5F5F;
+    font-family: arial,verdana,tahoma;
+    font-size: 11px;
+    padding-left: 664px;
+    padding-bottom: 2px;
+}
+.greyrightcontent {
+    color: #5F5F5F;
+    font-family: arial,verdana,tahoma;
+    font-size: 11px;
+    padding-left: 348px;
+}
 .linkcolor
 {
     text-decoration: none;
