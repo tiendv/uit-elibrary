@@ -437,25 +437,10 @@
                 <arg key="text.passwordconfirm"/>            
             </field>
             <field 
-                property="txtClass"
-                depends="required">
-                <arg key="text.class"/>            
-            </field> 
-            <field 
-                property="txtSchoolYear"
-                depends="required">
-                <arg key="text.schoolyear"/>            
-            </field>
-            <field 
                 property="txtAddress"
                 depends="required">
                 <arg key="text.address"/>            
             </field>
-            <field 
-                property="txtWorkPlace"
-                depends="required">
-                <arg key="text.workplace"/>            
-            </field> 
             <field 
                 property="expiredDay"
                 depends="required,date">
@@ -487,24 +472,9 @@
                 <arg key="text.realname"/>            
             </field> 
             <field 
-                property="txtClass"
-                depends="required">
-                <arg key="text.class"/>            
-            </field> 
-            <field 
-                property="txtSchoolYear"
-                depends="required">
-                <arg key="text.schoolyear"/>            
-            </field>
-            <field 
                 property="txtAddress"
                 depends="required">
                 <arg key="text.address"/>            
-            </field>
-            <field 
-                property="txtWorkPlace"
-                depends="required">
-                <arg key="text.workplace"/>            
             </field> 
             <field 
                 property="expiredDay"

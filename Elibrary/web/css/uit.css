@@ -591,7 +591,7 @@ background-position:0px -486px;
     border: 1px;
     border-color:#B4B1A2;
     border-style: solid ; 
-    margin-left: 17px;
+    margin-left: 10px;
     width: 740px;
     text-align: left;
     border-collapse:collapse;
@@ -600,6 +600,7 @@ background-position:0px -486px;
 }
 .hyperlink_title_subject{
     padding-left: 10px;
+    padding-bottom: 5px;
 }
 /* END: AV PAGE ICONS */
 .combobox{
@@ -690,7 +691,7 @@ div.resource_right
 }
 .syllabus_col
 {
-   padding-left: 8px;
+   padding-left: 10px;
    padding-bottom: 5px; 
 }
 .syllabus_col_title
@@ -704,7 +705,7 @@ div.resource_right
 }
 .syllabus_download
 {
-    padding-left: 17px;
+    padding-left: 10px;
     padding-top: 5px;
 }
 .center
@@ -794,7 +795,7 @@ div.resource_right
 }
 .divdelete
 {
-    margin-left: 690px;
+    margin-left: 683px;
 }
 .btn
 {
@@ -842,14 +843,14 @@ div.resource_right
     color: #5F5F5F;
     font-family: arial,verdana,tahoma;
     font-size: 11px;
-    padding-left: 664px;
+    text-align: right;
     padding-bottom: 2px;
 }
 .greyrightcontent {
     color: #5F5F5F;
     font-family: arial,verdana,tahoma;
     font-size: 11px;
-    padding-left: 348px;
+    text-align: right;
 }
 .linkcolor
 {
