@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Jan 28, 2012 12:43:55 AM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Feb 4, 2012 2:04:57 AM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="uit.elib.dto.News" table="news" catalog="elibrary">
         <id name="newsId" type="java.lang.Integer">
@@ -18,10 +18,10 @@
             <column name="NewsImage" length="45" />
         </property>
         <property name="newsHeadlineEn" type="string">
-            <column name="NewsHeadlineEN" length="500" />
+            <column name="NewsHeadlineEN" />
         </property>
         <property name="newsHeadlineVn" type="string">
-            <column name="NewsHeadlineVN" length="500" />
+            <column name="NewsHeadlineVN" />
         </property>
         <property name="newsContentEn" type="string">
             <column name="NewsContentEN" length="65535" />

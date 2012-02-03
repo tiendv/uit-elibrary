@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Jan 28, 2012 12:43:55 AM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Feb 4, 2012 2:04:57 AM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="uit.elib.dto.User" table="user" catalog="elibrary">
         <id name="userName" type="string">

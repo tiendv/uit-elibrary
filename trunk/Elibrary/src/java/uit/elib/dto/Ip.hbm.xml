@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Jan 28, 2012 12:43:55 AM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Feb 4, 2012 2:04:57 AM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="uit.elib.dto.Ip" table="ip" catalog="elibrary">
         <id name="ipid" type="java.lang.Integer">
@@ -9,10 +9,10 @@
             <generator class="identity" />
         </id>
         <property name="ipvalue" type="string">
-            <column name="IPValue" length="45" />
+            <column name="IPValue" length="15" />
         </property>
-        <property name="ipstatus" type="string">
-            <column name="IPStatus" length="45" />
+        <property name="ipstatus" type="java.lang.Byte">
+            <column name="IPStatus" />
         </property>
     </class>
 </hibernate-mapping>
