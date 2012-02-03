@@ -40,29 +40,31 @@
     <div class="left"><%=listNews.get(0).getNewsContentVn()%></div>
 <%}%>
     <div class="cleared"></div>
-    <div class="box">
-        <div class="font1"><bean:message key="text.newnews"/></div>
-        <%List<News> listNewNews = (List<News>)request.getAttribute("listNewNews");%>
-        <%for(int i=0;i<listNewNews.size();i++){%>
-            <%
-                Date date = listNewNews.get(i).getPostDate();
-                String postdate = simpleDateFormat.format(date);
-            %>
-            <%  if(language==1){%>
-            <div class="boxcol">
-                <div class="boxcol1"><a class="linkcolor" href="./LoadNews.do?newsID=<%=listNewNews.get(i).getNewsId()%>"><%=listNewNews.get(i).getNewsTitleEn()%> (<%=postdate%>)</a></div> 
-                <div class="boxcol2"><img src="image/new-icon.gif" class="image_newicon" alt="new-icon"/></div> <!-- new icon  -->
-            </div>
-            <%}%>
-            <%  if(language==2){%>
-            <div class="boxcol">
-                <div class="boxcol1"><a class="linkcolor" href="./LoadNews.do?newsID=<%=listNewNews.get(i).getNewsId()%>"><%=listNewNews.get(i).getNewsTitleVn()%> (<%=postdate%>)</a></div>
-                <div class="boxcol2"><img src="image/new-icon.gif" class="image_newicon" alt="new-icon"/></div> <!-- new icon  -->
-            </div>   
-            <%}%>
-            <div class="cleared"></div>
-        <%}%>    
-    </div>
+    <%List<News> listNewNews = (List<News>)request.getAttribute("listNewNews");%>
+    <%if(listNewNews.size()>0){%>
+    <%for(int i=0;i<listNewNews.size();i++){%>
+        <div class="box">
+            <div class="font1"><bean:message key="text.newnews"/></div>
+                <%
+                    Date date = listNewNews.get(i).getPostDate();
+                    String postdate = simpleDateFormat.format(date);
+                %>
+                <%  if(language==1){%>
+                <div class="boxcol">
+                    <div class="boxcol1"><a class="linkcolor" href="./LoadNews.do?newsID=<%=listNewNews.get(i).getNewsId()%>"><%=listNewNews.get(i).getNewsTitleEn()%> (<%=postdate%>)</a></div> 
+                    <div class="boxcol2"><img src="image/new-icon.gif" class="image_newicon" alt="new-icon"/></div> <!-- new icon  -->
+                </div>
+                <%}%>
+                <%  if(language==2){%>
+                <div class="boxcol">
+                    <div class="boxcol1"><a class="linkcolor" href="./LoadNews.do?newsID=<%=listNewNews.get(i).getNewsId()%>"><%=listNewNews.get(i).getNewsTitleVn()%> (<%=postdate%>)</a></div>
+                    <div class="boxcol2"><img src="image/new-icon.gif" class="image_newicon" alt="new-icon"/></div> <!-- new icon  -->
+                </div>   
+                <%}%>
+                <div class="cleared"></div>
+            <%}%>    
+        </div>
+    <%}%>
 <%}%>    
 
 
