@@ -5,14 +5,12 @@
 --%>
 
 <%@page import="org.apache.struts.Globals"%>
-<%@page import="java.util.Locale"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@taglib uri="http://struts.apache.org/tags-html"  prefix="html"%>
 <%
     int language =1; // English
-    Locale locale = request.getLocale();
     if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
         language = 2; // VietNamese
 %>
@@ -166,6 +164,5 @@
             dateFormat: "dd/mm/yy", 
             yearRange: "-200:+0" 
         });
-    });
-    
+    }); 
 </script>      

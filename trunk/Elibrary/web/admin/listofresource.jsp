@@ -5,7 +5,6 @@
 --%>
 <%@page import="uit.elib.dto.Subject"%>
 <%@page import="uit.elib.bo.SubjectBO"%>
-<%@page import="java.util.Locale"%>
 <%@page import="org.apache.struts.Globals"%>
 <%@page import="java.util.List" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -17,10 +16,8 @@
     if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
         language = 2; // VietNamese
 %>
-
 <jsp:useBean id="resourceCategoryBO" class="uit.elib.bo.ResourceCategoryBO" scope="page"/>
 <jsp:useBean id="subjectBO" class="uit.elib.bo.SubjectBO" scope="page"/>
-
 <table>
     <tr>
         <td>
@@ -68,9 +65,7 @@
     </tr>
 </table>
 <div id="divTable" ></div>
-
 <script type="text/javascript">
- 
     function init()
     {     
         changeChapter();          
@@ -132,10 +127,8 @@
                 data: "resourceCategoryID="+resourceCategoryID + "&subjectID="+subjectID
             }).done(function(msg){
                 document.getElementById("divTable").innerHTML=msg;
-            });         
-        
-        }
-      
+            });               
+        }   
     }
     function deleteResource()
     {
@@ -155,8 +148,7 @@
         }).done(function(){
             changeTable();
         });          
-    }
-    
+    }   
     function editResource(resourcesID)
     {
         window.location = "LoadEditResource.do?resourceID="+resourcesID;
