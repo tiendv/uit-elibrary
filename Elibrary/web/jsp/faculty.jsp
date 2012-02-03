@@ -19,8 +19,6 @@
     <li class="projectsExample"
         alt="Projects"
         title="<bean:message key="text.project"/>"><bean:message key="text.project"/></li>
-    <li class="imageGallery" alt="Image Galleries"
-        title="<bean:message key="text.imagegallery"/>"><bean:message key="text.imagegallery"/></li>
     <li class="multimediaContent"
         alt="Video"
         title="<bean:message key="text.video"/>"><bean:message key="text.video"/></li>
@@ -203,8 +201,6 @@
                     <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+5+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.example"/>" class="examsSolutions" title="<bean:message key="text.example"/>"></a>  <% } %>
                 <% if(resourceCategoryId==6 ){ %>
                     <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+6+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.project"/>" class="projectsExample" title="<bean:message key="text.project"/>"></a>  <% } %>
-                <% if(resourceCategoryId==8 ){ %>
-                    <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+8+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.imagegallery"/>" class="imageGallery" title="<bean:message key="text.imagegallery"/>"></a>   <% } %>
                 <% if(resourceCategoryId==9 ){ %>
                     <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+9+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.reading"/>" class="onlineTextBooks" title="<bean:message key="text.reading"/>"></a><% } %>
                  <% if(resourceCategoryId==10 ){ %>
