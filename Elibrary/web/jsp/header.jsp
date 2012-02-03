@@ -38,14 +38,14 @@
     // End -->
 </script>
 <!DOCTYPE html>
- <table width="100%" border="0" cellspacing="0" cellpadding="0">
+ <table width="944px" border="0" cellspacing="0" cellpadding="0">
     <tr>
         <td>
             <bean:message key="text.webtitle.resource"/>
             <br/>
             <bean:message key="text.webtitle.resource1"/>
         </td>
-        <td class="language" style="width: 50%;height: 100px;text-align: right" valign="bottom">
+        <td class="language" style="width: 472px;height: 100px;text-align: right" valign="bottom">
             <!-- ENGLISH LOCALE-->
         <td>     
             <div class="cssEnglish">

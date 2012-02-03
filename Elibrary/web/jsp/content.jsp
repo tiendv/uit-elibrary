@@ -6,7 +6,6 @@
 
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="org.apache.struts.Globals"%>
-<%@page import="java.util.Locale"%>
 <%@page import="java.util.List"%>
 <%@page import="uit.elib.dto.News"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
