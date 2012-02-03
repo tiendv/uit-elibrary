@@ -13,9 +13,9 @@
     <tr>
     <td  width="31px" align="right"><img src="<bean:message key="image.uitlogo"/>" width="31" height="32" alt="<bean:message key="image.uitlogo.alttext"/>" longdesc="http://www.uit.edu.vn" /></td>
     <td class="sub_footer">
-        <bean:message key="txt.copyright"/><br />
-        <bean:message key="txt.uit"/> <br/>
-        <bean:message key="txt.uit.address"/>
+        <bean:message key="text.copyright"/><br />
+        <bean:message key="text.uit"/> <br/>
+        <bean:message key="text.uit.address"/>
     </td>
     <td width="25%" ></td>
     </tr>

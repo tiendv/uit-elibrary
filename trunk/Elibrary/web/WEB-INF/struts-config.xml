@@ -7,6 +7,7 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="CreateIPForm" type="uit.elib.formbean.CreateIPForm"/>
         <form-bean name="EditUserForm" type="uit.elib.formbean.EditUserForm"/>
         <form-bean name="GroupForm" type="uit.elib.formbean.GroupForm"/>
         <form-bean name="LoadCreateUserForm" type="uit.elib.formbean.LoadCreateUserForm"/>
@@ -143,6 +144,9 @@
         </action>            
         <action path="/EditUser" name="EditUserForm"  scope="session" type="uit.elib.action.EditUserAction">
             <forward name="success" path="/jsp/success.jsp"/>
+        </action>
+        <action path="/CreateIP" name="CreateIPForm"  scope="session" type="uit.elib.action.CreateIPAction">
+            <forward name="success" path="/jsp/success.jsp"/>
         </action>            
         <action path="/DeleteUser" type="uit.elib.action.DeleteUserAction"/>
         <action path="/LoadUserTable" type="uit.elib.action.LoadUserTableAction"/>
@@ -160,6 +164,7 @@
         <action path="/LoadChapter" type="uit.elib.action.LoadChapterAction" scope="session"/>  
         <action path="/Admin" forward=".adminPage"  scope="session"/>
         <action path="/LoadCreateNews" forward=".createNews"  scope="session"/>
+        <action path="/LoadCreateIP" forward=".createIP"  scope="session"/>
         <action path="/LoadCreateGroup" forward=".createGroup"  scope="session"/>
         <action path="/Locale" type="uit.elib.action.languageSelectAction" parameter="method" validate="false"  scope="session"/>
     </action-mappings>
