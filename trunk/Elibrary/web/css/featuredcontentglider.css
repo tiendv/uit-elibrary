@@ -10,13 +10,12 @@ overflow: hidden;
 	Adjust related containers below according to comments
 */
 
-
 .glidecontent{ /*style for each glide content DIV within wrapper.*/
 position: absolute; /* Do not change this value */
 background: white;
-padding: 20px;
 visibility: hidden;
 width: 440px;
+padding-left: 20px;
 }
 /*
  Total glidecontent width: 330px+10px+10px=350px
