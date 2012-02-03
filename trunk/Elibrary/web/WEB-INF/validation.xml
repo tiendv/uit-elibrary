@@ -494,6 +494,18 @@
                     <var-value>dd/MM/yyyy</var-value>
                 </var>                    
             </field>     
-        </form>         
+        </form>
+        <form name="CreateIPForm">
+            <field 
+                property="txtSourceIP"
+                depends="required">
+                <arg key="text.sourceip"/>            
+            </field>
+            <field 
+                property="txtDestinationIP"
+                depends="required">
+                <arg key="text.destinationip"/>            
+            </field>  
+        </form>        
    </formset>
 </form-validation>

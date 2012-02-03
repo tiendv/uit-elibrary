@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import uit.elib.bo.IPBO;
+import uit.elib.dto.Ip;
+import uit.elib.formbean.CreateIPForm;
 
 /**
  *
@@ -32,7 +35,13 @@ public class CreateIPAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        
+        CreateIPForm createIPForm = (CreateIPForm)form;
+        IPBO ipbo = IPBO.getIPBO();
+        Ip ip = new Ip();
+        if(createIPForm.getDropStatus()==0)
+        {
+            ip.setIpvalue(createIPForm.getTxtSourceIP());
+        }
         return mapping.findForward(SUCCESS);
     }
 }
