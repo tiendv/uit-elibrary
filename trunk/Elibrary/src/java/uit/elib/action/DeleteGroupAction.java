@@ -10,6 +10,8 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import uit.elib.bo.GroupBO;
+import uit.elib.bo.GroupDetailBO;
+import uit.elib.bo.UserBO;
 /**
  *
  * @author HERO
@@ -32,11 +34,11 @@ public class DeleteGroupAction extends org.apache.struts.action.Action {
             throws Exception {
                 String groupsID = request.getParameter("groupsID");
                 groupsID = groupsID.substring(0, groupsID.length()-1);
-                //String sqlGroupDetail ="delete from groupdetail where GroupID in("+groupsID +")";
-                //String sqlUser ="delete from user where GroupID in("+groupsID +")";
+                String sqlGroupDetail ="delete from `groupdetail` where GroupID in("+groupsID +")";
+                String sqlUser ="delete from `user` where GroupID in("+groupsID +")";
                 String sqlgroup = "delete from `group` where GroupID in("+groupsID+")";
-                //UserBO.getUserBO().DeleteUser(sqlUser);
-                //GroupDetailBO.getGroupDetailBO().DeleteGroupDetail(sqlGroupDetail);
+                UserBO.getUserBO().DeleteUser(sqlUser);
+                GroupDetailBO.getGroupDetailBO().DeleteGroupDetail(sqlGroupDetail);
                 GroupBO.getGroupBO().DeleteGroup(sqlgroup);
         return null;
     }
