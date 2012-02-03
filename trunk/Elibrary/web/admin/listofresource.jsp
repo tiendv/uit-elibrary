@@ -140,8 +140,6 @@
     function deleteResource()
     {
         var listSize = document.getElementById("listSize").value;
-        var resourceCategoryID = document.getElementById("dropResourceCategory").value;
-        var subjectID = document.getElementById("dropSubject").value;  
         var resourcesID="";
         for(var i=0;i<listSize;i++)
         {
@@ -153,7 +151,7 @@
         $.ajax({
             type: "POST",
             url: "DeleteResource.do",
-            data: "resourcesID="+resourcesID+"&resourceCategoryID="+resourceCategoryID+ "&subjectID="+subjectID
+            data: "resourcesID="+resourcesID
         }).done(function(){
             changeTable();
         });          

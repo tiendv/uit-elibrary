@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package uit.elib.action;
+import java.io.File;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -34,20 +35,18 @@ public class DeleteResourceAction extends org.apache.struts.action.Action {
         String resourcesID = request.getParameter("resourcesID");
         resourcesID=resourcesID.substring(0,resourcesID.length()-1);
         ResourceBO resourceBO = ResourceBO.getResourceBO();
-        int resourceCategoryID = Integer.parseInt(request.getParameter("resourceCategoryID"));
-        // if resource category is Chapter (=7), delete all chapter and resource belong to chapter
-        if(resourceCategoryID==7)
-        {
-            int subjectID = Integer.parseInt(request.getParameter("subjectID"));
-            String []resourceID = resourcesID.split(",");
-            List<Resource> listResource = resourceBO.getAllResource("ResourceID in("+resourcesID+")", null);
-            for(int i=0;i<listResource.size();i++)
-                resourceBO.DeleteResource("delete from resource where SubjectID =("+subjectID+") and OrderChapter ="+listResource.get(i).getOrderChapter() +"");
+        List<Resource> listResource = resourceBO.getAllResource("ResourceID in("+resourcesID+")", null);     
+        for(int i=0;i<listResource.size();i++)
+        {    
+            // delete old file
+            if(listResource.get(i).getServerName()!=null)
+            {
+                File oldFile =  new File(request.getServletContext().getRealPath("/")+"upload/"+listResource.get(i).getServerName());
+                oldFile.delete();
+            }                
+            resourceBO.DeleteResource("delete from resource where resourceID ="+listResource.get(i).getResourceId()) ;
         }
-        else
-        {
-            resourceBO.DeleteResource("delete from resource where ResourceID in("+resourcesID+")");
-        }
+
         return mapping.findForward(null);
     }
 }
