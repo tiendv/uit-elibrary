@@ -36,7 +36,6 @@
             <% 
                 List<News> listNews = (List<News>)request.getAttribute("listNews");
                 int language =1; // English
-                Locale locale = request.getLocale();
                 if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
                     language=2; // VietNamese                
                 if(listNews.size()>0){%>
