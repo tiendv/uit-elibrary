@@ -147,7 +147,8 @@
         </action>
         <action path="/CreateIP" name="CreateIPForm"  scope="session" type="uit.elib.action.CreateIPAction">
             <forward name="success" path="/jsp/success.jsp"/>
-        </action>            
+        </action>
+        <action path="/LoadIPTable" type="uit.elib.action.LoadIPTableAction"/>
         <action path="/DeleteUser" type="uit.elib.action.DeleteUserAction"/>
         <action path="/LoadUserTable" type="uit.elib.action.LoadUserTableAction"/>
         <action input="/" name="LoadCreateUserForm" path="/CheckUser" scope="session" type="uit.elib.action.CheckUserAction"/>

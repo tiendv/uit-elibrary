@@ -18,7 +18,7 @@ public class IPBO extends ManagerBase<Ip> {
     public static IPBO userBO = null;
     public IPBO() throws Exception{
     }
-    public List getIP() {
+    public List GetIP() {
         try {
             String[] sort = new String[]{"IpId"}; // tang dan
             List<Ip> list = getBySQLQuery(sort, 0);
@@ -29,7 +29,7 @@ public class IPBO extends ManagerBase<Ip> {
             return null;
         }
     }
-    public List getIP(String where) {
+    public List GetIP(String where) {
         try {
             String[] sort = new String[]{"IpId"}; // tang dan
             List<Ip> list = getBySQLQuery(where,sort, 0);
@@ -40,7 +40,7 @@ public class IPBO extends ManagerBase<Ip> {
             return null;
         }
     }    
-    public static IPBO getIPBO() throws Exception{
+    public static IPBO GetIPBO() throws Exception{
          if (userBO == null ){
               userBO = new IPBO();
           }
@@ -63,7 +63,7 @@ public class IPBO extends ManagerBase<Ip> {
             Logger.getLogger(IPBO.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
-    public void insert(Ip u) {
+    public void InsertIP(Ip u) {
         try {
             addNew(u);
         } catch (Exception ex) {
