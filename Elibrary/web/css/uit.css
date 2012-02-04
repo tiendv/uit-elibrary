@@ -550,6 +550,11 @@ div.resource_left {
 div.resource_right {
     float: left;
 }
+div.thesis_summary{
+    width: 760px;
+    padding-left: 3px;
+    margin-top: -9px;
+}
 .image {
     max-width:500px; 
     max-height:500px;
