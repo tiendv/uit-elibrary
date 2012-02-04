@@ -15,7 +15,7 @@
             <td >&nbsp;</td>
           </tr>
         <tr>
-            <td  class="leftmenu_td_title">Nội dung</td>
+            <td  class="leftmenu_td_title"><bean:message key="text.content"/></td>
         </tr>
         <% int subjectID, orderChapter ; 
             IsNumber isnumber = new IsNumber(); // kiểm tra có phải là số không
