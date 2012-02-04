@@ -32,8 +32,8 @@
     <div class="resource1">
         <div class="resource_left"><bean:message key="text.username"/></div>
         <div class="resource_left"><html:text property="txtUserName" styleClass="textbox" maxlength="45" onchange="validateUserName()" value=""/></div>
-        <div class="resource_left"><bean:message key="text.loginname"/></div>
-        <div class="resource_left"><html:text property="txtLoginName" styleClass="textbox" maxlength="45" value=""/></div>                                 
+        <div class="resource_left"><bean:message key="text.email"/></div>
+        <div class="resource_left"><html:text property="txtEmail" styleClass="textbox" maxlength="45" value=""/></div>                                 
     </div>
     <div class="cleared"></div>  
     <div class="resource1">
