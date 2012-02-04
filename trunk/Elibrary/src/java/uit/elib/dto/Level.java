@@ -1,5 +1,5 @@
 package uit.elib.dto;
-// Generated Feb 4, 2012 8:53:00 PM by Hibernate Tools 3.2.1.GA
+// Generated Feb 5, 2012 12:04:53 AM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;

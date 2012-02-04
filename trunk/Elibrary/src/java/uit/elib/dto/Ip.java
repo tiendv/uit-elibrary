@@ -1,5 +1,5 @@
 package uit.elib.dto;
-// Generated Feb 4, 2012 8:53:00 PM by Hibernate Tools 3.2.1.GA
+// Generated Feb 5, 2012 12:04:53 AM by Hibernate Tools 3.2.1.GA
 
 
 
@@ -11,12 +11,12 @@ public class Ip  implements java.io.Serializable {
 
      private Integer ipid;
      private String ipvalue;
-     private Byte ipstatus;
+     private Integer ipstatus;
 
     public Ip() {
     }
 
-    public Ip(String ipvalue, Byte ipstatus) {
+    public Ip(String ipvalue, Integer ipstatus) {
        this.ipvalue = ipvalue;
        this.ipstatus = ipstatus;
     }
@@ -35,11 +35,11 @@ public class Ip  implements java.io.Serializable {
     public void setIpvalue(String ipvalue) {
         this.ipvalue = ipvalue;
     }
-    public Byte getIpstatus() {
+    public Integer getIpstatus() {
         return this.ipstatus;
     }
     
-    public void setIpstatus(Byte ipstatus) {
+    public void setIpstatus(Integer ipstatus) {
         this.ipstatus = ipstatus;
     }
 
