@@ -52,7 +52,7 @@ public class LoadEditUserAction extends org.apache.struts.action.Action {
             {
                 EditUserForm editUserForm = (EditUserForm)form;
                 editUserForm.setTxtUserName(listUser.get(0).getUserName());
-                editUserForm.setTxtLoginName(listUser.get(0).getLoginName());
+                editUserForm.setTxtEmail(listUser.get(0).getEmail());
                 editUserForm.setTxtRealName(listUser.get(0).getRealName());
                 editUserForm.setTxtAddress(listUser.get(0).getAddress());
                 editUserForm.setTxtClass(listUser.get(0).getClass_());

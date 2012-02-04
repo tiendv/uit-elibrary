@@ -417,9 +417,9 @@
                 <arg key="text.username"/>            
             </field>
             <field 
-                property="txtLoginName"
+                property="txtEmail"
                 depends="required">
-                <arg key="text.loginname"/>            
+                <arg key="text.email"/>            
             </field>
             <field 
                 property="txtRealName"
@@ -462,9 +462,9 @@
         </form>
         <form name="EditUserForm">
             <field 
-                property="txtLoginName"
+                property="txtEmail"
                 depends="required">
-                <arg key="text.loginname"/>            
+                <arg key="text.email"/>            
             </field>
             <field 
                 property="txtRealName"

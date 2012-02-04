@@ -4,8 +4,6 @@
  */
 package uit.elib.formbean;
 
-import java.util.Date;
-
 /**
  *
  * @author Nguyen Hoang Tan
@@ -13,7 +11,7 @@ import java.util.Date;
 public class CreateUserForm extends org.apache.struts.action.ActionForm {
     
     private String txtUserName;
-    private String txtLoginName;
+    private String txtEmail;
     private String txtPassword;
     private String txtRePassword;
     private String txtRealName;
@@ -116,12 +114,12 @@ public class CreateUserForm extends org.apache.struts.action.ActionForm {
         this.dropGroup = dropGroup;
     }
     
-    public String getTxtLoginName() {
-        return txtLoginName;
+    public String getTxtEmail() {
+        return txtEmail;
     }
 
-    public void setTxtLoginName(String txtLoginName) {
-        this.txtLoginName = txtLoginName;
+    public void setTxtEmail(String txtEmail) {
+        this.txtEmail = txtEmail;
     }
 
     public String getTxtPassword() {

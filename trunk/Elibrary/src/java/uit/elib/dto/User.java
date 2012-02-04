@@ -1,5 +1,5 @@
 package uit.elib.dto;
-// Generated Feb 4, 2012 2:04:56 AM by Hibernate Tools 3.2.1.GA
+// Generated Feb 4, 2012 8:53:00 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -14,8 +14,8 @@ public class User  implements java.io.Serializable {
      private Group group;
      private Faculty faculty;
      private Level level;
-     private String loginName;
      private String passWord;
+     private String email;
      private String class_;
      private String schoolYear;
      private Date expiredDay;
@@ -32,13 +32,13 @@ public class User  implements java.io.Serializable {
     public User(String userName) {
         this.userName = userName;
     }
-    public User(String userName, Group group, Faculty faculty, Level level, String loginName, String passWord, String class_, String schoolYear, Date expiredDay, String realName, Date birthday, String address, String workPlace, Integer status) {
+    public User(String userName, Group group, Faculty faculty, Level level, String passWord, String email, String class_, String schoolYear, Date expiredDay, String realName, Date birthday, String address, String workPlace, Integer status) {
        this.userName = userName;
        this.group = group;
        this.faculty = faculty;
        this.level = level;
-       this.loginName = loginName;
        this.passWord = passWord;
+       this.email = email;
        this.class_ = class_;
        this.schoolYear = schoolYear;
        this.expiredDay = expiredDay;
@@ -77,19 +77,19 @@ public class User  implements java.io.Serializable {
     public void setLevel(Level level) {
         this.level = level;
     }
-    public String getLoginName() {
-        return this.loginName;
-    }
-    
-    public void setLoginName(String loginName) {
-        this.loginName = loginName;
-    }
     public String getPassWord() {
         return this.passWord;
     }
     
     public void setPassWord(String passWord) {
         this.passWord = passWord;
+    }
+    public String getEmail() {
+        return this.email;
+    }
+    
+    public void setEmail(String email) {
+        this.email = email;
     }
     public String getClass_() {
         return this.class_;

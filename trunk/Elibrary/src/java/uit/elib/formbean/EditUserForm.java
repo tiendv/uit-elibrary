@@ -15,7 +15,7 @@ import uit.elib.dto.Level;
  */
 public class EditUserForm extends org.apache.struts.action.ActionForm {
     private String txtUserName;
-    private String txtLoginName;
+    private String txtEmail;
     private String txtPassword;
     private String txtRePassword;
     private String txtRealName;
@@ -121,12 +121,12 @@ public class EditUserForm extends org.apache.struts.action.ActionForm {
         this.txtClass = txtClass;
     }
 
-    public String getTxtLoginName() {
-        return txtLoginName;
+    public String getTxtEmail() {
+        return txtEmail;
     }
 
-    public void setTxtLoginName(String txtLoginName) {
-        this.txtLoginName = txtLoginName;
+    public void setTxtEmail(String txtEmail) {
+        this.txtEmail = txtEmail;
     }
 
     public String getTxtPassword() {

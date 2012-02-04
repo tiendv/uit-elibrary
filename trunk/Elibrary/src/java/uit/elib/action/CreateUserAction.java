@@ -5,7 +5,6 @@
 package uit.elib.action;
 
 import java.util.Date;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -51,7 +50,7 @@ public class CreateUserAction extends org.apache.struts.action.Action {
         Faculty faculty = new Faculty();
         user.setStatus(createUserForm.getDropStatus());
         user.setUserName(createUserForm.getTxtUserName());
-        user.setLoginName(createUserForm.getTxtLoginName());
+        user.setEmail(createUserForm.getTxtEmail());
         SHA512 sha512 = new SHA512();
         String password = sha512.SHA512(createUserForm.getTxtPassword());
         user.setPassWord(password);

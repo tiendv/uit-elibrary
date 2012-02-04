@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Feb 4, 2012 2:04:57 AM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Feb 4, 2012 8:53:04 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="uit.elib.dto.User" table="user" catalog="elibrary">
         <id name="userName" type="string">
@@ -17,11 +17,11 @@
         <many-to-one name="level" class="uit.elib.dto.Level" fetch="select">
             <column name="Level" />
         </many-to-one>
-        <property name="loginName" type="string">
-            <column name="LoginName" length="45" />
-        </property>
         <property name="passWord" type="string">
             <column name="PassWord" length="65535" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="45" />
         </property>
         <property name="class_" type="string">
             <column name="Class" length="45" />

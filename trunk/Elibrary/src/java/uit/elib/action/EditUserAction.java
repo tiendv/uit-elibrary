@@ -52,7 +52,7 @@ public class EditUserAction extends org.apache.struts.action.Action {
         Faculty faculty = new Faculty();
         user.setStatus(editUserForm.getDropStatus());
         user.setUserName(editUserForm.getTxtUserName());
-        user.setLoginName(editUserForm.getTxtLoginName());
+        user.setEmail(editUserForm.getTxtEmail());
         if(editUserForm.getTxtPassword().length()>0)
         {
             SHA512 sha512 = new SHA512();
