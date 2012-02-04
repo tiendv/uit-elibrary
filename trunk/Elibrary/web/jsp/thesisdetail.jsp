@@ -21,7 +21,8 @@
    int language =1; // English
    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
         language = 2; // VietNamese
-%>    
+%> 
+<div class="newstitle"><bean:message key="text.thesisdetail"/></div>
 <div class="resource1">
     <div class="resource_left"><bean:message key="text.thesisname"/></div>
     <div class="resource_left">
@@ -112,7 +113,7 @@
 <div class="resource1">
     <bean:message key="text.thesissummary"/>                                 
 </div>
-<div class="resource1">
+<div class="thesis_summary">
     <%if(language==1) {%>  
         <%=listResource.get(0).getSummaryEn()%>
     <%}%>
