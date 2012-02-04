@@ -10,7 +10,7 @@
 }
 .divemainbody {
     width: 1350px;
-    height: 100%;  
+    height: 700px;  
 }
 .wrapper {
     width: 945px; 
@@ -56,8 +56,16 @@
     clear: both;/* this clear property forces the .container to understand where the columns end and contain them */
 }
 .sub_footer {
-    width:45%;
+    margin-left: 10px;
     text-align: center;
+    float:left;
+    margin-top: 15px;
+}
+.sub_footer_image {
+    width:295px; 
+    float:left;
+    margin-top: 22px;
+    text-align: right;
 }
 .cleared {
     clear:both;
@@ -67,7 +75,7 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
     padding: 10px 0;
-    width: 80%;
+    width: 757px;
     min-height: 500px;
     float: left;
     background-color: #FFF;

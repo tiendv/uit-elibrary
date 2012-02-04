@@ -9,14 +9,11 @@
 <link rel="stylesheet" type="text/css" href="css/uit.css" />
 <!DOCTYPE html>
 
-<table class="footer" >
-    <tr>
-    <td  width="31px" align="right"><img src="<bean:message key="image.uitlogo"/>" width="31" height="32" alt="<bean:message key="image.uitlogo.alttext"/>" longdesc="http://www.uit.edu.vn" /></td>
-    <td class="sub_footer">
-        <bean:message key="text.copyright"/><br />
-        <bean:message key="text.uit"/> <br/>
-        <bean:message key="text.uit.address"/>
-    </td>
-    <td width="25%" ></td>
-    </tr>
-</table>
+<div class="footer" >
+        <div  class="sub_footer_image"><img src="<bean:message key="image.uitlogo"/>" width="31" height="32" alt="<bean:message key="image.uitlogo.alttext"/>" longdesc="http://www.uit.edu.vn" /></div>
+        <div class="sub_footer">
+            <bean:message key="text.copyright"/><br />
+            <bean:message key="text.uit"/> <br/>
+            <bean:message key="text.uit.address"/>
+        </div>
+</div>
