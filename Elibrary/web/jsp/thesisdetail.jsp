@@ -82,7 +82,7 @@
         <bean:message key="text.download"/>
     </div>
     <div class="resource_left">
-        <div class="displayIcon"><a href="DownLoad.do?resourceID=<%=listResource.get(0).getResourceId()%>"></a></div>
+        <a href="DownLoad.do?resourceID=<%=listResource.get(0).getResourceId()%>"><bean:message key="text.downloadhere"/></a>
     </div>
     <div class="resource_left">
         <bean:message key="text.uploadname"/>

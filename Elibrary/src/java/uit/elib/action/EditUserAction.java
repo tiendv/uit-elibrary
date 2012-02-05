@@ -70,6 +70,7 @@ public class EditUserAction extends org.apache.struts.action.Action {
         user.setSchoolYear(editUserForm.getTxtSchoolYear());
         user.setAddress(editUserForm.getTxtAddress());
         user.setWorkPlace(editUserForm.getTxtWorkPlace());
+        user.setSchool(editUserForm.getTxtSchool());
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy"); 
         Date date ; 
         date = simpleDateFormat.parse(editUserForm.getBirthday());   

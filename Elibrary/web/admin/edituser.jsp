@@ -34,6 +34,8 @@
                 <html:option value="0"><bean:message key="text.lock"/></html:option>
             </html:select>           
         </div>
+        <div class="resource_left"><bean:message key="text.school"/></div>
+        <div class="resource_left"><html:text property="txtSchool" styleClass="textbox" maxlength="255"/></div>         
     </div>
     <div class="cleared"></div>          
     <div class="resource1">
