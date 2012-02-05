@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Feb 5, 2012 12:04:57 AM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Feb 5, 2012 10:51:58 AM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="uit.elib.dto.Subject" table="subject" catalog="elibrary">
         <id name="subjectId" type="java.lang.Integer">
@@ -21,10 +21,10 @@
             <column name="SubjectNameEN" />
         </property>
         <property name="subjectIntroduceVn" type="string">
-            <column name="SubjectIntroduceVN" length="65535" />
+            <column name="SubjectIntroduceVN" length="16777215" />
         </property>
         <property name="subjectIntroduceEn" type="string">
-            <column name="SubjectIntroduceEN" length="65535" />
+            <column name="SubjectIntroduceEN" length="16777215" />
         </property>
         <property name="numberOfCredit" type="java.lang.Integer">
             <column name="NumberOfCredit" />
@@ -60,10 +60,10 @@
             <column name="TimeTeaching" />
         </property>
         <property name="projectRequirementEn" type="string">
-            <column name="ProjectRequirementEN" length="65535" />
+            <column name="ProjectRequirementEN" length="16777215" />
         </property>
         <property name="projectRequirementVn" type="string">
-            <column name="ProjectRequirementVN" length="65535" />
+            <column name="ProjectRequirementVN" length="16777215" />
         </property>
         <property name="numberChapter" type="java.lang.Integer">
             <column name="NumberChapter" />

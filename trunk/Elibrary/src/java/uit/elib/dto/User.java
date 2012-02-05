@@ -1,5 +1,5 @@
 package uit.elib.dto;
-// Generated Feb 5, 2012 12:04:53 AM by Hibernate Tools 3.2.1.GA
+// Generated Feb 5, 2012 10:51:53 AM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -18,6 +18,7 @@ public class User  implements java.io.Serializable {
      private String email;
      private String class_;
      private String schoolYear;
+     private String school;
      private Date expiredDay;
      private String realName;
      private Date birthday;
@@ -32,7 +33,7 @@ public class User  implements java.io.Serializable {
     public User(String userName) {
         this.userName = userName;
     }
-    public User(String userName, Group group, Faculty faculty, Level level, String passWord, String email, String class_, String schoolYear, Date expiredDay, String realName, Date birthday, String address, String workPlace, Integer status) {
+    public User(String userName, Group group, Faculty faculty, Level level, String passWord, String email, String class_, String schoolYear, String school, Date expiredDay, String realName, Date birthday, String address, String workPlace, Integer status) {
        this.userName = userName;
        this.group = group;
        this.faculty = faculty;
@@ -41,6 +42,7 @@ public class User  implements java.io.Serializable {
        this.email = email;
        this.class_ = class_;
        this.schoolYear = schoolYear;
+       this.school = school;
        this.expiredDay = expiredDay;
        this.realName = realName;
        this.birthday = birthday;
@@ -104,6 +106,13 @@ public class User  implements java.io.Serializable {
     
     public void setSchoolYear(String schoolYear) {
         this.schoolYear = schoolYear;
+    }
+    public String getSchool() {
+        return this.school;
+    }
+    
+    public void setSchool(String school) {
+        this.school = school;
     }
     public Date getExpiredDay() {
         return this.expiredDay;
