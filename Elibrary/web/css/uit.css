@@ -626,6 +626,9 @@ div.thesis_summary{
     text-align: center;
     height: 220px;
 }
+.newscontent1 {
+    width: 900px;
+}
 .newsheadline {
     height:80px;
     margin-top: 10px;
@@ -695,7 +698,7 @@ div.thesis_summary{
 }
 .leftheadlinenews {
     float:left;
-    width: 345px;
+    width: 600px;
     text-align: justify;
 }
 .bold {
@@ -730,9 +733,17 @@ div.thesis_summary{
     text-decoration: none;
     color: #b8262b;
 }
+.table_image{
+    width:740px;
+    border:none;  
+}
+.table_advertising{
+    width:285px;
+    border:none;  
+}
 .ja_header_jsfade {
     position:relative;
-    width:100%;
+    width:752px;
     height:195px;
     overflow:hidden;
     z-index:1;

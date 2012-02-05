@@ -13,7 +13,7 @@
 <!DOCTYPE html>
 <link rel="stylesheet" type="text/css" href="<html:rewrite page='/css/featuredcontentglider.css'/>" />
 <script type="text/javascript" src="<html:rewrite page='/js/featuredcontentglider.js'/>"></script>
-<table width="100%" border="0" cellspacing="1" cellpadding="1">
+<table class="table_image">
     <tr>
         <td class="td_slide_show">
             <div class="fn_image">
@@ -98,7 +98,7 @@
             <%}%>
         </td>
         <td align="left" valign="top">
-            <table width="100%" border="0" cellspacing="2" cellpadding="2">
+            <table class="table_advertising">
                 <tr>
                     <td class="title_h3">Các đơn vị tham gia</td>
                 </tr>
