@@ -52,9 +52,6 @@
     <ul class="legendList">
     <li class="lectureNotes" alt="Lecture notes"
         title="<bean:message key="text.lecturenote"/>"><bean:message key="text.lecturenote"/></li>
-    <li class="projectsExample"
-        alt="Projects"
-        title="<bean:message key="text.project"/>"><bean:message key="text.project"/></li>
     <li class="multimediaContent"
         alt="Video"
         title="<bean:message key="text.video"/>"><bean:message key="text.video"/></li>
@@ -64,10 +61,6 @@
     <li class="examsSolutions"
         alt="Example"
         title="<bean:message key="text.example"/>"><bean:message key="text.example"/></li>
-    <li class="onlineTextBooks"
-        alt="Reading"
-        title="<bean:message key="text.reading"/>"><bean:message key="text.reading"/></li>            
-    </ul>
 </div>   
 <% 
     List<Resource> listResource;
@@ -112,7 +105,7 @@
                 if(numberOfResource==0)
                 {
                     int rCID = listResource.get(j).getResourcecategory().getResourceCategoryId();
-                        if(rCID==4||rCID==5||rCID==6||rCID==8||rCID==9||rCID==10||rCID==11)
+                        if(rCID==4||rCID==5||rCID==10||rCID==11)
                             numberOfResource=1;
                 }
                 if(newestPosition==-1)
@@ -173,10 +166,6 @@
                     <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+4+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.assignments"/>" class="assignmentsSolutions" title="<bean:message key="text.assignments"/>"></a><% } %>
                 <% if(resourceCategoryId==5 ){ %>
                     <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+5+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.example"/>" class="examsSolutions" title="<bean:message key="text.example"/>"></a>  <% } %>
-                <% if(resourceCategoryId==6 ){ %>
-                    <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+6+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.project"/>" class="projectsExample" title="<bean:message key="text.project"/>"></a>  <% } %>
-                <% if(resourceCategoryId==9 ){ %>
-                    <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+9+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.reading"/>" class="onlineTextBooks" title="<bean:message key="text.reading"/>"></a><% } %>
                 <% if(resourceCategoryId==10 ){ %>
                     <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+10+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.lecturenote"/>" class="lectureNotes" title="<bean:message key="text.lecturenote"/>"></a><% } %>                        
                 <% if(resourceCategoryId==11 ){ %>
