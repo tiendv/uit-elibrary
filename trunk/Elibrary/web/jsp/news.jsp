@@ -22,8 +22,8 @@
     String postDate = simpleDateFormat.format(listNews.get(0).getPostDate());    
 %>
 <%  if(language==1){%>
+    <div class="newstitle3"><%=listNews.get(0).getNewsTitleEn()%></div>
     <div class="greyright"><%=postDate%></div>
-    <div class="newstitle"><%=listNews.get(0).getNewsTitleEn()%></div>
     <%String imageLink = "./image/news.jpg";
     if(listNews.get(0).getNewsImage()!=null) 
          imageLink = "./upload/"+listNews.get(0).getNewsImage().toString();%>                                                      
@@ -31,8 +31,8 @@
     <div class="left"><%=listNews.get(0).getNewsContentEn()%></div>
 <%}%>
 <%  if(language==2){%>
+    <div class="newstitle3"><%=listNews.get(0).getNewsTitleVn()%></div>
     <div class="greyright"><%=postDate%></div>
-    <div class="newstitle"><%=listNews.get(0).getNewsTitleVn()%></div>
     <%String imageLink = "./image/news.jpg";
     if(listNews.get(0).getNewsImage()!=null) 
          imageLink = "./upload/"+listNews.get(0).getNewsImage().toString();%>                                                      

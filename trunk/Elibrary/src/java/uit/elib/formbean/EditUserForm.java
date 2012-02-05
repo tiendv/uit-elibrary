@@ -32,7 +32,15 @@ public class EditUserForm extends org.apache.struts.action.ActionForm {
     private List<Group> listDropGroup;
     private List<Faculty> listDropFaculty;
     private List<Level> listDropLevel;
+    private String txtSchool;
 
+    public String getTxtSchool() {
+        return txtSchool;
+    }
+
+    public void setTxtSchool(String txtSchool) {
+        this.txtSchool = txtSchool;
+    } 
     public String getBirthday() {
         return birthday;
     }

@@ -62,6 +62,7 @@ public class LoadEditUserAction extends org.apache.struts.action.Action {
                 editUserForm.setDropGroup(listUser.get(0).getGroup().getGroupId());
                 editUserForm.setDropLevel(listUser.get(0).getLevel().getLevelId());
                 editUserForm.setDropStatus(listUser.get(0).getStatus());
+                editUserForm.setTxtSchool(listUser.get(0).getSchool());
                 List<Group> listGroup = GroupBO.getGroupBO().getAllGroup();
                 editUserForm.setListDropGroup(listGroup);
                 List<Level> listLevel = LevelBO.getLevelBO().getAllLevel();

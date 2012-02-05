@@ -25,6 +25,15 @@ public class CreateUserForm extends org.apache.struts.action.ActionForm {
     private int dropStatus;
     private String expiredDay;
     private String birthday;
+    private String txtSchool;
+
+    public String getTxtSchool() {
+        return txtSchool;
+    }
+
+    public void setTxtSchool(String txtSchool) {
+        this.txtSchool = txtSchool;
+    }
 
     public String getBirthday() {
         return birthday;

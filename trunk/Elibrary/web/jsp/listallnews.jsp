@@ -28,7 +28,7 @@
     <%String imageLink = "./image/news.jpg";
     if(listNews.get(i).getNewsImage()!=null) 
          imageLink = "./upload/"+listNews.get(i).getNewsImage().toString();%> 
-    <div style="width: 500px">     
+    <div class="newscontent1">     
         <div class="leftimagenews"><a href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><img src="<%=imageLink%>" class="smallimage"/></a></div>
         <div class="leftheadlinenews"><%=listNews.get(i).getNewsHeadlineEn()%></div>
     </div>
@@ -40,7 +40,7 @@
     <%String imageLink = "./image/news.jpg";
     if(listNews.get(i).getNewsImage()!=null) 
          imageLink = "./upload/"+listNews.get(i).getNewsImage().toString();%>                                                      
-         <div style="width: 500px">
+         <div sclass="newscontent1">
              <div class="leftimagenews"><a href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><img src="<%=imageLink%>" class="smallimage"/></a></div>
              <div class="leftheadlinenews"><%=listNews.get(i).getNewsHeadlineVn()%></div>
          </div>
