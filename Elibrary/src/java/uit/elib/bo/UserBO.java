@@ -29,6 +29,10 @@ public class UserBO extends ManagerBase<User> {
             return null;
         }
     }
+    public List checkLogin(String where)throws Exception {
+            List<User> list = getBySQLQuery(where,null, 0);
+            return list;
+    } 
     public List getUser(String where) {
         try {
             String[] sort = new String[]{"userName"}; // tang dan

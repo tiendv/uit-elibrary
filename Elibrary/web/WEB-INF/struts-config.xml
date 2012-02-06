@@ -148,10 +148,14 @@
         <action path="/CreateIP" name="CreateIPForm"  scope="session" type="uit.elib.action.CreateIPAction">
             <forward name="success" path="/jsp/success.jsp"/>
         </action>
+        <action path="/Logout" type="uit.elib.action.LogoutAction">
+            <forward name="success" path="/Welcome.do" redirect="true"/> 
+        </action>         
+        <action path="/Login" type="uit.elib.action.LoginAction"/>           
         <action path="/LoadIPTable" type="uit.elib.action.LoadIPTableAction"/>
         <action path="/DeleteUser" type="uit.elib.action.DeleteUserAction"/>
         <action path="/LoadUserTable" type="uit.elib.action.LoadUserTableAction"/>
-        <action input="/" name="LoadCreateUserForm" path="/CheckUser" scope="session" type="uit.elib.action.CheckUserAction"/>
+        <action path="/CheckUser" scope="session" type="uit.elib.action.CheckUserAction"/>
         <action path="/DeleteGroup" type="uit.elib.action.DeleteGroupAction"/>
         <action path="/DeleteNews" type="uit.elib.action.DeleteNewsAction"/>
         <action path="/LoadListOfNews" forward =".listOfNews"/>
