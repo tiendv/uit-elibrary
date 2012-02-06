@@ -13,7 +13,7 @@
 <!DOCTYPE html>
 <link rel="stylesheet" type="text/css" href="<html:rewrite page='/css/featuredcontentglider.css'/>" />
 <script type="text/javascript" src="<html:rewrite page='/js/featuredcontentglider.js'/>"></script>
-<div class="td_slide_show">
+<div class="slide_show">
     <script type="text/javascript" src="js/ja.js"></script>
     <script type="text/javascript">fadetime = 4000;</script>
     <div id="ja_header_jsfade" class="ja_header_jsfade">

@@ -4,6 +4,7 @@
     Author     : Nguyen Hoang Tan
 --%>
 
+<%@page import="uit.elib.utility.CheckGroup"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="uit.elib.dto.User"%>
 <%@page import="java.util.List"%>
@@ -13,6 +14,13 @@
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@taglib uri="http://struts.apache.org/tags-html"  prefix="html"%>
 <%
+boolean allow=false;
+if(session.getAttribute("username")!=null)
+{    
+    CheckGroup checkGroup = new CheckGroup();
+    if(checkGroup.Group((String)session.getAttribute("username"))==1)//admin
+    {
+        allow=true;  
     int language =1; // English
     if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
         language = 2; // VietNamese
@@ -40,16 +48,16 @@
     <div class="cleared"></div>          
     <div class="resource1">
         <div class="resource_left"><bean:message key="text.username"/></div>
-        <div class="resource_left"><html:text property="txtUserName" styleClass="textbox" maxlength="45" disabled="true"/></div>
+        <div class="resource_left"><html:text property="txtUserName" styleClass="textbox" maxlength="20" disabled="true"/></div>
         <div class="resource_left"><bean:message key="text.email"/></div>
         <div class="resource_left"><html:text property="txtEmail" styleClass="textbox" maxlength="45"/></div>                                 
     </div>
     <div class="cleared"></div>  
     <div class="resource1">
         <div class="resource_left"><bean:message key="text.password"/></div>
-        <div class="resource_left"><html:password  property="txtPassword" styleClass="textbox" maxlength="45"/></div>
+        <div class="resource_left"><html:password  property="txtPassword" value="" styleClass="textbox" maxlength="45"/></div>
         <div class="resource_left"><bean:message key="text.passwordconfirm"/></div>
-        <div class="resource_left"><html:password property="txtRePassword" styleClass="textbox" maxlength="45"/></div>                                 
+        <div class="resource_left"><html:password property="txtRePassword" value="" styleClass="textbox" maxlength="45"/></div>                                 
     </div>
     <div class="cleared"></div>  
     <div class="resource1">
@@ -143,7 +151,7 @@
             changeMonth: true,
             changeYear: true,
             dateFormat: "dd/mm/yy", 
-            yearRange: "-0:+100" 
+            yearRange: "-100:+100" 
         });
         $( "#birthday" ).datepicker({
             changeMonth: true,
@@ -153,3 +161,7 @@
         });
     });  
 </script>      
+<%}}%>
+<%if(allow==false){%>
+<jsp:include page="../jsp/wrongpage.jsp" flush="true"/>
+<%}%>

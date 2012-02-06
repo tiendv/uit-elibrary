@@ -4,15 +4,23 @@
     Author     : Nguyen Hoang Tan
 --%>
 
+<%@page import="uit.elib.utility.CheckGroup"%>
 <%@page import="org.apache.struts.Globals"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@taglib uri="http://struts.apache.org/tags-html"  prefix="html"%>
 <%
-    int language =1; // English
-    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
-        language = 2; // VietNamese
+boolean allow=false;
+if(session.getAttribute("username")!=null)
+{    
+    CheckGroup checkGroup = new CheckGroup();
+    if(checkGroup.Group((String)session.getAttribute("username"))==1)//admin
+    {
+        allow=true;    
+        int language =1; // English
+        if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
+            language = 2; // VietNamese
 %>
 <link href="./css/jquery-ui.css" rel="stylesheet" type="text/css"/> 
 <script src="./js/jquery-1.7.1.min.js"></script> 
@@ -33,7 +41,7 @@
     <div class="cleared"></div>          
     <div class="resource1">
         <div class="resource_left"><bean:message key="text.username"/></div>
-        <div class="resource_left"><html:text property="txtUserName" styleClass="textbox" maxlength="45" onchange="validateUserName()" value=""/></div>
+        <div class="resource_left"><html:text property="txtUserName" styleClass="textbox" maxlength="20" onchange="validateUserName()" value=""/></div>
         <div class="resource_left"><bean:message key="text.email"/></div>
         <div class="resource_left"><html:text property="txtEmail" styleClass="textbox" maxlength="45" value=""/></div>                                 
     </div>
@@ -167,4 +175,8 @@
             yearRange: "-200:+0" 
         });
     }); 
-</script>      
+</script>
+<%}}%>
+<%if(allow==false){%>
+<jsp:include page="../jsp/wrongpage.jsp" flush="true"/>
+<%}%>

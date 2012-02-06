@@ -35,7 +35,7 @@ public class languageSelectAction extends DispatchAction {
         request.getSession().setAttribute(
                 Globals.LOCALE_KEY, new Locale("vn"));
         if (!url.isEmpty()) {
-            myAction = new ActionForward(url);
+            myAction = new ActionForward(url, true);
         }
         request.getSession().setAttribute("PreAction", url);
         return myAction;
@@ -55,7 +55,7 @@ public class languageSelectAction extends DispatchAction {
         request.getSession().setAttribute(
                 Globals.LOCALE_KEY, Locale.ENGLISH);
         if (!url.isEmpty()) {
-            myAction = new ActionForward(url);
+            myAction = new ActionForward(url,true);
         }
         request.getSession().setAttribute("PreAction", url);
         return myAction;

@@ -10,7 +10,8 @@
 }
 .divemainbody {
     width: 1350px;
-    height: 700px;  
+    height: 700px;
+    margin-top: 5px;
 }
 .wrapper {
     width: 945px; 
@@ -108,9 +109,10 @@
     color: #000;
     text-decoration: none;
 }
-.td_slide_show {
+.slide_show {
     border: 1px solid #EDECDF;
     margin-left: 3px;
+    margin-top: -8px;
 }
 .table1 {
     width:775px;
@@ -569,7 +571,7 @@ div.thesis_summary{
     max-height:500px;
 }
 .imagenews {
-    max-height: 150px;
+    max-height: 145px;
     max-width: 500px;
     border: none;
 }
@@ -633,7 +635,7 @@ div.thesis_summary{
 }
 .newscontent {
     text-align: center;
-    height: 150px;
+    height: 148px;
 }
 .newscontent1 {
     width: 900px;
@@ -809,4 +811,68 @@ div.thesis_summary{
 .divcontent
 {
     padding-top: 2px;
+}
+image
+{
+    border: none;
+}
+.divheader{
+    width: 944px;
+}
+.divtitle{
+    float: left;
+    margin-left: 50px;
+    margin-top: 18px;
+}
+.divtitleright{
+    margin-left: 650px;
+    width: 282px;
+    margin-top: 10px
+}
+.divlogin{
+    width: 282px;
+}
+.divlabellogin{
+    float:left;
+    width:90px;
+    text-align: left;
+    font-size: 13px;
+    padding-left: 2px;
+    font-weight: normal;
+}
+.divtxtlogin{
+    float:left;
+    width:160px;
+}
+.divbuttonlogin{
+    float:left;
+    margin-top: 5px;
+}
+.vietnamflag{
+    float:right;
+    margin-top: 8px;
+    padding-left: 20px;
+    margin-right: 8px;    
+}
+.englandflag{
+    float:right;
+    margin-top: 8px;  
+}
+.divheaderwelcome{
+    color: #5F5F5F;
+    font-size: 13px;
+    font-weight: normal;
+    float:right;
+    padding-top: 23px;
+}
+.divheaderlogout{
+    font-size: 13px;
+    font-weight: normal;
+    float:right;
+    padding-left: 3px;
+    padding-top: 23px;
+}
+.divlogout{
+    width: 282px;
+    height:44px;
 }
