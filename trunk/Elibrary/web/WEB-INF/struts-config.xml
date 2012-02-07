@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
 <!DOCTYPE struts-config PUBLIC
           "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
           "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
-
-
 <struts-config>
     <form-beans>
         <form-bean name="CreateIPForm" type="uit.elib.formbean.CreateIPForm"/>
@@ -19,17 +16,13 @@
         <form-bean name="LoadCreateSubjectForm" type="uit.elib.formbean.LoadCreateSubjectForm"/>
         <form-bean name="CreateResourceForm" type="uit.elib.formbean.CreateResourceForm"/>
         <form-bean name="CreateSubjectForm" type="uit.elib.formbean.CreateSubjectForm"/>
-    </form-beans>
-    
+    </form-beans> 
     <global-exceptions>
-    
     </global-exceptions>
-
     <global-forwards>
         <forward name="welcome"  path="/Welcome.do"/>
         <forward name="admin"  path="/Admin.do"/>
     </global-forwards>
-
     <action-mappings>       
         <action path="/LoadSubject" type="uit.elib.action.LoadSubjectAction" scope="session">           
             <forward name="success" path=".loadSubject"/>
@@ -56,9 +49,6 @@
         </action>
         <action path="/LoadLectureNote" type="uit.elib.action.LoadInfoSubjectAction" scope="session">           
             <forward name="success" path=".loadLectureNote"/>
-        </action>
-        <action path="/LoadProject" type="uit.elib.action.LoadInfoSubjectAction" scope="session">           
-            <forward name="success" path=".loadProject"/>
         </action>
         <action path="/SubjectCategory" type="uit.elib.action.LoadSubjectCategoryAction" scope="session">           
             <forward name="success" path=".loadSubjectCategory"/>
@@ -168,6 +158,7 @@
         <action path="/DownLoad" type="uit.elib.action.DownLoadAction"  scope="session"/>  
         <action path="/LoadChapter" type="uit.elib.action.LoadChapterAction" scope="session"/>  
         <action path="/Admin" forward=".adminPage"  scope="session"/>
+        <action path="/Mod" forward=".modPage"  scope="session"/>
         <action path="/LoadCreateNews" forward=".createNews"  scope="session"/>
         <action path="/LoadCreateIP" forward=".createIP"  scope="session"/>
         <action path="/LoadCreateGroup" forward=".createGroup"  scope="session"/>
@@ -208,13 +199,11 @@
     <plug-in className="org.apache.struts.tiles.TilesPlugin" >
         <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
         <set-property property="moduleAware" value="true" />
-    </plug-in>
-    
+    </plug-in>   
     <!-- ========================= Validator plugin ================================= -->
     <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
         <set-property
             property="pathnames"
             value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
     </plug-in>
-  
 </struts-config>

@@ -8,46 +8,25 @@
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <!DOCTYPE html>
 <table width="100%" border="0" cellspacing="2" cellpadding="2">
-        <tr>
-            <td >&nbsp;</td>
-        </tr>
-        <tr>
-            <td  class="leftmenu_td_title"><bean:message key="text.adminpage"/></td>
- 	</tr>
-        <tr>
-            <td class="leftmenu_td_link"><a href="#"></a></td>
-        </tr>
-        <tr>
-            <td class="leftmenu_td_link"><a href="LoadCreateSubject.do"><bean:message key="text.createsubject"/></a></td>
-        </tr>
-        <tr>
-            <td class="leftmenu_td_link"><a href="LoadCreateResource.do"><bean:message key="text.createresource"/></a></td>
-        </tr>
-        <tr>     
-            <td class="leftmenu_td_link"><a href="LoadCreateNews.do"><bean:message key="text.createnews"/></a></td>
-        </tr>
-        <tr>     
-            <td class="leftmenu_td_link"><a href="LoadCreateGroup.do"><bean:message key="text.creategroup"/></a></td>
-        </tr>
-        <tr>     
-            <td class="leftmenu_td_link"><a href="LoadCreateUser.do"><bean:message key="text.createuser"/></a></td>
-        </tr>
-        <tr>     
-            <td class="leftmenu_td_link"><a href="LoadCreateIP.do"><bean:message key="text.createip"/></a></td>
-        </tr>          
-        <tr>
-            <td class="leftmenu_td_link"><a href="LoadListOfSubject.do"><bean:message key="text.listofsubject"/></a></td>
-        </tr>
-        <tr>     
-            <td class="leftmenu_td_link"><a href="LoadListOfResource.do"><bean:message key="text.listofresource"/></a></td>
-        </tr>
-        <tr>     
-            <td class="leftmenu_td_link"><a href="LoadListOfNews.do"><bean:message key="text.listofnews"/></a></td>
-        </tr>
-        <tr>     
-            <td class="leftmenu_td_link"><a href="LoadListOfGroup.do"><bean:message key="text.listofgroup"/></a></td>
-        </tr>
-        <tr>     
-            <td class="leftmenu_td_link"><a href="LoadListOfUser.do"><bean:message key="text.listofuser"/></a></td>
-        </tr>        
+    <tr>
+        <td >&nbsp;</td>
+    </tr>
+    <tr>
+        <td  class="leftmenu_td_title"><bean:message key="text.adminpage"/></td>
+    </tr>
+    <tr>     
+        <td class="leftmenu_td_link"><a href="LoadCreateUser.do"><bean:message key="text.createuser"/></a></td>
+    </tr>
+    <tr>     
+        <td class="leftmenu_td_link"><a href="LoadListOfUser.do"><bean:message key="text.listofuser"/></a></td>
+    </tr>
+    <tr>     
+        <td class="leftmenu_td_link"><a href="LoadCreateGroup.do"><bean:message key="text.creategroup"/></a></td>
+    </tr> 
+    <tr>     
+        <td class="leftmenu_td_link"><a href="LoadListOfGroup.do"><bean:message key="text.listofgroup"/></a></td>
+    </tr>        
+    <tr>     
+        <td class="leftmenu_td_link"><a href="LoadCreateIP.do"><bean:message key="text.createip"/></a></td>
+    </tr>          
 </table>
