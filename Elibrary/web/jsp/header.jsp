@@ -4,6 +4,7 @@
     Author     : tiendv
 --%>
 
+<%@page import="uit.elib.utility.CheckGroup"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
@@ -17,6 +18,27 @@
     </div>
     <div class="divtitleright">
         <div id="divLogin">
+            <%
+                int group =2; //visitor 
+                if(session.getAttribute("username")!=null){ 
+                     CheckGroup checkGroup = new CheckGroup();
+                     group = checkGroup.Group((String)session.getAttribute("username"));
+                     if(group==-1) // account has just been locked while users are accessing or  account has just expired while users are accessing
+                     {   
+                         session.removeAttribute("username");
+                         session.removeAttribute("group");
+                     }
+                     if(group!=-1)
+                         session.setAttribute("group", group);
+                 }
+            %>
+            <%   if(session.getAttribute("username")!=null){ 
+            %>
+                    <div class="divlogout">
+                        <div class="divheaderlogout"><%=session.getAttribute("username")%> <a href="Logout.do" > <bean:message key="text.logout"/> </a></div> 
+                        <div class="divheaderwelcome"><bean:message key="text.welcome"/></div>
+                    </div>
+            <%}%>              
             <%  
                 if(session.getAttribute("username")==null){
             %>
@@ -29,14 +51,7 @@
                     <div class="divlogin">
                         <div class="divbuttonlogin"><input type="button"  value="<bean:message key="text.login"/>" onclick="login()" /></div>
                     </div>
-            <%}  
-                else{
-            %>
-                    <div class="divlogout">
-                        <div class="divheaderlogout"><%=session.getAttribute("username")%> <a href="Logout.do" > <bean:message key="text.logout"/> </a></div> 
-                        <div class="divheaderwelcome"><bean:message key="text.welcome"/></div>
-                    </div>
-            <%}%>            
+            <%} %>           
         </div>        
             
         <!-- VIETNAMESE LOCALE-->

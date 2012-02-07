@@ -14,8 +14,7 @@
 boolean allow=false;
 if(session.getAttribute("username")!=null)
 {    
-    CheckGroup checkGroup = new CheckGroup();
-    if(checkGroup.Group((String)session.getAttribute("username"))==1)//admin
+    if((Integer)session.getAttribute("group") ==1)//admin
     {
         allow=true; 
 %>
