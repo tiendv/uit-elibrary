@@ -3,7 +3,14 @@
     Created on : Feb 2, 2012, 10:59:02 PM
     Author     : HERO
 --%>
-
+<%
+boolean allow=false;
+if(session.getAttribute("username")!=null)
+{    
+    if((Integer)session.getAttribute("group") ==1)//admin
+    {
+        allow=true; 
+%>
 <%@page import="java.util.List"%>
 <%@page import="uit.elib.dto.Group" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -37,3 +44,7 @@
 <html:submit property="btnSubmit"><bean:message key="text.buttonedit"/></html:submit><noscript><bean:message key="text.noscript"/></noscript>
 <html:javascript formName="GroupForm"/>
 </html:form>
+<%}}%>
+<%if(allow==false){%>
+<jsp:include page="../jsp/wrongpage.jsp" flush="true"/>
+<%}%>
