@@ -3,8 +3,14 @@
     Created on : Feb 2, 2012, 10:37:50 PM
     Author     : Nguyen Hoang Tan
 --%>
-
-<%@page import="uit.elib.utility.CheckGroup"%>
+<%
+boolean allow=false;
+if(session.getAttribute("username")!=null)
+{    
+    if((Integer)session.getAttribute("group") ==1)//admin
+    {
+        allow=true; 
+%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="uit.elib.dto.User"%>
 <%@page import="java.util.List"%>
@@ -13,13 +19,7 @@
 <!DOCTYPE html>
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@taglib uri="http://struts.apache.org/tags-html"  prefix="html"%>
-<%
-boolean allow=false;
-if(session.getAttribute("username")!=null)
-{    
-    if((Integer)session.getAttribute("group") ==1)//admin
-    {
-        allow=true;  
+<% 
     int language =1; // English
     if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
         language = 2; // VietNamese

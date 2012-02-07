@@ -3,9 +3,6 @@
     Created on : Feb 5, 2012, 12:24:13 AM
     Author     : Nguyen Hoang Tan
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <%
 boolean allow=false;
 if(session.getAttribute("username")!=null)
@@ -14,6 +11,8 @@ if(session.getAttribute("username")!=null)
     {
         allow=true; 
 %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <div id="divTable" ></div>
 <script type="text/javascript">
     function init()

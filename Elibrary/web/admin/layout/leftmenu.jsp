@@ -3,6 +3,12 @@
     Created on : Nov 16, 2011, 9:26:30 AM
     Author     : tiendv
 --%>
+<%
+if(session.getAttribute("username")!=null)
+{    
+    if((Integer)session.getAttribute("group") ==1)//admin
+    {
+%>
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
@@ -30,3 +36,4 @@
         <td class="leftmenu_td_link"><a href="LoadCreateIP.do"><bean:message key="text.createip"/></a></td>
     </tr>          
 </table>
+<%}}%>    

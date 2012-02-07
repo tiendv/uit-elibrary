@@ -3,13 +3,6 @@
     Created on : Feb 2, 2012, 7:43:48 PM
     Author     : Nguyen Hoang Tan
 --%>
-<%@page import="uit.elib.utility.CheckGroup"%>
-<%@page import="uit.elib.dto.News"%>
-<%@page import="java.util.List"%>
-<%@page import="org.apache.struts.Globals"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
-<!DOCTYPE html>
 <%
 boolean allow=false;
 if(session.getAttribute("username")!=null)
@@ -18,6 +11,12 @@ if(session.getAttribute("username")!=null)
     {
         allow=true; 
 %>
+<%@page import="uit.elib.dto.News"%>
+<%@page import="java.util.List"%>
+<%@page import="org.apache.struts.Globals"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
+<!DOCTYPE html>
 <div id="divTable" ></div>
 <script type="text/javascript">
     function init()

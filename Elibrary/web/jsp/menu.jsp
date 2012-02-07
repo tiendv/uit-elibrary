@@ -15,8 +15,15 @@
         <td class="menu_td_link"><a class="menu_link" href="LoadSubject.do"><bean:message  key="text.subject"/></a></td>
         <td class="menu_td_link"><a class="menu_link" href="LoadThesis.do"><bean:message key ="text.thesis"/></a></td>
         <td class="menu_td_link"><a class="menu_link" href="LoadAllNews.do"><bean:message key ="text.news"/></a></td>
-        <td class="menu_td_link"><a class="menu_link" href="Mod.do"><bean:message key="text.modpage"/></a></td>        
-        <td class="menu_td_link"><a class="menu_link" href="Admin.do"><bean:message key="text.adminpage"/></a></td>
+        <td class="menu_td_link"><a class="menu_link" href="Mod.do"><bean:message key="text.modpage"/></a></td>
+        <%
+        if(session.getAttribute("username")!=null)
+        {    
+            if((Integer)session.getAttribute("group") ==1)//admin
+            {
+        %>        
+            <td class="menu_td_link"><a class="menu_link" href="Admin.do"><bean:message key="text.adminpage"/></a></td>
+        <%}}%>       
         <td align="right"><script type="text/javascript" src="js/ocw.js"></script>
             <form method="get" action="http://search.mit.edu/search">
                 <div class="searchform">

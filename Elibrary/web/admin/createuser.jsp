@@ -3,23 +3,23 @@
     Created on : Jan 30, 2012, 9:11:21 PM
     Author     : Nguyen Hoang Tan
 --%>
-
-<%@page import="uit.elib.utility.CheckGroup"%>
-<%@page import="org.apache.struts.Globals"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
-<%@taglib uri="http://struts.apache.org/tags-html"  prefix="html"%>
 <%
 boolean allow=false;
 if(session.getAttribute("username")!=null)
 {    
     if((Integer)session.getAttribute("group") ==1)//admin
     {
-        allow=true;    
-        int language =1; // English
-        if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
-            language = 2; // VietNamese
+        allow=true; 
+%>
+<%@page import="org.apache.struts.Globals"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
+<%@taglib uri="http://struts.apache.org/tags-html"  prefix="html"%>
+<%   
+    int language =1; // English
+    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
+        language = 2; // VietNamese
 %>
 <link href="./css/jquery-ui.css" rel="stylesheet" type="text/css"/> 
 <script src="./js/jquery-1.7.1.min.js"></script> 

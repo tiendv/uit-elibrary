@@ -3,11 +3,6 @@
     Created on : Feb 3, 2012, 10:02:08 PM
     Author     : Nguyen Hoang Tan
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
-<%@taglib uri="http://struts.apache.org/tags-html"  prefix="html"%>
-<!DOCTYPE html>
 <%
 boolean allow=false;
 if(session.getAttribute("username")!=null)
@@ -16,6 +11,10 @@ if(session.getAttribute("username")!=null)
     {
         allow=true; 
 %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
+<%@taglib uri="http://struts.apache.org/tags-html"  prefix="html"%>
+<!DOCTYPE html>
 <h1><bean:message key="text.createip"/></h1>
 <html:form method="post" action="CreateIP" onsubmit="return validateCreateIPForm(this)">
     <div class="resource1">
