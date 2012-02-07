@@ -86,13 +86,16 @@ public class LoadUserTableAction extends org.apache.struts.action.Action {
                         response.getWriter().println(listUser.get(i).getUserName());
                         response.getWriter().println("</td>");
                         response.getWriter().println("<td class=\"center\">");
-                        response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listUser.get(i).getUserName()+"\" />");
+                        if(listUser.get(i).getUserName().equals("admin"))
+                            response.getWriter().println("<input type=\"checkbox\" disabled=\"true\" id=\""+i+"\" value=\""+listUser.get(i).getUserName()+"\" />");
+                        else
+                            response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listUser.get(i).getUserName()+"\" />");
                         response.getWriter().println("</td>");
                         response.getWriter().println("<td class=\"center\">");
                         response.getWriter().println("<input class=\"btn\" type=\"submit\" value=\"Edit\" onclick=editUser(\""+listUser.get(i).getUserName()+"\") />");
                         response.getWriter().println("</td>");        
                         response.getWriter().println("</tr>");        
-                        color++;
+                            color++;
                     }
                     response.getWriter().println("</table>");
                     response.getWriter().println("<div class=\"divdelete\" id=\"divdelete\"><input class=\"btn\" type=\"submit\" value=\"Delete\" onclick=\"deleteResource()\"/></div>");               
@@ -125,7 +128,10 @@ public class LoadUserTableAction extends org.apache.struts.action.Action {
                         response.getWriter().println(listUser.get(i).getUserName());
                         response.getWriter().println("</td>");
                         response.getWriter().println("<td class=\"center\">");
-                        response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listUser.get(i).getUserName()+"\" />");
+                        if(listUser.get(i).getUserName().equals("admin"))
+                            response.getWriter().println("<input type=\"checkbox\" disabled=\"true\" id=\""+i+"\" value=\""+listUser.get(i).getUserName()+"\" />");
+                        else
+                            response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listUser.get(i).getUserName()+"\" />");
                         response.getWriter().println("</td>");
                         response.getWriter().println("<td class=\"center\">");
                         response.getWriter().println("<input class=\"btn\" type=\"submit\" value=\"Sửa\" onclick=editUser(\""+listUser.get(i).getUserName()+"\") />");

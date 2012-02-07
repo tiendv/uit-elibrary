@@ -45,6 +45,8 @@ public class DeleteUserAction extends org.apache.struts.action.Action {
             if(checkgroup==1)
             {          
                 String username = request.getParameter("username");
+                if(username.contains("'admin'"))
+                    return null;
                 username=username.substring(0,username.length()-1);
                 UserBO.getUserBO().DeleteUser("delete from user where username in("+username+")");
             }
