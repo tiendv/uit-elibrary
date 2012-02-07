@@ -3,7 +3,14 @@
     Created on : Dec 14, 2011, 8:53:43 AM
     Author     : Nguyen Hoang Tan
 --%>
-
+<%
+boolean allow=false;
+if(session.getAttribute("username")!=null)
+{    
+    if((Integer)session.getAttribute("group") ==1||(Integer)session.getAttribute("group") ==3)//admin or mod
+    {
+        allow=true; 
+%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="uit.elib.dto.Resource"%>
 <%@page import="org.apache.struts.Globals"%>
@@ -763,3 +770,7 @@
     });
 }
 </script>
+<%}}%>
+<%if(allow==false){%>
+<jsp:include page="../jsp/wrongpage.jsp" flush="true"/>
+<%}%>

@@ -15,7 +15,14 @@
         <td class="menu_td_link"><a class="menu_link" href="LoadSubject.do"><bean:message  key="text.subject"/></a></td>
         <td class="menu_td_link"><a class="menu_link" href="LoadThesis.do"><bean:message key ="text.thesis"/></a></td>
         <td class="menu_td_link"><a class="menu_link" href="LoadAllNews.do"><bean:message key ="text.news"/></a></td>
+        <%
+        if(session.getAttribute("username")!=null)
+        {    
+            if((Integer)session.getAttribute("group") ==1||(Integer)session.getAttribute("group") ==2)//admin or mod
+            {
+        %>          
         <td class="menu_td_link"><a class="menu_link" href="Mod.do"><bean:message key="text.modpage"/></a></td>
+        <%}}%>  
         <%
         if(session.getAttribute("username")!=null)
         {    

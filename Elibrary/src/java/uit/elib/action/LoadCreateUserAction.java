@@ -55,7 +55,8 @@ public class LoadCreateUserAction extends org.apache.struts.action.Action {
             if(checkgroup==1)
             {         
                 LoadCreateUserForm loadCreateUserForm = (LoadCreateUserForm)form;
-                List<Group> listGroup = GroupBO.getGroupBO().getAllGroup();
+                
+                List<Group> listGroup = GroupBO.getGroupBO().getAllGroup("groupId<>2",null );
                 loadCreateUserForm.setListDropGroup(listGroup);
                 List<Level> listLevel = LevelBO.getLevelBO().getAllLevel();
                 loadCreateUserForm.setListDropLevel(listLevel);

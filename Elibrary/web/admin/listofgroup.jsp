@@ -68,7 +68,7 @@ int color=1;
         <%}%>
         </td>
         <td class="center">
-            <input type="submit" value="<bean:message key="text.buttonedit"/>" onclick="editgroup(<%=listGroup.get(i).getGroupId()%>)" />
+            <input class="btn" type="submit" value="<bean:message key="text.buttonedit"/>" onclick="editgroup(<%=listGroup.get(i).getGroupId()%>)" />
         </td>
         </tr>
         <%color++; %>

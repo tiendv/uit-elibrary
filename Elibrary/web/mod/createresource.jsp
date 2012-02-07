@@ -4,7 +4,14 @@
     Author     : Nguyen Hoang Tan
 --%>
 
-
+<%
+boolean allow=false;
+if(session.getAttribute("username")!=null)
+{    
+    if((Integer)session.getAttribute("group") ==1||(Integer)session.getAttribute("group") ==3)//admin or mod
+    {
+        allow=true; 
+%>
 <%@page import="org.apache.struts.Globals"%>
 <%@page import="java.util.Locale"%>
 <%@page import="uit.elib.dto.Subject"%>
@@ -529,3 +536,7 @@
     });
 }
 </script>
+<%}}%>
+<%if(allow==false){%>
+<jsp:include page="../jsp/wrongpage.jsp" flush="true"/>
+<%}%>
