@@ -48,6 +48,12 @@ public class DeleteGroupAction extends org.apache.struts.action.Action {
             {          
                 String groupsID = request.getParameter("groupsID");
                 groupsID = groupsID.substring(0, groupsID.length()-1);
+                String []singleGroupID = groupsID.split(",");
+                for(int i=0;i<singleGroupID.length;i++)
+                {
+                    if(Integer.parseInt(singleGroupID[i])==1||Integer.parseInt(singleGroupID[i])==2||Integer.parseInt(singleGroupID[i])==3)// admin ,visitor, mod
+                        return null;
+                }
                 String sqlGroupDetail ="delete from `groupdetail` where GroupID in("+groupsID +")";
                 String sqlUser ="delete from `user` where GroupID in("+groupsID +")";
                 String sqlgroup = "delete from `group` where GroupID in("+groupsID+")";
