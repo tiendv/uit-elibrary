@@ -3,7 +3,14 @@
     Created on : Jan 25, 2012, 13:27:36 PM
     Author     : Nguyen Hoang Tan
 --%>
-
+<%
+boolean allow=false;
+if(session.getAttribute("username")!=null)
+{    
+    if((Integer)session.getAttribute("group") ==1||(Integer)session.getAttribute("group") ==3)//admin or mod
+    {
+        allow=true; 
+%>
 <%@page import="uit.elib.dto.News"%>
 <%@page import="java.util.List"%>
 <%@page import="org.apache.struts.Globals"%>
@@ -49,3 +56,7 @@
         window.location = "LoadEditNews.do?newsID="+newsID;
     }
 </script>
+<%}}%>
+<%if(allow==false){%>
+<jsp:include page="../jsp/wrongpage.jsp" flush="true"/>
+<%}%>

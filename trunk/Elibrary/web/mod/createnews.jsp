@@ -3,7 +3,14 @@
     Created on : Jan 24, 2012, 9:46:34 AM
     Author     : Nguyen Hoang Tan
 --%>
-
+<%
+boolean allow=false;
+if(session.getAttribute("username")!=null)
+{    
+    if((Integer)session.getAttribute("group") ==1||(Integer)session.getAttribute("group") ==3)//admin or mod
+    {
+        allow=true; 
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@taglib uri="http://struts.apache.org/tags-html"  prefix="html"%>
@@ -53,4 +60,8 @@
        document.getElementById("fckContentVN").value = FCKeditorAPI.GetInstance("fckContentVN").GetXHTML();
        
     }    
-</script>    
+</script>
+<%}}%>
+<%if(allow==false){%>
+<jsp:include page="../jsp/wrongpage.jsp" flush="true"/>
+<%}%>

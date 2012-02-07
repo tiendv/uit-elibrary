@@ -3,6 +3,14 @@
     Created on : Dec 15, 2011, 19:52:23 PM
     Author     : Nguyen Hoang Tan
 --%>
+<%
+boolean allow=false;
+if(session.getAttribute("username")!=null)
+{    
+    if((Integer)session.getAttribute("group") ==1||(Integer)session.getAttribute("group") ==3)//admin or mod
+    {
+        allow=true; 
+%>
 <%@page import="uit.elib.dto.Subject"%>
 <%@page import="uit.elib.bo.SubjectBO"%>
 <%@page import="org.apache.struts.Globals"%>
@@ -154,3 +162,7 @@
         window.location = "LoadEditResource.do?resourceID="+resourcesID;
     }
 </script>
+<%}}%>
+<%if(allow==false){%>
+<jsp:include page="../jsp/wrongpage.jsp" flush="true"/>
+<%}%>

@@ -3,6 +3,14 @@
     Created on : December 10, 2011, 10:29:19 AM
     Author     : Nguyen Hoang Tan
 --%>
+<%
+boolean allow=false;
+if(session.getAttribute("username")!=null)
+{    
+    if((Integer)session.getAttribute("group") ==1||(Integer)session.getAttribute("group") ==3)//admin or mod
+    {
+        allow=true; 
+%>
 <%@page contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.fckeditor.net" prefix="FCK" %>
 <%@taglib uri="http://struts.apache.org/tags-html"  prefix="html"%>
@@ -147,3 +155,7 @@
        document.getElementById("fckProjectRequitementEN").value = FCKeditorAPI.GetInstance("fckProjectRequitementEN").GetXHTML();   
     }
 </script>
+<%}}%>
+<%if(allow==false){%>
+<jsp:include page="../jsp/wrongpage.jsp" flush="true"/>
+<%}%>
