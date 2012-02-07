@@ -35,7 +35,7 @@
         </action>
         <action path="/LoadListOfGroup" type="uit.elib.action.LoadListOfGroupAction" scope="session">
             <forward name="success" path=".LoadListOfGroup"/>
-            <forward name="unsuccess" path="/Welcome.do"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
         <action path="/LoadListSubjectOfCategory" type="uit.elib.action.LoadListSubjectOfCategoryAction"  scope="session"/>
         <action path="/LoadBase" type="uit.elib.action.LoadBaseAction" scope="session">           
@@ -46,7 +46,7 @@
         </action>        
         <action path="/SubjectIntroduction" type="uit.elib.action.LoadSubjectIntroductionAction" scope="session">
             <forward name="success" path=".subjectIntroduction"/>
-            <forward name="unsuccess" path="/Welcome.do"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
         <action path="/LoadLectureNote" type="uit.elib.action.LoadInfoSubjectAction" scope="session">           
             <forward name="success" path=".loadLectureNote"/>
@@ -56,7 +56,7 @@
         </action>
         <action path="/Syllabus" type="uit.elib.action.LoadSyllabusAction" scope="session">
             <forward name="success" path=".syllabus"/>
-            <forward name="unsuccess" path="/Welcome.do"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
         <action path="/LoadListOfResource" forward=".loadListOfResource"/>
         <action path="/CreateSubject" name="CreateSubjectForm" type="uit.elib.action.CreateSubjectAction" scope="session">
@@ -67,18 +67,18 @@
         </action>
         <action path="/CreateGroup" name="GroupForm" type="uit.elib.action.CreateGroupAction" scope="session" >
             <forward name="success" path="/jsp/success.jsp"/>
-            <forward name="unsuccess" path="/Welcome.do"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
         <action path="/LoadCreateSubject" name="LoadCreateSubjectForm" type="uit.elib.action.LoadCreateSubjectAction" scope="session">
             <forward name="success" path=".createSubject"/>
         </action>
         <action path="/LoadEditResource" name="EditResourceForm" type="uit.elib.action.LoadEditResourceAction">
             <forward name="success" path=".editResource"/>
-            <forward name="unsuccess" path="/Welcome.do"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
         <action path="/LoadEditSubject" name="EditSubjectForm" type="uit.elib.action.LoadEditSubjectAction">
             <forward name="success" path=".editSubject"/>
-            <forward name="unsuccess" path="/Welcome.do"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
         <action name="EditResourceForm" path="/EditResource" scope="session" type="uit.elib.action.EditResourceAction">
             <forward name="success" path="/jsp/success.jsp"/>
@@ -91,63 +91,66 @@
         </action>
         <action path="/LoadThesis" type="uit.elib.action.LoadThesisAction">
             <forward name="success" path=".loadThesis"/>
-            <forward name="unsuccess" path="/Welcome.do"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
         <action path="/LoadThesisDetail" type="uit.elib.action.LoadThesisDetailAction">
             <forward name="success" path=".loadThesisDetail"/>
-            <forward name="unsuccess" path="/Welcome.do"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
         <action path="/CreateNews" name="CreateNewsForm" type="uit.elib.action.CreateNewsAction">
             <forward name="success" path="/jsp/success.jsp"/>
         </action>     
         <action path="/LoadEditNews" name="EditNewsForm" type="uit.elib.action.LoadEditNewsAction">
             <forward name="success" path=".editNews"/>
-            <forward name="unsuccess" path="/Welcome.do"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
         <action path="/LoadEditGroup" type="uit.elib.action.LoadEditGroupAction">
             <forward name="success" path=".loadEditGroup"/>
-            <forward name="unsuccess" path="/Welcome.do"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
         <action path="/EditNews" name="EditNewsForm" type="uit.elib.action.EditNewsAction">
             <forward name="success" path="/jsp/success.jsp"/>
         </action>
         <action path="/EditGroup" name="GroupForm" type="uit.elib.action.EditGroupAction">
             <forward name="success" path="/jsp/success.jsp"/>
-            <forward name="unsuccess" path="/Welcome.do"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
         <action path="/Welcome" type="uit.elib.action.WelcomeAction">
             <forward name="success" path=".homepage"/>
         </action>
         <action path="/LoadNews" type="uit.elib.action.LoadNewsAction">
             <forward name="success" path=".loadNews"/>
-            <forward name="unsuccess" path="/Welcome.do"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
         <action path="/LoadAllNews" type="uit.elib.action.LoadAllNewsAction">
             <forward name="success" path=".listAllNews"/>
         </action>
         <action path="/LoadCreateUser" name="LoadCreateUserForm" type="uit.elib.action.LoadCreateUserAction">
             <forward name="success" path=".createUser"/>
-            <forward name="unsuccess" path="/Welcome.do"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
         <action path="/CreateUser" name="CreateUserForm" type="uit.elib.action.CreateUserAction">
             <forward name="success" path="/jsp/success.jsp"/>
-            <forward name="unsuccess" path="/Welcome.do"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>           
         <action path="/LoadEditUser" name="EditUserForm" type="uit.elib.action.LoadEditUserAction">
             <forward name="success" path=".editUser"/>
-            <forward name="unsuccess" path="/Welcome.do"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>            
         <action path="/EditUser" name="EditUserForm"  scope="session" type="uit.elib.action.EditUserAction">
             <forward name="success" path="/jsp/success.jsp"/>
-            <forward name="unsuccess" path="/Welcome.do"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
         <action path="/CreateIP" name="CreateIPForm"  scope="session" type="uit.elib.action.CreateIPAction">
             <forward name="success" path="/jsp/success.jsp"/>
-            <forward name="unsuccess" path="/Welcome.do"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
         <action path="/Logout" type="uit.elib.action.LogoutAction">
             <forward name="success" path="/Welcome.do" redirect="true"/> 
-        </action>         
+        </action>
+        <action path="/DownLoad" type="uit.elib.action.DownLoadAction"  scope="session">
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/> 
+        </action>            
         <action path="/Login" type="uit.elib.action.LoginAction"/>           
         <action path="/LoadIPTable" type="uit.elib.action.LoadIPTableAction"/>
         <action path="/DeleteUser" type="uit.elib.action.DeleteUserAction"/>
@@ -161,8 +164,7 @@
         <action path="/CheckSyllabusImage" type="uit.elib.action.CheckSyllabusImageAction"/>
         <action path="/DeleteSubject" type="uit.elib.action.DeleteSubjectAction"/>
         <action path="/DeleteResource" type="uit.elib.action.DeleteResourceAction"/>
-        <action path="/LoadResourceTable" type="uit.elib.action.LoadResourceTableAction" scope="session"/>
-        <action path="/DownLoad" type="uit.elib.action.DownLoadAction"  scope="session"/>  
+        <action path="/LoadResourceTable" type="uit.elib.action.LoadResourceTableAction" scope="session"/>  
         <action path="/LoadChapter" type="uit.elib.action.LoadChapterAction" scope="session"/>  
         <action path="/Admin" forward=".adminPage"  scope="session"/>
         <action path="/Mod" forward=".modPage"  scope="session"/>

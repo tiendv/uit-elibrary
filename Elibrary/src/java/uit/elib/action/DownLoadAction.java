@@ -12,6 +12,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import uit.elib.bo.ResourceBO;
 import uit.elib.dto.Resource;
+import uit.elib.utility.CheckGroupDetail;
 
 /**
  *
@@ -49,29 +50,37 @@ public class DownLoadAction extends org.apache.struts.action.Action {
             throws Exception {
         Resource resource = null;
         ActionForward actionForward =null;
-        if(request.getParameter("resourceID") !=null) // check null
-        {
-            String resourceID = request.getParameter("resourceID");
-            if(checkInt(resourceID)) // if resourceID is int
-            {
-                int id = Integer.parseInt(resourceID);
-                resource=ResourceBO.getResourceBO().getResourceByID(id);
-                if(resource.getUploadName()!=null &&resource.getServerName()!=null ){
-                    response.setHeader("Content-Disposition","attachment;filename="+resource.getUploadName()) ;
-                    actionForward= new ActionForward("/upload/"+resource.getServerName());
-                    if(resource.getDownloadNumber()==null)
-                        resource.setDownloadNumber(0);
-                    resource.setDownloadNumber(resource.getDownloadNumber()+1);
-                    HttpSession session = request.getSession();
-                    if(session.getAttribute(resourceID)==null)
+        HttpSession session = request.getSession();
+        if(session.getAttribute("username")!=null)
+        {    
+            CheckGroupDetail checkGroupDetail = new CheckGroupDetail();
+            if(checkGroupDetail.GroupDetail((String)session.getAttribute("username"),2,1)==true||(Integer)session.getAttribute("group") ==1||(Integer)session.getAttribute("group") ==3)
+            {         
+                if(request.getParameter("resourceID") !=null) // check null
+                {
+                    String resourceID = request.getParameter("resourceID");
+                    if(checkInt(resourceID)) // if resourceID is int
                     {
-                        session.setAttribute(resourceID, 1);
-                        ResourceBO.getResourceBO().updateResource(resource);
-                    }
-                    
-                } 
-            }   
+                        int id = Integer.parseInt(resourceID);
+                        resource=ResourceBO.getResourceBO().getResourceByID(id);
+                        if(resource.getUploadName()!=null &&resource.getServerName()!=null ){
+                            response.setHeader("Content-Disposition","attachment;filename="+resource.getUploadName()) ;
+                            actionForward= new ActionForward("/upload/"+resource.getServerName());
+                            if(resource.getDownloadNumber()==null)
+                                resource.setDownloadNumber(0);
+                            resource.setDownloadNumber(resource.getDownloadNumber()+1);
+                            if(session.getAttribute(resourceID)==null)
+                            {
+                                session.setAttribute(resourceID, 1);
+                                ResourceBO.getResourceBO().updateResource(resource);
+                            }
+                            return actionForward;
+
+                        } 
+                    }   
+                }
+            }
         }
-        return actionForward;
+        return mapping.findForward("unsuccess");
     }
 }

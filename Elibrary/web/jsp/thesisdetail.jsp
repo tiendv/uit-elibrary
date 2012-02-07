@@ -3,6 +3,16 @@
     Created on : Jan 20, 2012, 12:16:52 AM
     Author     : Nguyen Hoang Tan
 --%>
+<%@page import="uit.elib.utility.CheckGroupDetail"%>
+<%
+boolean allow=false;
+if(session.getAttribute("username")!=null)
+{    
+    CheckGroupDetail checkGroupDetail = new CheckGroupDetail();
+    if(checkGroupDetail.GroupDetail((String)session.getAttribute("username"),2,1)==true||(Integer)session.getAttribute("group") ==1||(Integer)session.getAttribute("group") ==3)
+    {
+        allow=true; 
+%>
 <%@page import="org.apache.struts.Globals"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="uit.elib.dto.Faculty"%>
@@ -121,3 +131,7 @@
         <%=listResource.get(0).getSummaryVn()%>
     <%}%>            
 </div>                
+<%}}%>
+<%if(allow==false){%>
+<jsp:include page="../jsp/wrongpage.jsp" flush="true"/>
+<%}%>

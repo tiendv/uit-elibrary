@@ -7,6 +7,7 @@ package uit.elib.action;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -16,6 +17,7 @@ import uit.elib.bo.ResourceBO;
 import uit.elib.dto.Faculty;
 import uit.elib.dto.Level;
 import uit.elib.dto.Resource;
+import uit.elib.utility.CheckGroupDetail;
 import uit.elib.utility.IsNumber;
 
 /**
@@ -40,25 +42,33 @@ public class LoadThesisDetailAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-       if(request.getParameter("resourceID")!=null)
-        {
-            IsNumber isNumber = new IsNumber();
-            if(isNumber.checkInt(request.getParameter("resourceID")))
-            {
-                int resourceID = Integer.parseInt(request.getParameter("resourceID"));
-                ResourceBO resourceBO = ResourceBO.getResourceBO();
-                List<Resource> listResource = resourceBO.getAllResource("resourceId="+resourceID, null);
-                if(listResource.size()>0)
+        HttpSession session = request.getSession();
+        if(session.getAttribute("username")!=null)
+        {    
+            CheckGroupDetail checkGroupDetail = new CheckGroupDetail();
+            if(checkGroupDetail.GroupDetail((String)session.getAttribute("username"),2,1)==true||(Integer)session.getAttribute("group") ==1||(Integer)session.getAttribute("group") ==3)
+            {            
+               if(request.getParameter("resourceID")!=null)
                 {
-                    List<Level> listLevel = LevelBO.getLevelBO().getAllLevel(listResource.get(0).getLevel().getLevelId());
-                    List<Faculty> listFaculty = FacultyBO.getFacultyBO().getAllFaculty(listResource.get(0).getFaculty().getFacultyId());
-                    request.setAttribute("listResource", listResource);
-                    request.setAttribute("listLevel", listLevel);
-                    request.setAttribute("listFaculty", listFaculty);
-                    return mapping.findForward(SUCCESS);
+                    IsNumber isNumber = new IsNumber();
+                    if(isNumber.checkInt(request.getParameter("resourceID")))
+                    {
+                        int resourceID = Integer.parseInt(request.getParameter("resourceID"));
+                        ResourceBO resourceBO = ResourceBO.getResourceBO();
+                        List<Resource> listResource = resourceBO.getAllResource("resourceId="+resourceID, null);
+                        if(listResource.size()>0)
+                        {
+                            List<Level> listLevel = LevelBO.getLevelBO().getAllLevel(listResource.get(0).getLevel().getLevelId());
+                            List<Faculty> listFaculty = FacultyBO.getFacultyBO().getAllFaculty(listResource.get(0).getFaculty().getFacultyId());
+                            request.setAttribute("listResource", listResource);
+                            request.setAttribute("listLevel", listLevel);
+                            request.setAttribute("listFaculty", listFaculty);
+                            return mapping.findForward(SUCCESS);
+                        }
+                    }
                 }
-            }
-        }      
+            }      
+        }
         return mapping.findForward(UNSUCCESS);
     }
 }
