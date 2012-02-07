@@ -7,6 +7,7 @@ package uit.elib.action;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -17,6 +18,7 @@ import uit.elib.dto.Faculty;
 import uit.elib.dto.Group;
 import uit.elib.dto.Level;
 import uit.elib.formbean.LoadCreateUserForm;
+import uit.elib.utility.CheckGroup;
 
 /**
  *
@@ -26,7 +28,7 @@ public class LoadCreateUserAction extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
-
+    private static final String UNSUCCESS = "unsuccess";
     /**
      * This is the action called from the Struts framework.
      * @param mapping The ActionMapping used to select this instance.
@@ -40,16 +42,31 @@ public class LoadCreateUserAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        LoadCreateUserForm loadCreateUserForm = (LoadCreateUserForm)form;
-        List<Group> listGroup = GroupBO.getGroupBO().getAllGroup();
-        loadCreateUserForm.setListDropGroup(listGroup);
-        List<Level> listLevel = LevelBO.getLevelBO().getAllLevel();
-        loadCreateUserForm.setListDropLevel(listLevel);
-        List<Faculty> listFaculty = FacultyBO.getFacultyBO().getAllFaculty();
-        loadCreateUserForm.setListDropFaculty(listFaculty);
-        loadCreateUserForm.setDropGroup(listGroup.get(0).getGroupId());
-        loadCreateUserForm.setDropFaculty(listFaculty.get(0).getFacultyId());
-        loadCreateUserForm.setDropLevel(listLevel.get(0).getLevelId());
-        return mapping.findForward(SUCCESS);
+        int checkgroup =2; //visitor 
+        HttpSession session = request.getSession();
+        if(session.getAttribute("username")!=null){ 
+            CheckGroup checkGroup = new CheckGroup();
+            checkgroup = checkGroup.Group((String)session.getAttribute("username"));
+            if(checkgroup==-1) // account has just been locked while users are accessing or  account has just expired while users are accessing
+            {   
+                 session.removeAttribute("username");
+                 session.removeAttribute("group");
+            }
+            if(checkgroup==1)
+            {         
+                LoadCreateUserForm loadCreateUserForm = (LoadCreateUserForm)form;
+                List<Group> listGroup = GroupBO.getGroupBO().getAllGroup();
+                loadCreateUserForm.setListDropGroup(listGroup);
+                List<Level> listLevel = LevelBO.getLevelBO().getAllLevel();
+                loadCreateUserForm.setListDropLevel(listLevel);
+                List<Faculty> listFaculty = FacultyBO.getFacultyBO().getAllFaculty();
+                loadCreateUserForm.setListDropFaculty(listFaculty);
+                loadCreateUserForm.setDropGroup(listGroup.get(0).getGroupId());
+                loadCreateUserForm.setDropFaculty(listFaculty.get(0).getFacultyId());
+                loadCreateUserForm.setDropLevel(listLevel.get(0).getLevelId());
+                return mapping.findForward(SUCCESS);
+            }
+        }
+        return mapping.findForward(UNSUCCESS);
     }
 }

@@ -6,10 +6,12 @@ package uit.elib.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import uit.elib.bo.UserBO;
+import uit.elib.utility.CheckGroup;
 
 /**
  *
@@ -30,9 +32,24 @@ public class DeleteUserAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        String username = request.getParameter("username");
-        username=username.substring(0,username.length()-1);
-        UserBO.getUserBO().DeleteUser("delete from user where username in("+username+")");
+        int checkgroup =2; //visitor 
+        HttpSession session = request.getSession();
+        if(session.getAttribute("username")!=null){ 
+            CheckGroup checkGroup = new CheckGroup();
+            checkgroup = checkGroup.Group((String)session.getAttribute("username"));
+            if(checkgroup==-1) // account has just been locked while users are accessing or  account has just expired while users are accessing
+            {   
+                 session.removeAttribute("username");
+                 session.removeAttribute("group");
+            }
+            if(checkgroup==1)
+            {          
+                String username = request.getParameter("username");
+                username=username.substring(0,username.length()-1);
+                UserBO.getUserBO().DeleteUser("delete from user where username in("+username+")");
+            }
+        }
         return null;
     }
 }
+

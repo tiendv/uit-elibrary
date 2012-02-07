@@ -35,6 +35,7 @@
         </action>
         <action path="/LoadListOfGroup" type="uit.elib.action.LoadListOfGroupAction" scope="session">
             <forward name="success" path=".LoadListOfGroup"/>
+            <forward name="unsuccess" path="/Welcome.do"/>
         </action>
         <action path="/LoadListSubjectOfCategory" type="uit.elib.action.LoadListSubjectOfCategoryAction"  scope="session"/>
         <action path="/LoadBase" type="uit.elib.action.LoadBaseAction" scope="session">           
@@ -66,6 +67,7 @@
         </action>
         <action path="/CreateGroup" name="GroupForm" type="uit.elib.action.CreateGroupAction" scope="session" >
             <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do"/>
         </action>
         <action path="/LoadCreateSubject" name="LoadCreateSubjectForm" type="uit.elib.action.LoadCreateSubjectAction" scope="session">
             <forward name="success" path=".createSubject"/>
@@ -97,10 +99,7 @@
         </action>
         <action path="/CreateNews" name="CreateNewsForm" type="uit.elib.action.CreateNewsAction">
             <forward name="success" path="/jsp/success.jsp"/>
-        </action>
-        <action path="/CreateUser" name="CreateUserForm" type="uit.elib.action.CreateUserAction">
-            <forward name="success" path="/jsp/success.jsp"/>
-        </action>        
+        </action>     
         <action path="/LoadEditNews" name="EditNewsForm" type="uit.elib.action.LoadEditNewsAction">
             <forward name="success" path=".editNews"/>
             <forward name="unsuccess" path="/Welcome.do"/>
@@ -114,6 +113,7 @@
         </action>
         <action path="/EditGroup" name="GroupForm" type="uit.elib.action.EditGroupAction">
             <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do"/>
         </action>
         <action path="/Welcome" type="uit.elib.action.WelcomeAction">
             <forward name="success" path=".homepage"/>
@@ -127,16 +127,23 @@
         </action>
         <action path="/LoadCreateUser" name="LoadCreateUserForm" type="uit.elib.action.LoadCreateUserAction">
             <forward name="success" path=".createUser"/>
+            <forward name="unsuccess" path="/Welcome.do"/>
         </action>
+        <action path="/CreateUser" name="CreateUserForm" type="uit.elib.action.CreateUserAction">
+            <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do"/>
+        </action>           
         <action path="/LoadEditUser" name="EditUserForm" type="uit.elib.action.LoadEditUserAction">
             <forward name="success" path=".editUser"/>
             <forward name="unsuccess" path="/Welcome.do"/>
         </action>            
         <action path="/EditUser" name="EditUserForm"  scope="session" type="uit.elib.action.EditUserAction">
             <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do"/>
         </action>
         <action path="/CreateIP" name="CreateIPForm"  scope="session" type="uit.elib.action.CreateIPAction">
             <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do"/>
         </action>
         <action path="/Logout" type="uit.elib.action.LogoutAction">
             <forward name="success" path="/Welcome.do" redirect="true"/> 

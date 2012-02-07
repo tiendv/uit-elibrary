@@ -7,12 +7,14 @@ package uit.elib.action;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import uit.elib.utility.IsNumber;
 import uit.elib.bo.GroupBO;
 import uit.elib.dto.Group;
+import uit.elib.utility.CheckGroup;
 /**
  *
  * @author HERO
@@ -38,15 +40,29 @@ public class LoadEditGroupAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        if(request.getParameter("groupID")!=null)
-        {
-            IsNumber isnumber = new IsNumber();
-            if(isnumber.checkInt(request.getParameter("groupID")))
-            {
-                List<Group> listGroup = GroupBO.getGroupBO().getAllGroup("GroupID="+request.getParameter("groupID"), null);
-                request.setAttribute("listGroup", listGroup);
-                return mapping.findForward(SUCCESS);
+        int checkgroup =2; //visitor 
+        HttpSession session = request.getSession();
+        if(session.getAttribute("username")!=null){ 
+            CheckGroup checkGroup = new CheckGroup();
+            checkgroup = checkGroup.Group((String)session.getAttribute("username"));
+            if(checkgroup==-1) // account has just been locked while users are accessing or  account has just expired while users are accessing
+            {   
+                 session.removeAttribute("username");
+                 session.removeAttribute("group");
             }
+            if(checkgroup==1)
+            {          
+                if(request.getParameter("groupID")!=null)
+                {
+                    IsNumber isnumber = new IsNumber();
+                    if(isnumber.checkInt(request.getParameter("groupID")))
+                    {
+                        List<Group> listGroup = GroupBO.getGroupBO().getAllGroup("GroupID="+request.getParameter("groupID"), null);
+                        request.setAttribute("listGroup", listGroup);
+                        return mapping.findForward(SUCCESS);
+                    }
+                }          
+             }
         }
         return mapping.findForward(UNSUCCESS);
     }
