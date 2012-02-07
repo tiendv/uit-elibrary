@@ -6,6 +6,14 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+boolean allow=false;
+if(session.getAttribute("username")!=null)
+{    
+    if((Integer)session.getAttribute("group") ==1)//admin
+    {
+        allow=true; 
+%>
 <div id="divTable" ></div>
 <script type="text/javascript">
     function init()
@@ -45,3 +53,7 @@
         window.location = "LoadEditIP.do?ip="+ip;
     }
 </script>
+<%}}%>
+<%if(allow==false){%>
+<jsp:include page="../jsp/wrongpage.jsp" flush="true"/>
+<%}%>
