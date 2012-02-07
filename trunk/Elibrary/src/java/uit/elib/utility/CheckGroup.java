@@ -4,7 +4,9 @@
  */
 package uit.elib.utility;
 
+import java.util.Date;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import uit.elib.bo.UserBO;
 import uit.elib.dto.User;
 
@@ -19,6 +21,11 @@ public class CheckGroup {
         List<User> listUser = userBO.getUser("userName='"+username+"'");
         if(listUser.size()>0)
         {
+            Date today = new Date();
+            if(today.getTime()>listUser.get(0).getExpiredDay().getTime()|| listUser.get(0).getStatus()==0)
+            {
+                return -1;// account has just been locked while users are accessing or  account has just expired while users are accessing
+            }
             return listUser.get(0).getGroup().getGroupId();
         }
         return 2;// visitor

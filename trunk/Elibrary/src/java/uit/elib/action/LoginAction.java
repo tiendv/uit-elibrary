@@ -63,6 +63,7 @@ public class LoginAction extends org.apache.struts.action.Action {
                             }
                             HttpSession httpSession = request.getSession(true);
                             httpSession.setAttribute("username", listUser.get(0).getUserName());
+                            httpSession.setAttribute("group", listUser.get(0).getGroup().getGroupId());
                             response.getWriter().println("1");                     
                             return null;
                         }                       
