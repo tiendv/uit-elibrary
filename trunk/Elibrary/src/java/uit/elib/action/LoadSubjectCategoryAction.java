@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.jboss.weld.context.http.Http;
 import uit.elib.bo.ResourceBO;
 import  uit.elib.bo.SubjectBO;
 import uit.elib.dto.Resource;

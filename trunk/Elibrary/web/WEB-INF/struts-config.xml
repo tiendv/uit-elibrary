@@ -61,9 +61,11 @@
         <action path="/LoadListOfResource" forward=".loadListOfResource"/>
         <action path="/CreateSubject" name="CreateSubjectForm" type="uit.elib.action.CreateSubjectAction" scope="session">
             <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>   
         </action>
         <action path="/CreateResource" name="CreateResourceForm" type="uit.elib.action.CreateResourceAction" scope="session">
             <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>            
         </action>
         <action path="/CreateGroup" name="GroupForm" type="uit.elib.action.CreateGroupAction" scope="session" >
             <forward name="success" path="/jsp/success.jsp"/>
@@ -71,6 +73,7 @@
         </action>
         <action path="/LoadCreateSubject" name="LoadCreateSubjectForm" type="uit.elib.action.LoadCreateSubjectAction" scope="session">
             <forward name="success" path=".createSubject"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
         <action path="/LoadEditResource" name="EditResourceForm" type="uit.elib.action.LoadEditResourceAction">
             <forward name="success" path=".editResource"/>
@@ -82,12 +85,15 @@
         </action>
         <action name="EditResourceForm" path="/EditResource" scope="session" type="uit.elib.action.EditResourceAction">
             <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
         <action name="EditSubjectForm" path="/EditSubject" scope="session" type="uit.elib.action.EditSubjectAction">
             <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
         <action path="/LoadCreateResource" type="uit.elib.action.LoadCreateResourceAction">
             <forward name="success" path=".createResource"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
         <action path="/LoadThesis" type="uit.elib.action.LoadThesisAction">
             <forward name="success" path=".loadThesis"/>
@@ -99,6 +105,7 @@
         </action>
         <action path="/CreateNews" name="CreateNewsForm" type="uit.elib.action.CreateNewsAction">
             <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>     
         <action path="/LoadEditNews" name="EditNewsForm" type="uit.elib.action.LoadEditNewsAction">
             <forward name="success" path=".editNews"/>
@@ -110,6 +117,7 @@
         </action>
         <action path="/EditNews" name="EditNewsForm" type="uit.elib.action.EditNewsAction">
             <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
         <action path="/EditGroup" name="GroupForm" type="uit.elib.action.EditGroupAction">
             <forward name="success" path="/jsp/success.jsp"/>

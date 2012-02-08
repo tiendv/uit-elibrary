@@ -14,6 +14,8 @@ import uit.elib.bo.SubjectCategoryBO;
 import uit.elib.dto.Faculty;
 import uit.elib.formbean.LoadCreateSubjectForm;
 import java.util.List;
+import javax.servlet.http.HttpSession;
+import uit.elib.utility.CheckGroup;
 
 /**
  *
@@ -23,7 +25,7 @@ public class LoadCreateSubjectAction extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
-
+    private static final String UNSUCCESS = "unsuccess";
     /**
      * This is the action called from the Struts framework.
      * @param mapping The ActionMapping used to select this instance.
@@ -37,14 +39,29 @@ public class LoadCreateSubjectAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        LoadCreateSubjectForm loadCreateSubjectForm = (LoadCreateSubjectForm)form;
-        //faculty
-        FacultyBO facultyBO = FacultyBO.getFacultyBO();
-        List<Faculty> listFaculty = facultyBO.getAllFaculty();
-        loadCreateSubjectForm.setListDropFaculty(listFaculty);
-        //Subject Category
-        SubjectCategoryBO subjectCategoryBO = SubjectCategoryBO.getSubjectCategoryBO();
-        loadCreateSubjectForm.setListDropSubjectCategory(subjectCategoryBO.getAllSubjectCategory());
-        return mapping.findForward(SUCCESS);
+        int checkgroup =2; //visitor 
+        HttpSession session = request.getSession();
+        if(session.getAttribute("username")!=null){ 
+            CheckGroup checkGroup = new CheckGroup();
+            checkgroup = checkGroup.Group((String)session.getAttribute("username"));
+            if(checkgroup==-1) // account has just been locked while users are accessing or  account has just expired while users are accessing
+            {   
+                 session.removeAttribute("username");
+                 session.removeAttribute("group");
+            }
+            if(checkgroup==1||checkgroup==3)// admin or mod
+            {         
+                LoadCreateSubjectForm loadCreateSubjectForm = (LoadCreateSubjectForm)form;
+                //faculty
+                FacultyBO facultyBO = FacultyBO.getFacultyBO();
+                List<Faculty> listFaculty = facultyBO.getAllFaculty();
+                loadCreateSubjectForm.setListDropFaculty(listFaculty);
+                //Subject Category
+                SubjectCategoryBO subjectCategoryBO = SubjectCategoryBO.getSubjectCategoryBO();
+                loadCreateSubjectForm.setListDropSubjectCategory(subjectCategoryBO.getAllSubjectCategory());
+                return mapping.findForward(SUCCESS);
+            }
+        }
+        return mapping.findForward(UNSUCCESS);
     }
 }
