@@ -4,6 +4,7 @@
     Author     : Admin
 --%>
 
+<%@page import="uit.elib.utility.CheckGroupDetail"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
@@ -13,7 +14,23 @@
     <tr>
         <td class="menu_td_link"><a class="menu_link" href="Welcome.do" ><bean:message  key="text.home"/></a></td>
         <td class="menu_td_link"><a class="menu_link" href="LoadSubject.do"><bean:message  key="text.subject"/></a></td>
+         <%
+        if(session.getAttribute("username")!=null)
+        {    
+            if((Integer)session.getAttribute("group") ==1||(Integer)session.getAttribute("group") ==2)//admin or mod
+            {
+        %>          
         <td class="menu_td_link"><a class="menu_link" href="LoadThesis.do"><bean:message key ="text.thesis"/></a></td>
+        <%}}%>
+         <%
+        if(session.getAttribute("username")==null)
+        {    
+            CheckGroupDetail checkGroupDetail = new CheckGroupDetail();
+            if(checkGroupDetail.GroupDetail(null, 2, 1))
+            {
+        %>          
+        <td class="menu_td_link"><a class="menu_link" href="LoadThesis.do"><bean:message key ="text.thesis"/></a></td>
+        <%}}%>         
         <td class="menu_td_link"><a class="menu_link" href="LoadAllNews.do"><bean:message key ="text.news"/></a></td>
         <%
         if(session.getAttribute("username")!=null)
