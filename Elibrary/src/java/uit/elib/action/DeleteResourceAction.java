@@ -11,7 +11,9 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import uit.elib.bo.ResourceBO;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import uit.elib.dto.Resource;
+import uit.elib.utility.CheckGroup;
 
 /**
  *
@@ -32,21 +34,34 @@ public class DeleteResourceAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        String resourcesID = request.getParameter("resourcesID");
-        resourcesID=resourcesID.substring(0,resourcesID.length()-1);
-        ResourceBO resourceBO = ResourceBO.getResourceBO();
-        List<Resource> listResource = resourceBO.getAllResource("ResourceID in("+resourcesID+")", null);     
-        for(int i=0;i<listResource.size();i++)
-        {    
-            // delete old file
-            if(listResource.get(i).getServerName()!=null)
-            {
-                File oldFile =  new File(request.getServletContext().getRealPath("/")+"upload/"+listResource.get(i).getServerName());
-                oldFile.delete();
-            }                
-            resourceBO.DeleteResource("delete from resource where resourceID ="+listResource.get(i).getResourceId()) ;
+        int checkgroup =2; //visitor 
+        HttpSession session = request.getSession();
+        if(session.getAttribute("username")!=null){ 
+            CheckGroup checkGroup = new CheckGroup();
+            checkgroup = checkGroup.Group((String)session.getAttribute("username"));
+            if(checkgroup==-1) // account has just been locked while users are accessing or  account has just expired while users are accessing
+            {   
+                 session.removeAttribute("username");
+                 session.removeAttribute("group");
+            }
+            if(checkgroup==1||checkgroup==3)// admin or mod
+            {         
+                String resourcesID = request.getParameter("resourcesID");
+                resourcesID=resourcesID.substring(0,resourcesID.length()-1);
+                ResourceBO resourceBO = ResourceBO.getResourceBO();
+                List<Resource> listResource = resourceBO.getAllResource("ResourceID in("+resourcesID+")", null);     
+                for(int i=0;i<listResource.size();i++)
+                {    
+                    // delete old file
+                    if(listResource.get(i).getServerName()!=null)
+                    {
+                        File oldFile =  new File(request.getServletContext().getRealPath("/")+"upload/"+listResource.get(i).getServerName());
+                        oldFile.delete();
+                    }                
+                    resourceBO.DeleteResource("delete from resource where resourceID ="+listResource.get(i).getResourceId()) ;
+                }
+            }
         }
-
-        return mapping.findForward(null);
+        return null;
     }
 }

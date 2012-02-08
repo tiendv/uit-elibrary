@@ -7,11 +7,13 @@ package uit.elib.action;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import uit.elib.bo.SubjectBO;
 import uit.elib.dto.Subject;
+import uit.elib.utility.CheckGroup;
 /**
  *
  * @author HERO
@@ -22,99 +24,113 @@ public class LoadListSubjectOfCategoryAction extends org.apache.struts.action.Ac
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        response.setCharacterEncoding("UTF-8");
-        String where="";
-        List<Subject> listSubject;
-        String[] sort = new String[]{"subjectId"};
-        if(request.getParameter("subjectCategoryID")!= null && request.getParameter("facultyID")!= null ) // if both of them is valid
-        {
-            int color=1;
-            int categoryID = Integer.parseInt(request.getParameter("subjectCategoryID"));
-            int facultyID = Integer.parseInt(request.getParameter("facultyID"));
-            int language = Integer.parseInt(request.getParameter("language")); // 1-EN, 2-VI
-            if(facultyID== -1)
-                where = "subjectCategoryId="+categoryID;
-            else
-                where = "subjectCategoryId="+categoryID +" and facultyId="+facultyID;
-            //sort[0]="subjectId";
-            listSubject = SubjectBO.getSubjectBO().getAllSubject(where, sort);
-            
-            
-            //begin visible TABLE
-            response.getWriter().println("<table class=resource_table>");
-                response.getWriter().println("<tr class=color_title_table>");//Title of table
-                response.getWriter().println("<td class=td1>");
-                if(language==1) //EN
-                    response.getWriter().println("Subject code");
-                if(language==2) //VI
-                    response.getWriter().println("Mã môn học");
-                response.getWriter().println("</td>");
-                response.getWriter().println("<td class=td2>");
-                if(language==1) //EN
-                    response.getWriter().println("Subject name");
-                if(language==2) //VI
-                    response.getWriter().println("Tên môn học");
-                response.getWriter().println("</td>");
-                response.getWriter().println("<td class=td3>");
-                if(language==1) //EN
-                    response.getWriter().println("Delete");
-                if(language==2) //VI
-                    response.getWriter().println("Xóa");
-                response.getWriter().println("</td>");
-                response.getWriter().println("<td class=td4>");
-                if(language==1) //EN
-                    response.getWriter().println("Edit");
-                if(language==2) //VI
-                    response.getWriter().println("Sửa");
-                response.getWriter().println("</td>");
-                response.getWriter().println("</tr>");
-            if(listSubject.size()==0)
-            {
-                response.getWriter().println("<tr>");
-                response.getWriter().println("<td>");
-                response.getWriter().println("</td>");
-                response.getWriter().println("<td>");
-                if(language==1) //EN
-                    response.getWriter().println("None");
-                if(language==2) //VI
-                    response.getWriter().println("Không có");
-                response.getWriter().println("</td>");
-                response.getWriter().println("</tr>");
+        int checkgroup =2; //visitor 
+        HttpSession session = request.getSession();
+        if(session.getAttribute("username")!=null){ 
+            CheckGroup checkGroup = new CheckGroup();
+            checkgroup = checkGroup.Group((String)session.getAttribute("username"));
+            if(checkgroup==-1) // account has just been locked while users are accessing or  account has just expired while users are accessing
+            {   
+                 session.removeAttribute("username");
+                 session.removeAttribute("group");
             }
-            else
-            {
-                
-                for(int i=0; i<listSubject.size();i++)
+            if(checkgroup==1||checkgroup==3)// admin or mod
+            {            
+                response.setCharacterEncoding("UTF-8");
+                String where="";
+                List<Subject> listSubject;
+                String[] sort = new String[]{"subjectId"};
+                if(request.getParameter("subjectCategoryID")!= null && request.getParameter("facultyID")!= null ) // if both of them is valid
                 {
-                    if(color%2==0)//thay đổi màu xen kẽ cho dòng
-                        response.getWriter().println("<tr class=color_table2>");
+                    int color=1;
+                    int categoryID = Integer.parseInt(request.getParameter("subjectCategoryID"));
+                    int facultyID = Integer.parseInt(request.getParameter("facultyID"));
+                    int language = Integer.parseInt(request.getParameter("language")); // 1-EN, 2-VI
+                    if(facultyID== -1)
+                        where = "subjectCategoryId="+categoryID;
                     else
+                        where = "subjectCategoryId="+categoryID +" and facultyId="+facultyID;
+                    //sort[0]="subjectId";
+                    listSubject = SubjectBO.getSubjectBO().getAllSubject(where, sort);
+
+
+                    //begin visible TABLE
+                    response.getWriter().println("<table class=resource_table>");
+                        response.getWriter().println("<tr class=color_title_table>");//Title of table
+                        response.getWriter().println("<td class=td1>");
+                        if(language==1) //EN
+                            response.getWriter().println("Subject code");
+                        if(language==2) //VI
+                            response.getWriter().println("Mã môn học");
+                        response.getWriter().println("</td>");
+                        response.getWriter().println("<td class=td2>");
+                        if(language==1) //EN
+                            response.getWriter().println("Subject name");
+                        if(language==2) //VI
+                            response.getWriter().println("Tên môn học");
+                        response.getWriter().println("</td>");
+                        response.getWriter().println("<td class=td3>");
+                        if(language==1) //EN
+                            response.getWriter().println("Delete");
+                        if(language==2) //VI
+                            response.getWriter().println("Xóa");
+                        response.getWriter().println("</td>");
+                        response.getWriter().println("<td class=td4>");
+                        if(language==1) //EN
+                            response.getWriter().println("Edit");
+                        if(language==2) //VI
+                            response.getWriter().println("Sửa");
+                        response.getWriter().println("</td>");
+                        response.getWriter().println("</tr>");
+                    if(listSubject.size()==0)
+                    {
                         response.getWriter().println("<tr>");
-                    response.getWriter().println("<td class=center>");
-                    response.getWriter().println(listSubject.get(i).getCourseCode().toString());
-                    response.getWriter().println("</td>");
-                    response.getWriter().println("<td>");
-                    if(language==1)
-                    response.getWriter().println(listSubject.get(i).getSubjectNameEn().toString());
-                    if(language==2)
-                    response.getWriter().println(listSubject.get(i).getSubjectNameVn().toString());
-                    response.getWriter().println("</td>");
-                    response.getWriter().println("<td class=center>");
-                    response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listSubject.get(i).getSubjectId() +"\" />");
-                    response.getWriter().println("</td>");
-                    response.getWriter().println("<td class=center>");
-                    if(language==1)
-                        response.getWriter().println("<input class=\"btn\" type=\"submit\" value=\"Edit\" onclick=\"editsubject("+listSubject.get(i).getSubjectId() +")\" />");
-                    if(language==2)
-                        response.getWriter().println("<input class=\"btn\" type=\"submit\" value=\"Sửa\" onclick=\"editsubject("+listSubject.get(i).getSubjectId() +")\" />");
-                    response.getWriter().println("</td>");
-                    response.getWriter().println("</tr>");
-                    color++;
+                        response.getWriter().println("<td>");
+                        response.getWriter().println("</td>");
+                        response.getWriter().println("<td>");
+                        if(language==1) //EN
+                            response.getWriter().println("None");
+                        if(language==2) //VI
+                            response.getWriter().println("Không có");
+                        response.getWriter().println("</td>");
+                        response.getWriter().println("</tr>");
+                    }
+                    else
+                    {
+
+                        for(int i=0; i<listSubject.size();i++)
+                        {
+                            if(color%2==0)//thay đổi màu xen kẽ cho dòng
+                                response.getWriter().println("<tr class=color_table2>");
+                            else
+                                response.getWriter().println("<tr>");
+                            response.getWriter().println("<td class=center>");
+                            response.getWriter().println(listSubject.get(i).getCourseCode().toString());
+                            response.getWriter().println("</td>");
+                            response.getWriter().println("<td>");
+                            if(language==1)
+                            response.getWriter().println(listSubject.get(i).getSubjectNameEn().toString());
+                            if(language==2)
+                            response.getWriter().println(listSubject.get(i).getSubjectNameVn().toString());
+                            response.getWriter().println("</td>");
+                            response.getWriter().println("<td class=center>");
+                            response.getWriter().println("<input type=\"checkbox\" id=\""+i+"\" value=\""+listSubject.get(i).getSubjectId() +"\" />");
+                            response.getWriter().println("</td>");
+                            response.getWriter().println("<td class=center>");
+                            if(language==1)
+                                response.getWriter().println("<input class=\"btn\" type=\"submit\" value=\"Edit\" onclick=\"editsubject("+listSubject.get(i).getSubjectId() +")\" />");
+                            if(language==2)
+                                response.getWriter().println("<input class=\"btn\" type=\"submit\" value=\"Sửa\" onclick=\"editsubject("+listSubject.get(i).getSubjectId() +")\" />");
+                            response.getWriter().println("</td>");
+                            response.getWriter().println("</tr>");
+                            color++;
+                        }
+                        response.getWriter().println("</table>");
+                        response.getWriter().println("<input type=\"hidden\" id=\"listSize\" value=\""+listSubject.size()+"\" />");
+                    }
                 }
-                response.getWriter().println("</table>");
-                response.getWriter().println("<input type=\"hidden\" id=\"listSize\" value=\""+listSubject.size()+"\" />");
             }
         }
-        return mapping.findForward(null);
+        return null;
     }
 }
