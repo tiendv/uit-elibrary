@@ -3,7 +3,17 @@
     Created on : Dec 3, 2011, 12:09:23 AM
     Author     : Nguyen Hoang Tan
 --%>
-
+<%@page import="uit.elib.utility.CheckGroupDetail"%>
+<%
+boolean allow=false;
+String username = null;
+if(session.getAttribute("username")!=null)
+    username = (String)session.getAttribute("username");
+CheckGroupDetail checkGroupDetail = new CheckGroupDetail();
+if(checkGroupDetail.GroupDetail(username,12,1)==true)
+{
+    allow=true; 
+%>
 <%@page import="java.util.List"%>
 <%@page import="org.apache.struts.Globals"%>
 <%@page import="uit.elib.dto.Subject"%>

@@ -53,6 +53,7 @@
         </action>
         <action path="/SubjectCategory" type="uit.elib.action.LoadSubjectCategoryAction" scope="session">           
             <forward name="success" path=".loadSubjectCategory"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
         <action path="/Syllabus" type="uit.elib.action.LoadSyllabusAction" scope="session">
             <forward name="success" path=".syllabus"/>

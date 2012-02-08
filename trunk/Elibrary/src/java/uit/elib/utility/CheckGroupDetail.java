@@ -18,6 +18,15 @@ import uit.elib.dto.User;
 public class CheckGroupDetail {
     public boolean  GroupDetail(String username, int resourceCategoryID, int value) throws Exception
     {
+        if(username==null)
+        {
+            GroupDetailBO groupDetail = GroupDetailBO.getGroupDetailBO(); 
+            List<Groupdetail> listGroupDetails = groupDetail.getAllGroupDetail("groupId="+2+" and ResourceCategoryID="+resourceCategoryID+ " and Value="+value, null);
+            if(listGroupDetails.size()==1)
+                return true; 
+            if(listGroupDetails.isEmpty())
+                return false;
+        }        
         UserBO userBO = UserBO.getUserBO();
         List<User> listUser = userBO.getUser("userName='"+username+"'");
         if(listUser.size()>0)
@@ -29,7 +38,7 @@ public class CheckGroupDetail {
             }
             GroupDetailBO groupDetail = GroupDetailBO.getGroupDetailBO(); 
             List<Groupdetail> listGroupDetails = groupDetail.getAllGroupDetail("groupId="+listUser.get(0).getGroup().getGroupId()+" and ResourceCategoryID="+resourceCategoryID+ " and Value="+value, null);
-            if(listGroupDetails.size()==1)
+            if(listGroupDetails.size()==1||listUser.get(0).getGroup().getGroupId()==1||listUser.get(0).getGroup().getGroupId()==3)
                 return true;
         }
         return false;

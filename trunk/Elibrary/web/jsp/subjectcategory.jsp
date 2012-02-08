@@ -3,7 +3,7 @@
     Created on : Dec 1, 2012, 8:27:49 AM
     Author     : HERO
 --%>
-
+<%@page import="uit.elib.utility.CheckGroupDetail"%>
 <%@page import="uit.elib.dto.Resource"%>
 <%@page import="uit.elib.dto.Subject" %>
 <%@page import="org.apache.struts.Globals"%>
@@ -29,12 +29,21 @@
                     int subjectID = Integer.parseInt(request.getAttribute("subjectID").toString());
                     int resourceCategoryID = Integer.parseInt(request.getAttribute("resourceCategoryID").toString());
                     int language =1; // English
-                    Locale locale = request.getLocale();
                     if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
                         language = 2; // VietNamese
                     int color=1;
         %>
-        
+
+        <%
+        boolean allow=false;
+        String username = null;
+        if(session.getAttribute("username")!=null)
+            username = (String)session.getAttribute("username");
+        CheckGroupDetail checkGroupDetail = new CheckGroupDetail();
+        if(checkGroupDetail.GroupDetail(username,resourceCategoryID,1)==true)
+        {
+            allow=true; 
+        %>        
         <!-- Begin load resource by OrderChapter (ResourceCategoryID= 10, bài giảng) -->
         <%if(resourceCategoryID==10) {%>
         
@@ -442,8 +451,9 @@
                 <%}%>
         </table>
         <%}%>  <!--End of ResourceCategoryID=11  IF -->
-        
-        
-        
-    </body>
+     </body>
 </html>
+<%}%>
+<%if(allow==false){%>
+<jsp:include page="../jsp/wrongpage.jsp" flush="true"/>
+<%}%>
