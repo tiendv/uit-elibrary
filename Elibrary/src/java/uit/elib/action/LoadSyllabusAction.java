@@ -7,6 +7,7 @@ package uit.elib.action;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -14,6 +15,7 @@ import uit.elib.bo.ResourceBO;
 import uit.elib.bo.SubjectBO;
 import uit.elib.dto.Resource;
 import uit.elib.dto.Subject;
+import uit.elib.utility.CheckGroupDetail;
 import uit.elib.utility.IsNumber;
 
 /**
@@ -38,25 +40,33 @@ public class LoadSyllabusAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        IsNumber isNumber = new IsNumber();
-        if(request.getParameter("subjectID")!=null)
+        String username = null;
+        HttpSession session = request.getSession();
+        if(session.getAttribute("username")!=null)
+            username = (String)session.getAttribute("username");
+        CheckGroupDetail checkGroupDetail = new CheckGroupDetail();
+        if(checkGroupDetail.GroupDetail(username,12,1)==true)
         {
-            if(isNumber.checkInt(request.getParameter("subjectID")))
+            IsNumber isNumber = new IsNumber();
+            if(request.getParameter("subjectID")!=null)
             {
-                int id = Integer.parseInt(request.getParameter("subjectID"));
-                List<Subject>listSubject=SubjectBO.getSubjectBO().getSubject(id);
-                if(listSubject.size()>0)
+                if(isNumber.checkInt(request.getParameter("subjectID")))
                 {
-                    //get subject
-                    Subject subject = listSubject.get(0);
-                    //get resource
-                    String[] sort = new String[]{"resourceId"}; 
-                    List<Resource>listResource =ResourceBO.getResourceBO().getAllResource("SubjectID="+id+" and ResourceCategoryID=12", sort);
-                    //set Attribute
-                    request.setAttribute("subject", subject);
-                    request.setAttribute("listResource", listResource);
-                    return mapping.findForward(SUCCESS);
-                 }   
+                    int id = Integer.parseInt(request.getParameter("subjectID"));
+                    List<Subject>listSubject=SubjectBO.getSubjectBO().getSubject(id);
+                    if(listSubject.size()>0)
+                    {
+                        //get subject
+                        Subject subject = listSubject.get(0);
+                        //get resource
+                        String[] sort = new String[]{"resourceId"}; 
+                        List<Resource>listResource =ResourceBO.getResourceBO().getAllResource("SubjectID="+id+" and ResourceCategoryID=12", sort);
+                        //set Attribute
+                        request.setAttribute("subject", subject);
+                        request.setAttribute("listResource", listResource);
+                        return mapping.findForward(SUCCESS);
+                     }   
+                 }
              }
          }
          return mapping.findForward(UNSUCCESS);

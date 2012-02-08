@@ -42,50 +42,50 @@ public class LoadThesisAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+        String username = null;
         HttpSession session = request.getSession();
         if(session.getAttribute("username")!=null)
-        {    
-            CheckGroupDetail checkGroupDetail = new CheckGroupDetail();
-            if(checkGroupDetail.GroupDetail((String)session.getAttribute("username"),2,1)==true||(Integer)session.getAttribute("group") ==1||(Integer)session.getAttribute("group") ==3)
-            {        
-                IsNumber isNumber = new IsNumber();
-                if(request.getParameter("facultyID")!=null)
+            username = (String)session.getAttribute("username");
+        CheckGroupDetail checkGroupDetail = new CheckGroupDetail();
+        if(checkGroupDetail.GroupDetail(username,2,1)==true)
+        {        
+            IsNumber isNumber = new IsNumber();
+            if(request.getParameter("facultyID")!=null)
+            {
+                if(isNumber.checkInt(request.getParameter("facultyID")))
                 {
-                    if(isNumber.checkInt(request.getParameter("facultyID")))
+                    int facultyID = Integer.parseInt(request.getParameter("facultyID"));
+                    List<Faculty> listFaculty = FacultyBO.getFacultyBO().getAllFaculty(facultyID);
+                    if(listFaculty.size()>0)
                     {
-                        int facultyID = Integer.parseInt(request.getParameter("facultyID"));
-                        List<Faculty> listFaculty = FacultyBO.getFacultyBO().getAllFaculty(facultyID);
-                        if(listFaculty.size()>0)
-                        {
-                            String []order = new String[2];
-                            order[0] = "level";
-                            order[1] = "postDate desc";
-                            List<Resource> listResource = ResourceBO.getResourceBO().getAllResourceByFR(facultyID, 2, order);
-                            List<Level> listLevel = LevelBO.getLevelBO().getAllLevel();
-                            request.setAttribute("listResource", listResource);
-                            request.setAttribute("listFaculty", listFaculty);
-                            request.setAttribute("listLevel", listLevel);
-                            return mapping.findForward(SUCCESS);
-                        }
+                        String []order = new String[2];
+                        order[0] = "level";
+                        order[1] = "postDate desc";
+                        List<Resource> listResource = ResourceBO.getResourceBO().getAllResourceByFR(facultyID, 2, order);
+                        List<Level> listLevel = LevelBO.getLevelBO().getAllLevel();
+                        request.setAttribute("listResource", listResource);
+                        request.setAttribute("listFaculty", listFaculty);
+                        request.setAttribute("listLevel", listLevel);
+                        return mapping.findForward(SUCCESS);
                     }
                 }
-                if(request.getParameter("facultyID")==null)
-                {
-                        List<Faculty> listFaculty = FacultyBO.getFacultyBO().getAllFaculty();
-                        if(listFaculty.size()>0)
-                        {
-                            String []order = new String[2];
-                            order[0] = "level";
-                            order[1] = "postDate desc";
-                            List<Resource> listResource = ResourceBO.getResourceBO().getAllResource(2,order);
-                            List<Level> listLevel = LevelBO.getLevelBO().getAllLevel();
-                            request.setAttribute("listResource", listResource);
-                            request.setAttribute("listFaculty", listFaculty);
-                            request.setAttribute("listLevel", listLevel);
-                            return mapping.findForward(SUCCESS);
-                        }
-                }        
             }
+            if(request.getParameter("facultyID")==null)
+            {
+                    List<Faculty> listFaculty = FacultyBO.getFacultyBO().getAllFaculty();
+                    if(listFaculty.size()>0)
+                    {
+                        String []order = new String[2];
+                        order[0] = "level";
+                        order[1] = "postDate desc";
+                        List<Resource> listResource = ResourceBO.getResourceBO().getAllResource(2,order);
+                        List<Level> listLevel = LevelBO.getLevelBO().getAllLevel();
+                        request.setAttribute("listResource", listResource);
+                        request.setAttribute("listFaculty", listFaculty);
+                        request.setAttribute("listLevel", listLevel);
+                        return mapping.findForward(SUCCESS);
+                    }
+            }        
         }
         return mapping.findForward(UNSUCCESS);
     }
