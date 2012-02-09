@@ -6,7 +6,6 @@ package uit.elib.utility;
 
 import java.util.Date;
 import java.util.List;
-import javax.servlet.http.HttpSession;
 import uit.elib.bo.UserBO;
 import uit.elib.dto.User;
 

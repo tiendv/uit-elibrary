@@ -159,7 +159,11 @@
         </action>
         <action path="/DownLoad" type="uit.elib.action.DownLoadAction"  scope="session">
             <forward name="unsuccess" path="/Welcome.do" redirect="true"/> 
-        </action>            
+        </action>
+        <action path="/LoadLogin" type="uit.elib.action.LoadLoginAction">
+            <forward name="success" path=".loadLogin"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/> 
+        </action>        
         <action path="/Login" type="uit.elib.action.LoginAction"/>           
         <action path="/LoadIPTable" type="uit.elib.action.LoadIPTableAction"/>
         <action path="/DeleteUser" type="uit.elib.action.DeleteUserAction"/>
