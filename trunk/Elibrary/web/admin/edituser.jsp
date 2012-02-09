@@ -28,7 +28,8 @@ if(session.getAttribute("username")!=null)
     String birthday = simpleDateFormat.format(listUser.get(0).getBirthday());
     String expiredDay = simpleDateFormat.format(listUser.get(0).getExpiredDay());
 %>
-<link href="./css/jquery-ui.css" rel="stylesheet" type="text/css"/> 
+<link href="./css/base/jquery.ui.datepicker.css" rel="stylesheet" type="text/css"/> 
+<link href="./css/base/jquery.ui.all.css" rel="stylesheet" type="text/css"/>
 <script src="./js/jquery-1.7.1.min.js"></script> 
 <script src="./js/jquery-ui-1.8.16.custom.min.js"></script> 
 <h1><bean:message key="text.edituser"/></h1>

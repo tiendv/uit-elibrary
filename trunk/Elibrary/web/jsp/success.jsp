@@ -12,19 +12,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <%@taglib uri="http://struts.apache.org/tags-bean-el" prefix="bean" %>
 <title><bean:message key="text.success"/></title> 
- <link href="./css/jquery-ui.css" rel="stylesheet" type="text/css"/> 
+ <link href="./css/base/jquery.ui.dialog.css" rel="stylesheet" type="text/css"/>
+ <link href="./css/base/jquery.ui.all.css" rel="stylesheet" type="text/css"/>
  <script src="./js/jquery-1.7.1.min.js"></script> 
  <script src="./js/jquery-ui-1.8.16.custom.min.js"></script> 
- 
+ <style>
+.ui-dialog-titlebar-close{
+    display: none;
+}
+</style>
+
   <script type="text/javascript"> 
   $(function(){        
     var execute = function() { 
         var myTextField = document.getElementById('href');
         window.location = myTextField.value;
     } 
-    var dialogOpts = { 
-      buttons: { 
-        "Ok": execute
+    var dialogOpts = {
+      show: true,
+      buttons: {   
+        "Ok": execute     
         } 
     }; 
     $("#myDialog").dialog(dialogOpts); 

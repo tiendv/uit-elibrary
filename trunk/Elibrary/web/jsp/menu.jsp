@@ -17,7 +17,7 @@
          <%
         if(session.getAttribute("username")!=null)
         {    
-            if((Integer)session.getAttribute("group") ==1||(Integer)session.getAttribute("group") ==2)//admin or mod
+            if((Integer)session.getAttribute("group") ==1||(Integer)session.getAttribute("group") ==3)//admin or mod
             {
         %>          
         <td class="menu_td_link"><a class="menu_link" href="LoadThesis.do"><bean:message key ="text.thesis"/></a></td>
@@ -35,7 +35,7 @@
         <%
         if(session.getAttribute("username")!=null)
         {    
-            if((Integer)session.getAttribute("group") ==1||(Integer)session.getAttribute("group") ==2)//admin or mod
+            if((Integer)session.getAttribute("group") ==1||(Integer)session.getAttribute("group") ==3)//admin or mod
             {
         %>          
         <td class="menu_td_link"><a class="menu_link" href="Mod.do"><bean:message key="text.modpage"/></a></td>
@@ -47,7 +47,15 @@
             {
         %>        
             <td class="menu_td_link"><a class="menu_link" href="Admin.do"><bean:message key="text.adminpage"/></a></td>
-        <%}}%>       
+        <%}}%>
+        <%if(session.getAttribute("username")==null)
+        {%> 
+            <td class="menu_td_link"><a class="menu_link" href="LoadLogin.do"><bean:message key="text.login"/></a></td>
+        <%}%>
+        <%if(session.getAttribute("username")!=null)
+        {%>  
+            <td class="menu_td_link"><a class="menu_link" href="Logout.do"><bean:message key="text.logout"/></a></td>
+        <%}%>     
         <td align="right"><script type="text/javascript" src="js/ocw.js"></script>
             <form method="get" action="http://search.mit.edu/search">
                 <div class="searchform">

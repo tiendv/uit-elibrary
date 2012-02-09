@@ -35,7 +35,7 @@ if(checkGroupDetail.GroupDetail(username,2,1)==true)
 %> 
 <div class="newstitle"><bean:message key="text.thesisdetail"/></div>
 <div class="resource1">
-    <div class="resource_left"><bean:message key="text.thesisname"/></div>
+    <div class="resource_left_bold"><bean:message key="text.thesisname"/></div>
     <div class="resource_left">
         <%if(language==1) {%>  
             <%=listResource.get(0).getResourceNameEn()%>
@@ -47,7 +47,7 @@ if(checkGroupDetail.GroupDetail(username,2,1)==true)
 </div>
 <div class="cleared"></div>     
 <div class="resource1">
-    <div class="resource_left"><bean:message key="text.level"/></div>
+    <div class="resource_left_bold"><bean:message key="text.level"/></div>
     <div class="resource_left">
         <%if(language==1) {%>  
             <%=listLevel.get(0).getLevelNameEn()%>
@@ -56,7 +56,7 @@ if(checkGroupDetail.GroupDetail(username,2,1)==true)
             <%=listLevel.get(0).getLevelNameVn()%>
         <%}%>                
     </div>
-    <div class="resource_left"><bean:message key="text.faculty"/></div>
+    <div class="resource_left_bold"><bean:message key="text.faculty"/></div>
     <div class="resource_left">
         <%if(language==1) {%>  
             <%=listFaculty.get(0).getFacultyNameEn()%>
@@ -68,49 +68,34 @@ if(checkGroupDetail.GroupDetail(username,2,1)==true)
 </div>
 <div class="cleared"></div>    
 <div class="resource1">
-    <div class="resource_left"><bean:message key="text.author"/></div>
+    <div class="resource_left_bold"><bean:message key="text.author"/></div>
     <div class="resource_left"><%=listResource.get(0).getAuthor()%></div>
-    <div class="resource_left"><bean:message key="text.teacher"/></div>
+    <div class="resource_left_bold"><bean:message key="text.teacher"/></div>
     <div class="resource_left"><%=listResource.get(0).getTeacher()%></div>                    
 </div>
 <div class="cleared"></div> 
 <div class="resource1">
-    <div class="resource_left"><bean:message key="text.class"/></div>
+    <div class="resource_left_bold"><bean:message key="text.class"/></div>
     <div class="resource_left"><%=listResource.get(0).getClass_()%></div>
-    <div class="resource_left"><bean:message key="text.school"/></div>
+    <div class="resource_left_bold"><bean:message key="text.school"/></div>
     <div class="resource_left"><%=listResource.get(0).getSchool()%></div>                    
 </div>
 <div class="cleared"></div> 
 <div class="resource1">
-    <div class="resource_left"><bean:message key="text.year"/></div>
+    <div class="resource_left_bold"><bean:message key="text.year"/></div>
     <div class="resource_left"><%=listResource.get(0).getYear()%></div>
-    <div class="resource_left"><bean:message key="text.schoolyear"/></div>
+    <div class="resource_left_bold"><bean:message key="text.schoolyear"/></div>
     <div class="resource_left"><%=listResource.get(0).getSchoolYear()%></div>                    
 </div>
 <div class="cleared"></div> 
 <div class="resource1">
-    <div class="resource_left">
-        <bean:message key="text.download"/>
-    </div>
-    <div class="resource_left">
-        <a href="DownLoad.do?resourceID=<%=listResource.get(0).getResourceId()%>"><bean:message key="text.downloadhere"/></a>
-    </div>
-    <div class="resource_left">
+    <div class="resource_left_bold">
         <bean:message key="text.uploadname"/>
     </div>
     <div class="resource_left">
         <%=listResource.get(0).getUploadName() %>
     </div>
-</div>
-<div class="cleared"></div>     
-<div class="resource1">
-    <div class="resource_left">
-        <bean:message key="text.downloadnumber"/>
-    </div>
-    <div class="resource_left">
-        <%=listResource.get(0).getDownloadNumber()%>
-    </div>
-    <div class="resource_left">
+    <div class="resource_left_bold">
         <bean:message key="text.size"/>
     </div>
     <div class="resource_left">
@@ -118,10 +103,25 @@ if(checkGroupDetail.GroupDetail(username,2,1)==true)
            Mb=dec.format(listResource.get(0).getSize()/1000000);  
         %>
         <%=Mb%>Mb     
+    </div>    
+</div>
+<div class="cleared"></div>     
+<div class="resource1">
+    <div class="resource_left_bold">
+        <bean:message key="text.download"/>
+    </div>
+    <div class="resource_left">
+        <a href="DownLoad.do?resourceID=<%=listResource.get(0).getResourceId()%>"><bean:message key="text.downloadhere"/></a>
+    </div>    
+    <div class="resource_left_bold">
+        <bean:message key="text.downloadnumber"/>
+    </div>
+    <div class="resource_left">
+        <%=listResource.get(0).getDownloadNumber()%>
     </div>
 </div>
 <div class="cleared"></div>               
-<div class="resource1">
+<div class="bold">
     <bean:message key="text.thesissummary"/>                                 
 </div>
 <div class="thesis_summary">

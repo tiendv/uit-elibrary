@@ -558,6 +558,11 @@ div.resource_left {
     width: 190px;
     float: left;
 }
+div.resource_left_bold {
+    width: 190px;
+    float: left;
+    font-weight: bold;
+}
 div.resource_right {
     float: left;
 }
@@ -808,29 +813,29 @@ div.thesis_summary{
     font: 700 15px/30px Arial;
     text-indent: 10px;
 }
-.divcontent
-{
+.divcontent{
     padding-top: 2px;
 }
-image
-{
+image{
     border: none;
 }
 .divheader{
     width: 944px;
 }
 .divtitle{
-    float: left;
+    width: 350px;
     margin-left: 50px;
-    margin-top: 18px;
+    margin-top: 28px;
+    float:left;
 }
 .divtitleright{
-    margin-left: 650px;
     width: 282px;
-    margin-top: 10px
+    float:right;
+    margin-top: 30px;
+    margin-right: 20px;
 }
 .divlogin{
-    width: 282px;
+    float:left;
 }
 .divlabellogin{
     float:left;
@@ -848,31 +853,98 @@ image
     float:left;
     margin-top: 5px;
 }
-.vietnamflag{
-    float:right;
-    margin-top: 8px;
-    padding-left: 20px;
-    margin-right: 8px;    
-}
-.englandflag{
-    float:right;
-    margin-top: 8px;  
+.divheaderusername{
+    color: #5F5F5F;
+    font-size: 13px;
+    font-weight: normal;    
+    float:right; 
+    padding-bottom: 5px;
+    height: 25px;
 }
 .divheaderwelcome{
     color: #5F5F5F;
     font-size: 13px;
-    font-weight: normal;
-    float:right;
-    padding-top: 23px;
-}
-.divheaderlogout{
-    font-size: 13px;
-    font-weight: normal;
-    float:right;
-    padding-left: 3px;
-    padding-top: 23px;
+    font-weight: normal;    
+    float:right; 
+    padding-right: 3px;
 }
 .divlogout{
-    width: 282px;
-    height:44px;
+   float:left;
+}
+.vietnamflag{
+    float:right;
+    margin-left: 10px;
+    margin-right: 13px;
+}
+.englandflag{
+    float:right;
+}
+#login div {
+    background: url("../image/rounded_field.gif") no-repeat scroll 0 0 transparent;
+    height: 18px;
+    margin: 0 auto;
+    padding: 3px 0 10px;
+    width: 190px;
+    margin-top: 1px;
+}
+#login input#txtUsername, #login input#txtPassword {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    float: left;
+    font-family: "Lucida Sans Unicode","Lucida Grande",Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 1px 0 0;
+    width: 113px;
+}
+#login label {
+    color: #656565;
+    display: block;
+    float: left;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 18px;
+    padding: 1px 0 0 5px;
+    text-align: left;
+    width: 65px;
+}
+#login  {
+    height: 190px;
+    overflow: hidden;
+    padding-top: 50px;
+    width: 218px; 
+    float:right;
+    margin-top: 120px;
+    margin-right: 280px
+}
+.loginen{
+    background: url("../image/signin_bgen.png") no-repeat scroll 0 0 transparent;
+}
+.loginvn{
+    background: url("../image/signin_bgvn.png") no-repeat scroll 0 0 transparent;
+}
+#login fieldset {
+    border: 0 none;
+    margin: 0;
+    padding: 0;
+}
+#login .login_button {
+    border: 0 none;
+    cursor: pointer;
+    display: block;
+    height: 27px;
+    margin-left: 108px; 
+    text-indent: -9999px;
+    width: 95px;
+}
+#login .buttons {
+    overflow: hidden;
+    padding-top: 4px;
+    width: 100%;
+}
+#login #login_buttonen {
+    background: url("../image/button_signinen.png") no-repeat scroll 0 0 transparent;
+}
+#login #login_buttonvn {
+    background: url("../image/button_signinvn.gif") no-repeat scroll 0 0 transparent;
 }

@@ -114,4 +114,4 @@ if(checkGroupDetail.GroupDetail(username,12,1)==true)
     <%}%>
 <%if(listResource.size()>0) {%>
    <div class="syllabus_download"><a href="./DownLoad.do?resourceID=<%=listResource.get(0).getResourceId() %>" style="color:#680a12;" ><bean:message key="text.downloadhere"/> </a></div>  
-<%}%>
+<%}}%>

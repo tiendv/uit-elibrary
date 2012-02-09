@@ -303,6 +303,15 @@
         <put name="footer" value="/jsp/footer.jsp" />
         <put name="content"   value="/jsp/syllabus.jsp" />
         <put name="leftmenu"   value="/jsp/leftmenusubject.jsp" />
-    </definition>    
+    </definition>
+    <definition name=".loadLogin" path="/jsp/mainpage.jsp">
+        <put name="title"  value="Project Information" />
+        <put name="description"  value="Project Information" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/jsp/login.jsp" />
+        <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
+    </definition>      
 </tiles-definitions>
 
