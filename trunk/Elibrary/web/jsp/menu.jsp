@@ -17,7 +17,8 @@
          <%
         if(session.getAttribute("username")!=null)
         {    
-            if((Integer)session.getAttribute("group") ==1||(Integer)session.getAttribute("group") ==3)//admin or mod
+            CheckGroupDetail checkGroupDetail = new CheckGroupDetail();
+            if(checkGroupDetail.GroupDetail((String)session.getAttribute("username"), 2, 1)||(Integer)session.getAttribute("group") ==1||(Integer)session.getAttribute("group") ==3)//admin or mod
             {
         %>          
         <td class="menu_td_link"><a class="menu_link" href="LoadThesis.do"><bean:message key ="text.thesis"/></a></td>
