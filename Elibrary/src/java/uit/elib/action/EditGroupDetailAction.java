@@ -41,12 +41,23 @@ public class EditGroupDetailAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        String listView = request.getParameter("view");
+        
+        String listView="";
+        String[] listViewArray={""};
+        String listDownload="";
+        String[] listDownloadArray={""};
+        if(request.getParameter("view")!="")
+        {
+            listView = request.getParameter("view");
         listView = listView.substring(0, listView.length()-1);
-        String[] listViewArray = listView.split(","); // chuỗi các loại tài nguyên ID xem
-        String listDownload = request.getParameter("download");
+        listViewArray = listView.split(","); // chuỗi các loại tài nguyên ID xem
+        }
+        if(request.getParameter("download")!="")
+        {
+            listDownload = request.getParameter("download");
         listDownload = listDownload.substring(0, listDownload.length()-1);
-        String[] listDownloadArray = listDownload.split(","); // chuỗi các loại tài nguyên download
+        listDownloadArray = listDownload.split(","); // chuỗi các loại tài nguyên download
+        }
         int groupID = Integer.parseInt(request.getParameter("groupID"));
         List<Resourcecategory> listResourceCategory = ResourceCategoryBO.getResourceCategoryBO().getResourcecategory();
         // xóa chi tiết nhóm cũ
@@ -55,26 +66,28 @@ public class EditGroupDetailAction extends org.apache.struts.action.Action {
         Resourcecategory resourceCategory = new Resourcecategory();
         Groupdetail groupDetail = new Groupdetail();
         Group group = new Group();
-        for (int i = 0; i < listViewArray.length; i++) {
-            resourceCategory.setResourceCategoryId(Integer.parseInt(listViewArray[i]));
-            group.setGroupId(groupID);
-            groupDetail.setResourcecategory(resourceCategory);
-            groupDetail.setValue(1);
-            groupDetail.setGroup(group);
-            GroupDetailBO.getGroupDetailBO().addNew(groupDetail);
-        }
-        for (int j = 0; j < listDownloadArray.length; j++) {
-            resourceCategory.setResourceCategoryId(Integer.parseInt(listDownloadArray[j]));
-            group.setGroupId(groupID);
-            groupDetail.setResourcecategory(resourceCategory);
-            groupDetail.setValue(2);
-            groupDetail.setGroup(group);
-            GroupDetailBO.getGroupDetailBO().addNew(groupDetail);
-        }
+        if(listViewArray.length>1) // nếu listViewArray.length=1 nghỉa là ko có checkbox nào được check => ko cần insert vào csdl
+            for (int i = 0; i < listViewArray.length; i++) { // i=0 là giá trị listviewArray[0] = -1
+                resourceCategory.setResourceCategoryId(Integer.parseInt(listViewArray[i]));
+                group.setGroupId(groupID);
+                groupDetail.setResourcecategory(resourceCategory);
+                groupDetail.setValue(1);
+                groupDetail.setGroup(group);
+                GroupDetailBO.getGroupDetailBO().addNew(groupDetail);
+            }
+        if(listDownloadArray.length>1)
+            for (int j = 0; j < listDownloadArray.length; j++) { //j=0 là giá trị listdownloadArray[0] = -1
+                resourceCategory.setResourceCategoryId(Integer.parseInt(listDownloadArray[j]));
+                group.setGroupId(groupID);
+                groupDetail.setResourcecategory(resourceCategory);
+                groupDetail.setValue(2);
+                groupDetail.setGroup(group);
+                GroupDetailBO.getGroupDetailBO().addNew(groupDetail);
+            }
                 Boolean success =true;
                 String href="./LoadListOfGroupDetail.do";
                 request.setAttribute("success",success);
                 request.setAttribute("href",href);
-                return mapping.findForward(SUCCESS);
+                return mapping.findForward(null);
     }
 }

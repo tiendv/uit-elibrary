@@ -44,8 +44,8 @@
     {
         var listSize=document.getElementById("listSize").value;
         var temp =0;
-        var view = "";
-        var download = "";
+        var view = ""; // nếu view chỉ có gtri -1 thì ko có checkbox nào dc check
+        var download = ""; //nếu download chỉ có gtri -1 thì ko có checkbox nào dc check
         var groupID = document.getElementById("dropGroup").value;
         for (var i = 0; i < listSize; i++) {
             temp=i+listSize;
