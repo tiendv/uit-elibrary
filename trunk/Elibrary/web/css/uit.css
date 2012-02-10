@@ -948,3 +948,10 @@ image{
 #login #login_buttonvn {
     background: url("../image/button_signinvn.gif") no-repeat scroll 0 0 transparent;
 }
+.line {
+    background: url("../image/line-1.png") repeat-x scroll 0 0 transparent;
+    margin: 0 auto;
+    padding: 3px 0 10px;
+    width: 760px;
+    margin-top: 1px;
+}
