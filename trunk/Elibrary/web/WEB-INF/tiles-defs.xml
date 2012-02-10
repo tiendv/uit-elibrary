@@ -101,7 +101,16 @@
         <put name="footer" value="/jsp/footer.jsp" />
         <put name="content"   value="/admin/listofgroup.jsp" />
         <put name="leftmenu"   value="/admin/layout/leftmenu.jsp" />
-    </definition>    
+    </definition>
+    <definition name=".loadGroupDetail" path="/jsp/mainpage.jsp">
+        <put name="title"  value=" UIT library Administrator" />
+        <put name="description"  value="UIT library Administrator" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/admin/listofgroupdetail.jsp" />
+        <put name="leftmenu"   value="/admin/layout/leftmenu.jsp" />
+    </definition>
     <definition name=".createIP" path="/jsp/mainpage.jsp">
         <put name="title"  value=" UIT library Administrator" />
         <put name="description"  value="UIT library Administrator" />

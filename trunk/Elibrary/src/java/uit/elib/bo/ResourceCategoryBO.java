@@ -59,6 +59,19 @@ public class ResourceCategoryBO extends ManagerBase<Resourcecategory> {
         }
         
     }
+     public List<Resourcecategory> getResourcecategory() { // lấy loại tài nguyên cho mục dích phân quyền
+        try {
+            String [] sort = null;
+            String where = "ResourceCategoryID<>7 and ResourceCategoryID<>8";
+            List<Resourcecategory> list = getBySQLQuery(where, sort, 0);
+            return list;
+
+        } catch (Exception ex) {
+            Logger.getLogger(ResourceCategoryBO.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        
+    }
      
  
 }

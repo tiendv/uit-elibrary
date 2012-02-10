@@ -104,6 +104,10 @@
             <forward name="success" path=".loadThesisDetail"/>
             <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
+        <action path="/LoadListOfGroupDetail" type="uit.elib.action.LoadGroupDetailAction">
+            <forward name="success" path=".loadGroupDetail"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
         <action path="/CreateNews" name="CreateNewsForm" type="uit.elib.action.CreateNewsAction">
             <forward name="success" path="/jsp/success.jsp"/>
             <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
@@ -123,6 +127,9 @@
         <action path="/EditGroup" name="GroupForm" type="uit.elib.action.EditGroupAction">
             <forward name="success" path="/jsp/success.jsp"/>
             <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/EditGroupDetail" type="uit.elib.action.EditGroupDetailAction">
+            <forward name="success" path="/jsp/success.jsp"/>
         </action>
         <action path="/Welcome" type="uit.elib.action.WelcomeAction">
             <forward name="success" path=".homepage"/>
@@ -160,6 +167,7 @@
         <action path="/DownLoad" type="uit.elib.action.DownLoadAction"  scope="session">
             <forward name="unsuccess" path="/Welcome.do" redirect="true"/> 
         </action>
+        <action path="/LoadGroupDetailTable" type="uit.elib.action.LoadGroupDetailTableAction"/>
         <action path="/LoadLogin" type="uit.elib.action.LoadLoginAction">
             <forward name="success" path=".loadLogin"/>
             <forward name="unsuccess" path="/Welcome.do" redirect="true"/> 
