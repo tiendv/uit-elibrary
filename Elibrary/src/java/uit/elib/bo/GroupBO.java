@@ -34,6 +34,18 @@ public class GroupBO extends ManagerBase<Group> {
             return null;
         }
      }    
+      public List<Group> getUser() {
+        try {
+            String [] sort= null;
+            String where ="GroupID<>1 and GroupID<>3";
+            List<Group> list = getBySQLQuery(where, sort, 0);
+            return list;
+
+        } catch (Exception ex) {
+            Logger.getLogger(GroupBO.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+     }
       public List getAllGroup() {
         try {
             String[] sort = new String[]{"groupId"}; // tang dan
