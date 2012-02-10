@@ -33,6 +33,7 @@
         <div class="leftheadlinenews"><%=listNews.get(i).getNewsHeadlineEn()%></div>
     </div>
     <div class="cleared"></div>
+    <div class="line"></div>
 <%}%>
 <%  if(language==2){%>
     <div class="newstitle2"><a class="linkcolor" href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><%=listNews.get(i).getNewsTitleVn()%></a></div>
@@ -44,6 +45,7 @@
              <div class="leftimagenews"><a href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><img src="<%=imageLink%>" class="smallimage"/></a></div>
              <div class="leftheadlinenews"><%=listNews.get(i).getNewsHeadlineVn()%></div>
          </div>
-         <div class="cleared"></div>    
+         <div class="cleared"></div>
+         <p class="line"></p>
 <%}}}%>
     
