@@ -9,7 +9,7 @@ if(session.getAttribute("username")!=null)
 {    
     if((Integer)session.getAttribute("group") ==1)//admin
     {
-        allow=true; 
+        allow=true;
 %>
 <%@page import="java.util.List"%>
 <%@page import="javax.mail.FetchProfile.Item"%>
