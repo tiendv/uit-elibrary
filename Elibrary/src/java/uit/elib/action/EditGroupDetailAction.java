@@ -59,14 +59,13 @@ public class EditGroupDetailAction extends org.apache.struts.action.Action {
         listDownloadArray = listDownload.split(","); // chuỗi các loại tài nguyên download
         }
         int groupID = Integer.parseInt(request.getParameter("groupID"));
-        List<Resourcecategory> listResourceCategory = ResourceCategoryBO.getResourceCategoryBO().getResourcecategory();
         // xóa chi tiết nhóm cũ
         String delete_old_groupdetail = "delete from `groupdetail` where GroupID="+groupID;
         GroupDetailBO.getGroupDetailBO().DeleteGroupDetail(delete_old_groupdetail);
         Resourcecategory resourceCategory = new Resourcecategory();
         Groupdetail groupDetail = new Groupdetail();
         Group group = new Group();
-        if(listViewArray.length>1) // nếu listViewArray.length=1 nghỉa là ko có checkbox nào được check => ko cần insert vào csdl
+        if(request.getParameter("view")!="") // nếu listViewArray.length=1 nghỉa là ko có checkbox nào được check => ko cần insert vào csdl
             for (int i = 0; i < listViewArray.length; i++) { // i=0 là giá trị listviewArray[0] = -1
                 resourceCategory.setResourceCategoryId(Integer.parseInt(listViewArray[i]));
                 group.setGroupId(groupID);
@@ -75,7 +74,7 @@ public class EditGroupDetailAction extends org.apache.struts.action.Action {
                 groupDetail.setGroup(group);
                 GroupDetailBO.getGroupDetailBO().addNew(groupDetail);
             }
-        if(listDownloadArray.length>1)
+        if(request.getParameter("download")!="")
             for (int j = 0; j < listDownloadArray.length; j++) { //j=0 là giá trị listdownloadArray[0] = -1
                 resourceCategory.setResourceCategoryId(Integer.parseInt(listDownloadArray[j]));
                 group.setGroupId(groupID);
