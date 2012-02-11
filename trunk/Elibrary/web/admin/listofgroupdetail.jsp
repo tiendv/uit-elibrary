@@ -43,16 +43,14 @@
     function editgroupdetail()
     {
         var listSize=document.getElementById("listSize").value;
-        var temp =0;
         var view = ""; // nếu view chỉ có gtri -1 thì ko có checkbox nào dc check
         var download = ""; //nếu download chỉ có gtri -1 thì ko có checkbox nào dc check
         var groupID = document.getElementById("dropGroup").value;
         for (var i = 0; i < listSize; i++) {
-            temp=i+listSize;
             if(document.getElementById(i).checked==true)          // khi checkbox xem dc check
                 view+=document.getElementById(i).value+","; 
-            if(document.getElementById(temp).checked==true)           // khi checkbox tải dc check
-                download+=document.getElementById(temp).value+","; 
+            if(document.getElementById(i+listSize).checked==true)           // khi checkbox tải dc check
+                download+=document.getElementById(i+listSize).value+","; 
         }
         $.ajax({
             type: "POST",
