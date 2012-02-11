@@ -22,9 +22,6 @@ import uit.elib.utility.CheckGroup;
  */
 public class LoadUserTableAction extends org.apache.struts.action.Action {
 
-    /* forward name="success" path="" */
-    private static final String SUCCESS = "success";
-
     /**
      * This is the action called from the Struts framework.
      * @param mapping The ActionMapping used to select this instance.

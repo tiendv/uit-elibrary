@@ -34,9 +34,6 @@ if(session.getAttribute("username")!=null)
     </tr>
     <tr>     
         <td class="leftmenu_td_link"><a href="LoadListOfGroupDetail.do"><bean:message key="text.decentralization"/></a></td>
-    </tr>
-    <tr>     
-        <td class="leftmenu_td_link"><a href="LoadCreateIP.do"><bean:message key="text.createip"/></a></td>
-    </tr>          
+    </tr>        
 </table>
 <%}}%>    
