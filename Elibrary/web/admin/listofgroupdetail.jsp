@@ -3,7 +3,14 @@
     Created on : Feb 8, 2012, 10:24:08 PM
     Author     : HERO
 --%>
-
+<%
+boolean allow=false;
+if(session.getAttribute("username")!=null)
+{    
+    if((Integer)session.getAttribute("group") ==1)//admin
+    {
+        allow=true; 
+%>
 <%@page import="java.util.List"%>
 <%@page import="javax.mail.FetchProfile.Item"%>
 <%@page import="org.apache.struts.Globals"%>
@@ -91,3 +98,7 @@
         })
     }
 </script>
+<%}}%>
+<%if(allow==false){%>
+<jsp:include page="../jsp/wrongpage.jsp" flush="true"/>
+<%}%>
