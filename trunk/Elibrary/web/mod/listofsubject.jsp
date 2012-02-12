@@ -29,7 +29,7 @@ if(session.getAttribute("username")!=null)
 %>
 <input id="hiddenlanguage" name="hiddenlanguage" value=<%=language%> type="hidden"/>
 <!--Begin load dropdownlist Subjectcategory + Faculty -->
-<div style="margin-left: 15px;">
+<div class="col1">
 <%if(language==1){%>
     <bean:message key="text.subjectcategory"/> <!--EN title subjectcategory -->
     <select id="dropSubjectCategory"  name="dropSubjectCategory" onchange="check()">

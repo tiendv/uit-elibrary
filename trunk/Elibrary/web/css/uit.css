@@ -528,13 +528,16 @@ div.displayIcon a.ocwScholar {
     text-decoration: none;
     color:#680a12;
 }
-.subject
-{
+.subject{
     font-size: 12px; 
     margin-left: 17px; 
     padding-top: 7px; 
     padding-bottom:2px;  
     font-weight: bold; 
+}
+.col1
+{
+    padding-left: 10px;
 }
 .subject a {
     color: #680a12;
@@ -634,9 +637,9 @@ div.thesis_summary{
 .newstitle3 {
     font-size: 15px;
     font-weight: bold;
-    text-align: center;
     color: #b8262b;
     padding-top: 2px;
+    padding-left: 2px;
 }
 .newscontent {
     text-align: center;
@@ -713,7 +716,7 @@ div.thesis_summary{
     width: 155px;
     margin-top: 2px;
 }
-.leftheadlinenews {
+.leftheadlinenews .leftcontentnews {
     float:left;
     width: 600px;
     text-align: justify;

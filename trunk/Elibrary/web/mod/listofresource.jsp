@@ -28,7 +28,7 @@ if(session.getAttribute("username")!=null)
 <jsp:useBean id="subjectBO" class="uit.elib.bo.SubjectBO" scope="page"/>
 <table>
     <tr>
-        <td>
+        <td class="col1">
             <bean:message key="text.typeofresource"/>
         </td>
         <td>

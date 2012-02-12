@@ -23,21 +23,23 @@
 %>
 <%  if(language==1){%>
     <div class="newstitle3"><%=listNews.get(0).getNewsTitleEn()%></div>
-    <div class="greyright"><%=postDate%></div>
+    <div class="grey"><%=postDate%></div>
+    <div class="bold"><%=listNews.get(0).getNewsHeadlineEn()%></div>
     <%String imageLink = "./image/news.jpg";
     if(listNews.get(0).getNewsImage()!=null) 
          imageLink = "./upload/"+listNews.get(0).getNewsImage().toString();%>                                                      
-    <div class="center"><img src="<%=imageLink%>" class="imagenews"/></div>
-    <div class="left"><%=listNews.get(0).getNewsContentEn()%></div>
+    <div class="leftimagenews"><img src="<%=imageLink%>" class="imagenews"/></div>
+    <div class="leftcontentnews"><%=listNews.get(0).getNewsContentEn()%></div>
 <%}%>
 <%  if(language==2){%>
     <div class="newstitle3"><%=listNews.get(0).getNewsTitleVn()%></div>
-    <div class="greyright"><%=postDate%></div>
+    <div class="grey"><%=postDate%></div>
+    <div class="bold"><%=listNews.get(0).getNewsHeadlineVn()%></div>
     <%String imageLink = "./image/news.jpg";
     if(listNews.get(0).getNewsImage()!=null) 
          imageLink = "./upload/"+listNews.get(0).getNewsImage().toString();%>                                                      
-    <div class="center"><img src="<%=imageLink%>" class="imagenews"/></div>
-    <div class="left"><%=listNews.get(0).getNewsContentVn()%></div>
+    <div class="leftimagenews"><img src="<%=imageLink%>" class="imagenews"/></div>
+    <div class="leftcontentnews"><%=listNews.get(0).getNewsContentVn()%></div>
 <%}%>
     <div class="cleared"></div>
     <%List<News> listNewNews = (List<News>)request.getAttribute("listNewNews");%>

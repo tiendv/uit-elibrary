@@ -77,6 +77,7 @@ public class CreateNewsAction extends org.apache.struts.action.Action {
                 java.util.Date utilDate = new java.util.Date();
                 java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());  
                 news.setPostDate(sqlDate);
+                news.setNewsCategory(createNewsForm.getDropNewsCategory());
                 NewsBO newsBO = NewsBO.getNewsBO();
                 newsBO.insert(news);
                 Boolean success =true;

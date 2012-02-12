@@ -19,9 +19,19 @@ if(session.getAttribute("username")!=null)
 <h1><bean:message key="text.createnews"/></h1>
 <html:form method="post" action="CreateNews" enctype="multipart/form-data" onsubmit="return validateCreateNewsForm(this)">
     <div class="resource1">
+        <div class="resource_left"><bean:message key="text.newscategory"/></div>
+        <div class="resource_left">
+            <html:select property="dropNewsCategory" styleClass="combobox">
+                <html:option value="1"><bean:message key="text.newbook"/></html:option>
+                <html:option value="2"><bean:message key="text.announcements"/> </html:option>
+            </html:select>
+        </div>                                        
+    </div>
+    <div class="cleared"></div>     
+    <div class="resource1">     
         <div class="resource_left"><bean:message key="text.imagegallery"/></div>
         <div class="resource_left"><html:file property="fileImage" size="27"/></div>                                
-    </div>
+    </div>    
     <div class="cleared"></div>               
     <div class="resource1">
         <div class="resource_left"><bean:message key="text.titleen"/></div>
