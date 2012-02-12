@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Feb 5, 2012 10:51:58 AM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Feb 12, 2012 10:39:31 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="uit.elib.dto.User" table="user" catalog="elibrary">
         <id name="userName" type="string">
-            <column name="UserName" length="45" />
+            <column name="UserName" length="20" />
             <generator class="assigned" />
         </id>
         <many-to-one name="group" class="uit.elib.dto.Group" fetch="select">
@@ -26,11 +26,11 @@
         <property name="class_" type="string">
             <column name="Class" length="45" />
         </property>
-        <property name="schoolYear" type="string">
-            <column name="SchoolYear" length="45" />
-        </property>
         <property name="school" type="string">
             <column name="School" />
+        </property>
+        <property name="schoolYear" type="string">
+            <column name="SchoolYear" length="45" />
         </property>
         <property name="expiredDay" type="timestamp">
             <column name="ExpiredDay" length="19" />

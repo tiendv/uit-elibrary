@@ -1,5 +1,5 @@
 package uit.elib.dto;
-// Generated Feb 5, 2012 10:51:53 AM by Hibernate Tools 3.2.1.GA
+// Generated Feb 12, 2012 10:39:26 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -17,8 +17,8 @@ public class User  implements java.io.Serializable {
      private String passWord;
      private String email;
      private String class_;
-     private String schoolYear;
      private String school;
+     private String schoolYear;
      private Date expiredDay;
      private String realName;
      private Date birthday;
@@ -33,7 +33,7 @@ public class User  implements java.io.Serializable {
     public User(String userName) {
         this.userName = userName;
     }
-    public User(String userName, Group group, Faculty faculty, Level level, String passWord, String email, String class_, String schoolYear, String school, Date expiredDay, String realName, Date birthday, String address, String workPlace, Integer status) {
+    public User(String userName, Group group, Faculty faculty, Level level, String passWord, String email, String class_, String school, String schoolYear, Date expiredDay, String realName, Date birthday, String address, String workPlace, Integer status) {
        this.userName = userName;
        this.group = group;
        this.faculty = faculty;
@@ -41,8 +41,8 @@ public class User  implements java.io.Serializable {
        this.passWord = passWord;
        this.email = email;
        this.class_ = class_;
-       this.schoolYear = schoolYear;
        this.school = school;
+       this.schoolYear = schoolYear;
        this.expiredDay = expiredDay;
        this.realName = realName;
        this.birthday = birthday;
@@ -100,19 +100,19 @@ public class User  implements java.io.Serializable {
     public void setClass_(String class_) {
         this.class_ = class_;
     }
-    public String getSchoolYear() {
-        return this.schoolYear;
-    }
-    
-    public void setSchoolYear(String schoolYear) {
-        this.schoolYear = schoolYear;
-    }
     public String getSchool() {
         return this.school;
     }
     
     public void setSchool(String school) {
         this.school = school;
+    }
+    public String getSchoolYear() {
+        return this.schoolYear;
+    }
+    
+    public void setSchoolYear(String schoolYear) {
+        this.schoolYear = schoolYear;
     }
     public Date getExpiredDay() {
         return this.expiredDay;
