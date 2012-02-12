@@ -55,8 +55,8 @@ public class LoadNewsAction extends org.apache.struts.action.Action {
                     java.sql.Date sqlOldToday = new java.sql.Date(oldday.getTime());
                     String []order = new String[1];
                     order[0]="postDate desc";                    
-                    String where ="CAST(postdate AS DATE) >= '"+sqlOldToday+"' and CAST(postdate AS DATE)<= '"+sqlToday+"' and newsID!="+listNews.get(0).getNewsId();
-                    List<News> listNewNews = newsBO.getAllNews(where,order);
+                    String where ="newsID!="+listNews.get(0).getNewsId();
+                    List<News> listNewNews = newsBO.getAllNews(where,order,5);
                     request.setAttribute("listNewNews", listNewNews);                    
                     return mapping.findForward(SUCCESS);
                 }
