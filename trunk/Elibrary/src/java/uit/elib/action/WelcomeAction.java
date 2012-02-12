@@ -35,7 +35,7 @@ public class WelcomeAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        int maxResult =10;
+        int maxResult =5;
         String [] order = new String[1];
         order[0] = "postDate desc";
         List<News> listNews = NewsBO.getNewsBO().getAllNews(null, order,maxResult);

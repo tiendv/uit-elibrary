@@ -135,9 +135,9 @@ public class LoadUserTableAction extends org.apache.struts.action.Action {
                         response.getWriter().println("</td>");
                         response.getWriter().println("<td class=\"center\">");
                         if(!((String)session.getAttribute("username")).equals("admin")&&listUser.get(i).getUserName().equals("admin"))
-                            response.getWriter().println("<input class=\"btn\" disabled=\"true\" type=\"submit\" value=\"Edit\" onclick=editUser(\""+listUser.get(i).getUserName()+"\") />");
+                            response.getWriter().println("<input class=\"btn\" disabled=\"true\" type=\"submit\" value=\"Sửa\" onclick=editUser(\""+listUser.get(i).getUserName()+"\") />");
                         else
-                            response.getWriter().println("<input class=\"btn\" type=\"submit\" value=\"Edit\" onclick=editUser(\""+listUser.get(i).getUserName()+"\") />");
+                            response.getWriter().println("<input class=\"btn\" type=\"submit\" value=\"Sửa\" onclick=editUser(\""+listUser.get(i).getUserName()+"\") />");
                         response.getWriter().println("</td>");        
                         response.getWriter().println("</tr>");        
                         color++;
