@@ -13,6 +13,7 @@ import org.apache.struts.upload.FormFile;
 public class EditNewsForm extends org.apache.struts.action.ActionForm {
     
     int txtID;
+    int dropNewsCategory;
     String txtTitleEN;
     String txtTitleVN;
     String image;
@@ -21,6 +22,14 @@ public class EditNewsForm extends org.apache.struts.action.ActionForm {
     String txtHeadlineVN;    
     String fckContentEN;
     String fckContentVN;
+
+    public int getDropNewsCategory() {
+        return dropNewsCategory;
+    }
+
+    public void setDropNewsCategory(int dropNewsCategory) {
+        this.dropNewsCategory = dropNewsCategory;
+    }
 
     public int getTxtID() {
         return txtID;

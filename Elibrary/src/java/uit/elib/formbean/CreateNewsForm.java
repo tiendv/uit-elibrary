@@ -18,7 +18,16 @@ public class CreateNewsForm extends org.apache.struts.action.ActionForm {
     String txtHeadlineVN;    
     String fckContentEN;
     String fckContentVN;
+    int dropNewsCategory;
 
+    public int getDropNewsCategory() {
+        return dropNewsCategory;
+    }
+
+    public void setDropNewsCategory(int dropNewsCategory) {
+        this.dropNewsCategory = dropNewsCategory;
+    }
+    
     public String getFckContentEN() {
         return fckContentEN;
     }

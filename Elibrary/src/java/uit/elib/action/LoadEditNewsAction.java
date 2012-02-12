@@ -69,6 +69,7 @@ public class LoadEditNewsAction extends org.apache.struts.action.Action {
                             editNewsForm.setTxtHeadlineVN(listNews.get(0).getNewsHeadlineVn());
                             editNewsForm.setFckContentEN(listNews.get(0).getNewsContentEn());
                             editNewsForm.setFckContentVN(listNews.get(0).getNewsContentVn());
+                            editNewsForm.setDropNewsCategory(listNews.get(0).getNewsCategory());
                             request.setAttribute("listNews", listNews);
                             return mapping.findForward(SUCCESS);
                         }
