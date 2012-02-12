@@ -1,5 +1,5 @@
 package uit.elib.dto;
-// Generated Feb 5, 2012 10:51:53 AM by Hibernate Tools 3.2.1.GA
+// Generated Feb 12, 2012 10:39:26 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -19,11 +19,12 @@ public class News  implements java.io.Serializable {
      private String newsContentEn;
      private String newsContentVn;
      private Date postDate;
+     private Integer newsCategory;
 
     public News() {
     }
 
-    public News(String newsTitleEn, String newsTitleVn, String newsImage, String newsHeadlineEn, String newsHeadlineVn, String newsContentEn, String newsContentVn, Date postDate) {
+    public News(String newsTitleEn, String newsTitleVn, String newsImage, String newsHeadlineEn, String newsHeadlineVn, String newsContentEn, String newsContentVn, Date postDate, Integer newsCategory) {
        this.newsTitleEn = newsTitleEn;
        this.newsTitleVn = newsTitleVn;
        this.newsImage = newsImage;
@@ -32,6 +33,7 @@ public class News  implements java.io.Serializable {
        this.newsContentEn = newsContentEn;
        this.newsContentVn = newsContentVn;
        this.postDate = postDate;
+       this.newsCategory = newsCategory;
     }
    
     public Integer getNewsId() {
@@ -96,6 +98,13 @@ public class News  implements java.io.Serializable {
     
     public void setPostDate(Date postDate) {
         this.postDate = postDate;
+    }
+    public Integer getNewsCategory() {
+        return this.newsCategory;
+    }
+    
+    public void setNewsCategory(Integer newsCategory) {
+        this.newsCategory = newsCategory;
     }
 
 
