@@ -16,9 +16,6 @@
     <ul class="legendList">
     <li class="lectureNotes" alt="Lecture notes"
         title="<bean:message key="text.lecturenote"/>"><bean:message key="text.lecturenote"/></li>
-    <li class="projectsExample"
-        alt="Projects"
-        title="<bean:message key="text.project"/>"><bean:message key="text.project"/></li>
     <li class="multimediaContent"
         alt="Video"
         title="<bean:message key="text.video"/>"><bean:message key="text.video"/></li>
@@ -28,10 +25,6 @@
     <li class="examsSolutions"
         alt="Example"
         title="<bean:message key="text.example"/>"><bean:message key="text.example"/></li>
-    <li class="onlineTextBooks"
-        alt="Reading"
-        title="<bean:message key="text.reading"/>"><bean:message key="text.reading"/></li>            
-    </ul>
 </div>
 <% 
     List<Subject> listSubject;

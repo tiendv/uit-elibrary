@@ -37,10 +37,18 @@ if(session.getAttribute("username")!=null)
     <div class="resource1">
         <div class="resource_left"><bean:message key="text.status"/></div>
         <div class="resource_left">
-            <html:select  property="dropStatus" styleClass="combobox" >
+            <%if(listUser.get(0).getUserName().equals("admin")){%>
+            <html:select  property="dropStatus" styleClass="combobox" disabled="true" >
                 <html:option value="1"><bean:message key="text.actived"/></html:option>
                 <html:option value="0"><bean:message key="text.lock"/></html:option>
-            </html:select>           
+            </html:select>             
+            <%}%>
+            <%if(listUser.get(0).getUserName().equals("admin")==false){%>
+            <html:select  property="dropStatus" styleClass="combobox">  
+                <html:option value="1"><bean:message key="text.actived"/></html:option>
+                <html:option value="0"><bean:message key="text.lock"/></html:option>
+            </html:select>
+            <%}%>
         </div>
         <div class="resource_left"><bean:message key="text.school"/></div>
         <div class="resource_left"><html:text property="txtSchool" styleClass="textbox" maxlength="255"/></div>         
@@ -63,16 +71,30 @@ if(session.getAttribute("username")!=null)
     <div class="resource1">
         <div class="resource_left"><bean:message key="text.group"/></div>
         <div class="resource_left">
-            <%if(language==1) {%>
-                <html:select  property="dropGroup" styleClass="combobox" >
-                    <html:optionsCollection name="EditUserForm"  property="listDropGroup" value="groupId" label="groupNameEn"  ></html:optionsCollection>
+            <%if(listUser.get(0).getUserName().equals("admin")){%>
+                <%if(language==1) {%>
+                    <html:select  property="dropGroup" styleClass="combobox" disabled="true" >
+                        <html:option value="Admin"></html:option>
+                    </html:select>
+                <%}%>
+                <%if(language==2) {%>
+                <html:select  property="dropGroup" styleClass="combobox" disabled="true" >
+                    <html:option value="Quản trị viên"></html:option>
                 </html:select>
+                <%}%>             
             <%}%>
-            <%if(language==2) {%>
-                <html:select  property="dropGroup" styleClass="combobox" >
-                    <html:optionsCollection name="EditUserForm"  property="listDropGroup" value="groupId" label="groupNameVn" ></html:optionsCollection>
-                </html:select>
-            <%}%>            
+            <%if(listUser.get(0).getUserName().equals("admin")==false){%>
+                <%if(language==1) {%>
+                    <html:select  property="dropGroup" styleClass="combobox" >
+                        <html:optionsCollection name="EditUserForm"  property="listDropGroup" value="groupId" label="groupNameEn"  ></html:optionsCollection>
+                    </html:select>
+                <%}%>
+                <%if(language==2) {%>
+                    <html:select  property="dropGroup" styleClass="combobox" >
+                        <html:optionsCollection name="EditUserForm"  property="listDropGroup" value="groupId" label="groupNameVn" ></html:optionsCollection>
+                    </html:select>
+                <%}%> 
+            <%}%>                 
         </div> 
         <div class="resource_left"><bean:message key="text.level"/></div>
         <div class="resource_left">
@@ -124,8 +146,18 @@ if(session.getAttribute("username")!=null)
     <div class="resource1">
         <div class="resource_left"><bean:message key="text.birthday"/></div>
         <div class="resource_left"><input class="textbox" type="text" id="birthday" name="birthday" value="<%=birthday%>"></div>         
+        <%if(listUser.get(0).getUserName().equals("admin")){%>       
+        <div class="resource_left" style="display: none"><bean:message key="text.expiredday"/></div>
+            <div class="resource_left" style="display: none">
+                <input class="textbox" type="text" id="expiredDay" name="expiredDay" value="<%=expiredDay%>"/>
+            </div>
+        <%}%>
+        <%if(!listUser.get(0).getUserName().equals("admin")){%>       
         <div class="resource_left"><bean:message key="text.expiredday"/></div>
-        <div class="resource_left"><input class="textbox" type="text" id="expiredDay" name="expiredDay" value="<%=expiredDay%>"/></div>                   
+            <div class="resource_left">
+                <input class="textbox" type="text" id="expiredDay" name="expiredDay" value="<%=expiredDay%>"/>
+            </div>
+        <%}%>        
     </div>
     <div class="cleared"></div>
     <html:submit property="btnSubmit" onclick="return validate()" disabled="true"><bean:message key="text.buttonedit"/></html:submit><noscript><bean:message key="text.noscript"/></noscript>

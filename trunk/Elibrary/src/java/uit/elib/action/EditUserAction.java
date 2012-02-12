@@ -65,7 +65,10 @@ public class EditUserAction extends org.apache.struts.action.Action {
                 Level level = new Level();
                 Group group = new Group();
                 Faculty faculty = new Faculty();
-                user.setStatus(editUserForm.getDropStatus());
+                if(user.getUserName().equals("admin") && !session.getAttribute("username").equals("admin")) // the other admin cann't change information of the first admin
+                    return mapping.findForward(UNSUCCESS);
+                if(!user.getUserName().equals("admin"))
+                    user.setStatus(editUserForm.getDropStatus());
                 user.setUserName(editUserForm.getTxtUserName());
                 user.setEmail(editUserForm.getTxtEmail());
                 if(editUserForm.getTxtPassword().length()>0)
@@ -78,8 +81,11 @@ public class EditUserAction extends org.apache.struts.action.Action {
                 user.setLevel(level);
                 group.setGroupId(editUserForm.getDropGroup());
                 user.setGroup(group);
-                faculty.setFacultyId(editUserForm.getDropFaculty());
-                user.setFaculty(faculty);
+                if(!user.getUserName().equals("admin"))
+                {
+                    faculty.setFacultyId(editUserForm.getDropFaculty());
+                    user.setFaculty(faculty);
+                }                 
                 user.setRealName(editUserForm.getTxtRealName());
                 user.setClass_(editUserForm.getTxtClass());
                 user.setSchoolYear(editUserForm.getTxtSchoolYear());
@@ -91,9 +97,12 @@ public class EditUserAction extends org.apache.struts.action.Action {
                 date = simpleDateFormat.parse(editUserForm.getBirthday());   
                 java.sql.Date sqlDate = new java.sql.Date(date.getTime());
                 user.setBirthday(sqlDate);
-                date = simpleDateFormat.parse(editUserForm.getExpiredDay());
-                sqlDate = new java.sql.Date(date.getTime());
-                user.setExpiredDay(date);
+                if(!user.getUserName().equals("admin"))
+                {
+                    date = simpleDateFormat.parse(editUserForm.getExpiredDay());
+                    sqlDate = new java.sql.Date(date.getTime());
+                    user.setExpiredDay(sqlDate);
+                }
                 userBO.UpdateUser(user);
                 Boolean success =true;
                 request.setAttribute("success",success);     

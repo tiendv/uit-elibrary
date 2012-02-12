@@ -81,7 +81,7 @@ public class CreateNewsAction extends org.apache.struts.action.Action {
                 newsBO.insert(news);
                 Boolean success =true;
                 request.setAttribute("success",success);     
-                String href="./LoadCreateNews.do";
+                String href="./LoadListOfNews.do";
                 request.setAttribute("href",href);        
                 return mapping.findForward(SUCCESS);
             }
