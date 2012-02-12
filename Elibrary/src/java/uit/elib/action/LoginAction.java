@@ -48,6 +48,14 @@ public class LoginAction extends org.apache.struts.action.Action {
                     SHA512 sha512 = new SHA512();
                     if(listUser.get(0).getPassWord().equals(sha512.SHA512(password))&&listUser.get(0).getUserName().equals(username))
                     {    
+                        if(listUser.get(0).getUserName().equals("admin"))
+                        {
+                            HttpSession httpSession = request.getSession(true);
+                            httpSession.setAttribute("username", listUser.get(0).getUserName());
+                            httpSession.setAttribute("group", listUser.get(0).getGroup().getGroupId());
+                            response.getWriter().println("1");                     
+                            return null;                        
+                        }
                         if(listUser.get(0).getStatus()==0) // lock
                         {
                             response.getWriter().println("0");                     

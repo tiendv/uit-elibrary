@@ -90,7 +90,7 @@ public class CreateUserAction extends org.apache.struts.action.Action {
                 userBO.insert(user);
                 Boolean success =true;
                 request.setAttribute("success",success);     
-                String href="./LoadCreateUser.do";
+                String href="./LoadListOfUser.do";
                 request.setAttribute("href",href);          
                 return mapping.findForward(SUCCESS);
             }

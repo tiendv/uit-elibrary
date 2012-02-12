@@ -108,7 +108,7 @@ public class CreateSubjectAction extends org.apache.struts.action.Action {
                 subjectFormBean.setTxtLevel("");
                 subjectFormBean.setTxtNumberChapter("");
                 Boolean success =true;
-                String href="./LoadCreateSubject.do";
+                String href="./LoadListOfSubject.do";
                 request.setAttribute("success",success);
                 request.setAttribute("href",href);
                 return mapping.findForward(SUCCESS);
