@@ -548,8 +548,7 @@ div.displayIcon a.ocwScholar {
     padding-bottom:2px;  
     font-weight: bold; 
 }
-.col1
-{
+.col1{
     padding-left: 10px;
 }
 .subject a {
@@ -599,6 +598,9 @@ div.thesis_summary{
     width:18px; 
     height:5px;
 }
+.updating{
+    padding-left: 12px;
+}
 .updatesubject {
     margin-left: 30px;
     color: #680a12;
@@ -638,9 +640,13 @@ div.thesis_summary{
     font-size: 15px;
     font-weight: bold;
     text-align: center;
-    color: #b8262b;
     height: 35px;
     padding-top: 2px;
+    text-decoration: none;
+}
+.newslink{
+    text-decoration: none;
+    color: #b8262b;
 }
 .newstitle3 {
     font-size: 15px;
@@ -793,8 +799,8 @@ div.thesis_summary{
 .table_advertising{
     width:184px;
     border:none;  
-    float:left;
     padding-top: 3px;
+    padding-left: 539px;
 }
 .ja_header_jsfade {
     position:relative;
@@ -990,4 +996,38 @@ image{
     padding: 3px 0 10px;
     width: 760px;
     margin-top: 1px;
+}
+.newscate2{
+    width: 518px;
+    padding-left: 10px;
+    float: left;
+    padding-top: 25px;
+}
+.imageadvertising{
+    max-width: 218px;
+    max-height: 100px;
+}
+.imagead {
+    text-align: center;
+    width: 218px;
+    padding-top: 5px;
+}
+.newscategory1{
+   padding-left: 10px;
+   color: #B8262B;
+   font-weight: bold;
+}
+.newscategory2{
+   color: #B8262B;
+   font-weight: bold;
+}
+.linenewscategory {
+    background: url("../image/line-1.png") repeat-x scroll 0 0 transparent;
+    margin: 0 auto;
+    padding: 3px 0 10px;
+    width: 520px;
+    margin-top: 1px;
+}
+.onlinecounter{
+    
 }

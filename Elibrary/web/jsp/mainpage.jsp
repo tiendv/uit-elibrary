@@ -47,7 +47,9 @@
     <script type="text/javascript">
         function setContent() { 
         var divHeight = ((document.getElementById("divContent").offsetHeight) + 'px');
+        var height = (document.getElementById("divContent").offsetHeight) ;
         document.getElementById("divleftmenu").style.height = divHeight;
+        document.getElementById("onlinecounter").style.paddingTop = height-295+'px';
         }
         window.onload = function() { 
                         setContent(); 

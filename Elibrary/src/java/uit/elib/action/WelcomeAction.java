@@ -38,8 +38,12 @@ public class WelcomeAction extends org.apache.struts.action.Action {
         int maxResult =5;
         String [] order = new String[1];
         order[0] = "postDate desc";
-        List<News> listNews = NewsBO.getNewsBO().getAllNews(null, order,maxResult);
-        request.setAttribute("listNews", listNews);
+        String where = "newsCategory=1";
+        List<News> listNewsCate1 = NewsBO.getNewsBO().getAllNews(where, order,maxResult);
+        request.setAttribute("listNewsCate1", listNewsCate1);
+        where = "newsCategory=2";
+        List<News> listNewsCate2 = NewsBO.getNewsBO().getAllNews(where, order,1);
+        request.setAttribute("listNewsCate2", listNewsCate2);
         return mapping.findForward(SUCCESS);
     }
 }
