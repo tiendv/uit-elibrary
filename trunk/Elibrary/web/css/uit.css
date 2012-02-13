@@ -56,6 +56,19 @@
     position: relative;
     clear: both;/* this clear property forces the .container to understand where the columns end and contain them */
 }
+.ol{
+    margin: 0px;
+    padding: 0px;
+}
+.footerli {
+	display: inline;
+	list-style-type: none;
+	padding: 1px;
+}
+.footerhyperlink{
+    text-decoration: none;
+    color: #414958;
+}
 .sub_footer {
     margin-left: 10px;
     text-align: center;
