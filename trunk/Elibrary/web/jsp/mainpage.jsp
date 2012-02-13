@@ -36,7 +36,6 @@
             <div id="divContent" class="content">
                 <tiles:insert attribute="content"/>
             </div>
-            
             <div class ="footer">
                 <tiles:insert attribute="footer"/>
             </div>
@@ -48,8 +47,8 @@
         function setContent() { 
         var divHeight = ((document.getElementById("divContent").offsetHeight) + 'px');
         var height = (document.getElementById("divContent").offsetHeight) ;
-        document.getElementById("divleftmenu").style.height = divHeight;
-        document.getElementById("onlinecounter").style.paddingTop = height-295+'px';
+        document.getElementById("onlinecounter").style.paddingTop = (height-document.getElementById("divleftmenu").offsetHeight+4)+'px'; 
+        document.getElementById("divleftmenu").style.height = divHeight;       
         }
         window.onload = function() { 
                         setContent(); 

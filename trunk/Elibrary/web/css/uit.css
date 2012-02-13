@@ -10,7 +10,7 @@
 }
 .divemainbody {
     width: 1350px;
-    height: 700px;
+    height: 500px;
     margin-top: 5px;
 }
 .wrapper {
@@ -988,7 +988,7 @@ image{
     background: url("../image/button_signinen.png") no-repeat scroll 0 0 transparent;
 }
 #login #login_buttonvn {
-    background: url("../image/button_signinvn.gif") no-repeat scroll 0 0 transparent;
+    background: url("../image/button_signinvn.png") no-repeat scroll 0 0 transparent;
 }
 .line {
     background: url("../image/line-1.png") repeat-x scroll 0 0 transparent;
@@ -1027,7 +1027,4 @@ image{
     padding: 3px 0 10px;
     width: 520px;
     margin-top: 1px;
-}
-.onlinecounter{
-    
 }
