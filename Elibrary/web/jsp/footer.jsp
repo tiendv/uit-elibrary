@@ -12,8 +12,16 @@
 <div class="footer" >
         <div  class="sub_footer_image"><img src="<bean:message key="image.uitlogo"/>" width="31" height="32" alt="<bean:message key="image.uitlogo.alttext"/>" longdesc="http://www.uit.edu.vn" /></div>
         <div class="sub_footer">
-            <bean:message key="text.copyright"/><br />
-            <bean:message key="text.uit"/> <br/>
-            <bean:message key="text.uit.address"/>
+            <ol class="ol">
+                <li class="footerli"><a class="footerhyperlink" href=""><bean:message key="text.help"/></a> | </li>
+                <li class="footerli"><a class="footerhyperlink" href=""><bean:message key="text.faq"/></a> | </li>
+                <li class="footerli"><a class="footerhyperlink" href=""><bean:message key="text.about"/></a> | </li>
+                <li class="footerli"><a class="footerhyperlink" href=""><bean:message key="text.contact"/></a> | </li>
+                <li class="footerli"><a class="footerhyperlink" href=""><bean:message key="text.privacystatement"/></a> - 
+                    <a><b><bean:message key="text.copyright"/></b></a>
+                </li>
+            </ol>
+                    <ol class="ol"><bean:message key="text.uit"/> <br/></ol>
+             <ol class="ol"><bean:message key="text.uit.address"/></ol>
         </div>
 </div>
