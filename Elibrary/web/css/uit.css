@@ -578,11 +578,6 @@ div.thesis_summary{
     max-width:500px; 
     max-height:500px;
 }
-.imagenews {
-    max-height: 145px;
-    max-width: 500px;
-    border: none;
-}
 .image_black_arrow {
     width:3px; 
     height:5px;
@@ -648,6 +643,9 @@ div.thesis_summary{
 .newscontent1 {
     width: 900px;
 }
+.newscontent2 {
+    width: 900px;
+}
 .newsheadline {
     height:50px;
     margin-top: 15px;
@@ -711,15 +709,37 @@ div.thesis_summary{
     max-width: 150px;
     border: none;
 }
+.imagenews {
+    max-height: 145px;
+    max-width: 500px;
+    border: none;
+}
+.imagenewsdetail {
+    max-height: 300px;
+    max-width: 350px;
+    border: none;
+}
 .leftimagenews {
     float:left;
-    width: 155px;
+    max-width: 150px;
     margin-top: 2px;
 }
-.leftheadlinenews .leftcontentnews {
+.leftimagenewsdetail {
+    float:left;
+    max-width: 300px;
+    margin-right: 2px;
+    margin-bottom: -8px;
+}
+.leftheadlinenews{
     float:left;
     width: 600px;
     text-align: justify;
+    padding-left: 2px;
+}
+.leftcontentnews{
+    text-align: justify;
+    margin-left: 2px;
+    margin-top: -15px
 }
 .bold {
     font-weight: bold;
