@@ -45,7 +45,7 @@ if(session.getAttribute("username")!=null)
         </td>        
     </tr>
     <tr>
-        <td>
+        <td class="col1">
             <div id="divsubject"><bean:message key="text.subject"/></div>
         </td>
         <td>
@@ -64,7 +64,7 @@ if(session.getAttribute("username")!=null)
         </td>        
     </tr>
     <tr>
-        <td>
+        <td class="col1">
             <div id="divChapter"><bean:message key="text.orderchapter"/>    </div>
         </td>
         <td>
