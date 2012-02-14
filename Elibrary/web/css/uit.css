@@ -35,6 +35,7 @@
     vertical-align:top;
     text-align:left;
     padding-left: 0px;
+    position: relative;
 }
 .menu {
     width:945px;
@@ -1026,5 +1027,8 @@ image{
     margin: 0 auto;
     padding: 3px 0 10px;
     width: 520px;
-    margin-top: 1px;
+}
+.onlinecounter{
+    position: absolute;
+    bottom: 0px;
 }
