@@ -45,10 +45,8 @@
     
     <script type="text/javascript">
         function setContent() { 
-        var divHeight = ((document.getElementById("divContent").offsetHeight) + 'px');
-        var height = (document.getElementById("divContent").offsetHeight) ;
-        document.getElementById("onlinecounter").style.paddingTop = (height-document.getElementById("divleftmenu").offsetHeight+4)+'px'; 
-        document.getElementById("divleftmenu").style.height = divHeight;       
+        var divHeight = ((document.getElementById("divContent").offsetHeight) + 'px');      
+        document.getElementById("divleftmenu").style.height = divHeight; 
         }
         window.onload = function() { 
                         setContent(); 

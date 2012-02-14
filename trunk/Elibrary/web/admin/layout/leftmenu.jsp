@@ -36,7 +36,7 @@ if(session.getAttribute("username")!=null)
         <td class="leftmenu_td_link"><a href="LoadListOfGroupDetail.do"><bean:message key="text.decentralization"/></a></td>
     </tr>        
 </table>
-<div id="onlinecounter" >
+<div id="onlinecounter" class="onlinecounter" >
 <script id="_wau7c9">var _wau = _wau || []; _wau.push(["small", "pu6efdvzs5le", "7c9"]);(function() { var s=document.createElement("script"); s.async=true; s.src="http://widgets.amung.us/small.js";document.getElementsByTagName("head")[0].appendChild(s);})();</script>
 </div>        
 <%}}%>    
