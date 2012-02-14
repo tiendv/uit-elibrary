@@ -114,7 +114,6 @@
         <%}%>  <!--End of ResourceCategoryID=10  IF -->
         
         
-        <!--End of ResourceCategoryID= 10, giáo trình -->
         
         <!--Begin Load Reading ( ResourceCategoryID=9, tài liệu tham khảo) -->
         
@@ -128,12 +127,12 @@
             </a> > <bean:message key ="text.reading"/></div>
         <table class="resource_table" >
             <tr class="color_title_table">
-                <td width="100px"><bean:message key="text.orderchapter"/> </td>
+                <td width="100px"><bean:message key="text.ordernumber"/> </td>
                 <td width="638px"><bean:message key="text.document"/> </td>
             </tr>
                 <%if(listResource.size()==0){ %> <!--Nếu chưa có tài nguyên thì hiện "đang cập nhật" -->
                     <td></td>
-                    <td>Đang cập nhật...</td>
+                    <td><bean:message key="text.updating"/></td>
                  <%}%>
                 <%
                     int count = 1; //thứ tự
@@ -151,7 +150,10 @@
                      <% if(language==1) {%>
                         <%if(listResource.get(i).getServerName() != null){%><!--Nếu có link download thì cho download -->
                             <a href="DownLoad.do?resourceID=<%=listResource.get(i).getResourceId()%>" > <%=listResource.get(i).getResourceNameEn() %> </a>
-                        <%}else{%>
+                        
+                            
+                            
+                            <%}else{%>
                               <%=listResource.get(i).getResourceNameEn()%> 
                         <%}%>
                      <%}%>
@@ -228,7 +230,13 @@
                     <%for(int k=0;k<listResource.size();k++)
                         if(Integer.parseInt(listChapter.get(i).getOrderChapter().toString())== Integer.parseInt(listResource.get(k).getOrderChapter().toString()))
                            {%>
-                      <a href="DownLoad.do?resourceID=<%=listResource.get(k).getResourceId()%>" alt="<bean:message key="text.assignments"/>" class="multimediaContent" title="<bean:message key="text.assignments"/>"></a>
+                      <div class="displayIcon"><a  href = "DownLoad.do?resourceID=<%=listResource.get(k).getResourceId()%>" alt="<bean:message key="text.assignments"/>" class="assignmentsSolutions" 
+                                                        <% if(language==1) {%>
+                            title="<%=listResource.get(k).getResourceNameEn()%>"
+                        <% } %> 
+                        <% if(language==2) {%>
+                            title="<%=listResource.get(k).getResourceNameVn()%>" 
+                        <% } %>></a></div>
                     <%}%>
              </td>
              <%color++;%>
@@ -294,8 +302,14 @@
                     <%for(int k=0;k<listResource.size();k++)
                         if(Integer.parseInt(listChapter.get(i).getOrderChapter().toString())== Integer.parseInt(listResource.get(k).getOrderChapter().toString()))
                            {%>
-                     <a href="DownLoad.do?resourceID=<%=listResource.get(k).getResourceId()%>" alt="<bean:message key="text.example"/>" class="multimediaContent" title="<bean:message key="text.example"/>"></a>
-                    <%}%>
+                            <div class="displayIcon"><a  href = "DownLoad.do?resourceID=<%=listResource.get(k).getResourceId()%>" alt="<bean:message key="text.example"/>" class="examsSolutions"
+                            <% if(language==1) {%>
+                                title="<%=listResource.get(k).getResourceNameEn()%>"
+                        <% } %> 
+                        <% if(language==2) {%>
+                            title="<%=listResource.get(k).getResourceNameVn()%>" 
+                        <% } %>></a></div>
+                     <%}%>
              </td>
              <%color++;%>
         </tr>
@@ -334,7 +348,7 @@
             <%if(listResource.size()==0){ %> <!--Nếu chưa có tài nguyên thì hiện "đang cập nhật" -->
                     <td></td>
                     <td></td>
-                    <td>Đang cập nhật...</td>
+                    <td><bean:message key="text.updating"/></td>
                  <%}%>
                 <%
                     int count = 1; //thứ tự
@@ -443,8 +457,14 @@
                     <%for(int k=0;k<listResource.size();k++)
                         if(Integer.parseInt(listChapter.get(i).getOrderChapter().toString())== Integer.parseInt(listResource.get(k).getOrderChapter().toString()))
                            {%>
-                      <a href="DownLoad.do?resourceID=<%=listResource.get(k).getResourceId()%>" alt="<bean:message key="text.video"/>" class="multimediaContent" title="<bean:message key="text.video"/>"></a>
-                    <%}%>
+                            <div class="displayIcon"><a  href = "DownLoad.do?resourceID=<%=listResource.get(k).getResourceId()%>" alt="<bean:message key="text.video"/>" class="multimediaContent"
+                            <% if(language==1) {%>
+                                title="<%=listResource.get(k).getResourceNameEn()%>"
+                            <% } %> 
+                            <% if(language==2) {%>
+                                 title="<%=listResource.get(k).getResourceNameVn()%>" 
+                            <% } %>></a></div>
+                      <%}%>
              </td>
              <%color++;%>
         </tr>
