@@ -60,7 +60,7 @@ public class LoadFacultyAction extends org.apache.struts.action.Action {
         order = new String[3];
         order[0]= "subject";
         order[1]= "orderChapter";
-        order[2]= "postDate";
+        order[2]= "postDate desc";
         ResourceBO tempResourceBO = ResourceBO.getResourceBO();
         List<List<Resource>> arrayListResource = new ArrayList<List<Resource>>();
         String []whereSubjectId = new String[listSubject.size()];

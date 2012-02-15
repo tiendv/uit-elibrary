@@ -49,7 +49,7 @@ public class LoadSubjectAction extends org.apache.struts.action.Action {
         order = new String[3];
         order[0]= "subject";
         order[1]= "orderChapter";
-        order[2]= "postDate";
+        order[2]= "postDate desc";
         String where = "orderChapter is not null";
         listResource=tempResourceBO.getAllResource(where,order);
         request.setAttribute("listResource", listResource);       
