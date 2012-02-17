@@ -50,28 +50,13 @@
             <td class="menu_td_link"><a class="menu_link" href="Logout.do"><bean:message key="text.logout"/></a></td>
         <%}%>     
         <td align="right"><script type="text/javascript" src="js/ocw.js"></script>
-            <form method="get" action="http://search.mit.edu/search">
                 <div class="searchform">
                     <div>
-                        <input type="hidden" value="ocw" name="site" />  
-                        <input type="hidden" value="mit" name="client" /> 			 
-                        <input type="hidden" value="*" name="getfields" />  
-                        <input type="hidden" value="xml_no_dtd" name="output" /> 			 
-                        <input type="hidden" value="http://ocw.mit.edu/search/google-ocw.xsl" name="proxystylesheet" />
-                        <input type="hidden" value="1" name="proxyreload" />  
-                        <input type="hidden" value="i" name="as_dt" /> 			 
-                        <input type="hidden" value="utf-8" name="oe" />  
-                        <input type="hidden" value="web" name="departmentName" />
-                        <input type="hidden" value="0" name="filter" />
-                        <input type="hidden" name="courseName" />
-                    </div>
-                    <div>
                         <input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Enter search keyword" name="q" class="search" id="terms" /> 			 
-                        <input type="image" alt="Go" src="../image/go_new.gif" name="btnG" class="but" /> 			 
-                        <a href="/search/AdvancedSearch.htm">Advanced Search</a>
+                        <a href="jsp/search.jsp"><input type="image" alt="Go" src="../image/go_new.gif" name="btnG" class="but"  /> </a>			 
+                        <a href="jsp/search.jsp">Advanced Search</a>
                     </div>
                 </div>
-            </form>
         </td>
     </tr>
 </table>
