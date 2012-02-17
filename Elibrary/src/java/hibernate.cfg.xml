@@ -25,5 +25,6 @@
     <mapping resource="uit/elib/dto/Groupdetail.hbm.xml"/>
     <mapping resource="uit/elib/dto/Group.hbm.xml"/>
     <mapping resource="uit/elib/dto/User.hbm.xml"/>
+    <mapping resource="uit/elib/dto/Advertising.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
