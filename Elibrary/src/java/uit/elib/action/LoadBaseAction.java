@@ -15,6 +15,8 @@ import uit.elib.bo.ResourceBO;
 import uit.elib.bo.SubjectBO;
 import uit.elib.dto.Resource;
 import uit.elib.dto.Subject;
+import uit.elib.utility.CheckGroup;
+import uit.elib.utility.CheckGroupDetail;
 
 /**
  *
@@ -52,7 +54,31 @@ public class LoadBaseAction extends org.apache.struts.action.Action {
         order[0]= "subject";
         order[1]= "orderChapter";
         order[2]= "postDate desc";
+        String username  = null;
+        if(request.getSession().getAttribute("username")!=null)
+            username=(String)request.getSession().getAttribute("username");
+        CheckGroup checkGroup = new CheckGroup();
+        int group = checkGroup.Group(username);
         where = "orderChapter is not null";
+        //check permission to display resource category
+        if(group!=1 && group!=3) //admin and mod
+        {
+            CheckGroupDetail checkGroupDetail = new CheckGroupDetail();
+            String resourceCategoryID ="";
+            if(!checkGroupDetail.GroupDetail(username, 4, 1))
+                resourceCategoryID = resourceCategoryID+"4,";
+            if(!checkGroupDetail.GroupDetail(username, 5, 1))
+                resourceCategoryID = resourceCategoryID+"5,";
+            if(!checkGroupDetail.GroupDetail(username, 10, 1))
+                resourceCategoryID = resourceCategoryID+"10,";
+            if(!checkGroupDetail.GroupDetail(username, 11, 1))
+                resourceCategoryID = resourceCategoryID+"11,";
+            if(!resourceCategoryID.equals(""))
+            {
+                resourceCategoryID=resourceCategoryID.substring(0, resourceCategoryID.length()-1);
+                where="orderChapter is not null and resourceCategoryID not in("+resourceCategoryID+")";
+            }  
+        }  
         listResource=tempResourceBO.getAllResource(where,order);
         request.setAttribute("listResource", listResource);         
         return mapping.findForward(SUCCESS);
