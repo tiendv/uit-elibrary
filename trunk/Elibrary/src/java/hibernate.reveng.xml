@@ -13,4 +13,5 @@
   <table-filter match-name="level"/>
   <table-filter match-name="subject"/>
   <table-filter match-name="resourcecategory"/>
+  <table-filter match-name="advertising"/>
 </hibernate-reverse-engineering>

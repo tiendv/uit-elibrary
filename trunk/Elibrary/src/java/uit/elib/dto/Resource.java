@@ -1,5 +1,5 @@
 package uit.elib.dto;
-// Generated Feb 12, 2012 10:39:26 PM by Hibernate Tools 3.2.1.GA
+// Generated Feb 17, 2012 11:57:50 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
