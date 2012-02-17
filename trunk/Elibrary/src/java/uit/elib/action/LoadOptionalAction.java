@@ -17,6 +17,8 @@ import uit.elib.bo.SubjectBO;
 import uit.elib.dto.Faculty;
 import uit.elib.dto.Resource;
 import uit.elib.dto.Subject;
+import uit.elib.utility.CheckGroup;
+import uit.elib.utility.CheckGroupDetail;
 
 /**
  *
@@ -64,8 +66,33 @@ public class LoadOptionalAction extends org.apache.struts.action.Action {
         ResourceBO tempResourceBO = ResourceBO.getResourceBO();
         List<List<Resource>> arrayListResource = new ArrayList<List<Resource>>();
         String []whereSubjectId = new String[listSubject.size()];
+        //check permission to display resource category
+        String username  = null;
+        if(request.getSession().getAttribute("username")!=null)
+            username=(String)request.getSession().getAttribute("username");
+        CheckGroup checkGroup = new CheckGroup();
+        int group = checkGroup.Group(username);
+        String notIn="";
+        if(group!=1 && group!=3) //admin and mod
+        {
+            CheckGroupDetail checkGroupDetail = new CheckGroupDetail();
+            String resourceCategoryID ="";
+            if(!checkGroupDetail.GroupDetail(username, 4, 1))
+                resourceCategoryID = resourceCategoryID+"4,";
+            if(!checkGroupDetail.GroupDetail(username, 5, 1))
+                resourceCategoryID = resourceCategoryID+"5,";
+            if(!checkGroupDetail.GroupDetail(username, 10, 1))
+                resourceCategoryID = resourceCategoryID+"10,";
+            if(!checkGroupDetail.GroupDetail(username, 11, 1))
+                resourceCategoryID = resourceCategoryID+"11,";
+            if(!resourceCategoryID.equals(""))
+            {
+                resourceCategoryID=resourceCategoryID.substring(0, resourceCategoryID.length()-1);
+                notIn=" and resourceCategoryID not in("+resourceCategoryID+")";
+            }             
+        }        
         for(int i= 0;i<listSubject.size();i++)  
-            whereSubjectId[i] = "orderChapter is not null and subjectId ="+listSubject.get(i).getSubjectId();
+            whereSubjectId[i] = "orderChapter is not null and subjectId ="+listSubject.get(i).getSubjectId()+notIn;
         arrayListResource=tempResourceBO.getAllResource(whereSubjectId,order); 
         request.setAttribute("arrayListResource", arrayListResource);         
         return mapping.findForward(SUCCESS);
