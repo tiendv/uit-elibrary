@@ -56,24 +56,33 @@
                 %>
                     <div class="glidecontent">
                         <% if(language==1) { %>
-                            <div class="newstitle"><a style="color: #b8262b" href="./LoadNews.do?newsID=<%=listNewsCate1.get(i).getNewsId()%>"><%=listNewsCate1.get(i).getNewsTitleEn()%></a></div>
+                           
                             <%
                             String imageLink = "./image/news.jpg";
                             if(listNewsCate1.get(i).getNewsImage()!=null){ 
                                  imageLink = "./upload/"+listNewsCate1.get(i).getNewsImage().toString();%>                                                     
                             <%}%>
-                            <div class="newscontent"><a href="./LoadNews.do?newsID=<%=listNewsCate1.get(i).getNewsId()%>"><img src="<%=imageLink%>" class="imagenews"/></a></div>
-                            <div class="newsheadline"><%=listNewsCate1.get(i).getNewsHeadlineEn()%></div>
+                            <div class="newscontent">
+                                <div class="leftimagenews"><a href="./LoadNews.do?newsID=<%=listNewsCate1.get(i).getNewsId()%>"><img src="<%=imageLink%>" class="imagenews"/></a></div>
+                                <div class="leftheadlinetitlenews">
+                                    <div class="newstitle"><a style="color: #b8262b" href="./LoadNews.do?newsID=<%=listNewsCate1.get(i).getNewsId()%>"><%=listNewsCate1.get(i).getNewsTitleEn()%></a></div>
+                                    <div class="justify"><%=listNewsCate1.get(i).getNewsHeadlineEn()%></div>
+                                </div>                            
+                            </div>  
                         <%}%>
                         <% if(language==2) { %>
-                            <div class="newstitle"><a style="color: #b8262b" href="./LoadNews.do?newsID=<%=listNewsCate1.get(i).getNewsId()%>"><%=listNewsCate1.get(i).getNewsTitleVn()%></a></div>
                             <%
                             String imageLink = "./image/news.jpg";
                             if(listNewsCate1.get(i).getNewsImage()!=null){ 
                                  imageLink = "./upload/"+listNewsCate1.get(i).getNewsImage().toString();%>                                                     
                             <%}%>
-                            <div class="newscontent"><a href="./LoadNews.do?newsID=<%=listNewsCate1.get(i).getNewsId()%>"><img src="<%=imageLink%>" class="imagenews"/></a></div>
-                            <div class="newsheadline"><%=listNewsCate1.get(i).getNewsHeadlineVn()%></div>
+                            <div class="newscontent">
+                                <div class="leftimagenews"><a href="./LoadNews.do?newsID=<%=listNewsCate1.get(i).getNewsId()%>"><img src="<%=imageLink%>" class="imagenews"/></a></div>
+                                <div class="leftheadlinetitlenews">
+                                    <div class="newstitle"><a style="color: #b8262b" href="./LoadNews.do?newsID=<%=listNewsCate1.get(i).getNewsId()%>"><%=listNewsCate1.get(i).getNewsTitleVn()%></a></div>
+                                    <div class="justify"><%=listNewsCate1.get(i).getNewsHeadlineVn()%></div>
+                                </div>                            
+                            </div>    
                         <%}%>                        
                     </div>
                 <%}%>
@@ -86,31 +95,33 @@
         <div class="linenewscategory"></div>
         <div class="newscategory2"><bean:message key="text.announcements"/></div>
         <%              
-            if(listNewsCate2.size()>0){%>
-                <% 
-                    for(int i=0;i<listNewsCate2.size();i++) {                     
-                %>
-                        <% if(language==1) { %>
-                            <div class="newstitle"><a class="newslink" href="./LoadNews.do?newsID=<%=listNewsCate2.get(i).getNewsId()%>"><%=listNewsCate2.get(i).getNewsTitleEn()%></a></div>
-                            <%
-                            String imageLink = "./image/news.jpg";
-                            if(listNewsCate2.get(i).getNewsImage()!=null){ 
-                                 imageLink = "./upload/"+listNewsCate2.get(i).getNewsImage().toString();%>                                                     
-                            <%}%>
-                            <div class="newscontent"><a href="./LoadNews.do?newsID=<%=listNewsCate2.get(i).getNewsId()%>"><img src="<%=imageLink%>" class="imagenews"/></a></div>
-                            <div class="newsheadline"><%=listNewsCate2.get(i).getNewsHeadlineEn()%></div>
-                        <%}%>
-                        <% if(language==2) { %>
-                            <div class="newstitle"><a class="newslink" href="./LoadNews.do?newsID=<%=listNewsCate2.get(i).getNewsId()%>"><%=listNewsCate2.get(i).getNewsTitleVn()%></a></div>
-                            <%
-                            String imageLink = "./image/news.jpg";
-                            if(listNewsCate2.get(i).getNewsImage()!=null){ 
-                                 imageLink = "./upload/"+listNewsCate2.get(i).getNewsImage().toString();%>                                                     
-                            <%}%>
-                            <div class="newscontent"><a href="./LoadNews.do?newsID=<%=listNewsCate2.get(i).getNewsId()%>"><img src="<%=imageLink%>" class="imagenews"/></a></div>
-                            <div class="newsheadline"><%=listNewsCate2.get(i).getNewsHeadlineVn()%></div>
-                        <%}%>                        
+            if(listNewsCate2.size()>0){
+                if(language==1) { 
+                    String imageLink = "./image/news.jpg";
+                    if(listNewsCate2.get(0).getNewsImage()!=null){ 
+                         imageLink = "./upload/"+listNewsCate2.get(0).getNewsImage().toString();%>                                                     
+                    <%}%>
+                    <div class="newscontent">
+                        <div class="leftimagenews"><a href="./LoadNews.do?newsID=<%=listNewsCate2.get(0).getNewsId()%>"><img src="<%=imageLink%>" class="imagenews"/></a></div>
+                        <div class="leftheadlinetitlenews">
+                            <div class="newstitle"><a class="ahrefnewstitle" href="./LoadNews.do?newsID=<%=listNewsCate2.get(0).getNewsId()%>"><%=listNewsCate2.get(0).getNewsTitleEn()%></a></div>
+                            <div class="justify"><%=listNewsCate2.get(0).getNewsHeadlineEn()%></div>
+                        </div>                            
+                    </div> 
                 <%}%>
+                <% if(language==2) { 
+                    String imageLink = "./image/news.jpg";
+                    if(listNewsCate2.get(0).getNewsImage()!=null){ 
+                         imageLink = "./upload/"+listNewsCate2.get(0).getNewsImage().toString();%>                                                     
+                    <%}%>
+                    <div class="newscontent">
+                        <div class="leftimagenews"><a href="./LoadNews.do?newsID=<%=listNewsCate2.get(0).getNewsId()%>"><img src="<%=imageLink%>" class="imagenews"/></a></div>
+                        <div class="leftheadlinetitlenews">
+                            <div class="newstitle"><a class="ahrefnewstitle" href="./LoadNews.do?newsID=<%=listNewsCate2.get(0).getNewsId()%>"><%=listNewsCate2.get(0).getNewsTitleVn()%></a></div>
+                            <div class="justify"><%=listNewsCate2.get(0).getNewsHeadlineVn()%></div>
+                        </div>                            
+                    </div> 
+                <%}%>                        
         <%}%>
     </div> 
     </div> 
@@ -132,15 +143,6 @@
         </div>
         <div>
             <div class="imagead"><img src="image/duytan.png" class="imageadvertising"/></div>
-        </div>
-        <div>
-            <div class="imagead"><img src="image/giadinh.png" class="imageadvertising"/></div>
-        </div>
-        <div>
-            <div class="imagead"><img src="image/hutech.jpg" class="imageadvertising"/></div>
         </div>         
-        <div>
-            <div class="imagead"><img src="image/huflit.png" class="imageadvertising"/></div>
-        </div>           
     </div>      
 

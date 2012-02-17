@@ -640,9 +640,6 @@ div.thesis_summary{
 .newstitle {
     font-size: 15px;
     font-weight: bold;
-    text-align: center;
-    height: 35px;
-    padding-top: 2px;
     text-decoration: none;
 }
 .newslink{
@@ -657,8 +654,7 @@ div.thesis_summary{
     padding-left: 2px;
 }
 .newscontent {
-    text-align: center;
-    height: 148px;
+    width: 800px;
 }
 .newscontent1 {
     width: 900px;
@@ -667,8 +663,7 @@ div.thesis_summary{
     width: 900px;
 }
 .newsheadline {
-    height:50px;
-    margin-top: 15px;
+    padding-left: 2px;
 }
 .boldcenter {
     text-align: center;
@@ -730,8 +725,8 @@ div.thesis_summary{
     border: none;
 }
 .imagenews {
-    max-height: 145px;
-    max-width: 500px;
+    height: 128px;
+    width: 110px;
     border: none;
 }
 .imagenewsdetail {
@@ -750,11 +745,17 @@ div.thesis_summary{
     margin-right: 2px;
     margin-bottom: -8px;
 }
-.leftheadlinenews{
+
+.leftheadlinetitlenews2{
     float:left;
     width: 600px;
-    text-align: justify;
     padding-left: 2px;
+}
+.leftheadlinetitlenews{
+    float:left;
+    width: 380px;
+    text-align: justify;
+    padding-left: 5px;
 }
 .leftcontentnews{
     text-align: justify;
@@ -1002,7 +1003,6 @@ image{
     width: 518px;
     padding-left: 10px;
     float: left;
-    padding-top: 25px;
 }
 .imageadvertising{
     max-width: 218px;
@@ -1025,10 +1025,17 @@ image{
 .linenewscategory {
     background: url("../image/line-1.png") repeat-x scroll 0 0 transparent;
     margin: 0 auto;
-    padding: 3px 0 10px;
+    padding: 0 0 10px;
     width: 520px;
 }
 .onlinecounter{
     position: absolute;
     bottom: 0px;
+}
+.ahrefnewstitle{
+    color: #b8262b;
+    text-decoration: none;
+}
+.justify{
+    text-align: justify;
 }
