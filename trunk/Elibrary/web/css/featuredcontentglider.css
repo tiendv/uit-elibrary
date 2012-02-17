@@ -1,7 +1,7 @@
 .glidecontentwrapper{
 position: relative; /* Do not change this value */
 width: 538px;
-height: 265px; /* Set height to be able to contain height of largest content shown*/
+height: 160px; /* Set height to be able to contain height of largest content shown*/
 overflow: hidden;
 }
 /*

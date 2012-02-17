@@ -23,27 +23,31 @@
         String postDate = simpleDateFormat.format(date);              
 %>
 <%  if(language==1){%>
-<div class="newstitle2"><a class="linkcolor" href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><%=listNews.get(i).getNewsTitleEn()%></a></div>
-<div class="grey"><%=postDate%></div>
     <%String imageLink = "./image/news.jpg";
     if(listNews.get(i).getNewsImage()!=null) 
          imageLink = "./upload/"+listNews.get(i).getNewsImage().toString();%> 
-    <div class="newscontent1">     
+    <div class="newscontent1"> 
         <div class="leftimagenews"><a href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><img src="<%=imageLink%>" class="smallimage"/></a></div>
-        <div class="leftheadlinenews"><%=listNews.get(i).getNewsHeadlineEn()%></div>
+        <div class="leftheadlinetitlenews2">
+        <div class="newstitle2"><a class="linkcolor" href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><%=listNews.get(i).getNewsTitleEn()%></a></div>
+        <div class="grey"><%=postDate%></div>                 
+        <div class="newsheadline"><%=listNews.get(i).getNewsHeadlineEn()%></div>
+        </div>
     </div>
     <div class="cleared"></div>
     <div class="line"></div>
 <%}%>
 <%  if(language==2){%>
-    <div class="newstitle2"><a class="linkcolor" href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><%=listNews.get(i).getNewsTitleVn()%></a></div>
-    <div class="grey"><%=postDate%></div>
     <%String imageLink = "./image/news.jpg";
     if(listNews.get(i).getNewsImage()!=null) 
          imageLink = "./upload/"+listNews.get(i).getNewsImage().toString();%>                                                      
          <div sclass="newscontent1">
              <div class="leftimagenews"><a href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><img src="<%=imageLink%>" class="smallimage"/></a></div>
-             <div class="leftheadlinenews"><%=listNews.get(i).getNewsHeadlineVn()%></div>
+             <div class="leftheadlinetitlenews2">
+                <div class="newstitle2"><a class="linkcolor" href="./LoadNews.do?newsID=<%=listNews.get(i).getNewsId()%>"><%=listNews.get(i).getNewsTitleVn()%></a></div>
+                <div class="grey"><%=postDate%></div>                 
+                <div class="newsheadline"><%=listNews.get(i).getNewsHeadlineVn()%></div>
+             </div>
          </div>
          <div class="cleared"></div>
          <p class="line"></p>
