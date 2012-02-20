@@ -1,8 +1,9 @@
 .glidecontentwrapper{
 position: relative; /* Do not change this value */
 width: 538px;
-height: 160px; /* Set height to be able to contain height of largest content shown*/
+height: 200px; /* Set height to be able to contain height of largest content shown*/
 overflow: hidden;
+clear: both;
 }
 /*
 	Total wrapper width: 350px+5px+5px=360px

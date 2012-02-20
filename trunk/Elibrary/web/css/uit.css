@@ -212,6 +212,7 @@
     font-size: 12px;
     color: #b8262b;
     font-weight: bold;
+    margin-bottom: 10px;
 }
 .title_h4 {
     font-family: Verdana, Geneva, sans-serif;
@@ -225,6 +226,7 @@
     color: #000;
     vertical-align:top;
     float:left;
+    
 }
 .td_course_item a {
     text-decoration: none;
@@ -635,12 +637,17 @@ div.thesis_summary{
 .newstitle2 {
     font-weight: bold;
     padding-left: 2px;
-    padding-bottom: 2px;    
+    padding-bottom: 2px;   
+    margin-left: 5px;
+    margin-bottom: 5px;
 }
 .newstitle {
     font-size: 15px;
     font-weight: bold;
     text-decoration: none;
+    margin-top:15px;
+    margin-left: 5px;
+    margin-bottom: 5px;
 }
 .newslink{
     text-decoration: none;
@@ -658,12 +665,14 @@ div.thesis_summary{
 }
 .newscontent1 {
     width: 900px;
+    margin-top: 5px;
 }
 .newscontent2 {
     width: 900px;
 }
 .newsheadline {
     padding-left: 2px;
+    margin-left: 5px;
 }
 .boldcenter {
     text-align: center;
@@ -722,6 +731,7 @@ div.thesis_summary{
 .smallimage {
     max-height: 200px;
     max-width: 150px;
+    margin-left: 10px;
     border: none;
 }
 .imagenews {
@@ -737,8 +747,20 @@ div.thesis_summary{
 .leftimagenews {
     float:left;
     max-width: 150px;
-    margin-top: 2px;
+    margin-top: 10px;
+    margin-left: 10px;
+      
 }
+
+ .newscate2 .leftimagenews {
+    float:left;
+    max-width: 150px;
+    margin-top: 15px;
+    margin-left: 10px;
+      
+}
+
+
 .leftimagenewsdetail {
     float:left;
     max-width: 300px;
@@ -748,8 +770,10 @@ div.thesis_summary{
 
 .leftheadlinetitlenews2{
     float:left;
-    width: 600px;
+    width: 590px;
     padding-left: 2px;
+    margin-top: 10px;
+    margin-left: 5px;
 }
 .leftheadlinetitlenews{
     float:left;
@@ -776,6 +800,8 @@ div.thesis_summary{
     font-size: 11px;
     padding-left: 2px;
     padding-bottom: 2px;
+    margin-left: 5px;
+    margin-bottom: 5px;
 }
 .greyright {
     color: #5F5F5F;
@@ -799,6 +825,7 @@ div.thesis_summary{
     border:none;  
 }
 .table_advertising{
+    margin-top: 10px;
     width:184px;
     border:none;  
     padding-top: 3px;
@@ -997,16 +1024,18 @@ image{
     margin: 0 auto;
     padding: 3px 0 10px;
     width: 760px;
-    margin-top: 1px;
+    margin-top: 10px;
 }
 .newscate2{
     width: 518px;
     padding-left: 10px;
     float: left;
+    height: 200px;
+    
 }
 .imageadvertising{
-    max-width: 218px;
-    max-height: 100px;
+    width: 218px !important;
+    height: 50px !important;
 }
 .imagead {
     text-align: center;
@@ -1014,7 +1043,9 @@ image{
     padding-top: 5px;
 }
 .newscategory1{
-   padding-left: 10px;
+   margin-top: 10px;
+   padding-left: 20px;
+   padding-bottom: 10px;
    color: #B8262B;
    font-weight: bold;
 }
@@ -1031,6 +1062,7 @@ image{
 .onlinecounter{
     position: absolute;
     bottom: 0px;
+    margin-left: 40px;
 }
 .ahrefnewstitle{
     color: #b8262b;
@@ -1038,4 +1070,5 @@ image{
 }
 .justify{
     text-align: justify;
+    margin-left: 5px;
 }
