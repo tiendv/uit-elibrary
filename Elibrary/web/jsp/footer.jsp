@@ -13,11 +13,11 @@
         <div  class="sub_footer_image"><img src="<bean:message key="image.uitlogo"/>" width="31" height="32" alt="<bean:message key="image.uitlogo.alttext"/>" longdesc="http://www.uit.edu.vn" /></div>
         <div class="sub_footer">
             <ol class="ol">
-                <li class="footerli"><a class="footerhyperlink" href="jsp/help.jsp"><bean:message key="text.help"/></a> | </li>
-                <li class="footerli"><a class="footerhyperlink" href="jsp/paq.jsp"><bean:message key="text.faq"/></a> | </li>
-                <li class="footerli"><a class="footerhyperlink" href="jsp/about.jsp"><bean:message key="text.about"/></a> | </li>
-                <li class="footerli"><a class="footerhyperlink" href="jsp/contact.jsp"><bean:message key="text.contact"/></a> | </li>
-                <li class="footerli"><a class="footerhyperlink" href="jsp/privacystatement.jsp"><bean:message key="text.privacystatement"/></a> - 
+                <li class="footerli"><a class="footerhyperlink" href="Help.do"><bean:message key="text.help"/></a> | </li>
+                <li class="footerli"><a class="footerhyperlink" href="Paq.do"><bean:message key="text.faq"/></a> | </li>
+                <li class="footerli"><a class="footerhyperlink" href="About.do"><bean:message key="text.about"/></a> | </li>
+                <li class="footerli"><a class="footerhyperlink" href="Contact.do"><bean:message key="text.contact"/></a> | </li>
+                <li class="footerli"><a class="footerhyperlink" href="PrivacyStatement.do"><bean:message key="text.privacystatement"/></a> - 
                     <a><b><bean:message key="text.copyright"/></b></a>
                 </li>
             </ol>

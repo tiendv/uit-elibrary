@@ -53,8 +53,8 @@
                 <div class="searchform">
                     <div>
                         <input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Enter search keyword" name="q" class="search" id="terms" /> 			 
-                        <a href="jsp/search.jsp"><input type="image" alt="Go" src="../image/go_new.gif" name="btnG" class="but"  /> </a>			 
-                        <a href="jsp/search.jsp">Advanced Search</a>
+                        <a href="Search.do"><input type="image" alt="Go" src="../image/go_new.gif" name="btnG" class="but"  /> </a>			 
+                        <a href="Search.do">Advanced Search</a>
                     </div>
                 </div>
         </td>

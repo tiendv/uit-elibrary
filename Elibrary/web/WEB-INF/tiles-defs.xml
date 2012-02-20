@@ -321,6 +321,60 @@
         <put name="footer" value="/jsp/footer.jsp" />
         <put name="content"   value="/jsp/login.jsp" />
         <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
-    </definition>      
+    </definition>  
+    <definition name=".help" path="/jsp/mainpage.jsp">
+        <put name="title"  value="Help" />
+        <put name="description"  value="Help" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/jsp/help.jsp" />
+        <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
+    </definition>
+    <definition name=".paq" path="/jsp/mainpage.jsp">
+        <put name="title"  value="Paq" />
+        <put name="description"  value="Paq" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/jsp/paq.jsp" />
+        <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
+    </definition>
+    <definition name=".about" path="/jsp/mainpage.jsp">
+        <put name="title"  value="About" />
+        <put name="description"  value="About" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/jsp/about.jsp" />
+        <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
+    </definition>
+    <definition name=".contact" path="/jsp/mainpage.jsp">
+        <put name="title"  value="Contact" />
+        <put name="description"  value="Contact" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/jsp/contact.jsp" />
+        <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
+    </definition>
+    <definition name=".privacyStatement" path="/jsp/mainpage.jsp">
+        <put name="title"  value="Privacy Statement" />
+        <put name="description"  value="Privacy Statement" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/jsp/privacystatement.jsp" />
+        <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
+    </definition>
+    <definition name=".search" path="/jsp/mainpage.jsp">
+        <put name="title"  value="Search" />
+        <put name="description"  value="Search" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/jsp/search.jsp" />
+        <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
+    </definition>    
 </tiles-definitions>
 
