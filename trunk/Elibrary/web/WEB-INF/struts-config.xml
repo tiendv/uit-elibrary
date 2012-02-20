@@ -171,7 +171,13 @@
         <action path="/LoadLogin" type="uit.elib.action.LoadLoginAction">
             <forward name="success" path=".loadLogin"/>
             <forward name="unsuccess" path="/Welcome.do" redirect="true"/> 
-        </action>        
+        </action>
+        <action path="/Help" forward =".help"/>
+        <action path="/Paq" forward =".paq"/>
+        <action path="/About" forward =".about"/>
+        <action path="/Contact" forward =".contact"/>
+        <action path="/PrivacyStatement" forward =".privacyStatement"/>
+        <action path="/Search" forward =".search"/>
         <action path="/Login" type="uit.elib.action.LoginAction"/>           
         <action path="/LoadIPTable" type="uit.elib.action.LoadIPTableAction"/>
         <action path="/DeleteUser" type="uit.elib.action.DeleteUserAction"/>
