@@ -12,7 +12,8 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import uit.elib.bo.NewsBO;
 import uit.elib.dto.News;
-
+import uit.elib.bo.AdvertisingBO;
+import uit.elib.dto.Advertising;
 /**
  *
  * @author Nguyen Hoang Tan
@@ -44,6 +45,8 @@ public class WelcomeAction extends org.apache.struts.action.Action {
         where = "newsCategory=2";
         List<News> listNewsCate2 = NewsBO.getNewsBO().getAllNews(where, order,1);
         request.setAttribute("listNewsCate2", listNewsCate2);
+        List<Advertising> listAds = AdvertisingBO.getAdvertisingBO().getAllAds();
+        request.setAttribute("listAds", listAds);
         return mapping.findForward(SUCCESS);
     }
 }

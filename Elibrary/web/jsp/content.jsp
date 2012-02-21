@@ -8,6 +8,7 @@
 <%@page import="org.apache.struts.Globals"%>
 <%@page import="java.util.List"%>
 <%@page import="uit.elib.dto.News"%>
+<%@page import="uit.elib.dto.Advertising"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %> 
@@ -27,6 +28,7 @@
 <%
     List<News> listNewsCate1 = (List<News>)request.getAttribute("listNewsCate1");
     List<News> listNewsCate2 = (List<News>)request.getAttribute("listNewsCate2");
+    List<Advertising> listAds = (List<Advertising>)request.getAttribute("listAds");
     int language =1; // English
     if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
         language=2; // VietNamese   
@@ -50,6 +52,7 @@
             })
             </script>
             <div id="canadaprovinces" class="glidecontentwrapper">
+                
             <div class="newscategory1"><bean:message key="text.newbook"/></div>    
                 <% 
                     for(int i=0;i<listNewsCate1.size();i++) {                     
@@ -126,23 +129,27 @@
     </div> 
     </div> 
     <div class="table_advertising">
+        <%
+        String ads="";
+        for (int i = 0; i < listAds.size(); i++) 
+        {
+            ads+="<table style=\" width: 218px;\"><tr><td>";
+            ads+="<img src=\"image/"+listAds.get(i).getImage()+"\" width=215 height=55 align=left />" ;
+            ads+="</td></tr></table>";
+        }
+        %>
+        
+        
         <div>
-            <div class="title_h3">Các đơn vị tham gia</div>
+            <div class="title_h3"><bean:message key="text.listofads"/></div>
         </div>
-        <div>
-            <div class="imagead"><img src="image/uit.png" class="imageadvertising"/></div>
-        </div>
-        <div>
-            <div class="imagead"><img src="image/isatd.png"  class="imageadvertising" /></div>
-        </div>
-        <div>
-            <div class="imagead"><img src="image/ntt.png" class="imageadvertising" /></div>
-        </div>
-        <div>
-            <div class="imagead"><img src="image/stu.png" class="imageadvertising" /></div>
-        </div>
-        <div>
-            <div class="imagead"><img src="image/duytan.png" class="imageadvertising"/></div>
-        </div>         
+        <marquee height="350" width="218" onmouseout="this.start()" onmouseover="this.stop()" scrollamount="2" scrolldelay="5" direction="up">&nbsp;</br>
+            <%for(int j=0;j<10;j++) {%>
+                <%for (int i = 0; i < listAds.size(); i++) {%>
+                <a href="http://<%=listAds.get(i).getLink()%>" > <img src="upload/<%=listAds.get(i).getImage()%>" width="218" height="55" alt="<%=listAds.get(i).getAdvertisingNameVn()%>"/></a>
+                <%}%>
+                <%}%>
+        </marquee>
+        
     </div>      
 
