@@ -32,6 +32,13 @@ if(session.getAttribute("username")!=null)
     <tr>     
         <td class="leftmenu_td_link"><a href="LoadListOfGroup.do"><bean:message key="text.listofgroup"/></a></td>
     </tr>
+    </tr>
+    <tr>     
+        <td class="leftmenu_td_link"><a href="LoadCreateAds.do"><bean:message key="text.createads"/></a></td>
+    </tr> 
+    <tr>     
+        <td class="leftmenu_td_link"><a href="LoadListOfAds.do"><bean:message key="text.listofads"/></a></td>
+    </tr>
     <tr>     
         <td class="leftmenu_td_link"><a href="LoadListOfGroupDetail.do"><bean:message key="text.decentralization"/></a></td>
     </tr>        
