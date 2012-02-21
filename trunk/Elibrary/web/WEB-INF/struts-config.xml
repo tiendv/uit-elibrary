@@ -4,6 +4,7 @@
           "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
 <struts-config>
     <form-beans>
+        <form-bean name="AdsForm" type="uit.elib.formbean.AdsForm"/>
         <form-bean name="CreateIPForm" type="uit.elib.formbean.CreateIPForm"/>
         <form-bean name="EditUserForm" type="uit.elib.formbean.EditUserForm"/>
         <form-bean name="GroupForm" type="uit.elib.formbean.GroupForm"/>
@@ -35,6 +36,10 @@
         </action>
         <action path="/LoadListOfGroup" type="uit.elib.action.LoadListOfGroupAction" scope="session">
             <forward name="success" path=".LoadListOfGroup"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/LoadListOfAds" type="uit.elib.action.LoadListOfAdsAction" scope="session">
+            <forward name="success" path=".LoadListOfAds"/>
             <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
         <action path="/LoadListSubjectOfCategory" type="uit.elib.action.LoadListSubjectOfCategoryAction"  scope="session"/>
@@ -108,10 +113,18 @@
             <forward name="success" path=".loadGroupDetail"/>
             <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
+        <action path="/CreateAds" name="AdsForm" type="uit.elib.action.CreateAdsAction">
+            <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
         <action path="/CreateNews" name="CreateNewsForm" type="uit.elib.action.CreateNewsAction">
             <forward name="success" path="/jsp/success.jsp"/>
             <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
-        </action>     
+        </action>
+        <action path="/LoadEditAds" type="uit.elib.action.LoadEditAdsAction">
+            <forward name="success" path=".loadEditAds"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
         <action path="/LoadEditNews" name="EditNewsForm" type="uit.elib.action.LoadEditNewsAction">
             <forward name="success" path=".editNews"/>
             <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
@@ -172,6 +185,7 @@
             <forward name="success" path=".loadLogin"/>
             <forward name="unsuccess" path="/Welcome.do" redirect="true"/> 
         </action>
+        <action path="/DeleteAds" type="uit.elib.action.DeleteAdsAction"/>
         <action path="/Help" forward =".help"/>
         <action path="/Paq" forward =".paq"/>
         <action path="/About" forward =".about"/>
@@ -195,6 +209,7 @@
         <action path="/LoadChapter" type="uit.elib.action.LoadChapterAction" scope="session"/>  
         <action path="/Admin" forward=".adminPage"  scope="session"/>
         <action path="/Mod" forward=".modPage"  scope="session"/>
+        <action path="/LoadCreateAds" forward=".createAds"  scope="session"/>
         <action path="/LoadCreateNews" forward=".createNews"  scope="session"/>
         <action path="/LoadCreateIP" forward=".createIP"  scope="session"/>
         <action path="/LoadCreateGroup" forward=".createGroup"  scope="session"/>
