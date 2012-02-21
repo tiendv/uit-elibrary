@@ -3,13 +3,15 @@
  * and open the template in the editor.
  */
 package uit.elib.action;
-
+import java.io.File;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import uit.elib.bo.AdvertisingBO;
+import uit.elib.dto.Advertising;
 
 /**
  *
@@ -20,7 +22,6 @@ public class DeleteAdsAction extends org.apache.struts.action.Action {
     /*
      * forward name="success" path=""
      */
-    private static final String SUCCESS = "success";
 
     /**
      * This is the action called from the Struts framework.
@@ -38,8 +39,17 @@ public class DeleteAdsAction extends org.apache.struts.action.Action {
             throws Exception {
         String listAdsID = request.getParameter("listAdsID"); // danh sách ID (kể cả dấu ,)
         listAdsID = listAdsID.substring(0, listAdsID.length()-1);
-        String sqlAds ="delete from `advertising` where AdvertisingID in("+listAdsID+")";
-        AdvertisingBO.getAdvertisingBO().DeleteAds(sqlAds);
-        return mapping.findForward(SUCCESS);
+        List<Advertising> listAds = AdvertisingBO.getAdvertisingBO().getAllAds("AdvertisingID in("+listAdsID+")", null);
+        for(int i=0;i<listAds.size();i++)
+                {    
+                    // delete old image
+                    if(listAds.get(i).getImage()!=null)
+                    {
+                        File oldFile =  new File(request.getServletContext().getRealPath("/")+"upload/"+listAds.get(i).getImage());
+                        oldFile.delete();
+                    }                
+                    AdvertisingBO.getAdvertisingBO().DeleteAds("delete from `advertising` where AdvertisingID ="+listAds.get(i).getAdvertisingId()) ;
+                }
+        return  null;
     }
 }
