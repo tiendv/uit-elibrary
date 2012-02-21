@@ -133,6 +133,10 @@
             <forward name="success" path=".loadEditGroup"/>
             <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
+        <action path="/EditAds" name="AdsForm" type="uit.elib.action.EditAdsAction">
+            <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
         <action path="/EditNews" name="EditNewsForm" type="uit.elib.action.EditNewsAction">
             <forward name="success" path="/jsp/success.jsp"/>
             <forward name="unsuccess" path="/Welcome.do" redirect="true"/>

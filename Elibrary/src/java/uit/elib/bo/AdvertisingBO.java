@@ -55,5 +55,13 @@ public class AdvertisingBO extends ManagerBase<Advertising> {
             Logger.getLogger(AdvertisingBO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
-     }  
+     }
+     public void updateAds(Advertising ads)throws Exception
+    {
+         try {
+             update(ads);
+        } catch (Exception ex) {
+            Logger.getLogger(AdvertisingBO.class.getName()).log(Level.SEVERE, null, ex);
+        }             
+    } 
 }

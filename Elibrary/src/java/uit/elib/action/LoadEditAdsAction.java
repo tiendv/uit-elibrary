@@ -45,6 +45,7 @@ public class LoadEditAdsAction extends org.apache.struts.action.Action {
             {
             List<Advertising> listAds = AdvertisingBO.getAdvertisingBO().getAllAds("AdvertisingID="+request.getParameter("adsID"), null);
             request.setAttribute("listAds", listAds);
+            request.setAttribute("adsID", request.getParameter("adsID"));
             return mapping.findForward(SUCCESS);
             }
         }
