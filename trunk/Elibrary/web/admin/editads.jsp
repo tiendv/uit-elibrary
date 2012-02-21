@@ -23,13 +23,29 @@
     {
         String imageLink = "./upload/"+ listAds.get(0).getImage().toString();
     %>
-    <img src="<%=imageLink%>" class="image"/>
+    <img src="<%=imageLink%>" class="image" width="250px" height="70px"/>
     <%}%>
-    <bean:message key="text.adsnameen"/>
-    <html:text property="txtAdsNameEN" styleClass="textbox" maxlength="100" value="<%=listAds.get(0).getAdvertisingNameEn()%>"/>
-    <bean:message key="text.adsnamevn"/>
-    <html:text property="txtAdsNameVN" styleClass="textbox" maxlength="100" value="<%=listAds.get(0).getAdvertisingNameEn()%>"/>
-    <bean:message key="text.adslink"/>
-    <html:text property="txtAdsLink" styleClass="textbox" maxlength="100" value="<%=listAds.get(0).getLink()%>"/>
-    <bean:message key="text.imagegallery"/>
+    <html:form method="post" action="EditAds" enctype="multipart/form-data" onsubmit="return validateAdsForm(this)">
+        <table>
+            <tr>
+                <td><bean:message key="text.adsnameen"/></td>
+                <td><html:text property="txtAdsNameEN" styleClass="textbox" maxlength="100" value="<%=listAds.get(0).getAdvertisingNameEn()%>"/></td>
+            </tr>
+            <tr>
+                <td><bean:message key="text.adsnamevn"/></td>
+                <td><html:text property="txtAdsNameVN" styleClass="textbox" maxlength="100" value="<%=listAds.get(0).getAdvertisingNameVn()%>"/></td>
+            </tr>
+            <tr>
+                <td><bean:message key="text.adslink"/></td>
+                <td><html:text property="txtAdsLink" styleClass="textbox" maxlength="100" value="<%=listAds.get(0).getLink()%>"/></td>
+            </tr>
+            <tr>
+                <td><bean:message key="text.imagegallery"/></td>
+                <td><html:file property="fileImage" size="27"/></td>
+            </tr>
+        </table>
+                <input type="hidden" name="txtAdsID" value="<%=listAds.get(0).getAdvertisingId()%>"/>
+    <html:submit property="btnSubmit"><bean:message key="text.buttonedit"/></html:submit><noscript><bean:message key="text.noscript"/></noscript>
+    <html:javascript formName="AdsForm"/>
+    </html:form>
 </div>
