@@ -7,11 +7,13 @@ import java.io.File;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import uit.elib.bo.AdvertisingBO;
 import uit.elib.dto.Advertising;
+import uit.elib.utility.CheckGroup;
 
 /**
  *
@@ -37,19 +39,34 @@ public class DeleteAdsAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        String listAdsID = request.getParameter("listAdsID"); // danh sách ID (kể cả dấu ,)
-        listAdsID = listAdsID.substring(0, listAdsID.length()-1);
-        List<Advertising> listAds = AdvertisingBO.getAdvertisingBO().getAllAds("AdvertisingID in("+listAdsID+")", null);
-        for(int i=0;i<listAds.size();i++)
-                {    
-                    // delete old image
-                    if(listAds.get(i).getImage()!=null)
-                    {
-                        File oldFile =  new File(request.getServletContext().getRealPath("/")+"upload/"+listAds.get(i).getImage());
-                        oldFile.delete();
-                    }                
-                    AdvertisingBO.getAdvertisingBO().DeleteAds("delete from `advertising` where AdvertisingID ="+listAds.get(i).getAdvertisingId()) ;
-                }
-        return  null;
+        int checkgroup =2; //visitor 
+        HttpSession session = request.getSession();
+        if(session.getAttribute("username")!=null){ 
+            CheckGroup checkGroup = new CheckGroup();
+            checkgroup = checkGroup.Group((String)session.getAttribute("username"));
+            if(checkgroup==-1) // account has just been locked while users are accessing or  account has just expired while users are accessing
+            {   
+                 session.removeAttribute("username");
+                 session.removeAttribute("group");
+            }
+            if(checkgroup==1)
+            {          
+                String listAdsID = request.getParameter("listAdsID"); // danh sách ID (kể cả dấu ,)
+                listAdsID = listAdsID.substring(0, listAdsID.length()-1);
+                List<Advertising> listAds = AdvertisingBO.getAdvertisingBO().getAllAds("AdvertisingID in("+listAdsID+")", null);
+                for(int i=0;i<listAds.size();i++)
+                        {    
+                            // delete old image
+                            if(listAds.get(i).getImage()!=null)
+                            {
+                                File oldFile =  new File(request.getServletContext().getRealPath("/")+"upload/"+listAds.get(i).getImage());
+                                oldFile.delete();
+                            }                
+                            AdvertisingBO.getAdvertisingBO().DeleteAds("delete from `advertising` where AdvertisingID ="+listAds.get(i).getAdvertisingId()) ;
+                        }
+            }
+        }
+        return null;
     }
 }
+
