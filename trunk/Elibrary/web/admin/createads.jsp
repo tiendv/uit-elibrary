@@ -3,7 +3,14 @@
     Created on : Feb 20, 2012, 9:39:20 PM
     Author     : HERO
 --%>
-
+<%
+boolean allow=false;
+if(session.getAttribute("username")!=null)
+{    
+    if((Integer)session.getAttribute("group") ==1)//admin
+    {
+        allow=true; 
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@taglib uri="http://struts.apache.org/tags-html"  prefix="html"%>
@@ -33,3 +40,7 @@
     <html:javascript formName="AdsForm"/>
     </html:form>
 </div>
+<%}}%>
+<%if(allow==false){%>
+<jsp:include page="../jsp/wrongpage.jsp" flush="true"/>
+<%}%>    

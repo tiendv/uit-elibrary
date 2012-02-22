@@ -3,7 +3,14 @@
     Created on : Feb 21, 2012, 1:03:16 AM
     Author     : HERO
 --%>
-
+<%
+boolean allow=false;
+if(session.getAttribute("username")!=null)
+{    
+    if((Integer)session.getAttribute("group") ==1)//admin
+    {
+        allow=true; 
+%>
 <%@page import="java.util.List"%>
 <%@page import="uit.elib.dto.Advertising"%>
 <%@page import="org.apache.struts.Globals"%>
@@ -49,3 +56,7 @@
     <html:javascript formName="AdsForm"/>
     </html:form>
 </div>
+<%}}%>
+<%if(allow==false){%>
+<jsp:include page="../jsp/wrongpage.jsp" flush="true"/>
+<%}%>      

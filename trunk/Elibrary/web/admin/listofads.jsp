@@ -3,7 +3,14 @@
     Created on : Feb 20, 2012, 11:12:26 PM
     Author     : HERO
 --%>
-
+<%
+boolean allow=false;
+if(session.getAttribute("username")!=null)
+{    
+    if((Integer)session.getAttribute("group") ==1)//admin
+    {
+        allow=true; 
+%>
 <%@page import="uit.elib.dto.Advertising"%>
 <%@page import="java.util.List"%>
 <%@page import="org.apache.struts.Globals"%>
@@ -38,12 +45,12 @@ List<Advertising> listAds = (List<Advertising>)request.getAttribute("listAds");
                 <td><a href="http://<%=listAds.get(i).getLink()%>"><%=listAds.get(i).getAdvertisingNameVn()%></a></td>
             <%}%>
             <td class="center"><input type="checkbox" value="<%=listAds.get(i).getAdvertisingId()%>" id=<%=i%>></td>
-            <td class="center"><input type="submit" onclick="editads(<%=listAds.get(i).getAdvertisingId()%>)" value=<bean:message key="text.buttonedit"/> /></td>
+            <td class="center"><input class="btn" type="submit" onclick="editads(<%=listAds.get(i).getAdvertisingId()%>)" value=<bean:message key="text.buttonedit"/> /></td>
         </tr>
     <%}%>
 </table>
     <input type="hidden" id="listSize" value=<%=listAds.size()%> />
-    <div class="divdelete"><input type="submit" onclick="deleteads()" value=<bean:message key="text.delete"/> /></div>
+    <div class="divdelete"><input class="btn" type="submit" onclick="deleteads()" value=<bean:message key="text.delete"/> /></div>
 <script type="text/javascript">
     function deleteads()
     {
@@ -67,3 +74,7 @@ List<Advertising> listAds = (List<Advertising>)request.getAttribute("listAds");
         window.location ="LoadEditAds.do?adsID="+adsID;
     }
 </script>
+<%}}%>
+<%if(allow==false){%>
+<jsp:include page="../jsp/wrongpage.jsp" flush="true"/>
+<%}%>  
