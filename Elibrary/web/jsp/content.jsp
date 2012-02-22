@@ -129,27 +129,33 @@
     </div> 
     </div> 
     <div class="table_advertising">
-        <%
-        String ads="";
-        for (int i = 0; i < listAds.size(); i++) 
-        {
-            ads+="<table style=\" width: 218px;\"><tr><td>";
-            ads+="<img src=\"image/"+listAds.get(i).getImage()+"\" width=215 height=55 align=left />" ;
-            ads+="</td></tr></table>";
-        }
-        %>
-        
-        
         <div>
             <div class="title_h3"><bean:message key="text.listofads"/></div>
         </div>
-        <marquee height="350" width="218" onmouseout="this.start()" onmouseover="this.stop()" scrollamount="2" scrolldelay="5" direction="up">&nbsp;</br>
-            <%for(int j=0;j<10;j++) {%>
-                <%for (int i = 0; i < listAds.size(); i++) {%>
-                <a href="http://<%=listAds.get(i).getLink()%>" > <img src="upload/<%=listAds.get(i).getImage()%>" width="218" height="55" alt="<%=listAds.get(i).getAdvertisingNameVn()%>"/></a>
-                <%}%>
-                <%}%>
-        </marquee>
-        
-    </div>      
+        <div style="; width: 218px;" align="left">
+            <script type="text/javascript">
+                    var news_link="";
+                    news_link +='<DIV id="demo" style="OVERFLOW: hidden; WIDTH:100%; HEIGHT: 325px; "><DIV id="demo1">';
+                    <%for (int i = 0; i < listAds.size(); i++) {%>
+                    news_link +='<table width=100%><tr><td>';    
+                    news_link +='<a href="http://<%=listAds.get(i).getLink()%>" > <img src="upload/<%=listAds.get(i).getImage()%>" width="218" height="55" alt="<%=listAds.get(i).getAdvertisingNameVn()%>"/></a>';
+                    news_link +='</td></tr></table>';
+                    <%}%>
 
+                    news_link +='</DIV><DIV id="demo2"></DIV></DIV>';
+                     document.write(news_link);
+                     var speed=33;
+                     document.getElementById("demo2").innerHTML=document.getElementById("demo1").innerHTML;
+                     function Marquee(){
+                        if(document.getElementById("demo2").offsetTop-document.getElementById("demo").scrollTop<=310)
+                        document.getElementById("demo").scrollTop-=document.getElementById("demo1").offsetHeight;
+                        else{
+                        document.getElementById("demo").scrollTop++;
+                        }
+                     }
+                     var MyMar=setInterval(Marquee,speed);
+                     document.getElementById("demo").onmouseover=function(){clearInterval(MyMar);}
+                     document.getElementById("demo").onmouseout=function(){MyMar=setInterval(Marquee,speed);}
+             </script>
+         </div>     
+    </div>      
