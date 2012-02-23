@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 17, 2012 11:57:50 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="uit.elib.dto.Resource" table="resource" catalog="elibrary">
+        <id name="resourceId" type="java.lang.Integer">
+            <column name="ResourceID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="faculty" class="uit.elib.dto.Faculty" fetch="select">
+            <column name="FacultyID" />
+        </many-to-one>
+        <many-to-one name="resourcecategory" class="uit.elib.dto.Resourcecategory" fetch="select">
+            <column name="ResourceCategoryID" />
+        </many-to-one>
+        <many-to-one name="level" class="uit.elib.dto.Level" fetch="select">
+            <column name="LevelID" />
+        </many-to-one>
+        <many-to-one name="subject" class="uit.elib.dto.Subject" fetch="select">
+            <column name="SubjectID" />
+        </many-to-one>
+        <property name="resourceNameVn" type="string">
+            <column name="ResourceNameVN" length="65535" />
+        </property>
+        <property name="resourceNameEn" type="string">
+            <column name="ResourceNameEN" length="65535" />
+        </property>
+        <property name="summaryVn" type="string">
+            <column name="SummaryVN" length="16777215" />
+        </property>
+        <property name="summaryEn" type="string">
+            <column name="SummaryEN" length="16777215" />
+        </property>
+        <property name="postDate" type="date">
+            <column name="PostDate" length="10" />
+        </property>
+        <property name="size" type="java.lang.Double">
+            <column name="Size" precision="22" scale="0" />
+        </property>
+        <property name="format" type="string">
+            <column name="Format" length="45" />
+        </property>
+        <property name="downloadNumber" type="java.lang.Integer">
+            <column name="DownloadNumber" />
+        </property>
+        <property name="serverName" type="string">
+            <column name="ServerName" />
+        </property>
+        <property name="uploadName" type="string">
+            <column name="UploadName" />
+        </property>
+        <property name="orderChapter" type="java.lang.Integer">
+            <column name="OrderChapter" />
+        </property>
+        <property name="author" type="string">
+            <column name="Author" />
+        </property>
+        <property name="teacher" type="string">
+            <column name="Teacher" />
+        </property>
+        <property name="class_" type="string">
+            <column name="Class" length="45" />
+        </property>
+        <property name="year" type="java.lang.Integer">
+            <column name="Year" />
+        </property>
+        <property name="schoolYear" type="string">
+            <column name="SchoolYear" length="45" />
+        </property>
+        <property name="school" type="string">
+            <column name="School" />
+        </property>
+    </class>
+</hibernate-mapping>

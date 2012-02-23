@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<!--
+     This is a blank Tiles definition file with a commented example.
+-->
+
+<tiles-definitions>
+
+    <!-- sample tiles definitions -->
+     <definition name=".homepage" path="/jsp/mainpage.jsp">
+        <put name="title"  value=" UIT library" />
+        <put name="description"  value="UIT library" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/jsp/content.jsp" />
+        <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
+    </definition>
+    
+    <definition name=".materialPage" extends=".homepage">
+        <put name="title"  value="Marerial Page" />
+        <put name="description"  value="Marerial Page" />
+        <put name="content"   value="/jsp/material.jsp" />
+    </definition>
+    
+    <definition name=".generalinformationPage" extends=".homepage">
+        <put name="title"  value="General Information Page" />
+        <put name="description"  value="General Information Page" />
+        <put name="content"   value="/jsp/generalinformation.jsp" />
+        <put name="leftmenu"   value="/jsp/leftmenusubject.jsp" />
+    </definition>
+    
+    <definition name=".lecturesPage" extends=".generalinformationPage">
+        <put name="title"  value="Lectures Page" />
+        <put name="description"  value="Lectures Page" />
+        <put name="content"   value="/jsp/lectures.jsp" />
+    </definition>
+ 
+    
+ <!-- sample tiles definitions
+    <definition name=".mainMenu" path="/common/layouts/vboxLayout.jsp" >
+        <putList name="list" >
+            <add value=".menu.links" />
+            <add value=".menu.taglib.references" />
+            <add value=".menu.printer.friendly" />
+            <add value=".menu.old.documents" />
+      </putList>
+    </definition>
+
+    <definition name="aPage" extends=".mainLayout">
+        <put name="title"  value="Another Title" />
+        <put name="body"   value=".aPage.body" />
+    </definition>
+
+    end samples -->
+    <definition name=".adminPage" extends=".homepage">
+        <put name="title"  value=" UIT library Administrator" />
+        <put name="description"  value="UIT library Administrator" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/admin/createSubject.jsp" />
+        <put name="leftmenu"   value="/admin/layout/leftmenu.jsp" />
+    </definition>
+    <definition name=".createResourcePage" extends=".homepage">
+        <put name="title"  value=" UIT library Administrator" />
+        <put name="description"  value="UIT library Administrator" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/admin/createResource.jsp" />
+        <put name="leftmenu"   value="/admin/layout/leftmenu.jsp" />
+    </definition>
+     <definition name=".loadSubject" extends=".homepage">
+        <put name="title"  value=" Subject" />
+        <put name="description"  value="Subject" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/jsp/subject.jsp" />
+        <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
+    </definition>
+    <definition name=".loadSubjectCategory" extends=".homepage">
+        <put name="title"  value="Lecture Note" />
+        <put name="description"  value="Lecture Note" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/jsp/subjectcategory.jsp" />
+        <put name="leftmenu"   value="/jsp/leftmenusubject.jsp" />
+    </definition>
+    <definition name=".loadProject" extends=".homepage">
+        <put name="title"  value="Lecture Note" />
+        <put name="description"  value="Lecture Note" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/project.jsp" />
+        <put name="leftmenu"   value="/jsp/leftmenusubject.jsp" />
+    </definition>
+    <definition name=".subjectHome" extends=".homepage">
+        <put name="title"  value="Lecture Note" />
+        <put name="description"  value="Lecture Note" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/jsp/subjectHome.jsp" />
+        <put name="leftmenu"   value="/jsp/leftmenusubject.jsp" />
+    </definition>
+    <definition name=".syllabus" extends=".homepage">
+        <put name="title"  value="Lecture Note" />
+        <put name="description"  value="Lecture Note" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/jsp/syllabus.jsp" />
+        <put name="leftmenu"   value="/jsp/leftmenusubject.jsp" />
+    </definition>    
+</tiles-definitions>
+

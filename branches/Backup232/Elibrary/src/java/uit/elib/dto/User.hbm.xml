@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 17, 2012 11:57:50 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="uit.elib.dto.User" table="user" catalog="elibrary">
+        <id name="userName" type="string">
+            <column name="UserName" length="20" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="group" class="uit.elib.dto.Group" fetch="select">
+            <column name="GroupID" />
+        </many-to-one>
+        <many-to-one name="faculty" class="uit.elib.dto.Faculty" fetch="select">
+            <column name="FacultyID" />
+        </many-to-one>
+        <many-to-one name="level" class="uit.elib.dto.Level" fetch="select">
+            <column name="LevelID" />
+        </many-to-one>
+        <property name="passWord" type="string">
+            <column name="PassWord" length="65535" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="45" />
+        </property>
+        <property name="class_" type="string">
+            <column name="Class" length="45" />
+        </property>
+        <property name="school" type="string">
+            <column name="School" />
+        </property>
+        <property name="schoolYear" type="string">
+            <column name="SchoolYear" length="45" />
+        </property>
+        <property name="expiredDay" type="timestamp">
+            <column name="ExpiredDay" length="19" />
+        </property>
+        <property name="realName" type="string">
+            <column name="RealName" />
+        </property>
+        <property name="birthday" type="timestamp">
+            <column name="Birthday" length="19" />
+        </property>
+        <property name="address" type="string">
+            <column name="Address" />
+        </property>
+        <property name="workPlace" type="string">
+            <column name="WorkPlace" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="Status" />
+        </property>
+    </class>
+</hibernate-mapping>

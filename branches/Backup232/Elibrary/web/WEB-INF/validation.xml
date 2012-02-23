@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+
+<form-validation>
+
+<!--
+     This is a minimal Validator form file with a couple of examples.
+-->
+
+    <global>
+
+        <!-- An example global constant
+        <constant>
+            <constant-name>postalCode</constant-name>
+            <constant-value>^\d{5}\d*$</constant-value>
+        </constant>
+        end example-->
+
+    </global>
+
+    <formset>
+
+        <!-- An example form -->
+        <form name="logonForm">
+            <field
+                property="username"
+                depends="required">
+                    <arg key="logonForm.username"/>
+            </field>
+            <field
+                property="password"
+                depends="required,mask">
+                    <arg key="logonForm.password"/>
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[0-9a-zA-Z]*$</var-value>
+                    </var>
+            </field>
+        </form>
+
+    </formset>
+
+    <!-- An example formset for another locale -->
+    <formset language="fr">
+
+        <constant>
+            <constant-name>postalCode</constant-name>
+            <constant-value>^[0-9a-zA-Z]*$</constant-value>
+        </constant>
+
+        <!-- An example form -->
+        <form name="logonForm">
+            <field
+                property="username"
+                depends="required">
+                    <arg key="logonForm.username"/>
+            </field>
+            <field
+                property="password"
+                depends="required,mask">
+                    <arg key="logonForm.password"/>
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[0-9a-zA-Z]*$</var-value>
+                    </var>
+            </field>
+        </form>
+   </formset>
+   <formset>
+        <form name="CreateNewsForm">
+            <field 
+                property="txtTitleEN"
+                depends="required">
+                <arg key="text.titleen"/>            
+            </field>
+            <field 
+                property="txtTitleVN"
+                depends="required">
+                <arg key="text.titlevn"/>              
+            </field>
+            <field 
+                property="txtHeadlineEN"
+                depends="required,maxlength">
+                <arg key="text.headlineen"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>255</var-value>
+                </var>                 
+            </field>
+            <field 
+                property="txtHeadlineVN"
+                depends="required,maxlength">
+                <arg key="text.headlinevn"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>255</var-value>
+                </var>                 
+            </field>
+            <field 
+                property="fckContentEN"
+                depends="required,maxlength">
+                <arg key="text.contenten"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>65535</var-value>
+                </var>                 
+            </field>
+            <field 
+                property="fckContentVN"
+                depends="required,maxlength">
+                <arg key="text.contentvn"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>65535</var-value>
+                </var>                 
+            </field>             
+        </form>
+        <form name="AdsForm">
+            <field 
+                property="txtAdsNameVN"
+                depends="required,maxlength">
+                <arg key="text.adsnamevn"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>100</var-value>
+                </var>                 
+            </field>
+            <field 
+                property="txtAdsNameEN"
+                depends="required,maxlength">
+                <arg key="text.adsnameen"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>100</var-value>
+                </var>                 
+            </field>
+            <field 
+                property="txtAdsLink"
+                depends="required,maxlength">
+                <arg key="text.adslink"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>100</var-value>
+                </var>                 
+            </field>             
+        </form>
+        <form name="EditNewsForm">
+            <field 
+                property="txtTitleEN"
+                depends="required">
+                <arg key="text.titleen"/>           
+            </field>
+            <field 
+                property="txtTitleVN"
+                depends="required">
+                <arg key="text.titlevn"/>                
+            </field>
+            <field 
+                property="txtHeadlineEN"
+                depends="required,maxlength">
+                <arg key="text.headlineen"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>255</var-value>
+                </var>                 
+            </field>
+            <field 
+                property="txtHeadlineVN"
+                depends="required,maxlength">
+                <arg key="text.headlinevn"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>255</var-value>
+                </var>                 
+            </field>
+            <field 
+                property="fckContentEN"
+                depends="required,maxlength">
+                <arg key="text.contenten"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>65535</var-value>
+                </var>                 
+            </field>
+            <field 
+                property="fckContentVN"
+                depends="required,maxlength">
+                <arg key="text.contentvn"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>65535</var-value>
+                </var>                 
+            </field>              
+        </form>         
+        <form name="CreateSubjectForm">
+            <field 
+                property="txtSubjectName"
+                depends="required">
+                <arg key="text.subjectnamevn"/>
+            </field> 
+            <field 
+                property="txtSubjectNameUS"
+                depends="required">
+                <arg key="text.subjectnameen"/>
+            </field>
+            <field 
+                property="txtSubjectCode"
+                depends="required">
+                <arg key="text.subjectcode"/>
+            </field>
+            <field 
+                property="txtPeriodOfTheory"
+                depends="required,integer">
+                <arg key="text.periodoftheory"/>
+            </field>
+            <field 
+                property="txtPeriodOfPractice"
+                depends="required,integer">
+                <arg key="text.periodofpractice"/>
+            </field>
+            <field 
+                property="txtMidtermGrade"
+                depends="required,integer">
+                <arg key="text.midtermgrade"/>
+            </field>
+            <field 
+                property="txtFinalGrade"
+                depends="required,integer">
+                <arg key="text.finalgrade"/>
+            </field>
+            <field 
+                property="txtPrerequisiteSubject"
+                depends="required">
+                <arg key="text.prerequisitesubject"/>
+            </field>
+            <field 
+                property="txtPrerequisiteSubjectVN"
+                depends="required">
+                <arg key="text.prerequisitesubjectvn"/>
+            </field>            
+            <field 
+                property="txtTimeTeaching"
+                depends="required,integer">
+                <arg key="text.timeteaching"/>
+            </field>
+            <field 
+                property="txtTeacherName"
+                depends="required">
+                <arg key="text.teacher"/>
+            </field>
+            <field 
+                property="txtLevel"
+                depends="required">
+                <arg key="text.level"/>
+            </field>
+            <field 
+                property="txtNumberChapter"
+                depends="required,integer">
+                <arg key="text.numberchapter"/>
+            </field>
+            <field 
+                property="txtCreditNumber"
+                depends="required,integer">
+                <arg key="text.creditnumber"/>
+            </field>
+            <field 
+                property="fckIntroductionVN"
+                depends="required,maxlength">
+                <arg key="text.subjectintroductionvn"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>65535</var-value>
+                </var>                  
+            </field>
+            <field 
+                property="fckIntroductionEN"
+                depends="required,maxlength">
+                <arg key="text.subjectintroductionen"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>65535</var-value>
+                </var>                  
+            </field>
+            <field 
+                property="fckProjectRequitementVN"
+                depends="required,maxlength">
+                <arg key="text.projectrequirementvn"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>65535</var-value>
+                </var>                  
+            </field>
+            <field 
+                property="fckProjectRequitementEN"
+                depends="required,maxlength">
+                <arg key="text.projectrequirementen"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>65535</var-value>
+                </var>                  
+            </field>             
+        </form>
+        <form name="EditSubjectForm">
+            <field 
+                property="txtSubjectName"
+                depends="required">
+                <arg key="text.subjectnamevn"/>
+            </field> 
+            <field 
+                property="txtSubjectNameUS"
+                depends="required">
+                <arg key="text.subjectnameen"/>
+            </field>
+            <field 
+                property="txtSubjectCode"
+                depends="required">
+                <arg key="text.subjectcode"/>
+            </field>
+            <field 
+                property="txtPeriodOfTheory"
+                depends="required,integer">
+                <arg key="text.periodoftheory"/>
+            </field>
+            <field 
+                property="txtPeriodOfPractice"
+                depends="required,integer">
+                <arg key="text.periodofpractice"/>
+            </field>
+            <field 
+                property="txtMidtermGrade"
+                depends="required,integer">
+                <arg key="text.midtermgrade"/>
+            </field>
+            <field 
+                property="txtFinalGrade"
+                depends="required,integer">
+                <arg key="text.finalgrade"/>
+            </field>
+            <field 
+                property="txtPrerequisiteSubject"
+                depends="required">
+                <arg key="text.prerequisitesubject"/>
+            </field>
+            <field 
+                property="txtPrerequisiteSubjectVN"
+                depends="required">
+                <arg key="text.prerequisitesubjectvn"/>
+            </field>            
+            <field 
+                property="txtTimeTeaching"
+                depends="required,integer">
+                <arg key="text.timeteaching"/>
+            </field>
+            <field 
+                property="txtTeacherName"
+                depends="required">
+                <arg key="text.teacher"/>
+            </field>
+            <field 
+                property="txtLevel"
+                depends="required">
+                <arg key="text.level"/>
+            </field>
+            <field 
+                property="txtNumberChapter"
+                depends="required,integer">
+                <arg key="text.numberchapter"/>
+            </field>
+            <field 
+                property="txtCreditNumber"
+                depends="required,integer">
+                <arg key="text.creditnumber"/>
+            </field>
+            <field 
+                property="fckIntroductionVN"
+                depends="required,maxlength">
+                <arg key="text.subjectintroductionvn"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>65535</var-value>
+                </var>                 
+            </field>
+            <field 
+                property="fckIntroductionEN"
+                depends="required,maxlength">
+                <arg key="text.subjectintroductionen"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>65535</var-value>
+                </var>                 
+            </field>
+            <field 
+                property="fckProjectRequitementVN"
+                depends="required,maxlength">
+                <arg key="text.projectrequirementvn"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>65535</var-value>
+                </var>                 
+            </field>
+            <field 
+                property="fckProjectRequitementEN"
+                depends="required,maxlength">
+                <arg key="text.projectrequirementen"/>
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>65535</var-value>
+                </var>                 
+            </field>             
+        </form>
+        <form name="GroupForm">
+            <field 
+                property="txtGroupNameVN"
+                depends="required">
+                <arg key="text.groupnamevn"/>
+            </field>
+            <field 
+                property="txtGroupNameEN"
+                depends="required">
+                <arg key="text.groupnameen"/>
+            </field>
+        </form>
+        <form name="CreateUserForm">
+            <field 
+                property="txtUserName"
+                depends="required">
+                <arg key="text.username"/>            
+            </field>
+            <field 
+                property="txtEmail"
+                depends="required,email">
+                <arg key="text.email"/>            
+            </field>
+            <field 
+                property="txtRealName"
+                depends="required">
+                <arg key="text.realname"/>            
+            </field> 
+            <field 
+                property="txtPassword"
+                depends="required">
+                <arg key="text.password"/>           
+            </field> 
+            <field 
+                property="txtRePassword"
+                depends="required">
+                <arg key="text.passwordconfirm"/>            
+            </field>
+            <field 
+                property="txtAddress"
+                depends="required">
+                <arg key="text.address"/>            
+            </field>
+            <field 
+                property="expiredDay"
+                depends="required,date">
+                <arg key="text.expiredday"/>
+                <var>
+                    <var-name>datePattern</var-name>
+                    <var-value>dd/MM/yyyy</var-value>
+                </var>                
+            </field>
+            <field 
+                property="birthday"
+                depends="required,date">
+                <arg key="text.birthday"/>
+                <var>
+                    <var-name>datePattern</var-name>
+                    <var-value>dd/MM/yyyy</var-value>
+                </var>                    
+            </field>     
+        </form>
+        <form name="EditUserForm">
+            <field 
+                property="txtEmail"
+                depends="required,email">
+                <arg key="text.email"/>            
+            </field>
+            <field 
+                property="txtRealName"
+                depends="required">
+                <arg key="text.realname"/>            
+            </field> 
+            <field 
+                property="txtAddress"
+                depends="required">
+                <arg key="text.address"/>            
+            </field> 
+            <field 
+                property="expiredDay"
+                depends="required,date">
+                <arg key="text.expiredday"/>
+                <var>
+                    <var-name>datePattern</var-name>
+                    <var-value>dd/MM/yyyy</var-value>
+                </var>                
+            </field>
+            <field 
+                property="birthday"
+                depends="required,date">
+                <arg key="text.birthday"/>
+                <var>
+                    <var-name>datePattern</var-name>
+                    <var-value>dd/MM/yyyy</var-value>
+                </var>                    
+            </field>     
+        </form>
+        <form name="CreateIPForm">
+            <field 
+                property="txtSourceIP"
+                depends="required">
+                <arg key="text.sourceip"/>            
+            </field>
+            <field 
+                property="txtDestinationIP"
+                depends="required">
+                <arg key="text.destinationip"/>            
+            </field>  
+        </form>        
+   </formset>
+</form-validation>

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+    <form-beans>
+        <form-bean name="AdsForm" type="uit.elib.formbean.AdsForm"/>
+        <form-bean name="CreateIPForm" type="uit.elib.formbean.CreateIPForm"/>
+        <form-bean name="EditUserForm" type="uit.elib.formbean.EditUserForm"/>
+        <form-bean name="GroupForm" type="uit.elib.formbean.GroupForm"/>
+        <form-bean name="LoadCreateUserForm" type="uit.elib.formbean.LoadCreateUserForm"/>
+        <form-bean name="CreateUserForm" type="uit.elib.formbean.CreateUserForm"/>
+        <form-bean name="EditNewsForm" type="uit.elib.formbean.EditNewsForm"/>
+        <form-bean name="CreateNewsForm" type="uit.elib.formbean.CreateNewsForm"/>
+        <form-bean name="EditSubjectForm" type="uit.elib.formbean.EditSubjectForm"/>
+        <form-bean name="EditResourceForm" type="uit.elib.formbean.EditResourceForm"/>
+        <form-bean name="LoadCreateSubjectForm" type="uit.elib.formbean.LoadCreateSubjectForm"/>
+        <form-bean name="CreateResourceForm" type="uit.elib.formbean.CreateResourceForm"/>
+        <form-bean name="CreateSubjectForm" type="uit.elib.formbean.CreateSubjectForm"/>
+    </form-beans> 
+    <global-exceptions>
+    </global-exceptions>
+    <global-forwards>
+        <forward name="welcome"  path="/Welcome.do"/>
+        <forward name="admin"  path="/Admin.do"/>
+    </global-forwards>
+    <action-mappings>       
+        <action path="/LoadSubject" type="uit.elib.action.LoadSubjectAction" scope="session">           
+            <forward name="success" path=".loadSubject"/>
+        </action>
+        <action path="/LoadFaculty" type="uit.elib.action.LoadFacultyAction" scope="session">           
+            <forward name="success" path=".loadFaculty"/>
+        </action>
+        <action path="/LoadListOfSubject" name="LoadCreateSubjectForm" type="uit.elib.action.LoadListOfSubjectAction" scope="session">
+            <forward name="success" path=".LoadListOfSubject"/>
+        </action>
+        <action path="/LoadListOfGroup" type="uit.elib.action.LoadListOfGroupAction" scope="session">
+            <forward name="success" path=".LoadListOfGroup"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/LoadListOfAds" type="uit.elib.action.LoadListOfAdsAction" scope="session">
+            <forward name="success" path=".LoadListOfAds"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/LoadListSubjectOfCategory" type="uit.elib.action.LoadListSubjectOfCategoryAction"  scope="session"/>
+        <action path="/LoadBase" type="uit.elib.action.LoadBaseAction" scope="session">           
+            <forward name="success" path=".loadBase"/>
+        </action>
+        <action path="/LoadOptional" type="uit.elib.action.LoadOptionalAction" scope="session">           
+            <forward name="success" path=".loadOptional"/>
+        </action>        
+        <action path="/SubjectIntroduction" type="uit.elib.action.LoadSubjectIntroductionAction" scope="session">
+            <forward name="success" path=".subjectIntroduction"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/LoadLectureNote" type="uit.elib.action.LoadInfoSubjectAction" scope="session">           
+            <forward name="success" path=".loadLectureNote"/>
+        </action>
+        <action path="/SubjectCategory" type="uit.elib.action.LoadSubjectCategoryAction" scope="session">           
+            <forward name="success" path=".loadSubjectCategory"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/Syllabus" type="uit.elib.action.LoadSyllabusAction" scope="session">
+            <forward name="success" path=".syllabus"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/LoadListOfResource" forward=".loadListOfResource"/>
+        <action path="/CreateSubject" name="CreateSubjectForm" type="uit.elib.action.CreateSubjectAction" scope="session">
+            <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>   
+        </action>
+        <action path="/CreateResource" name="CreateResourceForm" type="uit.elib.action.CreateResourceAction" scope="session">
+            <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>            
+        </action>
+        <action path="/CreateGroup" name="GroupForm" type="uit.elib.action.CreateGroupAction" scope="session" >
+            <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/LoadCreateSubject" name="LoadCreateSubjectForm" type="uit.elib.action.LoadCreateSubjectAction" scope="session">
+            <forward name="success" path=".createSubject"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/LoadEditResource" name="EditResourceForm" type="uit.elib.action.LoadEditResourceAction">
+            <forward name="success" path=".editResource"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/LoadEditSubject" name="EditSubjectForm" type="uit.elib.action.LoadEditSubjectAction">
+            <forward name="success" path=".editSubject"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action name="EditResourceForm" path="/EditResource" scope="session" type="uit.elib.action.EditResourceAction">
+            <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action name="EditSubjectForm" path="/EditSubject" scope="session" type="uit.elib.action.EditSubjectAction">
+            <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/LoadCreateResource" type="uit.elib.action.LoadCreateResourceAction">
+            <forward name="success" path=".createResource"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/LoadThesis" type="uit.elib.action.LoadThesisAction">
+            <forward name="success" path=".loadThesis"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/LoadThesisDetail" type="uit.elib.action.LoadThesisDetailAction">
+            <forward name="success" path=".loadThesisDetail"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/LoadListOfGroupDetail" type="uit.elib.action.LoadGroupDetailAction">
+            <forward name="success" path=".loadGroupDetail"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/CreateAds" name="AdsForm" type="uit.elib.action.CreateAdsAction">
+            <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/CreateNews" name="CreateNewsForm" type="uit.elib.action.CreateNewsAction">
+            <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/LoadEditAds" type="uit.elib.action.LoadEditAdsAction">
+            <forward name="success" path=".loadEditAds"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/LoadEditNews" name="EditNewsForm" type="uit.elib.action.LoadEditNewsAction">
+            <forward name="success" path=".editNews"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/LoadEditGroup" type="uit.elib.action.LoadEditGroupAction">
+            <forward name="success" path=".loadEditGroup"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/EditAds" name="AdsForm" type="uit.elib.action.EditAdsAction">
+            <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/EditNews" name="EditNewsForm" type="uit.elib.action.EditNewsAction">
+            <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/EditGroup" name="GroupForm" type="uit.elib.action.EditGroupAction">
+            <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/EditGroupDetail" type="uit.elib.action.EditGroupDetailAction">
+            <forward name="success" path="/jsp/success.jsp"/>
+        </action>
+        <action path="/Welcome" type="uit.elib.action.WelcomeAction">
+            <forward name="success" path=".homepage"/>
+        </action>
+        <action path="/LoadNews" type="uit.elib.action.LoadNewsAction">
+            <forward name="success" path=".loadNews"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/LoadAllNews" type="uit.elib.action.LoadAllNewsAction">
+            <forward name="success" path=".listAllNews"/>
+        </action>
+        <action path="/LoadCreateUser" name="LoadCreateUserForm" type="uit.elib.action.LoadCreateUserAction">
+            <forward name="success" path=".createUser"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/CreateUser" name="CreateUserForm" type="uit.elib.action.CreateUserAction">
+            <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>           
+        <action path="/LoadEditUser" name="EditUserForm" type="uit.elib.action.LoadEditUserAction">
+            <forward name="success" path=".editUser"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>            
+        <action path="/EditUser" name="EditUserForm"  scope="session" type="uit.elib.action.EditUserAction">
+            <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/CreateIP" name="CreateIPForm"  scope="session" type="uit.elib.action.CreateIPAction">
+            <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>
+        <action path="/Logout" type="uit.elib.action.LogoutAction">
+            <forward name="success" path="/Welcome.do" redirect="true"/> 
+        </action>
+        <action path="/DownLoad" type="uit.elib.action.DownLoadAction"  scope="session">
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/> 
+        </action>
+        <action path="/LoadGroupDetailTable" type="uit.elib.action.LoadGroupDetailTableAction"/>
+        <action path="/LoadLogin" type="uit.elib.action.LoadLoginAction">
+            <forward name="success" path=".loadLogin"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/> 
+        </action>
+        <action path="/DeleteAds" type="uit.elib.action.DeleteAdsAction"/>
+        <action path="/Help" forward =".help"/>
+        <action path="/Paq" forward =".paq"/>
+        <action path="/About" forward =".about"/>
+        <action path="/Contact" forward =".contact"/>
+        <action path="/PrivacyStatement" forward =".privacyStatement"/>
+        <action path="/Search" forward =".search"/>
+        <action path="/Login" type="uit.elib.action.LoginAction"/>           
+        <action path="/LoadIPTable" type="uit.elib.action.LoadIPTableAction"/>
+        <action path="/DeleteUser" type="uit.elib.action.DeleteUserAction"/>
+        <action path="/LoadUserTable" type="uit.elib.action.LoadUserTableAction"/>
+        <action path="/CheckUser" scope="session" type="uit.elib.action.CheckUserAction"/>
+        <action path="/DeleteGroup" type="uit.elib.action.DeleteGroupAction"/>
+        <action path="/DeleteNews" type="uit.elib.action.DeleteNewsAction"/>
+        <action path="/LoadListOfNews" forward =".listOfNews"/>
+        <action path="/LoadListOfUser" forward =".listOfUser"/>
+        <action path="/LoadNewsTable" type="uit.elib.action.LoadNewsTableAction"/>
+        <action path="/CheckSyllabusImage" type="uit.elib.action.CheckSyllabusImageAction"/>
+        <action path="/DeleteSubject" type="uit.elib.action.DeleteSubjectAction"/>
+        <action path="/DeleteResource" type="uit.elib.action.DeleteResourceAction"/>
+        <action path="/LoadResourceTable" type="uit.elib.action.LoadResourceTableAction" scope="session"/>  
+        <action path="/LoadChapter" type="uit.elib.action.LoadChapterAction" scope="session"/>  
+        <action path="/Admin" forward=".adminPage"  scope="session"/>
+        <action path="/Mod" forward=".modPage"  scope="session"/>
+        <action path="/LoadCreateAds" forward=".createAds"  scope="session"/>
+        <action path="/LoadCreateNews" forward=".createNews"  scope="session"/>
+        <action path="/LoadCreateIP" forward=".createIP"  scope="session"/>
+        <action path="/LoadCreateGroup" forward=".createGroup"  scope="session"/>
+        <action path="/Locale" type="uit.elib.action.languageSelectAction" parameter="method" validate="false"  scope="session"/>
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="uit/elib/resource/ApplicationResource"/>    
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>   
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+</struts-config>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <form-beans>
+        <form-bean name="CreateResourceActionForm" type="uit.elib.formbean.CreateResourceActionForm"/>
+        <form-bean name="CreateSubjectActionForm" type="uit.elib.formbean.CreateSubjectActionForm"/>
+    </form-beans>
+    
+    <global-exceptions>
+    
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="welcome"  path="/Welcome.do"/>
+        <forward name="admin"  path="/Admin.do"/>
+    </global-forwards>
+
+    <action-mappings>
+        <action input="/" name="CreateSubjectActionForm" path="/CreateSubject" scope="session" type="uit.elib.action.CreateSubjectAction">
+            <forward name="success" path="/Welcome.do"/>
+        </action>
+        <action path="/LoadSubject" type="uit.elib.action.LoadSubjectAction">           
+            <forward name="success" path=".loadSubject"/>
+        </action>
+
+        <action  path="/SubjectHome" type="uit.elib.action.SubjectHomeAction">
+            <forward name="success" path=".subjectHome"/>
+        </action>
+
+        <action path="/LoadLectureNote" type="uit.elib.action.LoadInfoSubjectAction">           
+            <forward name="success" path=".loadLectureNote"/>
+        </action>
+        <action path="/LoadProject" type="uit.elib.action.LoadInfoSubjectAction">           
+            <forward name="success" path=".loadProject"/>
+</action>
+        <action path="/SubjectCategory" type="uit.elib.action.LoadSubjectCategoryAction">           
+            <forward name="success" path=".loadSubjectCategory"/>
+
+        </action>
+        <action path="/Syllabus" type="uit.elib.action.SyllabusAction">
+            <forward name="success" path=".syllabus"/>
+        </action>
+
+
+        <action path="/DownLoad" type="uit.elib.action.DownLoadAction"/>  
+        <action input="/admin/createResource.jsp" name="CreateResourceActionForm" path="/CreateResource" scope="session" type="uit.elib.action.CreateResourceAction"/>
+        <action path="/AjaxGetChapterBySubjectID" type="uit.elib.action.AjaxGetChapterBySubjectID"/>
+        <action path="/Welcome" forward=".homepage"/>
+        <action path="/Admin" forward=".adminPage"/>
+        <action path="/materialPage" forward=".materialPage"/>
+        <action path="/lecturesPage" forward=".lecturesPage"/>
+        <action path="/generalinformationPage" forward=".generalinformationPage"/>
+        <action path="/createResource" forward=".createResourcePage"/>
+        <action path="/Locale" type="uit.elib.action.languageSelectAction" parameter="method" validate="false"/>
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="uit/elib/resource/ApplicationResource"/>    
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>

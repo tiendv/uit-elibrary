@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="elibrary"/>
+  <table-filter match-name="news"/>
+  <table-filter match-name="user"/>
+  <table-filter match-name="subjectcategory"/>
+  <table-filter match-name="ip"/>
+  <table-filter match-name="faculty"/>
+  <table-filter match-name="group"/>
+  <table-filter match-name="resource"/>
+  <table-filter match-name="groupdetail"/>
+  <table-filter match-name="level"/>
+  <table-filter match-name="subject"/>
+  <table-filter match-name="resourcecategory"/>
+  <table-filter match-name="advertising"/>
+</hibernate-reverse-engineering>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 17, 2012 11:57:50 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="uit.elib.dto.Group" table="group" catalog="elibrary">
+        <id name="groupId" type="java.lang.Integer">
+            <column name="GroupID" />
+            <generator class="identity" />
+        </id>
+        <property name="groupNameEn" type="string">
+            <column name="GroupNameEN" length="45" />
+        </property>
+        <property name="groupNameVn" type="string">
+            <column name="GroupNameVN" length="45" />
+        </property>
+        <set name="groupdetails" inverse="true">
+            <key>
+                <column name="GroupID" />
+            </key>
+            <one-to-many class="uit.elib.dto.Groupdetail" />
+        </set>
+        <set name="users" inverse="true">
+            <key>
+                <column name="GroupID" />
+            </key>
+            <one-to-many class="uit.elib.dto.User" />
+        </set>
+    </class>
+</hibernate-mapping>

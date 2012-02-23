@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 17, 2012 11:57:50 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="uit.elib.dto.Faculty" table="faculty" catalog="elibrary">
+        <id name="facultyId" type="int">
+            <column name="FacultyID" />
+            <generator class="assigned" />
+        </id>
+        <property name="facultyNameEn" type="string">
+            <column name="FacultyNameEN" />
+        </property>
+        <property name="facultyNameVn" type="string">
+            <column name="FacultyNameVN" />
+        </property>
+        <set name="subjects" inverse="true">
+            <key>
+                <column name="FacultyID" />
+            </key>
+            <one-to-many class="uit.elib.dto.Subject" />
+        </set>
+        <set name="resources" inverse="true">
+            <key>
+                <column name="FacultyID" />
+            </key>
+            <one-to-many class="uit.elib.dto.Resource" />
+        </set>
+        <set name="users" inverse="true">
+            <key>
+                <column name="FacultyID" />
+            </key>
+            <one-to-many class="uit.elib.dto.User" />
+        </set>
+    </class>
+</hibernate-mapping>
