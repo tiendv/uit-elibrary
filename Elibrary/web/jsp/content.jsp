@@ -144,7 +144,7 @@
 
                     news_link +='</DIV><DIV id="demo2"></DIV></DIV>';
                      document.write(news_link);
-                     var speed=33;
+                     var speed=60;
                      document.getElementById("demo2").innerHTML=document.getElementById("demo1").innerHTML;
                      function Marquee(){
                         if(document.getElementById("demo2").offsetTop-document.getElementById("demo").scrollTop<=310)
