@@ -160,7 +160,7 @@
         <put name="leftmenu"   value="/mod/layout/leftmenu.jsp" />
     </definition>    
     <definition name=".createSubject" path="/jsp/mainpage.jsp">
-        <put name="title"  value=" UIT library Administrator" />
+        <put name="title"  value=" UIT library Moderator" />
         <put name="description"  value="UIT library Administrator" />
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
@@ -169,7 +169,7 @@
         <put name="leftmenu"   value="/mod/layout/leftmenu.jsp" />
     </definition>
     <definition name=".editSubject" path="/jsp/mainpage.jsp">
-        <put name="title"  value=" UIT library Administrator" />
+        <put name="title"  value=" UIT library Moderator" />
         <put name="description"  value="UIT library Administrator" />
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
@@ -178,7 +178,7 @@
         <put name="leftmenu"   value="/mod/layout/leftmenu.jsp" />
     </definition>
     <definition name=".LoadListOfSubject" path="/jsp/mainpage.jsp">
-        <put name="title"  value=" UIT library Administrator" />
+        <put name="title"  value=" UIT library Moderator" />
         <put name="description"  value="UIT library Administrator" />
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
@@ -187,7 +187,7 @@
         <put name="leftmenu"   value="/mod/layout/leftmenu.jsp" />
     </definition>    
     <definition name=".createResource" path="/jsp/mainpage.jsp">
-        <put name="title"  value=" UIT library Administrator" />
+        <put name="title"  value=" UIT library Moderator" />
         <put name="description"  value="UIT library Administrator" />
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
@@ -196,7 +196,7 @@
         <put name="leftmenu"   value="/mod/layout/leftmenu.jsp" />
     </definition>
     <definition name=".editResource" path="/jsp/mainpage.jsp">
-        <put name="title"  value=" UIT library Administrator" />
+        <put name="title"  value=" UIT library Moderator" />
         <put name="description"  value="UIT library Administrator" />
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
@@ -205,7 +205,7 @@
         <put name="leftmenu"   value="/mod/layout/leftmenu.jsp" />
     </definition>
      <definition name=".loadListOfResource" path="/jsp/mainpage.jsp">
-        <put name="title"  value=" UIT library Administrator" />
+        <put name="title"  value=" UIT library Moderator" />
         <put name="description"  value="UIT library Administrator" />
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
@@ -214,7 +214,7 @@
         <put name="leftmenu"   value="/mod/layout/leftmenu.jsp" />
     </definition>    
     <definition name=".createNews" path="/jsp/mainpage.jsp">
-        <put name="title"  value=" UIT library Administrator" />
+        <put name="title"  value=" UIT library Moderator" />
         <put name="description"  value="UIT library Administrator" />
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
@@ -223,7 +223,7 @@
         <put name="leftmenu"   value="/mod/layout/leftmenu.jsp" />
     </definition>
     <definition name=".editNews" path="/jsp/mainpage.jsp">
-        <put name="title"  value=" UIT library Administrator" />
+        <put name="title"  value=" UIT library Moderator" />
         <put name="description"  value="UIT library Administrator" />
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
@@ -232,7 +232,7 @@
         <put name="leftmenu"   value="/mod/layout/leftmenu.jsp" />
     </definition>    
     <definition name=".listOfNews" path="/jsp/mainpage.jsp">
-        <put name="title"  value=" UIT library Administrator" />
+        <put name="title"  value=" UIT library Moderator" />
         <put name="description"  value="UIT library Administrator" />
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
@@ -260,7 +260,7 @@
         <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
     </definition>
      <definition name=".loadThesisDetail" path="/jsp/mainpage.jsp">
-        <put name="title"  value=" Thesis" />
+        <put name="title"  value=" Thesis detail" />
         <put name="description"  value="Thesis" />
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
@@ -314,8 +314,8 @@
         <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
     </definition>     
     <definition name=".loadSubjectCategory" path="/jsp/mainpage.jsp">
-        <put name="title"  value="Project Information" />
-        <put name="description"  value="Project Information" />
+        <put name="title"  value="Subject Information" />
+        <put name="description"  value="Subject Information" />
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
         <put name="footer" value="/jsp/footer.jsp" />
@@ -323,8 +323,8 @@
         <put name="leftmenu"   value="/jsp/leftmenusubject.jsp" />
     </definition>
     <definition name=".subjectIntroduction" path="/jsp/mainpage.jsp">
-        <put name="title"  value="Project Information" />
-        <put name="description"  value="Project Information" />
+        <put name="title"  value="Subject Information" />
+        <put name="description"  value="Subject Information" />
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
         <put name="footer" value="/jsp/footer.jsp" />
@@ -332,8 +332,8 @@
         <put name="leftmenu"   value="/jsp/leftmenusubject.jsp" />
     </definition>
     <definition name=".syllabus" path="/jsp/mainpage.jsp">
-        <put name="title"  value="Project Information" />
-        <put name="description"  value="Project Information" />
+        <put name="title"  value="Subject Information" />
+        <put name="description"  value="Subject Information" />
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
         <put name="footer" value="/jsp/footer.jsp" />
@@ -341,7 +341,7 @@
         <put name="leftmenu"   value="/jsp/leftmenusubject.jsp" />
     </definition>
     <definition name=".loadLogin" path="/jsp/mainpage.jsp">
-        <put name="title"  value="Project Information" />
+        <put name="title"  value=" Login" />
         <put name="description"  value="Project Information" />
         <put name="header" value="/jsp/header.jsp" />
         <put name="menu"   value="/jsp/menu.jsp" />
