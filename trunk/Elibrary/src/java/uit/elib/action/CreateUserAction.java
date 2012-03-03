@@ -85,7 +85,7 @@ public class CreateUserAction extends org.apache.struts.action.Action {
                 user.setBirthday(sqlDate);
                 date = simpleDateFormat.parse(createUserForm.getExpiredDay());
                 sqlDate = new java.sql.Date(date.getTime());
-                user.setExpiredDay(date);
+                user.setExpiredDay(sqlDate);
                 user.setSchool(createUserForm.getTxtSchool());
                 userBO.insert(user);
                 Boolean success =true;

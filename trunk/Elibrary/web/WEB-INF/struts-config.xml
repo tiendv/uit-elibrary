@@ -189,6 +189,10 @@
             <forward name="success" path=".loadLogin"/>
             <forward name="unsuccess" path="/Welcome.do" redirect="true"/> 
         </action>
+        <action path="/EditListOfGroupDetail" type="uit.elib.action.EditListOfGroupDetailAction">
+            <forward name="success" path="/jsp/success.jsp"/>
+            <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
+        </action>    
         <action path="/DeleteAds" type="uit.elib.action.DeleteAdsAction"/>
         <action path="/Help" forward =".help"/>
         <action path="/Paq" forward =".paq"/>
