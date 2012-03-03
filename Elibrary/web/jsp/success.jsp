@@ -41,19 +41,13 @@
 </head> 
 <body>
 <%
-    if(request.getAttribute("success")==null)
-               response.sendRedirect("../index.jsp");
     if(request.getAttribute("success")!=null)
     {
-        if(!(Boolean)request.getAttribute("success"))
-            response.sendRedirect("../index.jsp");
-    }
-    if(request.getAttribute("href")==null)
-               response.sendRedirect("../index.jsp");
-    if(request.getAttribute("href")!=null){
+        if((Boolean)request.getAttribute("success"))
+            if(request.getAttribute("href")!=null){    
 %>
 <input type="hidden" id="href" value="<%=request.getAttribute("href")%>" />
-<%}%> 
-    <div id="myDialog" title="<bean:message key="text.success"/>"><bean:message key="text.youhavesavedsuccessful"/></div> 
+<div id="myDialog" title="<bean:message key="text.success"/>"><bean:message key="text.youhavesavedsuccessful"/></div> 
+<%}}%> 
 </body> 
 </html>   

@@ -66,7 +66,7 @@ if(session.getAttribute("username")!=null)
         })
         .done()
         {
-            //window.location ="LoadListOfGroupDetail.do";
+            window.location ="EditListOfGroupDetail.do";
         }
     }
     function cbb_group_changed()
