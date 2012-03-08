@@ -35,7 +35,7 @@ if(session.getAttribute("username")!=null)
     List listFaculty = (List)request.getAttribute("listFaculty");
     List listLevel = (List)request.getAttribute("listLevel");                            
     int language =1; // English
-    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
+    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vi_VN"))
         language = 2; // VietNamese
 %>
 <h2> <bean:message key="text.insertnewresource"/></h2>

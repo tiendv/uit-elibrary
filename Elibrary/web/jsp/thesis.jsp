@@ -28,7 +28,7 @@ if(checkGroupDetail.GroupDetail(username,2,1)==true)
     List<Faculty> listFaculty=  (List<Faculty>)request.getAttribute("listFaculty");
     List<Level> listLevel =  (List<Level>)request.getAttribute("listLevel");
     int language =1; // English
-    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
+    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vi_VN"))
         language=2; // VietNamese
     if(listResource.size()>0){
     int r=0;                     

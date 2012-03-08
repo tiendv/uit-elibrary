@@ -33,7 +33,7 @@ if(session.getAttribute("username")!=null)
     <h1> <bean:message key="text.editsubject"/> </h1>    
      
         <%int language =1; // English
-                    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
+                    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vi_VN"))
                         language = 2; // VietNamese
                     List<Subject> subjectInfo = (List<Subject>)request.getAttribute("subjectInfo");
                     List<Faculty> listFaculty = (List<Faculty>)request.getAttribute("listFaculty");

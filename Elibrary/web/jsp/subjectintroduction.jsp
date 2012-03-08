@@ -19,7 +19,7 @@
     Subject subject =  (Subject)request.getAttribute("subject");
     // get current language
     int language =1; // English
-    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
+    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vi_VN"))
         language=2; // VietNamese            
 %>
 <div class="hyperlink_title_subject">

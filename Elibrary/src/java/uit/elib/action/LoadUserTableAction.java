@@ -49,7 +49,7 @@ public class LoadUserTableAction extends org.apache.struts.action.Action {
             {           
                 response.setCharacterEncoding("UTF-8");
                 int language =1; // English
-                if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
+                if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vi_VN"))
                     language = 2; // VietNamese
                 List<User> listUser = UserBO.getUserBO().getUser();
                 int color = 1;
