@@ -32,7 +32,7 @@ if(session.getAttribute("username")!=null)
 <form id="EditResourceForm" name="EditResourceForm" method="post" action="EditResource.do"  enctype="multipart/form-data">
     <%
         int language =1; // English
-        if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
+        if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vi_VN"))
             language = 2; // VietNamese
         String Mb=""; // size file (MB)
         DecimalFormat dec = new DecimalFormat("#.##");            

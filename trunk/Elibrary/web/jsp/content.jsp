@@ -30,7 +30,7 @@
     List<News> listNewsCate2 = (List<News>)request.getAttribute("listNewsCate2");
     List<Advertising> listAds = (List<Advertising>)request.getAttribute("listAds");
     int language =1; // English
-    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
+    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vi_VN"))
         language=2; // VietNamese   
 %>
 <div class="divcontent">

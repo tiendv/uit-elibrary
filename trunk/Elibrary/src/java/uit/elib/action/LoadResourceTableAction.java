@@ -69,7 +69,7 @@ public class LoadResourceTableAction extends org.apache.struts.action.Action {
                 SubjectBO subjectBO =  SubjectBO.getSubjectBO();
                 response.setCharacterEncoding("UTF-8");
                 int language =1; // English
-                if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
+                if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vi_VN"))
                     language = 2; // VietNamese
                 int color = 1;
                 if(listResource.size()>0)

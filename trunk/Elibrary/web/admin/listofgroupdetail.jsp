@@ -24,7 +24,7 @@ if(session.getAttribute("username")!=null)
 <link href="<html:rewrite page='/css/uit.css'/>" rel="stylesheet" type="text/css" />
 <%
     int language =1; // English
-    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
+    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vi_VN"))
         language = 2; // VietNamese
     List<Resourcecategory> listResourceCategory = (List <Resourcecategory>)request.getAttribute("listResourceCategory");
 %>

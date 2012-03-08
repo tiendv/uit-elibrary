@@ -33,7 +33,7 @@ public class languageSelectAction extends DispatchAction {
         url = formatToPath(url,webHttp,request);
         System.out.print("URL FORMAT:"+url);
         request.getSession().setAttribute(
-                Globals.LOCALE_KEY, new Locale("vn"));
+                Globals.LOCALE_KEY, new Locale("vi","VN"));
         if (!url.isEmpty()) {
             myAction = new ActionForward(url, true);
         }

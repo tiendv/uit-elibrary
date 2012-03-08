@@ -29,7 +29,7 @@
                     int subjectID = Integer.parseInt(request.getAttribute("subjectID").toString());
                     int resourceCategoryID = Integer.parseInt(request.getAttribute("resourceCategoryID").toString());
                     int language =1; // English
-                    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
+                    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vi_VN"))
                         language = 2; // VietNamese
                     int color=1;
         %>

@@ -21,7 +21,7 @@ if(session.getAttribute("username")!=null)
 <!DOCTYPE html>
 <%
     int language =1; // English
-    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
+    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vi_VN"))
         language = 2; // VietNamese
 %>
 <jsp:useBean id="resourceCategoryBO" class="uit.elib.bo.ResourceCategoryBO" scope="page"/>

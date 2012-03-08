@@ -26,7 +26,7 @@ if(checkGroupDetail.GroupDetail(username,12,1)==true)
         List<Resource> listResource = (List<Resource>)request.getAttribute("listResource");
         // get current language
         int language =1; // English
-        if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
+        if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vi_VN"))
             language=2; // VietNamese            
     %>
     <div class="hyperlink_title_subject"><a href= "LoadSubject.do"><bean:message key="text.subject"/></a> ><a href="SubjectIntroduction.do?subjectID=<%=subject.getSubjectId()%>"> 

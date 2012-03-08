@@ -18,7 +18,7 @@ if(session.getAttribute("username")!=null)
 <%@taglib uri="http://struts.apache.org/tags-html"  prefix="html"%>
 <%   
     int language =1; // English
-    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
+    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vi_VN"))
         language = 2; // VietNamese
 %>
 <link href="./css/base/jquery.ui.datepicker.css" rel="stylesheet" type="text/css"/> 
