@@ -17,7 +17,7 @@
         List<Subject> listSubject;
         listSubject = (List<Subject>)request.getAttribute("listSubject");
         int language =1; // English
-        if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vn"))
+        if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vi_VN"))
             language=2; // VietNamese
     %>
     <%                 
