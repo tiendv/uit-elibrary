@@ -39,7 +39,7 @@
             <form method="post" action="./Locale.do" id="Vietnamese_Form">
             <input type="hidden" name="method" value="vietnamese"/>
             <script language="javscript" type="text/javascript">
-            document.write('<input type="hidden" name="page" value='+ document.location.href +'>');
+                document.write('<input type="hidden" name="page" value='+ document.location.href +'>');
             </script>
             <a href="#" onclick='document.forms["Vietnamese_Form"].submit();'>
             <img src="<bean:message key="image.vn"/>" alt="<bean:message key="image.vn.alttext"/>"/>
@@ -53,7 +53,7 @@
             <form method="post" action="./Locale.do" id="English_Form">
             <input type="hidden" name="method" value="english"/>
             <script language="javscript" type="text/javascript">
-            document.write('<input type="hidden" name="page" value='+ document.location.href +'>');
+                document.write('<input type="hidden" name="page" value='+ document.location.href +'>');
             </script>
             <a href="#" onclick='document.forms["English_Form"].submit();'>
             <img src="<bean:message key="image.en"/>" alt="<bean:message key="image.en.alttext"/>"/>
