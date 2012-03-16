@@ -64,7 +64,6 @@ public class LoadThesisAction extends org.apache.struts.action.Action {
                         List<Resource> listResource = ResourceBO.getResourceBO().getAllResourceByFR(facultyID, 2, order);
                         List<Level> listLevel = LevelBO.getLevelBO().getAllLevel();
                         request.setAttribute("listResource", listResource);
-                        request.setAttribute("listFaculty", listFaculty);
                         request.setAttribute("listLevel", listLevel);
                         return mapping.findForward(SUCCESS);
                     }
@@ -81,7 +80,6 @@ public class LoadThesisAction extends org.apache.struts.action.Action {
                         List<Resource> listResource = ResourceBO.getResourceBO().getAllResource(2,order);
                         List<Level> listLevel = LevelBO.getLevelBO().getAllLevel();
                         request.setAttribute("listResource", listResource);
-                        request.setAttribute("listFaculty", listFaculty);
                         request.setAttribute("listLevel", listLevel);
                         return mapping.findForward(SUCCESS);
                     }

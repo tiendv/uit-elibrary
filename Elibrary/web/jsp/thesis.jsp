@@ -25,7 +25,6 @@ if(checkGroupDetail.GroupDetail(username,2,1)==true)
 <!DOCTYPE html>
 <% 
     List<Resource> listResource =  (List<Resource>)request.getAttribute("listResource");
-    List<Faculty> listFaculty=  (List<Faculty>)request.getAttribute("listFaculty");
     List<Level> listLevel =  (List<Level>)request.getAttribute("listLevel");
     int language =1; // English
     if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vi_VN"))
