@@ -27,7 +27,6 @@ if(session.getAttribute("username")!=null)
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
  <link href="<html:rewrite page='/css/uit.css'/>" rel="stylesheet" type="text/css" />
 
-
 <form id="createResource" method="post" action="CreateResource.do"  enctype="multipart/form-data">
 <%
     List listResourceCategory = (List)request.getAttribute("listResourceCategory");
@@ -141,7 +140,6 @@ if(session.getAttribute("username")!=null)
     </FCK:editor>                          
 </div>
 <%-- Add resource with resource category is project (ID =6) --%>
-
 <div id="divProject" class="none">
     <div class="resource1">
         <div class="resource_left"><bean:message key="text.subject"/></div>
@@ -203,9 +201,7 @@ if(session.getAttribute("username")!=null)
         </jsp:attribute>
     </FCK:editor>
 </div>
-
 <%-- Add resource with resource category is Picture, Reading (ID =8,9) --%>
-
 <div id="divPictureandReading" class="none">
     <div class="resource2">
         <div class="resource_left"><bean:message key="text.subject"/></div>

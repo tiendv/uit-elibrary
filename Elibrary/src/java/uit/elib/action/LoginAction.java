@@ -50,7 +50,7 @@ public class LoginAction extends org.apache.struts.action.Action {
                     {    
                         if(listUser.get(0).getUserName().equals("admin"))
                         {
-                            HttpSession httpSession = request.getSession(true);
+                            HttpSession httpSession = request.getSession();
                             httpSession.setAttribute("username", listUser.get(0).getUserName());
                             httpSession.setAttribute("group", listUser.get(0).getGroup().getGroupId());
                             response.getWriter().println("1");                     
@@ -69,7 +69,7 @@ public class LoginAction extends org.apache.struts.action.Action {
                                 response.getWriter().println("2"); // expired day
                                 return null;
                             }
-                            HttpSession httpSession = request.getSession(true);
+                            HttpSession httpSession = request.getSession();
                             httpSession.setAttribute("username", listUser.get(0).getUserName());
                             httpSession.setAttribute("group", listUser.get(0).getGroup().getGroupId());
                             response.getWriter().println("1");                     
