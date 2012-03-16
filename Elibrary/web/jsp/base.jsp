@@ -184,17 +184,6 @@
         %>
         <% color ++; %>
     </tr >
-        <% }    
-            if(j+1>=listResource.size())
-            {
-                j++;
-                break;
-            }
-            if(j+1>=listResource.size()||!listSubject.get(i).getSubjectId().equals(listResource.get(j+1).getSubject().getSubjectId()))
-            {    
-                j++;
-                break;
-            }
-        } %>
+        <% }} %>
 </table>
 <% } %> 
