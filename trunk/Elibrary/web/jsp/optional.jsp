@@ -120,7 +120,7 @@
          <%
             int numberOfResource=0;
             int newestPosition=-1;
-            int lecturePosition =-1;
+            int chapterID =-1;
             int []arrayIcon = new int[11] ;
             for(int a=0;a<11;a++)
                 arrayIcon[a]=0;
@@ -139,7 +139,7 @@
                 if(newestPosition==-1)
                     newestPosition=j;
                 if(listResource.get(j).getResourcecategory().getResourceCategoryId()==7)
-                    lecturePosition=j;
+                    chapterID=j;
                 else
                     arrayIcon[listResource.get(j).getResourcecategory().getResourceCategoryId()-1]=1;
                 j++;
@@ -147,7 +147,7 @@
                     break;
             }
                 j--;
-            if(lecturePosition>=0)
+            if(chapterID>=0)
             {    
         %>                       
         <tr>
@@ -165,18 +165,18 @@
         { %> 
         <td <% if(color%2==0){ %>class="td_chapter_1_content_even"<%}%> 
             <% if(color%2!=0){ %>class="td_chapter_1_content_odd"<%}%> >
-            <%=listResource.get(lecturePosition).getOrderChapter() %> <!--Chapter-->
+            <%=listResource.get(chapterID).getOrderChapter() %> <!--Chapter-->
         </td>  
         <% if(language==1) {%>                              
             <td <% if(color%2==0){ %>class="td_chapter_2_content_even"<%}%> 
                 <% if(color%2!=0){ %>class="td_chapter_2_content_odd"<%}%> >
-                <%=listResource.get(lecturePosition).getResourceNameEn() %> <!--English Resource Name-->
+                <%=listResource.get(chapterID).getResourceNameEn() %> <!--English Resource Name-->
             </td>
         <% } %> 
         <% if(language==2) {%>                               
             <td <% if(color%2==0){ %>class="td_chapter_2_content_even"<%}%> 
                 <% if(color%2!=0){ %>class="td_chapter_2_content_odd"<%}%> >
-                <%=listResource.get(lecturePosition).getResourceNameVn() %> <!--Vietnamese Resource Name-->
+                <%=listResource.get(chapterID).getResourceNameVn() %> <!--Vietnamese Resource Name-->
             </td>
         <% } %>
             <td <% if(color%2==0){ %>class="td_chapter_3_content_even"<%}%> 
@@ -190,13 +190,13 @@
                     resourceCategoryId=a+1 ;
                 %>                           
                 <% if(resourceCategoryId==4 ){ %>
-                    <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+4+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.assignments"/>" class="assignmentsSolutions" title="<bean:message key="text.assignments"/>"></a><% } %>
+                    <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+4+"&"+"orderChapter="+listResource.get(chapterID).getOrderChapter() %> alt="<bean:message key="text.assignments"/>" class="assignmentsSolutions" title="<bean:message key="text.assignments"/>"></a><% } %>
                 <% if(resourceCategoryId==5 ){ %>
-                    <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+5+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.example"/>" class="examsSolutions" title="<bean:message key="text.example"/>"></a>  <% } %>
+                    <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+5+"&"+"orderChapter="+listResource.get(chapterID).getOrderChapter() %> alt="<bean:message key="text.example"/>" class="examsSolutions" title="<bean:message key="text.example"/>"></a>  <% } %>
                 <% if(resourceCategoryId==10 ){ %>
-                    <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+10+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.lecturenote"/>" class="lectureNotes" title="<bean:message key="text.lecturenote"/>"></a><% } %>                           
+                    <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+10+"&"+"orderChapter="+listResource.get(chapterID).getOrderChapter() %> alt="<bean:message key="text.lecturenote"/>" class="lectureNotes" title="<bean:message key="text.lecturenote"/>"></a><% } %>                           
                 <% if(resourceCategoryId==11 ){ %>
-                    <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+11+"&"+"orderChapter="+listResource.get(lecturePosition).getOrderChapter() %> alt="<bean:message key="text.video"/>" class="multimediaContent" title="<bean:message key="text.video"/>"></a>   <% } %>
+                    <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+11+"&"+"orderChapter="+listResource.get(chapterID).getOrderChapter() %> alt="<bean:message key="text.video"/>" class="multimediaContent" title="<bean:message key="text.video"/>"></a>   <% } %>
                 <%}%>       
                 </div>
             <%}%>  
