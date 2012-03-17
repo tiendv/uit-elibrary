@@ -408,6 +408,8 @@ if(session.getAttribute("username")!=null)
         if (chosenoption.value=="4"||chosenoption.value=="5"||chosenoption.value=="10"||chosenoption.value=="11") //assignments,example,lecture note,video
         {
             var alertString = validateResourceName();
+            if($("#dropOrderChapterSubject").value==null) // chapter
+                alertString =alertString+"\r\n<bean:message key="text.orderchapter" /> <bean:message key="text.required" />";            
             if($("#fileResourceChapter").val().trim(" ").length==0) // file
                 alertString =alertString+"\r\n<bean:message key="text.donotchoose" /> <bean:message key="text.uploadfile" />";
             if(alertString!="")
