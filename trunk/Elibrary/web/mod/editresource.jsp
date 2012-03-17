@@ -323,7 +323,8 @@ if(session.getAttribute("username")!=null)
                 </select>
             </div>
             <div class="resource_left"><bean:message key="text.orderchapter"/></div>
-            <div class="resource_left"><input class="textbox" id="txtOrderChapter" name="txtOrderChapter" type="text" value="<%=listResource.get(0).getOrderChapter()%>" maxlength="2"/></div>    
+            <div class="resource_left"><input class="textbox" id="txtOrderChapter" name="txtOrderChapter" type="text" value="<%=listResource.get(0).getOrderChapter()%>" maxlength="2"/></div>
+            <input type="hidden" id="txtOldOrderChapter" value="<%=listResource.get(0).getOrderChapter()%>"> 
         </div>
         <div class="cleared"></div>          
         <h2><bean:message key="text.chaptersummaryvn"/></h2>
@@ -608,10 +609,10 @@ if(session.getAttribute("username")!=null)
                 alertString =alertString+"\r\n<bean:message key="text.chaptersummaryvn" /> <bean:message key="text.required" />";
             if(FCKeditorAPI.GetInstance("fckThesisSummaryEN").GetXHTML().length==0) // ThesisSummaryEN
                 alertString =alertString+"\r\n<bean:message key="text.chaptersummaryen" /> <bean:message key="text.required" />";
-            if(FCKeditorAPI.GetInstance("fckThesisSummaryVN").GetXHTML().length>65535) // ThesisSummaryVN
-                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryvn" /> <bean:message key="text.greatthan" /> 65535 <bean:message key="text.chars" />";
-            if(FCKeditorAPI.GetInstance("fckThesisSummaryEN").GetXHTML().length>65535) // ThesisSummaryEN
-                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryen" /> <bean:message key="text.greatthan" /> 65535 <bean:message key="text.chars" />";            
+            if(FCKeditorAPI.GetInstance("fckThesisSummaryVN").GetXHTML().length>16777215) // ThesisSummaryVN
+                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryvn" /> <bean:message key="text.greatthan" /> 16777215 <bean:message key="text.chars" />";
+            if(FCKeditorAPI.GetInstance("fckThesisSummaryEN").GetXHTML().length>16777215) // ThesisSummaryEN
+                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryen" /> <bean:message key="text.greatthan" /> 16777215 <bean:message key="text.chars" />";            
             if(alertString!="")
                 alert(alertString);
             if(alertString=="")
@@ -639,10 +640,10 @@ if(session.getAttribute("username")!=null)
                 alertString =alertString+"\r\n<bean:message key="text.chaptersummaryvn" /> <bean:message key="text.required" />";
             if(FCKeditorAPI.GetInstance("fckChapterSummaryEN").GetXHTML().length==0) //
                 alertString =alertString+"\r\n<bean:message key="text.chaptersummaryen" /> <bean:message key="text.required" />";
-                if(FCKeditorAPI.GetInstance("fckChapterSummaryVN").GetXHTML().length>65535) //
-                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryvn" />  <bean:message key="text.greatthan" /> 65535 <bean:message key="text.chars" />";
-            if(FCKeditorAPI.GetInstance("fckChapterSummaryEN").GetXHTML().length>65535) //
-                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryen" />  <bean:message key="text.greatthan" /> 65535 <bean:message key="text.chars" />";          
+                if(FCKeditorAPI.GetInstance("fckChapterSummaryVN").GetXHTML().length>16777215) //
+                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryvn" />  <bean:message key="text.greatthan" /> 16777215 <bean:message key="text.chars" />";
+            if(FCKeditorAPI.GetInstance("fckChapterSummaryEN").GetXHTML().length>16777215) //
+                alertString =alertString+"\r\n<bean:message key="text.chaptersummaryen" />  <bean:message key="text.greatthan" /> 16777215 <bean:message key="text.chars" />";          
             if(alertString!="")
                 alert(alertString);
             if(alertString=="")
@@ -650,7 +651,24 @@ if(session.getAttribute("username")!=null)
                 if(isNaN($("#txtOrderChapter").val())) // chapter is number
                    alert("<bean:message key="text.orderchapter" /> <bean:message key="text.isnotnumber" />");
                 if(!isNaN($("#txtOrderChapter").val()))
-                    document.forms["EditResourceForm"].submit();
+                {
+                    if(document.getElementById("txtOldOrderChapter").value==document.getElementById("txtOrderChapter").value)
+                        document.forms["EditResourceForm"].submit();
+                    if(document.getElementById("txtOldOrderChapter").value!=document.getElementById("txtOrderChapter").value){
+                        var subjectID= document.getElementById("dropSubjectInChapter").value;
+                        var orderChapter= document.getElementById("txtOrderChapter").value;
+                        $.ajax({
+                            type: "POST",
+                            url: "CheckOrderChapter.do",
+                            data: "subjectID="+subjectID +"&orderChapter="+orderChapter
+                        }).done(function( msg ) {
+                            if(msg=="")
+                                document.forms["EditResourceForm"].submit();
+                            if(msg!="")
+                                alert("<bean:message key="text.subject"/> <bean:message key="text.exist"/> <bean:message key="text.orderchapter"/> "+orderChapter);
+                        });                          
+                        }                   
+                }   
             }    
         }
         if(chosenoption.value=="8") //picture
