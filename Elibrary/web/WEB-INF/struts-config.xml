@@ -192,7 +192,8 @@
         <action path="/EditListOfGroupDetail" type="uit.elib.action.EditListOfGroupDetailAction">
             <forward name="success" path="/jsp/success.jsp"/>
             <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
-        </action>    
+        </action>
+        <action path="/CheckOrderChapter" type="uit.elib.action.CheckOrderChapterAction"/>
         <action path="/DeleteAds" type="uit.elib.action.DeleteAdsAction"/>
         <action path="/Help" forward =".help"/>
         <action path="/Paq" forward =".paq"/>

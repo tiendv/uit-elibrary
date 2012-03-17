@@ -32,7 +32,7 @@ public class CheckSyllabusImageAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        if(request.getParameter("id")!=null)
+        if(request.getParameter("id")!=null&&request.getParameter("resourceCategoryID")!=null)
         {   
             int subjectID = Integer.parseInt(request.getParameter("id"));
             int resourceCategoryID = Integer.parseInt(request.getParameter("resourceCategoryID"));
