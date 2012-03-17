@@ -182,9 +182,6 @@
             <% } %>
         </td>                
         <% } %>
-
-        <% if(!listSubject.get(i).getSubjectId().equals(listResource.get(j).getSubject().getSubjectId()))  break;
-        %>
         <% color ++; %>
     </tr >
         <% }} %>
