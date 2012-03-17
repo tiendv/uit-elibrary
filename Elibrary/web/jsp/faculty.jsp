@@ -70,7 +70,7 @@
             <% } %>                         
     </td>
     <td class="subjectname">
-        <% if(i+1<listSubject.size() && (listSubject.get(i).getFaculty().getFacultyId()==listFaculty.get(f).getFacultyId())){ %>
+        <% if(i+1<listSubject.size() && (listSubject.get(i+1).getFaculty().getFacultyId()==listFaculty.get(f).getFacultyId())){ %>
             <img src="image/black-arrow.gif" class="image_black_arrow" alt="black-arrow"/>
             <% if(language==1) {%>
                 <a href ="#<%=listSubject.get(i+1).getSubjectId()%>" class="href_subject" > <%=listSubject.get(i+1).getSubjectNameEn()%> </a> <!--English Subject Name-->
