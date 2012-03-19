@@ -38,8 +38,10 @@ public class LoadAllNewsAction extends org.apache.struts.action.Action {
         NewsBO newsBO = NewsBO.getNewsBO();
         String []order = new String[1];
         order[0]="postDate desc";
-        List<News> listNews = newsBO.getAllNews(order);
-        request.setAttribute("listNews", listNews);          
+        List<News> listBook = newsBO.getAllNews("NewsCategory=1",order);
+        List<News> listAnnoun = newsBO.getAllNews("NewsCategory=2",order);
+        request.setAttribute("listBook", listBook);
+        request.setAttribute("listAnnoun", listAnnoun);     
         return mapping.findForward(SUCCESS);
     }
 }
