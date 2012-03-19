@@ -27,20 +27,20 @@
     <td class="subjectname">              
             <img src="image/black-arrow.gif" class="image_black_arrow" alt="black-arrow"/>
             <% if(language==1) { %>
-                <a href ="#<%=listSubject.get(i).getSubjectId()%>" class="href_subject" > <%=listSubject.get(i).getSubjectNameEn()%>  </a> <!--English Subject Name-->
+                <a href ="#<%=listSubject.get(i).getSubjectId()%>" class="href_subject" onclick="displayDetail(<%=listSubject.get(i).getSubjectId()%>)"> <%=listSubject.get(i).getSubjectNameEn()%>  </a> <!--English Subject Name-->
             <% } %> 
             <% if(language==2) {%>
-                <a href ="#<%=listSubject.get(i).getSubjectId()%>" class="href_subject" ><%=listSubject.get(i).getSubjectNameVn()%> </a> <!--Vietnamese Subject Name-->
+                <a href ="#<%=listSubject.get(i).getSubjectId()%>" class="href_subject" onclick="displayDetail(<%=listSubject.get(i).getSubjectId()%>)"><%=listSubject.get(i).getSubjectNameVn()%> </a> <!--Vietnamese Subject Name-->
             <% } %>                         
     </td>
     <td class="subjectname">
         <% if(i+1<listSubject.size()){ %>
             <img src="image/black-arrow.gif" class="image_black_arrow" alt="black-arrow"/>
             <% if(language==1) {%>
-                <a href ="#<%=listSubject.get(i+1).getSubjectId()%>" class="href_subject" > <%=listSubject.get(i+1).getSubjectNameEn()%> </a> <!--English Subject Name-->
+                <a href ="#<%=listSubject.get(i+1).getSubjectId()%>" class="href_subject" onclick="displayDetail(<%=listSubject.get(i+1).getSubjectId()%>)"> <%=listSubject.get(i+1).getSubjectNameEn()%> </a> <!--English Subject Name-->
             <% } %> 
             <% if(language==2) {%>
-                <a href ="#<%=listSubject.get(i+1).getSubjectId()%>" class="href_subject" > <%=listSubject.get(i+1).getSubjectNameVn()%> </a> <!--Vietnamese Subject Name-->
+                <a href ="#<%=listSubject.get(i+1).getSubjectId()%>" class="href_subject" onclick="displayDetail(<%=listSubject.get(i+1).getSubjectId()%>)"> <%=listSubject.get(i+1).getSubjectNameVn()%> </a> <!--Vietnamese Subject Name-->
             <% } %>
         <% } %>    
     </td>
@@ -60,7 +60,9 @@
     <li class="examsSolutions"
         alt="Example"
         title="<bean:message key="text.example"/>"><bean:message key="text.example"/></li>
-</div>   
+</div>
+<div class="seealldetail" id="seealldetail" onclick="seeAllDetail()"><a class="href_subject"><bean:message key="text.seealldetail"/></a></div>
+<div class="closealldetail" id="closealldetail" onclick="closeAllDetail()"><a class="href_subject"><bean:message key="text.closealldetail"/></a></div>        
 <% 
     List<Resource> listResource;
     listResource = (List<Resource>)request.getAttribute("listResource");
@@ -69,6 +71,7 @@
     for(int i=0;i<listSubject.size();i++) {
         String href="./SubjectIntroduction.do?subjectID="+listSubject.get(i).getSubjectId();
 %>
+<div id="<%=listSubject.get(i).getSubjectId()%>" class="none">
 <% if(language==1) {%>
     <div class="subject">
         <a href =<%=href%> name=<%=listSubject.get(i).getSubjectId()%> ><%=listSubject.get(i).getSubjectNameEn() %></a> <!--English Subject Name-->
@@ -183,4 +186,42 @@
     </tr >
         <% }} %>
 </table>
-<% } %> 
+</div>        
+<% } %>
+<input type="hidden" id="currentSubjectID" value="-1"/>
+<script type="text/javascript">
+    function displayDetail(subjectID)
+    {
+        var x= document.getElementById("currentSubjectID").value;
+        if(x!=subjectID)
+        {
+            document.getElementById(subjectID).style.display = "block";
+            if(x>-1)
+                document.getElementById(x).style.display = "none";
+            document.getElementById("currentSubjectID").value=subjectID;
+            setContent();             
+        }
+    }
+    function seeAllDetail()
+    {
+        <%
+            for(int i=0;i<listSubject.size();i++){
+        %>
+                document.getElementById(<%=listSubject.get(i).getSubjectId()%>).style.display = "block";
+        <%}%>
+        document.getElementById("seealldetail").style.display = "none";  
+        document.getElementById("closealldetail").style.display = "block";
+        setContent();      
+    }
+    function closeAllDetail()
+    {
+        <%
+            for(int i=0;i<listSubject.size();i++){
+        %>
+                document.getElementById(<%=listSubject.get(i).getSubjectId()%>).style.display = "none";
+        <%}%>
+        document.getElementById("seealldetail").style.display = "block";  
+        document.getElementById("closealldetail").style.display = "none";
+        setContent();      
+    }    
+</script>

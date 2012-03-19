@@ -22,17 +22,17 @@
         <!--LAYOUT CONTENTS-->
         <div class="wrapper">
             <div class="header">
-               <tiles:insert attribute="header"/>
+                <tiles:insert attribute="header"/>
             </div>
-            
+
             <div  class="menu">
-               <tiles:insert attribute="menu"/>
+                <tiles:insert attribute="menu"/>
             </div>
-           
+
             <div id="divleftmenu" class="leftmenu">
-              <tiles:insert attribute="leftmenu"/>
+                <tiles:insert attribute="leftmenu"/>
             </div>
-            
+
             <div id="divContent" class="content">
                 <tiles:insert attribute="content"/>
             </div>
@@ -42,15 +42,14 @@
         </div>
         <!--END LAYOUT CONTENTS-->
     </body>
-    
-    <script type="text/javascript">
-        function setContent() { 
-        var divHeight = ((document.getElementById("divContent").offsetHeight) + 'px');      
-        document.getElementById("divleftmenu").style.height = divHeight; 
-        }
-        window.onload = function() { 
-                        setContent(); 
-                        init();
-        } 
-    </script>
+<script type="text/javascript">
+    function setContent() { 
+    var divHeight = ((document.getElementById("divContent").offsetHeight) + 'px');      
+    document.getElementById("divleftmenu").style.height = divHeight; 
+    }
+    window.onload = function() { 
+        setContent(); 
+        init();
+    } 
+</script>
 </html:html>

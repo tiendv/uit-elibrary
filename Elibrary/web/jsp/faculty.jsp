@@ -36,8 +36,11 @@
 <% 
     List<Faculty> listFaculty;
     listFaculty = (List<Faculty>)request.getAttribute("listFaculty");
-    int s=0;                     
+    int s=0; 
+    boolean haveSubject;                       
     for(int f=0;f<listFaculty.size();f++){
+        String subjectID="";
+        haveSubject=true; 
 %>    
 <% if(language==1) { %>
     <div class="title_h1"><%=listFaculty.get(f).getFacultyNameEn() %></div>  <!--English Faculty Name-->
@@ -47,6 +50,7 @@
 <% } %>         
 <%
    if(listSubject.get(s).getFaculty().getFacultyId()!=listFaculty.get(f).getFacultyId()){
+       haveSubject=false;
 %>
     <div class="updatesubject">
         <img src="image/black-arrow.gif" class="image_black_arrow" alt="black-arrow"/>
@@ -58,31 +62,37 @@
         for(int i=s;i<listSubject.size();i=i+2) {
             if(listSubject.get(i).getFaculty().getFacultyId()!=listFaculty.get(f).getFacultyId())
                 break;
+            subjectID = subjectID+listSubject.get(i).getSubjectId()+",";
     %>
     <tr>      
     <td class="subjectname">              
-            <img src="image/black-arrow.gif" class="image_black_arrow" alt="black-arrow"/>
-            <% if(language==1) { %>
-                <a href ="#<%=listSubject.get(i).getSubjectId()%>" class="href_subject" > <%=listSubject.get(i).getSubjectNameEn()%>  </a> <!--English Subject Name-->
-            <% } %> 
-            <% if(language==2) {%>
-                <a href ="#<%=listSubject.get(i).getSubjectId()%>" class="href_subject" ><%=listSubject.get(i).getSubjectNameVn()%> </a> <!--Vietnamese Subject Name-->
-            <% } %>                         
+        <img src="image/black-arrow.gif" class="image_black_arrow" alt="black-arrow"/>
+        <% if(language==1) { %>
+            <a href ="#<%=listSubject.get(i).getSubjectId()%>" class="href_subject" onclick="displayDetail(<%=listSubject.get(i).getSubjectId()%>)"> <%=listSubject.get(i).getSubjectNameEn()%>  </a> <!--English Subject Name-->
+        <% } %> 
+        <% if(language==2) {%>
+            <a href ="#<%=listSubject.get(i).getSubjectId()%>" class="href_subject" onclick="displayDetail(<%=listSubject.get(i).getSubjectId()%>)"><%=listSubject.get(i).getSubjectNameVn()%> </a> <!--Vietnamese Subject Name-->
+        <% } %>                         
     </td>
     <td class="subjectname">
         <% if(i+1<listSubject.size() && (listSubject.get(i+1).getFaculty().getFacultyId()==listFaculty.get(f).getFacultyId())){ %>
             <img src="image/black-arrow.gif" class="image_black_arrow" alt="black-arrow"/>
             <% if(language==1) {%>
-                <a href ="#<%=listSubject.get(i+1).getSubjectId()%>" class="href_subject" > <%=listSubject.get(i+1).getSubjectNameEn()%> </a> <!--English Subject Name-->
+                <a href ="#<%=listSubject.get(i+1).getSubjectId()%>" class="href_subject" onclick="displayDetail(<%=listSubject.get(i+1).getSubjectId()%>)"> <%=listSubject.get(i+1).getSubjectNameEn()%> </a> <!--English Subject Name-->
             <% } %> 
             <% if(language==2) {%>
-                <a href ="#<%=listSubject.get(i+1).getSubjectId()%>" class="href_subject" > <%=listSubject.get(i+1).getSubjectNameVn()%> </a> <!--Vietnamese Subject Name-->
+                <a href ="#<%=listSubject.get(i+1).getSubjectId()%>" class="href_subject" onclick="displayDetail(<%=listSubject.get(i+1).getSubjectId()%>)"> <%=listSubject.get(i+1).getSubjectNameVn()%> </a> <!--Vietnamese Subject Name-->
             <% } %>
+            <%subjectID = subjectID+listSubject.get(i+1).getSubjectId()+",";%>
         <% } %>    
     </td>
     </tr>
     <% } %>
 </table><br/>
+<% if(haveSubject) {%>
+<div class="seealldetail" id="seealldetail<%=f%>"  onclick="seeAllDetail('seealldetail<%=f%>','closealldetail<%=f%>','<%=subjectID%>')"><a class="href_subject"><bean:message key="text.seealldetail"/></a></div>
+<div class="closealldetail" id="closealldetail<%=f%>"  onclick="closeAllDetail('seealldetail<%=f%>','closealldetail<%=f%>','<%=subjectID%>')"><a class="href_subject"><bean:message key="text.closealldetail"/></a></div>   
+<% } %>
 <% 
     List<List<Resource>> arrayListResource = (List<List<Resource>>) request.getAttribute("arrayListResource");
 %> 
@@ -95,6 +105,7 @@
             break;
         }
 %>
+<div id="<%=listSubject.get(i).getSubjectId()%>" class="none">
 <% if(language==1) {%>
     <div class="subject">
         <a href =<%=href%> name=<%=listSubject.get(i).getSubjectId()%> ><%=listSubject.get(i).getSubjectNameEn() %></a> <!--English Subject Name-->
@@ -211,5 +222,38 @@
     </tr >
         <% }} %>
 </table>
+</div>          
 <%}}%>
-
+<input type="hidden" id="currentSubjectID" value="-1"/>
+<script type="text/javascript">
+    function displayDetail(subjectID)
+    {
+        var x= document.getElementById("currentSubjectID").value;
+        if(x!=subjectID)
+        {
+            document.getElementById(subjectID).style.display = "block";
+            if(x>-1)
+                document.getElementById(x).style.display = "none";
+            document.getElementById("currentSubjectID").value=subjectID;
+        }
+            setContent();             
+    }
+    function seeAllDetail(seealldetail,closealldetail,manySubjectID)
+    {
+        var subjectID = manySubjectID.split(',');
+        for(var i=0;i<subjectID.length-1;i++)
+            document.getElementById(subjectID[i]).style.display = "block";
+        document.getElementById(seealldetail).style.display = "none";  
+        document.getElementById(closealldetail).style.display = "block";
+        setContent();  
+    }
+    function closeAllDetail(seealldetail,closealldetail,manySubjectID)
+    {
+        var subjectID = manySubjectID.split(',');
+        for(var i=0;i<subjectID.length-1;i++)
+            document.getElementById(subjectID[i]).style.display = "none";
+        document.getElementById(seealldetail).style.display = "block";  
+        document.getElementById(closealldetail).style.display = "none";
+        setContent();          
+    }    
+</script>

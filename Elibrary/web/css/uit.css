@@ -550,6 +550,7 @@ div.displayIcon a.ocwScholar {
 {
     text-decoration: none;
     color:#680a12;
+    cursor: pointer;
 }
 .subject{
     font-size: 12px; 
@@ -1083,4 +1084,17 @@ image{
 .justify{
     text-align: justify;
     margin-left: 5px;
+}
+.seealldetail
+{
+    padding-left: 18px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.closealldetail
+{
+    padding-left: 18px;
+    font-size: 12px;
+    font-weight: bold;  
+    display: none;
 }
