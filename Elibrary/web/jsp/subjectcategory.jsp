@@ -124,8 +124,9 @@
             </a> > <bean:message key ="text.reading"/></div>
         <table class="resource_table" >
             <tr class="color_title_table">
-                <td width="100px"><bean:message key="text.ordernumber"/> </td>
-                <td width="638px"><bean:message key="text.document"/> </td>
+                <td width="100px"><bean:message key="text.ordernumber"/></td>
+                <td width="540px"><bean:message key="text.chaptertitle" /></td>
+                <td width="98px"><bean:message key="text.document"/></td>
             </tr>
                 <%if(listResource.size()==0){ %> <!--Nếu chưa có tài nguyên thì hiện "đang cập nhật" -->
                     <td></td>
@@ -158,6 +159,9 @@
                         <%}%>
                      <%}%>
                  </td>
+                 <td>
+                     <div class="displayIcon"><a  href = "DownLoad.do?resourceID=<%=listResource.get(i).getResourceId()%>" alt="<bean:message key="text.reading"/>" class="onlineTextBooks"/>
+                 </td>                 
                  <% count++;%>
                  <%color++;%>
                  <%}%>
@@ -302,7 +306,7 @@
         <%}%>  <!--End of ResourceCategoryID=5  IF -->
                 
         <!--Begin of ResourceCategoryID = 6 (đồ án môn học) -->
-        
+        <%int year=0;int count = 1;%>
         <%if(resourceCategoryID==6) {%>
         <div class="hyperlink_title_subject"><a href="LoadSubject.do"><bean:message key ="text.subject"/></a> > <a href="SubjectIntroduction.do?subjectID=<%=subjectID%>">
             <% if(language==1){%>
@@ -320,21 +324,33 @@
             <div class="hyperlink_title_subject"><%=subject.getProjectRequirementVn()%></div> 
         <%}%>
         <div class="hyperlink_title_subject"><br><h2><bean:message key="text.listtemplateproject"/></h2></div>
+        <%while(count<=listResource.size()){%>
+            <%year=listResource.get(count-1).getYear();
+              color=1;  
+            %>
+        <div class="year1"><bean:message key="text.year"/> <%=year%></div>
         <table class="resource_table" >
             <tr class="color_title_table">
-                <td width="12%"><bean:message key="text.orderchapter"/> </td>
-                <td width="20%"><bean:message key="text.projectauthor"/> </td>
-                <td width="53%"><bean:message key="text.projectnameen"/> </td>
-                <td width="15%"><bean:message key="text.note"/> </td>
+                <td width="80px"><bean:message key="text.ordernumber"/> </td>
+                <td width="230px"><bean:message key="text.projectauthor"/> </td>
+                <td width="330px"><bean:message key="text.projectnameen"/> </td>
+                <td width="90px"><bean:message key="text.document"/> </td>
             </tr>
             <%if(listResource.size()==0){ %> <!--Nếu chưa có tài nguyên thì hiện "đang cập nhật" -->
-                    <td></td>
+                <tr>
+                    <td><%=listResource.size()%></td>
                     <td></td>
                     <td><bean:message key="text.updating"/></td>
-                 <%}%>
+                    <td></td>
+                </tr>
+             <%}%>
                 <%
-                    int count = 1; //thứ tự
-                    for(int i = 0; i<listResource.size();i++){
+                    
+                    for(int i = count-1; i<listResource.size();i++){
+                        if(year!=listResource.get(i).getYear())
+                        {
+                            break;
+                        }
                  %>
                  <tr>
                  <td style="text-align: center;"<% if(color%2==0){ %> 
@@ -354,33 +370,28 @@
                      <%
                         if(Integer.parseInt(listResource.get(i).getSubject().getSubjectId().toString())== Integer.parseInt(subject.getSubjectId().toString()))
                            {%>
-                     <u> <a href="DownLoad.do?resourceID=<%=listResource.get(i).getResourceId()%>" > <%=listResource.get(i).getResourceNameEn() %> </a> </u>
+                    <%=listResource.get(i).getResourceNameEn() %>
                     <%}%> 
                      <%}%>
                      <% if(language==2) {%>
                      <%
                         if(Integer.parseInt(listResource.get(i).getSubject().getSubjectId().toString())== Integer.parseInt(subject.getSubjectId().toString()))
                            {%>
-                     <u> <a href="DownLoad.do?resourceID=<%=listResource.get(i).getResourceId()%>" > <%=listResource.get(i).getResourceNameVn() %> </a> </u>
+                    <%=listResource.get(i).getResourceNameVn() %>
                     <%}%> 
                      <%}%>
                  </td>
                  <td <% if(color%2==0){ %> 
                                     class="color_table2"
                                 <%}%>>
-                     <% if(language==1) {%>
-                        <p> <%=listResource.get(i).getSummaryEn()%> </p>
-                     <%}%>
-                     <% if(language==2) {%>
-                        <p><%=listResource.get(i).getSummaryVn()%> </p>
-                     <%}%>
+                     <div class="displayIcon"><a  href = "DownLoad.do?resourceID=<%=listResource.get(i).getResourceId()%>" alt="<bean:message key="text.project"/>" class="openStudy"/>
                  </td>
                  <% count++;%>
                  <%color++;%>
+             </tr>        
                  <%}%>
-            </tr>
          </table>
-        <%}%>
+        <%}}%>
         
         
         <!--End of ResourceCategoryID=6( đồ án môn học) IF -->
