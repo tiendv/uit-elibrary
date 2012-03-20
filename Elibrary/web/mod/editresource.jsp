@@ -213,17 +213,12 @@ if(session.getAttribute("username")!=null)
         </FCK:editor>                          
     </div>
     <%-- Add resource with resource type is project (ID =6) --%>
-    <div id="divProject" class="none">
-        <div class="resource2">
-            <div class="resource_left"><bean:message key="text.projectauthor"/></div>
-            <div class="resource_left"><input id="txtProjectAuthor" name="txtProjectAuthor" type="text" value="<%=listResource.get(0).getAuthor()%>" maxlength="255"/></div>
-        </div>
-        <div class="cleared"></div>   
-        <div class="resource2">
+    <div id="divProject" class="none"> 
+        <div class="resource1">
             <div class="resource_left"><bean:message key="text.subject"/></div>
             <div class="resource_left">
-                <%if(language==1) {%>
                 <select class="combobox" id="dropSubjectInProject" name="dropSubjectInProject" >
+                <%if(language==1) {%>
                     <c:forEach items="${listSubject}" var="item">
                         <c:if test="${item.subjectId!=listResource.get(0).getSubject().getSubjectId()}">
                             <option value="${item.subjectId}">${item.subjectNameEn}</option>
@@ -233,8 +228,7 @@ if(session.getAttribute("username")!=null)
                         </c:if>                                              
                     </c:forEach>
                 <%}%>
-                 <%if(language==2) {%>
-                <select class="combobox" id="dropSubjectInProject" name="dropSubjectInProject" >
+                <%if(language==2) {%>
                     <c:forEach items="${listSubject}" var="item">
                         <c:if test="${item.subjectId!=listResource.get(0).getSubject().getSubjectId()}">
                             <option value="${item.subjectId}">${item.subjectNameVn}</option>
@@ -244,11 +238,25 @@ if(session.getAttribute("username")!=null)
                         </c:if>
                     </c:forEach>
                 <%}%>
-            </div>
+                </select>
+            </div> 
+            <div class="resource_left"><bean:message key="text.projectauthor"/></div>
+            <div class="resource_left"><input class="textbox" id="txtProjectAuthor" name="txtProjectAuthor" type="text" maxlength="255" value="<%=listResource.get(0).getAuthor()%>"/></div>          
         </div>
-        <div class="cleared"></div>       
+        <div class="cleared"></div>
+        <div class="resource2">
+            <div class="resource_left"><bean:message key="text.year"/></div>
+            <div class="resource_left"><input class="textbox" id="txtProjectYear" name="txtProjectYear" type="text" maxlength="4" value="<%=listResource.get(0).getYear()%>"/></div>
+        </div>
+        <div class="cleared"></div>    
         <%if(listResource.get(0).getUploadName()!=null){%>
-            <div class="resource2">
+            <div class="resource1">
+                <div class="resource_left">
+                    <bean:message key="text.download"/>
+                </div>
+                <div class="resource_left">
+                    <div class="displayIcon"><a href="DownLoad.do?resourceID=<%=listResource.get(0).getResourceId()%>"></a></div>
+                </div>                
                 <div class="resource_left">
                     <bean:message key="text.uploadname"/>
                 </div>
@@ -257,16 +265,13 @@ if(session.getAttribute("username")!=null)
                 </div>
             </div>
             <div class="cleared"></div>   
-            <div class="resource2">
+            <div class="resource1">
                 <div class="resource_left">
                     <bean:message key="text.downloadnumber"/>
                 </div>
                 <div class="resource_left">
                     <%=listResource.get(0).getDownloadNumber()%>
                 </div>
-            </div>
-            <div class="cleared"></div>   
-            <div class="resource2">
                 <div class="resource_left">
                     <bean:message key="text.size"/>
                 </div>
@@ -275,19 +280,10 @@ if(session.getAttribute("username")!=null)
                        Mb=dec.format(listResource.get(0).getSize()/1000000);  
                     %>
                     <%=Mb%>Mb     
-                </div>
-            </div>
-            <div class="cleared"></div>                             
-            <div class="resource2">
-                <div class="resource_left">
-                    <bean:message key="text.download"/>
-                </div>
-                <div class="resource_left">
-                    <div class="displayIcon"><a href="DownLoad.do?resourceID=<%=listResource.get(0).getResourceId()%>"></a></div>
-                </div>
+                </div>                
             </div>
             <div class="cleared"></div>   
-        <%}%>    
+        <%}%>               
         <div class="resource2">
             <div class="resource_left"><bean:message key="text.uploadfile"/></div>
             <div class="resource_left"><input type="file" id="fileProject" name="fileProject" size="27"/></div>
@@ -627,10 +623,17 @@ if(session.getAttribute("username")!=null)
             var alertString =validateResourceName();
             if($("#txtProjectAuthor").val().trim(" ").length==0) // chapter
                 alertString =alertString+"\r\n<bean:message key="text.projectauthor" /> <bean:message key="text.required" />";
+            if($("#txtProjectYear").val().trim(" ").length==0) // chapter
+                alertString =alertString+"\r\n<bean:message key="text.year" /> <bean:message key="text.required" />";             
             if(alertString!="")
                 alert(alertString);
             if(alertString=="")
-                document.forms["EditResourceForm"].submit();            
+            {   
+                if(isNaN($("#txtProjectYear").val())) // year is number
+                   alert("<bean:message key="text.year" /> <bean:message key="text.isnotnumber" />");
+                if(!isNaN($("#txtProjectYear").val()))
+                    document.forms["EditResourceForm"].submit(); //submit
+            }          
         }       
         if (chosenoption.value=="7"){ //chapter
             var alertString =validateResourceName();

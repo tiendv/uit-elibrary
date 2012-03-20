@@ -220,6 +220,11 @@
     color: #9d0a13;
     font-weight: bold;
 }
+.title_h5 {
+    font-size: 20px ;
+    color:#680a12; 
+    padding: 20px 0px 0px 17px;
+}
 .td_course_item {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
@@ -689,6 +694,7 @@ div.thesis_summary{
 .thesis_update {
     margin-left: 30px;
     color: #680a12;
+    padding-top: 15px;
 }
 .thesis_table {
     margin-left: 30px ;
@@ -1085,16 +1091,20 @@ image{
     text-align: justify;
     margin-left: 5px;
 }
-.seealldetail
-{
+.seealldetail{
     padding-left: 18px;
     font-size: 12px;
     font-weight: bold;
 }
-.closealldetail
-{
+.closealldetail{
     padding-left: 18px;
     font-size: 12px;
     font-weight: bold;  
     display: none;
+}
+.year{
+    color: #b8262b;
+    padding-left: 30px;
+    padding-top: 16px;
+    font-size: 13px;
 }

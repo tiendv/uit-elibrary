@@ -20,29 +20,29 @@
     </head>
     <body>
         <%
-                    List<Resource> listResource; // List resource of subject ( not chapter)
-                    List<Resource> listChapter; // List Chapter of Subject
-                    listResource = (List<Resource>)request.getAttribute("listResource");
-                    listChapter = (List<Resource>)request.getAttribute("listChapter");
-                    int orderChapter = Integer.parseInt(request.getAttribute("orderChapter").toString());
-                    Subject subject =(Subject)request.getAttribute("subject"); // lấy thông tin môn học
-                    int subjectID = Integer.parseInt(request.getAttribute("subjectID").toString());
-                    int resourceCategoryID = Integer.parseInt(request.getAttribute("resourceCategoryID").toString());
-                    int language =1; // English
-                    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vi_VN"))
-                        language = 2; // VietNamese
-                    int color=1;
+            List<Resource> listResource; // List resource of subject ( not chapter)
+            List<Resource> listChapter; // List Chapter of Subject
+            listResource = (List<Resource>)request.getAttribute("listResource");
+            listChapter = (List<Resource>)request.getAttribute("listChapter");
+            int orderChapter = Integer.parseInt(request.getAttribute("orderChapter").toString());
+            Subject subject =(Subject)request.getAttribute("subject"); // lấy thông tin môn học
+            int subjectID = Integer.parseInt(request.getAttribute("subjectID").toString());
+            int resourceCategoryID = Integer.parseInt(request.getAttribute("resourceCategoryID").toString());
+            int language =1; // English
+            if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vi_VN"))
+                language = 2; // VietNamese
+            int color=1;
         %>
 
         <%
-        boolean allow=false;
-        String username = null;
-        if(session.getAttribute("username")!=null)
-            username = (String)session.getAttribute("username");
-        CheckGroupDetail checkGroupDetail = new CheckGroupDetail();
-        if(checkGroupDetail.GroupDetail(username,resourceCategoryID,1)==true)
-        {
-            allow=true; 
+            boolean allow=false;
+            String username = null;
+            if(session.getAttribute("username")!=null)
+                username = (String)session.getAttribute("username");
+            CheckGroupDetail checkGroupDetail = new CheckGroupDetail();
+            if(checkGroupDetail.GroupDetail(username,resourceCategoryID,1)==true)
+            {
+                allow=true; 
         %>        
         <!-- Begin load resource by OrderChapter (ResourceCategoryID= 10, bài giảng) -->
         <%if(resourceCategoryID==10) {%>
@@ -61,9 +61,8 @@
                 <td width="330px"><bean:message key="text.summary" /></td>
                 <td width="98px"><bean:message key="text.document" /></td>
             </tr>
-        <% 
-                    
-                    for(int i = 0; i<listChapter.size();i++){
+        <%                  
+            for(int i = 0; i<listChapter.size();i++){
         %>
         <tr>
             <td style="text-align: center;"<% if(color%2==0){ %> 
@@ -111,9 +110,7 @@
         </tr>
                 <%}%>
         </table>
-        <%}%>  <!--End of ResourceCategoryID=10  IF -->
-        
-        
+        <%}%>  <!--End of ResourceCategoryID=10  IF -->              
         
         <!--Begin Load Reading ( ResourceCategoryID=9, tài liệu tham khảo) -->
         
@@ -136,8 +133,7 @@
                  <%}%>
                 <%
                     int count = 1; //thứ tự
-                    for(int i = 0; i<listResource.size();i++){
-                        
+                    for(int i = 0; i<listResource.size();i++){    
                  %>
                  <tr>
                  <td style="text-align: center;"<% if(color%2==0){ %> 
@@ -150,9 +146,6 @@
                      <% if(language==1) {%>
                         <%if(listResource.get(i).getServerName() != null){%><!--Nếu có link download thì cho download -->
                             <a href="DownLoad.do?resourceID=<%=listResource.get(i).getResourceId()%>" > <%=listResource.get(i).getResourceNameEn() %> </a>
-                        
-                            
-                            
                             <%}else{%>
                               <%=listResource.get(i).getResourceNameEn()%> 
                         <%}%>
@@ -171,11 +164,9 @@
             </tr>
          </table>
         <%}%> 
+              
         
-        
-        
-        <!--End of ResourceCategoryID=9 IF -->
-        
+        <!--End of ResourceCategoryID=9 IF -->   
         
          <!-- Begin load resource by OrderChapter (ResourceCategoryID=4, bài tập) -->
         <%if(resourceCategoryID==4) {%>
@@ -194,9 +185,8 @@
                 <td width="330px"><bean:message key="text.summary" /></td>
                 <td width="98px"><bean:message key="text.document" /></td>
             </tr>
-        <% 
-                    
-                    for(int i = 0; i<listChapter.size();i++){
+        <%               
+                for(int i = 0; i<listChapter.size();i++){
         %>
         <tr>
             <td style="text-align: center;"<% if(color%2==0){ %> 
@@ -243,12 +233,7 @@
         </tr>
                 <%}%>
         </table>
-        <%}%>  <!--End of ResourceCategoryID=4  IF -->
-        
-        
-        
-      
-        
+        <%}%>  <!--End of ResourceCategoryID=4  IF -->        
         <!-- Begin load resource by OrderChapter (ResourceCategoryID=5, ví dụ) -->
         <%if(resourceCategoryID==5) {%>
         
@@ -266,9 +251,8 @@
                 <td width="330px"><bean:message key="text.summary" /></td>
                 <td width="98px"><bean:message key="text.document" /></td>
             </tr>
-        <% 
-                    
-                    for(int i = 0; i<listChapter.size();i++){
+        <%                   
+            for(int i = 0; i<listChapter.size();i++){
         %>
         <tr>
             <td style="text-align: center;"<% if(color%2==0){ %> 
@@ -316,9 +300,7 @@
                 <%}%>
         </table>
         <%}%>  <!--End of ResourceCategoryID=5  IF -->
-        
-        
-        
+                
         <!--Begin of ResourceCategoryID = 6 (đồ án môn học) -->
         
         <%if(resourceCategoryID==6) {%>
@@ -421,9 +403,8 @@
                 <td width="330px"><bean:message key="text.summary" /></td>
                 <td width="98px"><bean:message key="text.document" /></td>
             </tr>
-        <% 
-                    
-                    for(int i = 0; i<listChapter.size();i++){
+        <%                  
+            for(int i = 0; i<listChapter.size();i++){
         %>
         <tr>
             <td style="text-align: center;"<% if(color%2==0){ %> 

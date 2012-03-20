@@ -153,6 +153,7 @@ public class EditResourceAction extends org.apache.struts.action.Action {
 
                  if(resourceCategoryID == 6)
                 {
+                    resource.setYear(createResourceForm.getTxtProjectYear());
                     resource.setAuthor(createResourceForm.getTxtProjectAuthor());
                     subject.setSubjectId(createResourceForm.getDropSubjectInProject());
                     resource.setSubject(subject);
