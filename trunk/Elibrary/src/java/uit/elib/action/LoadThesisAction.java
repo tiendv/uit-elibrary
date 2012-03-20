@@ -58,9 +58,10 @@ public class LoadThesisAction extends org.apache.struts.action.Action {
                     List<Faculty> listFaculty = FacultyBO.getFacultyBO().getAllFaculty(facultyID);
                     if(listFaculty.size()>0)
                     {
-                        String []order = new String[2];
+                        String []order = new String[3];
                         order[0] = "level";
-                        order[1] = "postDate desc";
+                        order[1] = "year";
+                        order[2] = "postDate desc";
                         List<Resource> listResource = ResourceBO.getResourceBO().getAllResourceByFR(facultyID, 2, order);
                         List<Level> listLevel = LevelBO.getLevelBO().getAllLevel();
                         request.setAttribute("listResource", listResource);
@@ -74,9 +75,10 @@ public class LoadThesisAction extends org.apache.struts.action.Action {
                     List<Faculty> listFaculty = FacultyBO.getFacultyBO().getAllFaculty();
                     if(listFaculty.size()>0)
                     {
-                        String []order = new String[2];
+                        String []order = new String[3];
                         order[0] = "level";
-                        order[1] = "postDate desc";
+                        order[1] = "year";
+                        order[2] = "postDate desc";
                         List<Resource> listResource = ResourceBO.getResourceBO().getAllResource(2,order);
                         List<Level> listLevel = LevelBO.getLevelBO().getAllLevel();
                         request.setAttribute("listResource", listResource);

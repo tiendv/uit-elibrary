@@ -52,6 +52,11 @@ public class LoadSubjectCategoryAction extends org.apache.struts.action.Action{
                 List<Resource> listResource = new ArrayList<Resource>(); // danh sách tài nguyên của
                 List<Resource> listChapter = new ArrayList<Resource>(); // danh sách chương của môn học
                 listResource = ResourceBO.getResourceBO().getAllResource(subjectID, resourcecategoryID);
+                if(resourcecategoryID==6){
+                    String []order = new String[1];
+                    order[0]="year";
+                    listResource = ResourceBO.getResourceBO().getAllResource(subjectID, resourcecategoryID,order);
+                }
                 listChapter = ResourceBO.getResourceBO().getAllResource(subjectID, 7);
                 List<Subject> listSubject=SubjectBO.getSubjectBO().getSubject(subjectID);
                 Subject subject = listSubject.get(0);// danh sách môn học có mã môn học tương ứng

@@ -160,11 +160,16 @@ if(session.getAttribute("username")!=null)
         <div class="resource_left"><bean:message key="text.projectauthor"/></div>
         <div class="resource_left"><input class="textbox" id="txtProjectAuthor" name="txtProjectAuthor" type="text" maxlength="255"/></div>
     </div>
-    <div class="cleared"></div>         
+    <div class="cleared"></div>                
+    <div class="resource2">
+        <div class="resource_left"><bean:message key="text.year"/></div>
+        <div class="resource_left"><input class="textbox" id="txtProjectYear" name="txtProjectYear" type="text" maxlength="4"/></div>
+    </div> 
     <div class="resource2">
         <div class="resource_left"><bean:message key="text.uploadfile"/></div>
         <div class="resource_left"><input type="file" id="fileProject" name="fileProject" size="27"/></div>
     </div>
+    <div class="cleared"></div>          
     <div class="cleared"></div>     
 </div>            
 <%-- Add resource with resource category is chapter (ID =7) --%>
@@ -342,12 +347,19 @@ if(session.getAttribute("username")!=null)
             var alertString =validateResourceName();
             if($("#txtProjectAuthor").val().trim(" ").length==0) // chapter
                 alertString =alertString+"\r\n<bean:message key="text.projectauthor" /> <bean:message key="text.required" />";
+            if($("#txtProjectYear").val().trim(" ").length==0) // chapter
+                alertString =alertString+"\r\n<bean:message key="text.year" /> <bean:message key="text.required" />";            
             if($("#fileProject").val().trim(" ").length==0) // file
                 alertString =alertString+"\r\n<bean:message key="text.donotchoose" /> <bean:message key="text.uploadfile" />";
             if(alertString!="")
                 alert(alertString);
             if(alertString=="")
-                document.forms["createResource"].submit();            
+            {   
+                if(isNaN($("#txtProjectYear").val())) // year is number
+                   alert("<bean:message key="text.year" /> <bean:message key="text.isnotnumber" />");
+                if(!isNaN($("#txtProjectYear").val()))
+                    document.forms["createResource"].submit(); //submit
+            }            
         }       
         if (chosenoption.value=="7"){ //chapter
             var alertString =validateResourceName();

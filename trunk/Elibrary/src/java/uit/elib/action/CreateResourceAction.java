@@ -139,6 +139,7 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
                 {
                     resource.setAuthor(createResourceForm.getTxtProjectAuthor());
                     subject.setSubjectId(createResourceForm.getDropSubjectInProject());
+                    resource.setYear(createResourceForm.getTxtProjectYear());
                     resource.setSubject(subject);
                     FormFile fileProject = createResourceForm.getFileProject();       
                     if(!fileProject.getFileName().isEmpty())

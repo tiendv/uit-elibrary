@@ -34,12 +34,21 @@ public class EditResourceForm extends org.apache.struts.action.ActionForm {
     private String txtClass;
     private String txtSchool;
     private int txtYear;
+    private int txtProjectYear;
     private String txtSchoolYear;
     private FormFile fileThesis;
     private int dropLevel;
     private int dropFaculty;
     private String fckThesisSummaryVN;
     private String fckThesisSummaryEN;
+
+    public int getTxtProjectYear() {
+        return txtProjectYear;
+    }
+
+    public void setTxtProjectYear(int txtProjectYear) {
+        this.txtProjectYear = txtProjectYear;
+    }
 
     public int getDropFaculty() {
         return dropFaculty;

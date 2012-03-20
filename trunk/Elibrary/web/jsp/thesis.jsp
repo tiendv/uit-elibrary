@@ -29,14 +29,16 @@ if(checkGroupDetail.GroupDetail(username,2,1)==true)
     int language =1; // English
     if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vi_VN"))
         language=2; // VietNamese
+    int year;
+    boolean lastIndex=false;
     if(listResource.size()>0){
     int r=0;                     
     for(int l=0;l<listLevel.size();l++){
         if(language==1) { %>
-            <div class="title_h1"><%=listLevel.get(l).getLevelNameEn() %></div>  <!--English Level Name-->
+            <div class="title_h5"><%=listLevel.get(l).getLevelNameEn() %></div>  <!--English Level Name-->
         <% } %> 
         <% if(language==2) {%>
-            <div class="title_h1"><%=listLevel.get(l).getLevelNameVn() %></div> <!--Vietnamese Level Name-->
+            <div class="title_h5"><%=listLevel.get(l).getLevelNameVn() %></div> <!--Vietnamese Level Name-->
         <% } %>         
         <%
            if(listResource.get(r).getLevel().getLevelId()!=listLevel.get(l).getLevelId()){
@@ -46,11 +48,14 @@ if(checkGroupDetail.GroupDetail(username,2,1)==true)
                 <bean:message key="text.updating"/>
             </div>
          <%  }
-            if(listResource.get(r).getLevel().getLevelId()==listLevel.get(l).getLevelId()){  %> 
+            while(listResource.get(r).getLevel().getLevelId()==listLevel.get(l).getLevelId()&&lastIndex==false){
+                year=listResource.get(r).getYear();
+         %> 
+            <div class="year"><bean:message key="text.year"/> <%=year%></div>
             <table class="thesis_table"> 
             <%                 
                 for(int i=r;i<listResource.size();i=i+2) {
-                    if(listResource.get(i).getLevel().getLevelId()!=listLevel.get(l).getLevelId())
+                    if(listResource.get(i).getLevel().getLevelId()!=listLevel.get(l).getLevelId() || year!=listResource.get(i).getYear())
                         break;
             %>
             <tr>      
@@ -64,7 +69,7 @@ if(checkGroupDetail.GroupDetail(username,2,1)==true)
                     <% } %>                         
             </td>
             <td class="thesis_row">
-                <% if(i+1<listResource.size() && (listResource.get(i+1).getLevel().getLevelId()==listLevel.get(l).getLevelId())){ %>
+                <% if(i+1<listResource.size() && (listResource.get(i+1).getLevel().getLevelId()==listLevel.get(l).getLevelId()) && (year==listResource.get(i+1).getYear())){ %>
                     <img src="image/black-arrow.gif" class="image_black_arrow" alt="black-arrow"/>
                     <% if(language==1) {%>
                         <a href ="#<%=listResource.get(i+1).getResourceId()%>" class="href_subject" > <%=listResource.get(i+1).getResourceNameEn()%> </a> <!--English Resource Name-->
@@ -90,7 +95,7 @@ if(checkGroupDetail.GroupDetail(username,2,1)==true)
                int number =0;
                for(int i=r;i<listResource.size();i++) {
                    String href="./LoadThesisDetail.do?resourceID="+listResource.get(i).getResourceId();
-                   if(listResource.get(i).getLevel().getLevelId()!=listLevel.get(l).getLevelId())
+                   if(listResource.get(i).getLevel().getLevelId()!=listLevel.get(l).getLevelId()|| year!=listResource.get(i).getYear())
                    {     
                         r=i;
                         break;
@@ -132,7 +137,10 @@ if(checkGroupDetail.GroupDetail(username,2,1)==true)
                     <% } %>
                 </td>
             </tr >              
-            <% color ++; } %>
+            <% color ++; 
+               if(i+1>=listResource.size()) 
+                   lastIndex=true;
+            } %>
         </table>
 <%}}}%>
 <%}%>
