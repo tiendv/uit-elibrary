@@ -157,6 +157,10 @@ if(session.getAttribute("username")!=null)
             <div class="resource_left"><bean:message key="text.schoolyear"/></div>
             <div class="resource_left"><input class="textbox" id="txtSchoolYear" name="txtSchoolYear" type="text" value="<%=listResource.get(0).getSchoolYear()%>" maxlength="45"/></div>                    
         </div>
+        <div class="resource2">
+            <div class="resource_left"><bean:message key="text.mark"/></div>
+            <div class="resource_left"><input class="textbox" id="txtThesisMark" name="txtThesisMark" type="text" value="<%=listResource.get(0).getMark()%>" maxlength="4"/></div>
+        </div>         
         <div class="cleared"></div>
         <%if(listResource.get(0).getUploadName()!=null){%>
             <div class="resource1">
@@ -244,9 +248,11 @@ if(session.getAttribute("username")!=null)
             <div class="resource_left"><input class="textbox" id="txtProjectAuthor" name="txtProjectAuthor" type="text" maxlength="255" value="<%=listResource.get(0).getAuthor()%>"/></div>          
         </div>
         <div class="cleared"></div>
-        <div class="resource2">
+        <div class="resource1">
             <div class="resource_left"><bean:message key="text.year"/></div>
             <div class="resource_left"><input class="textbox" id="txtProjectYear" name="txtProjectYear" type="text" maxlength="4" value="<%=listResource.get(0).getYear()%>"/></div>
+            <div class="resource_left"><bean:message key="text.mark"/></div>
+            <div class="resource_left"><input class="textbox" id="txtProjectMark" name="txtProjectMark" type="text" maxlength="4" value="<%=listResource.get(0).getMark()%>"/></div>             
         </div>
         <div class="cleared"></div>    
         <%if(listResource.get(0).getUploadName()!=null){%>
@@ -601,6 +607,8 @@ if(session.getAttribute("username")!=null)
                 alertString =alertString+"\r\n<bean:message key="text.year" /> <bean:message key="text.required" />";
             if($("#txtSchoolYear").val().trim(" ").length==0) // school year
                 alertString =alertString+"\r\n<bean:message key="text.schoolyear" /> <bean:message key="text.required" />";
+            if($("#txtThesisMark").val().trim(" ").length==0) // mark
+                alertString =alertString+"\r\n<bean:message key="text.mark" /> <bean:message key="text.required" />";             
             if(FCKeditorAPI.GetInstance("fckThesisSummaryVN").GetXHTML().length==0) // ThesisSummaryVN
                 alertString =alertString+"\r\n<bean:message key="text.chaptersummaryvn" /> <bean:message key="text.required" />";
             if(FCKeditorAPI.GetInstance("fckThesisSummaryEN").GetXHTML().length==0) // ThesisSummaryEN
@@ -613,9 +621,13 @@ if(session.getAttribute("username")!=null)
                 alert(alertString);
             if(alertString=="")
             {   
-                if(isNaN($("#txtYear").val())) // year is number
-                   alert("<bean:message key="text.year" /> <bean:message key="text.isnotnumber" />");
-                if(!isNaN($("#txtYear").val()))
+                if(isNaN($("#txtYear").val())) // year is not a number
+                   alertString=alertString+"\r\n<bean:message key="text.year" /> <bean:message key="text.isnotnumber" />";
+                if(isNaN($("#txtThesisMark").val())) // mark is not a number
+                   alertString=alertString+"\r\n<bean:message key="text.mark" /> <bean:message key="text.isnotnumber" />";
+                if(alertString!="")
+                   alert(alertString);
+                if(alertString=="")
                     document.forms["EditResourceForm"].submit(); //submit
             }
         }
@@ -624,14 +636,20 @@ if(session.getAttribute("username")!=null)
             if($("#txtProjectAuthor").val().trim(" ").length==0) // chapter
                 alertString =alertString+"\r\n<bean:message key="text.projectauthor" /> <bean:message key="text.required" />";
             if($("#txtProjectYear").val().trim(" ").length==0) // chapter
-                alertString =alertString+"\r\n<bean:message key="text.year" /> <bean:message key="text.required" />";             
+                alertString =alertString+"\r\n<bean:message key="text.year" /> <bean:message key="text.required" />";
+            if($("#txtProjectMark").val().trim(" ").length==0) // chapter
+                alertString =alertString+"\r\n<bean:message key="text.mark" /> <bean:message key="text.required" />";            
             if(alertString!="")
                 alert(alertString);
             if(alertString=="")
             {   
-                if(isNaN($("#txtProjectYear").val())) // year is number
-                   alert("<bean:message key="text.year" /> <bean:message key="text.isnotnumber" />");
-                if(!isNaN($("#txtProjectYear").val()))
+                if(isNaN($("#txtProjectYear").val())) // year is not a number
+                   alertString=alertString+"\r\n<bean:message key="text.year" /> <bean:message key="text.isnotnumber" />";
+                if(isNaN($("#txtProjectMark").val())) // mark is not a number
+                   alertString=alertString+"\r\n<bean:message key="text.mark" /> <bean:message key="text.isnotnumber" />";
+                if(alertString!="")
+                   alert(alertString);
+                if(alertString=="")
                     document.forms["EditResourceForm"].submit(); //submit
             }          
         }       

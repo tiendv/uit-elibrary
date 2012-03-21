@@ -102,7 +102,8 @@ public class EditResourceAction extends org.apache.struts.action.Action {
                     resource.setSchoolYear(createResourceForm.getTxtSchoolYear());
                     FormFile fileThesis = createResourceForm.getFileThesis();
                     resource.setSummaryVn(createResourceForm.getFckThesisSummaryVN());
-                    resource.setSummaryEn(createResourceForm.getFckThesisSummaryEN());            
+                    resource.setSummaryEn(createResourceForm.getFckThesisSummaryEN()); 
+                    resource.setMark(createResourceForm.getTxtThesisMark());
                     /**
                      * 
                      */
@@ -154,6 +155,7 @@ public class EditResourceAction extends org.apache.struts.action.Action {
                  if(resourceCategoryID == 6)
                 {
                     resource.setYear(createResourceForm.getTxtProjectYear());
+                    resource.setMark(createResourceForm.getTxtProjectMark());
                     resource.setAuthor(createResourceForm.getTxtProjectAuthor());
                     subject.setSubjectId(createResourceForm.getDropSubjectInProject());
                     resource.setSubject(subject);
