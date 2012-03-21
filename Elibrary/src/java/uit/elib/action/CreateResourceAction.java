@@ -93,7 +93,8 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
                     resource.setSchoolYear(createResourceForm.getTxtSchoolYear());
                     FormFile fileThesis = createResourceForm.getFileThesis();
                     resource.setSummaryVn(createResourceForm.getFckThesisSummaryVN());
-                    resource.setSummaryEn(createResourceForm.getFckThesisSummaryEN());            
+                    resource.setSummaryEn(createResourceForm.getFckThesisSummaryEN());
+                    resource.setMark(createResourceForm.getTxtThesisMark());
                     /**
                      * 
                      */
@@ -140,6 +141,7 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
                     resource.setAuthor(createResourceForm.getTxtProjectAuthor());
                     subject.setSubjectId(createResourceForm.getDropSubjectInProject());
                     resource.setYear(createResourceForm.getTxtProjectYear());
+                    resource.setMark(createResourceForm.getTxtProjectMark());
                     resource.setSubject(subject);
                     FormFile fileProject = createResourceForm.getFileProject();       
                     if(!fileProject.getFileName().isEmpty())

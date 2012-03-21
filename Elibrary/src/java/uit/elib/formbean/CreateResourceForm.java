@@ -40,7 +40,25 @@ public class CreateResourceForm extends org.apache.struts.action.ActionForm {
     private int dropFaculty;
     private String fckThesisSummaryVN;
     private String fckThesisSummaryEN;
+    private Float txtThesisMark;
+    private Float txtProjectMark;
 
+    public Float getTxtProjectMark() {
+        return txtProjectMark;
+    }
+
+    public void setTxtProjectMark(Float txtProjectMark) {
+        this.txtProjectMark = txtProjectMark;
+    }
+
+    public Float getTxtThesisMark() {
+        return txtThesisMark;
+    }
+
+    public void setTxtThesisMark(Float txtThesisMark) {
+        this.txtThesisMark = txtThesisMark;
+    }
+    
     public int getTxtProjectYear() {
         return txtProjectYear;
     }
