@@ -1,5 +1,5 @@
 package uit.elib.dto;
-// Generated Feb 17, 2012 11:57:50 PM by Hibernate Tools 3.2.1.GA
+// Generated Mar 21, 2012 10:51:15 AM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -32,11 +32,12 @@ public class Resource  implements java.io.Serializable {
      private Integer year;
      private String schoolYear;
      private String school;
+     private Float mark;
 
     public Resource() {
     }
 
-    public Resource(Faculty faculty, Resourcecategory resourcecategory, Level level, Subject subject, String resourceNameVn, String resourceNameEn, String summaryVn, String summaryEn, Date postDate, Double size, String format, Integer downloadNumber, String serverName, String uploadName, Integer orderChapter, String author, String teacher, String class_, Integer year, String schoolYear, String school) {
+    public Resource(Faculty faculty, Resourcecategory resourcecategory, Level level, Subject subject, String resourceNameVn, String resourceNameEn, String summaryVn, String summaryEn, Date postDate, Double size, String format, Integer downloadNumber, String serverName, String uploadName, Integer orderChapter, String author, String teacher, String class_, Integer year, String schoolYear, String school, Float mark) {
        this.faculty = faculty;
        this.resourcecategory = resourcecategory;
        this.level = level;
@@ -58,6 +59,7 @@ public class Resource  implements java.io.Serializable {
        this.year = year;
        this.schoolYear = schoolYear;
        this.school = school;
+       this.mark = mark;
     }
    
     public Integer getResourceId() {
@@ -213,6 +215,13 @@ public class Resource  implements java.io.Serializable {
     
     public void setSchool(String school) {
         this.school = school;
+    }
+    public Float getMark() {
+        return this.mark;
+    }
+    
+    public void setMark(Float mark) {
+        this.mark = mark;
     }
 
 
