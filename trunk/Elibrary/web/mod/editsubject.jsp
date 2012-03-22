@@ -153,6 +153,14 @@ if(session.getAttribute("username")!=null)
     <html:javascript formName="EditSubjectForm"/>
     </html:form>
 <script type="text/javascript">
+    function init()
+    {
+        if(document.EditSubjectForm.dropSubjectCategory.value==1)
+        {
+            document.EditSubjectForm.dropFaculty.disabled=true;
+            document.EditSubjectForm.dropFaculty.selectedIndex=-1;
+        }    
+    }    
     function check()
     { 
         document.EditSubjectForm.dropFaculty.disabled=false;
