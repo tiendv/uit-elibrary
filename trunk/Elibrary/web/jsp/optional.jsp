@@ -228,12 +228,12 @@
 <script type="text/javascript">
     function displayDetail(subjectID)
     {
-        var x= document.getElementById("currentSubjectID").value;
-        if(x!=subjectID)
+        var s= document.getElementById("currentSubjectID").value;
+        if(s!=subjectID)
         {
             document.getElementById(subjectID).style.display = "block";
-            if(x>-1)
-                document.getElementById(x).style.display = "none";
+            if(s>-1)
+                document.getElementById(s).style.display = "none";
             document.getElementById("currentSubjectID").value=subjectID;
         }
             setContent();             
@@ -245,6 +245,7 @@
             document.getElementById(subjectID[i]).style.display = "block";
         document.getElementById(seealldetail).style.display = "none";  
         document.getElementById(closealldetail).style.display = "block";
+        document.getElementById("currentSubjectID").value=-1;
         setContent();  
     }
     function closeAllDetail(seealldetail,closealldetail,manySubjectID)

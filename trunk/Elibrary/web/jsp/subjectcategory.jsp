@@ -3,6 +3,7 @@
     Created on : Dec 1, 2012, 8:27:49 AM
     Author     : HERO
 --%>
+<%@page import="java.util.Date"%>
 <%@page import="uit.elib.utility.CheckGroupDetail"%>
 <%@page import="uit.elib.dto.Resource"%>
 <%@page import="uit.elib.dto.Subject" %>
@@ -24,7 +25,6 @@
             List<Resource> listChapter; // List Chapter of Subject
             listResource = (List<Resource>)request.getAttribute("listResource");
             listChapter = (List<Resource>)request.getAttribute("listChapter");
-            int orderChapter = Integer.parseInt(request.getAttribute("orderChapter").toString());
             Subject subject =(Subject)request.getAttribute("subject"); // lấy thông tin môn học
             int subjectID = Integer.parseInt(request.getAttribute("subjectID").toString());
             int resourceCategoryID = Integer.parseInt(request.getAttribute("resourceCategoryID").toString());
@@ -306,7 +306,6 @@
         <%}%>  <!--End of ResourceCategoryID=5  IF -->
                 
         <!--Begin of ResourceCategoryID = 6 (đồ án môn học) -->
-        <%int year=0;int count = 1;%>
         <%if(resourceCategoryID==6) {%>
         <div class="hyperlink_title_subject"><a href="LoadSubject.do"><bean:message key ="text.subject"/></a> > <a href="SubjectIntroduction.do?subjectID=<%=subjectID%>">
             <% if(language==1){%>
@@ -324,79 +323,108 @@
             <div class="hyperlink_title_subject"><%=subject.getProjectRequirementVn()%></div> 
         <%}%>
         <div class="hyperlink_title_subject"><br><h2><bean:message key="text.listtemplateproject"/></h2></div>
-        <%while(count<=listResource.size()){%>
-            <%year=listResource.get(count-1).getYear();
-              color=1;  
-            %>
-        <div class="year1"><bean:message key="text.year"/> <%=year%></div>
-        <table class="resource_table" >
-            <tr class="color_title_table">
-                <td width="80px"><bean:message key="text.ordernumber"/> </td>
-                <td width="230px"><bean:message key="text.projectauthor"/> </td>
-                <td width="330px"><bean:message key="text.projectnameen"/> </td>
-                <td width="90px"><bean:message key="text.document"/> </td>
-            </tr>
-            <%if(listResource.size()==0){ %> <!--Nếu chưa có tài nguyên thì hiện "đang cập nhật" -->
-                <tr>
-                    <td><%=listResource.size()%></td>
-                    <td></td>
-                    <td><bean:message key="text.updating"/></td>
-                    <td></td>
-                </tr>
-             <%}%>
-                <%
-                    
-                    for(int i = count-1; i<listResource.size();i++){
+       
+        <% 
+            int year;
+            Boolean haveThesis;
+            Boolean lastIndex=false;
+            if(listResource.size()>0){
+            int r=0;                     
+            haveThesis=true;    
+            while(lastIndex==false){
+                year=listResource.get(r).getYear();
+                String thesisID="";
+        %> 
+                    <div class="year"><bean:message key="text.year"/> <%=year%></div>
+                    <table class="thesis_table"> 
+                    <%                 
+                        for(int i=r;i<listResource.size();i=i+2) {
+                            if(year!=listResource.get(i).getYear())
+                                break;
+                            thesisID = thesisID+listResource.get(i).getResourceId()+",";
+                    %>
+                    <tr>      
+                    <td class="thesis_row">              
+                            <img src="image/black-arrow.gif" class="image_black_arrow" alt="black-arrow"/>
+                            <% if(language==1) { %>
+                                <a href ="#<%=listResource.get(i).getResourceId()%>" class="href_subject" onclick="displayDetail('y<%=year%>',<%=listResource.get(i).getResourceId()%>)" > <%=listResource.get(i).getResourceNameEn()%>  </a> <!--English Resource Name-->
+                            <% } %> 
+                            <% if(language==2) {%>
+                                <a href ="#<%=listResource.get(i).getResourceId()%>" class="href_subject" onclick="displayDetail('y<%=year%>',<%=listResource.get(i).getResourceId()%>)" ><%=listResource.get(i).getResourceNameVn()%> </a> <!--Vietnamese Resource Name-->
+                            <% } %>                         
+                    </td>
+                    <td class="thesis_row">
+                        <% if(i+1<listResource.size() && (year==listResource.get(i+1).getYear())){ %>
+                            <img src="image/black-arrow.gif" class="image_black_arrow" alt="black-arrow"/>
+                            <% if(language==1) {%>
+                                <a href ="#<%=listResource.get(i+1).getResourceId()%>" class="href_subject" onclick="displayDetail('y<%=year%>',<%=listResource.get(i+1).getResourceId()%>)" > <%=listResource.get(i+1).getResourceNameEn()%> </a> <!--English Resource Name-->
+                            <% } %> 
+                            <% if(language==2) {%>
+                                <a href ="#<%=listResource.get(i+1).getResourceId()%>" class="href_subject" onclick="displayDetail('y<%=year%>',<%=listResource.get(i+1).getResourceId()%>)" > <%=listResource.get(i+1).getResourceNameVn()%> </a> <!--Vietnamese Resource Name-->
+                            <% } %>
+                            <%thesisID = thesisID+listResource.get(i+1).getResourceId()+",";%>
+                        <% } %>    
+                    </td>
+                    </tr>
+                    <% } %>
+                </table>
+                <table class="table_thesis" id="y<%=year%>">
+                    <tr class="color_title_table">
+                        <td class="td_chapter_1"><bean:message key="text.ordernumber"/></td>
+                        <td class="td_chapter_2"><bean:message key="text.chaptertitle"/></td>
+                        <td class="td_chapter_3"><bean:message key="text.mark"/></td>                
+                        <td class="td_chapter_4"><bean:message key="text.document"/></td>                
+                    </tr>
+                    <%  
+                    color=0;
+                    int number =0;
+                    for(int i=r;i<listResource.size();i++) {
                         if(year!=listResource.get(i).getYear())
-                        {
-                            break;
+                        {     
+                                r=i;
+                                break;
                         }
-                 %>
-                 <tr>
-                 <td style="text-align: center;"<% if(color%2==0){ %> 
-                                    class="color_table2"
-                     <%}%>>
-                        <%=count%>
-                 </td>
-                 <td <% if(color%2==0){ %> 
-                                    class="color_table2"
-                     <%}%>>
-                        <%=listResource.get(i).getAuthor()%> 
-                 </td>
-                 <td <% if(color%2==0){ %> 
-                                    class="color_table2"
-                                <%}%>>
-                     <% if(language==1) {%>
-                     <%
-                        if(Integer.parseInt(listResource.get(i).getSubject().getSubjectId().toString())== Integer.parseInt(subject.getSubjectId().toString()))
-                           {%>
-                    <%=listResource.get(i).getResourceNameEn() %>
-                    <%}%> 
-                     <%}%>
-                     <% if(language==2) {%>
-                     <%
-                        if(Integer.parseInt(listResource.get(i).getSubject().getSubjectId().toString())== Integer.parseInt(subject.getSubjectId().toString()))
-                           {%>
-                    <%=listResource.get(i).getResourceNameVn() %>
-                    <%}%> 
-                     <%}%>
-                 </td>
-                 <td <% if(color%2==0){ %> 
-                                    class="color_table2"
-                                <%}%>>
-                     <div class="displayIcon"><a  href = "DownLoad.do?resourceID=<%=listResource.get(i).getResourceId()%>" alt="<bean:message key="text.project"/>" class="openStudy"/>
-                 </td>
-                 <% count++;%>
-                 <%color++;%>
-             </tr>        
-                 <%}%>
-         </table>
-        <%}}%>
-        
-        
-        <!--End of ResourceCategoryID=6( đồ án môn học) IF -->
-        
-        
+                    %>
+                <tr id="<%=listResource.get(i).getResourceId()%>" class="none">    
+                        <td <% if(color%2==0){ %>class="td_chapter_1_content_even"<%}%> 
+                            <% if(color%2!=0){ %>class="td_chapter_1_content_odd"<%}%> >
+                            <%=++number%> 
+                        </td>  
+                        <% if(language==1) {%>                              
+                            <td <% if(color%2==0){ %>class="td_chapter_2_content_even"<%}%> 
+                                <% if(color%2!=0){ %>class="td_chapter_2_content_odd"<%}%> >
+                                <%=listResource.get(i).getResourceNameEn() %> <!--English Resource Name-->
+                            </td>
+                        <% } %> 
+                        <% if(language==2) {%>                               
+                            <td <% if(color%2==0){ %>class="td_chapter_2_content_even"<%}%> 
+                                <% if(color%2!=0){ %>class="td_chapter_2_content_odd"<%}%> >
+                                <%=listResource.get(i).getResourceNameVn() %> <!--Vietnamese Resource Name-->
+                            </td>
+                        <% } %>
+                        <td <% if(color%2==0){ %>class="td_chapter_3_content_even"<%}%> 
+                            <% if(color%2!=0){ %>class="td_chapter_3_content_odd"<%}%> >
+                            <%=listResource.get(i).getMark()%>
+                        </td>
+                        <td <% if(color%2==0){ %>class="td_chapter_4_content_even"<%}%> 
+                            <% if(color%2!=0){ %>class="td_chapter_4_content_odd"<%}%> >
+                            <div class="displayIcon"><a  href = "DownLoad.do?resourceID=<%=listResource.get(i).getResourceId()%>" alt="<bean:message key="text.video"/>" class="openStudy"></a></div>
+                        </td>
+                    </tr >
+                    <% color ++; 
+                    if(i+1>=listResource.size()) 
+                        lastIndex=true;
+                    } %>
+                </table> 
+        <% if(haveThesis) {%>
+        <div class="seealldetail" id="seealldetail<%=year%>" onclick="seeAllDetail('seealldetail<%=year%>','closealldetail<%=year%>','y<%=year%>','<%=thesisID%>')"><a class="href_subject"><bean:message key="text.seealldetail"/></a></div>
+        <div class="closealldetail" id="closealldetail<%=year%>" onclick="closeAllDetail('seealldetail<%=year%>','closealldetail<%=year%>','y<%=year%>','<%=thesisID%>')"><a class="href_subject"><bean:message key="text.closealldetail"/></a></div>   
+        <% } %>            
+        <%}}%>        
+        <input type="hidden" id="currentLevelYear" value="-1"/>
+        <input type="hidden" id="currentThesisID" value="-1"/>   
+        <%}%>         
+        <!--End of ResourceCategoryID=6( đồ án môn học) IF -->           
          <!-- Begin load resource by OrderChapter (ResourceCategoryID=11, Video) -->
         <%if(resourceCategoryID==11) {%>
         
@@ -469,3 +497,47 @@
 <%if(allow==false){%>
 <jsp:include page="../jsp/wrongpage.jsp" flush="true"/>
 <%}%>
+<script type="text/javascript">
+    function displayDetail(levelYear,thesisID)
+    {
+        var s= document.getElementById("currentThesisID").value;
+        var l= document.getElementById("currentLevelYear").value;
+        if(l!=levelYear)
+        {
+            document.getElementById(levelYear).style.display = "block";
+            if(l>-1)
+                document.getElementById(l).style.display = "none";
+            document.getElementById("currentLevelYear").value=levelYear;
+        }           
+        if(s!=thesisID)
+        {
+            document.getElementById(thesisID).style.display = "table-row";
+            if(s>-1)
+                document.getElementById(s).style.display = "none";
+            document.getElementById("currentThesisID").value=thesisID;
+        }     
+        setContent();             
+    }
+    function seeAllDetail(seealldetail,closealldetail,levelYear,manyResourceID)
+    {
+        var thesisID = manyResourceID.split(',');
+        document.getElementById(levelYear).style.display = "block";
+        for(var i=0;i<thesisID.length-1;i++)
+            document.getElementById(thesisID[i]).style.display = "table-row";
+        document.getElementById(seealldetail).style.display = "none";  
+        document.getElementById(closealldetail).style.display = "block";
+        document.getElementById("currentThesisID").value=-1;
+        document.getElementById("currentLevelYear").value=-1;        
+        setContent();  
+    }
+    function closeAllDetail(seealldetail,closealldetail,levelYear,manyResourceID)
+    {
+        var thesisID = manyResourceID.split(',');
+        document.getElementById(levelYear).style.display = "none";
+        for(var i=0;i<thesisID.length-1;i++)
+            document.getElementById(thesisID[i]).style.display = "none";
+        document.getElementById(seealldetail).style.display = "block";  
+        document.getElementById(closealldetail).style.display = "none";
+        setContent();          
+    }    
+</script>

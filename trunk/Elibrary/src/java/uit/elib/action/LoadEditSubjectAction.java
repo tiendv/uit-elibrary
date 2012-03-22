@@ -16,6 +16,7 @@ import uit.elib.bo.SubjectBO;
 import uit.elib.bo.SubjectCategoryBO;
 import uit.elib.bo.FacultyBO;
 import uit.elib.dto.Subject;
+import uit.elib.formbean.EditSubjectForm;
 import uit.elib.utility.CheckGroup;
 
 /**
@@ -65,6 +66,9 @@ public class LoadEditSubjectAction extends org.apache.struts.action.Action {
                         int facultyID = Integer.parseInt(request.getParameter("facultyID"));
                         request.setAttribute("hiddenFacultyID",facultyID );
                         request.setAttribute("hiddenSubjectCategoryID", subjectInfo.get(0).getSubjectcategory().getSubjectCategoryId());
+                        EditSubjectForm editSubjectForm = (EditSubjectForm)form;
+                        editSubjectForm.setDropSubjectCategory(subjectInfo.get(0).getSubjectcategory().getSubjectCategoryId());
+                        editSubjectForm.setDropFaculty(subjectInfo.get(0).getFaculty().getFacultyId());
                         return mapping.findForward(SUCCESS);
                     }
                 }               

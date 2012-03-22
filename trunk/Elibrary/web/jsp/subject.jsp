@@ -191,18 +191,23 @@
 </table>
 </div>        
 <% } %>
+<input type="hidden" id="currentSeeAll" value="0"/>
 <input type="hidden" id="currentSubjectID" value="-1"/>
 <script type="text/javascript">
     function displayDetail(subjectID)
     {
-        var x= document.getElementById("currentSubjectID").value;
-        if(x!=subjectID)
+        var s= document.getElementById("currentSubjectID").value;
+        var csa= document.getElementById("currentSeeAll").value;
+        if(csa==0)
         {
-            document.getElementById(subjectID).style.display = "block";
-            if(x>-1)
-                document.getElementById(x).style.display = "none";
-            document.getElementById("currentSubjectID").value=subjectID;
-            setContent();             
+            if(s!=subjectID)
+            {
+                document.getElementById(subjectID).style.display = "block";
+                if(s>-1)
+                    document.getElementById(s).style.display = "none";
+                document.getElementById("currentSubjectID").value=subjectID;
+                setContent();             
+            }
         }
     }
     function seeAllDetail()
@@ -214,6 +219,8 @@
         <%}%>
         document.getElementById("seealldetail").style.display = "none";  
         document.getElementById("closealldetail").style.display = "block";
+        document.getElementById("currentSeeAll").value =1;
+        document.getElementById("currentSubjectID").value=-1;
         setContent();      
     }
     function closeAllDetail()
@@ -225,6 +232,7 @@
         <%}%>
         document.getElementById("seealldetail").style.display = "block";  
         document.getElementById("closealldetail").style.display = "none";
+        document.getElementById("currentSeeAll").value =0;
         setContent();      
     }    
 </script>
