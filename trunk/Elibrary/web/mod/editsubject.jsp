@@ -100,7 +100,7 @@ if(session.getAttribute("username")!=null)
             <td><bean:message key="text.prerequisitesubjectvn"/></td>
             <td><input id="txtPrerequisiteSubjectVN" name="txtPrerequisiteSubjectVN" type="text" class="textbox" value="<%=subjectInfo.get(0).getPrerequisiteSubjectVn() %>" maxlength="255"/></td>
             <td><bean:message key="text.prerequisitesubjecten"/></td>
-            <td><input id="txtPrerequisiteSubject" name="txtPrerequisiteSubject" type="text" class="textbox" value="<%=subjectInfo.get(0).getProjectRequirementEn() %>" maxlength="255"/></td>
+            <td><input id="txtPrerequisiteSubject" name="txtPrerequisiteSubject" type="text" class="textbox" value="<%=subjectInfo.get(0).getPrerequisiteSubjectEn()%>" maxlength="255"/></td>
         </tr>
         <tr>
             <td><bean:message key="text.timeteaching"/></td>

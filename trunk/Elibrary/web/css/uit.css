@@ -145,12 +145,12 @@
     display: none;
 }
 .td_chapter_1 {
-    width:160px;
+    width:100px;
     font-weight: bold;
     text-align: center;
 }
 .td_chapter_1_content_even {
-    width:160px;
+    width:100px;
     text-align: center;
     background-color:#E2E1D9;
     color:#680a12;
@@ -159,7 +159,7 @@
     border-right-color:#B4B1A2;    
 }
 .td_chapter_1_content_odd {
-    width:160px;
+    width:100px;
     text-align: center;
     color:#680a12;
     border-right: 1px;
@@ -167,16 +167,16 @@
     border-right-color:#B4B1A2;          
 }
 .td_chapter_2 {
-    width:458px;
+    width:518px;
     font-weight: bold;
 }
 .td_chapter_2_content_even {
-    width:458px;
+    width:518px;
     background-color:#E2E1D9;
     color:#680a12;
 }
 .td_chapter_2_content_odd {
-    width:458px;
+    width:518px;
     color:#680a12;
 }
 .td_chapter_3 {
