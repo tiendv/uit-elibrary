@@ -33,7 +33,7 @@ if(checkGroupDetail.GroupDetail(username,2,1)==true)
    if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vi_VN"))
         language = 2; // VietNamese
 %> 
-<div class="newstitle"><bean:message key="text.thesisdetail"/></div>
+<div class="thesisdetail"><bean:message key="text.thesisdetail"/></div>
 <div class="resource1">
     <div class="resource_left_bold"><bean:message key="text.thesisname"/></div>
     <div class="resource_left">

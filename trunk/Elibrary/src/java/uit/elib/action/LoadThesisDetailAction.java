@@ -49,14 +49,14 @@ public class LoadThesisDetailAction extends org.apache.struts.action.Action {
         CheckGroupDetail checkGroupDetail = new CheckGroupDetail();
             if(checkGroupDetail.GroupDetail(username,2,1)==true)
             {            
-               if(request.getParameter("resourceID")!=null)
+               if(request.getParameter("thesisID")!=null)
                 {
                     IsNumber isNumber = new IsNumber();
-                    if(isNumber.checkInt(request.getParameter("resourceID")))
+                    if(isNumber.checkInt(request.getParameter("thesisID")))
                     {
-                        int resourceID = Integer.parseInt(request.getParameter("resourceID"));
+                        int thesisID = Integer.parseInt(request.getParameter("thesisID"));
                         ResourceBO resourceBO = ResourceBO.getResourceBO();
-                        List<Resource> listResource = resourceBO.getAllResource("resourceId="+resourceID, null);
+                        List<Resource> listResource = resourceBO.getAllResource("resourceId="+thesisID, null);
                         if(listResource.size()>0)
                         {
                             List<Level> listLevel = LevelBO.getLevelBO().getAllLevel(listResource.get(0).getLevel().getLevelId());
