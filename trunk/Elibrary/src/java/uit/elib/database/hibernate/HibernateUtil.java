@@ -56,8 +56,10 @@ public class HibernateUtil {
      */
     protected void commitAndClose() {
         if (session != null) {
+            session.flush();
             session.getTransaction().commit();
             if (session.isOpen()) {
+                session.flush();
                 session.close();
             }
         }
@@ -67,6 +69,7 @@ public class HibernateUtil {
      */    
     protected void commit() {
         if (session != null) {
+            session.flush();
             session.getTransaction().commit();
         }
     }
@@ -75,6 +78,7 @@ public class HibernateUtil {
      */    
     protected void close() {
             if (session.isOpen()) {
+                session.flush();
                 session.close();
             }
         }    
