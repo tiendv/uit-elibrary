@@ -77,11 +77,13 @@ public class HibernateUtil {
      * Commit transaction and close session
      */    
     protected void close() {
+        if (session != null) {
             if (session.isOpen()) {
                 session.flush();
                 session.close();
             }
-        }    
+        }
+    }
     /**
      * Get Current Session
      * @return session
