@@ -315,7 +315,7 @@
             <%}%>
             </a> > <bean:message key ="text.project"/></div>
         
-            <div class="hyperlink_title_subject"><h2><bean:message key="text.projectrequirementtitle"/>:</h2></div>
+        <div class="hyperlink_title_subject"><h2><bean:message key="text.projectrequirementtitle"/>:</h2></div>
         <% if(language==1){%>
             <div class="hyperlink_title_subject"><%=subject.getProjectRequirementEn()%></div>
         <%}%>
@@ -370,10 +370,11 @@
                 </table>
                 <table class="table_thesis" id="y<%=year%>">
                     <tr class="color_title_table">
-                        <td class="td_chapter_1"><bean:message key="text.ordernumber"/></td>
-                        <td class="td_chapter_2"><bean:message key="text.chaptertitle"/></td>
-                        <td class="td_chapter_3"><bean:message key="text.mark"/></td>                
-                        <td class="td_chapter_4"><bean:message key="text.document"/></td>                
+                        <td class="td_project_1"><bean:message key="text.ordernumber"/></td>
+                        <td class="td_project_2"><bean:message key="text.chaptertitle"/></td>
+                        <td class="td_project_3"><bean:message key="text.author"/></td>
+                        <td class="td_project_4"><bean:message key="text.mark"/></td>                
+                        <td class="td_project_5"><bean:message key="text.document"/></td>                
                     </tr>
                     <%  
                     color=0;
@@ -386,28 +387,32 @@
                         }
                     %>
                 <tr id="<%=listResource.get(i).getResourceId()%>" class="none">    
-                        <td <% if(color%2==0){ %>class="td_chapter_1_content_even"<%}%> 
-                            <% if(color%2!=0){ %>class="td_chapter_1_content_odd"<%}%> >
+                        <td <% if(color%2==0){ %>class="td_project_1_content_even"<%}%> 
+                            <% if(color%2!=0){ %>class="td_project_1_content_odd"<%}%> >
                             <%=++number%> 
                         </td>  
                         <% if(language==1) {%>                              
-                            <td <% if(color%2==0){ %>class="td_chapter_2_content_even"<%}%> 
-                                <% if(color%2!=0){ %>class="td_chapter_2_content_odd"<%}%> >
+                            <td <% if(color%2==0){ %>class="td_project_2_content_even"<%}%> 
+                                <% if(color%2!=0){ %>class="td_project_2_content_odd"<%}%> >
                                 <%=listResource.get(i).getResourceNameEn() %> <!--English Resource Name-->
                             </td>
                         <% } %> 
                         <% if(language==2) {%>                               
-                            <td <% if(color%2==0){ %>class="td_chapter_2_content_even"<%}%> 
-                                <% if(color%2!=0){ %>class="td_chapter_2_content_odd"<%}%> >
+                            <td <% if(color%2==0){ %>class="td_project_2_content_even"<%}%> 
+                                <% if(color%2!=0){ %>class="td_project_2_content_odd"<%}%> >
                                 <%=listResource.get(i).getResourceNameVn() %> <!--Vietnamese Resource Name-->
                             </td>
                         <% } %>
-                        <td <% if(color%2==0){ %>class="td_chapter_3_content_even"<%}%> 
-                            <% if(color%2!=0){ %>class="td_chapter_3_content_odd"<%}%> >
+                        <td <% if(color%2==0){ %>class="td_project_3_content_even"<%}%> 
+                            <% if(color%2!=0){ %>class="td_project_3_content_odd"<%}%> >
+                            <%=listResource.get(i).getAuthor()%>
+                        </td>                        
+                        <td <% if(color%2==0){ %>class="td_project_4_content_even"<%}%> 
+                            <% if(color%2!=0){ %>class="td_project_4_content_odd"<%}%> >
                             <%=listResource.get(i).getMark()%>
                         </td>
-                        <td <% if(color%2==0){ %>class="td_chapter_4_content_even"<%}%> 
-                            <% if(color%2!=0){ %>class="td_chapter_4_content_odd"<%}%> >
+                        <td <% if(color%2==0){ %>class="td_project_5_content_even"<%}%> 
+                            <% if(color%2!=0){ %>class="td_project_5_content_odd"<%}%> >
                             <div class="displayIcon"><a  href = "DownLoad.do?resourceID=<%=listResource.get(i).getResourceId()%>" alt="<bean:message key="text.video"/>" class="openStudy"></a></div>
                         </td>
                     </tr >
