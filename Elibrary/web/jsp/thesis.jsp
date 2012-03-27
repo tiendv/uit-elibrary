@@ -171,14 +171,14 @@ if(checkGroupDetail.GroupDetail(username,2,1)==true)
             if(l!=levelYear)
             {
                 document.getElementById(levelYear).style.display = "block";
-                if(l>-1)
+                if(l!=-1)
                     document.getElementById(l).style.display = "none";
                 document.getElementById("currentLevelYear").value=levelYear;
             }           
             if(t!=thesisID)
             {
                 document.getElementById(thesisID).style.display = "table-row";
-                if(t>-1)
+                if(t!=-1)
                     document.getElementById(t).style.display = "none";
                 document.getElementById("currentThesisID").value=thesisID;
             }     
