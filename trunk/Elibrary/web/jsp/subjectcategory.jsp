@@ -505,14 +505,14 @@
         if(l!=levelYear)
         {
             document.getElementById(levelYear).style.display = "block";
-            if(l>-1)
+            if(l!=-1)
                 document.getElementById(l).style.display = "none";
             document.getElementById("currentLevelYear").value=levelYear;
         }           
         if(s!=thesisID)
         {
             document.getElementById(thesisID).style.display = "table-row";
-            if(s>-1)
+            if(s!=-1)
                 document.getElementById(s).style.display = "none";
             document.getElementById("currentThesisID").value=thesisID;
         }     

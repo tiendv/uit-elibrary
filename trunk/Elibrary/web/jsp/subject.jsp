@@ -203,7 +203,7 @@
             if(s!=subjectID)
             {
                 document.getElementById(subjectID).style.display = "block";
-                if(s>-1)
+                if(s!=-1)
                     document.getElementById(s).style.display = "none";
                 document.getElementById("currentSubjectID").value=subjectID;
                 setContent();             
