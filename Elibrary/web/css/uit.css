@@ -205,6 +205,80 @@
     width:60px;
     color:#680a12;
 }
+.td_project_1 {
+    width:100px;
+    font-weight: bold;
+    text-align: center;
+}
+.td_project_1_content_even {
+    width:100px;
+    text-align: center;
+    background-color:#E2E1D9;
+    color:#680a12;
+    border-right: 1px;
+    border-right-style:solid;
+    border-right-color:#B4B1A2;    
+}
+.td_project_1_content_odd {
+    width:100px;
+    text-align: center;
+    color:#680a12;
+    border-right: 1px;
+    border-right-style:solid;
+    border-right-color:#B4B1A2;          
+}
+.td_project_2 {
+    width:318px;
+    font-weight: bold;
+}
+.td_project_2_content_even {
+    width:318px;
+    background-color:#E2E1D9;
+    color:#680a12;
+}
+.td_project_2_content_odd {
+    width:318px;
+    color:#680a12;
+}
+.td_project_3 {
+    width:200px;
+    font-weight: bold;
+}
+.td_project_3_content_even {
+    width:200px;
+    background-color:#E2E1D9;
+    color:#680a12;
+}
+.td_project_3_content_odd {
+    width:200px;
+    color:#680a12;
+}
+.td_project_4 {
+    width:140px;
+}
+.td_project_4_content_even {
+    width:140px;
+    background-color:#E2E1D9;
+    color:#680a12;
+    text-align: center;
+}
+.td_project_4_content_odd {
+    width:140px;
+    color:#680a12;
+    text-align: center;
+}
+.td_project_5 {
+    width:60px;
+}
+.td_project_5_content_even {
+    width:60px;
+    background-color:#E2E1D9;
+    color:#680a12;          
+}
+.td_project_5_content_odd {
+    width:60px;
+    color:#680a12;
+}
 .td_chapter_border {
     border-right: 1px;
     border-right-style:solid;
