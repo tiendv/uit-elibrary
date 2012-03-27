@@ -675,6 +675,14 @@ div.thesis_summary{
     margin-left: 5px;
     margin-bottom: 5px;
 }
+.thesisdetail {
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top:15px;
+    margin-left: 2px;
+    margin-bottom: 5px;
+}
 .newslink{
     text-decoration: none;
     color: #b8262b;
