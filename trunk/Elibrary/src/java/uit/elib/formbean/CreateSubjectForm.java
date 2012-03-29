@@ -25,7 +25,7 @@ public class CreateSubjectForm extends org.apache.struts.action.ActionForm {
     private String txtTimeTeaching;
     private String txtTeacherName;
     private String txtLevel;
-    private int dropFaculty;
+    private int []dropFaculty;
     private String FckIntroductionVN;
     private String FckIntroductionEN;
     private String FckProjectRequitementVN;
@@ -34,11 +34,11 @@ public class CreateSubjectForm extends org.apache.struts.action.ActionForm {
     private String txtNumberChapter;
     private String txtCreditNumber;
 
-    public int getDropFaculty() {
+    public int[] getDropFaculty() {
         return dropFaculty;
     }
 
-    public void setDropFaculty(int dropFaculty) {
+    public void setDropFaculty(int[] dropFaculty) {
         this.dropFaculty = dropFaculty;
     }
 

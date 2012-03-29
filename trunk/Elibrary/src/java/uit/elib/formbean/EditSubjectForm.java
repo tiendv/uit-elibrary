@@ -4,12 +4,6 @@
  */
 package uit.elib.formbean;
 
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessage;
-
 /**
  *
  * @author HERO
@@ -29,7 +23,7 @@ public class EditSubjectForm extends org.apache.struts.action.ActionForm {
     private String txtTimeTeaching;
     private String txtTeacherName;
     private String txtLevel;
-    private int dropFaculty;
+    private int []dropFaculty;
     private String fckIntroductionVN;
     private String fckIntroductionEN;
     private String fckProjectRequitementVN;
@@ -37,9 +31,7 @@ public class EditSubjectForm extends org.apache.struts.action.ActionForm {
     private String txtSubjectName;
     private String txtNumberChapter;
     private String txtCreditNumber;
-    
-    
-
+     
     public int getTxtSubjectID() {
         return txtSubjectID;
     }
@@ -47,11 +39,11 @@ public class EditSubjectForm extends org.apache.struts.action.ActionForm {
     public void setTxtSubjectID(int txtSubjectID) {
         this.txtSubjectID = txtSubjectID;
     }
-    public int getDropFaculty() {
+    public int []getDropFaculty() {
         return dropFaculty;
     }
 
-    public void setDropFaculty(int dropFaculty) {
+    public void setDropFaculty(int []dropFaculty) {
         this.dropFaculty = dropFaculty;
     }
 

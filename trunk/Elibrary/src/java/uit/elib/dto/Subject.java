@@ -1,5 +1,5 @@
 package uit.elib.dto;
-// Generated Mar 21, 2012 10:51:15 AM by Hibernate Tools 3.2.1.GA
+// Generated Mar 29, 2012 10:29:08 AM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -12,7 +12,6 @@ public class Subject  implements java.io.Serializable {
 
 
      private Integer subjectId;
-     private Faculty faculty;
      private Subjectcategory subjectcategory;
      private String subjectNameVn;
      private String subjectNameEn;
@@ -33,12 +32,12 @@ public class Subject  implements java.io.Serializable {
      private String projectRequirementVn;
      private Integer numberChapter;
      private Set resources = new HashSet(0);
+     private Set faculties = new HashSet(0);
 
     public Subject() {
     }
 
-    public Subject(Faculty faculty, Subjectcategory subjectcategory, String subjectNameVn, String subjectNameEn, String subjectIntroduceVn, String subjectIntroduceEn, Integer numberOfCredit, String level, Integer periodOfTheory, Integer periodOfPractice, String courseCode, String teacher, String prerequisiteSubjectVn, String prerequisiteSubjectEn, Integer midtermGrade, Integer finalGrade, Integer timeTeaching, String projectRequirementEn, String projectRequirementVn, Integer numberChapter, Set resources) {
-       this.faculty = faculty;
+    public Subject(Subjectcategory subjectcategory, String subjectNameVn, String subjectNameEn, String subjectIntroduceVn, String subjectIntroduceEn, Integer numberOfCredit, String level, Integer periodOfTheory, Integer periodOfPractice, String courseCode, String teacher, String prerequisiteSubjectVn, String prerequisiteSubjectEn, Integer midtermGrade, Integer finalGrade, Integer timeTeaching, String projectRequirementEn, String projectRequirementVn, Integer numberChapter, Set resources, Set faculties) {
        this.subjectcategory = subjectcategory;
        this.subjectNameVn = subjectNameVn;
        this.subjectNameEn = subjectNameEn;
@@ -59,6 +58,7 @@ public class Subject  implements java.io.Serializable {
        this.projectRequirementVn = projectRequirementVn;
        this.numberChapter = numberChapter;
        this.resources = resources;
+       this.faculties = faculties;
     }
    
     public Integer getSubjectId() {
@@ -67,13 +67,6 @@ public class Subject  implements java.io.Serializable {
     
     public void setSubjectId(Integer subjectId) {
         this.subjectId = subjectId;
-    }
-    public Faculty getFaculty() {
-        return this.faculty;
-    }
-    
-    public void setFaculty(Faculty faculty) {
-        this.faculty = faculty;
     }
     public Subjectcategory getSubjectcategory() {
         return this.subjectcategory;
@@ -214,6 +207,13 @@ public class Subject  implements java.io.Serializable {
     
     public void setResources(Set resources) {
         this.resources = resources;
+    }
+    public Set getFaculties() {
+        return this.faculties;
+    }
+    
+    public void setFaculties(Set faculties) {
+        this.faculties = faculties;
     }
 
 

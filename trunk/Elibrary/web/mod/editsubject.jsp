@@ -54,7 +54,7 @@ if(session.getAttribute("username")!=null)
             <td><bean:message key="text.subjectcategory"/></td>
             <td>
                 <%if(language==1) {%>
-                <html:select  property="dropSubjectCategory" onchange="check()" styleClass="combobox"  >
+                <html:select  property="dropSubjectCategory" onchange="check()" styleClass="combobox"   >
                         <html:optionsCollection name="LoadCreateSubjectForm"  property="listDropSubjectCategory" value="subjectCategoryId" label="subjectCategoryNameEn"  ></html:optionsCollection>
                 </html:select>
                 <%}%>
@@ -67,12 +67,12 @@ if(session.getAttribute("username")!=null)
             <td><bean:message key="text.faculty"/></td>
             <td>
                 <% if(language==1) {%>
-                    <html:select  property="dropFaculty" styleClass="combobox" >
+                <html:select  property="dropFaculty" styleClass="combobox" multiple="true">
                         <html:optionsCollection name="LoadCreateSubjectForm"  property="listDropFaculty" value="facultyId" label="facultyNameEn"></html:optionsCollection>
                     </html:select>
                 <%}%>
                 <% if(language==2) {%>
-                    <html:select  property="dropFaculty" styleClass="combobox" >
+                    <html:select  property="dropFaculty" styleClass="combobox" multiple="true">
                         <html:optionsCollection name="LoadCreateSubjectForm"  property="listDropFaculty" value="facultyId" label="facultyNameVn"></html:optionsCollection>
                     </html:select>
                 <%}%>

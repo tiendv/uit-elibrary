@@ -119,7 +119,6 @@ public abstract class ManagerBase<T> extends HibernateUtil {
 
         return i;
     }
-
     /**
      * Get List of entity follow order and max result
      * @param orders list order follow format: "ColumnName desc" or "ColumnName"
