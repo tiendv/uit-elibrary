@@ -89,7 +89,9 @@
         <td class="td_chapter_3"></td>
         <td class="td_chapter_4"></td>                
     </tr>
-    <% int color =0; %>
+    <% int color =0;
+       Boolean haveAnyChapter =false;
+    %>
     <% for(;j<listResource.size();j++) {%>
          <%
             int numberOfResource=0;
@@ -136,7 +138,8 @@
            }
           %>                                                                            
         <% if(listSubject.get(i).getSubjectId().equals(listResource.get(j).getSubject().getSubjectId()))  // if resource belong to subject
-        { %> 
+           {     haveAnyChapter=true;
+        %> 
             <td <% if(color%2==0){ %>class="td_chapter_1_content_even"<%}%> 
                 <% if(color%2!=0){ %>class="td_chapter_1_content_odd"<%}%> >
                 <%=listResource.get(chapterID).getOrderChapter() %> <!--Chapter-->
@@ -184,7 +187,10 @@
         <% } %>
         <% color ++; %>
     </tr >
-        <% }} %>
+    <% }} %>
+    <%if(haveAnyChapter==false){%>
+        <tr><td/><td><bean:message key="text.updating"/></td><td/><td/></tr>
+    <%}%>
 </table>
 </div>        
 <% } %>

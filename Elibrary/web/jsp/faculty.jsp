@@ -134,11 +134,9 @@
         <td class="td_chapter_4"></td>                
     </tr>
     <% int color =0;
+       Boolean haveAnyChapter =false;
        List<Resource> listResource = arrayListResource.get(i);
-       if(listResource.size()==0){
     %>
-    <tr><td/><td><bean:message key="text.updating"/></td><td/><td/></tr>
-    <%}%>   
     <% for(int j=0;j<listResource.size();j++) {%>
          <%
             int numberOfResource=0;
@@ -171,9 +169,6 @@
             }
                 j--;
        %>
-        <%if(chapterID==-1){%>
-        <tr><td/><td><bean:message key="text.updating"/></td><td/><td/></tr>
-        <%}%>
         <%if(chapterID>=0){%>                            
         <tr>
         <% Date date = new Date(); 
@@ -187,7 +182,8 @@
            }
           %>
         <% if(listSubjectDetail.get(i).getSubject().getSubjectId().equals(listResource.get(j).getSubject().getSubjectId()))  // if resource belong to subject
-        { %> 
+           {    haveAnyChapter=true; 
+        %> 
         <td <% if(color%2==0){ %>class="td_chapter_1_content_even"<%}%> 
             <% if(color%2!=0){ %>class="td_chapter_1_content_odd"<%}%> >
             <%=listResource.get(chapterID).getOrderChapter() %> <!--Chapter-->
@@ -235,9 +231,12 @@
         <% } %>              
         <% color ++; %>
     </tr >
-        <% }} %>
-        
+    <% }} %>
+    <%if(haveAnyChapter==false){%>
+        <tr><td/><td><bean:message key="text.updating"/></td><td/><td/></tr>
+    <%}%>          
 </table>
+     
 </div>          
 <%}}%>
 <input type="hidden" id="currentSubjectID" value="-1"/>
