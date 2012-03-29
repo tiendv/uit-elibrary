@@ -3,11 +3,11 @@
  * and open the template in the editor.
  */
 package uit.elib.bo;
-import uit.elib.database.hibernate.ManagerBase;
-import uit.elib.dto.Subject;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import uit.elib.database.hibernate.ManagerBase;
+import uit.elib.dto.Subject;
 
 /**
  *
@@ -77,7 +77,13 @@ public class SubjectBO extends ManagerBase<Subject> {
             return null;
         }
      }
-     
+     public void addSubject (Subject subject) {
+        try {
+            addNew(subject);
+        } catch (Exception ex) {
+            Logger.getLogger(SubjectBO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     }     
      public int DeleteSubject(String sql)
      {
          try {

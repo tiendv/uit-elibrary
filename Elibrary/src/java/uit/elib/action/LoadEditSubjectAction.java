@@ -11,13 +11,15 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import uit.elib.utility.IsNumber;
+import uit.elib.bo.FacultyBO;
 import uit.elib.bo.SubjectBO;
 import uit.elib.bo.SubjectCategoryBO;
-import uit.elib.bo.FacultyBO;
+import uit.elib.bo.SubjectDetailBO;
 import uit.elib.dto.Subject;
+import uit.elib.dto.Subjectdetail;
 import uit.elib.formbean.EditSubjectForm;
 import uit.elib.utility.CheckGroup;
+import uit.elib.utility.IsNumber;
 
 /**
  *
@@ -68,8 +70,14 @@ public class LoadEditSubjectAction extends org.apache.struts.action.Action {
                         request.setAttribute("hiddenSubjectCategoryID", subjectInfo.get(0).getSubjectcategory().getSubjectCategoryId());
                         EditSubjectForm editSubjectForm = (EditSubjectForm)form;
                         editSubjectForm.setDropSubjectCategory(subjectInfo.get(0).getSubjectcategory().getSubjectCategoryId());
+                        List<Subjectdetail> listSubjectDetail = SubjectDetailBO.getSubjectDetailBO().getAllSubjectDetail("SubjectID="+request.getParameter("subjectID"), null);
                         if(subjectInfo.get(0).getSubjectcategory().getSubjectCategoryId()>1)
-                            editSubjectForm.setDropFaculty(subjectInfo.get(0).getFaculty().getFacultyId());
+                        {
+                            int []items = new int[listSubjectDetail.size()];
+                            for(int i=0;i<listSubjectDetail.size();i++)
+                                items[i]=listSubjectDetail.get(i).getFaculty().getFacultyId();
+                            editSubjectForm.setDropFaculty(items);
+                        }
                         return mapping.findForward(SUCCESS);
                     }
                 }               

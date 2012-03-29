@@ -1,5 +1,5 @@
 package uit.elib.dto;
-// Generated Mar 21, 2012 10:51:15 AM by Hibernate Tools 3.2.1.GA
+// Generated Mar 29, 2012 10:29:08 AM by Hibernate Tools 3.2.1.GA
 
 
 

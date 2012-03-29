@@ -5,6 +5,7 @@
 package uit.elib.action;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,9 +15,11 @@ import org.apache.struts.action.ActionMapping;
 import uit.elib.bo.FacultyBO;
 import uit.elib.bo.ResourceBO;
 import uit.elib.bo.SubjectBO;
+import uit.elib.bo.SubjectDetailBO;
 import uit.elib.dto.Faculty;
 import uit.elib.dto.Resource;
 import uit.elib.dto.Subject;
+import uit.elib.dto.Subjectdetail;
 import uit.elib.utility.CheckGroup;
 import uit.elib.utility.CheckGroupDetail;
 
@@ -48,16 +51,24 @@ public class LoadFacultyAction extends org.apache.struts.action.Action {
         String []order = new String[1];
         order[0]= "facultyId";
         listFaculty=tempFacultyBO.getAllFaculty(order);
-        request.setAttribute("listFaculty", listFaculty);       
+        request.setAttribute("listFaculty", listFaculty);   
         //Subject
-        SubjectBO tempSubjectBO = SubjectBO.getSubjectBO();
-        List<Subject> listSubject = new ArrayList<Subject>();
+        SubjectBO subjectBO = SubjectBO.getSubjectBO();
+        List<Subject>listSubject=subjectBO.getAllSubject();
+        HashMap hashMap = new HashMap();
+        for(int i=0;i<listSubject.size();i++)
+            hashMap.put(listSubject.get(i).getSubjectId(), i);
+        request.setAttribute("hashMap", hashMap);
+        request.setAttribute("listSubject", listSubject);
+        //Subjectdetail
+        SubjectDetailBO tempSubjectDetailBO = SubjectDetailBO.getSubjectDetailBO();
+        List<Subjectdetail> listSubjectDetail = new ArrayList<Subjectdetail>();
         order = new String[2];
         order[0]= "faculty";
-        order[1]= "subjectId";
-        String where ="subjectCategoryID = 2";
-        listSubject=tempSubjectBO.getAllSubject(where,order);
-        request.setAttribute("listSubject", listSubject);
+        order[1]= "subject";
+        String where ="subjectID in(select subjectID from subject where subjectcategoryID=2)";
+        listSubjectDetail=tempSubjectDetailBO.getAllSubjectDetail(where,order);
+        request.setAttribute("listSubjectDetail", listSubjectDetail);
         //Order
         order = new String[3];
         order[0]= "subject";
@@ -65,7 +76,7 @@ public class LoadFacultyAction extends org.apache.struts.action.Action {
         order[2]= "postDate desc";
         ResourceBO tempResourceBO = ResourceBO.getResourceBO();
         List<List<Resource>> arrayListResource = new ArrayList<List<Resource>>();
-        String []whereSubjectId = new String[listSubject.size()];
+        String []whereSubjectdetailId = new String[listSubjectDetail.size()];
         //check permission to display resource category
         String username  = null;
         if(request.getSession().getAttribute("username")!=null)
@@ -91,9 +102,9 @@ public class LoadFacultyAction extends org.apache.struts.action.Action {
                 notIn=" and resourceCategoryID not in("+resourceCategoryID+")";
             }             
         }         
-        for(int i= 0;i<listSubject.size();i++)  
-            whereSubjectId[i] = "orderChapter is not null and subjectId ="+listSubject.get(i).getSubjectId()+notIn;
-        arrayListResource=tempResourceBO.getAllResource(whereSubjectId,order); 
+        for(int i= 0;i<listSubjectDetail.size();i++)  
+            whereSubjectdetailId[i] = "orderChapter is not null and SubjectId ="+listSubjectDetail.get(i).getSubject().getSubjectId()+notIn;
+        arrayListResource=tempResourceBO.getAllResource(whereSubjectdetailId,order); 
         request.setAttribute("arrayListResource", arrayListResource);         
         return mapping.findForward(SUCCESS);
     }

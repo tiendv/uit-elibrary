@@ -13,9 +13,11 @@ import org.apache.struts.action.ActionMapping;
 import uit.elib.bo.FacultyBO;
 import uit.elib.bo.SubjectBO;
 import uit.elib.bo.SubjectCategoryBO;
+import uit.elib.bo.SubjectDetailBO;
 import uit.elib.dto.Faculty;
 import uit.elib.dto.Subject;
 import uit.elib.dto.Subjectcategory;
+import uit.elib.dto.Subjectdetail;
 import uit.elib.formbean.EditSubjectForm;
 import uit.elib.utility.CheckGroup;
 /**
@@ -57,52 +59,44 @@ public class EditSubjectAction extends org.apache.struts.action.Action {
                 // Get infor category
                 Subjectcategory tempCategory;
                 tempCategory = SubjectCategoryBO.getSubjectCategoryBO().getById(subjectFormBean.getDropSubjectCategory(), true);
-
-                // Get infor faculty
-                Faculty tempFaculty=null;
-                if(subjectFormBean.getDropSubjectCategory()!=1)
-                    tempFaculty = FacultyBO.getFacultyBO().getById(subjectFormBean.getDropFaculty(), true);
                 SubjectBO subjectBO = SubjectBO.getSubjectBO();
-                Subject temp = new Subject();
-                temp.setSubjectId(subjectFormBean.getTxtSubjectID());
-                temp.setSubjectNameEn(subjectFormBean.getTxtSubjectNameUS());
-                temp.setSubjectNameVn(subjectFormBean.getTxtSubjectName());
-                temp.setSubjectcategory(tempCategory);
-                temp.setCourseCode(subjectFormBean.getTxtSubjectCode());
-                temp.setPeriodOfTheory(Integer.parseInt(subjectFormBean.getTxtPeriodOfTheory()));
-                temp.setPeriodOfPractice(Integer.parseInt(subjectFormBean.getTxtPeriodOfPractice()));
-                temp.setMidtermGrade(Integer.parseInt(subjectFormBean.getTxtMidtermGrade()));
-                temp.setFinalGrade(Integer.parseInt(subjectFormBean.getTxtFinalGrade()));
-                temp.setPrerequisiteSubjectVn(subjectFormBean.getTxtPrerequisiteSubjectVN());
-                temp.setPrerequisiteSubjectEn(subjectFormBean.getTxtPrerequisiteSubject());
-                temp.setTimeTeaching(Integer.parseInt(subjectFormBean.getTxtTimeTeaching()));
-                temp.setTeacher(subjectFormBean.getTxtTeacherName());
-                temp.setLevel(subjectFormBean.getTxtLevel());
-                temp.setFaculty(tempFaculty);
-                temp.setSubjectIntroduceVn(subjectFormBean.getFckIntroductionVN());
-                temp.setSubjectIntroduceEn(subjectFormBean.getFckIntroductionEN());
-                temp.setProjectRequirementVn(subjectFormBean.getFckProjectRequitementVN());
-                temp.setProjectRequirementEn(subjectFormBean.getFckProjectRequitementEN());
-                temp.setNumberChapter(Integer.parseInt(subjectFormBean.getTxtNumberChapter()));
-                temp.setNumberOfCredit(Integer.parseInt(subjectFormBean.getTxtCreditNumber()));
-                subjectBO.UpdateSubject(temp);
-                //reset form
-        //        subjectFormBean.setTxtSubjectNameUS("");
-        //        subjectFormBean.setTxtSubjectName("");
-        //        subjectFormBean.setDropSubjectCategory(0);
-        //        subjectFormBean.setDropFaculty(-1);
-        //        subjectFormBean.setTxtCreditNumber("");
-        //        subjectFormBean.setTxtSubjectCode("");
-        //        subjectFormBean.setTxtPeriodOfTheory("");
-        //        subjectFormBean.setTxtPeriodOfPractice("");
-        //        subjectFormBean.setTxtMidtermGrade("");
-        //        subjectFormBean.setTxtFinalGrade("");
-        //        subjectFormBean.setTxtPrerequisiteSubject("");
-        //        subjectFormBean.setTxtPrerequisiteSubjectVN("");
-        //        subjectFormBean.setTxtTimeTeaching("");
-        //        subjectFormBean.setTxtTeacherName("");
-        //        subjectFormBean.setTxtLevel("");
-        //        subjectFormBean.setTxtNumberChapter("");
+                Subject subject = new Subject();
+                subject.setSubjectId(subjectFormBean.getTxtSubjectID());
+                subject.setSubjectNameEn(subjectFormBean.getTxtSubjectNameUS());
+                subject.setSubjectNameVn(subjectFormBean.getTxtSubjectName());
+                subject.setSubjectcategory(tempCategory);
+                subject.setCourseCode(subjectFormBean.getTxtSubjectCode());
+                subject.setPeriodOfTheory(Integer.parseInt(subjectFormBean.getTxtPeriodOfTheory()));
+                subject.setPeriodOfPractice(Integer.parseInt(subjectFormBean.getTxtPeriodOfPractice()));
+                subject.setMidtermGrade(Integer.parseInt(subjectFormBean.getTxtMidtermGrade()));
+                subject.setFinalGrade(Integer.parseInt(subjectFormBean.getTxtFinalGrade()));
+                subject.setPrerequisiteSubjectVn(subjectFormBean.getTxtPrerequisiteSubjectVN());
+                subject.setPrerequisiteSubjectEn(subjectFormBean.getTxtPrerequisiteSubject());
+                subject.setTimeTeaching(Integer.parseInt(subjectFormBean.getTxtTimeTeaching()));
+                subject.setTeacher(subjectFormBean.getTxtTeacherName());
+                subject.setLevel(subjectFormBean.getTxtLevel());
+                subject.setSubjectIntroduceVn(subjectFormBean.getFckIntroductionVN());
+                subject.setSubjectIntroduceEn(subjectFormBean.getFckIntroductionEN());
+                subject.setProjectRequirementVn(subjectFormBean.getFckProjectRequitementVN());
+                subject.setProjectRequirementEn(subjectFormBean.getFckProjectRequitementEN());
+                subject.setNumberChapter(Integer.parseInt(subjectFormBean.getTxtNumberChapter()));
+                subject.setNumberOfCredit(Integer.parseInt(subjectFormBean.getTxtCreditNumber()));
+                subjectBO.UpdateSubject(subject);
+                // Add Subject Detail
+                Subjectdetail subjectdetail = new Subjectdetail();
+                subjectdetail.setSubject(subject);
+                SubjectDetailBO subjectDetailBO = SubjectDetailBO.getSubjectDetailBO();
+                if(subjectFormBean.getDropSubjectCategory()!=1)
+                {    
+                    for(int i=0;i<subjectFormBean.getDropFaculty().length;i++)
+                     {    
+                         Faculty faculty = new Faculty();
+                         faculty.setFacultyId(subjectFormBean.getDropFaculty()[i]);
+                         subjectdetail.setFaculty(faculty);
+                         subjectDetailBO.deleteSubjectDetail(subjectdetail);
+                         subjectDetailBO.addSubjectDetail(subjectdetail);
+                     }
+                }
                 Boolean success =true;
                 String href="./LoadListOfSubject.do";
                 request.setAttribute("success",success);

@@ -4,6 +4,7 @@
     Author     : Nguyen Hoang Tan
 --%>
 
+<%@page import="java.util.HashMap"%>
 <%@page import="java.util.Date"%>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@page import="org.apache.struts.Globals"%>
@@ -27,8 +28,10 @@
         title="<bean:message key="text.example"/>"><bean:message key="text.example"/></li>
 </div>
 <% 
-    List<Subject> listSubject;
-    listSubject = (List<Subject>)request.getAttribute("listSubject");             
+    List<Subjectdetail> listSubjectDetail;
+    listSubjectDetail = (List<Subjectdetail>)request.getAttribute("listSubjectDetail");
+    List<Subject> listSubject =  (List<Subject>)request.getAttribute("listSubject"); 
+    HashMap  hashMap =    (HashMap)request.getAttribute("hashMap");             
     int language =1; // English
     if(request.getSession().getAttribute(Globals.LOCALE_KEY).toString().equals("vi_VN"))
         language=2; // VietNamese
@@ -36,84 +39,91 @@
 <% 
     List<Faculty> listFaculty;
     listFaculty = (List<Faculty>)request.getAttribute("listFaculty");
-    int s=0;                     
+    int s=0; 
     boolean haveSubject;                       
     for(int f=0;f<listFaculty.size();f++){
         String subjectID="";
         haveSubject=true; 
-%>        
+%>    
 <% if(language==1) { %>
     <div class="title_h1"><%=listFaculty.get(f).getFacultyNameEn() %></div>  <!--English Faculty Name-->
 <% } %> 
 <% if(language==2) {%>
     <div class="title_h1"><%=listFaculty.get(f).getFacultyNameVn() %></div> <!--Vietnamese Faculty Name-->
-<% } %> 
+<% } %>         
 <%
-   if(listSubject.get(s).getFaculty().getFacultyId()!=listFaculty.get(f).getFacultyId()){
+   if(listSubjectDetail.get(s).getFaculty().getFacultyId()!=listFaculty.get(f).getFacultyId()){
        haveSubject=false;
-%>         
+%>
     <div class="updatesubject">
         <img src="image/black-arrow.gif" class="image_black_arrow" alt="black-arrow"/>
         <bean:message key="text.updating"/>
     </div>
-<% } %>         
-<table class="subjecttable">               
+<% } %> 
+<table class="subjecttable"> 
     <%                 
-        for(int i=s;i<listSubject.size();i=i+2) {
-            if(listSubject.get(i).getFaculty().getFacultyId()!=listFaculty.get(f).getFacultyId())
+        for(int i=s;i<listSubjectDetail.size();i=i+2) {
+            if(listSubjectDetail.get(i).getFaculty().getFacultyId()!=listFaculty.get(f).getFacultyId())
                 break;
-            subjectID = subjectID+listSubject.get(i).getSubjectId()+",";
+            subjectID = subjectID+"F"+listFaculty.get(f).getFacultyId()+"S"+listSubjectDetail.get(i).getSubject().getSubjectId()+",";
     %>
     <tr>      
     <td class="subjectname">              
         <img src="image/black-arrow.gif" class="image_black_arrow" alt="black-arrow"/>
+        <%
+            int position = Integer.parseInt(hashMap.get(listSubjectDetail.get(i).getSubject().getSubjectId()).toString());
+        %>
         <% if(language==1) { %>
-            <a href ="#<%=listSubject.get(i).getSubjectId()%>" class="href_subject" onclick="displayDetail(<%=listSubject.get(i).getSubjectId()%>)"> <%=listSubject.get(i).getSubjectNameEn()%>  </a> <!--English Subject Name-->
+        <a href ="#F<%=listFaculty.get(f).getFacultyId()%>S<%=listSubjectDetail.get(i).getSubject().getSubjectId()%>" class="href_subject" onclick="displayDetail('F<%=listFaculty.get(f).getFacultyId()%>S<%=listSubjectDetail.get(i).getSubject().getSubjectId()%>')"> <%=listSubject.get(position).getSubjectNameEn()%>  </a> <!--English Subject Name-->
         <% } %> 
         <% if(language==2) {%>
-            <a href ="#<%=listSubject.get(i).getSubjectId()%>" class="href_subject" onclick="displayDetail(<%=listSubject.get(i).getSubjectId()%>)"><%=listSubject.get(i).getSubjectNameVn()%> </a> <!--Vietnamese Subject Name-->
+            <a href ="#F<%=listFaculty.get(f).getFacultyId()%>S<%=listSubjectDetail.get(i).getSubject().getSubjectId()%>" class="href_subject" onclick="displayDetail('F<%=listFaculty.get(f).getFacultyId()%>S<%=listSubjectDetail.get(i).getSubject().getSubjectId()%>')"><%=listSubject.get(position).getSubjectNameVn()%> </a> <!--Vietnamese Subject Name-->
         <% } %>                         
     </td>
     <td class="subjectname">
-        <% if(i+1<listSubject.size() && (listSubject.get(i+1).getFaculty().getFacultyId()==listFaculty.get(f).getFacultyId())){ %>
+        <% if(i+1<listSubjectDetail.size() && (listSubjectDetail.get(i+1).getFaculty().getFacultyId()==listFaculty.get(f).getFacultyId())){ %>
+            <%
+                position = Integer.parseInt((String)hashMap.get(listSubjectDetail.get(i+1).getSubject().getSubjectId()).toString());
+            %>            
             <img src="image/black-arrow.gif" class="image_black_arrow" alt="black-arrow"/>
             <% if(language==1) {%>
-                <a href ="#<%=listSubject.get(i+1).getSubjectId()%>" class="href_subject" onclick="displayDetail(<%=listSubject.get(i+1).getSubjectId()%>)"> <%=listSubject.get(i+1).getSubjectNameEn()%> </a> <!--English Subject Name-->
+                <a href ="#F<%=listFaculty.get(f).getFacultyId()%>S<%=listSubjectDetail.get(i+1).getSubject().getSubjectId()%>" class="href_subject" onclick="displayDetail('F<%=listFaculty.get(f).getFacultyId()%>S<%=listSubjectDetail.get(i+1).getSubject().getSubjectId()%>')"> <%=listSubject.get(position).getSubjectNameEn()%> </a> <!--English Subject Name-->
             <% } %> 
             <% if(language==2) {%>
-                <a href ="#<%=listSubject.get(i+1).getSubjectId()%>" class="href_subject" onclick="displayDetail(<%=listSubject.get(i+1).getSubjectId()%>)"> <%=listSubject.get(i+1).getSubjectNameVn()%> </a> <!--Vietnamese Subject Name-->
+                <a href ="#F<%=listFaculty.get(f).getFacultyId()%>S<%=listSubjectDetail.get(i+1).getSubject().getSubjectId()%>" class="href_subject" onclick="displayDetail('F<%=listFaculty.get(f).getFacultyId()%>S<%=listSubjectDetail.get(i+1).getSubject().getSubjectId()%>')"> <%=listSubject.get(position).getSubjectNameVn()%> </a> <!--Vietnamese Subject Name-->
             <% } %>
-            <%subjectID = subjectID+listSubject.get(i+1).getSubjectId()+",";%>
+            <%subjectID = subjectID+"F"+listFaculty.get(f).getFacultyId()+"S"+listSubjectDetail.get(i+1).getSubject().getSubjectId()+",";%>
         <% } %>    
     </td>
     </tr>
     <% } %>
 </table><br/>
 <% if(haveSubject) {%>
-<div class="seealldetail" id="seealldetail<%=f%>" onclick="seeAllDetail('seealldetail<%=f%>','closealldetail<%=f%>','<%=subjectID%>')"><a class="href_subject"><bean:message key="text.seealldetail"/></a></div>
-<div class="closealldetail" id="closealldetail<%=f%>" onclick="closeAllDetail('seealldetail<%=f%>','closealldetail<%=f%>','<%=subjectID%>')"><a class="href_subject"><bean:message key="text.closealldetail"/></a></div>   
+<div class="seealldetail" id="seealldetail<%=f%>"  onclick="seeAllDetail('seealldetail<%=f%>','closealldetail<%=f%>','<%=subjectID%>')"><a class="href_subject"><bean:message key="text.seealldetail"/></a></div>
+<div class="closealldetail" id="closealldetail<%=f%>"  onclick="closeAllDetail('seealldetail<%=f%>','closealldetail<%=f%>','<%=subjectID%>')"><a class="href_subject"><bean:message key="text.closealldetail"/></a></div>   
 <% } %>
 <% 
     List<List<Resource>> arrayListResource = (List<List<Resource>>) request.getAttribute("arrayListResource");
 %> 
 <%  
-    for(int i=s;i<listSubject.size();i++) {
-        String href="./SubjectIntroduction.do?subjectID="+listSubject.get(i).getSubjectId();
-        if(listSubject.get(i).getFaculty().getFacultyId()!=listFaculty.get(f).getFacultyId())
+    for(int i=s;i<listSubjectDetail.size();i++) {
+        int position = Integer.parseInt(hashMap.get(listSubjectDetail.get(i).getSubject().getSubjectId()).toString());
+        String href="./SubjectIntroduction.do?subjectID="+listSubjectDetail.get(i).getSubject().getSubjectId();
+        if(listSubjectDetail.get(i).getFaculty().getFacultyId()!=listFaculty.get(f).getFacultyId())
         {     
             s=i;
             break;
         }
 %>
-<div id="<%=listSubject.get(i).getSubjectId()%>" class="none">
+<div id="F<%=listFaculty.get(f).getFacultyId()%>S<%=listSubjectDetail.get(i).getSubject().getSubjectId()%>" class="none">
 <% if(language==1) {%>
     <div class="subject">
-        <a href =<%=href%> name=<%=listSubject.get(i).getSubjectId()%> ><%=listSubject.get(i).getSubjectNameEn() %></a> <!--English Subject Name-->
+        <a href =<%=href%> name= "F<%=listFaculty.get(f).getFacultyId()%>S<%=listSubjectDetail.get(i).getSubject().getSubjectId()%>" ><%=listSubject.get(position).getSubjectNameEn()%></a> <!--English Subject Name-->
     </div>    
 <% } %> 
 <% if(language==2) {%>
     <div class="subject">
-        <a href =<%=href%> name=<%=listSubject.get(i).getSubjectId()%>  ><%=listSubject.get(i).getSubjectNameVn() %></a> <!--Vietnamese Subject Name-->
+        <a href =<%=href%> name= "F<%=listFaculty.get(f).getFacultyId()%>S<%=listSubjectDetail.get(i).getSubject().getSubjectId()%>"  ><%=listSubject.get(position).getSubjectNameVn()%></a> <!--Vietnamese Subject Name-->
     </div>    
 <% } %>
 <table class="table_chapter" >
@@ -121,11 +131,14 @@
         <td class="td_chapter_1"><bean:message key="text.orderchapter"/></td>
         <td class="td_chapter_2"><bean:message key="text.chaptertitle"/></td>
         <td class="td_chapter_3"></td>                
-        <td class="td_chapter_4"></td>   
+        <td class="td_chapter_4"></td>                
     </tr>
     <% int color =0;
        List<Resource> listResource = arrayListResource.get(i);
+       if(listResource.size()==0){
     %>
+    <tr><td/><td><bean:message key="text.updating"/></td><td/><td/></tr>
+    <%}%>   
     <% for(int j=0;j<listResource.size();j++) {%>
          <%
             int numberOfResource=0;
@@ -135,15 +148,15 @@
             for(int a=0;a<11;a++)
                 arrayIcon[a]=0;
             int chapter = listResource.get(j).getOrderChapter();
-            if(!listSubject.get(i).getSubjectId().equals(listResource.get(j).getSubject().getSubjectId()))
+            if(!listSubjectDetail.get(i).getSubject().getSubjectId().equals(listResource.get(j).getSubject().getSubjectId()))
             {
                 break;
             }
-            while(chapter==listResource.get(j).getOrderChapter()&&(listSubject.get(i).getSubjectId().equals(listResource.get(j).getSubject().getSubjectId()))){
+            while(chapter==listResource.get(j).getOrderChapter()&&(listSubjectDetail.get(i).getSubject().getSubjectId().equals(listResource.get(j).getSubject().getSubjectId()))){
                 if(numberOfResource==0)
                 {
                     int rCID = listResource.get(j).getResourcecategory().getResourceCategoryId();
-                        if(rCID==4||rCID==5||rCID==6||rCID==8||rCID==9||rCID==10||rCID==11)
+                        if(rCID==4||rCID==5||rCID==10||rCID==11)
                             numberOfResource=1;
                 }                         
                 if(newestPosition==-1)
@@ -157,9 +170,11 @@
                     break;
             }
                 j--;
-            if(chapterID>=0)
-            {    
-        %>                       
+       %>
+        <%if(chapterID==-1){%>
+        <tr><td/><td><bean:message key="text.updating"/></td><td/><td/></tr>
+        <%}%>
+        <%if(chapterID>=0){%>                            
         <tr>
         <% Date date = new Date(); 
            boolean oneMonth = false;
@@ -170,8 +185,8 @@
                if(time<=((long)30*24*60*60*1000)) // time <= 30 days
                    oneMonth=true;
            }
-          %>                                                                            
-        <% if(listSubject.get(i).getSubjectId().equals(listResource.get(j).getSubject().getSubjectId()))  // if resource belong to subject
+          %>
+        <% if(listSubjectDetail.get(i).getSubject().getSubjectId().equals(listResource.get(j).getSubject().getSubjectId()))  // if resource belong to subject
         { %> 
         <td <% if(color%2==0){ %>class="td_chapter_1_content_even"<%}%> 
             <% if(color%2!=0){ %>class="td_chapter_1_content_odd"<%}%> >
@@ -200,13 +215,13 @@
                     resourceCategoryId=a+1 ;
                 %>                           
                 <% if(resourceCategoryId==4 ){ %>
-                    <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+4+"&"+"orderChapter="+listResource.get(chapterID).getOrderChapter() %> alt="<bean:message key="text.assignments"/>" class="assignmentsSolutions" title="<bean:message key="text.assignments"/>"></a><% } %>
+                    <a  href = <%="./SubjectCategory.do?subjectID="+ listSubjectDetail.get(i).getSubject().getSubjectId()+"&"+"resourceCategoryID="+4+"&"+"orderChapter="+listResource.get(chapterID).getOrderChapter() %> alt="<bean:message key="text.assignments"/>" class="assignmentsSolutions" title="<bean:message key="text.assignments"/>"></a><% } %>
                 <% if(resourceCategoryId==5 ){ %>
-                    <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+5+"&"+"orderChapter="+listResource.get(chapterID).getOrderChapter() %> alt="<bean:message key="text.example"/>" class="examsSolutions" title="<bean:message key="text.example"/>"></a>  <% } %>
+                    <a  href = <%="./SubjectCategory.do?subjectID="+ listSubjectDetail.get(i).getSubject().getSubjectId()+"&"+"resourceCategoryID="+5+"&"+"orderChapter="+listResource.get(chapterID).getOrderChapter() %> alt="<bean:message key="text.example"/>" class="examsSolutions" title="<bean:message key="text.example"/>"></a>  <% } %>
                 <% if(resourceCategoryId==10 ){ %>
-                    <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+10+"&"+"orderChapter="+listResource.get(chapterID).getOrderChapter() %> alt="<bean:message key="text.lecturenote"/>" class="lectureNotes" title="<bean:message key="text.lecturenote"/>"></a><% } %>                           
+                    <a  href = <%="./SubjectCategory.do?subjectID="+ listSubjectDetail.get(i).getSubject().getSubjectId()+"&"+"resourceCategoryID="+10+"&"+"orderChapter="+listResource.get(chapterID).getOrderChapter() %> alt="<bean:message key="text.lecturenote"/>" class="lectureNotes" title="<bean:message key="text.lecturenote"/>"></a><% } %>                           
                 <% if(resourceCategoryId==11 ){ %>
-                    <a  href = <%="./SubjectCategory.do?subjectID="+ listSubject.get(i).getSubjectId()+"&"+"resourceCategoryID="+11+"&"+"orderChapter="+listResource.get(chapterID).getOrderChapter() %> alt="<bean:message key="text.video"/>" class="multimediaContent" title="<bean:message key="text.video"/>"></a>   <% } %>
+                    <a  href = <%="./SubjectCategory.do?subjectID="+ listSubjectDetail.get(i).getSubject().getSubjectId()+"&"+"resourceCategoryID="+11+"&"+"orderChapter="+listResource.get(chapterID).getOrderChapter() %> alt="<bean:message key="text.video"/>" class="multimediaContent" title="<bean:message key="text.video"/>"></a>   <% } %>
                 <%}%>       
                 </div>
             <%}%>  
@@ -217,10 +232,11 @@
                 <img src="image/new-icon.gif" class="image_newicon" alt="new-icon"/> <!-- new icon  -->
             <% } %>
         </td>                
-        <% } %>
+        <% } %>              
         <% color ++; %>
     </tr >
-<% }} %>
+        <% }} %>
+        
 </table>
 </div>          
 <%}}%>
@@ -236,7 +252,7 @@
                 document.getElementById(s).style.display = "none";
             document.getElementById("currentSubjectID").value=subjectID;
         }
-            setContent();             
+        setContent();             
     }
     function seeAllDetail(seealldetail,closealldetail,manySubjectID)
     {
@@ -258,4 +274,3 @@
         setContent();          
     }    
 </script>
-

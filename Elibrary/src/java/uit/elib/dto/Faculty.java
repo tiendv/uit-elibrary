@@ -1,5 +1,5 @@
 package uit.elib.dto;
-// Generated Mar 21, 2012 10:51:15 AM by Hibernate Tools 3.2.1.GA
+// Generated Mar 29, 2012 10:29:08 AM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -14,9 +14,9 @@ public class Faculty  implements java.io.Serializable {
      private int facultyId;
      private String facultyNameEn;
      private String facultyNameVn;
-     private Set subjects = new HashSet(0);
      private Set resources = new HashSet(0);
      private Set users = new HashSet(0);
+     private Set subjects = new HashSet(0);
 
     public Faculty() {
     }
@@ -25,13 +25,13 @@ public class Faculty  implements java.io.Serializable {
     public Faculty(int facultyId) {
         this.facultyId = facultyId;
     }
-    public Faculty(int facultyId, String facultyNameEn, String facultyNameVn, Set subjects, Set resources, Set users) {
+    public Faculty(int facultyId, String facultyNameEn, String facultyNameVn, Set resources, Set users, Set subjects) {
        this.facultyId = facultyId;
        this.facultyNameEn = facultyNameEn;
        this.facultyNameVn = facultyNameVn;
-       this.subjects = subjects;
        this.resources = resources;
        this.users = users;
+       this.subjects = subjects;
     }
    
     public int getFacultyId() {
@@ -55,13 +55,6 @@ public class Faculty  implements java.io.Serializable {
     public void setFacultyNameVn(String facultyNameVn) {
         this.facultyNameVn = facultyNameVn;
     }
-    public Set getSubjects() {
-        return this.subjects;
-    }
-    
-    public void setSubjects(Set subjects) {
-        this.subjects = subjects;
-    }
     public Set getResources() {
         return this.resources;
     }
@@ -75,6 +68,13 @@ public class Faculty  implements java.io.Serializable {
     
     public void setUsers(Set users) {
         this.users = users;
+    }
+    public Set getSubjects() {
+        return this.subjects;
+    }
+    
+    public void setSubjects(Set subjects) {
+        this.subjects = subjects;
     }
 
 

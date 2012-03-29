@@ -123,6 +123,7 @@ if(session.getAttribute("username")!=null)
         data: "subjectCategoryID=" + idCategory + "&facultyID=" + idFaculty+"&language="+language
     }).done(function( msg ) {
         document.getElementById("divResult").innerHTML=msg;
+        setContent(); 
 
     });
     }
@@ -142,7 +143,7 @@ if(session.getAttribute("username")!=null)
                 url:"DeleteSubject.do",
                 data: "subjectsID=" + subjectsID
             }).done(function(msg){
-                window.location = "LoadListOfSubject.do";
+                check_cbbfaculty();
             })
      }
      function editsubject(subjectID)

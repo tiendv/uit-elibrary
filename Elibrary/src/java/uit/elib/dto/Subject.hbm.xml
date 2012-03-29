@@ -1,16 +1,13 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 21, 2012 10:51:16 AM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Mar 29, 2012 10:29:11 AM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="uit.elib.dto.Subject" table="subject" catalog="elibrary">
         <id name="subjectId" type="java.lang.Integer">
             <column name="SubjectID" />
             <generator class="identity" />
         </id>
-        <many-to-one name="faculty" class="uit.elib.dto.Faculty" fetch="select">
-            <column name="FacultyID" />
-        </many-to-one>
         <many-to-one name="subjectcategory" class="uit.elib.dto.Subjectcategory" fetch="select">
             <column name="SubjectCategoryID" />
         </many-to-one>
@@ -74,5 +71,13 @@
             </key>
             <one-to-many class="uit.elib.dto.Resource" />
         </set>
+        <set name="faculties" inverse="false" table="subjectdetail">
+            <key>
+                <column name="SubjectID" not-null="true" />
+            </key>
+            <many-to-many entity-name="uit.elib.dto.Faculty">
+                <column name="FacultyID" not-null="true" />
+            </many-to-many>
+        </set>    
     </class>
 </hibernate-mapping>

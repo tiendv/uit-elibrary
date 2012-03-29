@@ -14,6 +14,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import uit.elib.bo.ResourceBO;
 import uit.elib.bo.SubjectBO;
+import uit.elib.bo.SubjectDetailBO;
 import uit.elib.dto.Resource;
 import uit.elib.utility.CheckGroup;
 /**
@@ -53,6 +54,7 @@ public class DeleteSubjectAction extends org.apache.struts.action.Action {
                 subjectsID = subjectsID.substring(0, subjectsID.length()-1);
                 String sqlresource = "delete from resource where SubjectID in("+subjectsID+")";
                 String sqlsubject = "delete from subject where SubjectID in("+subjectsID+")";
+                String sqlsubjectdetail = "delete from subjectdetail where SubjectID in("+subjectsID+")";
                 List<Resource> listresource = ResourceBO.getResourceBO().getAllResource("SubjectID in("+subjectsID+")", null);
         //        ResourceBO resourceBO = ResourceBO.getResourceBO();
         //        resourceBO.DeleteResource(sqlresource);
@@ -69,7 +71,8 @@ public class DeleteSubjectAction extends org.apache.struts.action.Action {
                 }
 
                 ResourceBO.getResourceBO().DeleteResource(sqlresource);
-                SubjectBO.getSubjectBO().DeleteSubject(sqlsubject);
+                SubjectDetailBO.getSubjectDetailBO().runSQL(sqlsubjectdetail);
+                SubjectBO.getSubjectBO().DeleteSubject(sqlsubject);         
             }
         }
         return null;

@@ -3,20 +3,17 @@
  * and open the template in the editor.
  */
 package uit.elib.action;
-import uit.elib.dto.Subject;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import uit.elib.bo.FacultyBO;
-import uit.elib.bo.SubjectBO;
 import uit.elib.bo.SubjectCategoryBO;
 import uit.elib.dto.Faculty;
 import uit.elib.dto.Subjectcategory;
-import uit.elib.formbean.CreateSubjectForm;
 import uit.elib.formbean.LoadCreateSubjectForm;
-import java.util.List;
 /**
  *
  * @author HERO
@@ -37,12 +34,12 @@ public class LoadListOfSubjectAction extends org.apache.struts.action.Action{
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-          request.setCharacterEncoding("UTF-8");
-          List<Subjectcategory> subjectCategoryBO = SubjectCategoryBO.getSubjectCategoryBO().getAllSubjectCategory();
-          List<Faculty> facultyBO = FacultyBO.getFacultyBO().getAllFaculty();
-            LoadCreateSubjectForm listOfsubjectFormBean = (LoadCreateSubjectForm) form;
-            listOfsubjectFormBean.setListDropSubjectCategory(subjectCategoryBO);
-            listOfsubjectFormBean.setListDropFaculty(facultyBO);
+        request.setCharacterEncoding("UTF-8");
+        List<Subjectcategory> subjectCategoryBO = SubjectCategoryBO.getSubjectCategoryBO().getAllSubjectCategory();
+        List<Faculty> facultyBO = FacultyBO.getFacultyBO().getAllFaculty();
+        LoadCreateSubjectForm listOfsubjectFormBean = (LoadCreateSubjectForm) form;
+        listOfsubjectFormBean.setListDropSubjectCategory(subjectCategoryBO);
+        listOfsubjectFormBean.setListDropFaculty(facultyBO);
         return mapping.findForward(SUCCESS);
     }
 }
