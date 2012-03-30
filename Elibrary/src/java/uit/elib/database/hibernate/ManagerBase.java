@@ -282,9 +282,10 @@ public abstract class ManagerBase<T> extends HibernateUtil {
             }
             list = criteria.list();
             //criteria = null;
-            commit();arrayList.add(list);
-        }
-        close();
+            commit();
+            arrayList.add(list);
+            close();
+        }  
         return arrayList;
     }  
 }

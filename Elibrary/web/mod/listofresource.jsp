@@ -85,11 +85,13 @@ if(session.getAttribute("username")!=null)
         {
             document.getElementById("divsubject").style.display="none";
             document.getElementById("divDropSubject").style.display="none";
+            setContent();
         }    
         else
         {
             document.getElementById("divsubject").style.display="block";
             document.getElementById("divDropSubject").style.display="block";
+            setContent();
         }    
         if(resourceCategoryID==4 || resourceCategoryID==5 || resourceCategoryID==10 || resourceCategoryID==11)
         {
@@ -125,6 +127,7 @@ if(session.getAttribute("username")!=null)
                 data: "chapterID="+chapterID +"&resourceCategoryID="+resourceCategoryID + "&subjectID="+subjectID
             }).done(function(msg){
                 document.getElementById("divTable").innerHTML=msg;
+                setContent();
             });              
         }
         else
@@ -135,8 +138,9 @@ if(session.getAttribute("username")!=null)
                 data: "resourceCategoryID="+resourceCategoryID + "&subjectID="+subjectID
             }).done(function(msg){
                 document.getElementById("divTable").innerHTML=msg;
+                setContent();
             });               
-        }   
+        } 
     }
     function deleteResource()
     {
@@ -155,6 +159,7 @@ if(session.getAttribute("username")!=null)
             data: "resourcesID="+resourcesID
         }).done(function(){
             changeTable();
+            setContent();
         });          
     }   
     function editResource(resourcesID)
