@@ -6,10 +6,13 @@
 package uit.elib.database.hibernate;
 
 
-import org.hibernate.cfg.*;
-import org.hibernate.*;
+import org.hibernate.Criteria;
+import org.hibernate.LockMode;
 import org.hibernate.Session;
-import org.hibernate.criterion.*;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.hibernate.stat.Statistics;
 
 /**
@@ -43,8 +46,7 @@ public class HibernateUtil {
      * Begin a transaction
      */
     protected void beginTransaction() {
-
-        session = sessionFactory.getCurrentSession();
+        session = sessionFactory.openSession();
         session.beginTransaction();
         Statistics statistics = sessionFactory.getStatistics();
         statistics.setStatisticsEnabled(true);
@@ -57,7 +59,7 @@ public class HibernateUtil {
     protected void commitAndClose() {
         if (session != null) {
             session.flush();
-            session.getTransaction().commit();
+            session.beginTransaction().commit();
             if (session.isOpen()) {
                 session.close();
             }
@@ -69,7 +71,7 @@ public class HibernateUtil {
     protected void commit() {
         if (session != null) {
             session.flush();
-            session.getTransaction().commit();
+            session.beginTransaction().commit();
         }
     }
     /**
@@ -87,7 +89,7 @@ public class HibernateUtil {
      * @return session
      * @throws Exception
      */
-    protected Session getCurrentSession() throws Exception {
+    protected Session openSession() throws Exception {
         if (session == null) { // check session null
             if (sessionFactory == null) { // buil Factory Session if it's null
                 if (sessionFactoryConfigPath == null || sessionFactoryConfigPath.equals("")) {
@@ -96,9 +98,8 @@ public class HibernateUtil {
                     sessionFactory = new Configuration().configure(this.sessionFactoryConfigPath).buildSessionFactory();
                 }
             }
-            session = sessionFactory.getCurrentSession();
+            session = sessionFactory.openSession();
         }
-
         return session;
     }
 }
