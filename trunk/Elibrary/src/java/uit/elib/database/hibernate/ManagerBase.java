@@ -39,7 +39,7 @@ public abstract class ManagerBase<T> extends HibernateUtil {
      */
     public void addNew(T entity) throws Exception {
         beginTransaction();
-        getCurrentSession().save(entity);
+        openSession().save(entity);
         commitAndClose();
     }
 
@@ -50,7 +50,7 @@ public abstract class ManagerBase<T> extends HibernateUtil {
      */
     public void update(T entity) throws Exception {
         beginTransaction();
-        getCurrentSession().update(entity);
+        openSession().update(entity);
         commitAndClose();
     }
 
@@ -61,7 +61,7 @@ public abstract class ManagerBase<T> extends HibernateUtil {
      */
     public void delete(T entity) throws Exception {
         beginTransaction();
-        getCurrentSession().delete(entity);
+        openSession().delete(entity);
         commitAndClose();
     }
 
@@ -72,11 +72,9 @@ public abstract class ManagerBase<T> extends HibernateUtil {
      */
     public List<T> getAll() throws Exception {
         List<T> list = null;
-
         beginTransaction();
-        list = getCurrentSession().createCriteria(this.persistentClass).list();
+        list = openSession().createCriteria(this.persistentClass).list();
         commitAndClose();
-
         return list;
     }
 
@@ -90,17 +88,13 @@ public abstract class ManagerBase<T> extends HibernateUtil {
     @SuppressWarnings("static-access")
     public T getById(int id, boolean locked) throws Exception {
         T entity;
-
         beginTransaction();
-
         if (locked) {
-            entity = (T) getCurrentSession().load(getPersistentClass(), id, lockMode.UPGRADE);
+            entity = (T) openSession().load(getPersistentClass(), id, lockMode.UPGRADE);
         } else {
-            entity = (T) getCurrentSession().load(getPersistentClass(), id);
+            entity = (T) openSession().load(getPersistentClass(), id);
         }
-
         commitAndClose();
-
         return entity;
     }
 
@@ -112,11 +106,9 @@ public abstract class ManagerBase<T> extends HibernateUtil {
      */
     public int excecuteSQl(String sql) throws Exception {
         int i = 0;
-
         beginTransaction();
-        i = getCurrentSession().createSQLQuery(sql).executeUpdate();
+        i = openSession().createSQLQuery(sql).executeUpdate();
         commitAndClose();
-
         return i;
     }
     /**
@@ -130,11 +122,9 @@ public abstract class ManagerBase<T> extends HibernateUtil {
     public List<T> getBySQLQuery(String[] orders, int maxResult) throws Exception {
         List list = null;
         String[] temp;
-
         beginTransaction();
-
         // create criteria from persitent class
-        criteria = getCurrentSession().createCriteria(getPersistentClass());
+        criteria = openSession().createCriteria(getPersistentClass());
 
         // add order list into criteria
         if (orders != null) {
@@ -149,17 +139,13 @@ public abstract class ManagerBase<T> extends HibernateUtil {
                 }
             }
         }
-
         // set max result if it greater -1
         if (maxResult > 0) {
             criteria.setMaxResults(maxResult);
         }
-
         list = criteria.list();
         //criteria = null;
-
         commitAndClose();
-
         return list;
     }
 
@@ -175,17 +161,13 @@ public abstract class ManagerBase<T> extends HibernateUtil {
     public List<T> getBySQLQuery(String where, String[] orders, int maxResult) throws Exception {
         List<T> list = null;
         String[] temp;
-
         beginTransaction();
-
         // create criteria from persitent class
-        criteria = getCurrentSession().createCriteria(getPersistentClass());
-
+        criteria = openSession().createCriteria(getPersistentClass());
         // add where clause
         if (where != null && !where.equals("")) {
             criteria.add(restrictions.sqlRestriction(where));
         }
-
         // add order list into criteria
         if (orders != null) {
             for (int i = 0; i < orders.length; i++) {
@@ -199,17 +181,13 @@ public abstract class ManagerBase<T> extends HibernateUtil {
                 }
             }
         }
-
         // set max result if it greater -1
         if (maxResult > 0) {
             criteria.setMaxResults(maxResult);
         }
-
         list = criteria.list();
         //criteria = null;
-
         commitAndClose();
-
         return list;
     }
 
@@ -225,27 +203,20 @@ public abstract class ManagerBase<T> extends HibernateUtil {
     @SuppressWarnings("static-access")
     public List<T> getBySQLQuery(String where, String[] orders, int startRowPosition, int maxResult) throws Exception {
         List<T> list = null;
-
         // get all no set maxresult
         list = getBySQLQuery(where, orders, 0);
-
-
         if (startRowPosition < 1) {
             startRowPosition = 1;
         }
-
         if (maxResult < 1) {
             maxResult = list.size();
         }
-
         // get all row from start position
         List<T> listTemp = new ArrayList();
         maxResult += startRowPosition;
-
         for (int i = startRowPosition; i < list.size() && i < maxResult; i++) {
             listTemp.add(list.get(i));
         }
-
         return listTemp;
     }
     
@@ -258,7 +229,7 @@ public abstract class ManagerBase<T> extends HibernateUtil {
             List<T> list = null;
             beginTransaction();
             // create criteria from persitent class
-            criteria = getCurrentSession().createCriteria(getPersistentClass());
+            criteria = openSession().createCriteria(getPersistentClass());
             // add where clause
             if (where[i] != null && !where[i].equals("")) {
                 criteria.add(restrictions.sqlRestriction(where[i]));
