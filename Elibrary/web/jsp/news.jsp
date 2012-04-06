@@ -50,17 +50,27 @@
         <%
             Date date = listNewNews.get(i).getPostDate();
             String postdate = simpleDateFormat.format(date);
+            Date today = new Date();
+            long time= today.getTime()- listNewNews.get(i).getPostDate().getTime(); // time = today - postdate
         %>
         <%  if(language==1){%>
         <div class="boxcol">
             <div class="boxcol1"><a class="linkcolor" href="./LoadNews.do?newsID=<%=listNewNews.get(i).getNewsId()%>"><%=listNewNews.get(i).getNewsTitleEn()%> (<%=postdate%>)</a></div> 
-            <div class="boxcol2"><img src="image/new-icon.gif" class="image_newicon" alt="new-icon"/></div> <!-- new icon  -->
+            <div class="boxcol2">
+                <%if(time<=((long)7*24*60*60*1000)){%>
+                    <img src="image/new-icon.gif" class="image_newicon" alt="new-icon"/><!-- new icon  -->
+                <%}%>    
+            </div> 
         </div>
         <%}%>
         <%  if(language==2){%>
         <div class="boxcol">
             <div class="boxcol1"><a class="linkcolor" href="./LoadNews.do?newsID=<%=listNewNews.get(i).getNewsId()%>"><%=listNewNews.get(i).getNewsTitleVn()%> (<%=postdate%>)</a></div>
-            <div class="boxcol2"><img src="image/new-icon.gif" class="image_newicon" alt="new-icon"/></div> <!-- new icon  -->
+            <div class="boxcol2">
+                <%if(time<=((long)7*24*60*60*1000)){%>
+                    <img src="image/new-icon.gif" class="image_newicon" alt="new-icon"/><!-- new icon  -->
+                <%}%>    
+            </div> 
         </div>   
         <%}%>
         <div class="cleared"></div>

@@ -171,6 +171,12 @@ public class ResourceBO extends ManagerBase<Resource> {
             Logger.getLogger(ResourceBO.class.getName()).log(Level.SEVERE, null, ex);
         }             
      }
-     
+     public void addResource(Resource r) {
+        try {
+            addNew(r);
+        } catch (Exception ex) {
+            Logger.getLogger(ResourceBO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     }       
  
 }

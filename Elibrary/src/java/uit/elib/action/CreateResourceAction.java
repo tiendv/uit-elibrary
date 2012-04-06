@@ -275,7 +275,7 @@ public class CreateResourceAction extends org.apache.struts.action.Action {
                     }
 
                  }
-                rsBO.addNew(resource);  
+                rsBO.addResource(resource);  
                 Boolean success =true;
                 request.setAttribute("success",success);
                 String href="./LoadListOfResource.do";

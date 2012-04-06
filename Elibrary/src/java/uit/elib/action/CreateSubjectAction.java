@@ -97,7 +97,7 @@ public class CreateSubjectAction extends org.apache.struts.action.Action {
                          Faculty faculty = new Faculty();
                          faculty.setFacultyId(subjectFormBean.getDropFaculty()[i]);
                          subjectdetail.setFaculty(faculty);
-                         subjectDetailBO.addNew(subjectdetail);
+                         subjectDetailBO.addSubjectDetail(subjectdetail);
                      }
                 }
                 //reset form
