@@ -50,7 +50,7 @@ public class GroupDetailBO extends ManagerBase<Groupdetail> {
             return null;
         }
      }
-      public int DeleteGroupDetail(String sql)
+      public int deleteGroupDetail(String sql)
      {
          try {
             return excecuteSQl(sql);
@@ -59,8 +59,12 @@ public class GroupDetailBO extends ManagerBase<Groupdetail> {
             return 0;
         }            
      }
-     public void UpdateGroupDetail(Groupdetail gd) throws Exception
+      public void insertGroupDetail(Groupdetail gd)
      {
-         update(gd);
-     }
+         try {
+            addNew(gd);
+        } catch (Exception ex) {
+            Logger.getLogger(GroupDetailBO.class.getName()).log(Level.SEVERE, null, ex);
+        }            
+     }      
 }

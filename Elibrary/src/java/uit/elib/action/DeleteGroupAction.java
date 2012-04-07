@@ -58,7 +58,7 @@ public class DeleteGroupAction extends org.apache.struts.action.Action {
                 String sqlUser ="delete from `user` where GroupID in("+groupsID +")";
                 String sqlgroup = "delete from `group` where GroupID in("+groupsID+")";
                 UserBO.getUserBO().DeleteUser(sqlUser);
-                GroupDetailBO.getGroupDetailBO().DeleteGroupDetail(sqlGroupDetail);
+                GroupBO.getGroupBO().DeleteGroup(sqlGroupDetail);
                 GroupBO.getGroupBO().DeleteGroup(sqlgroup);
             }
         }
