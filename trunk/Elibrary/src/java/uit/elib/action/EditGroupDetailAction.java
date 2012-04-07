@@ -74,7 +74,7 @@ public class EditGroupDetailAction extends org.apache.struts.action.Action {
                 int groupID = Integer.parseInt(request.getParameter("groupID"));
                 // xóa chi tiết nhóm cũ
                 String delete_old_groupdetail = "delete from `groupdetail` where GroupID="+groupID;
-                GroupDetailBO.getGroupDetailBO().DeleteGroupDetail(delete_old_groupdetail);
+                GroupDetailBO.getGroupDetailBO().deleteGroupDetail(delete_old_groupdetail);
                 Resourcecategory resourceCategory = new Resourcecategory();
                 Groupdetail groupDetail = new Groupdetail();
                 Group group = new Group();
@@ -85,7 +85,7 @@ public class EditGroupDetailAction extends org.apache.struts.action.Action {
                         groupDetail.setResourcecategory(resourceCategory);
                         groupDetail.setValue(1);
                         groupDetail.setGroup(group);
-                        GroupDetailBO.getGroupDetailBO().addNew(groupDetail);
+                        GroupDetailBO.getGroupDetailBO().insertGroupDetail(groupDetail);
                     }
                 if(request.getParameter("download")!="")
                     for (int j = 0; j < listDownloadArray.length; j++) { //j=0 là giá trị listdownloadArray[0] = -1
@@ -94,7 +94,7 @@ public class EditGroupDetailAction extends org.apache.struts.action.Action {
                         groupDetail.setResourcecategory(resourceCategory);
                         groupDetail.setValue(2);
                         groupDetail.setGroup(group);
-                        GroupDetailBO.getGroupDetailBO().addNew(groupDetail);
+                        GroupDetailBO.getGroupDetailBO().insertGroupDetail(groupDetail);
                     }
                         Boolean success =true;
                         String href="./LoadListOfGroupDetail.do";
