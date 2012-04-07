@@ -87,7 +87,7 @@
          <div sclass="newscontent1">
              <div class="leftimagenews"><a href="./LoadNews.do?newsID=<%=listAnnoun.get(i).getNewsId()%>"><img src="<%=imageLink%>" class="smallimage"/></a></div>
              <div class="leftheadlinetitlenews2">
-                <div class="newstitle2"><a class="linkcolor" href="./LoadNews.do?newsID=<%=listAnnoun.get(i).getNewsId()%>"><%=listBook.get(i).getNewsTitleVn()%></a></div>
+                <div class="newstitle2"><a class="linkcolor" href="./LoadNews.do?newsID=<%=listAnnoun.get(i).getNewsId()%>"><%=listAnnoun.get(i).getNewsTitleVn()%></a></div>
                 <div class="grey"><%=postDate%></div>                 
                 <div class="newsheadline"><%=listAnnoun.get(i).getNewsHeadlineVn()%></div>
              </div>
