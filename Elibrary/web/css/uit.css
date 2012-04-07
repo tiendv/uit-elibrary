@@ -269,6 +269,7 @@
 }
 .td_project_5 {
     width:60px;
+    text-align: center;
 }
 .td_project_5_content_even {
     width:60px;
@@ -793,7 +794,7 @@ div.thesis_summary{
 }
 .thesis_table {
     margin-left: 30px ;
-    width:600px;
+    width:727px;
 }
 .thesis_row {
     width:250px; 
@@ -1200,12 +1201,10 @@ image{
 .year{
     color: #b8262b;
     padding-left: 30px;
-    padding-top: 16px;
     font-size: 13px;
+    background-color: #C9C6BB;
 }
 .year1{
-    color: #b8262b;
-    padding-left: 10px;
-    padding-top: 10px;
+    padding-top: 15px;
     font-size: 13px;
 }

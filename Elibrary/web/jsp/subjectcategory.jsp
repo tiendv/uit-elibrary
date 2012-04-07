@@ -335,7 +335,7 @@
                 year=listResource.get(r).getYear();
                 String thesisID="";
         %> 
-                    <div class="year"><bean:message key="text.year"/> <%=year%></div>
+        <div class="year1"/><div class="year"><bean:message key="text.year"/> <%=year%></div>
                     <table class="thesis_table"> 
                     <%                 
                         for(int i=r;i<listResource.size();i=i+2) {
