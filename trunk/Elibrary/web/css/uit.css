@@ -16,6 +16,7 @@
 .wrapper {
     width: 945px; 
     margin: 0 auto;
+    border: 1px solid #A2A191;
 }
 .language { margin: 0;}
 .textbox {width: 176px;}
@@ -89,6 +90,7 @@
 .content { 
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
+    
     padding: 10px 0;
     width: 757px;
     float: left;
@@ -1124,10 +1126,22 @@ image{
     width: 100%;
 }
 #login #login_buttonen {
-    background: url("../image/button_signinen.png") no-repeat scroll 0 0 transparent;
+    background: url("../image/button_loginen.png") no-repeat scroll 0 0 transparent;
+ 
 }
 #login #login_buttonvn {
+    background: url("../image/button_loginvn.png") no-repeat scroll 0 0 transparent;
+}
+
+#login #signin_buttonen {
+    background: url("../image/button_signinen.png") no-repeat scroll 0 0 transparent;
+    margin-left: 10px;
+    float: left;
+}
+#login #signin_buttonvn {
     background: url("../image/button_signinvn.png") no-repeat scroll 0 0 transparent;
+    margin-left: 10px;
+    float: left;
 }
 .line {
     background: url("../image/line-1.png") repeat-x scroll 0 0 transparent;

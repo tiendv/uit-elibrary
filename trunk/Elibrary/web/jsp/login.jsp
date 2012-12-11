@@ -28,6 +28,14 @@
             <input id="txtPassword" type="password" size="20" name="txtPassword">
         </div>
         <p class="buttons">
+             <button 
+                <%if(language==1){%>
+                    id="signin_buttonen"
+                <%}%>
+                <%if(language==2){%>
+                    id="signin_buttonvn"
+                <%}%>                   
+            class="login_button" type="submit" onclick="signin()">Sign in</button>
             <button 
                 <%if(language==1){%>
                     id="login_buttonen"
@@ -35,7 +43,7 @@
                 <%if(language==2){%>
                     id="login_buttonvn"
                 <%}%>                   
-            class="login_button" type="submit" onclick="login()">Sign in</button>
+            class="login_button" type="submit" onclick="login()">Log in</button>
         </p>            
     </fieldset>
 </div>          
@@ -70,6 +78,10 @@ function login()
                 alert("<bean:message key="text.wronguserpass"/>");
         }); 
     }
+}
+function signin()
+{ 
+    window.location.href ="./SignIn.do"  
 }
 </script>
 <%}%>

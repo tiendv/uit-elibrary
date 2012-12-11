@@ -52,9 +52,9 @@
         <td align="right"><script type="text/javascript" src="js/ocw.js"></script>
                 <div class="searchform">
                     <div>
-                        <input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Enter search keyword" name="q" class="search" id="terms" /> 			 
-                        <a href="Search.do">GO</a>			 
-                        <a href="Search.do">Advanced Search</a>
+                        <input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="<bean:message key="text.keyword"/>" name="q" class="search" id="terms" /> 			 
+                        <a href="Search.do"><bean:message key="text.go"/></a>			 
+                        <a href="Search.do"><bean:message key="text.advancedsearch"/></a>
                     </div>
                 </div>
         </td>
