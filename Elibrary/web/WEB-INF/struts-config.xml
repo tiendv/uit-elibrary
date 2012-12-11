@@ -4,6 +4,7 @@
           "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
 <struts-config>
     <form-beans>
+        <form-bean name="SignInForm" type="uit.elib.formbean.SignInForm"/>
         <form-bean name="AdsForm" type="uit.elib.formbean.AdsForm"/>
         <form-bean name="CreateIPForm" type="uit.elib.formbean.CreateIPForm"/>
         <form-bean name="EditUserForm" type="uit.elib.formbean.EditUserForm"/>
@@ -193,6 +194,7 @@
             <forward name="success" path="/jsp/success.jsp"/>
             <forward name="unsuccess" path="/Welcome.do" redirect="true"/>
         </action>
+        <action path="/SignIn" forward =".signin"/>
         <action path="/CheckOrderChapter" type="uit.elib.action.CheckOrderChapterAction"/>
         <action path="/DeleteAds" type="uit.elib.action.DeleteAdsAction"/>
         <action path="/Help" forward =".help"/>
