@@ -9,7 +9,7 @@
     border: 1px solid #a2a191;
 }
 .divemainbody {
-    width: 1350px;
+   /* width: 1350px;*/
     height: 500px;
     margin-top: 5px;
 }
@@ -463,6 +463,8 @@ ul.legendList li, div.displayIcon a {
     display:block;
     float:left;
 }
+
+
 div.displayIcon a {
     text-indent:-9999px;
     width:12px;
