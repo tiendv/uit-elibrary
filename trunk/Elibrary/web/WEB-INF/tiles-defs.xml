@@ -412,7 +412,25 @@
         <put name="footer" value="/jsp/footer.jsp" />
         <put name="content"   value="/jsp/signin.jsp" />
         <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
-    </definition>  
+    </definition> 
     
+    <definition name=".underconstructor" path="/jsp/mainpage.jsp">
+        <put name="title"  value="Under construction page" />
+        <put name="description"  value="Under Construction" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/jsp/underconstruction.jsp" />
+        <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
+    </definition>  
+    <definition name=".permission" path="/jsp/mainpage.jsp">
+        <put name="title"  value="Permission request" />
+        <put name="description"  value="Permission request" />
+        <put name="header" value="/jsp/header.jsp" />
+        <put name="menu"   value="/jsp/menu.jsp" />
+        <put name="footer" value="/jsp/footer.jsp" />
+        <put name="content"   value="/jsp/permission.jsp" />
+        <put name="leftmenu"   value="/jsp/leftmenu.jsp" />
+    </definition>  
 </tiles-definitions>
 

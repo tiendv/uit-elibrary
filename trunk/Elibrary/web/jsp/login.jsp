@@ -35,7 +35,7 @@
                 <%if(language==2){%>
                     id="signin_buttonvn"
                 <%}%>                   
-            class="login_button" type="submit" onclick="signin()">Sign in</button>
+            class="login_button" type="submit" onclick="signin()">Sign up</button>
             <button 
                 <%if(language==1){%>
                     id="login_buttonen"
@@ -43,7 +43,7 @@
                 <%if(language==2){%>
                     id="login_buttonvn"
                 <%}%>                   
-            class="login_button" type="submit" onclick="login()">Log in</button>
+            class="login_button" type="submit" onclick="login()">Sign in</button>
         </p>            
     </fieldset>
 </div>          
@@ -81,7 +81,7 @@ function login()
 }
 function signin()
 { 
-    window.location.href ="./SignIn.do"  
+    window.location.href ="./UnderConstructor.do"  
 }
 </script>
 <%}%>
